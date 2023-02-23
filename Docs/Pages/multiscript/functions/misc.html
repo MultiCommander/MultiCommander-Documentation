@@ -1,0 +1,686 @@
+<h2>MultiScript - Misc Core Functions</h2>
+<div class="scriptfunctions">
+<table class="table table-bordered">
+	<tbody>
+		<tr>
+			<td><a href="#sleep">Sleep</a></td>
+			<td>Pause the script for a specified number of milliseconds.</td>
+		</tr>
+		<tr>
+			<td><a href="#min">min</a></td>
+			<td>Return the minimum value of many values or from an array of values.</td>
+		</tr>
+		<tr>
+			<td><a href="#max">max</a></td>
+			<td>Return the maximum value of many values or from an array of values.</td>
+		</tr>
+		<tr>
+			<td><a href="#mod">mod</a></td>
+			<td>Modulo, Returns the remainder after a division of the provided values .</td>
+		</tr>
+		<tr>
+			<td><a href="#getrandomvalue">GetRandomValue</a></td>
+			<td>generate a random value between a min and max value</td>
+		</tr>
+		<tr>
+			<td><a href="#log">Log</a></td>
+			<td>Log text to a log window.</td>
+		</tr>
+		<tr>
+			<td><a href="#logdump">LogDump</a></td>
+			<td>Dump the contents of a variable to the log.</td>
+		</tr>
+		<tr>
+			<td><a href="#logdumparray">LogDumpArray</a></td>
+			<td>Dump the contents of an array to the log.</td>
+		</tr>
+		<tr>
+			<td><a href="#logappinfo">LogAppInfo</a></td>
+			<td>Log text to the application log window.</td>
+		</tr>
+		<tr>
+			<td><a href="#messagebox">MessageBox</a></td>
+			<td>Show a messagebox.</td>
+		</tr>
+		<tr>
+			<td><a href="#asktext">AskText</a></td>
+			<td>Ask the user for text via a dialog.</td>
+		</tr>
+		<tr>
+			<td><a href="#askoption">AskOption</a></td>
+			<td>Ask the user to pick one of&nbsp; a list of items from a dropdown list.</td>
+		</tr>
+		<tr>
+			<td><a href="#savearray">SaveArray</a></td>
+			<td>Save an array of strings to a file.</td>
+		</tr>
+		<tr>
+			<td><a href="#loadarray">LoadArray</a></td>
+			<td>Load a file of strings into an array.</td>
+		</tr>
+		<tr>
+			<td><a href="#savestringtofile">SaveStringToFile</a></td>
+			<td>Save a string to a file.</td>
+		</tr>
+		<tr>
+			<td><a href="#loadstringfromfile">LoadStringFromFile</a></td>
+			<td>Load a file into a string.</td>
+		</tr>
+		<tr>
+			<td><a href="#getclipboardtext">GetClipboardText</a></td>
+			<td>Get the text stored in the clipboard.</td>
+		</tr>
+		<tr>
+			<td><a href="#setclipboardtext">SetClipboardText</a></td>
+			<td>Set text in the clipboard.</td>
+		</tr>
+		<tr>
+			<td><a href="#gettagvalue">GetTagValue</a></td>
+			<td>Expand a MultiTag value.</td>
+		</tr>
+		<tr>
+			<td><a href="#translateenvstring">TranslateEnvString</a></td>
+			<td>Translate an environmental string.</td>
+		</tr>
+	</tbody>
+</table>
+&nbsp;
+
+<div class="multiscriptfunc">
+<h2><a name="sleep"></a>Sleep</h2>
+
+<p>Pause the script for a specified number of milliseconds.</p>
+
+<pre>
+&lt;none&gt; Sleep( &lt;num&gt; mmsec );</pre>
+
+<h3>Parameters</h3>
+
+<dl>
+	<dt><i>mmsec</i></dt>
+	<dd>Milliseconds to wait before continuing.</dd>
+</dl>
+
+<h3>Return value</h3>
+
+<p>Nothing.</p>
+
+<h3>Examples</h3>
+
+<pre class="example">
+Sleep( 10 );
+</pre>
+</div>
+
+<div class="multiscriptfunc">
+<h2><a name="min"></a>min</h2>
+
+<p>Returns the minimum value from two or more values passed to the function.<br />
+It is also possible to pass it an array that contains multiple number values.</p>
+
+<pre>
+&lt;num&gt; min( &lt;num&gt; val1, &lt;num&gt; val2, ... , ...  );
+&lt;num&gt; min( &lt;array&gt; arrrayVal );
+</pre>
+
+<h3>Parameters</h3>
+
+<dl>
+	<dt><i>val1</i></dt>
+	<dd>A number value.</dd>
+	<dt><i>val2</i></dt>
+	<dd>A number value.</dd>
+	<dt><i>arrayVal</i></dt>
+	<dd>An array with multiple number values.</dd>
+</dl>
+
+<h3>Return value</h3>
+
+<p>The minimum values of all the values passed to the function.</p>
+
+<h3>Examples</h3>
+
+<pre class="example">
+@var $v1 = 73;
+@var $v2 = 52;
+@var $v3 = 45;
+@var $v4 = 87;
+@var $res = min( $v1, $v2, $v3 , $v4 );
+// $res == 45;
+
+@var $vals[] = { 73, 52, 45, 87};
+@var $res = min( $vals );
+// $res == 45;
+
+</pre>
+</div>
+
+<div class="multiscriptfunc">
+<h2><a name="max"></a>max</h2>
+
+<p>Returns the maximum value from two or more values passed to the function.<br />
+It is also possible to pass it an array that contains multiple number values.</p>
+
+<pre>
+&lt;num&gt; max( &lt;num&gt; val1, &lt;num&gt; val2, ... , ...  );
+&lt;num&gt; max( &lt;array&gt; arrrayVal );
+</pre>
+
+<h3>Parameters</h3>
+
+<dl>
+	<dt><i>val1</i></dt>
+	<dd>A number value.</dd>
+	<dt><i>val2</i></dt>
+	<dd>A number value.</dd>
+	<dt><i>arrayVal</i></dt>
+	<dd>An array with multiple number values.</dd>
+</dl>
+
+<h3>Return value</h3>
+
+<p>The maximum values of all the values passed to the function.</p>
+
+<h3>Examples</h3>
+
+<pre class="example">
+@var $v1 = 73;
+@var $v2 = 52;
+@var $v3 = 45;
+@var $v4 = 87;
+@var $res = max( $v1, $v2, $v3 , $v4 );
+// $res == 87;
+
+@var $vals[] = { 73, 52, 45, 87};
+@var $res = max( $vals );
+// $res == 87;
+
+</pre>
+</div>
+
+<div class="multiscriptfunc">
+<h2><a name="mod"></a>mod</h2>
+
+<p>Modulo - Return the remainder after division of the values.</p>
+
+<pre>
+&lt;num&gt; mod( &lt;num&gt; val1, &lt;num&gt; val2, );</pre>
+
+<h3>Parameters</h3>
+
+<dl>
+	<dt><i>val1</i></dt>
+	<dd>A number value.</dd>
+	<dt><i>val2</i></dt>
+	<dd>A number value.</dd>
+</dl>
+
+<h3>Return value</h3>
+
+<p>The remainder when the first value if divided by the another.<br />
+Used when you want to know if a values is even divided by a another value. If it is the reminder is 0</p>
+
+<h3>Examples</h3>
+
+<pre class="example">
+@var $val = 17;
+@var $res = mod( $val , 3 );
+// $res == 2;
+
+@var $val = 20;
+@var $res = mod( $val , 5 );
+// $res == 0;
+
+</pre>
+</div>
+
+<div class="multiscriptfunc">
+<h2><a name="getrandomvalue"></a>GetRandomValue</h2>
+
+<p>Generate a random values between a min and max value.</p>
+
+<pre>
+&lt;num&gt; GetRandomValue( &lt;num&gt; min, &lt;num&gt; max, [&lt;num&gt; seed] );</pre>
+
+<h3>Parameters</h3>
+
+<dl>
+	<dt><i>min</i></dt>
+	<dd>Minimum value.</dd>
+	<dt><i>max</i></dt>
+	<dd>Maximum value</dd>
+	<dt><i>seed</i></dt>
+	<dd>[OPTIONAL] Seed value for random value generator, If not specified a seed value will be generated.</dd>
+</dl>
+
+<h3>Return value</h3>
+
+<p>A random value between the specified min and max values</p>
+
+<h3>Examples</h3>
+
+<pre class="example">
+@var $res = GetRandomValue( 10, 99 );
+// $res == Anything from 10 to 99;
+
+@var $res = GetRandomValue( 10, 99, 12345678 );
+
+</pre>
+</div>
+
+
+<div class="multiscriptfunc">
+<h2><a name="log"></a>Log</h2>
+
+<p>Log text to a log window.</p>
+
+<pre>
+&lt;num&gt; Log( &lt;num&gt; logID, &lt;num&gt; logLevel, &lt;str&gt; logText );</pre>
+
+<h3>Parameters</h3>
+
+<dl>
+	<dt><i>logID</i></dt>
+	<dd>ID of the logger that should receive the log text.<br />
+	0 = Standard Application log<br />
+	1 = File Operations Log<br />
+	x = ID of user-created log</dd>
+	<dt><i>logLevel</i></dt>
+	<dd>Logging level for this log text. Logging can be set to only show info, warning or error.<br />
+	10 = Info<br />
+	20 = Warning<br />
+	30 = Error</dd>
+	<dt><i>logText</i></dt>
+	<dd>Text that should be written to the log.</dd>
+</dl>
+
+<h3>Return value</h3>
+
+<p>1 if message is logged, 0 if the log is not found.</p>
+
+<h3>Examples</h3>
+
+<pre class="example">
+Log( 0, 30, "Error - File Not found" );
+</pre>
+</div>
+
+<div class="multiscriptfunc">
+<h2><a name="logdump"></a>LogDump</h2>
+
+<p>Dump the content of a variable to the log. (Useful for debugging.)</p>
+
+<pre>
+&lt;num&gt; LogDump( &lt;var&gt; var );</pre>
+
+<h3>Parameters</h3>
+
+<dl>
+	<dt><i>var</i></dt>
+	<dd>Variable to dump to the log file.</dd>
+</dl>
+
+<h3>Return value</h3>
+
+<p>Always 1.</p>
+
+<h3>Example</h3>
+
+<pre class="example">
+@var $str = "String1";
+LogDump( $str );
+// Log window output 
+// ==[ Name : $str ]==[ Type : variable:string ]==[ Value : "String1" ]==
+</pre>
+</div>
+
+<div class="multiscriptfunc">
+<h2><a name="logdumparray"></a>LogDumpArray</h2>
+
+<p>Dump the contents of an array to the log. (Useful for debugging.)</p>
+
+<pre>
+&lt;num&gt; LogDumpArray( &lt;arr&gt; array );</pre>
+
+<h3>Parameters</h3>
+
+<dl>
+	<dt><i>array</i></dt>
+	<dd>Array to dump to the log file.</dd>
+</dl>
+
+<h3>Return value</h3>
+
+<p>Always 1.</p>
+
+<h3>Example</h3>
+
+<pre class="example">
+@var $arr[] = {"String1", "String2", "String3"};
+LogDumpArray( $arr );
+// Log window output
+// ==[ Variable : $arr ]==
+// [0] : "String1"
+// [1] : "String2"
+// [2] : "String3"
+// ===========================
+</pre>
+</div>
+
+<div class="multiscriptfunc">
+<h2><a name="logappinfo"></a>LogAppInfo</h2>
+
+<p>Send text directly to the application log, with logging level 'Info'.</p>
+
+<pre>
+&lt;num&gt; LogAppInfo( &lt;str&gt; logText );</pre>
+
+<h3>Parameters</h3>
+
+<dl>
+	<dt><i>logText</i></dt>
+	<dd>Text that should be written to the log file.</dd>
+</dl>
+
+<h3>Return value</h3>
+
+<p>Always 1.</p>
+</div>
+
+<div class="multiscriptfunc">
+<h2><a name="messagebox"></a>MessageBox</h2>
+
+<p>Show a messagebox.</p>
+
+<pre>
+&lt;num&gt; MessageBox( &lt;str&gt; caption, &lt;str&gt; text, &lt;num&gt; options );</pre>
+
+<h3>Parameters</h3>
+
+<dl>
+	<dt><i>caption</i></dt>
+	<dd>The caption text for the messagebox.</dd>
+	<dt><i>text</i></dt>
+	<dd>The message text that should be shown.</dd>
+	<dt><i>option</i></dt>
+	<dd>One of the standard Win32 values for Button and Icon options. See MSDN <a href="https://msdn.microsoft.com/en-us/library/office/gg264626.aspx">here</a> for a full list of values.</dd>
+	<dd>&nbsp;</dd>
+	<dd>Button combinations and their option values are:</dd>
+	<dd>&nbsp;</dd>
+	<dd>
+	<table cellpadding="0" cellspacing="0" dir="ltr" style="width: 171px;">
+		<tbody>
+			<tr>
+				<td style="width: 158px;">OK</td>
+				<td style="width: 0px;">0</td>
+			</tr>
+			<tr>
+				<td style="width: 158px;">OK + Cancel</td>
+				<td style="width: 0px;">1</td>
+			</tr>
+			<tr>
+				<td style="width: 158px;">Abort + Retry + Ignore</td>
+				<td style="width: 0px;">2</td>
+			</tr>
+			<tr>
+				<td style="width: 158px;">Yes + No + Cancel</td>
+				<td style="width: 0px;">3</td>
+			</tr>
+			<tr>
+				<td style="width: 158px;">Yes + No</td>
+				<td style="width: 0px;">4</td>
+			</tr>
+			<tr>
+				<td style="width: 158px;">Retry + Cancel</td>
+				<td style="width: 0px;">5</td>
+			</tr>
+		</tbody>
+	</table>
+	</dd>
+	<dd>&nbsp;</dd>
+</dl>
+
+<h3>Return value</h3>
+
+<p>Possible return values and their meanings are:</p>
+
+<p>&nbsp;1 - OK button was selected<br />
+&nbsp;2 - Cancel button was selected<br />
+&nbsp;3 - Abort button was selected<br />
+&nbsp;4 - Retry button was selected<br />
+&nbsp;5 - Ignore button was selected<br />
+&nbsp;6 - Yes button was selected<br />
+&nbsp;7 - No button was selected (user cancelled with Esc)<br />
+&nbsp;8 - Close button was selected<br />
+&nbsp;9 - Help button was selected</p>
+</div>
+
+<div class="multiscriptfunc">
+<h2><a name="asktext"></a>AskText</h2>
+
+<p>Show a dialog in which the user can input text.</p>
+
+<pre>
+&lt;num&gt; AskText( &lt;str&gt; label, &lt;str&gt; inputText, &lt;num&gt; option );</pre>
+
+<h3>Parameters</h3>
+
+<dl>
+	<dt><i>label</i></dt>
+	<dd>The dialog Label text that will be shown.</dd>
+	<dt><i>inputText</i></dt>
+	<dd>Text that will be pre-loaded into the input field when the dialog is first shown (can be: "").</dd>
+	<dt><i>option</i></dt>
+	<dd>Not yet used; can be set to 0.</dd>
+</dl>
+
+<h3>Return value</h3>
+
+<p>0 if user cancelled the dialog, else a string with the text from the dialog's input field.</p>
+</div>
+
+<div class="multiscriptfunc">
+<h2><a name="askoption"></a>AskOption</h2>
+
+<p>Show a dialog in which the user can pick one of a list of items from a dropdown list.</p>
+
+<pre>
+&lt;num&gt; AskOption( &lt;str&gt; label, &lt;arr&gt; values, &lt;num&gt; selected );</pre>
+
+<h3>Parameters</h3>
+
+<dl>
+	<dt><i>label</i></dt>
+	<dd>The Label text that will be shown.</dd>
+	<dt><i>values</i></dt>
+	<dd>An array of strings or numbers that will be shown in the dropdown list.</dd>
+	<dt><i>selected</i></dt>
+	<dd>Index of the item in the list that should be selected by default, -1 for no default item selected.</dd>
+</dl>
+
+<h3>Return value</h3>
+
+<p>Index of the item selected, or -1 if user pressed Cancel.</p>
+
+<h3>Examples</h3>
+
+<pre class="example">
+@var $options[] = {"Option1", "Option2", "Option3", "Option4" };
+@var $o = AskOption( "Select Option", $options, 2 );
+if( $o &gt; -1 )
+{
+   @var $sel = $options[$o];
+   @var $msg = "You selected option : \"" + $sel + "\"";
+   MessageBox("Selected Item", $msg, 0);
+}
+</pre>
+</div>
+
+<div class="multiscriptfunc">
+<h2><a name="savearray"></a>SaveArray</h2>
+
+<p>Save an array of strings to a file</p>
+
+<pre>
+&lt;num&gt; SaveArray( &lt;str&gt; filename, &lt;arr&gt; array, &lt;num&gt; overwrite, &lt;num&gt; format );</pre>
+
+<h3>Parameters</h3>
+
+<dl>
+	<dt><i>filename</i></dt>
+	<dd>Complete file path where the file should be saved.</dd>
+	<dt><i>array</i></dt>
+	<dd>The array to save</dd>
+	<dt><i>overwrite</i></dt>
+	<dd>0 = Do not overwrite existing file, 1 = Overwrite existing file.</dd>
+	<dt><i>format</i></dt>
+	<dd>0 = ASCII<br />
+	1 = UTF8<br />
+	2 = Unicode</dd>
+</dl>
+
+<h3>Return value</h3>
+
+<p>1 if array was saved successfully else 0.</p>
+</div>
+
+<div class="multiscriptfunc">
+<h2><a name="loadarray"></a>LoadArray</h2>
+
+<p>Load a text file into an array.</p>
+
+<pre>
+&lt;arr&gt; LoadArray( &lt;str&gt; filename );</pre>
+
+<h3>Parameters</h3>
+
+<dl>
+	<dt><i>filename</i></dt>
+	<dd>Complete path to the file to load.</dd>
+</dl>
+
+<h3>Return value</h3>
+
+<p>An array where every line in the file <i>filename</i> is an item in an array.</p>
+</div>
+
+<div class="multiscriptfunc">
+<h2><a name="savestringtofile"></a>SaveStringToFile</h2>
+
+<p>DESC</p>
+
+<pre>
+&lt;num&gt; SaveStringToFile( &lt;str&gt; filename, &lt;str&gt; string, &lt;num&gt; format );</pre>
+
+<h3>Parameters</h3>
+
+<dl>
+	<dt><i>filename</i></dt>
+	<dd>Complete file path to where the file should be saved.</dd>
+	<dt><i>string</i></dt>
+	<dd>Content to save.</dd>
+	<dt><i>format</i></dt>
+	<dd>0 = ASCII<br />
+	1 = UTF8<br />
+	2 = Unicode</dd>
+</dl>
+
+<h3>Return value</h3>
+
+<p>1 if <i>string</i> was saved successfully else 0.</p>
+</div>
+
+<div class="multiscriptfunc">
+<h2><a name="loadstringfromfile"></a>LoadStringFromFile</h2>
+
+<p>Load the content of a text file into a string.</p>
+
+<pre>
+&lt;str&gt; LoadStringFromFile( &lt;str&gt; filename );</pre>
+
+<h3>Parameters</h3>
+
+<dl>
+	<dt><i>filename</i></dt>
+	<dd>Complate file path of the file to load.</dd>
+</dl>
+
+<h3>Return value</h3>
+
+<p>The content of the file as a string.</p>
+</div>
+
+<div class="multiscriptfunc">
+<h2><a name="getclipboardtext"></a>GetClipboardText</h2>
+
+<p>Get the text stored in the clipboard. If the clipboard content is <em>not text </em>then an empty string will be returned.</p>
+
+<pre>
+&lt;str&gt; GetClipboardText();</pre>
+
+<h3>Return value</h3>
+
+<p>A string containing the content of the clipboard.</p>
+</div>
+
+<div class="multiscriptfunc">
+<h2><a name="setclipboardtext"></a>SetClipboardText</h2>
+
+<p>Store text in the global clipboard.</p>
+
+<pre>
+&lt;num&gt; SetClipboardText( &lt;str&gt; );</pre>
+
+<h3>Return value</h3>
+
+<p>Nothing.</p>
+
+<h3>Example</h3>
+
+<pre class="example">
+@var $textClip = GetClipboardText();
+// Replace all '-' with '_' 
+$textClip = StrReplace( $textClip, "-", "_" );
+// set the clipboard text with the new modified text.
+SetClipboardText( $textClip );
+</pre>
+</div>
+
+<div class="multiscriptfunc">
+<h2><a name="gettagvalue"></a>GetTagValue</h2>
+
+<p>Expand a MultiTag.</p>
+
+<pre>
+&lt;str&gt; GetTagValue( &lt;str&gt; );</pre>
+
+<h3>Return value</h3>
+
+<p>Expanded MultiTag value.</p>
+
+<h3>Example</h3>
+
+<pre class="example">
+@var $tag = GetTagValue("${mcinstallpath}");</pre>
+</div>
+
+<div class="multiscriptfunc">
+<h2><a name="translateenvstring"></a>TranslateEnvString</h2>
+
+<p>Translate a Windows environment variable.</p>
+
+<pre>
+&lt;str&gt; TranslateEnvString( &lt;str&gt; );</pre>
+
+<h3>Return value</h3>
+
+<p>Expanded environmental string.</p>
+
+<h3>Example</h3>
+
+<pre class="example">
+@var $tag = TranslateEnvString("%WINDIR%");</pre>
+</div>
+</div>
+
+

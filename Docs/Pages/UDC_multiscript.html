@@ -1,0 +1,58 @@
+<h2>User Defined Commands - MultiScript</h2>
+<p><strong>MultiScript </strong>commands are the most advanced type of User Defined Commands that can be created in  Multi Commander. MultiScript uses the built-in <strong>MultiScript Engine</strong>, which provides a wide variety of functions. Furthermore, it can be extended with more functions through Extensions and Plug-ins.</p>
+
+<p>With <strong>MultiScript</strong>, advanced scripts that use variables, functions and conditions can be created. While Custom Commands access core Multi Commander functionality in the same way that the user would access it via the UI, <strong>MultiScript </strong>accesses the functions at a lower level, giving more control. It will also not always show the standard UI for the operation since the core functions are accessed directly.</p>
+
+<p>MultiScript can call Custom Commands, so it is possible to create scripts that combine the flexibility of MultiScript with the simplicity of Custom Commands.</p>
+
+<p><img alt="" src="/Docs/Images/UDC_multiscript.png" /></p>
+
+<p><small>(The example in the image above will find the first *.avi or *.mkv in the folder in focus, and then send that file to the Windows Shell to be opened by the default video player).</small></p>
+
+<h2>Script Engine</h2>
+
+<p>The <strong>MultiScript Engine </strong>is a relatively simple but powerful script engine. It has support for everything you would expect in a script engine such as variables, script-defined functions, arrays and more. Furthermore, Extensions and Plug-ins can easily extend the script language with more functions.</p>
+
+<p>There are, however, some restrictions when writing MultiScripts. The MultiScript Engine is a line-by-line engine, meaning it executes the script one line at the time, so commands cannot be split across multiple lines.<br />
+Also it does not prioritize operators, therefore "2 + 4 * 8" will result in 48 and not 34. However it does support parentheses so operations can be prioritized. To achieve the expected result of 34 in the previous example, you would re-write it as "2 + ( 4 * 8 )".</p>
+
+<p><a href="#docs_multiscript">Read more on how to write MultiScripts</a></p>
+
+<p><a href="#docs_multiscript/corefunctions">List of Built-In MultiScript Functions</a></p>
+
+<p><a href="#docs_multiscript/extensions">List of Extensions And Plug-in Defined Functions</a></p>
+
+<p><a href="#docs_multiscript/examples">MultiScript Examples</a></p>
+
+<h2>Using Custom Commands in a MultiScript</h2>
+
+<p>MultiScripts can call Custom Commands directly as long as the entire line is a Custom Command. Lines that are Custom Commands are executed by the Custom Command Engine which does not understand MultiScript variables. So if a variable should be passed to a Custom Command it must be enclosed with <strong>{ }</strong>. Everything inside the <strong>{ }</strong> is evaluated and resolved before the Custom Command Engine executes the command:</p>
+
+<pre class="code">
+@var $path = GetSourcePath();
+@var $file = "MyFile.exe";
+$file = path ^ $file;
+if( FileExists($file ) == 1 )
+{
+ MC.Run CMD={$file}
+}
+</pre>
+
+<p>The <strong>MC.Run </strong>line is a Custom Command and does not know what variables are. So the $file variable is enclosed in <strong>{ }</strong> and translated before the line is executed by the Custom Command Engine.</p>
+
+<p>Since Custom Commands are simple commands, they do not return results and from MultiScript there is no way to know if a Custom Command was successful or not.<br />
+If the success or failure status is required then use the low-level functions provided by MultiScript.</p>
+
+<h2>Store MultiScript in External File</h2>
+
+<p><img alt="" src="/Docs/Images/UDC_multiscript_storeexternal.png" /></p>
+
+<p>By enabling this option you can store the script in an external file.</p>
+
+<h2>Import / Export</h2>
+
+<p><strong>Import </strong>will let you open a file and load the content of that file into the editor.</p>
+
+<p><strong>Export </strong>will let you save your script into an external file.</p>
+
+

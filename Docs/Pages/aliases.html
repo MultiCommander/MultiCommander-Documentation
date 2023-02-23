@@ -1,0 +1,42 @@
+<h2>Managing Aliases</h2>
+<p><strong>Aliases</strong> are abbreviations for commands that can be used on the Multi Commander Command Line</p>
+
+<p>Instead of writing a long command or path you can use the Alias Manager to create an <em>alias</em> for that command. An <em>alias</em>&nbsp;is a one-word abbreviation that can be automatically expanded into the complete command. Everything that is written after the alias is appended as a parameter to the expanded command.</p>
+
+<p>For example, if you create an alias for <strong>notepad.exe</strong> and call it "<strong>n</strong>", then you can write "<strong>n mytext.txt</strong>" in the Multi Commander Command Line and it will be expanded into "<strong>notepad.exe mytext.txt</strong>" before it is executed.</p>
+
+<p>The Alias Manager is found under <strong>Configuration</strong> in the Menu Bar.</p>
+
+<p><img align="absMiddle" alt="" src="/Docs/Images/AliasEditor.png" /></p>
+
+<h2>Run a User Defined Command</h2>
+
+<p>If the 'expand into' text is prefixed with "<strong>@</strong>" followed with the unique id for a <strong>User Defined Command</strong>, it will run that command. (Eg. &nbsp;@8c83a15a69394bd3a0ad4ba3a58515a0).</p>
+
+<h2>Force File To Be Executed</h2>
+
+<p>'Expand into' text that is prefixed with "!" will be launched by the Windows Shell. In the example image above, the alias "<strong>pe</strong>" would expand into a full path to a file, and if that text were not prefixed with "<strong>!</strong>", then instead of launching procexp.exe it would go to that path and set the focus to the procexp.exe file.</p>
+
+<h2>Quick command</h2>
+
+<p>From the command line field it is possible to use the built-in quick command "alias" or "alias2" to create an alias command.<br />
+&nbsp;</p>
+
+<pre>
+Usage Syntax
+alias &lt;alias&gt;=&lt;expand into&gt;
+alias2 &lt;alias&gt;</pre>
+
+<p>The command <b>alias2</b> takes the current path and assigns it to the specified alias.</p>
+
+<p>Example</p>
+
+<pre>
+alias pic=E:\MyPictures</pre>
+
+<p>If the current folder is E:\MyPictures then it is enough to write</p>
+
+<pre>
+alias2 pic</pre>
+
+

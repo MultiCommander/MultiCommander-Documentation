@@ -1,0 +1,44 @@
+<h2>MultiScript - Extension Defined Functions - File Checksum</h2>
+<div class="scriptfunctions">
+<h2>Import Directive</h2>
+
+<p>To be able to use any of the File Checksum MultiScript functions, these functions must first be imported into the MultiScript engine. This is done with the script directive <em>Import</em>:</p>
+
+<pre>import("MFTools-sfv");</pre>
+
+
+<h2>File CheckSum Script-Defined Functions</h2>
+
+<table class="table table-bordered">
+	<tbody>
+		<tr>
+			<td><a href="#chksumcalc">ChkSum_Calculate</a></td>
+			<td>Calculate CheckSum of a file.</td>
+		</tr>
+	</tbody>
+</table>
+
+<div class="multiscriptfunc">
+<h2><a name="chksumcalc"></a>ChkSum_Calculate</h2>
+
+<p>Calculate CheckSum of a file.</p>
+
+<pre>
+&lt;str&gt; ChkSum_Calculate(&lt;str&gt; filename, &lt;num&gt; type);</pre>
+
+<h3>Parameters</h3>
+
+<dl>
+	<dt><em>filename</em></dt>
+	<dd>name of the file you want to calculate the checksum of</dd>
+	<dt><em>type</em></dt>
+	<dd>0 = CRC32, 1 = MD5, 2 = SHA1</dd>
+</dl>
+
+<h3>Return value</h3>
+
+<p>Return a string with the hex hash value</p>
+</div>
+</div>
+
+

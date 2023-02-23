@@ -1,0 +1,225 @@
+<h2>MultiScript - Date/Time Functions</h2>
+<div class="scriptfunctions">
+<table class="table table-bordered">
+	<tbody>
+		<tr>
+			<td><a href="#gettime">GetTime</a></td>
+			<td>Get the current date and time</td>
+		</tr>
+		<tr>
+			<td><a href="#formatdate">FormatDate</a></td>
+			<td>Format a date</td>
+		</tr>
+		<tr>
+			<td><a href="#formattime">FormatTime</a></td>
+			<td>Format a time</td>
+		</tr>
+		<tr>
+			<td><a href="#timelocal2utc">TimeLocal2UTC</a></td>
+			<td>Convert a time value from local to UTC</td>
+		</tr>
+		<tr>
+			<td><a href="#timeutc2local">TimeUTC2Local</a></td>
+			<td>Convert a UTC time value to local time</td>
+		</tr>
+		<tr>
+			<td><a href="#parsedatetime">ParseDateTime</a></td>
+			<td>Convert a Date/Time string to a time value</td>
+		</tr>
+	</tbody>
+</table>
+
+<h3>Related</h3>
+
+<p><a href="http://multicommander.com#docs_multiscript/functions/filesystem">GetFileTime / SetFileTime</a></p>
+
+<div class="multiscriptfunc">
+<h2><a name="gettime"></a>GetTime</h2>
+
+<p>Get the current date and time.</p>
+
+<pre>
+&lt;num&gt; GetTime([&lt;num&gt; getUTCTime]);</pre>
+
+<h3>Parameters</h3>
+
+<dl>
+	<dt>getUTCTime</dt>
+	<dd>(Optional, default: 0)<br />
+	If 1, the time will be UTC else it will be local time. If not set, local time is used</dd>
+</dl>
+
+<h3>Return Value</h3>
+
+<p>The number of seconds since 1-Jan-1970 00:00:00</p>
+
+<h3>Example</h3>
+
+<pre class="example">
+@var $nowLocal = GetTime();
+@var $nowUTC = GetTime(1);
+</pre>
+</div>
+
+<div class="multiscriptfunc">
+<h2><a name="formatdate"></a>FormatDate</h2>
+
+<p>Format a number to its date value.</p>
+
+<pre>
+&lt;str&gt; FormatDate(&lt;str&gt; format, &lt;num&gt; datevalue);</pre>
+
+<h3>Parameters</h3>
+
+<dl>
+	<dt>format</dt>
+	<dd>Date formatting string</dd>
+</dl>
+
+<dl>
+	<dt>datevalue</dt>
+	<dd>The number of seconds since 1-Jan-1970 00:00:00</dd>
+</dl>
+
+<h3>Notes</h3>
+
+<p>See <a href="http://msdn.microsoft.com/en-us/library/windows/desktop/dd317787(v=vs.85).aspx">Date Formatting</a> to see how to format dates</p>
+
+<h3>Return Value</h3>
+
+<p>A formatted date string</p>
+
+<h3>Example</h3>
+
+<pre class="example">
+@var $now = GetTime();
+@var $date = FormatDate( "yyyy-MM-dd" , $now );
+</pre>
+</div>
+
+<div class="multiscriptfunc">
+<h2><a name="formattime"></a>FormatTime</h2>
+
+<p>Format a number to its time value.</p>
+
+<pre>
+&lt;str&gt; FormatTime(&lt;str&gt; format, &lt;num&gt; timevalue);</pre>
+
+<h3>Parameters</h3>
+
+<dl>
+	<dt>format</dt>
+	<dd>Time formatting string</dd>
+</dl>
+
+<dl>
+	<dt>timevalue</dt>
+	<dd>The number of seconds since 1-Jan-1970 00:00:00</dd>
+</dl>
+
+<h3>Notes</h3>
+
+<p>See <a href="http://msdn.microsoft.com/en-us/library/windows/desktop/dd318148(v=vs.85).aspx">Time Formatting</a> to see how to format times</p>
+
+<h3>Return Value</h3>
+
+<p>A formatted time string</p>
+
+<h3>Example</h3>
+
+<pre class="example">
+@var $now = GetTime();
+@var $date = FormatTime( "HH:MM:SS" , $now );
+</pre>
+</div>
+
+<div class="multiscriptfunc">
+<h2><a name="timelocal2utc"></a>TimeLocal2UTC</h2>
+
+<p>Convert a time value from local to UTC.</p>
+
+<pre>
+&lt;num&gt; FormatTime(&lt;num&gt; timevalue);</pre>
+
+<h3>Parameters</h3>
+
+<dl>
+	<dt>timevalue</dt>
+	<dd>The number of seconds since 1-Jan-1970 00:00:00</dd>
+</dl>
+
+<h3>Return Value</h3>
+
+<p>A time value converted to UTC</p>
+
+<h3>Example</h3>
+
+<pre class="example">
+@var $now = GetTime();
+@var $utc = TimeLocal2UTC($now);
+@var $date = FormatTime( "HH:MM:SS" , $utc );
+</pre>
+</div>
+
+<div class="multiscriptfunc">
+<h2><a name="timeutc2local"></a>TimeUTC2Local</h2>
+
+<p>Convert a UTC time value to local time</p>
+
+<pre>
+&lt;num&gt; TimeUTC2Local(&lt;num&gt; timevalue);</pre>
+
+<h3>Parameters</h3>
+
+<dl>
+	<dt>timevalue</dt>
+	<dd>The number of seconds since 1-Jan-1970 00:00:00</dd>
+</dl>
+
+<h3>Return Value</h3>
+
+<p>A time value converted from UTC to local</p>
+
+<h3>Example</h3>
+
+<pre class="example">
+@var $now = GetTime();
+@var $utc = TimeLocal2UTC($now);
+@var $local = TimeUTC2Local($utc);
+// $local and $now should now be the same
+@var $date = FormatTime( "HH:MM:SS" , $local );
+</pre>
+</div>
+
+<div class="multiscriptfunc">
+<h2><a name="parsedatetime"></a>ParseDateTime</h2>
+
+<p>Convert a Date/Time string to a time value</p>
+
+<pre>
+&lt;num&gt; ParseDateTime(&lt;str&gt; strDateTime, &lt;str&gt; format);</pre>
+
+<h3>Parameters</h3>
+
+<dl>
+	<dt>strDateTime</dt>
+	<dd>A Date/Time as a string</dd>
+	<dt>format</dt>
+	<dd>A Date/Time formatting string</dd>
+</dl>
+
+<h3>Return Value</h3>
+
+<p>A Date/Time string converted to a numeric value<br />
+Formatting information is available here: <a href="http://pubs.opengroup.org/onlinepubs/009695399/functions/strptime.html">http://pubs.opengroup.org/onlinepubs/009695399/functions/strptime.html</a></p>
+
+<h3>Example</h3>
+
+<pre class="example">
+@var $str = "2012-01-01 12:32:11";
+@var $val = ParseDateTime($str, "%Y-%m-%d %H:%M:%S");
+</pre>
+</div>
+</div>
+
+

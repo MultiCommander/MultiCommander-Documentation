@@ -1,0 +1,395 @@
+<h2>MultiScript - Extension Defined Functions - FS-FTP</h2>
+<div class="scriptfunctions">
+<h2>Import Directive</h2>
+
+<p>To be able to use any of the FS-FTP defined MultiScript functions the functions must first be imported into the MultiScript engine. This is done with<em> Import</em>:</p>
+
+<pre>
+import("FSFTPScript");</pre>
+&nbsp;
+
+<h2>FS-FTP Script Defined Functions.</h2>
+
+<table class="table table-bordered">
+	<tbody>
+		<tr>
+			<td><a href="#ftpconnect">FTPConnect</a></td>
+			<td>Connect to an FTP site</td>
+		</tr>
+		<tr>
+			<td><a href="#ftpchdir">FTPChdir</a></td>
+			<td>Change remote directory</td>
+		</tr>
+		<tr>
+			<td><a href="#ftpmkdir">FTPMkdir</a></td>
+			<td>Create remote folder</td>
+		</tr>
+		<tr>
+			<td><a href="#ftprmdir">FTPRmdir</a></td>
+			<td>Remove remote folder</td>
+		</tr>
+		<tr>
+			<td><a href="#ftpremove">FTPRemove</a></td>
+			<td>Remove remote file</td>
+		</tr>
+		<tr>
+			<td><a href="#ftprename">FTPRename</a></td>
+			<td>Rename remote file or folder</td>
+		</tr>
+		<tr>
+			<td><a href="#ftplist">FTPList</a></td>
+			<td>List the current remote directory</td>
+		</tr>
+		<tr>
+			<td><a href="#ftplistcount">FTPListCount</a></td>
+			<td>Number of items obtained from a previous FTPList command</td>
+		</tr>
+		<tr>
+			<td><a href="#ftplistget">FTPListGet</a></td>
+			<td>Get list item</td>
+		</tr>
+		<tr>
+			<td><a href="#ftpexists">FTPExists</a></td>
+			<td>Check if a remote file exists</td>
+		</tr>
+		<tr>
+			<td><a href="#ftpputfile">FTPPutFile</a></td>
+			<td>Upload a file</td>
+		</tr>
+		<tr>
+			<td><a href="#ftpgetfile">FTPGetFile</a></td>
+			<td>Download a file</td>
+		</tr>
+		<tr>
+			<td><a href="#ftpcommandraw">FTPCommandRaw</a></td>
+			<td>Send a raw FTP command</td>
+		</tr>
+		<tr>
+			<td><a href="#ftpquit">FTPQuit</a></td>
+			<td>Close an FTP Connection</td>
+		</tr>
+	</tbody>
+</table>
+</div>
+
+<div class="multiscriptfunc">
+<h2><a name="ftpconnect"></a>FTPConnect</h2>
+
+<p>Connect to an FTP site that is defined in bookmarks.</p>
+
+<pre>
+&lt;handle&gt; FTPConnect(&lt;str&gt; sitename);</pre>
+
+<h3>Parameters</h3>
+
+<dl>
+	<dt><i>sitename</i></dt>
+	<dd>name of a site that is defined in FTP bookmarks.</dd>
+</dl>
+
+<h3>Return value</h3>
+
+<p>A handle to an FTP site, or 0 if it fails to connect or if the sitename is not found in FTP bookmarks.</p>
+</div>
+
+<div class="multiscriptfunc">
+<h2><a name="ftpchdir"></a>FTPChdir</h2>
+
+<p>Change remote directory.</p>
+
+<pre>
+&lt;num&gt; FTPChdir(&lt;handle&gt; conn, &lt;str&gt; path );</pre>
+
+<h3>Parameters</h3>
+
+<dl>
+	<dt><i>conn</i></dt>
+	<dd>Handle to an FTP connection.</dd>
+	<dt><i>path</i></dt>
+	<dd>path to a location on the remote connection.</dd>
+</dl>
+
+<h3>Return value</h3>
+
+<p>1 if successful or 0 if it fails.</p>
+</div>
+
+<div class="multiscriptfunc">
+<h2><a name="ftpmkdir"></a>FTPMkdir</h2>
+
+<p>Create directory in current remote location.</p>
+
+<pre>
+&lt;num&gt; FTPMkdir(&lt;handle&gt; conn, &lt;str&gt; directory);</pre>
+
+<h3>Parameters</h3>
+
+<dl>
+	<dt><i>conn</i></dt>
+	<dd>Handle to an FTP connection.</dd>
+	<dt><i>directory</i></dt>
+	<dd>name of the directory to create.</dd>
+</dl>
+
+<h3>Return value</h3>
+
+<p>1 if successful, 0 if it fails.</p>
+</div>
+
+<div class="multiscriptfunc">
+<h2><a name="ftprmdir"></a>FTPRmdir</h2>
+
+<p>Remove a directory</p>
+
+<pre>
+&lt;num&gt; FTPRmdir( &lt;handle&gt; conn, &lt;str&gt; directory);</pre>
+
+<h3>Parameters</h3>
+
+<dl>
+	<dt><i>conn</i></dt>
+	<dd>Handle to an FTP connection.</dd>
+	<dt><i>directory</i></dt>
+	<dd>name of the directory to remove.</dd>
+</dl>
+
+<h3>Return value</h3>
+
+<p>1 if successful, 0 if it fails.</p>
+</div>
+
+<div class="multiscriptfunc">
+<h2><a name="ftpremove"></a>FTPRemove</h2>
+
+<p>Remove a remote file</p>
+
+<pre>
+&lt;num&gt; FTPRemove(&lt;handle&gt; conn&nbsp; &lt;str&gt; file);</pre>
+
+<h3>Parameters</h3>
+
+<dl>
+	<dt><i>conn</i></dt>
+	<dd>Handle to an FTP connection.</dd>
+	<dt><i>file</i></dt>
+	<dd>Name of the remote file to remove.</dd>
+</dl>
+
+<h3>Return value</h3>
+
+<p>1 if successful, 0 if it fails.</p>
+</div>
+
+<div class="multiscriptfunc">
+<h2><a name="ftprename"></a>FTPRename</h2>
+
+<p>Rename a remote file or folder</p>
+
+<pre>
+&lt;num&gt; FTPRename(&lt;handle&gt; conn, &lt;str&gt; oldFilename,  &lt;str&gt; newFilename);</pre>
+
+<h3>Parameters</h3>
+
+<dl>
+	<dt><i>conn</i></dt>
+	<dd>Handle to an FTP connection.</dd>
+	<dt><i>oldFilename</i></dt>
+	<dd>Name of the remote file to rename.</dd>
+	<dt><i>newFilename</i></dt>
+	<dd>Filename the file should be renamed to.</dd>
+</dl>
+
+<h3>Return value</h3>
+
+<p>1 if successful, 0 if it fails.</p>
+</div>
+
+<div class="multiscriptfunc">
+<h2><a name="ftplist"></a>FTPList</h2>
+
+<p>Get the current directory content.</p>
+
+<pre>
+&lt;num&gt; FTPList(&lt;handle&gt; conn);</pre>
+
+<h3>Parameters</h3>
+
+<dl>
+	<dt><i>conn</i></dt>
+	<dd>Handle to an FTP connection.</dd>
+</dl>
+
+<h3>Return value</h3>
+
+<p>1 if successful, 0 if it fails.</p>
+
+<h3>Remarks</h3>
+
+<p>The result of a List command is cached in the FTP connection. Use FTPListGet to get the content if the list items.</p>
+</div>
+
+<div class="multiscriptfunc">
+<h2><a name="ftplistcount"></a>FTPListCount</h2>
+
+<p>The number of list items that are stored in the connection.</p>
+
+<pre>
+&lt;num&gt; FTPListCount(&lt;handle&gt; conn);</pre>
+
+<h3>Parameters</h3>
+
+<dl>
+	<dt><i>conn</i></dt>
+	<dd>Handle to an FTP connection.</dd>
+</dl>
+
+<h3>Return value</h3>
+
+<p>The number of items obtained in the directory listing from a previous FTPList command.</p>
+</div>
+
+<div class="multiscriptfunc">
+<h2><a name="ftplistget"></a>FTPListGet</h2>
+
+<p>Get a list item.</p>
+
+<pre>
+&lt;array&gt; FTPListGet(&lt;handle&gt; conn, &lt;num&gt; index);</pre>
+
+<h3>Parameters</h3>
+
+<dl>
+	<dt><i>conn</i></dt>
+	<dd>Handle to an FTP connection.</dd>
+	<dt><i>index</i></dt>
+	<dd>Index of the list item to get.</dd>
+</dl>
+
+<h3>Return value</h3>
+
+<p>An array of 2 items where the first is the Name and the second is the size, or 0 if no item was found.</p>
+</div>
+
+<div class="multiscriptfunc">
+<h2><a name="ftpexists"></a>FTPExists</h2>
+
+<p>Check if a file or directory exists</p>
+
+<pre>
+&lt;num&gt; FTPExists(&lt;handle&gt; conn, &lt;str&gt; file;);</pre>
+
+<h3>Parameters</h3>
+
+<dl>
+	<dt><i>conn</i></dt>
+	<dd>Handle to an FTP connection.</dd>
+	<dt><i>file</i></dt>
+	<dd>Filename or folder name to check for.</dd>
+</dl>
+
+<h3>Return value</h3>
+
+<p>1 if the file exists, 0 if it does not.</p>
+
+<h3>Remarks</h3>
+
+<p><strong>An FTPList command must have been run before running this command.</strong></p>
+</div>
+
+<div class="multiscriptfunc">
+<h2><a name="ftpputfile"></a>FTPPutFile</h2>
+
+<p>Upload a file.</p>
+
+<pre>
+&lt;num&gt; FTPPutFile(&lt;handle&gt; conn, &lt;str&gt; filepath, &lt;str&gt; remotefile);</pre>
+
+<h3>Parameters</h3>
+
+<dl>
+	<dt><i>conn</i></dt>
+	<dd>Handle to an FTP connection.</dd>
+	<dt><i>filepath</i></dt>
+	<dd>filepath of the file to upload.</dd>
+	<dt><i>remotefile</i></dt>
+	<dd>The name of the file to store on the FTP server.</dd>
+</dl>
+
+<h3>Return value</h3>
+
+<p>1 if successful, 0 if it fails.</p>
+</div>
+
+<div class="multiscriptfunc">
+<h2><a name="ftpgetfile"></a>FTPGetFile</h2>
+
+<p>Download file.</p>
+
+<pre>
+&lt;num&gt; FTPGetFile(&lt;handle&gt; conn, &lt;str&gt; remoteFile, &lt;str&gt; localfile);</pre>
+
+<h3>Parameters</h3>
+
+<dl>
+	<dt><i>conn</i></dt>
+	<dd>Handle to an FTP connection.</dd>
+	<dt><i>remoteFile</i></dt>
+	<dd>Path to a remote file to download.</dd>
+	<dt><i>localfile</i></dt>
+	<dd>Path to a local filename to save the downloaded file as.</dd>
+</dl>
+
+<h3>Return value</h3>
+
+<p>1 if successful, 0 if it fails.</p>
+</div>
+
+<div class="multiscriptfunc">
+<h2><a name="ftpcommandraw"></a>FTPCommandRaw</h2>
+
+<p>Send a RAW FTP command.</p>
+
+<pre>
+&lt;handle&gt; FTPCommandRaw(&lt;handle&gt; conn, &lt;str&gt; command );</pre>
+
+<h3>Parameters</h3>
+
+<dl>
+	<dt><i>conn</i></dt>
+	<dd>Handle to an FTP connection.</dd>
+	<dt><i>command</i></dt>
+	<dd>RAW FTP command to send.</dd>
+</dl>
+
+<h3>Return value</h3>
+
+<p>1 if successful, 0 if it fails.</p>
+
+<h3>Example</h3>
+
+<pre class="example">
+FTPCommandRaw( $ftp, "site who");
+</pre>
+</div>
+
+<div class="multiscriptfunc">
+<h2><a name="ftpquit"></a>FTPQuit</h2>
+
+<p>Close a connection to an FTP server.</p>
+
+<pre>
+&lt;handle&gt; FTPQuit(&lt;handle&gt; conn);</pre>
+
+<h3>Parameters</h3>
+
+<dl>
+	<dt><i>conn</i></dt>
+	<dd>Handle to an FTP connection.</dd>
+</dl>
+
+<h3>Return value</h3>
+
+<p>1 if successful, 0 if it fails.</p>
+</div>
+
+

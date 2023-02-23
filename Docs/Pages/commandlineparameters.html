@@ -1,0 +1,109 @@
+<h2>Command Line Parameters</h2>
+<p>Multi Commander can be started with some command line parameters.</p>
+
+<pre>
+-L=&lt;path&gt; - Path to show in the left panel
+-R=&lt;path&gt; - Path to show in the right panel
+-F=&lt;startup.ini&gt; - file that contains startup properties for the path to show
+-T=&lt;Any Text&gt; - A Text that will be shown in the caption bar of the Multi Commander window
+-AutoRun=&lt;User Defined Command to auto run when started&gt;
+-NOUPDATECHECK - Disable the check for a new version
+-TABSESSION=&lt;Name or ID&gt; - Name of ID of a saved TabSession that will be loaded at startup
+-INSTANCE=&lt;Name&gt; - Name of instance, Use separate configuration for the same execution of MultiCommander.exe
+-MINIMIZED=Start Minimized (there is also an option for that in settings)
+</pre>
+
+<p><em><small>Both - or / are supported for parameters. eg. /L=C:\Bin or -L=C:\Bin</small></em></p>
+
+<p>If you want an already-running instance of Multi Commander to go to a path you can use the /OPEN parameter.<br />
+This is useful when you have an external program that should tell Multi Commander to go to a specific path or when Multi Commander is running in <strong>Single Instance </strong>mode</p>
+
+<pre>
+/OPEN "&lt;path&gt;" - Open new tab for this path
+/OPEN "&lt;path&gt;" /NONEWTAB - Open path in currently active tab
+/OPEN "&lt;path&gt;" /PANEL=Left|Right|Active|Source|Target - On path in panel Left, Right, Active, Source or Target panel.. only use ONE of them
+/QUIT - Exit current instance
+</pre>
+
+<h2>Startup definition file ( -F=&lt;filename.ini&gt; )</h2>
+
+<p>The startup file specifies multiple folders to be shown when Multi Commander opens. Each path will be shown in a separate tab.</p>
+
+<pre>
+[PANEL_1]
+Path=D:\
+Side=L
+
+[PANEL_2]
+Path=D:\Bin
+Side=L
+
+[PANEL_3]
+Path=D:\Projects
+Side=L
+
+[PANEL_4]
+Path=C:\Projects\Jupiter
+Side=R
+
+[PANEL_5]
+Path=E:\Projects\Pluto
+Side=R
+</pre>
+
+<p><strong>Path </strong>and <strong>Side </strong>parameters <strong>must </strong>be specified in the file.</p>
+
+<p>The following parameters are optional:</p>
+
+<pre>
+Locked=1|0
+AllowSubPathChange=1|0
+ShowTree=1|0
+SortAsc=1|0
+SortCol=[column number]
+TabColorText=#000000
+TabColorBk=#000000
+TabColorHotWhenActive=1|0
+TabColorGradient=1|0
+ViewMode=1|2|3|4
+ViewModeListWidth=000
+ViewModeDetailWidth=000
+Side=L|R
+Path=[Full Path]
+</pre>
+
+<p>1|0 means 1 or 0, 1|2|3 means 1 or 2 or 3, and so on.</p>
+
+<h2>Examples</h2>
+
+<pre>
+MultiCommander.exe "C:\Bin" "D:\"
+</pre>
+
+<p>If no "-L" or "-R" parameter is specified, the first parameter is assumed to be a path to show in the left panel, and the second to be a path to show in the right panel.</p>
+
+<pre>
+MultiCommander.exe -L="C:\Bin" -R="D:\"
+</pre>
+
+<pre>
+MultiCommander.exe -F="AutoStart.ini"
+</pre>
+
+<pre>
+MultiCommander.exe -TABSESSION="WorkWithPictures"
+</pre>
+
+<pre>
+MultiCommander.exe -AutoRun=CmdRunStartup
+</pre>
+
+<pre>
+MultiCommander.exe /OPEN "D:\My Folder\SubFolder"
+</pre>
+
+<pre>
+MultiCommander.exe -INSTANCE=WorkWithPictures 
+</pre>
+
+

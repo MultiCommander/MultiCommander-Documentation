@@ -1,0 +1,34 @@
+<h2>User Defined Commands - Batch Script (.BAT)</h2>
+<p>This command will generate a batch script (.bat) and run it.</p>
+
+<p>Batch Scripts are based on the executable script system in Windows that goes back to the old DOS days. It is still used and is quite useful, especially if you want to run a lot of external programs one after the other. In addition, you can send the output of one program to be used as input to another.</p>
+
+<p>&nbsp;</p>
+
+<p><img alt="" src="/Docs/Images/UDC_batch.png" /></p>
+
+<p>When a Batch Script command is run a .bat file is generated from this command; the script is then run with its working folder set to the current source path.</p>
+
+<h2>MultiTags</h2>
+
+<p><em>MultiTags</em> are specially formatted texts that will be replaced with dynamic information. For example, the MultiTag <strong>${focusfilepath}</strong> will be replaced by the full file path to the file currently in focus. The command is run through a process that will translate <em>MultiTags</em> before it is executed.</p>
+
+<p>Paths are not quoted by default, so if you need quotes around the path you have to put them around the MultiTag, e.g. <strong>"${focuspath}"</strong>.</p>
+
+<p>&nbsp;</p>
+
+<p><a href="#docs_multitags">Read more about MultiTags</a></p>
+
+<h2>Options</h2>
+
+<p>When you press the Option button you will get a list of options you can assign to the command.</p>
+
+<p style="color:#FF0000">(This list of options for Batch Script is not finalized yet)</p>
+
+<h2>Command Arguments</h2>
+
+<p>The dialog supports arguments to be sent to the command. These are sent to it if the command is called from the Command line bar or if files are dropped on a button and the command has enabled the option "Use Dropped files as parameter", or if this command is called from a Custom Command or MultiScript command.</p>
+
+<p>The parameters are accessed by using the MultiTags <strong>${param:&lt;num&gt;}</strong> where &lt;num&gt; identifies which argument to use. <strong>${param:0}</strong> will be the first parameter,<strong> ${param:1}</strong> the second,<strong>&nbsp;${param:2}</strong> the third and so on.</p>
+
+

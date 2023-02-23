@@ -1,0 +1,104 @@
+<h2>File Search</h2>
+<p>Multi Commander provides facilities to search for files and folders, along with a number of options to control the search.</p>
+
+<p>To perform a search, go to the path where you want the search to start and then press hot key for starting search or or select "<strong>File Search</strong>" in the Extensions menu or Find Files from the File menu.</p>
+
+<div class="dochints">
+<fieldset><legend>Shortcuts</legend>
+
+<p>Start an instance of the Find Files (Search) Panel.<br />
+Alt+F7 - For Commander-Style Setup<br />
+F3 - For Explorer-Style Setup</p>
+</fieldset>
+</div>
+
+<p>The search dialog will open in a new tab in the <em>opposite </em>panel from that in which you are positioned.</p>
+
+<p><img alt="" src="/Docs/Images/FindFiles1.png" /></p>
+
+<p>Specify what to look for and how you want to look for it.<br />
+You can specify multiple search terms by separating them with <em>spaces</em>.<br />
+<em>(If you need to include a space in the search target, put quotes around it. e.g. "Images 23.jpg" .)</em></p>
+
+<p><br />
+You also need to specify how to look for matches. There are three methods provided:</p>
+
+<p><img alt="" src="/Docs/Images/FindFiles_lookfor.png" /></p>
+
+<p><strong>Contains</strong> : files&nbsp;and folder names must <em>contain</em> any of the search terms you specify in order to match.<br />
+<strong>Wildcard </strong>: the search terms that are specified contain <em>wildcard</em> characters, e.g. "*.jpg" to find all files ending with ".jpg".<br />
+<strong>RegEx</strong> : the specified search terms are <em>regular expressions</em>.<br />
+<br />
+Using wildcard search you can also specify an exclusion filter by including a - in front of the filter.<br />
+For example if you search for "*.cpp -base*"</p>
+
+<p>This will find file named AlphaClass.cpp but it will not match BaseClass.cpp</p>
+
+<p>&nbsp;</p>
+
+<p><img alt="" src="/Docs/Images/FindFiles_lookin.png" /></p>
+
+<p>&nbsp;</p>
+
+<p>Next you need to specify where to <strong>Look In</strong> when starting to search for matches. Normally this path is already set to the path that&nbsp;the file browser showed when&nbsp;you opened the search dialog. You can press&nbsp;the <strong>Reset button&nbsp;</strong>to reset the <strong>Look In </strong>path&nbsp;to the path that is currently shown in the opposite view.</p>
+
+<p><em>(You can specify multiple location to search in by separating them with <strong>;</strong> for example "D:\Project;F:\Downloads\;C:\Temp\" )</em></p>
+
+<p>You can also press the <strong>"&lt;"</strong> button to add all local harddrive, or paths from open tabs.</p>
+
+<p>You can also specify how many <strong>Sub Levels</strong> down in the file hierarchy to search for files. By default as many levels as exist are searched.</p>
+
+<p>It is possible to exclude folders from the search in the <strong>Exclude Filter</strong>. You can enter a space-separated list of folder names that you want to ignore when searching.<br />
+(Foe example if you enter ".svn tmp data" then no folder named ".svn" or "tmp" or "data" will be searched).</p>
+
+<p>If you have previously searched for something you can specify that a new search should search the <strong>Results&nbsp; </strong>of the first search.<br />
+This way you are doing a&nbsp;search on the previous search&nbsp;result. This is a useful way to filter files from searches that produce too many results.</p>
+
+<h3>More Options</h3>
+
+<p>By pressing the "More &gt;&gt;" button you can specify more advanced search options.</p>
+
+<p><img alt="" src="/Docs/Images/FindFiles.png" /></p>
+
+<p>You can find files with a specific <strong>File Content</strong> and you can specify how the search should try to find that content. (See the screenshot above for available options).</p>
+
+<p>It is also possible to match files on <strong>Attribute</strong>, <strong>Size </strong>and <strong>Date</strong>. (See above).</p>
+
+<h3>Date Match Help</h3>
+
+<p>Date matching includes some predefined date ranges that can selected. By pressing the <strong>&lt;</strong> Button in the Match dates section you will get a list of date ranges. When one of them is selected the From and To date fields are automatically populated.</p>
+
+<h3>Load / Save Presets</h3>
+
+<p>The Find Files window can load and save presets of previously-configured searches using the function keys F1 to F10.<br />
+To save a search to a preset press Ctrl+Function key (eg. Ctrl+F1).&nbsp;<br />
+To load a preset press a function key that has a preset saved to it, (eg. F2).</p>
+
+<h3>Hot Keys in the Find Files Window</h3>
+
+<ul>
+	<li>Ctrl+F - Show / Hide the Find Files window.</li>
+	<li>Alt+Z - Clear all search fields.</li>
+	<li>Ctrl+X - Expand / Shrink the Find Files Dialog</li>
+	<li>F1-F12 - Load Preset</li>
+	<li>Ctrl+F1-F12 - Save Preset</li>
+</ul>
+
+<h3>Search Result</h3>
+
+<p>When right-click on items in the result list you will see a list of options. Here you can filter out files from the result list based on their paths. This can be useful if the result list is very large.</p>
+
+<p>If you double-click on a file in the result list, the opposite panel will open at that files path the file will have focus. You can also press View and Edit files directly from the search result panel and it is possible to copy files from the search results.</p>
+
+<h3>Scripting</h3>
+
+<p>File Search can be scripted by creating your own user defined command to start a search. By assigning a hotkey to your command you can start searches you use often with a single keypress.<br />
+<br />
+The search is controlled by Custom Command script. <a href="#docs_customcommands_list#mc.filesearch.search">More information about the search script command is found here</a></p>
+
+<p>Scripting example:</p>
+
+<pre>
+MC.FileSearch.Search SEARCHIN="${sourcepath}" SEARCHFOR="*.xml *.txt" AUTOSTART</pre>
+
+

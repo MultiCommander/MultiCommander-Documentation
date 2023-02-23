@@ -1,0 +1,198 @@
+<h2>TabPanel Functions</h2>
+<div>
+<p>Functions for working with Panels Tabs.</p>
+
+<table class="table table-bordered">
+	<tbody>
+		<tr>
+			<td><a href="#tabactivepanelside">TabActivePanelSide</a></td>
+			<td>Get an array of all currently selected files in the source panel.</td>
+		</tr>
+		<tr>
+			<td><a href="#tabactivetab">TabActiveTab</a></td>
+			<td>Get an array with full paths of all currently selected files in the source panel.</td>
+		</tr>
+		<tr>
+			<td><a href="#tabcount">TabCount</a></td>
+			<td>Get an array with the names of selected items in the source panel.</td>
+		</tr>
+		<tr>
+			<td><a href="#tabgetpath">TabGetPath</a></td>
+			<td>Get an array with the names of selected items in the target panel.</td>
+		</tr>
+		<tr>
+			<td><a href="#tabclose">TabClose</a></td>
+			<td>Get an array with the full paths of the selected items in the source panel.</td>
+		</tr>
+		<tr>
+			<td><a href="#tabloadtabsession">TabLoadTabSession</a></td>
+			<td>Get an array with the full paths of the selected items in the target panel.</td>
+		</tr>
+	</tbody>
+</table>
+
+<div class="multiscriptfunc">
+<h2><a name="tabactivepanelside"></a>TabActivePanelSide</h2>
+
+<p>Get or Set what panel side in active</p>
+
+<pre>
+&lt;int&gt; TabActivePanelSide();
+&lt;int&gt; TabActivePanelSide( &lt;int&gt; panel );
+&lt;int&gt; TabActivePanelSide( &lt;string&gt; panel );
+</pre>
+
+<p>When specifying tab any of the following values are valid<br />
+1 = Left, 2 = Right , "right", "left", "top", "bottom", "target", "source" , "active" "inactive"</p>
+
+<h3>Return value</h3>
+
+<p>If no parameter is specified then it return 1 or 2 for left or right panel. else it return 1 for success or 0 for failure to set active panel</p>
+
+<h3>Example</h3>
+
+<pre>
+@var $panel= TabActivePanelSide();
+TabActivePanelSide(1);
+TabActivePanelSide(2);
+TabActivePanelSide("left");
+TabActivePanelSide("top");
+</pre>
+</div>
+
+<div class="multiscriptfunc">
+<h2><a name="tabactivetab"></a>TabActiveTab</h2>
+
+<p>Get or Set what tab in a panel is active</p>
+
+<pre>
+&lt;int&gt; TabActiveTab( &lt;int&gt; panel );
+&lt;int&gt; TabActiveTab( &lt;string&gt; panel );
+&lt;int&gt; TabActiveTab( &lt;string&gt; panel , &lt;int&gt; tabIndex );
+&lt;int&gt; TabActiveTab( &lt;int&gt; panel , &lt;int&gt; tabIndex );
+</pre>
+
+<p>When specifying tab any of the following values are valid<br />
+1 = Left, 2 = Right , "right", "left", "top", "bottom", "target", "source" , "active" "inactive"</p>
+
+<h3>Return value</h3>
+
+<p>Return the tab index of the active tab in the specified tab panel. (first tab is 0, second 1, and so on)<br />
+If the SET alternatives are used it return 1 for success or 0 for failure to set active tab</p>
+
+<h3>Example</h3>
+
+<pre>
+@var $activeTabInPanel= TabActiveTab(1);
+@var $activeTabInPanel= TabActiveTab("active");
+@var $activeTabInPanel= TabActiveTab("source");
+TabActiveTab(1, 0);
+TabActiveTab(1, 3);
+TabActiveTab("left", 3);
+TabActiveTab("source", 2);
+TabActiveTab("target", 2);
+TabActiveTab("bottom", 2);
+</pre>
+</div>
+
+<div class="multiscriptfunc">
+<h2><a name="tabcount"></a>TabCount</h2>
+
+<p>Return how many tabs a panel side has</p>
+
+<pre>
+&lt;int&gt; TabCount( &lt;int&gt; panel );
+&lt;int&gt; TabCount( &lt;string&gt; panel );
+</pre>
+
+<p>When specifying tab any of the following values are valid<br />
+1 = Left, 2 = Right , "right", "left", "top", "bottom", "target", "source" , "active" "inactive"</p>
+
+<h3>Return value</h3>
+
+<p>Return the number of tabs that exists in a panel side</p>
+
+<h3>Example</h3>
+
+<pre>
+@var $numTabs = TabCount(1);
+@var $numTabs = TabCount("active");
+@var $numTabs = TabCount("source");
+</pre>
+</div>
+
+<div class="multiscriptfunc">
+<h2><a name="tabgetpath"></a>TabGetPath</h2>
+
+<p>Return the path of a tab. If the view inside that tab support that.</p>
+
+<pre>
+&lt;int&gt; TabGetPath( &lt;int&gt; panel , &lt;int&gt; tabIndex);
+&lt;int&gt; TabGetPath( &lt;string&gt; panel , &lt;int&gt; tabIndex);
+</pre>
+
+<p>When specifying tab any of the following values are valid<br />
+1 = Left, 2 = Right , "right", "left", "top", "bottom", "target", "source" , "active" "inactive"</p>
+
+<h3>Return value</h3>
+
+<p>Return the path for the path in the specified panel. If the view in that tab does not support the concept of a 'tabpath' empty path is returned (Eg Checksum view)</p>
+
+<h3>Example</h3>
+
+<pre>
+@var $path = TabGetPath(1, 2);
+@var $path = TabGetPath("active", 3);
+@var $path = TabGetPath("source", 3);
+</pre>
+</div>
+
+<div class="multiscriptfunc">
+<h2><a name="tabclose"></a>TabClose</h2>
+
+<p>Close a specified tab</p>
+
+<pre>
+&lt;int&gt; TabClose( &lt;int&gt; panel , &lt;int&gt; tabIndex);
+&lt;int&gt; TabClose( &lt;string&gt; panel , &lt;int&gt; tabIndex);
+</pre>
+
+<p>When specifying tab any of the following values are valid<br />
+1 = Left, 2 = Right , "right", "left", "top", "bottom", "target", "source" , "active" "inactive"</p>
+
+<h3>Return value</h3>
+
+<p>Return 1 for success or 0 for failure</p>
+
+<h3>Example</h3>
+
+<pre>
+TabClose(1, 2);
+TabClose("active", 3);
+TabClose("source", 3);
+</pre>
+</div>
+
+<div class="multiscriptfunc">
+<h2><a name="tabloadtabsession"></a>TabLoadTabSession</h2>
+
+<p>Close a specified tab</p>
+
+<pre>
+&lt;int&gt; TabLoadTabSession( &lt;string&gt; SessionName / SessionId);
+</pre>
+
+<h3>Return value</h3>
+
+<p>Return 1 for success or 0 for failure</p>
+
+<h3>Example</h3>
+
+<pre>
+TabLoadTabSession("MyTabSession);
+TabLoadTabSession("46214bda3c8d4da093194ffa5c9578a6");
+</pre>
+</div>
+</div>
+
+

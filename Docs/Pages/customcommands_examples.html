@@ -1,0 +1,103 @@
+<h2>Custom Commands - Examples</h2>
+<p>Examples of Custom commands</p>
+
+<ul>
+	<li><a href="#setviewfilter">Set View filter for the Explorer Panel</a></li>
+	<li><a href="#selectfiles">Select files and folder in the Explorer Panel</a></li>
+	<li><a href="#runapplication">Run an external program</a></li>
+	<li><a href="#PackFiles">Pack Files</a></li>
+	<li><a href="#searchforfiles">Search For Files</a></li>
+</ul>
+
+<hr />
+<h2><a name="setviewfilter">Set View Filter</a></h2>
+
+<p>Set a filter to determine which files and/or folders are visible in the Explorer Panel:</p>
+
+<pre class="custcomcode">
+MC.Explorer.SetViewFilter FILTER="*.jpg"
+</pre>
+
+<pre class="custcomcode">
+MC.Explorer.SetViewFilter FILTER="*.jpg *.gif *.png *.tiff"
+</pre>
+
+<p>Exclude folders named ".svn":</p>
+
+<pre class="custcomcode">
+MC.Explorer.SetViewFilter FILTER="-/.svn"
+</pre>
+
+<hr />
+<h2><a name="selectfiles">Select Files and Folders</a></h2>
+
+<p>Select files and/or folders in the Explorer Panel:</p>
+
+<pre class="custcomcode">
+MC.Explorer.Selection.Select FILTER="*.jpg *.png"
+</pre>
+
+<hr />
+<h2><a name="runapplication">Run Application</a></h2>
+
+<p>Run an External Application:</p>
+
+<pre class="custcomcode">
+MC.Run CMD="Notepad.exe"
+</pre>
+
+<p>Run an Application with Parameters:</p>
+
+<pre class="custcomcode">
+MC.Run CMD="Notepad.exe" ARG="C:\myFile.txt"
+</pre>
+
+<p>Run an External Application as Administrator:</p>
+
+<pre class="custcomcode">
+MC.Run CMD="Notepad.exe" ADMIN
+</pre>
+
+<p>Let Windows decide how the file should be opened. In the example below, Windows will open it in your default browser:</p>
+
+<pre class="custcomcode">
+MC.Run CMD="<a href="http://www.google.com">http://www.google.com</a>" SHELL
+</pre>
+
+<p>Run external application with the file in focus as argument:</p>
+
+<pre class="custcomcode">
+MC.Run CMD="MyApp.exe" ARG="${focusfilepath}"
+</pre>
+
+<pre class="custcomcode">
+MC.Run CMD="MyApp.exe" ARG="-a -f -i:${focusfilepath}"
+</pre>
+
+
+<hr />
+<h2><a name="PackFiles">Pack Files</a></h2>
+
+<p>Pack all files in "D:\MyFiles" using zip into a file named Backup.zip in the target location:</p>
+
+<pre class="custcomcode">
+MC.Filesystem.PackFiles FILES="D:\MyFiles\*.*" METHOD="Zip" TARGET="${targetpath}Backup.zip"
+</pre>
+
+<p>Pack all files in "D:\MyFiles" using zip into a file named "Backup-2010-03-10-12:22:22.zip" and store the file in the current target location. The date and time will be the date/time at the moment the command is run:</p>
+
+<pre class="custcomcode">
+MC.Filesystem.PackFiles FILES="D:\MyFiles\*.*" METHOD="Zip"
+   TARGET="${targetpath}${date:yyyy-MM-dd}-${time:hh:mm:ss}.zip"
+</pre>
+
+<hr />
+<h2><a name="searchforfiles">Search for Files</a></h2>
+
+<p>Find all *.jpg and *.tiff files in the current source path; do not search in the ".backup" folder; auto-start the search when the command is run;</p>
+
+<pre class="custcomcode">
+MC.FileSearch.Search SEARCHIN="${sourcepath}" SEARCHFOR="*.jpg *.tiff" EXCLUDE=".backup" AUTOSTART
+</pre>
+
+

@@ -1,0 +1,18 @@
+<h2>FileSystem - Portable (WPD:)</h2>
+<p>The virtual filesystem device extension <b>Portable (WPD:)</b> allows portable devices like cameras and phones to be accessed.</p>
+
+<p>When connecting a phone, tablet or camera to the computer that device may allow full filesystem access and Windows will then provide a drive letter for the device and it is accessed as any other device. However, many modern devices do not support this and require that the device is accessed via a special protocol called MTP. Windows provide access to MTP devices via the Windows Portable Device interface. This file system extension will expose the WPD interface to Multi Commander providing access to MTP device.</p>
+
+<p>When full filesystem access to the device is not allowed some filesystem operations might not be accessible. This may differ from device to device. Note that transferring files to and from an MTP connected device is a lot slower than using a mapped drive letter.</p>
+
+<p>Some phones and tablets have a settings that will allow the device to be detected as a 'mass storage device' instead. Windows will then get full filesystem access to the device and will provide a drive letter for it. This way of accessing the device is a lot faster then using MTP/WPD and is recommended if available.</p>
+
+<p>Under WPD:\ all portable device are listed. If the device is not shown try to refresh the view by pressing the refresh button or F5/F2 (depending on setup).</p>
+
+<p><img alt="" src="/res/img/doc/BrowseWPD1.png" style="width: 508px; height: 109px;" /></p>
+
+<p>The content of a portable device will be shown as a filesystem.</p>
+
+<p><img alt="" src="/res/img/doc/BrowseWPD2.png" style="width: 510px; height: 222px;" /></p>
+
+

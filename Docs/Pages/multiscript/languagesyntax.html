@@ -1,0 +1,623 @@
+<h2>MultiScript Language Syntax</h2>
+<h2>Supported Language Features</h2>
+
+<ul>
+	<li><a href="#LanguageSyntax">Language Syntax</a></li>
+	<li><a href="#Keywords">Reserved Keywords</a></li>
+	<li><a href="#DataTypes">Data Types</a></li>
+	<li><a href="#Variables">Variables</a></li>
+	<li><a href="#Constants">Constants</a></li>
+	<li><a href="#escseq">Escape Sequences</a></li>
+	<li><a href="#Arrays">Arrays</a></li>
+	<li><a href="#Operators">Operators</a> ( +, /, *, -, ...)</li>
+	<li><a href="#IndexOperator">Index Operator</a></li>
+	<li><a href="#AssignmentOperators">Assignment Operators</a> (&nbsp;=, +=, -=&nbsp;)</li>
+	<li><a href="#CompareOperators">Comparison Operators</a> (&nbsp;==, &gt;, &lt;, &gt;=, &lt;=&nbsp;)</li>
+	<li><a href="#NegationOperators">Negation Operator</a> (&nbsp;!&nbsp;)</li>
+	<li><a href="#SpecialPathOperator">Special Path Operators</a> ( ^ )</li>
+	<li><a href="#if_condition">IF - Condition</a></li>
+	<li><a href="#for_loop">FOR - Loop</a></li>
+	<li><a href="#while_loops">WHILE - Loop</a></li>
+	<li><a href="#functions">Functions</a></li>
+	<li><a href="#class">Classes</a></li>
+</ul>
+
+<hr />
+<h2><a name="LanguageSyntax">Language Syntax</a></h2>
+
+<p>The MultiScript script engine is a line-by-line engine, meaning that every script command must be on a single line. A command cannot be split across multiple lines.</p>
+
+<p>Every script command should end with "<strong>;</strong>". (This is not strictly required yet, but will be in the future. at that time it will then be possible to split commands over multiple lines.)</p>
+
+<p>New scope is declared with <strong>{</strong> <strong>}</strong> and is used for conditions, loops, functions and classes.</p>
+
+<p>Example:</p>
+
+<pre class="mscode">
+$len = StrLen($str);
+if( $len &gt; 10 )
+{
+  $str = "Too long";
+}
+</pre>
+
+<p>Lines starting with <strong>//</strong> or <strong>#</strong> are handled as comment lines and are ignored.<br />
+Comments are <strong>not </strong>allowed to be on the same line as valid code.&nbsp;</p>
+
+<pre class="mscode">
+$len = StrLen($str); // Get string length (Comments and code on the same line are <strong>not </strong>allowed) &nbsp;
+</pre>
+
+<p>The script engine evaluates expressions from left to right, but parentheses are evaluated first. Because of this, parentheses <strong>must</strong> be used if multiple expressions are used within a line, to guarantee that they are evaluated in the correct order.</p>
+
+<pre class="mscode">
+@var $result;
+
+// INCORRECT
+$result = 10 + 5 * MyFunc_GetMultiplyFactor();
+
+// CORRECT
+$result = 10 + (5 * MyFunc_GetMultiplyFactor());
+</pre>
+
+<p>Function parameters can be variables, constants or expressions. Function parameters are evaluated <em>before</em> they are sent to the function. Variables are always passed <em>by value</em>, meaning a copy of the variable is actually passed.</p>
+
+<pre class="mscode">
+@var $result;
+
+$result = CalculateResult( 4 + 5, "Parameter2" );
+
+$result = CalculateResult( MyFunc_GetValue("hight") + 2 );
+</pre>
+
+<h2><a name="Keywords">Reserved Keywords</a></h2>
+
+<p>The following words are <em>reserved</em> and cannot be used for variables or function names.</p>
+
+<table class="table table-bordered">
+	<tbody>
+		<tr>
+			<td><strong><a href="#if_condition">if</a></strong></td>
+			<td><strong><a href="#for_loop">for</a></strong></td>
+			<td><strong><a href="#while_loops">while</a></strong></td>
+			<td><strong>break</strong></td>
+		</tr>
+		<tr>
+			<td><strong>continue</strong></td>
+			<td><strong>return</strong></td>
+			<td><strong><a href="#functions">function</a></strong></td>
+			<td><strong><a href="#class">class</a></strong></td>
+		</tr>
+		<tr>
+			<td><strong><a href="#class">new</a></strong></td>
+			<td>&nbsp;<strong><a href="#Variables">@var</a></strong></td>
+			<td>&nbsp;</td>
+			<td><br />
+			&nbsp;</td>
+		</tr>
+	</tbody>
+</table>
+
+<h2><a name="DataTypes">Data Types</a></h2>
+
+<p>Variables and constants can be of different <em>data types</em>. Valid data types are <em>String</em>, <em>Number</em>,<em> Array</em>, <em>Object</em> and <em>Handle.</em></p>
+
+<p>Conversions from string to number and number to string are often done automatically, making it possible to concatenate a number variable or constant to a string.</p>
+
+<div class="doctextsection">
+<h2><a name="Variables">Variables</a></h2>
+
+<p><em>Variables</em> are declared with the special keyword <strong>@var</strong>. The variable name must start with a <strong>$</strong>, and can only have the characters a-z, A-Z and 0-9 in the name. Special characters are not allowed.</p>
+
+<pre class="mscode">
+@var $v1;</pre>
+</div>
+
+<div class="doctextsection">
+<p>Multiple variables can be declared on the same line.</p>
+
+<pre class="mscode">
+@var $v1, $v2, $v3;</pre>
+
+<p>Variables can also be assigned a value when declaring them, either from a constant value or from a function call.</p>
+
+<pre class="mscode">
+@var $v1 =&nbsp;0;
+@var $v2 =&nbsp;MyFunc();</pre>
+</div>
+
+<div class="doctextsection">
+<p>Declaring a variable with a name that already exists is allowed as long as the variable exists in a different scope.</p>
+
+<pre class="mscode">
+@var $v1 = 0;
+if( $v1 == 0 )
+{
+&nbsp;@var $v1;
+
+ // $v1 outside the if statement is not changed
+ $v1 = 20;
+}
+</pre>
+</div>
+
+<div class="doctextsection">
+<p><em>Arrays</em> must be declared with a size, although you can manipulate the size later.</p>
+
+<pre class="mscode">
+@var $arr[2];</pre>
+
+<p>Arrays can also be declared with values. In this case the size is implicit.</p>
+
+<pre class="mscode">
+@var $arrStr[] = {"String1", "String2", "String3"};
+@var $arrNum[] = {1, 2, 3};
+</pre>
+</div>
+
+<div class="doctextsection">
+<h2><a name="Constants">Constants</a></h2>
+
+<p>Variables can be declared using number and string constants. Functions can also return constant arrays.&nbsp;</p>
+
+<pre class="mscode">
+@var $v1 = <strong>2</strong>;
+@var $v2 = <strong>"string"</strong>;
+if($v2 == <strong>"string"</strong>)
+{&nbsp;
+...
+</pre>
+
+<p>}</p>
+</div>
+
+<div class="doctextsection">
+<h3><a name="escseq">Escape Sequences</a></h3>
+
+<p>To be able to type constant strings containing special characters such as the <em>newline</em> character, <em>double quotation mark</em>, <em>tab</em>, etc., they need to be written in a special way, using an <em>escape sequence</em>.</p>
+
+<p>An escape sequence consists of a backslash (<strong>\</strong>) followed by a letter. Each escape sequence is regarded as a single character.</p>
+
+<table class="table table-bordered">
+	<tbody>
+		<tr>
+			<td>Escape Sequence</td>
+			<td>Represents</td>
+		</tr>
+		<tr>
+			<td>\n</td>
+			<td>Newline</td>
+		</tr>
+		<tr>
+			<td>\r</td>
+			<td>Carriage return</td>
+		</tr>
+		<tr>
+			<td>\t</td>
+			<td>Tab</td>
+		</tr>
+		<tr>
+			<td>\"</td>
+			<td>Double quote mark (<strong>"</strong>)</td>
+		</tr>
+		<tr>
+			<td>\\</td>
+			<td>Backslash (<strong>\</strong>)</td>
+		</tr>
+	</tbody>
+</table>
+</div>
+
+<div class="doctextsection">
+<p>If you want an actual backslash in your constant string you need to write "\\". This will translate into "\".</p>
+
+<pre class="mscode">
+$var = "C:\\Temp\\MyFolder\\File.txt";
+</pre>
+</div>
+
+<div class="doctextsection">
+<p>Escape sequences are only translated inside string constants enclosed in double quotes. Using single quoted strings will not translate escape sequences. Using single quoted strings may make the code more readable, but some characters like newline and single (or double) quotes cannot be used inside these strings.</p>
+
+<pre class="mscode">
+$var = 'C:\Temp\MyFolder\File.txt';
+</pre>
+</div>
+
+<div class="doctextsection">
+<h3><a name="Arrays">Arrays</a></h3>
+
+<p><em>Arrays</em> can hold multiple values. The values can be Strings, Numbers, Handles or other arrays.</p>
+
+<p>The <em>inde</em><em>x</em> operator ( [ ] ) is used to access array items. It can be used to get or to set values.<br />
+If using it to set a value you must be sure that you are not trying to set an item outside the bounds of the array.</p>
+
+<p>When accessing array items the index value is 0-based. Thus the first item is index 0, the second is index 1. and so forth.</p>
+
+<p>&nbsp;</p>
+
+<pre class="mscode">
+@var $arr[3];
+$arr[0] = 2;
+$arr[1] = 6;
+$arr[2] = 8;
+
+//This will fail (out-of-bounds).
+$arr[4] = 10;
+</pre>
+</div>
+
+<div class="doctextsection">
+<p>When assigning one array to another, a copy of each item in the original array is created.</p>
+
+<pre class="mscode">
+@var $arr[3];
+$arr[0] = 2;
+$arr[1] = 6;
+$arr[2] = 8;
+
+@var $arr2;
+$arr2 = $arr;
+
+</pre>
+</div>
+
+<div class="doctextsection">
+<h3>Array Functions</h3>
+
+<p>There are several built-in array functions.<br />
+<a href="#docs_multiscript/functions/array">Read more about array functions</a></p>
+
+<pre class="mscode">
+@var $arr = $arr[2] = {"item0", "item1"};
+@var $count = arrayCount($arr);
+// $count is 2
+
+// Replace item 0 and 1
+$arr[0] = "item1";
+$arr[1] = "item2";
+
+@var $str = $arr[1];
+// $str is now "item2";
+
+// Add and increase size of array
+arrayAdd($arr, "item3");
+$count = arrayCount($arr);
+// $count is now 3
+
+@var $idx = arrayFind($arr, "item3");
+// $idx is 2
+
+arrayRemove($arr, 0);
+$count = arrayCount($arr);
+// $count is now 2 and item "item1" has been removed
+</pre>
+</div>
+
+<div class="doctextsection">
+<h2><a name="Operators">Operators</a></h2>
+
+<p>The usual arithmetic operators (+, -, *, /) are supported.</p>
+
+<pre class="mscode">
+@var $v1, $v2;
+$v1 = 5 + 2;
+$v1 = $v1 - 1;
+$v2 = $v1 * 2;
+$v1 = $v2 / $v1;
+</pre>
+</div>
+
+<div class="doctextsection">
+<p>Since the script engine does not do any operator prioritization, parentheses <strong>must</strong> be used if multiple operators are used on one line to guarantee that they are evaluated correctly. On number values, mathematical operations are used. The <strong>+</strong> operator for two strings will concatenate the right string with the left.</p>
+
+<pre class="mscode">
+@var $result;
+
+$result = 5 + 4 * 2;
+// $result is now 18
+
+$result = 5 + (4 * 2);
+// $result is now 13
+
+$result = "StringA" + " " + "String B";
+// $result "StringA StringB";
+
+</pre>
+</div>
+
+<div class="doctextsection">
+<h2><a name="IndexOperator">Index Operators</a></h2>
+
+<p>The <em>index operator</em> ( [ ] ) is supported for both Arrays and strings. On Arrays it is used to get/set an array item. On strings it is used to get/set a character in the string.</p>
+
+<pre class="mscode">
+@var $str = "MyString";
+$str[0] = "Z";
+// $str is now "ZyString";
+
+$str = "abcdef";
+@var $str2 = "12345";
+$str[1] = $str2[3];
+// $str is now "a4cdef";
+</pre>
+</div>
+
+<div class="doctextsection">
+<h2><a name="AssignmentOperators">Assignment Operators</a></h2>
+
+<p>The <em>assignment operators</em> (=, +=, -=) are used to assign the left side from the result of the expression to the right side.</p>
+
+<pre class="mscode">
+@var $val = 1;
+$val = 5;
+
+// += is increment
+$val += 2;
+// $val is now 7
+
+// -= is decrement
+$val -= 2;
+// $val is now 5
+</pre>
+</div>
+
+<div class="doctextsection">
+<h2><a name="CompareOperators">Comparison Operators</a></h2>
+
+<p><em>Comparison operators</em> are used to compare two values. The result of a comparison operator is 0 for false or 1 for true. The following comparison operators are supported: == (equal), &gt; (greater than), &lt; (less than), &gt;= (greater than or equal), &lt;= (less than or equal)</p>
+
+<pre class="mscode">
+@var $val = 3;
+$val = $val &gt; 2;
+// $val is now 1
+$val = 4;
+if( $val &gt;= 4 )
+{
+&nbsp;...
+}
+</pre>
+</div>
+
+<div class="doctextsection">
+<h2><a name="NegationOperators">Negation Operators</a></h2>
+
+<p>The<em> negation</em> operator (!) is used to negate a true/false value. The result of a negation is either 0 or 1.</p>
+
+<pre class="mscode">
+@var $val = 1;
+if( !$val )
+{
+ // if $val is false
+&nbsp;...
+}
+</pre>
+</div>
+
+<div class="doctextsection">
+<h2><a name="SpecialPathOperator">Special Path Operator</a></h2>
+
+<p><strong>"^"</strong> is used as a special path operator. It will assume that both the left and right side are path items, and will insert a path separator (\) if needed.</p>
+
+<pre class="mscode">
+@var $path;
+$path = "C:\\Path";
+$path = $path + "MyFile.txt";
+// $Path is now "C:\PathMyFile.txt"
+
+$path = "C:\\Path";
+$path = $path ^ "MyFile.txt";
+// $Path is now "C:\Path\MyFile.txt"
+
+$path = "C:\\Path\\";
+$path = $path ^ "\\MyFile.txt";
+// $Path is now "C:\Path\MyFile.txt"
+</pre>
+</div>
+
+<div class="doctextsection">
+<h2><a name="if_condition">IF - Condition</a></h2>
+
+<p>The <em>IF condition</em> will evaluate its test expression. If the expression is greater than or equal to 1 (true) then it will execute the scope after the if statement. If it is less then 1 (false) it it will jump over the scope or go to the else statement if present.</p>
+
+<p>New variables created inside the IF scope will only exist within that scope. New scope variables can be named the same as variables in the outer scope (but this is not best practice).<br />
+&nbsp;</p>
+
+<pre class="mscode">
+@var $v = 2;
+@var $s = 1;
+if($v == 2)
+{
+ // Local scope variable
+ @var $s = 10; 
+ $v = 1;
+}
+else if( $v &gt;= 3)
+{
+ $v = 3;
+}
+else
+{
+ $v = 4;
+}
+
+if( MyFync($v) )
+{
+ $v = 6;
+}
+</pre>
+</div>
+
+<div class="doctextsection">
+<h2><a name="for_loop">FOR - Loops</a></h2>
+
+<p>A <strong>FOR</strong> loop statement has 3 expressions that are evaluated.</p>
+
+<pre>
+for( &lt;init expression&gt;; &lt;condition expression&gt;; &lt;loop expression&gt;)
+{
+  &lt;statement&gt;
+}
+</pre>
+
+<p>The<strong> Init Expression</strong> is evaluated once, before any other element of the <strong>for </strong>loop.</p>
+
+<p>The<strong> condition expression</strong> is evaluated and tested each time it is about to enter the <strong>for </strong>scope.</p>
+
+<p>The<strong> loop expression</strong> is evaluated each time it has ended a scope execution of the <strong>for </strong>loop.</p>
+
+<p>The Initialization variable in the init-expression <strong>must </strong>be declared outside the <strong>for</strong> loop.</p>
+
+<pre class="mscode">
+// Valid for expression
+@var $n;
+for( $n = 0; $n &lt; 5; $n++ )
+{
+  ...
+}
+
+// Invalid for expression
+for(<strong> @var $n = 0</strong>; $n &lt; 5; $n++ )
+{
+ ...
+}
+</pre>
+</div>
+
+<div class="doctextsection">
+<p>A <strong>for </strong>loop terminates when the condition expression evaluates to 0 (false), or a <strong>break </strong>or <strong>return</strong> statement is executed within the loop. A <strong>continue </strong>statement in a <strong>for </strong>loop terminates only the current iteration.</p>
+
+<pre class="mscode">
+@var $n;
+for( $n = 0; $n &lt; 5; $n++ )
+{
+  if($n == 2)
+  {
+   continue;
+  }
+  
+  if($n == 4)
+  {
+   // break out of the loop
+   break;
+  }
+}
+</pre>
+</div>
+
+<div class="doctextsection">
+<h2><a name="while_loops">WHILE - Loops</a></h2>
+
+<p>A <strong>While </strong>loop has 1 expression that is evaluated every time through the loop until it is 0 (false).</p>
+
+<pre>
+while( &lt;expression&gt; )
+{
+  &lt;statement&gt; 
+}
+</pre>
+</div>
+
+<div class="doctextsection">
+<p>A <strong>while </strong>loop can terminate when a <strong>break</strong>, or <strong>return </strong>within the statement body is executed. Use <strong>continue </strong>to terminate the current iteration without exiting the <strong>while </strong>loop. <strong>Continue </strong>passes control to the next iteration of the <strong>while </strong>loop.</p>
+
+<pre class="mscode">
+@var $n = 10;
+while( $n &gt; 0 )
+{
+  $n--;
+}
+
+@var $success = 1;
+while( $success )
+{
+  $success = MyFunc_DoWork();
+}
+</pre>
+</div>
+
+<div class="doctextsection">
+<h2><a name="functions">Functions</a></h2>
+
+<p>With the <strong>function</strong> keyword it is possible to define a function that is called by the script.<br />
+The function must be defined before it is called. Therefore it is recommended to define all the script functions first in the script.</p>
+
+<p>Functions support arguments. Parameters sent to a function will be passed <em>by value</em>, meaning they are passed as copies. If a variable passed as a parameter to a function is changed within the function, the original variable is <em>not</em> changed.</p>
+
+<p>The function will return when it reaches the end of the function definition. It will by default always return 1 in this case. If some other return value from the function is wanted then a <strong>return </strong>statement must be used.</p>
+
+<pre class="mscode">
+function MyFunc( $a1, $a2 )
+{
+ @var $result = $a1 + $a2;
+ $result = $result * 2;
+ return $result;
+}
+
+@var $n = 0;
+$n = MyFunc( 2, 6 );
+</pre>
+</div>
+
+<div class="doctextsection">
+<p>The <strong>return </strong>statement can also be used to exit from the function <em>before</em> it reaches the end.</p>
+
+<pre class="mscode">
+function MyFunc( $a1, $a2 )
+{
+ @var $result = $a1 + $a2;
+ if( $result &gt; 10 )
+ {
+   return $result;
+ }
+ $result = $result * 2
+
+ return $result;
+}
+
+@var $n = 0;
+$n = MyFunc( 4, 8 );
+</pre>
+</div>
+
+<div class="doctextsection">
+<h2><a name="class">Classes</a></h2>
+
+<p>With the <strong>class</strong> keyword it is possible to define a <em>class</em>. A class is a group of variables and functions that are collected together within an <em>object</em>. Objects in MultiScript are very simple variations of the "object" you find in languages like C++, but without the support for public/private. Everything is public here.</p>
+
+<p>A class is created from a definition using the <strong>new</strong> keyword. This will create a new instance of a class.</p>
+
+<p>It is not possible to delete objects while running the script.</p>
+
+<p>To access a function or variable in an object a dot ("<strong>.</strong>") is used to as separator between the object variable and the class variable name or function name.</p>
+
+<p>When referring to a variable in an object variable the <strong>$</strong> of the class variable is not written.</p>
+
+<pre class="mscode">
+// INCORRECT
+@var $n = $obj.$a;
+
+// CORRECT
+@var $n = $obj.a;
+</pre>
+
+<pre class="mscode">
+class MyClass
+{
+  @var $a = 0;
+  @var $b = 1;
+ 
+  function( $v1, $v2 )
+  {
+    $b = $v1 + $v2;
+    return $b;
+  }
+}
+
+@var $obj = new MyClass;
+@var $result = $obj.MyFunc( 2, 5 );
+@var $n = $obj.a;
+</pre>
+</div>
+
+

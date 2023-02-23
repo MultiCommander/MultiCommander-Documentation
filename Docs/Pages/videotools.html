@@ -1,0 +1,41 @@
+<h2>Video Tools</h2>
+<h2>Movie information in columns</h2>
+
+<p>Several users have asked for a way to show columns with movie information on movie files they have on their drives. With the help of some of you there is now a version of this feature working.</p>
+
+<p><img alt="" border="0" src="/Docs/Images/MovieColumns.png" /></p>
+
+<p>(If you Ctrl+double-click on "Web" in the IMDB Link column, the browser will open to the page for that movie on imdb.com.)<br />
+<br />
+Before you can show the movie information in columns, it must be retrieved and cached locally.<br />
+This is done by selecting <strong>Menu-&gt;Tools-&gt;Video Tools-&gt;Scan for Media Information</strong>.</p>
+
+<p><img alt="" src="/Docs/Images/ScanMediaContentMenuOption.png" /></p>
+
+<p>You then need to configure how the tool should identify movies, how to store the media information and more...</p>
+
+<div class="separator" style="clear: both; text-align: left;"><span style="margin-left: 1em; margin-right: 1em;"><img alt="" border="0" src="/Docs/Images/ScanMediaContent.png" /></span></div>
+
+<p>To be able to identify your movies you must configure how to identify the movie title: from the file or folder name, for example. (To make it easier for the system to figure out the Movie Title it is recommended to store the movie file in a folder that is named the same as the movie title.)<br />
+Two sources are available for getting movie information, <em>IMDB</em> and <em>Rotten Tomatoes</em>.<br />
+(Retrieving information for TV Episodes is not supported yet.)</p>
+
+<p>If you only want to scan for new movies that you have not already indexed, select <strong>Scan for new content only</strong>. If a movie already has a *.mediainfo file or is listed in the local MediaDB, then the movie is skipped.</p>
+
+<p>If you want to re-scan movies you have previously scanned, select <strong>Scan for new content, refresh existing</strong>.</p>
+
+<h3>Where and How to store the Media Information</h3>
+
+<p>You can store the Media information either: as a *.mediaInfo file (located in the same folder as the movie file with the same name as the movie filesbut with the file extension ".mediainfo") or in a MediaDB or both.</p>
+
+<p>Storing information in a MediaDB allows faster access when showing the columns, especially if you want to show movie information on the folder that contains the movie. But if you have your movie files on a NAS or access them over the network from another computer and you access these movies from multiple computers, then you need to rescan your movie archive on every computer you access it from, then store them as *.mediaInfo files that are stored with the movie files.</p>
+
+<p>To get the best of both worlds, ie. the speed of access and without the need to re-index the movies on multiple computers, you can elect to store them in both locations. If you scan for new content and both *.mediaInfo storage and MediaDB storage are selected and an existing *.mediainfo fileis found, it will be copied to the MediaDB on the current computer. Just make sure that the option "Scan for new content only" is selected, or the tool will try to update it.</p>
+
+<h3>Tips and Tricks</h3>
+
+<p>If you always want to view particular columns for movie information when you open your movie folder, you can create a column set. This column set can then be automatically applied when going to that location.</p>
+
+<p><a href="#docs_ExplorerPanel-CustomizeColumnLayouts">Read about Column Sets</a></p>
+
+

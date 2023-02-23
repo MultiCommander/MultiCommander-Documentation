@@ -1,0 +1,185 @@
+<h2>MultiRename</h2>
+<p>&nbsp;</p>
+
+<p><img alt="" src="/Docs/Images/MultiRename2.png" /></p>
+
+<h3>Overview</h3>
+
+<p>With MultiRename you can rename multiple files or folders by creating a <em>rename rule</em>.</p>
+
+<p>You can easily select part of the existing file name, add text, replace characters or words, insert file property data in the file name, (eg. Date, Exif information for photos and much more )</p>
+
+<p><em>Undo</em> information is also saved so that if you rename files incorrectly or rename too many files by mistake, you can easily load a previously-renamed session and undo it.</p>
+
+<p>If you are perform the same MultiRename many times you can save the rules and then load them when you need them again.</p>
+
+<h3>Rename Rules</h3>
+
+<p>By inserting different tags you will insert different text parts into the name.<br />
+Pressing the [&lt;] button next to the filename and file extension field will show a list of the most common tags you can use. If you press "Plugin and more..." you will see a list of all the extended tags you can add.</p>
+
+<p>You also can specify parameters in the tag. The parameters determine which part of the tag text will be inserted.</p>
+
+<table class="table">
+	<tbody>
+		<tr>
+			<td>[&lt;tag&gt;]</td>
+			<td>Insert the complete text from the tag</td>
+		</tr>
+		<tr>
+			<td>[&lt;tag&gt;&lt;num&gt;]</td>
+			<td>Insert the first specified number of characters from the tag.<br />
+			Example [N4] will insert the first 4 letters of the filename</td>
+		</tr>
+		<tr>
+			<td>[&lt;tag&gt;,&lt;num&gt;]</td>
+			<td>(same as above)<br />
+			Insert the first specified number of characters from the tag.<br />
+			Example [N4] will insert the first 4 letters of the filename.</td>
+		</tr>
+		<tr>
+			<td>&lt;tag&gt;,&lt;FromPos&gt; ,&lt;Length&gt;]</td>
+			<td>Insert the text from position "FromPos" of the tag data. But with a max length of &lt;Length&gt;&nbsp; Example [N,3,4] - If filename is "MyFile" then it will insert "File"</td>
+		</tr>
+	</tbody>
+</table>
+
+<hr />
+<h3>Special tag - Counter [C]</h3>
+
+<p>There are some special tags that works a bit differently. The counter tag [C] is one of them. By default it is controlled by the counter option specified in Multi-Rename window. But you can override that by using tag parameters.</p>
+
+<table class="table">
+	<tbody>
+		<tr>
+			<td>[C]</td>
+			<td>Insert a default counter tag</td>
+		</tr>
+		<tr>
+			<td>[C,&lt;startnum&gt;,&lt;inc&gt;]</td>
+			<td>Insert a default counter tag that will start counting at &lt;startnum&gt; and increment the value by &lt;inc&gt; for every file<br />
+			Example [C,10,2] - will start at 10 and increment the value with 2 so you will get 10,12,14,16</td>
+		</tr>
+		<tr>
+			<td>[C,&lt;startnum&gt;,&lt;inc&gt;,&lt;digits&gt;]</td>
+			<td>the two first parameters work as above, &lt;digits&gt; let you specify how many digits you want to have as a minimum<br />
+			Example[C,10,2,3] - will start with 10, but since digits are 3 you will get 010 , 012, 014</td>
+		</tr>
+	</tbody>
+</table>
+
+<hr />
+<h3>Special tag - Current Date/Time [Y],[M],...</h3>
+
+<p>Another special tag is the date/time tags. They will give you the date/time elements of the current time.</p>
+
+<table class="table">
+	<tbody>
+		<tr>
+			<td>[Y]</td>
+			<td>Insert current year as 4 digits, eg. 2016</td>
+		</tr>
+		<tr>
+			<td>[Y,2]</td>
+			<td>Insert current year as 2 digits, eg. 16</td>
+		</tr>
+		<tr>
+			<td>[M]<br />
+			[D]<br />
+			[h]<br />
+			[m]<br />
+			[s]</td>
+			<td>Inserts Day, Month, hour, minutes, second of the current time.<br />
+			Month and days will be inserted as digits. If the month is April it will insert 4</td>
+		</tr>
+		<tr>
+			<td>[M,&lt;digits&gt;]<br />
+			[D,&lt;digits&gt;]<br />
+			[h,&lt;digits&gt;]<br />
+			[m,&lt;digits&gt;]<br />
+			[s,&lt;digits&gt;]</td>
+			<td>Inserts Day, Month, hour, minutes, second of current time.<br />
+			It will insert a minimum of specified digits. If month is 4 it and &lt;digits&gt; is set to 2 it will be inserted as 04</td>
+		</tr>
+	</tbody>
+</table>
+
+<hr />
+<h3>Special tag - Date/Time property from Plugin.</h3>
+
+<p>If you want the file date/time then you need to select a tag from the plug-in list, for example the [?ExtendedProp.datecreate] tag.<br />
+(Note that all plug-in tags starts with a ?)</p>
+
+<p>All file properties from plugi-ns that return a date/time will return the date/time formatted using system settings.<br />
+This can be a problem since if time is returned as <b>12:22:22</b> the rename will fail since ":" is an invalid character for filenames.<br />
+You then need to replace the : with some other character (or blank) in the <b>Search and Replace</b> section in the MultiRename windows.</p>
+
+<p>You can also specify a custom date and time formatting for the tag.</p>
+
+<table class="table">
+	<tbody>
+		<tr>
+			<td width="350">[?ExtendedProp.datecreate]</td>
+			<td>Insert current date/time from this date/time file property. <bt>The date/time is formated using current system settings, so it might return 2013-03-03 08:23:23 (see warning above)<br />
+			Make sure you replace invalid characters in "Search and Replace" or you might get rename problems.</bt></td>
+		</tr>
+		<tr>
+			<td width="350">[?ExtendedProp.datecreate-{dateformat|timeformat}]</td>
+			<td>Insert current date/time from this date/time file property using a custom date/time formatting<br />
+			Example: [?ExtendedProp.datecreate-{yyyy-MM-dd|HHmmss}]</td>
+		</tr>
+		<tr>
+			<td width="350">[?ExtendedProp.datecreate-{dateformat}]</td>
+			<td>Insert only the date part using custom date formatting<br />
+			Example: [?ExtendedProp.datecreate-{yyyy-MM-dd}]</td>
+		</tr>
+		<tr>
+			<td width="350">[?ExtendedProp.datecreate-{|timeformat}]</td>
+			<td>Insert only the time part using custom time formatting<br />
+			Example: [?ExtendedProp.datecreate-{|HHmmss}]<br />
+			(Do not forget the | before the time format.)</td>
+		</tr>
+		<tr>
+			<td width="350">[?Ex...datecreate-{dateformat|timeformat},&lt;FromPos&gt;,&lt;Length&gt;]</td>
+			<td>You can still use the FromPos and Length parameters<br />
+			Example: [?ExtendedProp.datecreate-{yyyy-MM-dd|HHmmss},1,5]</td>
+		</tr>
+	</tbody>
+</table>
+
+<p>How the date and time format works <a href="http://msdn.microsoft.com/en-us/library/windows/desktop/dd317787(v=vs.85).aspx">Date Formatting</a> - <a href="http://msdn.microsoft.com/en-us/library/windows/desktop/dd318148(v=vs.85).aspx">Time Formatting</a></p>
+
+<hr />
+<h3>Examples</h3>
+
+<table class="table">
+	<tbody>
+		<tr>
+			<td>Tags</td>
+			<td>Original filenames</td>
+			<td>New Filenames</td>
+		</tr>
+		<tr>
+			<td width="200">File: Pre-[N,2,4]-[C,1,2,3]-X<br />
+			Ext: [E]</td>
+			<td width="200">Done.txt<br />
+			MyFile.txt<br />
+			Todo.txt</td>
+			<td width="200">Pre-one-001-X.txt<br />
+			Pre-yFil-003-X.txt<br />
+			Pre-odo-005-X.txt</td>
+		</tr>
+		<tr>
+			<td width="200">File: [C] - [N] - [?MCAudioProp.genre]<br />
+			Ext: [E]</td>
+			<td width="200">Song A.mp3<br />
+			Song B.mp3<br />
+			Song C.mp3</td>
+			<td width="200">01 - Song A - Trance.mp3<br />
+			02 - Song B - Pop.mp3<br />
+			03 - Song C - House.mp3</td>
+		</tr>
+	</tbody>
+</table>
+
+

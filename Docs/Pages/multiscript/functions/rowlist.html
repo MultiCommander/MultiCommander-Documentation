@@ -1,0 +1,238 @@
+<h2>MultiScript - Core Functions - RowList functions</h2>
+<div class="scriptfunctions">
+<p>The <em>RowList functions</em> are special functions to make it easier to work with text lists.</p>
+
+<h2>Example</h2>
+
+<p>Suppose the content of the file "d:\temp\list.txt" looks like the following:</p>
+
+<pre>
+Person Z	0202-1111111	Fake Street 1
+Person A	0202-2222222	Fake Street 2
+Person B	0303-3333333	Fake Street 3
+Person C	0202-4444444	Fake Street 4
+Person D	0202-5555555	Fake Street 5
+</pre>
+
+<p>The columns are separated with a tab character "\t". &nbsp;</p>
+
+<p>This script will load that file into a rowlist and then get each column item one-by-one.</p>
+
+<pre class="example">
+@var $list = RowListLoad("d:\\temp\\list.txt", "\t");
+@var $rowcnt = RowListCount($list);
+@var $idx = 0;
+for( $idx = 0; $idx &lt; $rowcnt; $idx++)
+{
+ @var $Name   = RowListItem($list, $idx, 0)); 
+ @var $Phone  = RowListItem($list, $idx, 1)); 
+ @var $Street = RowListItem($list, $idx, 2)); 
+}
+</pre>
+
+<div class="multiscriptfunc">
+<h2>RowList Functions</h2>
+
+<table class="table table-bordered">
+	<tbody>
+		<tr>
+			<td><a href="#rowlistload">RowListLoad</a></td>
+			<td>Load a rowlist</td>
+		</tr>
+		<tr>
+			<td><a href="#rowlistclose">RowListClose</a></td>
+			<td>Close a rowlist</td>
+		</tr>
+		<tr>
+			<td><a href="#rowlistcount">RowListCount</a></td>
+			<td>Get the number of rows in the rowlist</td>
+		</tr>
+		<tr>
+			<td><a href="#rowlistcolumncount">RowListColumnCount</a></td>
+			<td>Get the number of columns</td>
+		</tr>
+		<tr>
+			<td><a href="#rowlistarray">RowListArray</a></td>
+			<td>Return a specifed row as an array</td>
+		</tr>
+		<tr>
+			<td><a href="#rowlistitem">RowListItem</a></td>
+			<td>Get a row item.</td>
+		</tr>
+		<tr>
+			<td><a href="#replacetagsinstring">ReplaceTagsInString</a></td>
+			<td>Replace the tags in a string with values from a rowlist.</td>
+		</tr>
+	</tbody>
+</table>
+</div>
+
+<div class="multiscriptfunc">
+<h2><a name="rowlistload"></a>RowListLoad</h2>
+
+<p>Load a file as a rowlist.</p>
+
+<pre>
+&lt;handle&gt; RowListLoad(&lt;str&gt; filename, &lt;str&gt; delimiter);</pre>
+
+<h3>Parameters</h3>
+
+<dl>
+	<dt><i>filename</i></dt>
+	<dd>File to load as a rowlist</dd>
+	<dt><i>delimiter</i></dt>
+	<dd>Columns are split using this character.</dd>
+</dl>
+
+<h3>Return value</h3>
+
+<p>A handle to a rowlist, or 0 if the load failed.</p>
+</div>
+
+<div class="multiscriptfunc">
+<h2><a name="rowlistclose"></a>RowListClose</h2>
+
+<p>Close a rowlist</p>
+
+<pre>
+&lt;num&gt; RowListClose(&lt;handle&gt;);</pre>
+
+<h3>Parameters</h3>
+
+<dl>
+	<dt><i>handle</i></dt>
+	<dd>Handle to a rowlist</dd>
+</dl>
+
+<h3>Return value</h3>
+
+<p>1 for success, 0 for failure.</p>
+</div>
+
+<div class="multiscriptfunc">
+<h2><a name="rowlistcount"></a>RowListCount</h2>
+
+<p>Count the number of rows in a list</p>
+
+<pre>
+&lt;num&gt; RowListCount(&lt;handle&gt;);</pre>
+
+<h3>Parameters</h3>
+
+<dl>
+	<dt><i>handle</i></dt>
+	<dd>Handle to a rowlist</dd>
+</dl>
+
+<h3>Return value</h3>
+
+<p>The number of rows in the list.</p>
+</div>
+
+<div class="multiscriptfunc">
+<h2><a name="rowlistcolumncount"></a>RowListColumnCount</h2>
+
+<p>Count the number of columns in a list.</p>
+
+<pre>
+&lt;num&gt; RowListColumnCount(&lt;handle&gt;);</pre>
+
+<h3>Parameters</h3>
+
+<dl>
+	<dt><i>handle</i></dt>
+	<dd>Handle to a rowlist</dd>
+</dl>
+
+<h3>Return value</h3>
+
+<p>The number of columns in the list.</p>
+</div>
+
+<div class="multiscriptfunc">
+<h2><a name="rowlistarray"></a>RowListArray</h2>
+
+<p>Get a row from a list as an array</p>
+
+<pre>
+&lt;array&gt; RowListArray(&lt;handle&gt; &lt;num&gt; row);</pre>
+
+<h3>Parameters</h3>
+
+<dl>
+	<dt><i>handle</i></dt>
+	<dd>Handle to a rowlist</dd>
+	<dt><i>row</i></dt>
+	<dd>Index of the row to return as an array.</dd>
+</dl>
+
+<h3>Return value</h3>
+
+<p>An array with all the columns of the specified <i>row</i>.</p>
+</div>
+
+<div class="multiscriptfunc">
+<h2><a name="rowlistitem"></a>RowListItem</h2>
+
+<p>Get a single item from a list.</p>
+
+<pre>
+&lt;string&gt; RowListItem(&lt;handle&gt; &lt;num&gt; row, &lt;num&gt; col);</pre>
+
+<h3>Parameters</h3>
+
+<dl>
+	<dt><i>handle</i></dt>
+	<dd>Handle to a rowlist</dd>
+	<dt><i>row</i></dt>
+	<dd>Row index</dd>
+	<dt><i>col</i></dt>
+	<dd>Column index</dd>
+</dl>
+
+<h3>Return value</h3>
+
+<p>The value of the specified <i>column</i> in the specified <i>row</i>.</p>
+</div>
+
+<div class="multiscriptfunc">
+<h2><a name="replacetagsinstring"></a>ReplaceTagsInString</h2>
+
+<p>Replace tags in a string with values from a rowlist</p>
+
+<pre>
+&lt;string&gt; RowListItem(&lt;str&gt; tagString, &lt;str&gt; tag, &lt;handle&gt; rowlist, &lt;handle&gt; rowIdx);</pre>
+
+<h3>Parameters</h3>
+
+<dl>
+	<dt><i>tagString</i></dt>
+	<dd>A string with tag that should be replace with values from the rowlist</dd>
+	<dt><i>tag</i></dt>
+	<dd>The tags used in <i>tagString</i></dd>
+	<dt><i>rowlist</i></dt>
+	<dd>Handle to a rowlist</dd>
+	<dt><i>rowIdx</i></dt>
+	<dd>Index of what row to use when replacing values in string</dd>
+</dl>
+
+<h3>Return value</h3>
+
+<p>A string with tags replaced with values from the rowlist</p>
+
+<h3>Example</h3>
+
+<pre>
+@var $list = RowListLoad("d:\\temp\\list.txt", "\t");
+
+@var $strTemplate = "Name : %%TAG0%% - Address : %%TAG2%% - Phone : %%TAG1%%";
+@var $rowIdx = 0;
+
+@var $strOutput = ReplaceTagsInString($str, "%%TAG(#)%%", $list, $rowIdx);
+
+// $strOutput == "Name : Person Z - Address : Fake Street 1 - Phone : 0202-1111111"
+</pre>
+</div>
+</div>
+
+

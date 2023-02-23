@@ -1,0 +1,50 @@
+<h2>FileSystem - Network (NET:)</h2>
+<p>The virtual filesystem device extension <b>Network (NET:)</b> allows the local network the be scanned for computers or network-attached devices.<br />
+All found devices will then be listed.</p>
+
+<p><img alt="" src="/res/img/doc/BrowserNetwork.png" style="width: 511px; height: 116px;" /></p>
+
+<p>To scan the network for computers and devices execute the "<b>Scan Network</b>" command (a progress window will be shown during the scan). The scan can take a couple of minutes if the network is large. When finished all discovered devices within a shared filesystem will be listed.</p>
+
+<p>The list of devices is by default remembered between restarts of Multi Commander.</p>
+
+<p>Opening a computer in the list will cause Multi Commander to browse that server path. The server path browsing is then handled by the normal <a href="#docs_filesystem">FS-Local</a> virtual file system plug-in. Just as if the path was entered manually.</p>
+
+<h2>TS Client - Remote Desktop</h2>
+
+<p>Running on a computer that is logged in from Remote Desktop, the local drives can be accessed on the remote machine under \\TSClient (If Remote Desktop is configured to show drives on the remote computer).<br />
+The Network virtual filesystem plug-in will detect if Multi Commander is running in a Remote Desktop session. If it is, and there are remote connected drives, a <b>TSClient</b> entry will also listed. It works in the same way as any other computer entry listed.</p>
+
+<h2>Network Commands</h2>
+
+<p>Right-clicking on a computer in the list will open a popup window is shown with some additinal commands.</p>
+
+<p><img alt="" src="/res/img/doc/BrowserNetworkPopup.png" style="width: 506px; height: 172px;" /></p>
+
+<h3>Pin this Computer</h3>
+
+<p>This command will pin the selected computer. If a new scan of the network is done this computer will not be removed from the list even if it was not found.</p>
+
+<h3>Remove from list</h3>
+
+<p>This command will remove the selected computer from the list.</p>
+
+<h3>Remove all from list (Except pinned)</h3>
+
+<p>This will remove all computers from the list (with the exception of pinned computers - these will not be removed).</p>
+
+<h2>Settings</h2>
+
+<p>Execute the "<b>Settings</b>" command to open the settings page</p>
+
+<p><img alt="" src="/res/img/doc/BrowserNetworkSettingsPage.png" style="width: 572px; height: 123px;" /></p>
+
+<p><b>Network browse method</b></p>
+
+<p>There are three methods (Current Context, Global and Shell) available to use to scan the network. If computer is not found in the list after a scan, try changing Network browse method and then scan the network again.</p>
+
+<p><b>Keep cache of found networked computers</b></p>
+
+<p>If this is checked, discovered computers will be remembered between restarts of Multi Commander.</p>
+
+

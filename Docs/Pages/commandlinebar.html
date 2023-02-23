@@ -1,0 +1,213 @@
+<h2>Command Line Bar</h2>
+<p>The fourth line in the Main Application Layout is the <strong>Command Line Bar</strong>, shown below. This toolbar can be removed from the display by unchecking the check box in <strong>View-&gt;Toolbars</strong>.</p>
+
+<p><img alt="" src="/Docs/Images/ToolbarCmdLineBar.png" style="width: 857px; height: 98px;" /></p>
+
+<p>The buttons are enabled if the active extension (panel) supports back/forward/history. If the active extension does not support these commands, the buttons are disabled.</p>
+
+<h2>1. Back</h2>
+
+<p>Button <strong>1 </strong>tells the extension to go back one step. If this button is held down for 2 seconds, a list of previous locations that you can select from is displayed. If the active extension is an Explorer Panel it will go back to the previously visited path.</p>
+
+<h2>2. Forward</h2>
+
+<p>Button <strong>2 </strong>tells the extension to go forward one step. This can only be done if you have previously gone backwards. If this button is held down for 2 seconds, a list of all available forward locations is shown.</p>
+
+<h2>3. History</h2>
+
+<p>Button <strong>3 </strong>shows a list of the previous 40 locations that the currently active extension has visited. From this list a previous location can be accessed quickly.</p>
+
+<div class="well">
+<p>The default keyboard shortcut for Back is Alt+Left Arrow, Forward is Alt+Right Arrow and History is Alt+Down Arrow.<br />
+In the Explorer Panel the Back and Forward mouse button can also be used if your mouse supports these buttons.</p>
+</div>
+
+<h2>4. Favorites Window</h2>
+
+<p>The button shown as a <em>star </em>at the left end of the <em>Command Line</em>. Clicking the <em>star </em>button brings up the <strong>Favorites </strong>window. This window contains three sections:</p>
+
+<ul>
+	<li>
+	<h3>Quick Paths (F1)</h3>
+
+	<p><strong>Quick Paths </strong>are paths that can be selected by pressing <em>Ctrl+num</em>. There can be only 10 <em>Quick Paths </em>defined.</p>
+	</li>
+	<li>
+	<h3>Favorites (F2)</h3>
+
+	<p><strong>Favorites </strong>are paths that can be defined and stored as a list. To select a Favorite path, simply select it and press Enter.</p>
+	</li>
+	<li>
+	<h3>Web (F3)</h3>
+
+	<p><strong>Web </strong>paths are URLs that can be defined in a list of web addresses. To select a web address, simply select it and press Enter.</p>
+	</li>
+</ul>
+
+<h2>5. Command Line field</h2>
+
+<p>The Command Line field (number <strong>5</strong>) allows you to enter commands for the active extension or plug-in. If the extension or plug-in does not handle the command it is sent to Windows to handle. If the command is a filename and is sent to Windows to be handled, Windows will launch that program. If the command is a URL, a browser is opened for it.</p>
+
+<p>If you type a command for Windows to launch, you can insert a "*" in front of it to run it as Administrator. For example, <strong>"*cmd" </strong>will launch the command prompt as Administrator.</p>
+
+<p>The Explorer Panel supports commands such as the command prompt's<strong> "cd" </strong>command. Thus if an Explorer Panel is currently active you can type <strong>"cd .." </strong>, <strong>"mkdir myfolder" </strong>and the Explorer Panel will create this folder.</p>
+
+<h3>Special Internal Commands</h3>
+
+<p>The Command Line field supports some special internal commands:</p>
+
+<table class="table table-bordered">
+	<tbody>
+		<tr>
+			<td>*&lt;external program&gt;</td>
+			<td>Start an external program as administrator, e.g. "*cmd" starts an admin prompt at the current path</td>
+		</tr>
+		<tr>
+			<td>!&lt;cmd / path&gt;</td>
+			<td>Normally Multi Commander will go to a path if it is entered. Typing ! in front of the path will force the path/cmd to be opened by the Windows Shell</td>
+		</tr>
+		<tr>
+			<td>cd &lt;path&gt;</td>
+			<td>Change directory</td>
+		</tr>
+		<tr>
+			<td>mkdir &lt;path&gt;</td>
+			<td>Create a folder</td>
+		</tr>
+		<tr>
+			<td>cf &lt;file&gt;</td>
+			<td>Create a new, empty file</td>
+		</tr>
+		<tr>
+			<td>alias &lt;name&gt;=&lt;expanded to&gt;</td>
+			<td>Create a new alias, eg. "alias d=d:\bin"</td>
+		</tr>
+		<tr>
+			<td>alias2 &lt;name&gt;</td>
+			<td>Create a new alias for the current path, eg. "alias2 d"</td>
+		</tr>
+		<tr>
+			<td>topmost 1</td>
+			<td>Change whether Multi Commander is always on top of other windows. Use 1 to enable, any other value to disable</td>
+		</tr>
+		<tr>
+			<td>addlanguage</td>
+			<td>Used to add support for another language so that you can create new translations</td>
+		</tr>
+		<tr>
+			<td>importcmd</td>
+			<td>Used to import a script command quickly</td>
+		</tr>
+		<tr>
+			<td>dbg folog</td>
+			<td>Enable full file operations logging</td>
+		</tr>
+		<tr>
+			<td>dbg fslog</td>
+			<td>Enable full file system logging</td>
+		</tr>
+		<tr>
+			<td>dbg applog</td>
+			<td>Enable full application logging</td>
+		</tr>
+		<tr>
+			<td>:save</td>
+			<td>Save all autoload settings for all tabs. This is the same save as is done before exit</td>
+		</tr>
+		<tr>
+			<td>:showhidden</td>
+			<td>Change the settings to show all system and hidden files and folders</td>
+		</tr>
+		<tr>
+			<td>:hidehidden</td>
+			<td>Change the settings to hide all system and hidden files and folders</td>
+		</tr>
+		<tr>
+			<td>:goapp</td>
+			<td>Go to the path from which Multi Commander is started</td>
+		</tr>
+		<tr>
+			<td>:userdata</td>
+			<td>Go to the path under the Windows user account where Multi Commander saves data</td>
+		</tr>
+		<tr>
+			<td>:gomcreg</td>
+			<td>Go to the registry path used by Multi Commander</td>
+		</tr>
+		<tr>
+			<td>:golog</td>
+			<td>Go to the path where Multi Commander stores its log files</td>
+		</tr>
+		<tr>
+			<td>:goconfig</td>
+			<td>Go to the path where Multi Commander reads/writes its settings files</td>
+		</tr>
+		<tr>
+			<td>:box</td>
+			<td>Go to the location where you have your DropBox folder (if you have DropBox installed)</td>
+		</tr>
+		<tr>
+			<td>:sky</td>
+			<td>Go to the location where you have your SkyDrive folder (if you have SkyDrive installed)</td>
+		</tr>
+		<tr>
+			<td>:one<td>
+			<td>Go to the location where you have your OneDrive folder (if you have OneDrive installed)</td>
+		</tr>
+		<tr>
+			<td>:desk</td>
+			<td>Go to the desktop</td>
+		</tr>
+		<tr>
+			<td>:dl</td>
+			<td>Go to the Windows Download folder (not available on Windows XP/Server 2003)</td>
+		</tr>
+		<tr>
+			<td>:doc</td>
+			<td>Go to the My Documents folder</td>
+		</tr>
+		<tr>
+			<td>:ctc</td>
+			<td>Clear Thumbnail Cache - Will remove all thumbnail cache information stored in memory</td>
+		</tr>
+		<tr>
+			<td>:rdrive</td>
+			<td>Refresh all devices in Device dropdown and Device Toolbar</td>
+		</tr>
+		<tr>
+			<td>:hex2dec &lt;num&gt;</td>
+			<td>Convert a hex value to decimal. eg. ":hex2dec ff"</td>
+		</tr>
+		<tr>
+			<td>:winerr &lt;num&gt;</td>
+			<td>Show the error message of an internal windows error code. Eg. ":winerr 5"</td>
+		</tr>
+		<tr>
+			<td>:sysinfo</td>
+			<td>Get some system information</td>
+		</tr>
+	</tbody>
+</table>
+
+<h2>6. Quick Launch Buttons</h2>
+
+<p>The area following the <em>Command Line Field </em>is used for <strong>Quick Launch Buttons</strong>. If you right-click in that area, a menu will open with the following entries:</p>
+
+<p>For further information, see <a href="#docs_quicklaunchbar">Quick Launch Bar</a>.</p>
+
+<ul>
+	<li>
+	<h3>Allow - Insert button by dropping file/folder</h3>
+	If selected, this allows the use of drag and drop to insert a file or folder.</li>
+	<li>
+	<h3>Allow - Rearrange of buttons</h3>
+	If selected, this allows the buttons to be rearranged using drag and drop.</li>
+	<li>
+	<h3>Insert User Defined Command</h3>
+	Opens the <em>User Defined Command </em>menu, where you can select an existing User Defined Command (or create a new one) to be inserted.</li>
+	<li>
+	<h3>Insert Separator</h3>
+	Inserts a vertical separator line.</li>
+</ul>
+
+

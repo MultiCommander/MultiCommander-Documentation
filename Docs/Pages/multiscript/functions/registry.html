@@ -1,0 +1,473 @@
+<h2>MultiScript - Registry Functions</h2>
+<div class="scriptfunctions">
+<table class="table table-bordered">
+	<tbody>
+		<tr>
+			<td><a href="#regkeyexists">RegKeyExists</a></td>
+			<td>Check if a key exists.</td>
+		</tr>
+		<tr>
+			<td><a href="#regkeyadd">RegKeyAdd</a></td>
+			<td>Create new registry key.</td>
+		</tr>
+		<tr>
+			<td><a href="#regkeydel">RegKeyDel</a></td>
+			<td>Delete registry key.</td>
+		</tr>
+		<tr>
+			<td><a href="#regkeyfind">RegKeyFind</a></td>
+			<td>Find registry key.</td>
+		</tr>
+		<tr>
+			<td><a href="#regkeyfindregexp">RegKeyFindRegExp</a></td>
+			<td>Find registry key with a regular expression.</td>
+		</tr>
+		<tr>
+			<td><a href="#regvalueexists">RegValueExists</a></td>
+			<td>Check if a registry value exists.</td>
+		</tr>
+		<tr>
+			<td><a href="#regvalueadd">RegValueAdd</a></td>
+			<td>Create new registry value.</td>
+		</tr>
+		<tr>
+			<td><a href="#regvaluedel">RegValueDel</a></td>
+			<td>Delete a registry value.</td>
+		</tr>
+		<tr>
+			<td><a href="#regvaluefind">RegValueFind</a></td>
+			<td>Find registry value.</td>
+		</tr>
+		<tr>
+			<td><a href="#regvaluefindregexp">RegValueFindRegExp</a></td>
+			<td>Find registry value using regual expression.</td>
+		</tr>
+		<tr>
+			<td><a href="#regvaluegetsz">RegValueGetSZ</a></td>
+			<td>Get string registry value.</td>
+		</tr>
+		<tr>
+			<td><a href="#regvaluegetdword">RegValueGetDWORD</a></td>
+			<td>Get DWORD&nbsp;registry value.</td>
+		</tr>
+	</tbody>
+</table>
+
+<p>Where <b>regRoot</b> is required as a parameter use any of the specified short paths</p>
+
+<table class="table table-bordered">
+	<tbody>
+		<tr>
+			<td>HKLM</td>
+			<td>HKEY_LOCAL_MACHINE</td>
+		</tr>
+		<tr>
+			<td>HKCU</td>
+			<td>HKEY_CURRENT_USER</td>
+		</tr>
+		<tr>
+			<td>HKCR</td>
+			<td>HKEY_CLASS_ROOT</td>
+		</tr>
+		<tr>
+			<td>HKUR</td>
+			<td>HKEY_USER</td>
+		</tr>
+	</tbody>
+</table>
+
+<p>&nbsp;</p>
+
+<div class="multiscriptfunc">
+<h2><a name="regkeyexists"></a>RegKeyExists</h2>
+
+<p>Check if a registry key exists.</p>
+
+<pre>
+&lt;num&gt; RegKeyExists(&lt;str&gt; regRoot, &lt;str&gt; regPath);</pre>
+
+<h3>Parameters</h3>
+
+<dl>
+	<dt>regRoot</dt>
+	<dd>Registry root, e.g. "HKLM".</dd>
+</dl>
+
+<dl>
+	<dt>regPath</dt>
+	<dd>Registry path of the key to check.</dd>
+</dl>
+
+<h3>Return value</h3>
+
+<p>1 if the key exists, else 0.</p>
+
+<h3>Example</h3>
+
+<pre class="example">
+$exists = RegKeyExists("HKLM","Software\\Microsoft");</pre>
+</div>
+
+<div class="multiscriptfunc">
+<h2><a name="regkeyadd"></a>RegKeyAdd</h2>
+
+<p>Add a new registry key.</p>
+
+<pre>
+&lt;num&gt; RegKeyAdd(&lt;str&gt; regRoot, &lt;str&gt; regPath);</pre>
+
+<h3>Parameters</h3>
+
+<dl>
+	<dt>regRoot</dt>
+	<dd>Registry root, e.g. "HKLM".</dd>
+</dl>
+
+<dl>
+	<dt>regPath</dt>
+	<dd>Registry path of the key to add.</dd>
+</dl>
+
+<h3>Return value</h3>
+
+<p>1 if key was added, 0 if failed to add key.</p>
+
+<h3>Example</h3>
+
+<pre class="example">
+&nbsp;</pre>
+</div>
+
+<div class="multiscriptfunc">
+<h2><a name="regkeydel"></a>RegKeyDel</h2>
+
+<p>Delete a registry key.</p>
+
+<pre>
+&lt;num&gt; RegKeyDel(&lt;str&gt; regRoot, &lt;str&gt; regPath);</pre>
+
+<h3>Parameters</h3>
+
+<dl>
+	<dt>regRoot</dt>
+	<dd>Registry root, e.g. "HKLM".</dd>
+</dl>
+
+<dl>
+	<dt>regPath</dt>
+	<dd>Registry path of the key to delete.</dd>
+</dl>
+
+<h3>Return value</h3>
+
+<p>1 if key was deleted, 0 if failed to delete key.</p>
+
+<h3>Example</h3>
+
+<pre class="example">
+&nbsp;</pre>
+</div>
+
+<div class="multiscriptfunc">
+<h2><a name="regkeyfind"></a>RegKeyFind</h2>
+
+<p>Get all matching subkeys in a specified registry path. Match keys using wildcards.</p>
+
+<pre>
+&lt;arr&gt; RegKeyFind(&lt;str&gt; regRoot, &lt;str&gt; regPath, &lt;str&gt; match);</pre>
+
+<h3>Parameters</h3>
+
+<dl>
+	<dt>regRoot</dt>
+	<dd>Registry root, e.g. "HKLM".</dd>
+</dl>
+
+<dl>
+	<dt>regPath</dt>
+	<dd>Registry path of where you want to find a key.</dd>
+</dl>
+
+<dl>
+	<dt>match</dt>
+	<dd>Wildcard for matching key, e.g. "Version_5.*"</dd>
+</dl>
+
+<h3>Return value</h3>
+
+<p>An array with all matching key names.</p>
+
+<h3>Example</h3>
+
+<pre class="example">
+&nbsp;</pre>
+</div>
+
+<div class="multiscriptfunc">
+<h2><a name="regkeyfindregexp"></a>RegKeyFindRegExp</h2>
+
+<p>Get all matching subkeys in a specified registry path. Match key using regular expression. &nbsp;</p>
+
+<pre>
+&lt;arr&gt; RegKeyFindRegExp(&lt;str&gt; regRoot, &lt;str&gt; regPath, &lt;str&gt; regExp);</pre>
+
+<h3>Parameters</h3>
+
+<dl>
+	<dt>regRoot</dt>
+	<dd>Registry root, e.g. "HKLM".</dd>
+</dl>
+
+<dl>
+	<dt>regPath</dt>
+	<dd>Registry path where you want to find a key.</dd>
+</dl>
+
+<dl>
+	<dt>regExp</dt>
+	<dd>Regular expression used for matching keys.</dd>
+</dl>
+
+<h3>Return value</h3>
+
+<p>An array with all matching key names.</p>
+
+<h3>Example</h3>
+
+<pre class="example">
+&nbsp;</pre>
+</div>
+
+<div class="multiscriptfunc">
+<h2><a name="regvalueexists"></a>RegValueExists</h2>
+
+<p>Check if a registry value exists.</p>
+
+<pre>
+&lt;num&gt; RegValueExists(&lt;str&gt; regRoot, &lt;str&gt; regPath, &lt;str&gt; valuename);</pre>
+
+<h3>Parameters</h3>
+
+<dl>
+	<dt>regRoot</dt>
+	<dd>Registry root, e.g."HKLM".</dd>
+</dl>
+
+<dl>
+	<dt>regPath</dt>
+	<dd>The registry path to the key that should have the value.</dd>
+</dl>
+
+<dl>
+	<dt>valueName</dt>
+	<dd>Name of the value to check for.</dd>
+</dl>
+
+<h3>Return value</h3>
+
+<p>1 if value exists. 0 if it does not.</p>
+
+<h3>Example</h3>
+
+<pre class="example">
+$exists = RegValueExists("HLKM", "Software\\Microsoft", "installed");</pre>
+</div>
+
+<div class="multiscriptfunc">
+<h2><a name="regvalueadd"></a>RegValueAdd</h2>
+
+<p>Add a new registry value.</p>
+
+<pre>
+&lt;num&gt; RegValueAdd(&lt;str&gt; regRoot, &lt;str&gt; regPath, &lt;str&gt; valueName, &lt;str&gt; value, &lt;str&gt; type);</pre>
+
+<h3>Parameters</h3>
+
+<dl>
+	<dt>regRoot</dt>
+	<dd>Registry root, e.g. "HKLM".</dd>
+</dl>
+
+<dl>
+	<dt>regPath</dt>
+	<dd>Registry path to the key that the value should be created under.</dd>
+</dl>
+
+<dl>
+	<dt>valueName</dt>
+	<dd>Name of the registry value to create.</dd>
+</dl>
+
+<dl>
+	<dt>value</dt>
+	<dd>Value to set the registry value to.</dd>
+</dl>
+
+<dl>
+	<dt>type</dt>
+	<dd>Type of registry value to create. REG_SZ or REG_DWORD supported.</dd>
+</dl>
+
+<h3>Return value</h3>
+
+<p>Name of the newly-added value.</p>
+
+<pre class="example">
+&nbsp;</pre>
+</div>
+
+<div class="multiscriptfunc">
+<h2><a name="regvaluedel"></a>RegValueDel</h2>
+
+<p>Delete registry value.</p>
+
+<pre>
+&lt;num&gt; RegValueDel(&lt;str&gt; regRoot, &lt;str&gt; regPath, &lt;str&gt; valuename);
+</pre>
+
+<h3>Parameters</h3>
+
+<dl>
+	<dt>regRoot</dt>
+	<dd>Registry root, e.g. "HKLM".</dd>
+</dl>
+
+<dl>
+	<dt>regPath</dt>
+	<dd>The registry path to the key that should have the value.</dd>
+</dl>
+
+<dl>
+	<dt>valueName</dt>
+	<dd>Name of the value to delete.</dd>
+</dl>
+
+<h3>Return value</h3>
+
+<p>1 if value is deleted. 0 if deletion failed.</p>
+</div>
+
+<div class="multiscriptfunc">
+<h2><a name="regvaluefind"></a>RegValueFind</h2>
+
+<p>Find all matching registry values under a registry key.</p>
+
+<pre>
+&lt;arr&gt; RegValueFind(&lt;str&gt; regRoot, &lt;str&gt; regPath, &lt;str&gt; valueMatch);</pre>
+
+<h3>Parameters</h3>
+
+<dl>
+	<dt>regRoot</dt>
+	<dd>Registry root, e.g. "HKLM".</dd>
+</dl>
+
+<dl>
+	<dt>regPath</dt>
+	<dd>Registry path to key under where you want to search for a value.</dd>
+</dl>
+
+<dl>
+	<dt>valueMatch</dt>
+	<dd>Wildcard for matching value. e.g. "Version_5.*"</dd>
+</dl>
+
+<h3>Return value</h3>
+
+<p>An array of matching registry values.</p>
+&nbsp;</div>
+
+<div class="multiscriptfunc">
+<h2><a name="regvaluefindregexp"></a>RegValueFindRegExp</h2>
+
+<p>Find all matching registry value under a registry key, Using regular expression for matching &nbsp;</p>
+
+<pre>
+&lt;arr&gt; RegValueFindRegExp(&lt;str&gt; regRoot, &lt;str&gt; regPath, &lt;str&gt; valueRegExpMatch);</pre>
+
+<h3>Parameters</h3>
+
+<dl>
+	<dt>regRoot</dt>
+	<dd>Registry root, e.g. "HKLM".</dd>
+</dl>
+
+<dl>
+	<dt>regPath</dt>
+	<dd>Registry path to key under which you want to search for a value.</dd>
+</dl>
+
+<dl>
+	<dt>valueRegExpMatch</dt>
+	<dd>Regular expression for matching values.</dd>
+</dl>
+
+<h3>Return value</h3>
+
+<p>An array of matching registry values.</p>
+&nbsp;</div>
+
+<div class="multiscriptfunc">
+<h2><a name="regvaluegetsz"></a>RegValueGetSZ</h2>
+
+<p>Get the value of a REG_SZ&nbsp;registry value.</p>
+
+<pre>
+&lt;str&gt; RegValueGetSZ(&lt;str&gt; regRoot, &lt;str&gt; regPath, &lt;str&gt; valuename);</pre>
+
+<h3>Parameters</h3>
+
+<dl>
+	<dt>regRoot</dt>
+	<dd>Registry root, e.g. "HKLM".</dd>
+</dl>
+
+<dl>
+	<dt>regPath</dt>
+	<dd>Registry path to key under which the value exists.</dd>
+</dl>
+
+<dl>
+	<dt>valuename</dt>
+	<dd>Name of the registry key value to return. (Must be a REG_SZ value).</dd>
+</dl>
+
+<h3>Return value</h3>
+
+<p>The string value of the registry value. Returns an empty string if the value does not exist.</p>
+&nbsp;</div>
+
+<div class="multiscriptfunc">
+<h2><a name="regvaluegetdword"></a>RegValueGetDWORD</h2>
+
+<p>Get the value of a REG_DWORD registry value&nbsp; .</p>
+
+<pre>
+&lt;num&gt; RegValueGetDWORD(&lt;str&gt; regRoot, &lt;str&gt; regPath, &lt;str&gt; valuename);</pre>
+
+<h3>Parameters</h3>
+
+<dl>
+	<dt>regRoot</dt>
+	<dd>Registry root, e.g. "HKLM"</dd>
+</dl>
+
+<dl>
+	<dt>regPath</dt>
+	<dd>Registry path to key under where the value exists.</dd>
+</dl>
+
+<dl>
+	<dt>valuename</dt>
+	<dd>Name of the registry key value to return. (Must be a REG_DWORD value)</dd>
+</dl>
+
+<h3>Return value</h3>
+
+<p>The value of the registry DWORD value. Returns 0 if value does not exist.</p>
+
+<p>&nbsp;</p>
+</div>
+</div>
+
+

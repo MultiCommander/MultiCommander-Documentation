@@ -1,0 +1,117 @@
+<h2>Customized Paths</h2>
+<p>In some situation it might be wanted to control where config files are stored. By adding a special file named CustomConfigPaths.xml this is possible.<br />
+From this file you can control where the Config / Log / UserData location are, You can also redirect individual config file to other files located in other places and you can also add additional script folder that should be used.<br />
+This file need to be stored in the App Config folder. NOT the user config folder. (For portable version these are the same)</p>
+
+<ul>
+	<li>Portable version - It is the Config subfolder where MultiCommander.exe is located</li>
+	<li>Installed (For current user only) - C:\Users\%USERNAME%\AppData\Local\MultiCommander (X64)\Config\CustomConfigPaths.xml</li>
+	<li>Installed (For all user) - C:\Program Files\MultiCommander (X64)\Config\CustomConfigPaths.xml</li>
+</ul>
+
+<p>If installed for all user this is under the program files folder as you see above. So it will only be writeable for user with admin permissions. So for IT depertments that want to control this installed version is recommeded.<br />
+It is also possible to just change permissions for the CustomConfigPaths.xml so it is only readable, MultiCommander.exe only reads that file.</p>
+
+<p>The config folders that are storing the user config files are not the same as the paths above. (With the exception of Portable version where user config overwriting the "default" config files).<br />
+For installed version user configuration is stored in C:\Users\%USERNAME%\AppData\Roaming\MultiCommander\Config\.<br />
+The folder under C:\Users\%USERNAME%\AppData\Roaming\MultiCommander\ is the folders that can be relocated to another location.</p>
+
+<h2><strong>Create file</strong></h2>
+
+<p>The config file is a text file with a .xml file extension. A xml need to be written in special ways else the program will fail to open it.<br />
+You can verify the file so it is readable by programs by drag and drop the file to a webbrowser like chrome, edge and it will show the content and report if there are any xml error that will cause issue when the file is read.</p>
+
+<p>Create a file named CustomConfigPaths.xml in the location noted above.<br />
+Make sure you save the file using UTF-8 encoding. And then copy and paste the code below to it</p>
+
+<pre class="examples">
+&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;CustomConfigPaths&gt;
+
+&lt;/CustomConfigPaths&gt;
+</pre>
+
+<p>This is the base of the file. Now you need to add what to relocate and such and every thing must be added before the "&lt;/CustomConfigPaths&gt;" tags.. so "&lt;/CustomConfigPaths&gt;" should always the the last text in the file.</p>
+
+<h3><strong>Redirect Base Config folder / Log folder and UserData folder</strong></h3>
+
+<p>The base folder for Config/Log/UserData can be relocated using the ConfigPath,LogPath and UserDataPath tags and you then insert the new path as the value in the Path element. (See the example).The path you add can be a full path or a relative path.<br />
+If a relative path is used in is based from the default user config path. It is also possible to include environment variables into the path such as %APPDATA% , %HOMEPATH% and so on.</p>
+
+<h4><strong>ConfigPath</strong></h4>
+
+<p>Set this if you want to change the location of where MultiCommander should read / write all configuraton to.</p>
+
+<h4><strong>LogPath</strong></h4>
+
+<p>Set this if you want to change the location of where MultiCommander should write all log to.</p>
+
+<h4><strong>UserDataPath</strong></h4>
+
+<p>Set this if you want to change the location where MultiCommander store userdata.<br />
+User data is user specific data like profiles for MultiRename, FTP bookmarks and such.</p>
+
+<p>Examples</p>
+
+<pre class="example">
+&nbsp; &lt;ConfigPath Path="C:\MC\Config"/&gt;
+&nbsp; &lt;LogPath Path="C:\MC\Log"/&gt;
+&nbsp; &lt;UserDataPath Path="C:\MC\UserData"/&gt;
+</pre>
+
+<hr />
+<h3><strong>Redirect individual config file</strong></h3>
+
+<p>It is also possible to redirect individual config files. If redirect of individual config files are done the redirect of ConfigPath is not required. But if ConfigPath is relocated, Then relative path for the redirect are assumed from that path.</p>
+
+<p>Redirect of config files has two values that need to be set <strong>File </strong>and <strong>Redirected</strong>, <strong>File </strong>is the relative path of the file to redirect. relative to the config folder. So if you want to redirect UserMenu.xml no path before it is required.<br />
+If you want to redirect a config file from an extension the full path from the config folder is needed.<br />
+<strong>Redirected </strong>is full path of the file that is should read instead. If this is a relative path it is relative to the config folder.</p>
+
+<p>Example</p>
+
+<pre class="example">
+&nbsp; &lt;ConfigFileRedirect&gt;
+&nbsp; &nbsp; &lt;ConfigFile File="UserMenu.xml" Redirected="Menus\BasicMenu.xml" /&gt;
+&nbsp; &nbsp; &lt;ConfigFile File="Extensions\MultiFileViewer\MultiFileViewer.xml" Redirected="MultiFileViewer.xml" /&gt;
+&nbsp; &lt;/ConfigFileRedirect&gt;</pre>
+
+<hr />
+<h3><strong>Additional Script folders</strong></h3>
+
+<p>When MultiCommander starts it reads script from the config/Script folder. It is possible in this file add additional folder script also should be read from.</p>
+
+<p>The <strong>"Name"</strong> value is the name that the script will be added under when the user look in the User Defined Commands window.<br />
+<strong>"Path"</strong> is the folder that should be scanned for script<br />
+If <strong>"Recursive"</strong> is set to 1 then it will also scan all subfolders</p>
+
+<pre class="example">
+&nbsp; &lt;AdditionalScriptFolders&gt;
+&nbsp; &nbsp; &lt;ScriptFolder Name="MyScripts" Path="..\MCScript" Recursive="1" /&gt;
+&nbsp; &lt;/AdditionalScriptFolders&gt;</pre>
+
+<hr />
+<h3><strong>Example of a complete file</strong></h3>
+
+<p>Example of a complete CustomConfigPaths.xml file containing everything. You can use this as a template to modify and remove the parts that you do not need</p>
+
+<pre class="example">
+&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;CustomConfigPaths&gt;
+&nbsp; &lt;ConfigPath Path="C:\MC\Config"/&gt;
+&nbsp; &lt;LogPath Path="C:\MC\Log"/&gt;
+&nbsp; &lt;UserDataPath Path="C:\MC\UserData"/&gt;
+
+&nbsp; &lt;ConfigFileRedirect&gt;
+&nbsp; &nbsp; &lt;ConfigFile File="UserMenu.xml" Redirected="Menus\BasicMenu.xml" /&gt;
+&nbsp; &nbsp; &lt;ConfigFile File="Extensions\MultiFileViewer\MultiFileViewer.xml" Redirected="MultiFileViewer.xml" /&gt;
+&nbsp; &lt;/ConfigFileRedirect&gt;
+
+&nbsp; &lt;AdditionalScriptFolders&gt;
+&nbsp; &nbsp; &lt;ScriptFolder Name="MyScripts" Path="..\MCScript" Recursive="1" /&gt;
+&nbsp; &lt;/AdditionalScriptFolders&gt;
+
+&lt;/CustomConfigPaths&gt;<font face="sans-serif, Arial, Verdana, Trebuchet MS"><span style="white-space: normal;">
+</span></font></pre>
+
+

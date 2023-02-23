@@ -1,0 +1,57 @@
+<h2>User Defined Commands - Custom Commands</h2>
+<p><strong>Custom commands</strong> are commands that Multi Commander or its Extensions or Plug-ins provide. These commands often expose features you already have, but you can call them with special settings and options available to them.&nbsp;</p>
+
+<p>Custom Commands can also be called from MultiScript and that combination allows you to create <em>very</em> advanced and powerful commands.</p>
+
+<p><img align="middle" alt="" src="/Docs/Images/UDC_custom.png" /></p>
+
+<p><small>(The example in the image above will start a filesearch for *.jpg file in the path of the current source panel. Furthermore, the search will autostart.)</small></p>
+
+<h2>Create a command</h2>
+
+<p><strong>Custom commands</strong> are created by choosing <em>Custom Commands</em> in the Command Type dropdown of the <em>User Commands</em> dialog. To help you create the Custom Command there are three dropdown boxes from which you choose <em>Group</em>, <em>Function</em> and <em>Options/Parameters</em>. Using these dropdowns you can find all the functions and options that are provided for each group.</p>
+
+<p>The <em>Group</em> dropdown shows all the modules that have registered Custom Commands. The commands are separated into groups showing which module, extension or plug-in they belong to.</p>
+
+<p>When a module is selected the<em> Function</em> drop down list is updated to show the functions that module supports. When a function is selected the Options/Parameters drop down list is updated with the options and parameters you can send to that function.</p>
+
+<p>If you know the command you want you can write it directly into the editor. You do not have to use the drop down lists; they are just there to help you.</p>
+
+<p><a href="#docs_customcommands_examples">Custom Commands Examples</a></p>
+
+<p><a href="#docs_customcommands_list">List And Description of Custom Commands</a></p>
+
+<h2>MultiTags</h2>
+
+<p>MultiTags are specially formatted texts that will be replaced with dynamic information. For example, the MultiTag <strong>${sourcepath}</strong> will be replaced with the full path of the source panel (the currently active panel). The Custom Command is run through a process that will translate <strong>MultiTags</strong> before it is executed.</p>
+
+<p><a href="#docs_multitags">Read more about MultiTags</a></p>
+
+<p>&nbsp;</p>
+
+<h2>Options</h2>
+
+<p><img alt="" src="/Docs/Images/UDC_custom_runoptions.png" /></p>
+
+<p>When you press the <strong>Options </strong>button you get a list of options that can be assigned to the command, as shown above.</p>
+
+<ol>
+	<li>
+	<h3>Display Confirmation</h3>
+
+	<p>This option displays a dialog asking the user to confirm that the command really should be run. This is recommended if the program to be started could change anything on the computer, such as removing or modifying files. If the command is for example shown in the menu bar, it is very easy to accidentally call the command, and you might make changes to your system when you do not want to.</p>
+	</li>
+	<li>
+	<h3>Run Separately</h3>
+
+	<p>When this option is enabled the command is run separately for each file that is selected, with the MultiTag <strong>${currentfilepath}</strong> changed to match that file path.</p>
+	</li>
+</ol>
+
+<h2>Command Parameters</h2>
+
+<p>The script supports parameters to be sent to the command if it is called from the Commandline bar.</p>
+
+<p>The parameters are accessed by using the MultiTags <strong>${param:&lt;num&gt;}</strong> where &lt;num&gt; is the index of the parameter to use. <strong>${param:0}</strong> will be the first parameter,<strong> ${param:1}</strong> the second,<strong>&nbsp;${param:2}</strong> the third and so forth.</p>
+
+

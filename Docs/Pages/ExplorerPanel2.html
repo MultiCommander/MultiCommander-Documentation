@@ -1,0 +1,221 @@
+<h2>Explorer Panel - Navigation</h2>
+<p>The <strong>Explorer Panel</strong> is the primary panel in Multi Commander. It is from here that you browse the filesystem and select files to copy, move, rename, delete or view.</p>
+
+<p><img alt="" src="/Docs/Images/ExplorerPanel_1_350.png" style="width: 350px; height: 362px;" /></p>
+
+<p><strong>All References to Keyboard and Mouse commands below assume that you are using the default Commander-Style setup, unless otherwise specified.</strong></p>
+
+<h2>Commander-Style-Setup vs WindowsExplorer-Style Setup</h2>
+
+<p>By default Multi Commander uses the <strong>Commander-Style</strong> setup, meaning that mouse and keyboard shortcuts are similar to the file manager named NortonCommander that existed before Windows on MS-DOS. This setup has become very popular and is used in many other file managers on many platforms. It is popular because it is optimized for keyboard use and provides the ability to do everything from the keyboard in a efficient way.</p>
+
+<p>If you are more comfortable with the way <strong>Windows Explorer</strong> operates, it is possible to configure Multi Commander to work like Explorer. You will, however, lose some of the efficiency that you get from the Commander-Style setup.</p>
+
+<p><a href="/tips/change-windows-explorer-look-and-feel">Read more about how to change Multi Commander to the Windows Explorer-Style Setup</a><br />
+&nbsp;</p>
+
+<h2>Navigate the FileSystem</h2>
+
+<p>You can use both the keyboard and mouse to navigate in the Explorer Panel.</p>
+
+<p>The files/folders that are currently in focus are highlighted by way of a border drawn around them. These are the files/folders that will be affected by your action if no other files/folders are selected. You can navigate up and down the list with the up and down arrow keys. The <em>HOME</em>&nbsp;and <em>END</em> keys will change the focus to the first or last item in the list.</p>
+
+<p>If there are more files and folders than will fit on the screen you can use the page up and page down keys to scroll up and down in steps.</p>
+
+<p>To choose a subfolder to browse either <strong>double-click</strong> it or,&nbsp;if the folder is already in focus, press the <strong>RETURN</strong> key. The Explorer Panel will then try to show you the content of that path. You are also able to browse archives if there are filesystem plugins installed that expose that archive format as a filesystem. For example .zip and .rar files can be browsed as if they were unpacked into normal folders.&nbsp;</p>
+
+<p>To go back to the parent folder you can either double-click on the ".." icon or press the <strong>BACKSPACE</strong> key. Holding down <strong>CTRL</strong> while pressing <strong>BACKSPACE</strong> will send you to the root of the current volume or device.</p>
+
+<p>Holding <strong>CTRL</strong> and pressing the <strong>LEFT</strong> or <strong>RIGHT</strong> arrow key can synchronize the current path or folder in focus to the panel on the left or right. For example if you are in the left panel and focus is on a folder and you press the <strong>CTRL+RIGHT&nbsp;ARROW</strong> key, the path for the folder in focus will be sent to the right panel, and if the right panel is an Explorer Panel it will now show that path location. If the <strong>CTRL+LEFT ARROW</strong> key is pressed when the active panel also is the left one, the Explorer Panel on the left will get the current path location of the right panel and show that location in the left panel.</p>
+
+<p>If you hold <strong>CTRL</strong> while pressing the <strong>PAGE DOWN</strong>&nbsp;or <strong>PAGE UP</strong> key you will go to the next or previous sibling folder of the current location. For example If you have some <strong>A to Z</strong> folders in <strong>C:\MyFolders\</strong> and you are currently located in <strong>C:\MyFolders\D</strong>, then when you press the <strong>CTRL+PAGE DOWN</strong> keys the Explorer Panel will now go to the <strong>C:\MyFolders\E</strong> folder. If instead <strong>CTRL+PAGE UP</strong> were pressed, it would have gone to the <strong>C:\MyFolders\C</strong> folder. This however requires that sorting in the Explorer Panel is set to the <em>name </em>column. It will go to whichever previous (or next) sibling folder that the current sorting determines.</p>
+
+<p>If you have an Explorer Panel both in the source and target panel and want to show the same location in the target as the source panel has, then press the keyboard shortcut key <strong>CTRL+.</strong> (dot) in the source panel. The target and source panel will then show the same location.</p>
+
+<div class="dochints">
+<fieldset><legend>Hint</legend>
+
+<p><strong>Go To Sibling</strong><br />
+A quick way to go to a sibling folder is by way of the shortcut keys</p>
+
+<ul>
+	<li><strong>Ctrl+Page Up</strong> goes to the <em>preceding</em> sibling folder (in sort order)</li>
+	<li><strong>Ctrl+Page Down</strong> goes to the <em>next</em> sibling folder.</li>
+</ul>
+</fieldset>
+</div>
+
+<h2>Sorting</h2>
+
+<p><img alt="" src="/Docs/Images/ExplorerPanel_sort.png" /></p>
+
+<p>To sort the files and folders shown, click on the header of the column that you want to sort the contents by. Clicking on it again will reverse the sort order. You will see an arrow in the header of the column that currently has sorting activated, indicating if sorting is <em>ascending</em> or <em>descending</em>.</p>
+
+<p>Sorting can also be changed using shortcut keys: <strong>CTRL+F1</strong> to sort by first column, <strong>CTRL+F2</strong> for second column and so on, up to <strong>CTRL+F5</strong>. Selecting the column that is already the sort column will reverse the sort order of that column.</p>
+
+<p>If the configuration option <strong>Sort Files Logical</strong> for the Explorer Panel is checked, files and folders will be sorted so that numeric subfields are treated as numbers. E.g. instead of files being shown as&nbsp;</p>
+
+<pre>
+file_0011.txt
+file_1.txt
+file_10.txt
+file_2.txt</pre>
+
+<p>They will be sorted as</p>
+
+<pre>
+file_1.txt
+file_2.txt
+file_10.txt
+file_0011.txt</pre>
+
+<h2>Select files and folders</h2>
+
+<p><img alt="" src="/Docs/Images/ExplorerPanel_selection.png" /></p>
+
+<p>There are many ways to select files and folders in the Explorer Panel, and Multi Commander also remembers which files and folders you had selected if you return to a location you had previously opened since Multi Commander was last started. (If Multi Commander is closed this information is lost).</p>
+
+<div class="indent">
+<h3>Mouse (Commander-Style Setup)</h3>
+
+<p>Right click on the file or folder that you want to select or deselect. You can also hold down the right mouse button and drag the mouse up and down to change the selection on multiple files and folders. When changing selections on multiple files or folders, the first selection&nbsp;performed determines whether it should select or deselect all the files/folders that are under the mouse cursor until the mouse button is released.</p>
+
+<h3>Mouse (Windows Explorer-Style Setup)</h3>
+
+<p>Selection works as it does in Windows Explorer. You Select files/folders with the <em>left mouse button</em>, and to select multiple files and folders you hold down the <em>shift</em> key to select/unselect a range of items. Holding down <em>CTRL</em> will let you toggle the selection of items without deselecting already selected items.<br />
+&nbsp;</p>
+
+<h3>Mouse Selection Rectangle</h3>
+
+<p>If the option <strong>Selection Rectangle</strong> is checked in Explorer Panel Settings, you can also drag out a rectangle on the display. All files and folder that are touched by the rectangle will be selected. To use the selection rectangle you must start a drag operation <em>outside</em> any file or folder name.&nbsp;</p>
+
+<h3>Expanding / Shrinking Selection by Filter</h3>
+
+<p>Using the shortcut key <strong>NUM+</strong> or "<strong>Select</strong>" from the Edit Menu, an "Expand Selection" dialog will be shown where you can insert a filter and all files and folders matching that filter will be <em>selected</em>.</p>
+
+<p>Using the shortcut key <strong>NUM-</strong> or "<strong>Unselect</strong>" from the Edit Menu, a "Shrink Selection" dialog will be shown where you can insert a filter and all files and folders matching that filter will be <em>deselected</em>.</p>
+
+<h3>Invert Selection</h3>
+
+<p>By pressing the shortcut key <strong>NUM*</strong> or selecting <strong>"Invert Selection</strong>" from the Edit Menu, the selection of all the files and folders at the current location will be <em>inverted</em>. (Selected files and folders will be deselected, and unselected ones will be selected.)</p>
+
+<h3>Select All /&nbsp;Unselect All</h3>
+
+<p>Use the shortcut key<strong> CTRL+A</strong> or choose "<strong>Select All</strong>" from the Edit Menu to select <em>all</em> files and folders at the current location. Use <strong>CTRL+D</strong> or choose "<strong>Unselect All</strong>" from the Edit Menu to deselect all files and folders.&nbsp;</p>
+
+<h3>Quick Select Matching Extension or Filename</h3>
+
+<p>Using the shortcut key <strong>CTRL</strong> + <strong>NUM+</strong> or "Select same extension" from the Edit Menu, all files with the same file extension as the file currently in focus will be selected. <strong>Similarly, CTRL</strong> + <strong>NUM-</strong> deselects the files.</p>
+
+<p>Using the shortcut key <strong>ALT</strong> + <strong>NUM+</strong> or "Select same name" from the Edit Menu causes all Files with the same name, except those having the same file extension as the file currently in focus, to be selected. <strong>ALT</strong> + <strong>NUM-</strong> similarly deselects matching files.</p>
+
+<h3>Toggle Selection from keyboard shortcuts</h3>
+
+<p>You can toggle the selection of files and folder with the <strong>INSERT</strong> key; this key will toggle the selection of the current items in focus and then move down to the next item.</p>
+
+<p>Toggling the selecting files and folders can also be performed with the <strong>SPACE</strong> bar. If a selection is performed on a folder an action to calcuate the folder size is also issued.</p>
+</div>
+
+<h2>Quick Search</h2>
+
+<p>Quick Search allows you to start typing a name and the focus will change to files or folders starting with that name. Using the default commander-style setup you need to hold down <strong>ALT</strong> and <strong>CTRL</strong> key while typing. This can be configured in the settings for the Explorer Panel.&nbsp;</p>
+
+<p>When the Quick Search window is active you can press the <strong>UP</strong> and <strong>DOWN&nbsp;ARROW</strong> keys to move to the previous or next file or folder that matches the current quick search.</p>
+
+<p>With Windows Explorer-Style Setup you can just start typing without holding any other key down. However, this setup will disable the feature that forwards all key-presses to the command line bar.</p>
+
+<p>In the settings for the Explorer Panel you can configure the Quick Search window to be activated with<strong> ALT+CTRL+&lt;any letter&gt;</strong> or<strong> ALT+&lt;any letter&gt;</strong> or simply <strong>&lt;any letter&gt;</strong>. If configured to be activated by any letter typed, then the <em>Forward Keys to the command line</em> feature will be disabled.</p>
+
+<h2>Forward Keys</h2>
+
+<p>With the default Commander-Style Setup, key-presses are forwarded to the command line bar. This make it possible for you to start typing a command without having to first manually change input focus to the command line bar.</p>
+
+<p>It is possible to change the input focus to the command line bar with the shortcut key <strong>§</strong>. (This key may have a different character depending on keyboard layout or language. It is the key to the left of the '1' key on a normal keyboard. Laptop keyboards can be different). This key can be reconfigured in the keyboard customization manager.</p>
+
+<h2>Context Menu</h2>
+
+<p>The <em>context menu</em> is the <em>right click menu</em> that you see in Windows Explorer. In MultiCommander this can be shown in different ways and additional actions can be shown in the menu. If MultiCommander is set to Window Explorer style the context menu is shown using the right mouse button. However, for the default commander-style setup the right mouse button toggles the selections of files and folder with. But if you hold the right button down for 2 seconds it will show the context menu. Double clicking with the right button will also bring up the context menu.</p>
+
+<h2>Drag and Drop</h2>
+
+<p>You can drag and drop selected files using the left mouse button. If files are dropped on the same drive the file operation will default to a <em>Move</em> Operation instead of a <em>Copy</em> Operation. To avoid&nbsp; this hold down the <strong>SHIFT</strong> key while dropping the files.</p>
+
+<h2>Copy / Paste</h2>
+
+<p>Copying and pasting of files and folders can be performed just as in Windows Explorer, but there is also a function to copy the path of a file to the clipboard so that you can paste that path or filename into another program.</p>
+
+<h3>Copy to the Clipboard</h3>
+
+<p><strong>CTRL+P</strong> will copy the complete path with the name of the selected file or folder to the clipboard.<br />
+<strong>CTRL+SHIFT+P</strong> will copy only the name of the selected files or folders to the clipboard.<br />
+<strong>SHIFT+ALT+P</strong> will copy only the path of the selected files or folders to the clipboard.</p>
+
+<h3>Paste from the Clipboard</h3>
+
+<p>If you have a path to a file or folder already in the clipboard you can paste that path into the Explorer Panel with <strong>CTRL+V</strong>. It will then show you that path so you can continue browsing that location.</p>
+
+<p><img alt="" src="/Docs/Images/saveclipboardasimg.png" /></p>
+
+<p>If the data in the clipboard is not a file path, MultiCommander will attempt to identify what type of data it is. If it is an image (e.g. a screen capture) then you will be presented with a dialog to save the content from the clipboard as an image and you can choose which image format you want to save it as <strong>(BMP/JPG/PNG)</strong>.&nbsp;</p>
+
+<p>If the data is identified as text you will be presented with a dialog to save the content from the clipboard as a text file and you can choose to save the text content as <strong>ASCII</strong> or <strong>Unicode.</strong><br />
+&nbsp;</p>
+
+<h2>Keyboard shortcuts</h2>
+
+<ul>
+	<li><a href="#docs_keyboard-shortcuts/CommanderStyle">Default Keyboard Shortcuts (Commander style setup)</a></li>
+	<li><a href="#docs_keyboard-shortcuts/WindowsExplorerStyle">Default Keyboard Shortcuts (Windows Explorer style setup)</a></li>
+</ul>
+
+<h2>Favorites/Bookmarks</h2>
+
+<p>There are several ways to have Favorites/Bookmarks in Multi Commander</p>
+
+<ul>
+	<li>User Defined Command in the Button Panel</li>
+	<li>Alias for the command line field</li>
+	<li>User Command in the Menu Bar</li>
+	<li>Quick Launch Bar</li>
+	<li>Favorites Window</li>
+	<li>Quick Paths</li>
+</ul>
+
+<div class="indent">
+<h3><span style="line-height: 1.2; font-size: 13px;">User Defined Command in the Button Panel</span></h3>
+
+<p>Using <strong>User Defined Commands</strong> you can easily create a <strong>Button Panel </strong>button to change the current path. First activate <em>Wizard mode</em> by pressing the <strong>Wizard Mode (On/Off)</strong> button. (It is the last button to the right on the bottom row) or from the <em>configuration menu</em> by selecting <strong>Toggle button panel wizard mode</strong></p>
+
+<p>When <em><strong>Wizard Mode</strong></em> is active the button panel will have a red background around the buttons. You can now <strong>drag and drop</strong> a file or folder to any button and the <em>Button Panel Wizard</em> dialog will be shown. Click on <strong>Go to file / path in Multi Commander</strong> in the dialog and then press <strong>OK</strong>. You now have a button that when pressed will take you to that file or location.</p>
+
+<h3>Alias for the Command Line Field</h3>
+
+<p>An <em>alias</em> is a shortcut you type into the Multi Commander command line field that will expand into one or more longer commands. If you enter a path location in the Multi Commander command line field and then press return, Multi Commander will go to that location. So by creating an <em>alias</em> for a <em>path</em> you can go to that path by just typing the alias you assigned it. For people who like to be able to go to different paths quickly using the keyboard this is very useful and efficient.</p>
+
+<p>You create an alias in the <strong>Alias Editor</strong> that you find under the <strong>Configuration</strong> menu. But there are also two quick commands, <em>Alias</em> and <em>Alias2</em>, that can create an alias directly from the command line field. For example,&nbsp; if you wish to create a command line shortcut that takes you to your folder "<em>D:\my music\mp3</em>\" you can type <strong>alias mp3="d:\my music\mp3\"</strong>. (The quotes are only needed if there are spaces in the the path). Now when you type <strong>mp3</strong> in the command line field and press return, Multi Commander will expand the "mp3" alias to the full path and execute that. Since it is a path it will go to that location.</p>
+
+<p>But there is an even easier way to create this alias, and that is to use the <em>alias2</em> command. This command only takes the alias name as a parameter and assumes that the current path in the Explorer Panel will be the target path for that name. So if the path<em> D:\my music\mp3\</em> is open and in the command line field you type <strong>alias2 mp3</strong>, you will create an alias named <strong>mp3</strong> that will take you to the path <strong>D:\my music\mp3\</strong>.</p>
+
+<p><a href="#docs_aliases">Read more about aliases</a></p>
+
+<h3>User Defined Commands in the Menu Bar</h3>
+
+<p>The custom command for changing the path is MC.Explorer.GoTo. If you want a command that takes you to the MP3 folder we used in the alias example above you write</p>
+
+<pre>
+MC.Explorer.GoTo PATH="D:\My Music\MP3"</pre>
+
+<p>You can also specify LEFT/RIGHT (instead of PATH) if you want to control in which panel side the path should be opened.</p>
+
+<p>After you have written your command and saved it, you can press the Menu button. From here you can add the newly created command to the menu bar.</p>
+
+<p><a href="#docs_user-defined-commands">Read more about User Defined Commands</a></p>
+
+<h3>Quick Launch Bar</h3>
+
+<p>You can Drag and Drop files and folders to the Quick Launch Bar. When a folder that is placed on the Quick Launch Bar is clicked, It will change the current panel to that path. You can also place a User Defined Command in the Quick Launch Bar by right-clicking on it and selecting <em>Insert User Defined Command</em>.</p>
+
+<p><a href="#docs_quicklaunchbar">Read more about Quick Launch Bar</a>.</p>
+</div>
+
+

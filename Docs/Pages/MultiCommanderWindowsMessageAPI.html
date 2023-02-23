@@ -1,0 +1,93 @@
+<h2>Multi Commander Windows Message API</h2>
+<p>Multi Commander supports the <strong>WM_COPYDATA </strong>Windows message for setting and getting information.<br />
+Other programs can use this message to tell Multi Commander to go to a path, change focus to a file item, or to query what the current path is or which file is currently in focus.</p>
+
+<p>Actions for getting information from Multi Commander will have the response to the calling program returned using WM_COPYDATA message.</p>
+
+<p><a href="https://msdn.microsoft.com/en-us/library/windows/desktop/ms649011(v=vs.130).aspx">WM_COPYDATA</a> is a special Windows message. One of the parameters to send is a pointer to a COPYDATASTRUCT stucture. This struct is used to store all the data that should be send to Multi Commander.</p>
+
+<pre>
+typedef struct tagCOPYDATASTRUCT {
+  ULONG_PTR dwData;
+  DWORD     cbData;
+  PVOID     lpData;
+} COPYDATASTRUCT, *PCOPYDATASTRUCT;
+</pre>
+
+<p>dwData is used to set some action flags for Multi Commander<br />
+lpData is a pointer to the data that should be sent to Multi Commander<br />
+cbData is the size in bytes of the data that should be sent</p>
+
+<p>The <strong>WM_COPYDATA </strong>message must be sent to the main Multi Commander Window.<br />
+This can be found by first finding the process ID of the Multi Commander.exe instance and then finding the top level window of that instance.<br />
+An example of how to do that is the <strong>MCCopyData.h </strong>file in the samples.</p>
+
+<p>When the HWND for the window has been found, use the Windows API SendMessage to send the <strong>WM_COPYDATA </strong>message to the HWND of the windows of Multi Commander.<br />
+If requesting information that requires Multi Commander to answer back, the HWND of the windows that will recieve the answer is also needed.</p>
+
+<p><strong>Exmple</strong></p>
+
+<pre>
+  COPYDATASTRUCT cds;
+  cds.dwData = CPF_GOTOPATH | CPF_SOURCE | CPF_NEWTAB;
+  cds.cbData = wcslen(szPath) * sizeof(wchar_t);
+  cds.lpData = (void*)szPath;
+  SendMessage(hMCHWND, WM_COPYDATA, (WPARAM)hMyHwnd, (LPARAM)(LPVOID)&amp;cds);
+</pre>
+
+<p><strong>CPF_GOTOPATH </strong>tells Multi Commander that the data provided is a path and this it should go to this path<br />
+<strong>CPF_SOURCE </strong>tells Multi Commander that the new path should be shown in the source panel<br />
+<strong>CPF_NEWTAB </strong>tells Multi Commander that the new path should be opened in a new tab.</p>
+
+<p>The following CopyData Flags can be combined.<br />
+Some flags can't be combined: do <em>not combine </em>multiple action flags and multiple target panel/side flags.</p>
+
+<pre>
+#define CPF_GOTOPATH       0x00000002L // Go to path
+#define CPF_GETCURPATH     0x00000004L // Go to current path - Result returned in WM_COPYDATA message from MC
+#define CPF_GETCURITEM     0x00000008L // Get name of current item (file or folder) in focus
+#define CPF_GETCURITEMFULL 0x00000010L // Get full path of current item (file or folder) in focus
+
+#define CPF_LEFT           0x00000100L // Go to the new path on the left side
+#define CPF_RIGHT          0x00000200L // Go to the new path on the right side
+#define CPF_SOURCE         0x00000400L // Go to the new path in the source panel side
+#define CPF_TARGET         0x00000800L // Go to the new path in the target panel side
+#define CPF_ANSI           0x00010000L // If not specified, all string are assumed to be Unicode
+#define CPF_NEWTAB         0x00020000L // Open a new side on the specified side
+#define CPF_FOCUSITEM      0x00040000L // Change focus to the file item provided in the path
+</pre>
+
+<p>Set CPF_ANSI if the path sent is ASCII/ANSI. If this is not set, Unicode (wchar_t) is assumed.</p>
+
+<h2>C++ Helper</h2>
+
+<p>Included in the Sample project there is a MCCopyData.h file. This file contains a helper class that will do most of the work for you.</p>
+
+<pre>
+  // Get Current path of the source panel
+  MultiCommander::MCCopyDataHelper MCCopyData;
+
+  MCCopyData.Subclass(hDlg);
+  std::wstring path = MCCopyData.GetCurrentPathW(hDlg, CPF_SOURCE);
+  MCCopyData.ReleaseSubClass(hDlg);
+</pre>
+
+<p>hDlg is the HWND of the calling program. This HWND is used when Multi Commander returns the answer to the request.</p>
+
+<p><br />
+<em>MCCopyData.Subclass(hDlg);</em><br />
+This will hook the helper class into the message loop of the calling program and it will handle all of the WM_COPYDATA responses sent from Multi Commander.</p>
+
+<p>If your program is not a pure Win32 program or you cannot do this, you need to handle the answer of the WM_COPYDATA yourself.<br />
+You will find an example of how to do this in the helper class.</p>
+
+<p>In this example we tell Multi Commander to go to D:\MyFolder\SubFolder and that this path should be opened in a new tab</p>
+
+<pre>
+  MultiCommander::MCCopyDataHelper MCCopyData;
+  MCCopyData.GoToPath(L"D:\\MyFolder\\SubFolder\\", CPF_SOURCE | CPF_NEWTAB, hDlg);
+</pre>
+
+<p><a href="/files/SDK/MCCopyDataSendGetSample_v1.zip">Download the sample project and test executable</a></p>
+
+

@@ -1,0 +1,73 @@
+<h2>Virtual FileSystem</h2>
+<p>Multi Commander uses a virtual filesystem layer.<br />
+The virtual filesystem has different plug-ins that extend the elements of the filesystem that Multi Command can show. An example of a plug-in is FS-Zip that will allow zip archives to be part of the virtual filesystem, so that they can be browsed and handled just like a folder. Other plug-include the FS-REG plug-in that will add a new filesystem prefix, REG:, that allows the Windows Registry to be browsed and handled as if it were a filesystem (even though it is not).</p>
+
+<p>Not all filesystem plug-in support all filesystem functions. This depends on what each plug-in can support.</p>
+
+<p><img alt="" src="/Docs/Images/VirtualFileSystem_chart.png" style="width: 228px; height: 366px;" /></p>
+
+<p>There are two types of filesystem plug-in: Devices and Containers.</p>
+
+<p>The devices filesystem plug-ins will add new device prefixes to the virtual filesystem, eg. FTP: , REG: , NET:<br />
+This will present things that are not normally part of a filesystem as if they were, like the Windows Registry, for example.</p>
+
+<p>Containers are files that contain filesystem objects that have structures that can be represented as if they were a filesystem.<br />
+Typical examples are archives like Zip, RAR or 7-Zip. The plug-ins for them will handle the archive files as they were folders opened in Multi Commander. Handling archives as if they were folders allow files to be inserted into the archive by simply copying file into the virtual folder. When viewing a file inside a archive that file will automatically first be copied to a temporary location before opening.</p>
+
+<h2>FS-Local</h2>
+
+<p>The built-in filesystem plug-in <b>FS-Local</b> is special. It is handled in a special way within Multi Commander.<br />
+FS-Local handles all the normal filesystem objects on the machine, like single-letter devices (A-Z), such as C:,D:,E:, and so on, and network file paths likes \\Server\share.It is also the only filesystem plug-in that cannot be disabled.</p>
+
+<h2>Container/Archive Plug-ins</h2>
+
+<p>Included with Multi Commander is a couple of archive filesystem plug-in that will handle different archives.<br />
+<b>FS-Zip</b> for Zip archive. Zip archives can be read/modify/write/create.<br />
+<b>FS-RAR</b> for rar archives, Only Read mode is supported. RAR archives can't be modified or created.&nbsp;<br />
+<b>FS-7Zip</b> handles the 7Zip archives. Read/Write/Create is supported.<br />
+<b>FS-TarGZ</b> handled both Tar and GZ archives.Read/Write/Create is supported.<br />
+<b>FS-BZip2</b> handles BZip2 archives. Read/Write/Create is supported.</p>
+
+<p>See more about <a href="#docs_filesystem/archives">archive plug-ins</a></p>
+
+<h2>Device Plug-ins</h2>
+
+<p>Included with Multi Commander is a couple of device plug-in<br />
+<b>FS-Favorites (FAV:)</b> Allows the favorites in Multi Commander to be browsed like a filesystem.<br />
+<b>FS-Portable (WPD:)</b> exposes the Windows Portable Device interface that gives access to portable devices connected to the machine.<br />
+<b>FS-Registry (REG:)</b> make it possible to access the Windows Registry<br />
+<b>FS-FTP (FTP:)&nbsp;</b> adds FTP support</p>
+
+<h2>Configuration</h2>
+
+<p>The way that the plug-in is connected into the virtual filesystem is configured in "Manage Plug-ins and Extensions".<br />
+There you can enable/disable plug-ins and configure the file extension and/or byte markers and device prefix that a filesystem plug-in should be associated with.</p>
+
+<p>Changing how plug-in are connected into the virtual filesystem is for <b>experts only</b>. You are able to configure the plug-ins in a such way that will Multi Commander my not act the way you want or expect.<br />
+Pressing the "Rebuild Config" button will reset all extension/plug-in setups to their defaults.</p>
+
+<p>The "Manage Plug-ins and Extensions" window is found under Menu -&gt; Configuration.&nbsp; Select "FileSystem Plug-ins" in the 'Extension Type' dropdown list.</p>
+
+<p><img alt="" src="/Docs/Images/FileSystemExtensions.png" style="width: 649px; height: 421px;" /></p>
+
+<p>Set or clear the checkboxes to the left to enable/disable a plug-in.&nbsp; To configure how it connects with the virtual filesystem press the <b>Options</b> button.</p>
+
+<p><img alt="" src="/Docs/Images/FileSystemExtensions_Options.png" style="width: 648px; height: 421px;" /></p>
+
+<p>In the image above FS-Zip was select and it is associated with file extensions zip and jar.<br />
+To remove an association with a file extension select the extension to remove and press the Remove button.<br />
+Adding a new file extension is done by adding the file extension (<em>without the dot</em>) to the input field above the Add button. Press the Add button to add it.</p>
+
+<p>&nbsp;</p>
+
+<p><img alt="" src="/Docs/Images/FileSystemExtensions_OptionsDlgs650.png" style="width: 650px; height: 202px;" /></p>
+
+<p>In the "File Identification" dropdown list you can also identify a file type by specifiying its byte marker. The byte marker is also used when trying to identify if a file should be opened by a container/archive plug-in.<br />
+The byte marker is special sequence of bytes that the file content always starts with. For example, PK are the two bytes that .zip archives always begin with.</p>
+
+<p>The byte marker can be entered as a hexadecimal value (see FS-RAR in the image above) or as ASCII text (see FS-Zip in image above).<br />
+Enter the byte marker in the input field and press the Add button. Select a byte marker in the list and press the Remove button to remove it.</p>
+
+<p>Device prefixes for device plug-ins are configured under the "File Extensions". Add the prefix without the "<strong>:</strong>" (See "reg" device for FS-Registry in the image above).</p>
+
+

@@ -1,0 +1,84 @@
+<h2>Find and Replace in Files</h2>
+<p><img alt="" src="/Docs/Images/FindReplace1.png" style="width: 574px; height: 431px;" /></p>
+
+<p>Find and Replace will find one or many substrings in files and replace them with one or many new substrings.</p>
+
+<p>Find and Replace will search and replace in all selected files. The number of files selected is shown in the dialog.</p>
+
+<p>It will automatically identify file formats. Files encoded in ASCII/Unicode/UTF8 are supported.</p>
+
+<p>Files identified as binary <em>will be ignored</em>, however, the identification of binary files can never be 100% accurate so be careful and do not select any binary files.</p>
+
+<p>The newline character that each processed file uses will be kept. When doing Multiline find/replace the newline inserted will be the same as the file already has.</p>
+
+<p>In the Filename field you will see what the name of the processed file will be. Files will always be saved in the same folder: only Filename can be changed</p>
+
+<p>If multiple files are select you will see a "*" in the Filename field. The "*" represents the original file name plus file extension.<br />
+If two files are selected named "MyFile1.txt" and "MyFile2.txt" and the Filename field contains "*_replaced.*" the new Filenames will be "MyFile1_replaced.txt" and "MyFile2_replaced.txt".</p>
+
+<p>In the Save as... dropdown list you can select if the new file should be saved with a different name; or it should keep the original name but as a backup by renaming (adding .bak to it); or if the original file should be deleted.</p>
+
+<h2><b>Text to find</b></h2>
+
+<p>In the field the text part(s) to be replaced is entered.<br />
+Exactly how the find will work depends on which find and replace mode is selected (see below).</p>
+
+<h2><b>Text to replace with</b></h2>
+
+<p>This fields contains the text(s) that the identified text part(s) will be replaced with.<br />
+Exactly how the replace will work depends on what find and replace mode is selected (see below).</p>
+
+<h2><b>Find and Replace Modes</b></h2>
+
+<div class="docs-indent">
+<p>There are a 4 possible Find and Replace modes:</p>
+
+<h3>Find one, Replace with one</h3>
+
+<p>Only first line from the Find and Replace fields is used.<br />
+It will replace all instances found that match the first line in the 'Text to find' field with the first line in the 'Text to replace with' field.</p>
+
+<h3>Find many , Replace with many</h3>
+
+<p>Every line in the 'Text to find' field will replace the matching line in the 'Text to replace with' field when doing Find and Replace.<br />
+Example: Line 3 in the 'Text to find' field will be replaced with line 3 in the 'Text to replace with' field.</p>
+
+<h3>Find Many, Replace with same</h3>
+
+<p>If many lines exist in the 'Text to find' field, all of them will be replaced with the <em>first line </em>in the 'Text to replace with' field.</p>
+
+<h3>Find and Replace Multiline text</h3>
+
+<p>Only 1 find and replace match can be entered, but texts entered in the find and replace fields support Multiline text (ie., can contain newline characters).<br />
+You can enter text in the 'Text to find' field that spans multiple lines and if a match is found the entire multiline text entered in the 'Text to replace with' field is inserted.<br />
+The newline character the file has when entering a find match is unimportant: the replace text will be inserted using the same newline character that the file already uses.</p>
+</div>
+
+<h2><b>Options</b></h2>
+
+<div class="docs-indent">
+<h3><b>Find match using RegExp</b></h3>
+
+<p>Finding text using regular expressions is not yet enabled.</p>
+
+<h3><b>Find match using Wildcard</b></h3>
+
+<p>Enable wildcard matching in the find field. * and ? can be used to match text.<br />
+<small>Using * at the beginning and end of the find expression can give match that you did not expect so make sure you test so it is correct before overwriting original file.</small></p>
+
+<h3><b>Ignore case</b></h3>
+
+<p>Ignore case when finding matches</p>
+
+<h3><b>Force UTF8 for ASCII text files</b></h3>
+
+<p>Enable this if you want to use UTF8 encoding for all files identified as ASCII.<br />
+File encoding is auto-detected but sometimes it is not possible to accurately detect whether a file is ASCII or UTF8. This options will force the usage of UTF8.</p>
+
+<h3><b>Silent - Show no dialogs</b></h3>
+
+<p>When enabled there will be no confirmation dialogs shown for any match found. "Replace All" is assumed and no error dialog will be shown.<br />
+Errors will still be logged to the application log.</p>
+</div>
+
+

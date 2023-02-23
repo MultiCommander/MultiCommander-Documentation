@@ -1,0 +1,671 @@
+<h2>MultiScript - String Functions</h2>
+<div class="scriptfunctions">
+<p>The following string functions are supported in MultiScript:</p>
+
+<table class="table table-bordered">
+	<tbody>
+		<tr>
+			<td><a href="#StrLen">StrLen</a></td>
+			<td>Return the length of a string.</td>
+		</tr>
+		<tr>
+			<td><a href="#strsub">StrSub</a></td>
+			<td>Return a substring from a string.</td>
+		</tr>
+		<tr>
+			<td><a href="#strfind">StrFind</a></td>
+			<td>Return the position of a substring in a string.</td>
+		</tr>
+		<tr>
+			<td><a href="#strrfind">StrRFind</a></td>
+			<td>Return the position of a substring using reverse find (back-to-front search).</td>
+		</tr>
+		<tr>
+			<td><a href="#strreplace">StrReplace</a></td>
+			<td>Replace a substring in a string.</td>
+		</tr>
+		<tr>
+			<td><a href="#strreplacechars">StrReplaceChars</a></td>
+			<td>Replace all characters found with one new character.</td>
+		</tr>
+		<tr>
+			<td><a href="#strreplacecharspairs">StrReplaceCharsPairs</a></td>
+			<td>Replace all characters found with a new characters.</td>
+		</tr>
+		<tr>
+			<td><a href="#strtoupper">StrToUpper</a></td>
+			<td>Return a string in uppercase.</td>
+		</tr>
+		<tr>
+			<td><a href="#strtolower">StrToLower</a></td>
+			<td>Return a string in lowercase.</td>
+		</tr>
+		<tr>
+			<td><a href="#strtrim">StrTrim</a></td>
+			<td>Return a string that has been trimmed of unwanted characters both at the beginning and end.</td>
+		</tr>
+		<tr>
+			<td><a href="#strtrimleft">StrTrimLeft</a></td>
+			<td>Return a string that has been trimmed of unwanted characters from the left.</td>
+		</tr>
+		<tr>
+			<td><a href="#strtrimright">StrTrimRight</a></td>
+			<td>Return a string that has been trimmed of unwanted characters from the right.</td>
+		</tr>
+		<tr>
+			<td><a href="#strsplit">StrSplit</a></td>
+			<td>Split a string and return the separated substrings as an array.</td>
+		</tr>
+		<tr>
+			<td><a href="#strcomparenocase">StrCompareNoCase</a></td>
+			<td>Return the difference of two strings ignoring case differences.</td>
+		</tr>
+		<tr>
+			<td><a href="#operator__">operator ==</a></td>
+			<td>Return the difference of two strings (case-sensitive comparison).</td>
+		</tr>
+		<tr>
+			<td><a href="#strisequal">StrIsEqual</a></td>
+			<td>Return 1 if two strings are equal, otherwise 0 (case-sensitive).</td>
+		</tr>
+		<tr>
+			<td><a href="#strisequalnocase">StrIsEqualNoCase</a></td>
+			<td>Return 1 if two strings are equal, ignoring case differences.</td>
+		</tr>
+		<tr>
+			<td><a href="#striswildmatch">StrIsWildMatch</a></td>
+			<td>Return 1 if two strings match using a case-sensitive wildcard algorithm.</td>
+		</tr>
+		<tr>
+			<td><a href="#striswildmatchnocase">StrIsWildMatchNoCase</a></td>
+			<td>Return 1 if two strings match using a case-insensitive wildcard algorithm.</td>
+		</tr>
+		<tr>
+			<td><a href="#strisregexpmatch">StrIsRegExpMatch</a></td>
+			<td>Return 1 if two strings match using regular expressions (case-sensitive).</td>
+		</tr>
+		<tr>
+			<td><a href="#strisregexpmatchnocase">StrIsRegExpMatchNoCase</a></td>
+			<td>Return 1 if two strings match using regular expressions, ignoring case difference.</td>
+		</tr>
+		<tr>
+			<td><a href="#strregexpfind">StrRegExpFind</a></td>
+			<td>Find a substring using a regular expression.</td>
+		</tr>
+		<tr>
+			<td><a href="#strregexpreplace">StrRegExpReplace</a></td>
+			<td>Find a substring using a regular expression and replace it using regexp.</td>
+		</tr>
+	</tbody>
+</table>
+
+<h2>See also</h2>
+
+<p><a href="#docs_multiscript/functions/misc#savestringtofile">SaveStringToFile</a><br />
+<a href="#docs_multiscript/functions/misc#loadstringfromfile">LoadStringFromFile</a></p>
+
+<div class="multiscriptfunc">
+<h2><a name="StrLen"></a>StrLen</h2>
+
+<p>Return the length of a string.</p>
+
+<pre>
+&lt;num&gt; StrLen( &lt;str&gt; string );</pre>
+
+<h3>Parameters</h3>
+
+<dl>
+	<dt><em>string</em></dt>
+	<dd>A string to get the length of</dd>
+</dl>
+
+<h3>Return Value</h3>
+
+<p>The number of characters in <em>string</em></p>
+
+<h3>Example</h3>
+
+<pre class="example">
+@var $str = "MyString";
+@var $len = StrLen( $str );
+// $len is 8
+</pre>
+</div>
+
+<div class="multiscriptfunc">
+<h2><a name="strsub"></a>StrSub</h2>
+
+<p>Return a substring beginning at a specified location and having a specified length</p>
+
+<pre>
+&lt;str&gt; StrSub(&lt;str&gt; input, &lt;num&gt; offset, &lt;num&gt; length);</pre>
+
+<h3>Parameters</h3>
+
+<dl>
+	<dt><em>input</em></dt>
+	<dd>A string from which the substring is extracted</dd>
+	<dt><em>offset</em></dt>
+	<dd>Initial position to begin the search (starting with 0)</dd>
+	<dt><em>length</em></dt>
+	<dd>The number of characters to include in the returned substring, or -1 to include all characters through to the end of the string <em>input</em></dd>
+</dl>
+
+<h3>Return Value</h3>
+
+<p>A string that is the substring of <em>input </em>beginning at the specified location</p>
+</div>
+
+<div class="multiscriptfunc">
+<h2><a name="strfind"></a>StrFind</h2>
+
+<p>Find the position of a substring in a string (case-sensitive).</p>
+
+<pre>
+&lt;num&gt; StrFind(&lt;str&gt; input, &lt;str&gt; find, &lt;num&gt; offset);</pre>
+
+<h3>Parameters</h3>
+
+<dl>
+	<dt><em>input</em></dt>
+	<dd>The string to be searched</dd>
+	<dt><em>find</em></dt>
+	<dd>The string to be found</dd>
+	<dt><em>offset</em></dt>
+	<dd>Initial position to begin the search (starting with 0)</dd>
+</dl>
+
+<h3>Return Value</h3>
+
+<p>The position in the <em>input </em>string in which the search string <em>find </em>is found (the first character position is 0), or -1 if <em>find </em>is not found</p>
+</div>
+
+<div class="multiscriptfunc">
+<h2><a name="strrfind"></a>StrRFind</h2>
+
+<p>Find the position of a substring in a string, searching the string in reverse (case-sensitive).</p>
+
+<pre>
+&lt;num&gt; StrRFind(&lt;str&gt; input, &lt;str&gt; find);</pre>
+
+<h3>Parameters</h3>
+
+<dl>
+	<dt><em>input</em></dt>
+	<dd>The string to be searched</dd>
+	<dt><em>find</em></dt>
+	<dd>The string to be found</dd>
+</dl>
+
+<h3>Return Value</h3>
+
+<p>The position in the <em>input </em>string in which the search string <em>find </em>is found (the first character position is 0), or -1 if <em>find </em>is not found</p>
+</div>
+
+<div class="multiscriptfunc">
+<h2><a name="strreplace"></a>StrReplace</h2>
+
+<p>Replace a substring within a string (case-sensitive).</p>
+
+<pre>
+&lt;str&gt; StrReplace(&lt;str&gt; input, &lt;str&gt; find, &lt;str&gt; with );</pre>
+
+<h3>Parameters</h3>
+
+<dl>
+	<dt><em>input</em></dt>
+	<dd>A string within which to replace the substring</dd>
+	<dt><em>find</em></dt>
+	<dd>The substring to be replaced</dd>
+	<dt><em>with</em></dt>
+	<dd>The string that the substring <em>find </em>should to be replaced with</dd>
+</dl>
+
+<h3>Return Value</h3>
+
+<p>The string <em>input </em>with the substring <em>find </em>replaced by the string <em>with</em></p>
+
+<h3>Example</h3>
+
+<pre class="example">
+@var $str = "MyString";
+@var $str2 = StrReplace( $str, "My" , "New" );
+// $str2 is "NewString"
+</pre>
+</div>
+
+<div class="multiscriptfunc">
+<h2><a name="strreplacechars"></a>StrReplaceChars</h2>
+
+<p>Replace a any specified character with one new character (case-sensitive).</p>
+
+<pre>
+&lt;str&gt; StrReplaceChars(&lt;str&gt; input, &lt;str&gt; find, &lt;str&gt; with );</pre>
+
+<h3>Parameters</h3>
+
+<dl>
+	<dt><em>input</em></dt>
+	<dd>A string within which to replace the substring</dd>
+	<dt><em>find</em></dt>
+	<dd>A string of character to find</dd>
+	<dt><em>with</em></dt>
+	<dd>The character that any of the found characters should be replaced with</dd>
+</dl>
+
+<h3>Return Value</h3>
+
+<p>The string <em>input</em> with the characters replaced, If any. If no characters was replace the string is returned unmodified</p>
+
+<h3>Example</h3>
+
+<pre class="example">
+@var $str = "MyString";
+@var $str2 = StrReplaceChars( $str, "ryg" , "_" );
+// $str2 is "M_St_in_"
+</pre>
+</div>
+
+<div class="multiscriptfunc">
+<h2><a name="strreplacecharspairs"></a>StrReplaceCharsPairs</h2>
+
+<p>Replace a any specified character with a matching characters (case-sensitive).<br />
+the find and with parameter must be same in length. Ex character 2 in "find" will when found be replaced with character 2 from "with"</p>
+
+<pre>
+&lt;str&gt; StrReplaceCharsPairs(&lt;str&gt; input, &lt;str&gt; find, &lt;str&gt; with );</pre>
+
+<h3>Parameters</h3>
+
+<dl>
+	<dt><em>input</em></dt>
+	<dd>A string within which to replace the substring</dd>
+	<dt><em>find</em></dt>
+	<dd>A string of character to find</dd>
+	<dt><em>with</em></dt>
+	<dd>The string of characters to replace a found character with</dd>
+</dl>
+
+<h3>Return Value</h3>
+
+<p>The string <em>input</em> with the characters replaced, If any. If no characters was replace the string is returned unmodified</p>
+
+<h3>Example</h3>
+
+<pre class="example">
+@var $str = "MyString";
+@var $str2 = StrReplaceChars( $str, "ryg" , "_23" );
+// $str2 is "M2St_in3"
+</pre>
+</div>
+
+<div class="multiscriptfunc">
+<h2><a name="strtoupper"></a>StrToUpper</h2>
+
+<p>Transform a string into all uppercase characters.</p>
+
+<pre>
+&lt;str&gt; StrToUpper(&lt;str&gt; input);</pre>
+
+<h3>Parameters</h3>
+
+<dl>
+	<dt><em>input</em></dt>
+	<dd>A string that should be transformed</dd>
+</dl>
+
+<h3>Return Value</h3>
+
+<p>An uppercase version of the string <em>input</em></p>
+</div>
+
+<div class="multiscriptfunc">
+<h2><a name="strtolower"></a>StrToLower</h2>
+
+<p>Transform a string into all lowercase characters.</p>
+
+<pre>
+&lt;str&gt; StrToLower(&lt;str&gt; input);</pre>
+
+<h3>Parameters</h3>
+
+<dl>
+	<dt><em>input</em></dt>
+	<dd>A string that should be transformed</dd>
+</dl>
+
+<h3>Return Value</h3>
+
+<p>A lowercase version of the string <em>input</em></p>
+</div>
+
+<div class="multiscriptfunc">
+<h2><a name="strtrim"></a>StrTrim</h2>
+
+<p>Remove unwanted characters from both the left and right side of a string (case-sensitive).</p>
+
+<pre>
+&lt;str&gt; StrTrim(&lt;str&gt; input, &lt;str&gt; trimchars);</pre>
+
+<h3>Parameters</h3>
+
+<dl>
+	<dt><em>input</em></dt>
+	<dd>A string that should be trimmed</dd>
+	<dt><em>trimchars</em></dt>
+	<dd>A string specifying all characters to be removed</dd>
+</dl>
+
+<h3>Return Value</h3>
+
+<p>A string where <strong>all </strong>characters in <em>trimchars </em>have been removed from both the left side (beginning) and the right side (end) of the string <em>input</em></p>
+</div>
+
+<div class="multiscriptfunc">
+<h2><a name="strtrimleft"></a>StrTrimLeft</h2>
+
+<p>Remove unwanted characters from the left side of a string (case-sensitive).</p>
+
+<pre>
+&lt;str&gt; StrTrimLeft(&lt;str&gt; input, &lt;str&gt; trimchars);</pre>
+
+<h3>Parameters</h3>
+
+<dl>
+	<dt><em>input</em></dt>
+	<dd>A string that should be trimmed</dd>
+	<dt><em>trimchars</em></dt>
+	<dd>A string specifying all characters to be removed</dd>
+</dl>
+
+<h3>Return Value</h3>
+
+<p>A string in which <strong>all </strong>characters in <em>trimchars </em>have been removed from the left side (beginning)</p>
+</div>
+
+<div class="multiscriptfunc">
+<h2><a name="strtrimright"></a>StrTrimRight</h2>
+
+<p>Remove unwanted characters from the right side of a string (case-sensitive).</p>
+
+<pre>
+&lt;str&gt; StrTrimRight(&lt;str&gt; input, &lt;str&gt; trimchars);</pre>
+
+<h3>Parameters</h3>
+
+<dl>
+	<dt><em>input</em></dt>
+	<dd>A string that should be trimmed</dd>
+	<dt><em>trimchars</em></dt>
+	<dd>A string specifying all characters to be removed</dd>
+</dl>
+
+<h3>Return Value</h3>
+
+<p>A string in which <strong>all </strong>characters in <em>trimchars </em>have been removed from the right side (end)</p>
+</div>
+
+<div class="multiscriptfunc">
+<h2><a name="strsplit"></a>StrSplit</h2>
+
+<p>Split a string into an array of strings (case-sensitive).</p>
+
+<pre>
+&lt;array&gt; StrSplit(&lt;str&gt; input, &lt;str&gt; delimiter);</pre>
+
+<h3>Parameters</h3>
+
+<dl>
+	<dt><em>input</em></dt>
+	<dd>A string that should be split</dd>
+	<dt><em>delimiter</em></dt>
+	<dd>A string containing the character(s) that will be used as a delimiter</dd>
+</dl>
+
+<h3>Return Value</h3>
+
+<p>The string <em>input </em>split into multiple strings in an array of type string. The string is split wherever the character(s) in the string <em>delimiter </em>are located</p>
+
+<p>If the characters in <em>delimiter </em>are not found, the original string <em>input </em>is returned</p>
+</div>
+
+<div class="multiscriptfunc">
+<h2><a name="strcomparenocase"></a>StrCompareNoCase</h2>
+
+<p>Compare two strings, ignoring case differences.</p>
+
+<pre>
+&lt;num&gt; StrCompareNoCase(&lt;str&gt; string1, &lt;str&gt; string2);</pre>
+
+<h3>Parameters</h3>
+
+<dl>
+	<dt><em>string1</em></dt>
+	<dd>First string to compare</dd>
+	<dt><em>string2</em></dt>
+	<dd>Second string to compare</dd>
+</dl>
+
+<h3>Return Value</h3>
+
+<p>A number showing the differences between the strings <em>string1 </em>and <em>string2</em>. The return value indicates the lexicographic relation of string1 to string2<br />
+<br />
+&lt; 0 if <em>string1 </em>is less than <em>string2</em>.<br />
+0 if <em>string1 </em>is equal to <em>string2</em>.<br />
+&gt; 0 if <em>string1 </em>is greater than <em>string2</em>.</p>
+</div>
+
+<div class="multiscriptfunc">
+<h2><a name="operator__"></a>Operator ==</h2>
+
+<p>Compare two strings (case-sensitive).</p>
+
+<pre>
+&lt;num&gt; &lt;str&gt; == &lt;str&gt;;</pre>
+
+<h3>Parameters</h3>
+
+<dl>
+	<dt><em>string1</em></dt>
+	<dd>First string to compare</dd>
+	<dt><em>string2</em></dt>
+	<dd>Second string to compare</dd>
+</dl>
+
+<h3>Return Value</h3>
+
+<p>1 if the string are the same, and 0 if the are different.</p>
+
+<h3>Example</h3>
+
+<pre class="example">
+@var $str1 = "ABCDEF";
+@var $str2 = "ABCDEF";
+@var $val = $Str1 == $Str2;
+// $val == 1
+@var $str3 = "AbcDeF";
+@var $val = $Str2 == $Str3;
+// $val == 0
+</pre>
+</div>
+
+<div class="multiscriptfunc">
+<h2><a name="strisequal"></a>StrIsEqual</h2>
+
+<p>Check whether two strings are equal (case-sensitive).</p>
+
+<pre>
+&lt;num&gt; StrIsEqual(&lt;str&gt; string1, &lt;str&gt; string2);</pre>
+
+<h3>Parameters</h3>
+
+<dl>
+	<dt><em>string1</em></dt>
+	<dd>First string to compare</dd>
+	<dt><em>string2</em></dt>
+	<dd>Second string to compare</dd>
+</dl>
+
+<h3>Return Value</h3>
+
+<p>A value of 1 if <em>string1 </em>is equal to <em>string2</em>, 0 if the strings are not identical</p>
+</div>
+
+<div class="multiscriptfunc">
+<h2><a name="strisequalnocase"></a>StrIsEqualNoCase</h2>
+
+<p>Check whether two strings are Equal, ignoring case differences.</p>
+
+<pre>
+&lt;num&gt; StrIsEqualNoCase(&lt;str&gt; string1, &lt;str&gt; string2);</pre>
+
+<h3>Parameters</h3>
+
+<dl>
+	<dt><em>string1</em></dt>
+	<dd>First string to compare</dd>
+	<dt><em>string2</em></dt>
+	<dd>Second string to compare</dd>
+</dl>
+
+<h3>Return Value</h3>
+
+<p>A value of 1 if <em>string1 </em>is equal to <em>string2, </em>0 if the strings are not identical (ignoring case)</p>
+</div>
+
+<div class="multiscriptfunc">
+<h2><a name="striswildmatch"></a>StrIsWildMatch</h2>
+
+<p>Check if a string matches a wildcard criterion (case-sensitive).<br />
+Wildcard is a string containing "*" (for anything) and "?" (for any single character).</p>
+
+<pre>
+&lt;num&gt; StrIsWildMatch(&lt;str&gt; input, &lt;str&gt; wildcard);</pre>
+
+<h3>Parameters</h3>
+
+<dl>
+	<dt><em>input</em></dt>
+	<dd>A string to check</dd>
+	<dt><em>wildcard</em></dt>
+	<dd>A wildcard string to check against</dd>
+</dl>
+
+<h3>Return Value</h3>
+
+<p>1 if <em>wildcard </em>matches the string <em>input</em>, 0 if no match is found</p>
+
+<h3>Examples</h3>
+
+<pre class="example">
+@var $str = "123def567";
+// If the character sequence "def" is in the string $str, $val1 will be 1
+@var $val1 = StrIsWildMatch( $str , "*def*");
+
+// The two first characters can be anything,
+// But the third character must be a 3.
+// And anything can be after it. then $val1 will be 1
+@var $val1 = StrIsWildMatch( $str , "??3*"); </pre>
+</div>
+
+<div class="multiscriptfunc">
+<h2><a name="striswildmatchnocase"></a>StrIsWildMatchNoCase</h2>
+
+<p>Check if a string matches wildcard criteria, ignoring case differences.<br />
+Wildcard is a string containing "*" (for anything) and "?" (for any single character).</p>
+
+<pre>
+&lt;num&gt; StrIsWildMatchNoCase(&lt;str&gt; input, &lt;str&gt; wildcard);</pre>
+
+<h3>Parameters</h3>
+
+<dl>
+	<dt><em>input</em></dt>
+	<dd>A string to check</dd>
+	<dt><em>wildcard</em></dt>
+	<dd>A wildcard string to check against</dd>
+</dl>
+
+<h3>Return Value</h3>
+
+<p>1 if <em>wildcard </em>matches the string <em>input</em>, 0 if no match is found</p>
+</div>
+
+<div class="multiscriptfunc">
+<h2><a name="strisregexpmatch"></a>StrIsRegExpMatch</h2>
+
+<p>Check if a string matches a regular expression (case-sensitive).</p>
+
+<pre>
+&lt;num&gt; StrIsRegExpMatch(&lt;str&gt; input, &lt;str&gt; regexp);</pre>
+
+<h3>Parameters</h3>
+
+<dl>
+	<dt><em>input</em></dt>
+	<dd>A string to check</dd>
+	<dt><em>regexp</em></dt>
+	<dd>A regular expression to check against</dd>
+</dl>
+
+<h3>Return Value</h3>
+
+<p>1 if the regular expression <em>regexp </em>matches the string <em>input</em>, 0 if no match is found</p>
+</div>
+
+<div class="multiscriptfunc">
+<h2><a name="strisregexpmatchnocase"></a>StrIsRegExpMatchNoCase</h2>
+
+<p>Check if a string matches a regular expression, ignoring case differences.</p>
+
+<pre>
+&lt;num&gt; StrIsRegExpMatchNoCase(&lt;str&gt; input, &lt;str&gt; regexp);</pre>
+
+<h3>Parameters</h3>
+
+<dl>
+	<dt><em>input</em></dt>
+	<dd>A string to check</dd>
+	<dt><em>regexp</em></dt>
+	<dd>A regular expression to check against</dd>
+</dl>
+
+<h3>Return Value</h3>
+
+<p>1 if the regular expression <em>regexp </em>matches the string <em>input</em>, 0 if no match is found</p>
+</div>
+
+<div class="multiscriptfunc">
+<h2><a name="strregexpfind"></a>StrRegExpFind</h2>
+
+<p>Find a substring using a regular expression.</p>
+
+<pre>
+&lt;num&gt; StrRegExpFind(&lt;str&gt; input, &lt;str&gt; regexp);</pre>
+
+<h3>Parameters</h3>
+
+<dl>
+	<dt><em>input</em></dt>
+	<dd>String to find a substring in</dd>
+	<dt><em>regexp</em></dt>
+	<dd>Regular expression to find the substring</dd>
+</dl>
+
+<h3>Return Value</h3>
+
+<p>Position in the string <em>input </em>where a match was found, or -1 if no match is found</p>
+
+<h3>Example</h3>
+
+<pre class="example">
+@var $str = "Program v3.10";
+@var $len = StrRegExpFind( $str , ".v[0-9].[0-9][0-9]" );
+// $len is 7
+</pre>
+
+<p>&nbsp;</p>
+</div>
+</div>
+
+

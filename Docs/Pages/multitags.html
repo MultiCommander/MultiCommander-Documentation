@@ -1,0 +1,190 @@
+<h2>MultiTags</h2>
+<p><strong>MultiTags</strong> are text tags that can be used with some User Commands.</p>
+
+<p>These tags are processed and translated before the command is executed.</p>
+
+<p>MultiTags are supported by External Commands, Custom Commands and Batch Scripts.<br />
+MultiTags <strong>CANNOT be used in MultiScript</strong> directly. To use them from MultiScript you must use the <a href="#docs_multiscript/functions/misc#gettagvalue">GetTagValue()</a> function.</p>
+
+<table class="table table-bordered">
+	<tbody>
+		<tr>
+			<th>MultiTag</th>
+			<th>Description</th>
+			<th>Example Output</th>
+		</tr>
+		<tr>
+			<td>${focusfilepath}</td>
+			<td>Full path to the file/folder in focus</td>
+			<td>C:\Programs Files\MultiCommander\MyFile.exe</td>
+		</tr>
+		<tr>
+			<td>${date:&lt;date-format&gt;}</td>
+			<td>Current local date</td>
+			<td>${date:yyyy-MM-dd} -&gt; 2016-02-28</td>
+		</tr>
+		<tr>
+			<td>${time:&lt;time-format&gt;}</td>
+			<td>Current local time</td>
+			<td>${time:hh:mm:ss} -&gt; "15:23:01"</td>
+		</tr>
+		<tr>
+			<td>${targetpath}</td>
+			<td>Current path of the target panel</td>
+			<td>D:\MyBackup\</td>
+		</tr>
+		<tr>
+			<td>${sourcepath}</td>
+			<td>Current path of the source panel</td>
+			<td>C:\Programs Files\MultiCommander\</td>
+		</tr>
+		<tr>
+			<td>${targetdevice}</td>
+			<td>Current device of the target panel</td>
+			<td>D</td>
+		</tr>
+		<tr>
+			<td>${sourcedevice}</td>
+			<td>Current device of the source panel</td>
+			<td>E</td>
+		</tr>
+		<tr>
+			<td>${sourcefocuspath}</td>
+			<td>Full path to item in focus, in the source view.<br />
+			This MultiTag is the same as ${focusfilepath}</td>
+			<td>F:\my folder\filename.txt</td>
+		</tr>
+		<tr>
+			<td>${targetfocuspath}</td>
+			<td>Full path to item in focus, in the target view.</td>
+			<td>D:\Temp\Folder 2\report.txt</td>
+		</tr>
+		<tr>
+			<td>${sourcefocusname}</td>
+			<td>Name of item in focus, in the source view.</td>
+			<td>filename.txt</td>
+		</tr>
+		<tr>
+			<td>${targetfocusname}</td>
+			<td>Name of item in focus, in the target view.</td>
+			<td>report.txt</td>
+		</tr>
+		<tr>
+			<td>${sourcefocusext}</td>
+			<td>Extension of item in focus, in the source view.</td>
+			<td>txt</td>
+		</tr>
+		<tr>
+			<td>${targetfocusext}</td>
+			<td>Extension of item in focus, in the target view.</td>
+			<td>txt</td>
+		</tr>
+		<tr>
+			<td colspan="3">${leftpath}, ${leftfocuspath}, ${leftfocusname} | ${rightpath}, ${rightfocuspath}, ${rightfocusname}
+			<p>Same as the ${sourcefocuspath} tags above, but referring to the left/right panel, independent of which panel is source or target.</p>
+			</td>
+		</tr>
+        <tr>
+           <td>$(pid)</td>
+           <td>The Process ID of MultiCommander</td>
+           <td>&nbsp;</td>
+        </tr>
+        <tr>
+           <td>$(mctemp)</td>
+           <td>Root temp folder used by MultiCommander</td>
+           <td>&nbsp;</td>
+        </tr>
+		<tr>
+			<td>${param:&lt;num&gt;}</td>
+			<td>
+			<p>Script parameter.<br />
+			where &lt;num&gt; is the index of the parameter</p>
+			</td>
+			<td>${param:0} -&gt; "D:\MyBackup\"</td>
+		</tr>
+	</tbody>
+</table>
+
+<p>All the paths below depend on how Multi Commander is installed, ie. for a Single User, Multi User, or a portable installation.</p>
+
+<table class="table table-bordered">
+	<tbody>
+		<tr>
+			<td>${mcinstallpath}</td>
+			<td>The path from which Multi Commander is run.</td>
+			<td>C:\Program Files\MultiCommander</td>
+		</tr>
+		<tr>
+			<td>${mcappdatapath}</td>
+			<td>Path to Multi Commander's application data folder.</td>
+			<td>C:\Users\&lt;username&gt;\AppData\Roaming\MultiCommander\</td>
+		</tr>
+		<tr>
+			<td>${mclogpath}</td>
+			<td>Path to Multi Commander's log folder</td>
+			<td>C:\Users\&lt;username&gt;\AppData\Roaming\MultiCommander\Logs\</td>
+		</tr>
+		<tr>
+			<td>${mcconfigpath}</td>
+			<td>Path to Multi Commander's main config folder.</td>
+			<td>C:\Users\&lt;username&gt;\AppData\Roaming\MultiCommander\Config\</td>
+		</tr>
+		<tr>
+			<td>${mcuserappdata}</td>
+			<td>Path to Multi Commander's user data storage. Used by plugins and extensions to store user data.</td>
+			<td>C:\Users\&lt;username&gt;\AppData\Roaming\MultiCommander\UserData\</td>
+		</tr>
+	</tbody>
+</table>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<hr />
+<p>Paths that are expanded from MultiTags are <strong>NOT quoted</strong>, so you might need to put quotes around the MultiTag. You might also need to put single quotes around the entire command. (See the first MC.Run example below.)<br />
+&nbsp;</p>
+
+<h3>Examples</h3>
+
+<p><b>Custom Commands</b></p>
+
+<pre class="mscode">
+MC.Explorer.Goto PATH="${focusfilepath}"
+
+MC.Run CMD="C:\bin\Compare.exe" ARG='-s "${sourcepath}" -d "${targetpath}"'</pre>
+
+<p>As you see in the <b>MC.Run</b> example. The <b>ARG</b> command has spaces and quote (") characters in it, so the entire ARG must then be encapsulated in single quote ( ' ) characters.&nbsp;</p>
+
+<p><b>External Commands</b></p>
+
+<pre class="mscode">
+"C:\Program Files\Beyond Compare 3\BCompare.exe" -s "${leftfocuspath}" -d "${rightfocuspath}"</pre>
+
+<p><b>MultiScript Commands</b></p>
+
+<p>MultiTags are only supported in MultiScript on lines that are<strong> Custom Command</strong>s.</p>
+
+<pre class="mscode">
+@var $cmd = "C:\\Bin\\Compare.exe";
+
+// <strong>INCORRECT</strong>
+@var $path1 = "${sourcepath}"; // <strong>Not supported</strong> 
+@var $path2 = "${targetpath}"; // <strong>Not supported</strong> 
+MC.Run CMD="{$cmd}" ARG='-s "{$path1}" -d "{$path2}"'
+
+// <strong>CORRECT</strong>
+@var $path1 = GetSourcePath();
+@var $path2 = GetTargetPath();
+MC.Run CMD="{$cmd}" ARG='-s "{$path1}" -d "{$path2}"'
+
+// <strong>CORRECT</strong>
+MC.Run CMD="{$cmd}" ARG='-s "${sourcepath}" -d "${targetpath}"'
+
+</pre>
+
+<p><i>MultiScript calling a CustomCommand with Script variables</i>. Custom Commands that are run from MultiScript are run by the Custom Command engine, so script parts in the Custom Command line must be encapsulated with { } (as the variables are above). They will be evaluated and expanded before that line is sent to the Custom Command engine.</p>
+
+<p>&nbsp;</p>
+
+

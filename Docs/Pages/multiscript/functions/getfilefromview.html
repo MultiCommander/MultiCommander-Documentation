@@ -1,0 +1,472 @@
+<h2>MultiScript - Get and Set Selection and Paths</h2>
+<div>
+<p>Functions for getting focus/selected files and folder from source/target views.</p>
+
+<table class="table table-bordered">
+	<tbody>
+		<tr>
+			<td><a href="#getselectedfilenames">GetSelectedFileNames</a></td>
+			<td>Get an array of all currently selected files in the source panel.</td>
+		</tr>
+		<tr>
+			<td><a href="#getselectedpaths">GetSelectedPaths</a></td>
+			<td>Get an array with full paths of all currently selected files in the source panel.</td>
+		</tr>
+		<tr>
+			<td><a href="#getsourceselectedfilenames">GetSourceSelectedFileNames</a></td>
+			<td>Get an array with the names of selected items in the source panel.</td>
+		</tr>
+		<tr>
+			<td><a href="#gettargetselectedfilenames">GetTargetSelectedFileNames</a></td>
+			<td>Get an array with the names of selected items in the target panel.</td>
+		</tr>
+		<tr>
+			<td><a href="#getsourceselectedpaths">GetSourceSelectedPaths</a></td>
+			<td>Get an array with the full paths of the selected items in the source panel.</td>
+		</tr>
+		<tr>
+			<td><a href="#gettargetselectedpaths">GetTargetSelectedPaths</a></td>
+			<td>Get an array with the full paths of the selected items in the target panel.</td>
+		</tr>
+		<tr>
+			<td><a href="#getsourcepath">GetSourcePath</a></td>
+			<td>Get the current source path.</td>
+		</tr>
+		<tr>
+			<td><a href="#gettargetpath">GetTargetPath</a></td>
+			<td>Get the current target path.</td>
+		</tr>
+		<tr>
+			<td><a href="#getsourcefocuspath">GetSourceFocusPath</a></td>
+			<td>Get the full path of the item in focus in the source panel.</td>
+		</tr>
+		<tr>
+			<td><a href="#gettargetfocuspath">GetTargetFocusPath</a></td>
+			<td>Get the full path of the item in focus in the target panel.</td>
+		</tr>
+		<tr>
+			<td><a href="#getsourcefocusname">GetSourceFocusName</a></td>
+			<td>Get the name of the item in focus in the source panel.</td>
+		</tr>
+		<tr>
+			<td><a href="#gettagetfocusname">GetTargetFocusName</a></td>
+			<td>Get the name of the item in focus in the target panel.</td>
+		</tr>
+		<tr>
+			<td><a href="#getsourceitems">GetSourceItems</a></td>
+			<td>Get an array with all filenames or full paths of all items in the source panel.</td>
+		</tr>
+		<tr>
+			<td><a href="#gettargetitems">GetTargetItems</a></td>
+			<td>Get an array with all filenames or full paths of all items in the target panel.</td>
+		</tr>
+	</tbody>
+</table>
+
+<table class="table table-bordered">
+	<tbody>
+		<tr>
+			<td><a href="#setsourceselected">SetSourceSelected</a></td>
+			<td>Set selection in the source panel.</td>
+		</tr>
+		<tr>
+			<td><a href="#settargetselected">SetTargetSelected</a></td>
+			<td>Set selection in the target panel.</td>
+		</tr>
+	</tbody>
+</table>
+
+<div class="multiscriptfunc">
+<h2><a name="getselectedfilenames"></a>GetSelectedFileNames</h2>
+
+<p>Get the filenames of all selected files/folders in the source view.</p>
+
+<pre>
+&lt;arr&gt; GetSelectedFileNames();</pre>
+
+<h3>Return value</h3>
+
+<p>An array of all the names of the selected files and folders in the source view.</p>
+
+<h3>Example</h3>
+
+<pre>
+@var $arr = GetSelectedFileNames();
+LogDumpArray($arr);
+</pre>
+</div>
+
+<div class="multiscriptfunc">
+<h2><a name="getselectedpaths"></a>GetSelectedPaths</h2>
+
+<p>Get the complete filepaths of all selected files/folders in the source view.</p>
+
+<pre>
+&lt;arr&gt; GetSelectedPaths();</pre>
+
+<h3>Return value</h3>
+
+<p>An array of the complete paths for all the selected files and folders in the source view.</p>
+
+<h3>Example</h3>
+
+<pre>
+@var $arr = GetSelectedPaths();
+LogDumpArray($arr);
+</pre>
+</div>
+
+<div class="multiscriptfunc">
+<h2><a name="getsourceselectedfileNames"></a>GetSourceSelectedFileNames</h2>
+
+<p>Get an array of the filenames of the selected items in the source view.</p>
+
+<pre>
+&lt;arr&gt; GetSourceSelectedFileNames([&lt;str&gt; flags]);</pre>
+
+<h3>Parameters</h3>
+
+<p><em>flags</em></p>
+
+<p>Optional, If not provided not flags are assumed<br />
+IGNORE_FOCUS - Ignore focus item if no items are selected, By default of no items are selected the item in focus is returned</p>
+
+<h3>Return value</h3>
+
+<p>An array of file names (names only - not complete paths).</p>
+
+<h3>Example</h3>
+
+<pre>
+@var $arr = GetSourceSelectedFileNames();
+LogDumpArray($arr);
+
+@var $arr = GetSourceSelectedFileNames("IGNORE_FOCUS");
+LogDumpArray($arr);
+
+</pre>
+</div>
+
+<div class="multiscriptfunc">
+<h2><a name="gettargetselectedfileNames"></a>GetTargetSelectedFileNames</h2>
+
+<p>Get an array of all the filenames of the selected items in the target view.</p>
+
+<pre>
+&lt;arr&gt; GetTargetSelectedFileNames([&lt;str&gt; flags]);</pre>
+<h3>Parameters</h3>
+<p><em>flags</em></p>
+
+<p>Optional, If not provided not flags are assumed<br />
+IGNORE_FOCUS - Ignore focus item if no items are selected, By default of no items are selected the item in focus is returned</p>
+
+<h3>Return value</h3>
+
+<p>An array of file names (names only - not complete paths).</p>
+
+<h3>Example</h3>
+
+<pre>
+@var $arr = GetTargetSelectedFileNames();
+LogDumpArray($arr);
+
+@var $arr = GetTargetSelectedFileNames("IGNORE_FOCUS");
+LogDumpArray($arr);
+</pre>
+</div>
+
+<div class="multiscriptfunc">
+<h2><a name="getsourceselectedpaths"></a>GetSourceSelectedPaths</h2>
+
+<p>Get an array with the full paths of all selected items in the source view.</p>
+
+<pre>
+&lt;arr&gt; GetSourceSelectedPaths([&lt;str&gt; flags]);</pre>
+<h3>Parameters</h3>
+<p><em>flags</em></p>
+
+<p>Optional, If not provided not flags are assumed<br />
+IGNORE_FOCUS - Ignore focus item if no items are selected, By default of no items are selected the item in focus is returned</p>
+
+<h3>Return value</h3>
+
+<p>An array of full paths to files or folder.s</p>
+
+<h3>Example</h3>
+
+<pre>
+@var $arr = GetSourceSelectedPaths();
+LogDumpArray($arr);
+
+@var $arr = GetSourceSelectedPaths("IGNORE_FOCUS");
+LogDumpArray($arr);
+</pre>
+</div>
+
+<div class="multiscriptfunc">
+<h2><a name="gettargetselectedpaths"></a>GetTargetSelectedPaths</h2>
+
+<p>Get an array with the full paths of all selected items in the target view.</p>
+
+<pre>
+&lt;arr&gt; GetTargetSelectedPaths([&lt;str&gt; flags]);</pre>
+<h3>Parameters</h3>
+<p><em>flags</em></p>
+
+<p>Optional, If not provided not flags are assumed<br />
+IGNORE_FOCUS - Ignore focus item if no items are selected, By default of no items are selected the item in focus is returned</p>
+
+<h3>Return value</h3>
+
+<p>An array of full paths to files or folders.</p>
+
+<h3>Example</h3>
+
+<pre>
+@var $arr = GetTargetSelectedPaths();
+LogDumpArray($arr);
+
+@var $arr = GetTargetSelectedPaths("IGNORE_FOCUS");
+LogDumpArray($arr);
+
+</pre>
+</div>
+
+<div class="multiscriptfunc">
+<h2><a name="getsourcepath"></a>GetSourcePath</h2>
+
+<p>Get the complete path as currently shown in the source view.</p>
+
+<pre>
+&lt;str&gt; GetSourcePath();</pre>
+
+<h3>Return value</h3>
+
+<p>A string with the complete path shown in the source view.</p>
+
+<h3>Example</h3>
+
+<pre>
+@var $str = GetSourcePath();
+// $str == "C:\MyFolder\";
+</pre>
+</div>
+
+<div class="multiscriptfunc">
+<h2><a name="gettargetpath"></a>GetTargetPath</h2>
+
+<p>Get the complete path as currently shown in the target view.</p>
+
+<pre>
+&lt;str&gt; GetTargetPath();</pre>
+
+<h3>Return value</h3>
+
+<p>A string with the complete path shown in the target view.</p>
+
+<h3>Example</h3>
+
+<pre>
+@var $str = GetTargetPath();
+// $str == "C:\MyFolder\";
+</pre>
+</div>
+
+<div class="multiscriptfunc">
+<h2><a name="getsourcefocuspath"></a>GetSourceFocusPath</h2>
+
+<p>Get the full path to the item in focus in the source view.</p>
+
+<pre>
+&lt;str&gt; GetSourceFocusPath();</pre>
+
+<h3>Return value</h3>
+
+<p>A string with the full path to the item in focus</p>
+
+<h3>Example</h3>
+
+<pre>
+@var $str = GetSourceFocusPath();
+// $str == "C:\MyFolder\MyFile.txt";
+</pre>
+</div>
+
+<div class="multiscriptfunc">
+<h2><a name="gettargetfocuspath"></a>GetTargetFocusPath</h2>
+
+<p>Get the full path to the item in focus in the target view.</p>
+
+<pre>
+&lt;str&gt; GetTargetFocusPath();</pre>
+
+<h3>Return value</h3>
+
+<p>A string with the full path to the item in focus</p>
+
+<h3>Example</h3>
+
+<pre>
+@var $str = GetTargetFocusPath();
+// $str == "C:\MyFolder\MyFile.txt";
+</pre>
+</div>
+
+<div class="multiscriptfunc">
+<h2><a name="getsourcefocusname"></a>GetSourceFocusName</h2>
+
+<p>Get the name only of the item in focus in the source view.</p>
+
+<pre>
+&lt;str&gt; GetSourceFocusName();</pre>
+
+<h3>Return value</h3>
+
+<p>A string with the name of the item in focus</p>
+
+<h3>Example</h3>
+
+<pre>
+@var $str = GetSourceFocusName();
+// $str == "MyFile.txt";
+</pre>
+</div>
+
+<div class="multiscriptfunc">
+<h2><a name="gettargetfocusname"></a>GetTargetFocusName</h2>
+
+<p>Get the name only of the item in focus in the target view.</p>
+
+<pre>
+&lt;str&gt; GetTargetFocusName();</pre>
+
+<h3>Return value</h3>
+
+<p>A string with the name of the item in focus</p>
+
+<h3>Example</h3>
+
+<pre>
+@var $str = GetTargetFocusName();
+// $str == "MyFile.txt";
+</pre>
+</div>
+
+<div class="multiscriptfunc">
+<h2><a name="getsourceitems"></a>GetSourceItems</h2>
+
+<p>Get an array with all filename or fullpath of all the items in the source panel.</p>
+
+<pre>
+&lt;arr&gt; GetSourceItems([&lt;num&gt; fullpath]);</pre>
+
+<h3>Parameters</h3>
+
+<p><em>fullpath</em></p>
+
+<p>Optional. If provided and set to 1, it will return full filepaths, else only filenames are returned. If not set, 0 is assumed</p>
+
+<h3>Return value</h3>
+
+<p>An array with filename or path of all the items in the panel</p>
+
+<h3>Example</h3>
+
+<pre>
+@var $arr = GetSourceItems();
+// Full paths
+@var $arr = GetSourceItems(1);
+</pre>
+</div>
+
+<div class="multiscriptfunc">
+<h2><a name="gettargetitems"></a>GetTargetItems</h2>
+
+<p>Get an array with all filename or full path of all the items in the target panel.</p>
+
+<pre>
+&lt;arr&gt; GetTargetItems([&lt;num&gt; fullpath]);</pre>
+
+<h3>Parameters</h3>
+
+<p><em>fullpath</em></p>
+
+<p>Optional. If provided and set to 1, it will return full filepaths, else only filenames are returned. If not set, 0 is assumed.</p>
+
+<h3>Return value</h3>
+
+<p>An array with filename or path of all the items in the panel</p>
+
+<h3>Example</h3>
+
+<pre>
+@var $arr = GetTargetItems();
+// Full paths
+@var $arr = GetTargetItems(1);
+</pre>
+</div>
+
+<div class="multiscriptfunc">
+<h2><a name="setsourceselected"></a>SetSourceSelected</h2>
+
+<p>Set selection in the source panel</p>
+
+<pre>
+&lt;int&gt; SetSourceSelected(&lt;arr&gt; filenames, [&lt;int&gt; clear]);</pre>
+
+<h3>Parameters</h3>
+
+<p><em>filenames</em></p>
+
+<p>An array of filenames. The filenames will be used to match against the existing file in the view. and matched files will be selected.</p>
+
+<p><em>clear</em></p>
+
+<p>Optional. If provided and set to 1, the selections the in source view will be cleared before new selections are added<br />
+If set to 0, the new selections will be added to existing. If not set, 1 is assumed.</p>
+
+<h3>Return value</h3>
+
+<p>Number of files selected</p>
+
+<h3>Example</h3>
+
+<pre>
+@var $arr[] = {"file1.txt", "file2.txt"};
+@var $num = SetSourceSelected( $arr , 1);
+</pre>
+</div>
+
+<div class="multiscriptfunc">
+<h2><a name="settargetselected"></a>SetTargetSelected</h2>
+
+<p>Set selection in the target panel</p>
+
+<pre>
+&lt;int&gt; SeTargetSelected(&lt;arr&gt; filenames, [&lt;int&gt; clear]);</pre>
+
+<h3>Parameters</h3>
+
+<p><em>filenames</em></p>
+
+<p>An array with strings of filename. The filename will be used to match against the existing file in the view. and matched files will be selected</p>
+
+<p><em>clear</em></p>
+
+<p>Optional. If provided and set to 1, the selections in the source view will be cleared before new selections are added<br />
+If set to 0, the new selections will be added to existing. If not set, 1 is assumed.</p>
+
+<h3>Return value</h3>
+
+<p>Number of files selected</p>
+
+<h3>Example</h3>
+
+<pre>
+@var $arr[] = {"file1.txt", "file2.txt"};
+@var $num = SetTargetSelected( $arr , 1);
+</pre>
+</div>
+</div>
+
+

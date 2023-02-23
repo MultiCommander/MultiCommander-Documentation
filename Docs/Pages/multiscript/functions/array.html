@@ -1,0 +1,381 @@
+<h2>MultiScript - Array functions</h2>
+<div class="scriptfunctions">
+<p><strong>Array </strong>is an internal data type in MultiScript.<br />
+An array can contain multiple values of type <strong>string</strong>, <strong>number</strong> or <strong>array</strong>.</p>
+
+<p>The following is a list of supported array functions:</p>
+
+<table class="table table-bordered">
+	<tbody>
+		<tr>
+			<td><a href="#array_init">array initialization</a></td>
+			<td>Initialize an array with values when declared.</td>
+		</tr>
+		<tr>
+			<td><a href="#arraycount">arrayCount</a></td>
+			<td>Count the items in an array.</td>
+		</tr>
+		<tr>
+			<td><a href="#arrayadd">arrayAdd</a></td>
+			<td>Add an item to an array.</td>
+		</tr>
+		<tr>
+			<td><a href="#arrayremove">arrayRemove</a></td>
+			<td>Remove an item from an array.</td>
+		</tr>
+		<tr>
+			<td><a href="#arrayfind">arrayFind</a></td>
+			<td>Find a string item in an array.</td>
+		</tr>
+		<tr>
+			<td><a href="#arrayifind">arrayIFind</a></td>
+			<td>Find a string item in an array, Ignoring case differences.</td>
+		</tr>
+		<tr>
+			<td><a href="#arraysort">ArraySort</a></td>
+			<td>Sort the items in an array.</td>
+		</tr>
+		<tr>
+			<td><a href="#arraytostring">ArrayToString</a></td>
+			<td>Concatenate all string in an array to a string.</td>
+		</tr>
+		<tr>
+			<td><a href="#strlines2array">StrLines2Array</a></td>
+			<td>Transform a string with multiple lines into an array of lines.</td>
+		</tr>
+		<tr>
+			<td><a href="#strlinesarry2string">StrLinesArray2String</a></td>
+			<td>Transform an array of strings into a multi-line string.</td>
+		</tr>
+		<tr>
+			<td><a href="#strtokenize2array">StrTokenize2Array</a></td>
+			<td>Tokenize a string into an array.</td>
+		</tr>
+		<tr>
+			<td><a href="#operator_index">operator []</a></td>
+			<td>Get or Set an array item at a specified index position.</td>
+		</tr>
+	</tbody>
+</table>
+&nbsp;
+
+<h2>See also</h2>
+
+<p><a href="#docs_multiscript/functions/misc#savearray">SaveArray</a><br />
+<a href="#docs_multiscript/functions/misc#loadarray">LoadArray</a></p>
+
+<div class="multiscriptfunc">
+<h2><a name="array_init"></a>Initialize Array</h2>
+
+<p>You can <strong>initialize </strong>an array when it is declared.</p>
+
+<pre>
+@var $arr[] = {&lt;str&gt;|&lt;num&gt;, &lt;str&gt;|&lt;num&gt;, ..., ... };</pre>
+
+<h3>Parameters</h3>
+
+<dl>
+	<dt><em>&lt;str&gt;|&lt;num&gt;</em></dt>
+	<dd>String or Number values to insert into the array</dd>
+</dl>
+
+<h3>Return value</h3>
+
+<p>An array with values inserted into it</p>
+
+<h3>Example</h3>
+
+<pre class="example">
+@var $arr[] = {"String1", "String2", "String3"};
+@var $len = arrayCount($arr);
+// $len is 3.
+</pre>
+</div>
+
+<div class="multiscriptfunc">
+<h2><a name="arraycount"></a>arrayCount</h2>
+
+<p><strong>Count </strong>the items in an array.</p>
+
+<pre>
+&lt;num&gt; arrayCount( &lt;array&gt; input );</pre>
+
+<h3>Parameters</h3>
+
+<dl>
+	<dt><em>input</em></dt>
+	<dd>Array to count items in</dd>
+</dl>
+
+<h3>Return value</h3>
+
+<p>The number of items that are currently in the array</p>
+
+<h3>Example</h3>
+
+<p>See 'Initialize Array', above</p>
+</div>
+
+<div class="multiscriptfunc">
+<h2><a name="arrayadd"></a>arrayAdd</h2>
+
+<p><strong>Add </strong>an item to an array.</p>
+
+<pre>
+&lt;none&gt; arrayAdd( &lt;array&gt; input, &lt;str&gt;/&lt;num&gt; value );</pre>
+
+<h3>Parameters</h3>
+
+<dl>
+	<dt><em>input</em></dt>
+	<dd>Array to add value into</dd>
+	<dt><em>value</em></dt>
+	<dd>String or Number value that should be added to the array</dd>
+</dl>
+
+<h3>Return value</h3>
+
+<p>Nothing</p>
+</div>
+
+<div class="multiscriptfunc">
+<h2><a name="arrayremove"></a>arrayRemove</h2>
+
+<p><strong>Remove </strong>an item from an array.</p>
+
+<pre>
+&lt;none&gt; arrayRemove( &lt;array&gt; input, &lt;num&gt; index );</pre>
+
+<h3>Parameters</h3>
+
+<dl>
+	<dt><em>input</em></dt>
+	<dd>Array to remove item from</dd>
+	<dt><em>index</em></dt>
+	<dd>The position in the array from which to remove the item, beginning at index 0</dd>
+</dl>
+
+<h3>Return value</h3>
+
+<p>Nothing</p>
+</div>
+
+<div class="multiscriptfunc">
+<h2><a name="arrayfind"></a>arrayFind</h2>
+
+<p><strong>Search </strong>an array for a string value (case-sensitive).</p>
+
+<pre>
+&lt;num&gt; arrayFind( &lt;array&gt; input, &lt;str&gt; string );</pre>
+
+<h3>Parameters</h3>
+
+<dl>
+	<dt><em>input</em></dt>
+	<dd>Array to be searched for the string</dd>
+	<dt><em>string</em></dt>
+	<dd>The string item to look for</dd>
+</dl>
+
+<h3>Return value</h3>
+
+<p>Index position of the found string, or -1 if the string is not found</p>
+</div>
+
+<div class="multiscriptfunc">
+<h2><a name="arrayifind"></a>arrayIFind</h2>
+
+<p><strong>Find </strong>a string value in an array, ignoring case differences.</p>
+
+<pre>
+&lt;num&gt; arrayIFind( &lt;array&gt; input, &lt;str&gt; string );</pre>
+
+<h3>Parameters</h3>
+
+<dl>
+	<dt><em>input</em></dt>
+	<dd>Array to be searched for the string</dd>
+	<dt><em>string</em></dt>
+	<dd>The string item to look for</dd>
+</dl>
+
+<h3>Return value</h3>
+
+<p>Index position of the found string, or -1 if string is not found</p>
+</div>
+
+<div class="multiscriptfunc">
+<h2><a name="arraysort"></a>ArraySort</h2>
+
+<p>Sort the items in an array.</p>
+
+<pre>
+&lt;arr&gt; ArraySort( &lt;arr&gt; arr );</pre>
+
+<h3>Parameters</h3>
+
+<dl>
+	<dt><em>arr</em></dt>
+	<dd>Array that should be sorted</dd>
+</dl>
+
+<h3>Return value</h3>
+
+<p>A new array that is sorted</p>
+
+<h3>Example</h3>
+
+<pre class="example">
+@var $arr[] = {3, 5, 2};
+@var $arrNew = ArraySort( $arr );
+// arrNew = 2,3,5
+
+@var $arr[] = {"DD", "CC", "AA"};
+@var $arrNew = ArraySort( $arr );
+// arrNew = "AA", "CC", "DD"
+</pre>
+</div>
+
+<div class="multiscriptfunc">
+<h2><a name="arraytostring"></a>ArrayToString</h2>
+
+<p>Join all string in an array to a string.</p>
+
+<pre>
+&lt;str&gt; ArraySort( &lt;arr&gt; arr, &lt;str&gt; delimiter, &lt;num&gt; escape);</pre>
+
+<h3>Parameters</h3>
+
+<dl>
+	<dt><em>arr</em></dt>
+	<dd>Array with strings</dd>
+	<dt><em>delimiter</em></dt>
+	<dd>What delimiter to use between the string, Eg " , " if you want space then comma then a space</dd>
+	<dt><em>aescaper</em></dt>
+	<dd>Set to 1 if you want all the string to have " around them. like if they are paths.</dd>
+</dl>
+
+<h3>Return value</h3>
+
+<p>A string</p>
+
+<h3>Example</h3>
+
+<pre class="example">
+@var $arr[] = { 'c:\MyFile1.txt', 'c:\MyFile2.txt', 'c:\MyFile3.txt'};
+@var $arrNew = ArrayToString( $arr, " , ", 0 );
+// arrNew = c:\MyFile1.txt , c:\MyFile2.txt , c:\MyFile3.txt
+
+@var $arr[] = { 'c:\MyFile1.txt', 'c:\MyFile2.txt', 'c:\MyFile3.txt'};
+@var $arrNew = ArrayToString( $arr, " , ", 1 );
+// arrNew = "c:\MyFile1.txt" , "c:\MyFile2.txt" , "c:\MyFile3.txt""
+</pre>
+</div>
+
+<div class="multiscriptfunc">
+<h2><a name="strlines2array"></a>StrLines2Array</h2>
+
+<p><strong>Transform </strong>a string with multiple lines into an array.</p>
+
+<pre>
+&lt;array&gt; StrLines2Array( &lt;str&gt; input );</pre>
+
+<h3>Parameters</h3>
+
+<dl>
+	<dt><em>input</em></dt>
+	<dd>Multi-line string (all forms of newline are supported)</dd>
+</dl>
+
+<h3>Return value</h3>
+
+<p>An array where the strings in <em>input </em>have been split at the line breaks</p>
+</div>
+
+<div class="multiscriptfunc">
+<h2><a name="strlinesarry2string"></a>StrLinesArray2String</h2>
+
+<p><strong>Transform </strong>an array of strings into a multi-line string.</p>
+
+<pre>
+&lt;str&gt; StrLinesArray2String( &lt;array&gt; input, [&lt;num&gt; eol] );</pre>
+
+<h3>Parameters</h3>
+
+<dl>
+	<dt><em>input</em></dt>
+	<dd>Array of strings</dd>
+	<dt><em>eol </em>(<em>Optional</em>)</dt>
+	<dd>what kind of line break to use:<br />
+	0 = CRLF (Windows) (this is the default if none is specified)<br />
+	1 = LF (Linux)<br />
+	2 = CR (Mac)</dd>
+</dl>
+
+<h3>Return value</h3>
+
+<p>A multi-line string where the strings in the array <em>input </em>have been appended together with line breaks inserted between the strings; the line break type is determined by the <em>eol </em>value</p>
+
+<h3>Example</h3>
+
+<pre class="example">
+@var $arr[] = {"String1", "String2", "String3"};
+@var $strLines = StrLinesArray2String( $arr );
+@var $strLinesLF = StrLinesArray2String( $arr, 1 );
+</pre>
+</div>
+
+<div class="multiscriptfunc">
+<h2><a name="strtokenize2array"></a>StrTokenize2Array</h2>
+
+<p><strong>Tokenize </strong>a string into an array, splitting it at specified delimiters.</p>
+
+<pre>
+&lt;array&gt; StrTokenize2Array( &lt;str&gt; input, &lt;str&gt; delimiter );</pre>
+
+<h3>Parameters</h3>
+
+<dl>
+	<dt><em>input</em></dt>
+	<dd>String to tokenize</dd>
+	<dt><em>delimiter</em></dt>
+	<dd>Characters at which to split the string</dd>
+</dl>
+
+<h3>Return value</h3>
+
+<p>An array of strings based on the string <em>input </em>after it is split. It is split wherever there are characters that match those in <em>delimiter</em>. The <em>delimiter </em>character(s) will <em>not </em>appear in the new array (ie., they will be lost)</p>
+</div>
+
+<div class="multiscriptfunc">
+<h2><a name="operator_index"></a>operator [ ]</h2>
+
+<p><strong>Index </strong>operator for setting or getting a value from an array.</p>
+
+<pre>
+&lt;any&gt; operator [&lt;num&gt;] &lt;any&gt;;</pre>
+
+<h3>Parameters</h3>
+
+<dl>
+	<dt><em>[&lt;num&gt;]</em></dt>
+	<dd>The index position to set or get a value, beginning at index 0</dd>
+</dl>
+
+<h3>Return value</h3>
+
+<p>The item at the selected index position</p>
+
+<h3>Example</h3>
+
+<pre class="example">
+@var $arr[] = {"Str1", "Str2", "Str3"};
+$arr[1] = "Frog";
+// string now contain the strings "Str1","Frog","Str3";
+@var $str = $var[2];
+// $str now contain the value "Str3"
+</pre>
+</div>
+</div>
+
+

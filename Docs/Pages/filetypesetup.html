@@ -1,0 +1,108 @@
+<h2>File Type Setup</h2>
+<p><strong>File Type Setup</strong> is used to configure how Multi Commander should handle different file types. The configuration here will override the file associations settings set in Windows.</p>
+
+<p>The setup is divided into separateconfigurable actions: View, Edit, Run/Open and Icon.</p>
+
+<div class="dochints">
+<fieldset><legend>Info</legend>
+
+<p>The configuration of which FileSystem Extensions should be associated with different file extension is NOT configured here.<br />
+<small>(Eg. what file extensions the Zip FileSystem extensions should use)</small><br />
+It is configured under each File Extension in the <a href="#docs_extensions">Extensions and Plug-ins Manager</a>.</p>
+</fieldset>
+</div>
+
+<p><img alt="" src="/Docs/Images/FileTypeSetup.png" style="width: 711px; height: 608px;" /></p>
+
+<p>Normally, when a file is run/opened, Windows will decide which program should be started for that file type.<br />
+What you The configure here is used before Windows gets involved and if running Multi Commander as a portable installation you can configure what other portable programs Windows should use.</p>
+
+<p>When you decide to <b>View/Edit</b> or <b>Run/Open</b> a file from Multi Commander it will go through the list of configurations and try to find a matching one. It will match configurations based on the "Extensions" field. You can also specify that a specific program should be valid only for certain paths.<br />
+For example, two different viewers are used for viewing jpg files, but for files located in <i>"D:\Photos"</i> perhaps you want to use a particular one. For all other locations the other viewer is used.</p>
+
+<p>If no matching configuration entry is found the&nbsp;<b>[Default Editor] / [Default Viewer]</b> program is used.</p>
+
+<p>To change the default viewers/editors that are used change the <b>[Default Editor] / [Default Viewer]</b> entries under Viewers/Editors.</p>
+
+<p>Icon setup is used if the default program icon should be overridden. Viewers/Editors can also override the icon. I so it will be listed in the icon page. Running Multi Commander in portable mode you can make sure that the icons always look the same.</p>
+
+<p>Press the <strong>Add </strong>button under the list of setup entries to add a new one. Select existing entry and press the <strong>Remove</strong> the button to remove an entry. <strong>[Default ... ]</strong> Entries cannot be deleted.</p>
+
+<p>Pressing the <strong>Reset </strong>button will reset all configurations.</p>
+
+<h2><strong>Viewer / Editor / Run/Open</strong></h2>
+
+<p>The following fields can be modified when configuring a Viewer/Editors/Run entry</p>
+
+<p><img alt="" src="/Docs/Images/ViewEditPage.png" style="width: 590px; height: 274px;" /></p>
+
+<h3>1. Name</h3>
+
+<p>Name of this setup item.</p>
+
+<h3>1. Program Path / Internal Extension / Windows Action</h3>
+
+<p>This field is changed depending on what type is selected. Press "..." then select the program.</p>
+
+<ul>
+	<li><b>External Program</b>
+
+	<p>Any external program can be run.</p>
+	</li>
+	<li><b>Internal Extension</b>
+	<p>Internal Extensions can register themselves as viewers/editors/launchers. They will then be list as extensions that you can select from.<br />
+	For Viewer there exist two default extensions: "MC Picture Viewer" and "MultiDataViewer"</p>
+	</li>
+	<li><b>Windows Action</b>
+	<p>Choose this if Windows should decide what to do with the file.<br />
+	Windows has 3 actions to choose from: default, open, edit.</p>
+	</li>
+</ul>
+
+<p>If an external program has been set, you can press the <b>[R]</b> button to convert the path to a relative (to Multi Commander.exe) path.<br />
+This is necessary if you are running in portable mode. The selected program must be located on the same drive as Multi Commander.exe.</p>
+
+<h3>3. Program Parameters / Options</h3>
+
+<p>If an internal extension was set, this field will be "<b>Options</b>". Then extension-specific options may be entered here.</p>
+
+<p>If an external program was set, this field will be "<b>Program Parameters</b>". Here you can add any program-specific parameters that should be passed to the program. Pressing the "<b>[&lt;]</b>" button will open a list of special tags that can be added. These tags will be expanded when the external program is run.</p>
+
+<h3>4. Icon</h3>
+
+<p>By checking the option "<b>Override default icon</b>" a new icon can be configured. This icon will be used for all matching file extensions and override the default icons that would be used</p>
+
+<p>However, if you have Multiple FileType Setup entries that match the same file extensions, and all of them have the override default icon enabled, then only the first will be used.</p>
+
+<h3>5. File Extensions</h3>
+
+<p>A space-separated list of all file extensions that this setup should affect.</p>
+
+<p>Pressing the "<b>...</b>" button will open a window that allows for easier editing of the file extension list.</p>
+
+<h3>6. Path Matching</h3>
+
+<p>A file type setup entry can be set to be valid only for a special path(s).<br />
+Press the [<strong>Add</strong>] button under the "<strong>Path Matching</strong>" box and add that path there. If you see an "<b>*</b>" in front of the path it means that the Path Matching rules are valid for that path and all its sub-paths.</p>
+
+<p>To remove a Path Matching select it and press [<strong>Remove</strong>]</p>
+
+<h2><strong>Icon</strong></h2>
+
+<p>By default Multi Commander will use the icon that Windows has defined for a file type. On this page it is possible to override that.<br />
+The list will show all the icons that Multi Commander is overriding</p>
+
+<p><strong><img alt="" src="/Docs/Images/FileTypeIconPage.png" style="width: 680px; height: 384px;" /></strong></p>
+
+<p>If an icon is overridden by a viewer/editor file type entry then it will be listed here. It is not possible to remove the icon here - that must be done on the Viewer/Editor file type page.</p>
+
+<p>To add an entry press the "<b>[Add]</b>" button then enter the file extension that the icon should be shown for.<br />
+Enter the path to a .exe/dll/.ico and select the icon idx from that file that should be used.</p>
+
+<p>Pressing the "<strong>[...]</strong>" button opens an Icon Picker window that allows .exe/.dll/.ico files to be browsed and viewed. This makes it easier to find the correct icon.</p>
+
+<p>Press the <b>[R]</b> button to convert the path to a relative (to Multi Commander.exe) path. This is useful if you are running in portable mode and want to have relative paths.</p>
+
+<p>All internal icons used by Multi Commander are stored in MCIcons.dll, This files also contains some extra icons that can be useful. This file is found at the same location as Multi Commander.exe.</p>
+
+

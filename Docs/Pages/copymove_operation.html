@@ -1,0 +1,167 @@
+<h2>Copy/Move Operations</h2>
+<p>To <strong>copy</strong> or <strong>move</strong> files and folders you first have to select the desired items; then there are a number of ways to start the copy/move operation:</p>
+
+<ol>
+	<li>You can drag and drop the selected files to where you want them copied or moved</li>
+	<li>You can select "Copy..." or "Move..." from the File menu</li>
+	<li>You can press the Copy or Move Button in the button panel, or in the File Commands toolbar</li>
+	<li>You can press the shortcut key for the Copy or Move command<br />
+	<em>(The default for Commander-style setup is <strong>F5/F6</strong>, for Explorer-style it is<strong> F4/F6</strong>)</em></li>
+</ol>
+
+<p>When a Copy or Move operation has been requested a dialog asking where to copy/move the files to is shown.</p>
+
+<p><img alt="" src="/Docs/Images/CopyDlg.png" /></p>
+
+<p>The default target for the copy/move operation will be the path of the target panel.</p>
+
+<p>To start the Copy or Move operation simply press the OK&nbsp;button.</p>
+
+<p>Running multiple copy/move operations concurrently on the same disks can affect performance.<br />
+Therefore, if another Copy or Move operation is already in progress a dialog will be shown asking if the new Copy/Move operation should be added to the queue of operations that are already running.</p>
+
+<p><a href="#docs_copymove_progress">Read more about the Progress Window</a> that will be shown during the copy/move operation.</p>
+
+<h2>Exceptions for a Single File</h2>
+
+<p><img alt="" src="/Docs/Images/CopyDlg_singlefile.png" /><br />
+If you are copying/moving a single file then the file name will also be shown in the target path field. This allows you to change the target name of the file if you wish.<br />
+If the target path is removed and only a filename is entered, then the file is written to the same path that it is read from but it is written using its new name.</p>
+
+<h2>Options</h2>
+
+<p><img alt="" src="/Docs/Images/CopyDlg_Options1.png" /></p>
+
+<p>Pressing the <strong>Options</strong> button causes the dialog to expand and show the basic file operation options.</p>
+
+<h3><a name="filter"></a>Filters</h3>
+
+<p><strong>Filters</strong> can be used to exclude files and folders from being copied/moved. Prefix the filter with "-" to exclude files and "/" to target only folders. Separate filters with spaces; if a space is needed in the filter then put quotes (") around the filter.</p>
+
+<p>Examples.. &nbsp;</p>
+
+<table class="table table-bordered">
+	<tbody>
+		<tr>
+			<td>*.jpg *.tiff</td>
+			<td>Only copy jpg and tiff files. Subfolders will be copied but only files matching the filter will be copied.</td>
+		</tr>
+		<tr>
+			<td>-*.jpg</td>
+			<td>Do not copy/move any jpg files.</td>
+		</tr>
+		<tr>
+			<td>-/Img -*.txt</td>
+			<td>Do not copy/move any folder named "Img" (all files inside that folder will also be ignored).<br />
+			Also exclude all .txt files.</td>
+		</tr>
+	</tbody>
+</table>
+
+<h3>Auto Close</h3>
+
+<p>These 2 options specify when the copy/move progress bar should be closed: automatically after the operation is complete, and if it should close only for short file operations. The default values for these options are configured in Core Settings.<br />
+<small>( Menu -&gt; Configuration -&gt; Core Settings -&gt; (tab) File System )</small>.</p>
+
+<p>When you only perform short copy operations such as copying a few images that will only take a few seconds, then you might want the progress dialog to auto-close when finished. However if the copy operation takes a very long time such as copying thousands of files, then you might want to keep it open after it is finished.</p>
+
+<h3>FileOperation Plug-in profiles</h3>
+
+<p><strong>FileOperation Plug-ins</strong> can be used when copying/moving files.These plug-ins can interact with the copy/move operation at difference stages of the process: when files are placed in the queue, before they are read, during data transfer, and after a file is written. Multiple plug-ins can be run consecutively, therefore the plug-ins can be assigned to profiles and you select which profile you want to use.</p>
+
+<p>The <strong>FileOperation Plug-in Profiles</strong> are modified and configured in the "<strong>FileOperation plug-in Profile manager</strong>" dialog that is opened by clicking on the "<strong>...</strong>" button next to the FileOperation Plug-in profiles drop-down list.</p>
+
+<p>By default 3 plug-ins are included in Multi Commander:</p>
+
+<ol>
+	<li>
+	<h4>Copy Content</h4>
+
+	<p>This plug-in takes the content of selected folders and&nbsp;places them in the queue as if you selected all the files in those folders rather than the folders themselves.</p>
+
+	<p>This plug-in is mainly used when merging multiple folders into a single target folder. For example, the folders <strong>D:\Images1, D:\Images2</strong> and <strong>D:\Images3</strong> are selected and copied using the <strong>Copy Content</strong> plug-in to <strong>D:\All-Images.</strong> Thus all the content from those three folders will be merged together into <strong>D:\All-Images</strong>.</p>
+
+	<p>Without this plug-in you would get 3 folders in <strong>D:\All-Images</strong> named <strong>Images1, Images2</strong> and <strong>Images3</strong>, each containing all its respective files. To merge all the folders together you would have had to go into <strong>D:\Images1</strong>, select all its files and copy them to <strong>D:\AllImages</strong>, then repeat that process for each of the other folders you wanted to merge.</p>
+	</li>
+	<li>
+	<h4>AutoSort (A-Z)</h4>
+
+	<p>This plug-in will effectively modify the target location of the selected files and folders and distribute them into an A-Z folder structure in the selected target location.</p>
+
+	<p>For example if the file "<strong>D:\Images1\Australia_001.jpg"</strong> is specified to be copied to <strong>D:\Images</strong>, it will be placed in <strong>D:\Images\A</strong> instead.</p>
+	</li>
+	<li>
+	<h4>Unpacker</h4>
+
+	<p>This plug-in will unpack all .zip/.rar files (depending on configuration) into the target folder instead of copying/moving them.</p>
+
+	<p>For example if it is told to copy the file "<strong>D:\Images_Collections\TripAustralia.zip</strong>" into <strong>D:\Trips</strong>, then it will take all the files inside the .zip archive and copy them into<strong> D:\Trips</strong> instead.</p>
+	</li>
+</ol>
+
+<h2>Advanced Options</h2>
+
+<p><img alt="" src="/Docs/Images/CopyDlg_Options2.png" /></p>
+
+<p>Pressing the <strong>Advanced</strong> button will expand the dialog and show the Advanced Options. These are options that are rarely changed; some options here should only be changed if you really know what you are doing.</p>
+
+<ul>
+	<li>
+	<h3>Keep incomplete/broken files</h3>
+
+	<p>If a file operation is interrupted when copying a file and the file is incomplete, or if an archive filesystem plug-in for .zip or .rar files informs you that the unpacked file is broken (the CRC check may have failed, for example), you can select if you always want to keep it, delete it or be asked what to do each time it happens.<br />
+	The default value for this option can be configured under the "Filesystem" tab in Core Settings (found under Menu -&gt;Configuration).</p>
+	</li>
+	<li>
+	<h3>Keep date and time</h3>
+
+	<p>Check this if you want the original date and time of the files you copy/move to be retained.</p>
+	</li>
+	<li>
+	<h3>Junctions / Symbolic Links</h3>
+
+	<p>If the copy/move operation comes to a Junction or Symbolic link in the filesystem, you can configure how&nbsp; it should be handled. The default for this option can be configured under the "Filesystem" tab in Core Settings (found under Menu -&gt;Configuration).</p>
+
+	<p>(Symbolic links only exist on NTFS file systems, but not on Windows XP/2003 and older.)</p>
+
+	<ul>
+		<li>
+		<h4>Follow Links</h4>
+
+		<p>This specifies that Multi Commander should copy the file/folder of the link target to the target folder.</p>
+		</li>
+		<li>
+		<h4>Copy/Move Link</h4>
+
+		<p>This will create a new link on the target and this link will point to the same location that the source link is pointing to. This requires you to have permissions in the filesystem to create Symbolic Links or Junctions.</p>
+		</li>
+		<li>
+		<h4>Ignore Links</h4>
+
+		<p>This will ignore all types of links, and will not follow or copy/move them.</p>
+		</li>
+	</ul>
+	</li>
+	<li>
+	<h3>Read/Write Strategy</h3>
+
+	<p>This is a list of different read/write strategies that can be used when reading/writing data. The system tries to determine what read/write strategy is best for the current operation and it will automatically select it. It is possible to select another one and also configure the strategy using the "..." button. This is however not recommended unless you are an expert.</p>
+	</li>
+	<li>
+	<h3>Speed Limit</h3>
+
+	<p>This allows you to limit the maximum speed of the copy/move operation.<br />
+	<span style="color: red;"><strong>This feature is not yet enabled, and cannot be used at present</strong></span></p>
+	</li>
+</ul>
+
+<h2>Save As Default</h2>
+
+<p>Pressing this button will save the settings you have currently chosen as the default values for all future copy/move operations. The next time you start a copy operation and this dialog is shown the configuration will be preset to what you have now.</p>
+
+<h2>Set/Change Presets</h2>
+
+<p><strong>Presets</strong> are a special feature whereby you can save some or all configurations including filters and target locations. These configurations can then be loaded using the functions keys (F1 to F10). A preset can also be configured to be auto-loaded when you start a copy/move operation from a specific folder.<br />
+<a href="#docs_copymove-using-presets">Read more about FileOperation Presets</a></p>
+
+

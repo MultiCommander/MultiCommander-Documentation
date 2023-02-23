@@ -1,0 +1,63 @@
+<h2>Rule Based File Coloring</h2>
+<p>Rule Based File Coloring make it possible to create rules that will define what color a file or folder should be shown as in an Explorer Panel.</p>
+
+<p>It is also possible to have multiple color profiles each of which has its own setup of different rules and it is possible to switch to a different profile from a toolbar button.<br />
+You can also create user defined commands that will switch to a specific profile; these commands can be assigned to a hotkey or a menu.</p>
+
+<h2>Where to Create the Rules</h2>
+
+<p><img alt="" src="/Docs/Images/FileColoring_Toolbar.png" /></p>
+
+<p>The File Coloring Rules Editor is opened by clicking on the Color Wheel icon on the toolbar.</p>
+
+<p>There are also options to enable/disable File Coloring and a list of available profiles.&nbsp; By default there is only the "[Default]" profile. But if you create own profiles they will also be listed here.<br />
+Clicking on "<b>Refresh file coloring for all files and folders</b>" will remove all coloring information and reapply it for all files and folder.</p>
+
+<p>The File Coloring Rules Editor can also accessed from the Configuration menu.<br />
+<img alt="" src="/Docs/Images/FileColoring_ConfigMenu.png" /></p>
+
+<h2>Rules Editor</h2>
+
+<p>In the File Coloring Rules Editor, It is possible to add/remove or modify existing rules or entire Color Profiles.<br />
+<img alt="" src="/Docs/Images/FileColoring_RulesEditor.png" style="width: 480px; height: 529px;" /></p>
+
+<p>The list with its rules also acts as a preview: the rule name will be listed in the colors set for it.</p>
+
+<p>Files and Folders are colored by rules <em>from top to bottom</em>. And <em>the first matching rule will be the one that decides the color</em>.<br />
+If you have multiple rule that can conflict with each other,&nbsp; you can use the Up and Down button above the list to move rules up and down the list.</p>
+
+<p>Every rule can have 3 criteria that must be true for the color rule to be applied. Only if <em>all parts </em>of the rule are true is the color rule applied.</p>
+
+<p>The checkboxes in the list of rules shows if a rule is enabled or not. If you uncheck a rule then it will not be applied when coloring files and folders.</p>
+
+<p>You can export rules to a file that you can later import. When exporting you are ask if you want to export all the rules or only the active rules. If any rules that are disabled will not be exported when you choose to export 'Only Active rules'.</p>
+
+<h2>Example</h2>
+
+<p>Example how the default color profile can color files and folders.<br />
+<img alt="" src="/Docs/Images/FileColoringRules-Examples.png" width="80%" /></p>
+
+<h2>Coloring of Background</h2>
+
+<p>In roder for File Coloring to be able to change the background color of files/folders the Explorer Panel setting options "<strong>Use file specified background colors</strong>" and/or "<strong>Use folder specified background colors</strong>" must be enabled.<br />
+(<em>See the two checked items in the image below</em>)&nbsp;<br />
+<br />
+<img alt="" src="/Docs/Images/FileColoring_BackgroundOptions.png" /></p>
+
+<p><img alt="" src="/Docs/Images/FileColoringRules-Examples2.png" width="80%" /></p>
+
+<h2>User Defined Commands</h2>
+
+<p>The File Coloring profile to use can be controlled by using user defined commands.<br />
+Create a user defined command of "CustomCommand" and use the MC.Explorer.SetColoringRules command.</p>
+
+<div class="well">
+<p>Example</p>
+
+<pre>
+MC.Explorer.SetColoringRules Name="MyColorProfile"</pre>
+</div>
+
+<p>After the command is created it can be assigned to a hotkey or to a menu.</p>
+
+

@@ -1,0 +1,30 @@
+<h2>Extension Defined MultiScript Functions</h2>
+<p>Before using <strong>extension defined MultiScript functions </strong>the functions must be imported into the script engine. This is done with the MultiScript <strong>import</strong> function. The import function <em>must </em>be called before any extension defined functions are called or the script engine will fail to find the function.</p>
+
+<h2>Example</h2>
+
+<pre class="scriptcode">
+// Import the Extension defined function for FTP
+<strong>import("FSFTPScript");</strong>
+
+// Connect to the ftp site "site1" in the bookmarks
+@var $ftp = FTPConnect("site1");
+
+// change to the remote folder /pub
+FTPChdir($ftp, "/pub");
+
+// remove (delete) the file test.zip
+FTPRemove($ftp , "test.zip" );
+
+// upload the file d:\temp\test.zip to the current remote folder with the new name test.zip
+FTPPutFile($ftp , "d:\\temp\\test.zip" , "test.zip");
+</pre>
+
+<h2>Extension Defined MultiScript Functions - Examples</h2>
+
+<p><a href="#docs_multiscript/extensions/ftp">FS-FTP</a><br />
+&nbsp;</p>
+
+<p>&nbsp;</p>
+
+

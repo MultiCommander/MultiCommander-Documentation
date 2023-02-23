@@ -1,0 +1,114 @@
+<h2>Panel Tabs</h2>
+<p><img alt="" src="/Docs/Images/TabArea.png" style="border-width: 1px; border-style: solid;" /></p>
+
+<p>Each Multi Commander tab holds an instance of an Explorer Panel or another module, for example Settings or Search.</p>
+
+<p>By clicking on an inactive tab that tab will become active.<br />
+Double-clicking on empty area in the tab area will open a new Explorer Panel. It is possible to configure which module is opened by default in Core Settings.</p>
+
+<p>It is also possible to move tabs from one side to the other by dragging and dropping them.</p>
+
+<p>Right-clicking on the tab will show a popup menu with some tab options.</p>
+
+<p><img alt="" src="/Docs/Images/TabPopup.png" /></p>
+
+<p>The list of options will change depending on which module is open in the tab.</p>
+
+<p>For an Explorer Panel the following options will be availible:</p>
+
+<ol>
+	<li><a href="#closetab">Close Tab</a></li>
+	<li><a href="#closeall">Close All Tabs But This</a></li>
+	<li><a href="#dupe">Duplicate Tab</a></li>
+	<li><a href="#move">Move Tab</a></li>
+	<li><a href="#save">Save Tabs To File...</a></li>
+	<li><a href="#load">Load Tabs From File...</a></li>
+	<li><a href="#lock">Lock Tab</a></li>
+	<li><a href="#lockallowsubchange">Lock Tab - Allow subpath change</a></li>
+	<li><a href="#properties">Tab Properties</a></li>
+</ol>
+
+<h2><a name="closetab"></a>1. Close Tab</h2>
+
+<p>Close the current tab.</p>
+
+<div class="dochints">
+<fieldset><legend>Shortcuts</legend> Ctrl-W - Close Current Tab</fieldset>
+</div>
+
+<h2><a name="closeall"></a>2. Close All Tabs But This</h2>
+
+<p>Close all tabs except the current one. The current tab will remain open.</p>
+
+<h2><a name="dupe"></a>3. Duplicate Tab</h2>
+
+<p>Duplicate the current tab. Open a new Explorer Panel tab showing the same path as the current tab.<br />
+This only works if the current tab is an Explorer Panel.</p>
+
+<div class="dochints">
+<fieldset><legend>Shortcuts</legend> Ctrl-T - Duplicate Tab (Create new based on current tab)</fieldset>
+</div>
+
+<h2><a name="move"></a>4. Move Tab</h2>
+
+<ol>
+	<li><b>Swap the location of left/right panel</b>
+
+	<p>Swap the locations of the active panels in the two panel sides. The tab on the left will move to the right, that on the right will move to the left.</p>
+	</li>
+	<li><b>Move Active panel to other side</b>
+	<p>The current panel will be moved to the other side. A panel on the left side will be moved to the right and vice versa.</p>
+	</li>
+</ol>
+
+<h2><a name="save"></a>5. Save Tabs To File</h2>
+
+<p>Save the layout of the current tab (or all tabs) to a file. This file can then be used to load a new set of tabs, either by selecting "Load Tabs From File" or by creating a User Defined Command.</p>
+
+<div class="dochints">
+<fieldset><legend>Hint</legend>
+
+<p>Tab layouts can be saved from a User Defined Command using the Custom Command <a href="http://multicommander.com#docs_customcommands_list#mc.savetabs">MC.SaveTabs</a></p>
+</fieldset>
+</div>
+
+<h2><a name="load"></a>6. Load Tabs From File</h2>
+
+<p>Loads the layout of tabs from a file that was saved using the "Save Tabs To File" command.</p>
+
+<div class="dochints">
+<fieldset><legend>Hint</legend>
+
+<p>Tab layouts can be loaded from a User Defined Command using the Custom Command <a href="http://multicommander.com#docs_customcommands_list#mc.loadtabs">MC.LoadTabs</a></p>
+</fieldset>
+</div>
+
+<h2><a name="lock"></a>7. Lock Tab</h2>
+
+<p>If the tab is an Explorer Panel then it will be locked to its current path: it will not be possible to navigate away from this path.<br />
+In Explorer Panel settings it is possible to configure whether a new tab should be open instead or if the new path navigation should simply be ignored.<br />
+A <b>*</b> will be shown before the tab name to indicate that the tab is locked.</p>
+
+<h2><a name="lockallowsubchange"></a>8. Lock Tab - Allow subpath change</h2>
+
+<p>If the tab is an Explorer Panel and "Lock Tab - Allow subpath change" is enabled, the Explorer Panel is locked to a path, but it will allow a change of path to a subfolder under the locked path. For example, if the path is locked to C:\Windows it will allow navigation to any subfolder and sub-subfolder under C:\Windows\.</p>
+
+<h2><a name="properties"></a>9. Tab Properties</h2>
+
+<p>In Tab Properties you can can customize the look of an Explorer Panel tab, for example to change colors or force a tab name.</p>
+
+<p><img alt="" src="/Docs/Images/TabProperties.png" /></p>
+
+<p>If <b>"Solid Color"</b> is selected the tab will be drawn with one solid colorotherwise it will be rendered with a color gradient, starting with the standard UI color (often greyish) that fades into the selected color.</p>
+
+<p>If the Core settings for "Allow tab colors" is disabled, this color setting will have no effect.</p>
+
+<p>If <strong>"Use Hover Color when tab is active"</strong> is active, then when the tab is active the color will be the same as when hovering over it.<br />
+It will be shown a little lighter than the selected color to make it stand out.<br />
+If the color should always be the same as the selected color, uncheck this option.</p>
+
+<p>&nbsp;</p>
+
+<p><img alt="" src="/Docs/Images/ColoredTab.png" style="border-width: 1px; border-style: solid;" /></p>
+
+

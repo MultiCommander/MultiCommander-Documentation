@@ -1,0 +1,69 @@
+<h2>MultiScript Examples</h2>
+<h2>Examples of MultiScripts</h2>
+
+<ul>
+	<li><a href="#searchgoogle">Search on Google from the command line bar</a></li>
+	<li><a href="#viewfileinfolder">View first *.txt file found in the folder currently in focus</a></li>
+	<li><a href="#PlayMovieInFolder">Play first *.avi or *.mkv in the folder currently in focus</a></li>
+</ul>
+
+<p>&nbsp;</p>
+
+<hr />
+<p>&nbsp;</p>
+
+<h2><a name="searchgoogle">Search on Google from the command line bar</a></h2>
+
+<p>Read the parameters (arguments) supplied to this command and build a search url for Google and then go to that url.</p>
+
+<p>Create the command then go to the Alias Manager and assign 'g' to "@&lt;Unique &nbsp;command id&gt;"</p>
+
+<pre class="mscode">
+function CreateGoogleSearchQuery()
+{
+  @var $query = "";
+  @var $n = 0;
+  for( $n = 0; $n &lt; $argcount; $n = $n + 1 )
+  {
+    if( $n &gt; 0 )
+    {
+      $query = $query + "+";
+    }
+    $query = $query + $arg($n);
+  }
+  return $query;
+}
+@var $s = "";
+$s = "http://www.google.com/search?g=" + CreateGoogleSearchQuery();
+MC.Run CMD="{$s}" SHELL
+</pre>
+
+<p>&nbsp;</p>
+
+<h2><a name="viewfileinfolder">View first *.txt file found in the folder currently in focus</a></h2>
+
+<p>Connect this command to a hotkey, for example Alt+V. Then in an Explorer Panel with a folder in focus, if you press Alt+V - and if a *.txt file exists under that folder - that file will be shown.</p>
+
+<pre class="mscode">
+MC.DataViewer.View FILE={_findfirstfile( "{focusfilepath}\\*.txt" )}
+</pre>
+
+<p><br />
+&nbsp;</p>
+
+<hr />
+<h2><a name="PlayMovieInFolder">Play First *.avi or *.mkv found in folder currently in focus</a></h2>
+
+<p>Connect this command to a hotkey, for example Alt+P. Then in an Explorer Panel with a folder in focus, if you press Alt+P, the first *.avi or *.mkv found will be played in your default movie player.</p>
+
+<pre class="mscode">
+@var $file;
+$file = _findfirstfile( "{focusfilepath}\\*.avi" );
+if(StrIsEqual($file,""))
+{
+  $file = _findfirstfile( "{focusfilepath}\\*.mkv" );
+}
+MC.Run CMD={$file} SHELL
+</pre>
+
+

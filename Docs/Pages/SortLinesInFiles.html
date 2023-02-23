@@ -1,0 +1,137 @@
+<h2>Sort Lines in Files</h2>
+<p><img alt="" src="/Docs/Images/SortLinesDlg.png" style="width: 418px; height: 474px;" /></p>
+
+<p>Sort Lines has many options to control how the sorting should be done. It will sort lines in all selected text files. The number of files it will try to sort is shown in the dialog.</p>
+
+<p>Sort Lines will automatically identify file formats: files encoded in ASCII/Unicode/UTF8 are supported. Note that files identified as binary <strong>will be ignored</strong>.<br />
+The newline character(s) that the file currently has will be kept, So if a file has only CR (carriage return) as a newline character the new file will also have only CR.</p>
+
+<p>In the Filename field you set what the name of the sorted file will be. Sorted files will always be saved in the same folder as the original and only the Filename can be set: the original extension will be kept.</p>
+
+<p>If multiple files are select you will see a "*" in the Filename field. The * represents the original Filename and file extension.<br />
+If you have two files select named "MyFile1.txt" and "MyFile2.txt" and the Filename field has the value "*_sorted.*" the new Filenames will be "MyFile1_sorted.txt" and "MyFile2_sorted.txt".</p>
+
+<p>In the Save as... dropdown list you can select to save the new file with a different name. You can also choose to keep the original name (but rename the original files by adding .bak to its name), or it can delete the original file.</p>
+
+<h2><b>Lines and Position limits</b></h2>
+
+<div class="docs-indent">
+<h3>Keep lines at the top</h3>
+
+<p>This defines how many line at the top of each file that should not be sorted. For example, if you have a header in the text file that is 2 lines high you can set this to "2". The new, sorted file will then still have a 2-line header.</p>
+
+<h3>Keep lines at the bottom</h3>
+
+<p>This defines how many lines at the bottom of each file that should not be sorted. For example, if you have a 3-line footer text this option will ensure that those 3 lines are not moved by sorting.</p>
+
+<h3>Start at line position</h3>
+
+<p>Where on each line the sorting should begin. If lines should not be sorted beginning at character 1, you can control at which position it should begin. Changing this settings will change the position of the "*" character in the preview ruler at the bottom of the dialog. This shows clearly at what position sorting will begin.</p>
+
+<h3>Skip Leading spaces</h3>
+
+<p>By checking this option all leading white spaces will be ignored when comparing lines during search.</p>
+</div>
+
+<hr />
+<h2><strong>Sort lines by</strong></h2>
+
+<div class="docs-indent">
+<p>There are 3 different ways to sort lines: Entire line, Substring or by Line item (record)</p>
+
+<h3><b>Entire line</b></h3>
+
+<p>This will compare the entire line from the defined start position to the end.</p>
+
+<h3><b>Substring, Substring ends at</b></h3>
+
+<div class="docs-indent">
+<p>This can be used if sorting should be based on a specific substring in a text.<br />
+Use the option above "Start at line position" to set the beginning of the substring.<br />
+Then use any of the following settings to set where the end of the string is.</p>
+
+<h3>Fixed length</h3>
+
+<p>If the substring that the sorting is based on has a fixed length you can define it here.</p>
+
+<h3>End character</h3>
+
+<p>If the substring that the sorting is based on should end when it comes to a specific character.</p>
+
+<h3>Any white space character</h3>
+
+<p>If the substring that the sorting is based on ends when any white space character is found.</p>
+</div>
+
+<h3><b>Line Item</b></h3>
+
+<div class="docs-indent">
+<p>If every line has items (records) that are separate by a special character you can defined which item/record it should be sorted by.</p>
+
+<h3>Item separator</h3>
+
+<p>Which character will separate the items (records) from each other. (Eg. for a comma-separated list, that would be comma "," ).</p>
+
+<h3>Item</h3>
+
+<p>Which item on the line the sorting should be based one First item is 1, second is 2, and so on.</p>
+</div>
+</div>
+
+<h2>Options</h2>
+
+<div class="docs-indent">
+<h3><b>Sort Method</b></h3>
+
+<p>There are three methods to sort by: Text,Date and Number.</p>
+
+<div class="docs-indent">
+<h3>Text</h3>
+
+<p>The text to be compared for sorting is plain text.</p>
+
+<h3>Date</h3>
+
+<p><img alt="" src="/Docs/Images/SortLines_DateFormat.png" style="width: 240px; height: 89px;" /></p>
+
+<p>The text that will be compared for sorting is actually a date or time written as text.<br />
+To be able to compare date/time correctly the correct date/time formatting of the date/time must be provided. If the date/time matching format is not correct the sorting will not be correct.<br />
+Press the "&lt;" button under the dropdown list for examples of date/time matching formats to use.</p>
+
+<p><a href="http://msdn.microsoft.com/en-us/library/windows/desktop/dd317787(v=vs.85).aspx">Date Format</a> - <a href="http://msdn.microsoft.com/en-us/library/windows/desktop/dd318148(v=vs.85).aspx">Time Format</a></p>
+
+<h3>Number</h3>
+
+<p>The text that will be compare is actually numbers: the number will be compared as a digital value and <em>not as text</em>. Leading zeros (0) will be ignored: only digits will be used.</p>
+</div>
+
+<h3><b>Language-based sort order</b></h3>
+
+<p>Use the sorting rule that the current language uses. Different languages sort characters in different orders. Checking this option will cause the sort to be done using the current language settings. This sorting is slower and can affect performance for very large files.<br />
+This options will also disable the "Ignore case" option. Language-based sort order always ignores case.</p>
+
+<h3><b>Ignore case</b></h3>
+
+<p>Ignore case when sorting. "A" and "a" will be treated as the same character (but see 'Language-based sort order' above).</p>
+
+<h3><b>Natural number order</b></h3>
+
+<p>Sort numbers in a natural order. This option also requires the option "Language-based sort order".<br />
+Instead of being sorted in the order "Text1","Text10","Text2" it will be "Text1", "Text2", "Text10".<br />
+(This option is is not used if sort method is Numbers).</p>
+
+<h3><b>Reverse order</b></h3>
+
+<p>Reverse the sort order. By default sorting will be A to Z and 0 to 9.<br />
+Enabling this will cause sort order to be Z to A, and 9 to 0</p>
+
+<h3><b>Remove duplicate lines</b></h3>
+
+<p>This option is not yet enabled</p>
+
+<h3><b>Remove blank lines</b></h3>
+
+<p>After sorting the lines, remove all blank lines.</p>
+</div>
+
+

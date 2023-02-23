@@ -1,0 +1,75 @@
+﻿#docmenu {
+  font-size: 16px;
+  line-height: 26px;
+  background: #dadada;
+  border-radius: 10px;
+  border: solid 1px gray;
+  padding-top: 20px;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+#docmenu h3 {
+   font-size: 26px;
+}
+
+#doccontent {
+  padding-left: 35px;
+  line-height: 28px;
+  font-size: 16px;
+}
+
+#doccontent h2 {
+  font-size: 41px;
+  margin-bottom: 22px;
+}
+
+#doccontent h3 {
+  font-size: 24px;
+  margin-bottom: 22px;
+  font-weight: bold;
+}
+
+#doccontent .multiscriptfunc {
+    border: 1px solid #454;
+    border-radius: 6px;
+    padding-left: 8px;
+    padding-right: 8px;
+    margin-top: 4px;
+    margin-bottom: 8px;
+  }
+
+
+#doccontent .multiscriptfunc dt {
+    padding-left: 10px;
+  }
+
+#doccontent .multiscriptfunc h3 {
+  color: #43636b;
+  font-weight: normal;
+  font-size: 26px;
+  margin-bottom: 10px;
+}
+
+  #doccontent .multiscriptfunc dd {
+    border-bottom: 1px solid #e8e5df;
+    padding-left: 20px;
+  }
+
+#doccontent .multiscriptfunc h2 {
+    margin-top: 14pt !important;
+    margin-bottom: 10pt !important;
+    font-weight: bold !important;
+  }
+
+  #doccontent pre {
+    padding: 7px;
+    display: block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #f5f5f5;
+    font-family: Monaco,Menlo,Consolas,"Courier New",monospace;
+    white-space: pre;
+    word-break: break-all;
+    word-wrap: break-word;
+  }

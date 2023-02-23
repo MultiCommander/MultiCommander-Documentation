@@ -1,0 +1,32 @@
+<h2>Multi Commander Crashes</h2>
+<h2>If Multi Commander Crashes</h2>
+
+<p>A crash can happen for many different reasons. Perhaps because of a bug in Multi Commander, but also because of external factors, like bad memory or bad hardware or conflicts with other software.</p>
+
+<p>When Multi Commander crashes it will, by default, try to create a mini crash dump and send it to our crash report system.<br />
+The crash report system will then do an automatic analysis of the crash and send the result for review. If the issue needs more investigation it will be analyzed manually.</p>
+
+<p>With the crash dump we can see where in Multi Commander the crash happened and sometimes the reason why.<br />
+However, the crash dump file that is created by default has very limited information and sometimes does not have enough for us to find out what has happened.</p>
+
+<h2>Shell Extensions</h2>
+
+<p>The most common reason for crashes is third party programs that get executed inside the Multi Commander process. This happens often when Multi Commander is using Windows Explorer Shell Extensions for building the Context Menu ("Right-Click" menu).</p>
+
+<p>A lot of shell extensions are only tested on Windows Explorer, so when programs like Multi Commander call them, they can crash Multi Commander because the Extension has a coding error. There is nothing Multi Commander can do about this.</p>
+
+<p>One thing you as a user can do is to disable Shell Extensions one by one to find out which one is at fault. A tool to disable/enable Shell Extensions is the free <a href="http://www.nirsoft.net/utils/shexview.html" target="_blank">ShellExView by NirSoft</a></p>
+
+<h2>Provide Better Crash Information</h2>
+
+<p>Since the default crash report is limited in information, what it does provide is not always useful. If you have regular crashes, please consider changing the Crash Dump Format to a higher level. This will provide us with more and better information to determine why it crashed.</p>
+
+<p>You find the settings under Core Settings</p>
+
+<p><img alt="" src="/Docs/Images/MCCrashSettings.png" /></p>
+
+<p>If you did something specific which triggered the crash, please send an email or leave a post in the forum letting us know what exactly you did to trigger the crash. The more information we get the better the chance that we can fix the problem.</p>
+
+<p>The crash dumps with maximum information contain all the memory addresses that the Multi Commander.exe process used, so they can be large. But they also give us a good view on what is going on inside Multi Commander and information about the internal state of its various components.</p>
+
+

@@ -1,0 +1,1443 @@
+<h2>MultiScript - File system functions</h2>
+<div class="scriptfunctions">
+<h2>File and Folder Properties</h2>
+
+<table class="table table-bordered">
+	<tbody>
+		<tr>
+			<td><a href="#getfiletime">GetFileTime</a></td>
+			<td>Get the date/time of a file or folder.</td>
+		</tr>
+		<tr>
+			<td><a href="#setfiletime">SetFileTime</a></td>
+			<td>Set the date/time of a file or folder.</td>
+		</tr>
+		<tr>
+			<td><a href="#isfolder">IsFolder</a></td>
+			<td>Check if a file item is a folder.</td>
+		</tr>
+		<tr>
+			<td><a href="#fileexists">FileExists</a></td>
+			<td>Check if a file (or folder) exists.</td>
+		</tr>
+		<tr>
+			<td><a href="#getfilesize">GetFileSize</a></td>
+			<td>Get the size of a file.</td>
+		</tr>
+		<tr>
+			<td><a href="#getfileprop">GetFileProp</a></td>
+			<td>Get a file property.</td>
+		</tr>
+		<tr>
+			<td><a href="#getfslinktype">GetFSLinkType</a></td>
+			<td>Get what link type a link is (Symbolic link, Shortcut, hardlink, Junction).</td>
+		</tr>
+		<tr>
+			<td><a href="#getfslinktarget">GetFSLinkTarget</a></td>
+			<td>Get the target path of a file system link.</td>
+		</tr>
+		<tr>
+			<td><a href="#getwinshortcuttarget">GetWinShortcutTarget</a></td>
+			<td>Get the target path of a shortcut link (.lnk).</td>
+		</tr>
+	</tbody>
+</table>
+
+<h2>Filesystem Matching</h2>
+
+<table class="table table-bordered">
+	<tbody>
+		<tr>
+			<td><a href="#findfirstfile">FindFirstFile</a></td>
+			<td>Return the first matching file.</td>
+		</tr>
+		<tr>
+			<td><a href="#findfiles">FindFiles</a></td>
+			<td>Return an array of all matching files.</td>
+		</tr>
+	</tbody>
+</table>
+
+<h2>File Attributes</h2>
+
+<table class="table table-bordered">
+	<tbody>
+		<tr>
+			<td><a href="#getfileattribute">GetFileAttributes</a></td>
+			<td>Return the attributes of a file or folder.</td>
+		</tr>
+		<tr>
+			<td><a href="#addfileattribute">AddFileAttributes</a></td>
+			<td>Add an attribute(s) to a file or folder.</td>
+		</tr>
+		<tr>
+			<td><a href="#removefileattribute">RemoveFileAttributes</a></td>
+			<td>Remove attribute(s) from a file or folder.</td>
+		</tr>
+		<tr>
+			<td><a href="#setfileattribute">SetFileAttributes</a></td>
+			<td>Set attribute(s) of a file or folder (replace existing).</td>
+		</tr>
+		<tr>
+			<td><a href="#hasfileattribute">HasFileAttributes</a></td>
+			<td>Check if a file or folder has specified attribute(s).</td>
+		</tr>
+	</tbody>
+</table>
+
+<h2>Filesystem Operations</h2>
+
+<table class="table table-bordered">
+	<tbody>
+		<tr>
+			<td><a href="#copyfile">CopyFile</a></td>
+			<td>Copy a file.</td>
+		</tr>
+		<tr>
+			<td><a href="#movefile">MoveFile</a></td>
+			<td>Move a file.</td>
+		</tr>
+		<tr>
+			<td><a href="#renamefile">RenameFile</a></td>
+			<td>Rename a file.</td>
+		</tr>
+		<tr>
+			<td><a href="#unpackfile">UnpackFile</a></td>
+			<td>Unpack an archive (zip, 7z, rar, tar, tgz).</td>
+		</tr>
+		<tr>
+			<td><a href="#packfile">PackFile</a></td>
+			<td>Pack file(s) into an archive (zip, 7z, tar, gz).</td>
+		</tr>
+		<tr>
+			<td><a href="#deletefile">DeleteFile</a></td>
+			<td>Delete a single file or folder.</td>
+		</tr>
+		<tr>
+			<td><a href="#deletefiles">DeleteFiles</a></td>
+			<td>Delete multiple files or folders.</td>
+		</tr>
+		<tr>
+			<td><a href="#makedir">MakeDir</a></td>
+			<td>Create a new folder.</td>
+		</tr>
+	</tbody>
+</table>
+
+<h2>Filesystem Filtering</h2>
+
+<table class="table table-bordered">
+	<tbody>
+		<tr>
+			<td><a href="#filtercreate">FilterCreate</a></td>
+			<td>Create a filter handle.</td>
+		</tr>
+		<tr>
+			<td><a href="#filteraddrule">FilterAddRule</a></td>
+			<td>Add a filter rule.</td>
+		</tr>
+		<tr>
+			<td><a href="#filterload">FilterLoad</a></td>
+			<td>Load a filter from file.</td>
+		</tr>
+		<tr>
+			<td><a href="#filterloadbyid">FilterLoadById</a></td>
+			<td>Load an existing advanced filer by id.</td>
+		</tr>
+		<tr>
+			<td><a href="#filtersave">FilterSave</a></td>
+			<td>Save a filter to file.</td>
+		</tr>
+		<tr>
+			<td><a href="#filterismatch">FilterIsMatch</a></td>
+			<td>Test if a file is a match against a filter.</td>
+		</tr>
+	</tbody>
+</table>
+
+<h2>File Path Operations</h2>
+
+<table class="table table-bordered">
+	<tbody>
+		<tr>
+			<td><a href="#pathgetpathpart">PathGetPathPart</a></td>
+			<td>Get the path part of a full filename path.</td>
+		</tr>
+		<tr>
+			<td><a href="#pathgetnamepart">PathGetNamePart</a></td>
+			<td>Get the name path of a full filename path.</td>
+		</tr>
+		<tr>
+			<td><a href="#pathgetfileextpart">PathGetFileExtPart</a></td>
+			<td>Get the file extension of a full filename path.</td>
+		</tr>
+		<tr>
+			<td><a href="#pathgetparts">PathGetParts</a></td>
+			<td>Get an array of all file path parts.</td>
+		</tr>
+	</tbody>
+</table>
+
+<h2>File Path Conversion Operations</h2>
+
+<table class="table table-bordered">
+	<tbody>
+		<tr>
+			<td><a href="#pathmakerelativemc">PathMakeRelativeMC</a></td>
+			<td>Convert a path to be relative to where Multi Commander is started from.</td>
+		</tr>
+		<tr>
+			<td><a href="#pathmakeabsolutemc">PathMakeAbsoluteMC</a></td>
+			<td>Convert a relative path to an absolute path.</td>
+		</tr>
+		<tr>
+			<td><a href="#pathtranslatepath">PathTranslatePath</a></td>
+			<td>Convert a relative path to absolute; also expand environment string.</td>
+		</tr>
+	</tbody>
+</table>
+
+<h2>Network File Operations</h2>
+
+<table class="table table-bordered">
+	<tbody>
+		<tr>
+			<td><a href="#netwget">NetWGet</a></td>
+			<td>Download web content to file.</td>
+		</tr>
+	</tbody>
+</table>
+
+<div class="multiscriptfunc">
+<h2><a name="getfiletime"></a>GetFileTime</h2>
+
+<p>Get the date/time of a file or folder.</p>
+
+<pre>
+&lt;num&gt; GetFileTime( &lt;str&gt; path, [&lt;num&gt; utctime], [&lt;num&gt; filetimepart] );</pre>
+
+<h3>Parameters</h3>
+
+<dl>
+	<dt>path</dt>
+	<dd>Path to the file/folder of interest</dd>
+	<dt>utctime</dt>
+	<dd>(Optional, default: 0)<br />
+	0 = Return time in local time 1 = Return time in UTC</dd>
+	<dt>filetimepart</dt>
+	<dd>(Optional, default: 0)<br />
+	0 = Last Write time<br />
+	1 = Create time<br />
+	2 = Last Access time</dd>
+</dl>
+
+<h3>Return value</h3>
+
+<p>0 for failure, else the number of seconds since 1970-01-01 00:00:00</p>
+
+<h3>Example</h3>
+
+<pre class="example">
+// Change the time of the file item in focus to 1h previous ( 3600 sec )
+@var $time = 0;
+@var $file = GetSourceFocusPath();
+if( StrLen( $file ) &gt; 0 )
+{
+  $time = GetFileTime( $file );
+  $time = $time - 3600;
+  SetFileTime( $file, $time );
+}
+</pre>
+</div>
+
+<div class="multiscriptfunc">
+<h2><a name="setfiletime"></a>SetFileTime</h2>
+
+<p>Set the date/time of a file or folder.</p>
+
+<pre>
+&lt;num&gt; SetFileTime( &lt;str&gt; path, &lt;num&gt; time, [&lt;num&gt; utctime], [&lt;num&gt; filetimepart] );</pre>
+
+<h3>Parameters</h3>
+
+<dl>
+	<dt>path</dt>
+	<dd>Path to the file/folder of interest</dd>
+	<dt>time</dt>
+	<dd>Time in seconds since 1970-01-01 00:00:00</dd>
+	<dt>utctime</dt>
+	<dd>(Optional, default: 0)<br />
+	0 = Return time in local time<br />
+	1 = Return time in UTC</dd>
+	<dt>filetimepart</dt>
+	<dd>(Optional, default: 0)<br />
+	0 = Last Write time<br />
+	1 = Create time<br />
+	2 = Last Access time<br />
+	4 = Last Write, Create and Last Access</dd>
+</dl>
+
+<h3>Return value</h3>
+
+<p>1 for success, else 0</p>
+
+<h3>Example</h3>
+
+<pre class="example">
+// See GetFileTime
+</pre>
+</div>
+
+<div class="multiscriptfunc">
+<h2><a name="isfolder"></a>IsFolder</h2>
+
+<p>Return 1 if the specified path is a folder.</p>
+
+<pre>
+&lt;num&gt; IsFolder( &lt;str&gt; path );</pre>
+
+<h3>Parameters</h3>
+
+<dl>
+	<dt>path</dt>
+	<dd>Path to a file or folder to be checked</dd>
+</dl>
+
+<h3>Return value</h3>
+
+<p>1 if the path exists and is a folder, else 0</p>
+
+<h3>Example</h3>
+
+<pre class="example">
+@var $res = IsFolder( "C:\\temp" );
+</pre>
+</div>
+
+<div class="multiscriptfunc">
+<h2><a name="fileexists"></a>FileExists</h2>
+
+<p>Return a value &gt; 0 if the specified file exists.</p>
+
+<pre>
+&lt;num&gt; FileExists( &lt;str&gt; path );</pre>
+
+<h3>Parameters</h3>
+
+<dl>
+	<dt>path</dt>
+	<dd>Path to a file be checked</dd>
+</dl>
+
+<h3>Return value</h3>
+
+<p>1 if the path exists and is a file, 2 if the path exists and is a folder, 0 if the path does <em>not </em>exist</p>
+
+<h3>Example</h3>
+
+<pre class="example">
+@var $res = FileExists( "C:\\temp\\MyFile.txt" );
+</pre>
+</div>
+
+<div class="multiscriptfunc">
+<h2><a name="getfilesize"></a>GetFileSize</h2>
+
+<p>Return the size of the file.</p>
+
+<pre>
+&lt;num&gt; GetFileSize( &lt;str&gt; path );</pre>
+
+<h3>Parameters</h3>
+
+<dl>
+	<dt>path</dt>
+	<dd>Path to a file or folder to be checked</dd>
+</dl>
+
+<h3>Return value</h3>
+
+<p>The file size in bytes, or 0 if the item is not a file or does not exist</p>
+
+<h3>Example</h3>
+
+<pre class="example">
+@var $res = GetFileSize( "C:\\temp\\MyFile.txt" );
+</pre>
+</div>
+
+<div class="multiscriptfunc">
+<h2><a name="getfileprop"></a>GetFileProp</h2>
+
+<p>Return a file property of a file.</p>
+
+<pre>
+&lt;num&gt; GetFileProp( &lt;str&gt; path, &lt;str&gt; fileProp );</pre>
+
+<h3>Parameters</h3>
+
+<dl>
+	<dt>path</dt>
+	<dd>Path to the file or folder of interest</dd>
+	<dt>fileProp</dt>
+	<dd>File property name (eg. "MCAudioProp.genre")</dd>
+</dl>
+
+<h3>Return value</h3>
+
+<p>A string containing the file property</p>
+
+<h3>Example</h3>
+
+<pre class="example">
+@var $res = GetFileProp( "C:\\temp\\MyPopSong.mp3", "MCAudioProp.genre" );
+// res == "pop"
+</pre>
+
+<h3>Notes</h3>
+
+<p>See the <a href="fileproplist">File Property List</a> for a list of all the available file properties.<br />
+(These are the same file properties as are used by the MultiRename tool.)</p>
+</div>
+
+<div class="multiscriptfunc">
+<h2><a name="getfslinktype"></a>GetFSLinkType</h2>
+
+<p>Get what link type a link is.</p>
+
+<pre>
+&lt;num&gt; GetFSLinkType( &lt;str&gt; path);</pre>
+
+<h3>Parameters</h3>
+
+<dl>
+	<dt>path</dt>
+	<dd>Path to the file or folder of interest</dd>
+</dl>
+
+<h3>Return value</h3>
+
+<p>0 - Not a link<br />
+1 - Junction<br />
+2 - Symlink<br />
+3 - MountPoint</p>
+
+<h3>Example</h3>
+
+<pre class="example">
+@var $res = GetFSLinkType( 'C:\\Documents and Settings' );
+// res == 1 // Junction
+</pre>
+</div>
+
+<div class="multiscriptfunc">
+<h2><a name="getfslinktarget"></a>GetFSLinkTarget</h2>
+
+<p>Get the target path of a file system link..</p>
+
+<pre>
+&lt;str&gt; GetFSLinkTarget( &lt;str&gt; path);</pre>
+
+<h3>Parameters</h3>
+
+<dl>
+	<dt>path</dt>
+	<dd>Path to the file or folder of interest</dd>
+</dl>
+
+<h3>Return value</h3>
+
+<p>The path of the linktarget.</p>
+
+<h3>Example</h3>
+
+<pre class="example">
+@var $res = GetLinkTarget( 'C:\\Documents and Settings' );
+// res == "C:\\Users"
+</pre>
+</div>
+
+<div class="multiscriptfunc">
+<h2><a name="getwinshortcuttarget"></a>GetWinShortcutTarget</h2>
+
+<p>Get the target path of a shortcut (.lnk).</p>
+
+<pre>
+&lt;str&gt; GetWinShortcutTarget( &lt;str&gt; path);</pre>
+
+<h3>Parameters</h3>
+
+<dl>
+	<dt>path</dt>
+	<dd>Path to the file or folder of interest</dd>
+</dl>
+
+<h3>Return value</h3>
+
+<p>The path of the shortcut.</p>
+
+<h3>Example</h3>
+
+<pre class="example">
+@var $res = GetWinShortcutTarget( 'C:\\MyFolder\\MyShortcut.lnk' );
+// res == "C:\\Users"
+</pre>
+</div>
+
+<div class="multiscriptfunc">
+<h2><a name="findfirstfile"></a>FindFirstFile</h2>
+
+<p>Return the first matching file name (this function also exists as "_findfirstfile" ).</p>
+
+<pre>
+&lt;str&gt; FindFirstFile( &lt;str&gt; path, [&lt;num&gt; nameOnly], [&lt;num&gt; dbgInfo] );</pre>
+
+<h3>Parameters</h3>
+
+<dl>
+	<dt>path</dt>
+	<dd>Path with filter. eg. "c:\\myfolder\\*.txt"</dd>
+	<dt>nameOnly</dt>
+	<dd>Optional. If 1, return only the name and extension; no path</dd>
+	<dt>dbgInfo (Optional)</dt>
+	<dd>If 1, output extra debugging information to the log window</dd>
+</dl>
+
+<h3>Return value</h3>
+
+<p>Full file path to the first matching file</p>
+
+<h3>Example</h3>
+
+<pre class="example">
+@var $file = FindFirstFile( "C:\\temp\\Co*.txt" );
+</pre>
+</div>
+
+<div class="multiscriptfunc">
+<h2><a name="findfiles"></a>FindFiles</h2>
+
+<p>Return array of matching files (this function also exists as "_findfiles" ).</p>
+
+<pre>
+&lt;arr&gt; FindFiles( &lt;str&gt; path, [&lt;num&gt; namesOnly], [&lt;num&gt; dbgInfo] );</pre>
+
+<h3>Parameters</h3>
+
+<dl>
+	<dt>path</dt>
+	<dd>Path with filter. eg. "c:\\myfolder\\*.txt"</dd>
+	<dt>namesOnly</dt>
+	<dd>Optional. If 1, return only the names and extensions; no paths</dd>
+	<dt>dbgInfo</dt>
+	<dd>Optional. If 1, output extra debugging information to the log window</dd>
+</dl>
+
+<h3>Return value</h3>
+
+<p>An array of full file paths of matching files</p>
+
+<h3>Example</h3>
+
+<pre class="example">
+@var $files = FindFiles( "C:\\temp\\*.txt" );
+</pre>
+</div>
+
+<div class="multiscriptfunc">
+<h2><a name="getfileattribute"></a>GetFileAttributes</h2>
+
+<p>Return a string of file attributes.</p>
+
+<pre>
+&lt;str&gt; GetFileAttributes( &lt;str&gt; path );</pre>
+
+<h3>Parameters</h3>
+
+<dl>
+	<dt>path</dt>
+	<dd>Path of the file or folder to get attributes for</dd>
+</dl>
+
+<h3>Return value</h3>
+
+<p>A string containing the attribute characters for the file or folder.<br />
+A - Archive<br />
+R - Read only<br />
+S - System<br />
+H - Hidden</p>
+
+<h3>Example</h3>
+
+<pre class="example">
+$attributes = GetFileAttributes( $path );</pre>
+</div>
+
+<div class="multiscriptfunc">
+<h2><a name="addfileattribute"></a>AddFileAttributes</h2>
+
+<p>Set an attribute for a file or folder.</p>
+
+<pre>
+&lt;str&gt; AddFileAttributes( &lt;str&gt; path, &lt;str&gt; attributes );</pre>
+
+<h3>Parameters</h3>
+
+<dl>
+	<dt>path</dt>
+	<dd>Path of the file or folder to get attributes for</dd>
+	<dt>attributes</dt>
+	<dd>A string containing the attributes to add. Valid attributes are: a, r, s, h</dd>
+</dl>
+
+<h3>Return value</h3>
+
+<p>1 if attributes was set, else 0.</p>
+
+<h3>Example</h3>
+
+<pre class="example">
+// Add Read Only attribute
+AddFileAttributes( $path, "r" );</pre>
+</div>
+
+<div class="multiscriptfunc">
+<h2><a name="removefileattribute"></a>RemoveFileAttributes</h2>
+
+<p>Remove attributes from a file or folder.</p>
+
+<pre>
+&lt;num&gt; RemoveFileAttributes( &lt;str&gt; path, &lt;str&gt; attributes );</pre>
+
+<h3>Parameters</h3>
+
+<dl>
+	<dt>path</dt>
+	<dd>File or Folder to remove attribute from</dd>
+	<dt>attributes</dt>
+	<dd>A string containing the attributes to remove. Valid attributes are: a, r, s, h</dd>
+</dl>
+
+<h3>Return value</h3>
+
+<p>1 if attributes was set, else 0.</p>
+
+<h3>Example</h3>
+
+<pre class="example">
+// Remove the Read Only attribute
+RemoveFileAttributes( $path, "r" );</pre>
+</div>
+
+<div class="multiscriptfunc">
+<h2><a name="setfileattribute"></a>SetFileAttributes</h2>
+
+<p>Set attributes for a file or folder, replacing existing attributes.</p>
+
+<pre>
+&lt;num&gt; SetFileAttributes( &lt;str&gt; path, &lt;str&gt; attributes );</pre>
+
+<h3>Parameters</h3>
+
+<dl>
+	<dt>path</dt>
+	<dd>File or Folder to set attribute for</dd>
+	<dt>attributes</dt>
+	<dd>A string containing the attributes to add. Valid attributes are: a, r, s, h</dd>
+</dl>
+
+<h3>Return value</h3>
+
+<p>1 if attributes was set, else 0.</p>
+
+<h3>Example</h3>
+
+<pre class="example">
+// Set the Read Only and Hidden attribute
+SetFileAttributes( $path, "rh" );</pre>
+</div>
+
+<div class="multiscriptfunc">
+<h2><a name="hasfileattribute"></a>HasFileAttributes</h2>
+
+<p>Check if a file or folder has particular attributes.</p>
+
+<pre>
+&lt;num&gt; HasFileAttributes( &lt;str&gt; path, &lt;str&gt; attributes );</pre>
+
+<h3>Parameters</h3>
+
+<dl>
+	<dt>path</dt>
+	<dd>File or Folder to check attributes for</dd>
+	<dt>attributes</dt>
+	<dd>A string containing the attributes to check for. Valid attributes are: a, r, s, h</dd>
+</dl>
+
+<h3>Return value</h3>
+
+<p>1 if the file or folder has the requested attributes, else 0. -1 for error</p>
+
+<h3>Example</h3>
+
+<pre class="example">
+// Check if a file has a Read Only attribute
+$isReadonly = HasFileAttributes( $path, "r" );</pre>
+</div>
+
+<div class="multiscriptfunc">
+<h2><a name="copyfile"></a>CopyFile</h2>
+
+<p>Copy a single file or folder.</p>
+
+<pre>
+&lt;num&gt; CopyFile( &lt;str&gt; targetPath, &lt;str&gt; sourceFile, &lt;str&gt; options );</pre>
+
+<h3>Parameters</h3>
+
+<dl>
+	<dt>targetPath</dt>
+	<dd>Target Path to where the file/folder should be copied</dd>
+	<dt>sourceFile</dt>
+	<dd>Source Path of the file/folder to copy</dd>
+	<dt>options</dt>
+	<dd>Optional parameter (case-sensitive). Separate multiple options with commas.<br />
+	"NOWAIT" - Script will continue directly. Will not wait until copy is completed<br />
+	"NOPROGRESS" - Show no progress window. No error dialog will be shown. It will always skip files on error<br />
+	"NODIALOG" - Show no confirmation dialog<br />
+	"SILENT" - Silent. Do not ask what to do: skip on errors and continue<br />
+	"NEWQUEUE" - If a file operation already exists. Start a new queue (override default setting)<br />
+	"USEEXISTINGQUEUE" - If a queued file operation already exists then use its queue (override default setting)<br />
+	"OVERWRITE_ALL" - If a file already exists on the target path, overwrite it without asking<br />
+	"OVERWRITE_IFNEWER" - Overwrite existing if date of the new file is newer<br />
+	"OVERWRITE_IFSIZEDIFF" - Overwrite existing if size if different<br />
+	"OVERWRITE_IFSIZELARGER" - Overwrite existing if size is larger<br />
+	"OVERWRITE_IFSIZESMALLER" - Overwrite existing if size is smaller<br />
+	"OVERWRITE_AUTORENAME_EXISTING" - Keep both - Autorename existing file<br />
+	"OVERWRITE_AUTORENAME_NEW" - Keep both- Autorename the new file<br />
+	** Multiple OVERWRITE_xxx flags are NOT allowed</dd>
+</dl>
+
+<h3>Return value</h3>
+
+<p>0 for failure, 1 for success</p>
+
+<h3>Example</h3>
+
+<pre class="example">
+CopyFile( $targetPath, $sourceFile, "NODIALOG, OVERWRITE_ALL" );
+CopyFile( 'D:\Temp\', 'R:\MyFile\File.txt', "NODIALOG, OVERWRITE_ALL" );
+</pre>
+</div>
+
+<div class="multiscriptfunc">
+<h2><a name="movefile"></a>MoveFile</h2>
+
+<p>Move a single file or folder.</p>
+
+<pre>
+&lt;num&gt; MoveFile( &lt;str&gt; targetPath, &lt;str&gt; sourceFile, &lt;str&gt; options );</pre>
+
+<h3>Parameters</h3>
+
+<dl>
+	<dt>targetPath</dt>
+	<dd>Target Path to where the file/folder should be moved</dd>
+	<dt>sourceFile</dt>
+	<dd>Source Path of the file/folder to move</dd>
+	<dt>options</dt>
+	<dd>Optional parameter (case-sensitive). Separate multiple options with commas.<br />
+	"NOWAIT" - Script will continue directly. Will not wait until copy is completed<br />
+	"NOPROGRESS" - Show no progress window. No error dialog will be shown. It will always skip files on error<br />
+	"NODIALOG" - Show no confirmation dialog<br />
+	"SILENT" - Silent. Do not ask what to do: skip on errors and continue<br />
+	"NEWQUEUE" - If a file operation already exists. Start a new queue (override default setting)<br />
+	"USEEXISTINGQUEUE" - If a queued file operation already exists then use its queue (override default setting)<br />
+	"OVERWRITE_ALL" - If a file already exists on the target path, overwrite it without asking<br />
+	"OVERWRITE_IFNEWER" - Overwrite existing if date of the new file is newer<br />
+	"OVERWRITE_IFSIZEDIFF" - Overwrite existing if size if different<br />
+	"OVERWRITE_IFSIZELARGER" - Overwrite existing if size is larger<br />
+	"OVERWRITE_IFSIZESMALLER" - Overwrite existing if size is smaller<br />
+	"OVERWRITE_AUTORENAME_EXISTING" - Keep both - Autorename existing file<br />
+	"OVERWRITE_AUTORENAME_NEW" - Keep both- Autorename the new file<br />
+	** Multiple OVERWRITE_xxx flags are NOT allowed</dd>
+</dl>
+
+<h3>Return value</h3>
+
+<p>0 for failure, 1 for success</p>
+
+<h3>Example</h3>
+
+<pre class="example">
+MoveFile( $targetPath, $sourceFile, "NODIALOG, OVERWRITE_ALL" );
+MoveFile( 'D:\Temp\', 'R:\MyFile\File.txt', "NODIALOG, OVERWRITE_ALL" );
+</pre>
+</div>
+
+<div class="multiscriptfunc">
+<h2><a name="renamefile"></a>RenameFile</h2>
+
+<p>Rename a file or folder using the Multi Commander virtual filesystem.</p>
+
+<pre>
+&lt;num&gt; RenameFile( &lt;str&gt; filepath, &lt;str&gt; newName, &lt;str&gt; options );</pre>
+
+<h3>Parameters</h3>
+
+<dl>
+	<dt>filepath</dt>
+	<dd>Full path of the file to rename (eg. "C:\\temp\\myfile.txt")</dd>
+	<dt>Newname</dt>
+	<dd>The new file name. <strong>ONLY THE NAME</strong>. No path parts may be included</dd>
+	<dt>Options</dt>
+	<dd>Optional parameter (case-sensitive). Separate multiple options with commas.<br />
+	"SILENT" - Show no error dialog. If any error occurs then abort and return then error code<br />
+	"RENAME_RO" - Allow renaming of a file with readonly attribute (as long as the file system allows it)<br />
+	"RENAMNE_OVR" - If a file with the new name already exists, overwrite it</dd>
+</dl>
+
+<h3>Return value</h3>
+
+<p>1 if rename succeeded, else error code.</p>
+
+<h3>Example</h3>
+
+<pre class="example">
+@var $filename = "C:\\temp\\MyFile.txt";
+@var $newname = "MyNewName.txt";
+
+RenameFile( $filename, $newname, "SILENT, RENAME_OVR" );</pre>
+</div>
+
+<div class="multiscriptfunc">
+<h2><a name="unpackfile"></a>UnpackFile</h2>
+
+<p>Unpack an archive using the file operations in Multi Commander.</p>
+
+<pre>
+&lt;num&gt; UnpackFile( &lt;str&gt; fileToUnpack, &lt;str&gt; targetFolder, &lt;str&gt; filter, &lt;str&gt; options, &lt;str&gt; password );</pre>
+
+<h3>Parameters</h3>
+
+<dl>
+	<dt>fileToUnpack</dt>
+	<dd>Full path to the file you want to unpack (eg. "C:\\temp\\myfile.zip")</dd>
+	<dt>targetFolder</dt>
+	<dd>Path to where you want the files to be unpack into (eg. "C:\\temp\\")</dd>
+	<dt>filter</dt>
+	<dd>Wildcard filter used to match files to unpack. Empty or *.* to unpack all</dd>
+	<dt>options</dt>
+	<dd>Optional parameter (case-sensitive). Separate multiple options with commas.<br />
+	"SILENT" - Show no error dialog. If any error occurs then abort and return then error code<br />
+	"NOWAIT" - Script will continue directly. Will not wait until copy is completed<br />
+	"NOPROGRESS" - Show no progress window. No error dialog will be shown. It will always skip files on error<br />
+	"OVERWRITEALL" - If a file already exists on the target path, overwrite it without asking<br />
+	"NOQUEUE" - If a file operation already exists. Start a new queue (override default setting)<br />
+	"USEEXISTINGQUEUE" - If a queued file operation already exists then use its queue (override default setting)</dd>
+	<dt>Password</dt>
+	<dd>Optional parameter. Sets the password needed to unpack the archive, if archive is password protected</dd>
+</dl>
+
+<h3>Return value</h3>
+
+<p>1 if unpacking succeeded, else error code</p>
+
+<h3>Example</h3>
+
+<pre class="example">
+@var $filename = "C:\\temp\\MyFile.zip";
+@var $target = "C:\\temp\\Up\\";
+
+UnpackFile( $filename, $target, "*.*", "NOWAIT, OVERWRITEALL", "password123" );</pre>
+</div>
+
+<div class="multiscriptfunc">
+<h2><a name="packfile"></a>PackFile</h2>
+
+<p>Pack files and/or folders into a archive (zip,7z,..) using the Multi Commander file operations.</p>
+
+<pre>
+&lt;num&gt; PackFile( &lt;str&gt; targetFile, &lt;str&gt; sourceFile, &lt;str&gt; filter, &lt;str&gt; method, &lt;str&gt; options, &lt;str&gt; password );</pre>
+
+<h3>Parameters</h3>
+
+<dl>
+	<dt>targetFile</dt>
+	<dd>Full path to the file to create (eg. "C:\\temp\\myfile.zip")</dd>
+	<dt>sourceFile</dt>
+	<dd>Full path to file or folder to pack</dd>
+	<dt>filter</dt>
+	<dd>Wildcard filter to use when adding files to archive</dd>
+	<dt>method</dt>
+	<dd>compression profile to use or default method for that type (eg. "zip" )</dd>
+	<dt>options</dt>
+	<dd>Optional parameter (case-sensitive). Separate multiple options with commas.<br />
+	"SILENT" - Show no error dialog. If any error occurs then abort and return then error code<br />
+	"NOWAIT" - Script will continue directly. Will not wait until copy is completed<br />
+	"NOPROGRESS" - Show no progress window. No error dialog will be shown. It will always skip files on error<br />
+	"OVERWRITEALL" - If a file already exists on the target path, overwrite it without asking<br />
+	"NOQUEUE" - If a file operation already exists. Start a new queue (override default setting)<br />
+	"USEEXISTINGQUEUE" - If a file operation already exists then use it (override default setting)</dd>
+	<dt>Password</dt>
+	<dd>Optional parameter. Password you want to set for the archive if you want to protect it</dd>
+</dl>
+
+<h3>Return value</h3>
+
+<p>1 if packing succeeded, else error code</p>
+
+<h3>Example</h3>
+
+<pre class="example">
+@var $filename = "C:\\temp\\MyFile.zip";
+@var $folderToPack = "C:\\temp\\MyFiles\\";
+
+PackFile( $filename, $folderToPack, "*.*", "zip", "NOWAIT" );
+// or
+PackFile( $filename, $folderToPack, "*.txt", "Internal Zip (Max)", "NOWAIT", "MyPassword" );
+</pre>
+</div>
+
+<div class="multiscriptfunc">
+<h2><a name="deletefile"></a>DeleteFile</h2>
+
+<p>Delete a single file using the Multi Commander virtual filesystem.</p>
+
+<pre>
+&lt;num&gt; DeleteFile( &lt;str&gt; filename, &lt;arr&gt; options );</pre>
+
+<h3>Parameters</h3>
+
+<dl>
+	<dt>filename</dt>
+	<dd>file or folder to delete</dd>
+	<dt>options</dt>
+	<dd>Optional parameter (case-sensitive). Separate multiple options with commas.<br />
+	"RECYLE" - Delete to recycle bin<br />
+	"NOPROGRESS" - Show no progress window<br />
+	"NODIALOG" - Show no confirmation dialog<br />
+	"SILENT" - Show no error dialog if delete fails</dd>
+</dl>
+
+<h3>Return value</h3>
+
+<p>0 for failure, 1 for success</p>
+
+<h3>Example</h3>
+
+<pre class="example">
+@var $options[] = {"NODIALOG", "SILENT", "RECYLE"};
+DeleteFile( $filename, $options );</pre>
+</div>
+
+<div class="multiscriptfunc">
+<h2><a name="deletefiles"></a>DeleteFiles</h2>
+
+<p>Delete multiple files using the Multi Commander virtual filesystem.</p>
+
+<pre>
+&lt;num&gt; DeleteFiles( &lt;arr&gt; filenames, &lt;arr&gt; options );</pre>
+
+<h3>Parameters</h3>
+
+<dl>
+	<dt>filenames</dt>
+	<dd>array of files or folders to delete</dd>
+	<dt>options</dt>
+	<dd>Optional parameter (case-sensitive). Separate multiple options with commas.<br />
+	"RECYLE" - Delete to recycle bin<br />
+	"NOPROGRESS" - Show no progress window<br />
+	"NODIALOG" - Show no confirmation dialog<br />
+	"SILENT" - Show no error dialog if delete fails</dd>
+</dl>
+
+<h3>Return value</h3>
+
+<p>0 for failure, 1 for success</p>
+
+<h3>Example</h3>
+
+<pre class="example">
+@var $filenames[] = {'e:\file1.txt', 'e:\file2.txt', 'e:\Folder1'};
+@var $options[] = {"NODIALOG", "SILENT", "RECYLE"};
+DeleteFile( $filenames, $options );</pre>
+</div>
+
+<div class="multiscriptfunc">
+<h2><a name="makedir"></a>MakeDir</h2>
+
+<p>Create a new folder using the Multi Commanders virtual filesystem.</p>
+
+<pre>
+&lt;num&gt; MakeDir( &lt;str&gt; path, &lt;str&gt; options );</pre>
+
+<h3>Parameters</h3>
+
+<dl>
+	<dt>filename</dt>
+	<dd>Full path to folder to create. Can also be any virtual path like WPD:\ REG:\ FTP:\ or inside zips or 7z</dd>
+	<dt>options</dt>
+	<dd>Optional parameter (case-sensitive). Separate multiple options with commas.<br />
+	"LOCAL" - Hint to the virtual filesystem that the path is a normal local path<br />
+	"RECURSIVE" - Create folders recursively. Only work if LOCAL also is specified</dd>
+</dl>
+
+<h3>Return value</h3>
+
+<p>0 for success, else error code</p>
+
+<h3>Example</h3>
+
+<pre class="example">
+MakeDir( "C:\\Temp\NewFolder\\SubFolder\\", "LOCAL,RECURSIVE" );
+MakeDir( "WPD:\\MyPhone\\SubFolder\\", "" );
+MakeDir( "C:\\Temp\\MyFiles.zip\\Folder", "" );
+</pre>
+</div>
+
+<div class="multiscriptfunc">
+<h2><a name="filtercreate"></a>FilterCreate</h2>
+
+<p>Create a handle to a filter. This handle will reference all filter rules added with FilterAddRule (see below).</p>
+
+<pre>
+&lt;handle&gt; FilterCreate();</pre>
+
+<h3>Parameters</h3>
+
+<p>None</p>
+
+<h3>Return value</h3>
+
+<p>Return a handle to a filter</p>
+
+<h3>Example</h3>
+
+<pre class="example">
+@var $filter = FilterCreate();
+</pre>
+</div>
+
+<div class="multiscriptfunc">
+<h2><a name="filteraddrule"></a>FilterAddRule</h2>
+
+<p>Add a Rule to filter.</p>
+
+<pre>
+&lt;str&gt; FilterAddRule( &lt;handle&gt; filter, &lt;str&gt; matchType, &lt;str&gt; value, [&lt;num&gt; invert] );</pre>
+
+<h3>Parameters</h3>
+
+<dl>
+	<dt>filter</dt>
+	<dd>Handle to a filter created by FilterCreate()</dd>
+	<dt>field to match</dt>
+	<dd>The field to do the match against:<br />
+	fullname<br />
+	ext<br />
+	namepart<br />
+	size<br />
+	date<br />
+	attribute<br />
+	filecontent<br />
+	extendedproperty</dd>
+	<dt>Match Type</dt>
+	<dd>The type of matching the rule should attempt.<br />
+	is (if field is a text or number, eg. filename or size)<br />
+	lessthan (if field is number, eg. size)<br />
+	morethan (if field is number, eg. size)<br />
+	wildcard (if field is of text type)<br />
+	contains (if field is of text type)<br />
+	beginwith (if field is of text typ )<br />
+	endwith (if field is of text type)<br />
+	before (if field is of date type)<br />
+	after (if field is of date type)<br />
+	has (if field is of attribute type)<br />
+	hasnot (if field is of attribute type)<br />
+	regex (if field is of text type)<br />
+	hex (if field is of filecontent type)</dd>
+	<dt>Value</dt>
+	<dd>The value that the filter should match against</dd>
+	<dt>Invert</dt>
+	<dd>Optional parameter. If set to 1 the result will be inverted</dd>
+</dl>
+
+<h3>Return value</h3>
+
+<p>1 if filter rule was added, else 0</p>
+
+<h3>Example</h3>
+
+<pre class="example">
+@var $filter = FilterCreate();
+FilterAddRule( $filter, "Fullname", "Contains", "Frog" );
+FilterAddRule( $filter, "ext", "Wildcard", "*.txt" );
+FilterAddRule( $filter, "date", "before", "2016-05-01" );
+</pre>
+</div>
+
+<div class="multiscriptfunc">
+<h2><a name="filterload"></a>FilterLoad</h2>
+
+<p>Load a filter from a file.</p>
+
+<pre>
+&lt;handle&gt; FilterLoad( &lt;str&gt; filename );</pre>
+
+<h3>Parameters</h3>
+
+<dl>
+	<dt>filename</dt>
+	<dd>Full path to the file with a filter</dd>
+</dl>
+
+<h3>Return value</h3>
+
+<p>Handle to a filter</p>
+
+<h3>Example</h3>
+
+<pre class="example">
+@var $filter = FilterLoad( "D:\\MyFilter.xml" );
+@var $isMatch = IsFilterMatch( $filter, $file );
+</pre>
+</div>
+
+<div class="multiscriptfunc">
+<h2><a name="filterloadbyid"></a>FilterLoadById</h2>
+
+<p>Load a filter from an existing advanced filter.</p>
+
+<pre>
+&lt;handle&gt; FilterLoadById( &lt;str&gt; FilterID );</pre>
+
+<h3>Parameters</h3>
+
+<dl>
+	<dt>FilterID</dt>
+	<dd>GUID of a existing filter id</dd>
+</dl>
+
+<h3>Return value</h3>
+
+<p>Handle to a filter</p>
+
+<h3>Example</h3>
+
+<pre class="example">
+@var $filter = FilterLoad( "3790d1abd9e849dba01de220375bb196" );
+@var $isMatch = IsFilterMatch( $filter, $file );
+</pre>
+</div>
+
+<div class="multiscriptfunc">
+<h2><a name="filtersave"></a>FilterSave</h2>
+
+<p>Save a filter to a file.</p>
+
+<pre>
+&lt;num&gt; FilterSave( &lt;str&gt; filename );</pre>
+
+<h3>Parameters</h3>
+
+<dl>
+	<dt>filename</dt>
+	<dd>Full file path to the file to save</dd>
+</dl>
+
+<h3>Return value</h3>
+
+<p>1 if successful else 0</p>
+
+<h3>Example</h3>
+
+<pre class="example">
+@var $filter = FilterCreate();
+FilterAddRule( $filter, "Fullname", "Contains", "Frog" );
+FilterAddRule( $filter, "ext", "Wildcard", "*.txt" );
+FilterAddRule( $filter, "date", "before", "2016-05-01" );
+
+FilterSave( $filter, "C:\\MyFilter.xml" );
+</pre>
+</div>
+
+<div class="multiscriptfunc">
+<h2><a name="filterismatch"></a>FilterIsMatch</h2>
+
+<p>Check if a file is a match against a filter.</p>
+
+<pre>
+&lt;num&gt; FilterSave( &lt;handle&gt; filter, &lt;str&gt; filepath );</pre>
+
+<h3>Parameters</h3>
+
+<dl>
+	<dt>filter</dt>
+	<dd>Handle to a filter</dd>
+	<dt>filepath</dt>
+	<dd>Full path of a file to check the filter against</dd>
+</dl>
+
+<h3>Return value</h3>
+
+<p>1 if file is a match, else 0</p>
+
+<h3>Example</h3>
+
+<pre class="example">
+@var $filter = FilterCreate();
+FilterAddRule( $filter, "Fullname", "Contains", "Frog" );
+FilterAddRule( $filter, "ext", "Wildcard", "*.txt" );
+FilterAddRule( $filter, "date", "before", "2016-05-01" );
+
+@var $isMatch = FilterIsMatch( $filter, "C:\\Temp\\MyFrog.txt" );
+</pre>
+</div>
+
+<div class="multiscriptfunc">
+<h2><a name="pathgetpathpart"></a>PathGetPathPart</h2>
+
+<p>Get the path part of a full filename path.</p>
+
+<pre>
+&lt;str&gt; PathGetPathPart( &lt;str&gt; path, [&lt;num&gt; stripEndingSlash] );</pre>
+
+<h3>Parameters</h3>
+
+<dl>
+	<dt>path</dt>
+	<dd>Full file/folder path</dd>
+	<dt>stripEndingSlash</dt>
+	<dd>Optional parameter. If 1, then the trailing backslash of the path will be removed</dd>
+</dl>
+
+<h3>Return value</h3>
+
+<p>The path part of a full file/folder path</p>
+
+<h3>Example</h3>
+
+<pre class="example">
+@var $path = PathGetPartPath( "C:\\temp\\MyPopSong.mp3" );
+// res == "C:\\temp\\"
+</pre>
+</div>
+
+<div class="multiscriptfunc">
+<h2><a name="pathgetnamepart"></a>PathGetNamePart</h2>
+
+<p>Get the name path of a filename path.</p>
+
+<pre>
+&lt;str&gt; PathGetNamePart( &lt;str&gt; path, [&lt;num&gt; stripExtension] );</pre>
+
+<h3>Parameters</h3>
+
+<dl>
+	<dt>path</dt>
+	<dd>Full file/folder path</dd>
+	<dt>stripExtension</dt>
+	<dd>Optional parameter. If 1, the file extension will be removed</dd>
+</dl>
+
+<h3>Return value</h3>
+
+<p>The name part of a full file/folder path</p>
+
+<h3>Example</h3>
+
+<pre class="example">
+@var $nameA = PathGetPartPath( "C:\\temp\\MyPopSong.mp3" );
+// nameA == "MyPopSong.mp3"
+@var $nameB = PathGetPartPath( "C:\\temp\\MyPopSong.mp3", 1 );
+// nameB == "MyPopSong"
+</pre>
+</div>
+
+<div class="multiscriptfunc">
+<h2><a name="pathgetfileextpart"></a>PathGetFileExtPart</h2>
+
+<p>Get the file extension from a filename path.</p>
+
+<pre>
+&lt;str&gt; PathGetFileExtPart( &lt;str&gt; path, [&lt;num&gt; stripDot] );</pre>
+
+<h3>Parameters</h3>
+
+<dl>
+	<dt>path</dt>
+	<dd>Full file/folder path</dd>
+	<dt>stripDot</dt>
+	<dd>Optional parameter. If 1, the dot in the file extension will be removed</dd>
+</dl>
+
+<h3>Return value</h3>
+
+<p>The file extension of a filename path</p>
+
+<h3>Example</h3>
+
+<pre class="example">
+@var $nameA = PathGetFileExtPart( "C:\\temp\\MyPopSong.mp3" );
+// nameA == ".mp3"
+@var $nameB = PathGetFileExtPart( "C:\\temp\\MyPopSong.mp3", 1 );
+// nameB == "mp3"
+</pre>
+</div>
+
+<div class="multiscriptfunc">
+<h2><a name="pathgetparts"></a>PathGetParts</h2>
+
+<p>Get an array of all the file path parts.</p>
+
+<pre>
+&lt;arr&gt; PathGetParts( &lt;str&gt; path );</pre>
+
+<h3>Parameters</h3>
+
+<dl>
+	<dt>path</dt>
+	<dd>Full file/folder path</dd>
+</dl>
+
+<h3>Return value</h3>
+
+<p>Return an array of all the filename part.<br />
+Array item 0 = Device<br />
+Array item 1 = Path<br />
+Array item 2 = Filename</p>
+
+<h3>Example</h3>
+
+<pre class="example">
+@var $arr = PathGetParts( "C:\\temp\\MyPopSong.mp3" );
+// $arr[0] == C:\
+// $arr[1] == C:\temp\
+// $arr[2] == MyPopSong.mp3
+</pre>
+</div>
+
+<div class="multiscriptfunc">
+<h2><a name="pathmakerelativemc"></a>PathMakeRelativeMC</h2>
+
+<p>Convert a path to be relative to where Multi Commander is started from.</p>
+
+<pre>
+&lt;str&gt; PathMakeRelativeMC( &lt;str&gt; path );</pre>
+
+<h3>Parameters</h3>
+
+<dl>
+	<dt>path</dt>
+	<dd>Path to convert</dd>
+</dl>
+
+<h3>Return value</h3>
+
+<p>The converted path</p>
+
+<h3>Example</h3>
+
+<pre class="example">
+// MC is installed in "C:\Program\MultiCommander"
+@var $path = PathMakeRelativeMC( "C:\\temp\\MyFile.txt" );
+// $path == "..\Temp\MyFile.txt"
+</pre>
+</div>
+
+<div class="multiscriptfunc">
+<h2><a name="pathmakeabsolutemc"></a>PathMakeAbsoluteMC</h2>
+
+<p>Convert a relative path to absolute (relative to where Multi Commander is started from).</p>
+
+<pre>
+&lt;str&gt; PathMakeAbsoluteMC( &lt;str&gt; path );</pre>
+
+<h3>Parameters</h3>
+
+<dl>
+	<dt>path</dt>
+	<dd>Path to convert</dd>
+</dl>
+
+<h3>Return value</h3>
+
+<p>The converted path</p>
+
+<h3>Example</h3>
+
+<pre class="example">
+// MC is installed in "C:\Program\MultiCommander"
+@var $path = PathMakeAbsoluteMC( "..\\temp\\MyFile.txt" );
+// $path == "C:\Temp\MyFile.txt"
+</pre>
+</div>
+
+<div class="multiscriptfunc">
+<h2><a name="pathtranslatepath"></a>PathTranslatePath</h2>
+
+<p>Convert a relative path to absolute and also convert environmental tags.</p>
+
+<pre>
+&lt;str&gt; PathTranslatePath( &lt;str&gt; path );</pre>
+
+<h3>Parameters</h3>
+
+<dl>
+	<dt>path</dt>
+	<dd>Path to convert</dd>
+</dl>
+
+<h3>Return value</h3>
+
+<p>The converted path</p>
+
+<h3>Example</h3>
+
+<pre class="example">
+// MC in installed in "C:\Program\MultiCommander" and ENVVAR is "MyFile.txt"
+@var $path = PathTranslatePath( "..\\temp\\%ENVVAR%" );
+// $path == "C:\Temp\MyFile.txt"
+
+@var $path = PathTranslatePath( "%WINDIR%\\calc.exe" );
+// $path == "C:\Windows\calc.exe"
+</pre>
+</div>
+
+<div class="multiscriptfunc">
+<h2><a name="netwget"></a>NetWGet</h2>
+
+<p>Download web content and save it as a file.</p>
+
+<pre>
+&lt;str&gt; NetWGet( &lt;str&gt; SaveAsPath,&lt;str&gt; Url, &lt;str&gt; options, &lt;arr&gt; Header );</pre>
+
+<h3>Parameters</h3>
+
+<dl>
+	<dt>SaveAsPath</dt>
+	<dd>Full path to where the file should be saved</dd>
+	<dt>Url</dt>
+	<dd>URL of the web content to save</dd>
+	<dt>options</dt>
+	<dd>Optional parameter (case-sensitive). Separate multiple options with commas.<br />
+	OVERWRITE - Overwrite target file if it already exists<br />
+	VERIFY_SSLCERT - Require valid SSL Certificate</dd>
+	<dt>Headers</dt>
+	<dd>An array of "Key=Value" strings that should be added to the Http Request header</dd>
+</dl>
+
+<h3>Return value</h3>
+
+<p>Number of bytes downloaded and written to the file SaveAsPath</p>
+
+<h3>Example</h3>
+
+<pre class="example">
+@var $bw = NetWGet( "C:\\Temp\\MFile.zip", "http://www.example.com/file.zip", "OVERWRITE,VERIFY_SSLCERT" );
+</pre>
+</div>
+</div>
+
+

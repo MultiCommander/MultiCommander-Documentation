@@ -1,0 +1,58 @@
+<h2>User Defined Commands - External Commands</h2>
+<p><strong>External commands</strong> let you choose an external program to be launched when the command is called.</p>
+
+<p><img alt="" src="/Docs/Images/UDC_external.png" /></p>
+
+<p>&nbsp;</p>
+
+<h2>MultiTags</h2>
+
+<p>MultiTags are specially formatted texts that will be replaced with dynamic information. For example, the MultiTag <strong>${focusfilepath}</strong> will be replaced by the full file path to the file currently in focus. The command is run through a process that will translate <strong>MultiTags</strong> before it is executed.</p>
+
+<p>Paths are not quoted by default, so if you need quotes around the path you have to put them around the MultiTag, e.g. <strong>"${focuspath}"</strong></p>
+
+<p><a href="#docs_multitags">Read more about MultiTags</a></p>
+
+<h2>Options</h2>
+
+<p><img alt="" src="/Docs/Images/UDC_runoptions.png" /></p>
+
+<p>When you press the <strong>Options</strong> button you will get a list of options you can assign to the command, as shown above.</p>
+
+<h3>Run as Administrator</h3>
+
+<p>When this option is checked the program will be run with Administrator privileges. If you are running as a normal user you will be presented with a UAC&nbsp;dialog asking for permission to run the program as Administrator. You might also need to enter an Administrator login and password, depending on your user account permissions.</p>
+
+<p>If you run with UAC disabled then the system will launch the program as Administrator without showing you a UAC dialog.</p>
+
+<p>(This option is not valid on Windows XP and Windows 2003.)</p>
+
+<h3>Display Confirmation</h3>
+
+<p>This option will display a dialog asking the user to confirm that the command really should be run. This is recommended to be used if the program to be started could change anything on the computer, such as removing or modifying files. If the command is shown in the menu bar for example, it is very easy to accidentally call the command, and you might make changes to your system when you do not want to.</p>
+
+<h3>Use Dropped Files as Parameters</h3>
+
+<p>This is a special option in case the command is assigned to a button on the Button Panel that accepts files dropped on to it. The dropped files will be transformed into parameters for the command, and are accessed with the multi-tag <strong>${param:&lt;num&gt;}</strong>.</p>
+
+<p>&nbsp;</p>
+
+<h2>Command Arguments</h2>
+
+<p>The dialog allows arguments (parameters) to be sent to the command. These are sent to it if the command is called from the Command line bar or if files are dropped on a button and the command has enabled the option "Use Dropped files as parameter", or if this command is called from a Custom Command or MultiScript command.</p>
+
+<p>The parameters are accessed by using the MultiTags <strong>${param:&lt;num&gt;}</strong> where &lt;num&gt; identifies which argument to use. <strong>${param:0}</strong> will be the first parameter,<strong> ${param:1}</strong> the second,<strong>&nbsp;${param:2}</strong> the third and so on.</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+

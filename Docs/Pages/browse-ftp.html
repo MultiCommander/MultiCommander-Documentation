@@ -1,0 +1,53 @@
+<h2>FileSystem - FTP (FTP:)</h2>
+<p>The virtual filesystem device extension <b>FTP (FTP:)</b> allows network connections to other machines using the FTP protocol.</p>
+
+<p>An FTP connection will be integrated into Multi Commander's virtual filesystem and the connection can then be access as a normal filesystem.</p>
+
+<p>The filesystem location FTP: is special; special FTP commands and all FTP bookmarks exists there. When an FTP connection is established the virtual filesystem will connect that location to a numbered device, between 0: and 9:. The first FTP connection will be 0:, the next 1:, and so on.</p>
+
+<p><img alt="" src="/Docs/Images/BrowseFTP.png" style="width: 526px; height: 158px;" /></p>
+
+<h2>Quick Connect</h2>
+
+<p>The Quick Connect command will open the Quick Connect window, allowing a connection to be created without adding an FTB bookmark.</p>
+
+<p><img alt="" src="/Docs/Images/FTPQuickConnect.png" style="width: 447px; height: 427px;" /></p>
+
+<p>Enter the information needed to connect to an FTP site. Press the Connect button to complete the connection.</p>
+
+<p>By checking the option "<b>Add to bookmark</b>s" a bookmark for this site will also be created.</p>
+
+<p>The quick connection information (but not the password) is remembered for the next time you need to connect to the site.</p>
+
+<p>Uncheck the option "<b>Remember site</b>" and the Quick Connect window will not remember anything entered into it.</p>
+
+<h2>Add/Edit Bookmark</h2>
+
+<p>This command will show the Site Manager window. In this window new bookmarks for sites can be added, removed or changed.</p>
+
+<p><img alt="" src="/Docs/Images/FTPBookmarks.png" style="width: 652px; height: 494px;" /></p>
+
+<p>Create a new bookmark by pressing the "<b>New</b>" button. Then enter all the information needed for that bookmark and the press the "<b>Save</b>" button.</p>
+
+<p>The "<b>Duplicate</b>" button will create a duplicate of the selected bookmark. Change the Name and edit the new bookmark and then press the "<b>Save</b>" button.</p>
+
+<p>Too delete a bookmark, first selected the bookmark to delete and then press the "<b>Delete</b>" button.</p>
+
+<p>When closing the Site Manager window the FTP: view should refresh and show the new sites. If this does not happen do a manual refresh by pressing the refresh button or the press F2/F5 (depending on setup).</p>
+
+<h2>Connect</h2>
+
+<p>Connecting to an FTP site can be done from the Site Manager by selecting the bookmark to connect to and pressing "<b>Connect</b>".</p>
+
+<p>Executing a bookmark in the list by double-clicking it or by selecting it and pressing the return/enter key will also initiate a connection to the site.</p>
+
+<p>Logging is very important in FTP. The FTP Logs are used to store error messages, but the FTP server also uses the logs to show shows information about the site you are connecting to. Most FTP servers will save a lot of important connection information here.<br />
+A log tab will be created for every site or bookmark for which a connection is made.</p>
+
+<h2>Disconnect</h2>
+
+<p>Press the disconnect button located in the Explorer Panel to disconnect from the FTP server.</p>
+
+<p><img alt="" src="/Docs/Images/BrowseFTPDisconnect.png" style="width: 529px; height: 199px;" /></p>
+
+

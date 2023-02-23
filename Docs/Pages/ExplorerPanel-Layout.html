@@ -1,0 +1,123 @@
+<h2>Explorer Panel - Layout</h2>
+<p>The layout of the Explorer Panel is similar to that in otherfile managers that you may be familiar with, although it has many more features than most.<br />
+Below is a description of the various parts of the display.</p>
+
+<p>The image below shows an example of how the Explorer Panel can look with all of its user interface options enabled. Most of the user interface items can be configured and turned on/off in settings.</p>
+
+<p>&nbsp;</p>
+
+<p><img alt="" src="/Docs/Images/ExplorerPanel_Layout.png" style="width: 586px; height: 526px;" /></p>
+
+<h3>1. Device toolbar</h3>
+
+<p>Here you can see a list of available devices. This toolbar is very similar to the global device toolbar, except that this toolbar will only show drives. Special folders and virtual devices that the global toolbar can show is not shown in this Explorer Panel device toolbar.</p>
+
+<p>You can enable/disable this toolbar in Explorer Panel Settings by checking/unchecking the "Drive buttons" options.</p>
+
+<h3>2. Device Dropdown list</h3>
+
+<p>This dropdown list shows not only drivesbut all available Devices, Special Folders, Virtual Devices. When an item in the dropdown list is selected the Explorer Panel will change to that location and show the content of the new path.<br />
+For fast access to drives when the list is shown you can press (for example) the letter E to make the Explorer Panel go to the E: drive.<br />
+If the <strong>SHIFT</strong> key is pressed while selecting a location, that location is then opened in a new Explorer Panel tab.</p>
+
+<p>In settings it is possible to configure what extended location types should be shown in the dropdown list.</p>
+
+<div class="dochints">
+<fieldset><legend>Hint</legend>
+
+<p>By pressing <strong>Alt+F1</strong> the Device Dropdown in the left panel will be shown. <strong>Alt+F2</strong> and the one on the right is shown</p>
+</fieldset>
+</div>
+
+<h3>3. Free Space area</h3>
+
+<p>Shows the available free space on the drive, and the total capacity of the volume (where appropriate).<br />
+It also shows the percentage of the total volume capacity that is available.</p>
+
+<p>If you double click on the Free Space message, it will show <em>used</em> space instead of <em>available</em> space. You can also set which of the two space figures you want as default by going to <em>Configuration-&gt;Explorer Panel settings-&gt;Layout-&gt;GUI Components-&gt;Show free/used space.</em></p>
+
+<h3>4. Command Buttons</h3>
+
+<p>These buttons affect only the active Explorer Panel when they are pressed.<br />
+<b>Folder Tree</b><br />
+Splits the panel to show the <em>folder tree</em> in the left portion. (shortcut key <em>Alt + Num*</em> (See <a href="#docs_ExplorerPanel-FolderTree">Folder tree</a>.)<br />
+<b>Go To Root Button</b><br />
+Click on the backslash symbol ("\") to go to the root of the device (shortcut key <em>Ctrl + Back</em>).<br />
+<b>Go Up</b><br />
+Click on this icon to go up to the parent level in the file structure (shortcut key <em>Back</em>).<br />
+<b>Refresh / Reload</b><br />
+Click on this icon to force a refresh of the current path; hold down the <strong>CTRL</strong> key to force a flush of the cache as well as a forced reload of the current path. All selections will be lost.&nbsp;<br />
+<b>Disconnect</b><br />
+This icon will disconnect the current device. If the current device is an external USB&nbsp;drive it will be prepared for safe removal. If the device is an FTP connection then the FTP connection will be dropped.<br />
+<b>View Mode</b><br />
+This icon will display a menu of possible <strong>View Modes</strong>. Currently these consist of <strong><em>Details</em></strong>, <strong><em>List</em></strong>, <strong><em>Thumbnail List</em></strong><em> </em> and <strong><em>Thumbnail Details</em></strong>.</p>
+
+<p>&nbsp;</p>
+
+<h3>5. Path field</h3>
+
+<p><img alt="" src="/Docs/Images/ExplorerPanel_pathbar.png" /></p>
+
+<p>The path field shows the current path displayed in the Explorer Panel. Sub folders in the path that is shown are clickable. Clicking on a subpath causes the Explorer Panel to try to change to that path.<br />
+The path field has many options and feature. <a href="#docs_ExplorerPanelPathField">Read more about the Path field</a>.</p>
+
+<h3>6. Folder Tree</h3>
+
+<h3>7. File list view</h3>
+
+<h3>8. Selection Status bar</h3>
+
+<p><img alt="" src="/Docs/Images/ExplorerPanel_SelectionStatusField.png" style="width: 500px; height: 62px;" /></p>
+
+<p>The Panel Status bar appears at the bottem of the panel. The various parts are described below:</p>
+
+<p><strong>1 - Select / Total Size</strong><br />
+The size of all the selected files and folders (if folders are showing file size) and the total size of all visible files and folders.</p>
+
+<p><strong>2 - Selected / Total Files</strong><br />
+Number of selected files and the total visible files.</p>
+
+<p><strong>3 - </strong><strong>Selected /&nbsp;Total Folders</strong><br />
+Number of selected folders and the total visible folders.</p>
+
+<p><strong>4 - Hidden files /&nbsp;Folders</strong><br />
+Number of files and folders that are hidden by the view filter.</p>
+
+<h3>9. View Filter</h3>
+
+<p><img alt="" src="/Docs/Images/ExplorerPanel_ViewFilterField.png" style="width: 500px; height: 62px;" /></p>
+
+<p>Filter the view to only show certain files or folders. Prefixing a filter with "-" will exclude those files. To create a filter to target folders only, prefix it with "/".</p>
+
+<p>You can edit the View Filter from a keyboard shortcut by pressing <strong>CTRL+F</strong> (if using the default commander-style setup).</p>
+
+<p>Examples</p>
+
+<table class="table table-bordered">
+	<tbody>
+		<tr>
+			<td>*.* -*.jpg</td>
+			<td>Show all files, except .jpg files.</td>
+		</tr>
+		<tr>
+			<td>*.* -/backup</td>
+			<td>Do not show the "backup" folder</td>
+		</tr>
+		<tr>
+			<td>*.jpg *.tiff&nbsp;</td>
+			<td>Show only jpg and tiff files.&nbsp;</td>
+		</tr>
+	</tbody>
+</table>
+
+<p>&nbsp;It is also possible to change the view filter from a <a href="#docs_UDC_custom">CustomCommand</a>.</p>
+
+<h3>10. Reset Filter and Quick Filters</h3>
+
+<p><img alt="" src="/Docs/Images/ExplorerPanel_ViewFilterButton.png" style="width: 500px; height: 62px;" /></p>
+
+<p>Click to toggle quick filter. Right click to show a popup menu with pre defined set of View Filters. By selecting "Customize..." it is possible to edit the list of quick filters and to add new filters to the list.</p>
+
+<p><img alt="" src="/Docs/Images/ExplorerPanel_ViewFilterPopup.png" style="width: 343px; height: 458px;" /></p>
+
+

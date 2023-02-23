@@ -1,0 +1,36 @@
+<h2>Multi Commander Hangs and is Not Responding</h2>
+<h2>Symptom</h2>
+
+<p>When Multi Commander hangs it is often because it is waiting for some external operation to finished, but it can also be because of a problem within Multi Commander itself.<br />
+A 'hang' is when Multi Commander becomes unresponsive. The main user interface no longer accepts any input and you see the Windows message "Not Responding" in the title bar.</p>
+
+<p><img alt="Multi Commander Hang" src="/Docs/Images/MCHang.png" width="50%" /></p>
+
+<h2>What To Do</h2>
+
+<p>If Multi Commander actually <em>crashes </em>a mini dump file is created and sent to our crash report system where we can investigate why it crashed.<br />
+For a hang this is not done automatically; to be able to find out why it hung, and to be able to fix it, we need to know what Multi Commander was doing when it hung. To do that, we need a dump of the hung 'MultiCommander.exe. process, but you, the user, will need to create that dump and send it to us.</p>
+
+<h2>Creating a Dump File</h2>
+
+<p>To create a dump file you can use the Windows Task Manager (For Windows XP or Windows Server2003 you have to use a tool like <a href="http://technet.microsoft.com/en-us/sysinternals/dd996900.aspx">procdump</a>).</p>
+
+<p>Start Task Manager by pressing Ctrl+Shift+Esc (or right-click on the status bar and select "Start Task Manager"), select the Processes tab.<br />
+Find the "not responding" MultiCommander.exe process in the list, right-click it and select "Create Dump File".</p>
+
+<p><br />
+<img alt="" src="/Docs/Images/MCCreateDumpFile.png" width="50%" /></p>
+
+<p>When the dump file is saved you will be presented with a dialog telling you where the dump file was written.<br />
+<br />
+<img alt="" src="/Docs/Images/MCCreateDumpLocation.png" /></p>
+
+<p>The path in the dialog must be selected so that you can copy and paste that path into Multi Commander or Windows Explorer to go to that location.</p>
+
+<p><img alt="" src="/Docs/Images/MCCreateDumpCopyLocation.png" /></p>
+
+<p>Compress the dump file with Zip/7-zip/Rar. The fastest way is to just right-click the file and select "Send To &gt; Compressed Folder".</p>
+
+<p>Then upload that file to <a href="http://multicommander.com/upload">http://multicommander.com/upload</a> and we can take a look and see what Multi Commander was waiting for and why it hung.</p>
+
+<p>If you need feedback on your submitted file, then also post a message in the forum or send us an email.</p>
