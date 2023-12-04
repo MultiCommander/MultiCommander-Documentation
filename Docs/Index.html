@@ -1,4 +1,115 @@
 <html>
+<head>
+<link rel="stylesheet" href="Docs.css">
+<style>
+.columnA {
+  float: left;
+  width: 25%;
+}
+.columnB {
+  float: left;
+  width: 75%;
+}
 
-<object name="MenuPage.html" type="text/html" data="MenuPage.html" height="100%"></object>
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+</style>
+</head>
+<script>
+function load_menu (e) {
+    (e || window.event).preventDefault();
+
+    fetch("menupage.html" /*, options */)
+    .then((response) => response.text())
+    .then((html) => 
+    {
+        document.getElementById("menu").innerHTML = html;
+    })
+    .catch((error) => {
+        console.warn(error);
+    });
+} 
+
+function LoadContent(page)
+{
+    fetch(page /*, options */)
+    .then((response) => response.text())
+    .then((html) => 
+    {
+       document.getElementById("doc").innerHTML = html;
+
+       /* Remove "Docs" part from img links */
+       var imgLinks = document.getElementsByTagName("img");
+        for (var i = 0; i < imgLinks.length; i++) {
+          imgLinks[i].src = imgLinks[i].src.replace("Docs/", "");
+
+	 }
+
+    })
+    .catch((error) => {
+        console.warn(error);
+    });
+
+}
+
+function callback(e) 
+{
+    var e = window.e || e;
+
+    if (e.target.tagName !== 'A')
+        return;
+
+    // Do something
+    e.preventDefault();
+    e.stopPropagation();
+
+    var newpath = "";
+    var path = e.target.pathname;
+    var parts = path.split('/');
+    for (var i = 0; i < parts.length; i++) 
+    {
+       var part = parts[i];
+
+       if(part === "Docs")
+         newpath += "Pages";
+       else
+         newpath += part;
+
+       if(i+1 < parts.length) 
+         newpath += "/";         
+    }
+
+    if(!newpath.includes(".html"))
+    {
+         newpath += ".html";
+    }
+
+    LoadContent(newpath);  
+}
+
+
+window.onload = function() 
+{
+
+if (document.addEventListener)
+    document.addEventListener('click', callback, false);
+else
+    document.attachEvent('onclick', callback);
+
+
+ load_menu();
+}
+
+</script>
+
+<div class="row">
+  <div id="menu" class="columnA"></div>
+  <div id="doc" class="columnB"></div>
+</div>
+
 </html>

@@ -10,10 +10,17 @@ Currently the organization bit messy since this is an export from the old CMS sy
 MenuPage.html - Is the menu for accessing the page
 Docs.css - is documentation specific CSS styling
 
-Index.html - Is only used for local viewing. And it is currently not working.
-             If somebody has the time to fix it. Please create a fork.
-             Need to open documentation link from MenuPage locally. 
+Index.html - Is only used for local viewing.
 
+# View Locally 
+
+Make sure you have python3 install. On Windows 10+ just open a command prompt and type python3 and if you do 
+not have it. Windows will open the Windows store so you can install it
+
+Go to the local where the index.html is. and then type
+python3-m http.server 8080
+
+Then open a browser and go to http://localhost:8080
 
 
 # How to Contribute
@@ -27,5 +34,4 @@ Index.html - Is only used for local viewing. And it is currently not working.
 https://docs.github.com/en/get-started/quickstart/contributing-to-projects
 
 Then I need to validate the pull request before it is added, And then website is updated
-
 
