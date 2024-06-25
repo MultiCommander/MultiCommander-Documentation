@@ -34,42 +34,47 @@
 <h2>Script Language Functions</h2>
 
 <table class="table table-bordered">
-	<tbody>
-		<tr>
-			<th>Return Value</th>
-			<th>Function Definition</th>
-			<th>Description</th>
-		</tr>
-		<tr>
-			<td>&lt;num&gt;</td>
-			<td>IsTypeString( &lt;var&gt; )</td>
-			<td>Returns 1 if &lt;var&gt; is of type <em>string</em></td>
-		</tr>
-		<tr>
-			<td>&lt;num&gt;</td>
-			<td>IsTypeNum( &lt;var&gt; )</td>
-			<td>Returns 1 if &lt;var&gt; is of type <em>number</em></td>
-		</tr>
-		<tr>
-			<td>&lt;num&gt;</td>
-			<td>IsTypeArray( &lt;var&gt; )</td>
-			<td>Returns 1 if &lt;var&gt; is of type <em>array</em></td>
-		</tr>
-		<tr>
-			<td>&lt;num&gt;</td>
-			<td>IsTypeHandle( &lt;var&gt; )</td>
-			<td>Returns 1 if &lt;var&gt; is of type <em>handle</em></td>
-		</tr>
-		<tr>
-			<td>&lt;num&gt;</td>
-			<td>strtonum( &lt;str&gt; )</td>
-			<td>Converts a number of type <em>string</em> to <em>number</em></td>
-		</tr>
-		<tr>
-			<td>&lt;str&gt;</td>
-			<td>numtostr( &lt;num&gt; )</td>
-			<td>Converts a number of type <em>number</em> to <em>string</em></td>
-		</tr>
+  <tbody>
+    <tr>
+      <th>Return Value</th>
+      <th>Function Definition</th>
+      <th>Description</th>
+    </tr>
+    <tr>
+      <td>&lt;num&gt;</td>
+      <td>IsTypeString( &lt;var&gt; )</td>
+      <td>Returns 1 if &lt;var&gt; is of type <em>string</em></td>
+    </tr>
+    <tr>
+      <td>&lt;num&gt;</td>
+      <td>IsTypeNum( &lt;var&gt; )</td>
+      <td>Returns 1 if &lt;var&gt; is of type <em>number</em></td>
+    </tr>
+    <tr>
+      <td>&lt;num&gt;</td>
+      <td>IsTypeArray( &lt;var&gt; )</td>
+      <td>Returns 1 if &lt;var&gt; is of type <em>array</em></td>
+    </tr>
+    <tr>
+      <td>&lt;num&gt;</td>
+      <td>IsTypeHandle( &lt;var&gt; )</td>
+      <td>Returns 1 if &lt;var&gt; is of type <em>handle</em></td>
+    </tr>
+    <tr>
+      <td>&lt;num&gt;</td>
+      <td>strtonum( &lt;str&gt; )</td>
+      <td>Converts a number of type <em>string</em> to <em>number</em></td>
+    </tr>
+    <tr>
+      <td>&lt;str&gt;</td>
+      <td>numtostr( &lt;num&gt; )</td>
+      <td>Converts a number of type <em>number</em> to <em>string</em></td>
+    </tr>
+  <tr>
+    <td>&lt;num&gt;</td>
+    <td>VariableDefined(&lt;str&gt;)</td>
+    <td>Returns 1 if variable name sent a parameter exists as a variable.</td>
+  </tr>
 	</tbody>
 </table>
 
