@@ -1,100 +1,128 @@
-<h2>Download and Installation</h2>
-<h2>Download</h2>
+﻿<h2>Download and Installation</h2>
 
-<p>The official download location is <a href="https://multicommander.com/downloads">https://multicommander.com/downloads</a>. If you download it from another location make certain that you really trust that source: you never know if somebody has manipulated the package.<br />
-This is especially important with the portable version since the package is only a .zip. <strong>Never</strong> download the portable version from another source.</p>
+<h2>Download</h2>
+<p>
+  The official download location is <a href="https://multicommander.com/downloads">https://multicommander.com/downloads</a>. If you download it from a different source, make sure that you trust it, as you can never be sure if someone has tampered with the package.<br />
+  This is especially important when downloading the portable version, as it is distributed as a simple .zip file. <strong>Never</strong> download the portable version from untrusted sources.
+</p>
 
 <h2>Installation</h2>
 
 <p><strong>Full Installer (.exe)</strong></p>
 
-<p>The full installer is named <strong>MultiCommander_x64_([version]).exe </strong>or <strong>MultiCommander_win32_([version]).exe</strong></p>
+<p>The full installer is named <strong>MultiCommander_x64_([version]).exe</strong> or <strong>MultiCommander_win32_([version]).exe</strong>.</p>
 
-<p>You will be given two choices at the beginning of the installation: <strong>Single User</strong> or <strong>All users</strong>.</p>
+<p>During the installation process, you will have two options: <strong>Single User</strong> or <strong>All Users</strong>.</p>
 
 <p><img alt="" src="/Docs/Images/InstallModes.png" style="width: 50%; height: 50%;" /></p>
 
-<p>If you choose <strong>Single User</strong> the installer will, by default, select an installation location that is under your private account. By doing this the installer will not require any administrator rights for the installation.</p>
+<p>If you choose <strong>Single User</strong>, the installer will, by default, select an installation path under your user account. This option does not require administrator rights.</p>
 
-<p>If you select <strong>All users</strong> the installer will, by default, select the shared Program Files folder as the install location. By installing it here <em>all </em>user accounts on the machine will have access to the program.<br />
-This installation option requires administrator rights and the installer will restart itself and ask for admin permission if needed.</p>
+<p>
+  If you choose <strong>All Users</strong>, the installer will, by default, install to the shared Program Files folder, giving access to all user accounts on the system.<br />
+  This option requires administrator rights. If necessary, the installer will restart itself to request admin permission.
+</p>
 
-<p>All users that then run Multi Commander will get their own configuration. The configuration is always stored under the user account, located under the <strong>Application Data Path</strong>.<br />
-Eg. <strong>C:\Users\&lt;username&gt;\AppData\Roaming\MultiCommander\Config\</strong></p>
+<p>
+  Even with the "All Users" option, each user will have their own configuration. Configuration files are always saved under the user’s Application Data path:<br />
+  <strong>C:\Users\&lt;username&gt;\AppData\Roaming\MultiCommander\Config\</strong>
+</p>
 
 <div class="dochints">
-<fieldset><legend>Hint</legend>
-
-<p>By typing "<strong>:goconfig</strong>" in the command line field inside Multi Commander. The active Explorer Panel will then open at the Multi Commander configuration folder</p>
-</fieldset>
+  <fieldset>
+    <legend>Hint</legend>
+    <p>By typing "<strong>:goconfig</strong>" in the command line within Multi Commander, the active Explorer Panel will open the Multi Commander configuration folder.</p>
+  </fieldset>
 </div>
 
 <p><strong>Portable Installer (.zip)</strong></p>
 
-<p>The portable installer is named <strong>MultiCommander_x64_Portable_([version]).zip</strong> or <strong>MultiCommander_win32_Portable_([version]).zip</strong></p>
+<p>The portable installer is named <strong>MultiCommander_x64_Portable_([version]).zip</strong> or <strong>MultiCommander_win32_Portable_([version]).zip</strong>.</p>
 
-<p>The portable package is a zip archive that you only need to unpack to a folder. Just make sure that you keep the folder structure from the zip package.<br />
-The portable version is the same as the installed version. The difference is that the portable version is configured to store all settings and configuration in the folder that Multi Commander is installed in and run from.<br />
-The portable version does not save anything to the registry or to the user account folder. Everything is saved in the Multi Commander folder. So the program must have write permissions to the folder that you start Multi Commander from.<br />
-This version is ideal to be installed to - and run from - a USB memory stick.</p>
+<p>
+  The portable version is a zip archive that can be unpacked to a folder of your choice. Ensure the folder structure within the zip file is maintained.<br />
+  The portable version is identical to the full version but is configured to save all settings and configurations within the folder where it’s run from, rather than saving data to the registry or user account folders.<br />
+  This makes it ideal for running from a USB stick or other portable media. Just ensure that Multi Commander has write permissions to the folder from which it’s launched.
+</p>
 
 <div class="dochints">
-<fieldset><legend>Note for WinPE Users</legend>
+  <fieldset>
+    <legend>Note for WinPE Users</legend>
+    <p>For using Multi Commander in WinPE 4.0 (assuming WinPE is located at X:), copy the following files to the corresponding directories before building WinPE:</p>
 
-<p>If you want to use Multi Commander in WinPE 4.0, and assuming your WinPE directory is X:,<br />
-copy the following files to the following directories <em>before </em>you build WinPE:</p>
+    <p>
+      C:\Windows\System32\en-EN\oledlg.dll.mui → X:\Windows\System32\en-EN\<br />
+      C:\Windows\Syswow64\en-EN\oledlg.dll.mui → X:\Windows\SysWOW64\en-EN\<br />
+      C:\Windows\Syswow64\oledlg.dll → X:\Windows\SysWOW64\<br />
+      C:\Windows\System32\oledlg.dll → X:\Windows\System32\
+    </p>
 
-<p>C:\Windows\System32\en-EN\oledlg.dll.mui -&gt; X:\Windows\System32\en-EN\<br />
-C:\Windows\Syswow64\en-EN\oledlg.dll.mui -&gt; X:\Windows\SysWOW64\en-EN\<br />
-C:\Windows\Syswow64\oledlg.dll -&gt; X:\Windows\SysWOW64\<br />
-C:\Windows\System32\oledlg.dll -&gt; X:\Windows\System32\</p>
-
-<p>Contributed by user Ulrich; tested on Windows 10 PE, x86 and x64.</p>
-</fieldset>
+    <p>Contributed by user Ulrich; tested on Windows 10 PE (x86 and x64).</p>
+  </fieldset>
 </div>
 
 <h2>Installer Parameters</h2>
 
-<p>The installer accepts parameters that make it possible to run the installer silently or from a script.</p>
+<p>The installer supports various parameters, allowing it to run silently or be controlled via scripts.</p>
 
 <pre>
-MultiCommander_x64_(6.2.0.2147).exe /S /D=[Target Folder] /PrevInstall=[Upgrade|Uninstall]
-/InstallMode=[All|User] /Kill=[Ask|Auto|Abort]</pre>
+MultiCommander_x64_(14.6.0.3059).exe /S /D=[Target Folder] /PrevInstall=[Upgrade|Uninstall]
+/InstallMode=[All|User] /Kill=[Ask|Auto|Abort]
+</pre>
 
 <ul>
-	<li><strong>/S</strong> - Silent<br />
-	Do not show any UI or ask any questions</li>
-	<li><strong>/D</strong> - Destination<br />
-	The target where Multi Commander should be installed. If not specified the default path under the Program Files folder is used.
-	<div>Eg. /D="D:\MyPrograms\MultiCommander"</div>
-	</li>
-	<li><strong>/PrevInstall</strong> - Previous Installation<br />
-	What to do with existing installation. The options are "Upgrade" or "Uninstall"
-	<div>Eg. /PrevInstall=Upgrade</div>
-	</li>
-	<li><strong>/InstallMode</strong> - Installation Mode<br />
-	Install Multi Commander for All users or current user. If "All" is set and install path is under a protected location (eg. Program Files) make sure the installation is run as administrator. The options are "All" or "User"
-	<div>Eg. /InstallMode=All</div>
-	</li>
-	<li><strong>/Kill</strong> - Kill running instances of Multi Commander<br />
-	When doing an upgrade Multi Commander may be running. Use /Kill=Auto to automatically kill any running instance of MultiCommander<br />
-	/Kill=Ask will show a dialog asking what to do. /Kill=Abort will abort the upgrade if Multi Commander is running.
-	<div>Eg. /Kill=Auto</div>
-	</li>
-	<li><strong>/CLEAR=Uninstall</strong> - Clear Uninstall Data<br />
-	Clear all entries of Multi Commander from the Installed Programs locations in the registry
-	<div>Eg. /CLEAR=Uninstall</div>
-	</li>
-	<li><strong>/FORCEDEST="Path"</strong> - Force a new path<br />
-	Force a new path even if a previous path was found in the registry
-	<div>Eg. /FORCEDEST="D:\NewInstallPath\"</div>
-	</li>
+  <li>
+    <strong>/S</strong> - Silent<br />
+    Run the installer without displaying any UI or asking for input.
+  </li>
+
+  <li>
+    <strong>/D</strong> - Destination<br />
+    Specify the target installation folder. If omitted, the default location (under Program Files) is used.<br />
+    <div>Eg. /D="D:\MyPrograms\MultiCommander"</div>
+  </li>
+
+  <li>
+    <strong>/PrevInstall</strong> - Previous Installation<br />
+    Specify how to handle an existing installation: "Upgrade" or "Uninstall".<br />
+    <div>Eg. /PrevInstall=Upgrade</div>
+  </li>
+
+  <li>
+    <strong>/InstallMode</strong> - Installation Mode<br />
+    Choose to install Multi Commander for "All" users or just the current user. If installing for all users to a protected location (e.g., Program Files), ensure the installation is run as administrator.<br />
+    <div>Eg. /InstallMode=All</div>
+  </li>
+
+  <li>
+    <strong>/Kill</strong> - Handle running instances of Multi Commander during installation<br />
+    If Multi Commander is running during an upgrade, specify how to handle it: <br />
+    <ul>
+      <li>/Kill=Auto - Automatically close any running instances</li>
+      <li>/Kill=Ask - Ask the user what to do</li>
+      <li>/Kill=Abort - Abort the upgrade if Multi Commander is running</li>
+    </ul>
+    <div>Eg. /Kill=Auto</div>
+  </li>
+
+  <li>
+    <strong>/CLEAR=Uninstall</strong> - Clear Uninstall Data<br />
+    Remove all Multi Commander entries from the "Installed Programs" registry.<br />
+    <div>Eg. /CLEAR=Uninstall</div>
+  </li>
+
+  <li>
+    <strong>/FORCEDEST="Path"</strong> - Force a new installation path<br />
+    Override the path saved in the registry from a previous installation.<br />
+    <div>Eg. /FORCEDEST="D:\NewInstallPath\"</div>
+  </li>
 </ul>
 
 <p><strong>Example</strong></p>
 
 <pre>
-# Upgrade Current
-MultiCommander_x64_(6.2.0.2147).exe /S /D="C:\Bin\MultiCommander" /PrevInstall=Upgrade /InstallMode=All /Kill=Auto</pre>
+# Upgrade Current Installation
+MultiCommander_x64_(14.6.0.3059).exe /S /D="C:\Bin\MultiCommander" /PrevInstall=Upgrade /InstallMode=All /Kill=Auto
+</pre>
 
 
