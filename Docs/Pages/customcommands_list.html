@@ -1,1895 +1,1923 @@
-<h2>List of Custom Commands</h2>
-
 <!-- The following command content is auto generated. -->
 <div class="customcmd-page">
-<table class = "table table-bordered">
-	<tr>
-		<td><a href="#mc.run">MC.Run</a></td>
-		<td>Run an external program</td>
-	</tr>
-	<tr>
-		<td><a href="#mc.runusercmd">MC.RunUserCmd</a></td>
-		<td>Run a User Defined Command</td>
-	</tr>
-	<tr>
-		<td><a href="#mc.runcmd">MC.RunCmd</a></td>
-		<td>Run an Internal or User Defined Command</td>
-	</tr>
-	<tr>
-		<td><a href="#mc.cmdlineset">MC.CmdLineSet</a></td>
-		<td>Set a text in the Command Line field</td>
-	</tr>
-	<tr>
-		<td><a href="#mc.cmdlinerun">MC.CmdLineRun</a></td>
-		<td>Run a command via the Command Line field</td>
-	</tr>
-	<tr>
-		<td><a href="#mc.view">MC.View</a></td>
-		<td>View file. Viewer is selected by finding a match in the file type setup</td>
-	</tr>
-	<tr>
-		<td><a href="#mc.edit">MC.Edit</a></td>
-		<td>Edit file. Editor is selected by finding a match in the file type setup</td>
-	</tr>
-	<tr>
-		<td><a href="#mc.setactivepanel">MC.SetActivePanel</a></td>
-		<td>Set what panel side should be active</td>
-	</tr>
-	<tr>
-		<td><a href="#mc.setactivetab">MC.SetActiveTab</a></td>
-		<td>Set what tab should be active</td>
-	</tr>
-	<tr>
-		<td><a href="#mc.closealltabs">MC.CloseAllTabs</a></td>
-		<td>Close all tabs</td>
-	</tr>
-	<tr>
-		<td><a href="#mc.savetabs">MC.SaveTabs</a></td>
-		<td>Save current tabs panel layout</td>
-	</tr>
-	<tr>
-		<td><a href="#mc.loadtabs">MC.LoadTabs</a></td>
-		<td>Load a tabs panel layout</td>
-	</tr>
-	<tr>
-		<td><a href="#mc.changetabsession">MC.ChangeTabSession</a></td>
-		<td>Change to a preconfigured tab session</td>
-	</tr>
-	<tr>
-		<td><a href="#mc.xchangesettings">MC.XChangeSettings</a></td>
-		<td>Change a Multi Commander UI setting. (See online doc for supported settings to change)</td>
-	</tr>
-	<tr>
-		<td><a href="#mc.bindkey">MC.BindKey</a></td>
-		<td>Bind a keyboard key combination to a command (eg. BindKey CMD=Core.1360 KEY=Ctrl+N)</td>
-	</tr>
-	<tr>
-		<td><a href="#mc.unbindkey">MC.UnBindKey</a></td>
-		<td>Unbind a keyboard key combination from a command (eg. UnbindKey CMD=Core.1360)</td>
-	</tr>
-	<tr>
-		<td><a href="#mc.showfavwindow">MC.ShowFavWindow</a></td>
-		<td>Show Favorites Window</td>
-	</tr>
-	<tr>
-		<td><a href="#mc.showfavpopup">MC.ShowFavPopup</a></td>
-		<td>Show Favorites Popup menu</td>
-	</tr>
-	<tr>
-		<td><a href="#mc.shellpaste">MC.ShellPaste</a></td>
-		<td>Paste clipboard data using Windows Shell</td>
-	</tr>
-	<tr>
-		<td><a href="#mc.loadbuttonpanellayout">MC.LoadButtonPanelLayout</a></td>
-		<td>Load a button panel layout from file</td>
-	</tr>
-	<tr>
-		<td><a href="#mc.backupconfig">MC.BackupConfig</a></td>
-		<td>Backup configuration</td>
-	</tr>
-	<tr>
-		<td><a href="#mc.restoreconfig">MC.RestoreConfig</a></td>
-		<td>Restore configuration</td>
-	</tr>
-	<tr>
-		<td><a href="#mc.stopaudio">MC.StopAudio</a></td>
-		<td>Stop Audio</td>
-	</tr>
-	<tr>
-		<td><a href="#mc.playaudio">MC.PlayAudio</a></td>
-		<td>Play Audio</td>
-	</tr>
-	<tr>
-		<td><a href="#mc.filesystem.rename">MC.Filesystem.Rename</a></td>
-		<td>Rename a file or folder. Current file will be used if FILE parameter is not used</td>
-	</tr>
-	<tr>
-		<td><a href="#mc.filesystem.delete">MC.Filesystem.Delete</a></td>
-		<td>Delete a file(s) or folder(s). If no PATH parameter is given the current selected file(s)/folder(s) will be used</td>
-	</tr>
-	<tr>
-		<td><a href="#mc.filesystem.makedir">MC.Filesystem.Makedir</a></td>
-		<td>Create a new folder</td>
-	</tr>
-	<tr>
-		<td><a href="#mc.filesystem.packfiles">MC.Filesystem.PackFiles</a></td>
-		<td>Pack files into an archive (eg. .zip file). If no FILES parameter is giving the current selected files/folders are used</td>
-	</tr>
-	<tr>
-		<td><a href="#mc.filesystem.unpack">MC.Filesystem.Unpack</a></td>
-		<td>Unpack archives into a folder</td>
-	</tr>
-	<tr>
-		<td><a href="#mc.filesearch.search">MC.FileSearch.Search</a></td>
-		<td>Rename a file or folder. Current file will be used if FILE parameter is not used</td>
-	</tr>
-	<tr>
-		<td><a href="#mc.explorer.newbrowser">MC.Explorer.NewBrowser</a></td>
-		<td>Open a new Explorer Panel tab</td>
-	</tr>
-	<tr>
-		<td><a href="#mc.explorer.closeall">MC.Explorer.CloseAll</a></td>
-		<td>Close all Explorer Panel tabs</td>
-	</tr>
-	<tr>
-		<td><a href="#mc.explorer.goto">MC.Explorer.Goto</a></td>
-		<td>Show path in the Explorer Panel</td>
-	</tr>
-	<tr>
-		<td><a href="#mc.explorer.select">MC.Explorer.Select</a></td>
-		<td>Select files and folders in the Explorer Panel</td>
-	</tr>
-	<tr>
-		<td><a href="#mc.explorer.deselect">MC.Explorer.Deselect</a></td>
-		<td>Deselect files and folders in the Explorer Panel</td>
-	</tr>
-	<tr>
-		<td><a href="#mc.explorer.refresh">MC.Explorer.Refresh</a></td>
-		<td>Refresh the Explorer Panel</td>
-	</tr>
-	<tr>
-		<td><a href="#mc.explorer.refreshtree">MC.Explorer.RefreshTree</a></td>
-		<td>Refresh the Explorer Panel</td>
-	</tr>
-	<tr>
-		<td><a href="#mc.explorer.copy">MC.Explorer.Copy</a></td>
-		<td>Start a Copy operation</td>
-	</tr>
-	<tr>
-		<td><a href="#mc.explorer.delete">MC.Explorer.Delete</a></td>
-		<td>Start a Delete operation</td>
-	</tr>
-	<tr>
-		<td><a href="#mc.explorer.move">MC.Explorer.Move</a></td>
-		<td>Start a Move operation</td>
-	</tr>
-	<tr>
-		<td><a href="#mc.explorer.makedir">MC.Explorer.Makedir</a></td>
-		<td>Create folder</td>
-	</tr>
-	<tr>
-		<td><a href="#mc.explorer.setviewfilter">MC.Explorer.SetViewFilter</a></td>
-		<td>View filter for the Explorer Panel</td>
-	</tr>
-	<tr>
-		<td><a href="#mc.explorer.getviewfilter">MC.Explorer.GetViewFilter</a></td>
-		<td>View filter for the Explorer Panel</td>
-	</tr>
-	<tr>
-		<td><a href="#mc.explorer.setcolumns">MC.Explorer.SetColumns</a></td>
-		<td>Change what columns to show, change to a defined column set</td>
-	</tr>
-	<tr>
-		<td><a href="#mc.explorer.setviewmode">MC.Explorer.SetViewMode</a></td>
-		<td>Change view mode of Explorer Panel that is in focus</td>
-	</tr>
-	<tr>
-		<td><a href="#mc.explorer.settabprop">MC.Explorer.SetTabProp</a></td>
-		<td>Change tab properties of active Explorer Panel tab</td>
-	</tr>
-	<tr>
-		<td><a href="#mc.explorer.sort">MC.Explorer.Sort</a></td>
-		<td>Change which column data is sorted by</td>
-	</tr>
-	<tr>
-		<td><a href="#mc.explorer.sizefolder">MC.Explorer.SizeFolder</a></td>
-		<td>Size current selected folder(s)</td>
-	</tr>
-	<tr>
-		<td><a href="#mc.explorer.setitemfocus">MC.Explorer.SetItemFocus</a></td>
-		<td>Change focus to a specified file/folder in the current path</td>
-	</tr>
-	<tr>
-		<td><a href="#mc.explorer.setcoloringrules">MC.Explorer.SetColoringRules</a></td>
-		<td>Set Color Rules profile to use. Do not specify a name if you want to use the default color profile</td>
-	</tr>
-	<tr>
-		<td><a href="#mc.explorer.refreshcoloringrules">MC.Explorer.RefreshColoringRules</a></td>
-		<td>Refresh file coloring for all files and folders</td>
-	</tr>
-	<tr>
-		<td><a href="#mc.explorer.changesetting">MC.Explorer.ChangeSetting</a></td>
-		<td>Change an Explorer Panel settings for the current active tab temporarily.
-Settings will NOT be saved
-See documentation for more information</td>
-	</tr>
-	<tr>
-		<td><a href="#mc.explorer.selection.select">MC.Explorer.Selection.Select</a></td>
-		<td>Select items by filter (Support all views)</td>
-	</tr>
-	<tr>
-		<td><a href="#mc.explorer.selection.unselect">MC.Explorer.Selection.Unselect</a></td>
-		<td>Unselect items by filter (Support all views)</td>
-	</tr>
-	<tr>
-		<td><a href="#mc.explorer.selection.selectall">MC.Explorer.Selection.SelectAll</a></td>
-		<td>Select all items</td>
-	</tr>
-	<tr>
-		<td><a href="#mc.explorer.selection.unselectall">MC.Explorer.Selection.UnselectAll</a></td>
-		<td>Unselect all items</td>
-	</tr>
-	<tr>
-		<td><a href="#mc.explorer.selection.invertselection">MC.Explorer.Selection.InvertSelection</a></td>
-		<td>Invert selections of items</td>
-	</tr>
-	<tr>
-		<td><a href="#mc.explorer.selection.selectbycolor">MC.Explorer.Selection.SelectByColor</a></td>
-		<td>Select by color (Color set by File Coloring Rules)</td>
-	</tr>
-	<tr>
-		<td><a href="#mc.explorer.selection.unselectbycolor">MC.Explorer.Selection.UnselectByColor</a></td>
-		<td>Unselect by color (Color set by File Coloring Rules)</td>
-	</tr>
-	<tr>
-		<td><a href="#mc.explorer.selection.saveselectiontomemory">MC.Explorer.Selection.SaveSelectionToMemory</a></td>
-		<td>Save selection to memory</td>
-	</tr>
-	<tr>
-		<td><a href="#mc.explorer.selection.loadselectionfrommemory">MC.Explorer.Selection.LoadSelectionFromMemory</a></td>
-		<td>Load selection from memory</td>
-	</tr>
-	<tr>
-		<td><a href="#mc.explorer.selection.saveselectiontofile">MC.Explorer.Selection.SaveSelectionToFile</a></td>
-		<td>Save selection to file</td>
-	</tr>
-	<tr>
-		<td><a href="#mc.explorer.selection.loadselectionfromfile">MC.Explorer.Selection.LoadSelectionFromFile</a></td>
-		<td>Load selection from file</td>
-	</tr>
-	<tr>
-		<td><a href="#mc.explorer.selection.loadselectionfromclipboard">MC.Explorer.Selection.LoadSelectionFromClipboard</a></td>
-		<td>Load selection from clipboard</td>
-	</tr>
-	<tr>
-		<td><a href="#mc.explorer.selection.comparefoldersforduplicates">MC.Explorer.Selection.CompareFoldersForDuplicates</a></td>
-		<td>Compare target and source views and select duplicates</td>
-	</tr>
-	<tr>
-		<td><a href="#mc.explorer.selection.comparefoldersforselected">MC.Explorer.Selection.CompareFoldersForSelected</a></td>
-		<td>Compare target and source views and select selected on target</td>
-	</tr>
-	<tr>
-		<td><a href="#mc.explorer.selection.comparefoldersformissingandnewer">MC.Explorer.Selection.CompareFoldersForMissingAndNewer</a></td>
-		<td>Compare target and source views and select missing and newest</td>
-	</tr>
-	<tr>
-		<td><a href="#mc.explorer.selection.comparefoldersformissing">MC.Explorer.Selection.CompareFoldersForMissing</a></td>
-		<td>Compare target and source views and select missing</td>
-	</tr>
-	<tr>
-		<td><a href="#mc.explorer.selection.comparefoldersfornewest">MC.Explorer.Selection.CompareFoldersForNewest</a></td>
-		<td>Compare target and source views and select newest item</td>
-	</tr>
-	<tr>
-		<td><a href="#mc.special.selectoldestbyname">MC.Special.SelectOldestByName</a></td>
-		<td>Select oldest based on file/folder name</td>
-	</tr>
-	<tr>
-		<td><a href="#mc.utils.createlink">MC.Utils.CreateLink</a></td>
-		<td>Create a File System Link, Symbolic, Hardlink, Junction or Shortcut</td>
-	</tr>
-	<tr>
-		<td><a href="#mc.utils.sortlines">MC.Utils.SortLines</a></td>
-		<td>Sort Lines in text file</td>
-	</tr>
-	<tr>
-		<td><a href="#mc.utils.findandreplace">MC.Utils.FindAndReplace</a></td>
-		<td>Find and Replace in file</td>
-	</tr>
-	<tr>
-		<td><a href="#mc.checksum.verify">MC.CheckSum.Verify</a></td>
-		<td>Start CheckSum Tab and verify file(s)</td>
-	</tr>
-	<tr>
-		<td><a href="#mc.checksum.create">MC.CheckSum.Create</a></td>
-		<td>Start CheckSum Tab and create checksum file</td>
-	</tr>
-	<tr>
-		<td><a href="#mc.dataviewer.view">MC.DataViewer.View</a></td>
-		<td>Open a file for viewing</td>
-	</tr>
-	<tr>
-		<td><a href="#mc.picturetools.convert">MC.PictureTools.Convert</a></td>
-		<td>Convert one or many pictures to another picture format</td>
-	</tr>
-	<tr>
-		<td><a href="#mc.picturetools.resize">MC.PictureTools.Resize</a></td>
-		<td>Resize one or many pictures</td>
-	</tr>
-</table>
-<div class="customcmd-cmd">
-<h2><a name="mc.run"></a>MC.Run</h2>
-<p>Run an external program</p>
-<h3>Options</h3>
-<table class="table table-bordered">
-	<tr>
-		<td>ADMIN</td>
-		<td>Run program as Administrator</td>
-	</tr>
-	<tr>
-		<td>ARG</td>
-		<td>Arguments to sent to program</td>
-	</tr>
-	<tr>
-		<td>CMD</td>
-		<td>Path to program to run</td>
-	</tr>
-	<tr>
-		<td>SHELL</td>
-		<td>Determine how the file should be started</td>
-	</tr>
-	<tr>
-		<td>STARTIN</td>
-		<td>Path to folder in which the program should be started</td>
-	</tr>
-	<tr>
-		<td>WAIT</td>
-		<td>Wait for program to close before continuing</td>
-	</tr>
-</table>
-</div>
-<div class="customcmd-cmd">
-<h2><a name="mc.runusercmd"></a>MC.RunUserCmd</h2>
-<p>Run a User Defined Command</p>
-<h3>Options</h3>
-<table class="table table-bordered">
-	<tr>
-		<td>ID</td>
-		<td>GUID of the command to run (eg. &quot;ID=fg3432f1ab4aBD422DAB3&quot;)</td>
-	</tr>
-</table>
-</div>
-<div class="customcmd-cmd">
-<h2><a name="mc.runcmd"></a>MC.RunCmd</h2>
-<p>Run an Internal or User Defined Command</p>
-<h3>Options</h3>
-<table class="table table-bordered">
-	<tr>
-		<td>ASYNC</td>
-		<td>Run the command asynchronously</td>
-	</tr>
-	<tr>
-		<td>ID</td>
-		<td>ID name of the command to run (eg. &quot;ID=Core.1234&quot;)</td>
-	</tr>
-</table>
-</div>
-<div class="customcmd-cmd">
-<h2><a name="mc.cmdlineset"></a>MC.CmdLineSet</h2>
-<p>Set a text in the Command Line field</p>
-<h3>Options</h3>
-<table class="table table-bordered">
-	<tr>
-		<td>SETFOCUS</td>
-		<td>Change focus to the Command Line field</td>
-	</tr>
-	<tr>
-		<td>TEXT</td>
-		<td>Text to set in the Command Line field</td>
-	</tr>
-</table>
-</div>
-<div class="customcmd-cmd">
-<h2><a name="mc.cmdlinerun"></a>MC.CmdLineRun</h2>
-<p>Run a command via the Command Line field</p>
-<h3>Options</h3>
-<table class="table table-bordered">
-	<tr>
-		<td>CMD</td>
-		<td>Command to be run as if it was written in the Command Line field</td>
-	</tr>
-</table>
-</div>
-<div class="customcmd-cmd">
-<h2><a name="mc.view"></a>MC.View</h2>
-<p>View file. Viewer is selected by finding a match in the file type setup</p>
-<h3>Options</h3>
-<table class="table table-bordered">
-	<tr>
-		<td>FILE</td>
-		<td>Path to file to view. If not specified, the file in focus will be used</td>
-	</tr>
-	<tr>
-		<td>VIEWAS</td>
-		<td>When looking for viewer to use, select as if file is this file type (eg. VIEWAS=&quot;.txt&quot;)</td>
-	</tr>
-</table>
-</div>
-<div class="customcmd-cmd">
-<h2><a name="mc.edit"></a>MC.Edit</h2>
-<p>Edit file. Editor is selected by finding a match in the file type setup</p>
-<h3>Options</h3>
-<table class="table table-bordered">
-	<tr>
-		<td>EDITAS</td>
-		<td>When looking for editor to use, select as if file is this file type (eg. EDITAS=&quot;.jpg&quot;)</td>
-	</tr>
-	<tr>
-		<td>FILE</td>
-		<td>Path to file to view. If not specified, the file in focus will be used</td>
-	</tr>
-</table>
-</div>
-<div class="customcmd-cmd">
-<h2><a name="mc.setactivepanel"></a>MC.SetActivePanel</h2>
-<p>Set what panel side should be active</p>
-<h3>Options</h3>
-<table class="table table-bordered">
-	<tr>
-		<td>PANEL</td>
-		<td>What panel should be active. LEFT, RIGHT, TOP, BOTTOM, TOGGLE</td>
-	</tr>
-</table>
-</div>
-<div class="customcmd-cmd">
-<h2><a name="mc.setactivetab"></a>MC.SetActiveTab</h2>
-<p>Set what tab should be active</p>
-<h3>Options</h3>
-<table class="table table-bordered">
-	<tr>
-		<td>PANEL</td>
-		<td>Which panel side the tabs are located in: LEFT, RIGHT, TOP, BOTTOM, ACTIVE, INACTIVE</td>
-	</tr>
-	<tr>
-		<td>TAB</td>
-		<td>Tab to activate, starting with 1 and increasing. (Eg. TAB=2 or NEXT, PREV)</td>
-	</tr>
-</table>
-</div>
-<div class="customcmd-cmd">
-<h2><a name="mc.closealltabs"></a>MC.CloseAllTabs</h2>
-<p>Close all tabs</p>
-<h3>Options</h3>
-<table class="table table-bordered">
-	<tr>
-		<td>DONOTASK</td>
-		<td>Do not ask if locked tab should be closed</td>
-	</tr>
-	<tr>
-		<td>KEEPLOCKED</td>
-		<td>Do not close locked tabs</td>
-	</tr>
-	<tr>
-		<td>LEFTONLY</td>
-		<td>Close all tabs on the left/top side only</td>
-	</tr>
-	<tr>
-		<td>RIGHTONLY</td>
-		<td>Close all tabs on the right/bottom side only</td>
-	</tr>
-</table>
-</div>
-<div class="customcmd-cmd">
-<h2><a name="mc.savetabs"></a>MC.SaveTabs</h2>
-<p>Save current tabs panel layout</p>
-<h3>Options</h3>
-<table class="table table-bordered">
-	<tr>
-		<td>CURRENT</td>
-		<td>Only current tab</td>
-	</tr>
-	<tr>
-		<td>FILENAME</td>
-		<td>File path to a tab definition file</td>
-	</tr>
-</table>
-</div>
-<div class="customcmd-cmd">
-<h2><a name="mc.loadtabs"></a>MC.LoadTabs</h2>
-<p>Load a tabs panel layout</p>
-<h3>Options</h3>
-<table class="table table-bordered">
-	<tr>
-		<td>ADD</td>
-		<td>Add tab panels to current layout</td>
-	</tr>
-	<tr>
-		<td>FILENAME</td>
-		<td>File path to a tab definition file</td>
-	</tr>
-	<tr>
-		<td>REPLACE</td>
-		<td>Replace all current tabs panels</td>
-	</tr>
-</table>
-</div>
-<div class="customcmd-cmd">
-<h2><a name="mc.changetabsession"></a>MC.ChangeTabSession</h2>
-<p>Change to a preconfigured tab session</p>
-<h3>Options</h3>
-<table class="table table-bordered">
-	<tr>
-		<td>ID</td>
-		<td>ID of the tab session to activate</td>
-	</tr>
-</table>
-</div>
-<div class="customcmd-cmd">
-<h2><a name="mc.xchangesettings"></a>MC.XChangeSettings</h2>
-<p>Change a Multi Commander UI setting. (See online doc for supported settings to change)</p>
-<h3>Options</h3>
-<table class="table table-bordered">
-	<tr>
-		<td>NAME</td>
-		<td>Name of setting</td>
-	</tr>
-	<tr>
-		<td>VALUE</td>
-		<td>Value of the new setting</td>
-	</tr>
-</table>
-</div>
-<div class="customcmd-cmd">
-<h2><a name="mc.bindkey"></a>MC.BindKey</h2>
-<p>Bind a keyboard key combination to a command (eg. BindKey CMD=Core.1360 KEY=Ctrl+N)</p>
-<h3>Options</h3>
-<table class="table table-bordered">
-	<tr>
-		<td>CMD</td>
-		<td>Command to bind to key (eg. Core.1360)</td>
-	</tr>
-	<tr>
-		<td>KEY</td>
-		<td>Key to bind to (eg. Ctrl+N )</td>
-	</tr>
-	<tr>
-		<td>SAVE</td>
-		<td>(Optional) should the keybinding be saved between restarts</td>
-	</tr>
-</table>
-</div>
-<div class="customcmd-cmd">
-<h2><a name="mc.unbindkey"></a>MC.UnBindKey</h2>
-<p>Unbind a keyboard key combination from a command (eg. UnbindKey CMD=Core.1360)</p>
-<h3>Options</h3>
-<table class="table table-bordered">
-	<tr>
-		<td>CMD</td>
-		<td>Command to unbind from key (eg. Core.1360)</td>
-	</tr>
-	<tr>
-		<td>SAVE</td>
-		<td>(Optional) should the keybinding be saved between restarts</td>
-	</tr>
-</table>
-</div>
-<div class="customcmd-cmd">
-<h2><a name="mc.showfavwindow"></a>MC.ShowFavWindow</h2>
-<p>Show Favorites Window</p>
-<h3>Options</h3>
-<table class="table table-bordered">
-	<tr>
-		<td>SECTION</td>
-		<td>Favorite section to show (Name or Number)</td>
-	</tr>
-	<tr>
-		<td>SHOWPATH</td>
-		<td>Show target path instead of favorite name</td>
-	</tr>
-</table>
-</div>
-<div class="customcmd-cmd">
-<h2><a name="mc.showfavpopup"></a>MC.ShowFavPopup</h2>
-<p>Show Favorites Popup menu</p>
-<h3>Options</h3>
-<table class="table table-bordered">
-	<tr>
-		<td>POS</td>
-		<td>Where to show the popup (Mouse, CenterScreen, CenterMC, &quot;X,Y&quot; pos )</td>
-	</tr>
-	<tr>
-		<td>SHOWPATH</td>
-		<td>Show target path instead of favorite name</td>
-	</tr>
-</table>
-</div>
-<div class="customcmd-cmd">
-<h2><a name="mc.shellpaste"></a>MC.ShellPaste</h2>
-<p>Paste clipboard data using Windows Shell</p>
-<h3>Options</h3>
-<table class="table table-bordered">
-	<tr>
-		<td>PATH</td>
-		<td>Path where to paste the data. If not set current active path is used</td>
-	</tr>
-</table>
-</div>
-<div class="customcmd-cmd">
-<h2><a name="mc.loadbuttonpanellayout"></a>MC.LoadButtonPanelLayout</h2>
-<p>Load a button panel layout from file</p>
-<h3>Options</h3>
-<table class="table table-bordered">
-	<tr>
-		<td>FILE</td>
-		<td>Path to a button panel layout file</td>
-	</tr>
-</table>
-</div>
-<div class="customcmd-cmd">
-<h2><a name="mc.backupconfig"></a>MC.BackupConfig</h2>
-<p>Backup configuration</p>
-<h3>Options</h3>
-<table class="table table-bordered">
-	<tr>
-		<td>FILE</td>
-		<td>Path to file</td>
-	</tr>
-	<tr>
-		<td>ONLY_CONFIG</td>
-		<td>Only configuration</td>
-	</tr>
-	<tr>
-		<td>ONLY_USERDATA</td>
-		<td>Only userdata</td>
-	</tr>
-</table>
-</div>
-<div class="customcmd-cmd">
-<h2><a name="mc.restoreconfig"></a>MC.RestoreConfig</h2>
-<p>Restore configuration</p>
-<h3>Options</h3>
-<table class="table table-bordered">
-	<tr>
-		<td>FILE</td>
-		<td>Path to file</td>
-	</tr>
-</table>
-</div>
-<div class="customcmd-cmd">
-<h2><a name="mc.stopaudio"></a>MC.StopAudio</h2>
-<p>Stop Audio</p>
-</div>
-<div class="customcmd-cmd">
-<h2><a name="mc.playaudio"></a>MC.PlayAudio</h2>
-<p>Play Audio</p>
-<h3>Options</h3>
-<table class="table table-bordered">
-	<tr>
-		<td>DURATION</td>
-		<td>Play only for this many seconds</td>
-	</tr>
-	<tr>
-		<td>FILE</td>
-		<td>Path to file</td>
-	</tr>
-	<tr>
-		<td>FILEINFOCUS</td>
-		<td>File in focus</td>
-	</tr>
-	<tr>
-		<td>SPEED</td>
-		<td>Playback speed ( 0.25 - 3.0 ) </td>
-	</tr>
-	<tr>
-		<td>STARTAT</td>
-		<td>Start play at # seconds into the audio or #% percent into the audio</td>
-	</tr>
-	<tr>
-		<td>VOLUME</td>
-		<td>Playback volume ( 0 - 100 ) </td>
-	</tr>
-</table>
-</div>
-<div class="customcmd-cmd">
-<h2><a name="mc.filesystem.rename"></a>MC.Filesystem.Rename</h2>
-<p>Rename a file or folder. Current file will be used if FILE parameter is not used</p>
-<h3>Options</h3>
-<table class="table table-bordered">
-	<tr>
-		<td>ASKNAME</td>
-		<td>Show a dialog asking for the new name. If 'NEWNAME' is also specified, it will be used as a suggested name</td>
-	</tr>
-	<tr>
-		<td>FILE</td>
-		<td>Specify file you want to rename</td>
-	</tr>
-	<tr>
-		<td>NEWNAME</td>
-		<td>The name you want the file/folder renamed to</td>
-	</tr>
-</table>
-</div>
-<div class="customcmd-cmd">
-<h2><a name="mc.filesystem.delete"></a>MC.Filesystem.Delete</h2>
-<p>Delete a file(s) or folder(s). If no PATH parameter is given the current selected file(s)/folder(s) will be used</p>
-<h3>Options</h3>
-<table class="table table-bordered">
-	<tr>
-		<td>FILTER</td>
-		<td>Filter what to delete. Separate with ';' eg. &quot;*.jpg;*.bmp;*.tif&quot;</td>
-	</tr>
-	<tr>
-		<td>NODIALOG</td>
-		<td>Do not show any confirm window. (Can be dangerous when used from script)</td>
-	</tr>
-	<tr>
-		<td>PATH</td>
-		<td>The file or folder to delete</td>
-	</tr>
-	<tr>
-		<td>RECURSIVE</td>
-		<td>Delete all subfolders</td>
-	</tr>
-	<tr>
-		<td>USE_CURRENT_SOURCEITEM</td>
-		<td>Use current source item as the item to delete, PATH parameter should then not be used</td>
-	</tr>
-</table>
-</div>
-<div class="customcmd-cmd">
-<h2><a name="mc.filesystem.makedir"></a>MC.Filesystem.Makedir</h2>
-<p>Create a new folder</p>
-<h3>Options</h3>
-<table class="table table-bordered">
-	<tr>
-		<td>PATH</td>
-		<td>Full path to the folder you want to create</td>
-	</tr>
-</table>
-</div>
-<div class="customcmd-cmd">
-<h2><a name="mc.filesystem.packfiles"></a>MC.Filesystem.PackFiles</h2>
-<p>Pack files into an archive (eg. .zip file). If no FILES parameter is giving the current selected files/folders are used</p>
-<h3>Options</h3>
-<table class="table table-bordered">
-	<tr>
-		<td>FILES</td>
-		<td>Which files or folders to pack. Separate multiple files and folders with ';'</td>
-	</tr>
-	<tr>
-		<td>FILTER</td>
-		<td>Filter to use. Separate filters with space eg. '*.txt -readme.txt *.info'</td>
-	</tr>
-	<tr>
-		<td>METHOD</td>
-		<td>Pack method to use Zip, 7Zip, Tar</td>
-	</tr>
-	<tr>
-		<td>SEPARATE</td>
-		<td>Pack the selected files/folders into separate archives.
-(TARGET must have wildcard in name. eg &quot;e:\file_*.zip&quot;)</td>
-	</tr>
-	<tr>
-		<td>TARGET</td>
-		<td>Target name of the archive. (Set to auto to auto-generate a name)</td>
-	</tr>
-</table>
-</div>
-<div class="customcmd-cmd">
-<h2><a name="mc.filesystem.unpack"></a>MC.Filesystem.Unpack</h2>
-<p>Unpack archives into a folder</p>
-<h3>Options</h3>
-<table class="table table-bordered">
-	<tr>
-		<td>FILE</td>
-		<td>Which archives to unpack. Separate multiple archives with ';'</td>
-	</tr>
-	<tr>
-		<td>FILTER</td>
-		<td>Filter to use. Separate filters with space eg. '*.txt -readme.txt *.info'</td>
-	</tr>
-	<tr>
-		<td>PASSWORD</td>
-		<td>Password to use if the archive is password protected. (If not set, a dialog will be shown if password is needed during unpacking)</td>
-	</tr>
-	<tr>
-		<td>TARGET</td>
-		<td>Folder where the archives should be unpacked</td>
-	</tr>
-</table>
-</div>
-<div class="customcmd-cmd">
-<h2><a name="mc.filesearch.search"></a>MC.FileSearch.Search</h2>
-<p>Rename a file or folder. Current file will be used if FILE parameter is not used</p>
-<h3>Options</h3>
-<table class="table table-bordered">
-	<tr>
-		<td>ATTRIBUTE</td>
-		<td>Match file attributes. Any of the following characters are valid: ARHSDCE</td>
-	</tr>
-	<tr>
-		<td>AUTOSTART</td>
-		<td>Auto-start the search when the command is run</td>
-	</tr>
-	<tr>
-		<td>CONTENT</td>
-		<td>Search for this content in matching files</td>
-	</tr>
-	<tr>
-		<td>EXCLUDE</td>
-		<td>Path(s) to exclude. if folder with matching name is found, it is not searched</td>
-	</tr>
-	<tr>
-		<td>HIDE</td>
-		<td>Hide the 'Find Files' Dialog</td>
-	</tr>
-	<tr>
-		<td>IGNORECASE</td>
-		<td>Ignore case difference when matching content</td>
-	</tr>
-	<tr>
-		<td>NOTTHERE</td>
-		<td>File is a match if content is missing from the file</td>
-	</tr>
-	<tr>
-		<td>PANEL</td>
-		<td>What panel to open the search in. (LEFT, RIGHT, ACTIVE, INACTIVE)</td>
-	</tr>
-	<tr>
-		<td>SEARCHFOR</td>
-		<td>Match files or folder that has this substring in the name, (or use wildcard)</td>
-	</tr>
-	<tr>
-		<td>SEARCHFOR_REGEXP</td>
-		<td>Match files or folder against this regular expression</td>
-	</tr>
-	<tr>
-		<td>SEARCHIN</td>
-		<td>Path(s) to where to search. Separate by space or ;</td>
-	</tr>
-	<tr>
-		<td>SIZE</td>
-		<td>Match files with a file size. Use &gt; or &lt; for more or less then. Eg: &quot;&gt;2000000&quot;</td>
-	</tr>
-	<tr>
-		<td>SUBLEVELS</td>
-		<td>Search only # subfolders down</td>
-	</tr>
-	<tr>
-		<td>TIME</td>
-		<td>Set a time range from now. (Valid values: TODAY, YESTERDAY, THISWEEK, THISMONTH)</td>
-	</tr>
-	<tr>
-		<td>TIMEFROM</td>
-		<td>Match files with a date from this time. (Format date/time as YYY-MM-DD HH:MM:SS)</td>
-	</tr>
-	<tr>
-		<td>TIMETO</td>
-		<td>Match files with a date to this time. (Format date/time as YYY-MM-DD HH:MM:SS)</td>
-	</tr>
-	<tr>
-		<td>WORDS</td>
-		<td>Match content against whole words</td>
-	</tr>
-</table>
-</div>
-<div class="customcmd-cmd">
-<h2><a name="mc.explorer.newbrowser"></a>MC.Explorer.NewBrowser</h2>
-<p>Open a new Explorer Panel tab</p>
-<h3>Options</h3>
-<table class="table table-bordered">
-	<tr>
-		<td>FLAT</td>
-		<td>Show path flat. Path and subfolders will be flattened and shown together</td>
-	</tr>
-	<tr>
-		<td>PATH</td>
-		<td>The path you want to show</td>
-	</tr>
-	<tr>
-		<td>SIDE</td>
-		<td>Open the new Explorer Panel tab on the LEFT, RIGHT, SOURCE, TARGET or AUTO</td>
-	</tr>
-	<tr>
-		<td>TABCOLORS</td>
-		<td>Tab Colors to use. Comma-separated list
-TABCOLORS=&lt;background&gt;,&lt;textcolor&gt;,&lt;Gradient (0/1)&gt;,&lt;HotWhenActive (0/1)&gt;</td>
-	</tr>
-	<tr>
-		<td>TABLOCK</td>
-		<td>Lock Tab</td>
-	</tr>
-	<tr>
-		<td>TABLOCKALLOWSUBCHANGE</td>
-		<td>Lock Tab - Allow subpath change</td>
-	</tr>
-	<tr>
-		<td>TABNAME</td>
-		<td>Force the tab to be named using the provided text</td>
-	</tr>
-</table>
-</div>
-<div class="customcmd-cmd">
-<h2><a name="mc.explorer.closeall"></a>MC.Explorer.CloseAll</h2>
-<p>Close all Explorer Panel tabs</p>
-</div>
-<div class="customcmd-cmd">
-<h2><a name="mc.explorer.goto"></a>MC.Explorer.Goto</h2>
-<p>Show path in the Explorer Panel</p>
-<h3>Options</h3>
-<table class="table table-bordered">
-	<tr>
-		<td>FLAT</td>
-		<td>Show path flat. Path and subfolders will be flattened and shown together</td>
-	</tr>
-	<tr>
-		<td>ITEMFOCUS</td>
-		<td>Change focus to a specified file/folder in the current path</td>
-	</tr>
-	<tr>
-		<td>LEFT</td>
-		<td>Left Path</td>
-	</tr>
-	<tr>
-		<td>PATH</td>
-		<td>The path you want to show</td>
-	</tr>
-	<tr>
-		<td>RIGHT</td>
-		<td>Right Path</td>
-	</tr>
-	<tr>
-		<td>SOURCE</td>
-		<td>Source Path</td>
-	</tr>
-	<tr>
-		<td>TARGET</td>
-		<td>Target Path</td>
-	</tr>
-</table>
-</div>
-<div class="customcmd-cmd">
-<h2><a name="mc.explorer.select"></a>MC.Explorer.Select</h2>
-<p>Select files and folders in the Explorer Panel</p>
-<h3>Options</h3>
-<table class="table table-bordered">
-	<tr>
-		<td>FILTER</td>
-		<td>Filter of the files and folder to select</td>
-	</tr>
-	<tr>
-		<td>ONLYFILES</td>
-		<td>Only filter files</td>
-	</tr>
-	<tr>
-		<td>ONLYFOLDERS</td>
-		<td>Only filter folders</td>
-	</tr>
-</table>
-</div>
-<div class="customcmd-cmd">
-<h2><a name="mc.explorer.deselect"></a>MC.Explorer.Deselect</h2>
-<p>Deselect files and folders in the Explorer Panel</p>
-<h3>Options</h3>
-<table class="table table-bordered">
-	<tr>
-		<td>FILTER</td>
-		<td>Filter of the files and folder to select</td>
-	</tr>
-	<tr>
-		<td>ONLYFILES</td>
-		<td>Only filter files</td>
-	</tr>
-	<tr>
-		<td>ONLYFOLDERS</td>
-		<td>Only filter folders</td>
-	</tr>
-</table>
-</div>
-<div class="customcmd-cmd">
-<h2><a name="mc.explorer.refresh"></a>MC.Explorer.Refresh</h2>
-<p>Refresh the Explorer Panel</p>
-<h3>Options</h3>
-<table class="table table-bordered">
-	<tr>
-		<td>AUTO</td>
-		<td>Automatic detection of refresh method</td>
-	</tr>
-	<tr>
-		<td>FORCEREBUILD</td>
-		<td>Rescan and Rebuild (Remove all caches and rebuild them)</td>
-	</tr>
-	<tr>
-		<td>FORCEUPDATE</td>
-		<td>Rescan and Update (Update current caches)</td>
-	</tr>
-	<tr>
-		<td>REDRAWUI</td>
-		<td>Redraw UI only</td>
-	</tr>
-	<tr>
-		<td>UPDATEUICACHE</td>
-		<td>Update View Cache only</td>
-	</tr>
-</table>
-</div>
-<div class="customcmd-cmd">
-<h2><a name="mc.explorer.refreshtree"></a>MC.Explorer.RefreshTree</h2>
-<p>Refresh the Explorer Panel</p>
-</div>
-<div class="customcmd-cmd">
-<h2><a name="mc.explorer.copy"></a>MC.Explorer.Copy</h2>
-<p>Start a Copy operation</p>
-<h3>Options</h3>
-<table class="table table-bordered">
-	<tr>
-		<td>NEWQUEUE</td>
-		<td>Always start a new file operations queue</td>
-	</tr>
-	<tr>
-		<td>NODIALOG</td>
-		<td>Do not show the 'Copy To' dialog. Use default settings</td>
-	</tr>
-	<tr>
-		<td>OVERWRITE_ALL</td>
-		<td>Auto overwrite, Overwrite All</td>
-	</tr>
-	<tr>
-		<td>OVERWRITE_AUTORENAME_EXISTING</td>
-		<td>Auto overwrite, Keep both - Rename existing file</td>
-	</tr>
-	<tr>
-		<td>OVERWRITE_AUTORENAME_NEW</td>
-		<td>Auto overwrite, Keep both - Rename new file</td>
-	</tr>
-	<tr>
-		<td>OVERWRITE_IFNEWER</td>
-		<td>Auto overwrite, Overwrite If date is newer</td>
-	</tr>
-	<tr>
-		<td>OVERWRITE_IFSIZEDIFF</td>
-		<td>Auto overwrite, Overwrite If size is different</td>
-	</tr>
-	<tr>
-		<td>OVERWRITE_IFSIZELARGER</td>
-		<td>Auto overwrite, Overwrite If size is larger</td>
-	</tr>
-	<tr>
-		<td>OVERWRITE_IFSIZESMALLER</td>
-		<td>Auto overwrite, Overwrite If size is smaller</td>
-	</tr>
-	<tr>
-		<td>SKIPEMPTYFOLDERS</td>
-		<td>Skip Empty folders</td>
-	</tr>
-	<tr>
-		<td>USEEXISTINGQUEUE</td>
-		<td>Use existing file operations queue if one exists</td>
-	</tr>
-</table>
-</div>
-<div class="customcmd-cmd">
-<h2><a name="mc.explorer.delete"></a>MC.Explorer.Delete</h2>
-<p>Start a Delete operation</p>
-<h3>Options</h3>
-<table class="table table-bordered">
-	<tr>
-		<td>NEWQUEUE</td>
-		<td>Always start a new file operations queue</td>
-	</tr>
-	<tr>
-		<td>NODIALOG</td>
-		<td>Do not show the 'Delete' dialog. Use default settings</td>
-	</tr>
-	<tr>
-		<td>USEEXISTINGQUEUE</td>
-		<td>Use existing file operations queue if one exists</td>
-	</tr>
-</table>
-</div>
-<div class="customcmd-cmd">
-<h2><a name="mc.explorer.move"></a>MC.Explorer.Move</h2>
-<p>Start a Move operation</p>
-<h3>Options</h3>
-<table class="table table-bordered">
-	<tr>
-		<td>NEWQUEUE</td>
-		<td>Always start a new file operations queue</td>
-	</tr>
-	<tr>
-		<td>NODIALOG</td>
-		<td>Do not show the 'Move To' dialog. Use default settings</td>
-	</tr>
-	<tr>
-		<td>OVERWRITE_ALL</td>
-		<td>Auto overwrite, Overwrite All</td>
-	</tr>
-	<tr>
-		<td>OVERWRITE_AUTORENAME_EXISTING</td>
-		<td>Auto overwrite, Keep both - Rename existing file</td>
-	</tr>
-	<tr>
-		<td>OVERWRITE_AUTORENAME_NEW</td>
-		<td>Auto overwrite, Keep both - Rename new file</td>
-	</tr>
-	<tr>
-		<td>OVERWRITE_IFNEWER</td>
-		<td>Auto overwrite, Overwrite If date is newer</td>
-	</tr>
-	<tr>
-		<td>OVERWRITE_IFSIZEDIFF</td>
-		<td>Auto overwrite, Overwrite If size is different</td>
-	</tr>
-	<tr>
-		<td>OVERWRITE_IFSIZELARGER</td>
-		<td>Auto overwrite, Overwrite If size is larger</td>
-	</tr>
-	<tr>
-		<td>OVERWRITE_IFSIZESMALLER</td>
-		<td>Auto overwrite, Overwrite If size is smaller</td>
-	</tr>
-	<tr>
-		<td>SKIPEMPTYFOLDERS</td>
-		<td>Skip Empty folders</td>
-	</tr>
-	<tr>
-		<td>USEEXISTINGQUEUE</td>
-		<td>Use existing file operations queue if one exists</td>
-	</tr>
-</table>
-</div>
-<div class="customcmd-cmd">
-<h2><a name="mc.explorer.makedir"></a>MC.Explorer.Makedir</h2>
-<p>Create folder</p>
-<h3>Options</h3>
-<table class="table table-bordered">
-	<tr>
-		<td>FOLDERNAME</td>
-		<td>Folder name</td>
-	</tr>
-	<tr>
-		<td>GOTO</td>
-		<td>Go to folder path when created</td>
-	</tr>
-</table>
-</div>
-<div class="customcmd-cmd">
-<h2><a name="mc.explorer.setviewfilter"></a>MC.Explorer.SetViewFilter</h2>
-<p>View filter for the Explorer Panel</p>
-<h3>Options</h3>
-<table class="table table-bordered">
-	<tr>
-		<td>FILTER</td>
-		<td>The View Filter you want to set</td>
-	</tr>
-	<tr>
-		<td>FILTERID</td>
-		<td>The Filter ID of an Advanced Filter that is already defined</td>
-	</tr>
-</table>
-</div>
-<div class="customcmd-cmd">
-<h2><a name="mc.explorer.getviewfilter"></a>MC.Explorer.GetViewFilter</h2>
-<p>View filter for the Explorer Panel</p>
-</div>
-<div class="customcmd-cmd">
-<h2><a name="mc.explorer.setcolumns"></a>MC.Explorer.SetColumns</h2>
-<p>Change what columns to show, change to a defined column set</p>
-<h3>Options</h3>
-<table class="table table-bordered">
-	<tr>
-		<td>NAME</td>
-		<td>ColumnSet name</td>
-	</tr>
-</table>
-</div>
-<div class="customcmd-cmd">
-<h2><a name="mc.explorer.setviewmode"></a>MC.Explorer.SetViewMode</h2>
-<p>Change view mode of Explorer Panel that is in focus</p>
-<h3>Options</h3>
-<table class="table table-bordered">
-	<tr>
-		<td>MODE</td>
-		<td>(1 = Detail, 2 = List, 3 = Thumbnail List, 4 = Thumbnail Detail)</td>
-	</tr>
-</table>
-</div>
-<div class="customcmd-cmd">
-<h2><a name="mc.explorer.settabprop"></a>MC.Explorer.SetTabProp</h2>
-<p>Change tab properties of active Explorer Panel tab</p>
-<h3>Options</h3>
-<table class="table table-bordered">
-	<tr>
-		<td>RESET</td>
-		<td>Reset all tab properties. No other parameter used if this is set</td>
-	</tr>
-	<tr>
-		<td>TABCOLORS</td>
-		<td>Tab Colors to use. Comma-separated list
-TABCOLORS=&lt;background&gt;,&lt;textcolor&gt;,&lt;Gradient (0/1)&gt;,&lt;HotWhenActive (0/1)&gt;</td>
-	</tr>
-	<tr>
-		<td>TABLOCK</td>
-		<td>Lock Tab</td>
-	</tr>
-	<tr>
-		<td>TABLOCKALLOWSUBCHANGE</td>
-		<td>Lock Tab - Allow subpath change</td>
-	</tr>
-	<tr>
-		<td>TABNAME</td>
-		<td>Force the tab to be named using the provided text</td>
-	</tr>
-</table>
-</div>
-<div class="customcmd-cmd">
-<h2><a name="mc.explorer.sort"></a>MC.Explorer.Sort</h2>
-<p>Change which column data is sorted by</p>
-<h3>Options</h3>
-<table class="table table-bordered">
-	<tr>
-		<td>COL</td>
-		<td>Number of the column to sort by (starting from 1)</td>
-	</tr>
-	<tr>
-		<td>COLNAME</td>
-		<td>Name of the column to sort by (eg. COLNAME=name)</td>
-	</tr>
-	<tr>
-		<td>ORDER</td>
-		<td>Sort order. ASC for ascending, DES for descending</td>
-	</tr>
-</table>
-</div>
-<div class="customcmd-cmd">
-<h2><a name="mc.explorer.sizefolder"></a>MC.Explorer.SizeFolder</h2>
-<p>Size current selected folder(s)</p>
-<h3>Options</h3>
-<table class="table table-bordered">
-	<tr>
-		<td>ALL</td>
-		<td>Force sizing of all folders in current location</td>
-	</tr>
-	<tr>
-		<td>ONLYFOCUS</td>
-		<td>Only size folder that is in focus</td>
-	</tr>
-</table>
-</div>
-<div class="customcmd-cmd">
-<h2><a name="mc.explorer.setitemfocus"></a>MC.Explorer.SetItemFocus</h2>
-<p>Change focus to a specified file/folder in the current path</p>
-<h3>Options</h3>
-<table class="table table-bordered">
-	<tr>
-		<td>ITEM</td>
-		<td>Name of the file/folder</td>
-	</tr>
-</table>
-</div>
-<div class="customcmd-cmd">
-<h2><a name="mc.explorer.setcoloringrules"></a>MC.Explorer.SetColoringRules</h2>
-<p>Set Color Rules profile to use. Do not specify a name if you want to use the default color profile</p>
-<h3>Options</h3>
-<table class="table table-bordered">
-	<tr>
-		<td>NAME</td>
-		<td>Name of the color profile</td>
-	</tr>
-</table>
-</div>
-<div class="customcmd-cmd">
-<h2><a name="mc.explorer.refreshcoloringrules"></a>MC.Explorer.RefreshColoringRules</h2>
-<p>Refresh file coloring for all files and folders</p>
-</div>
-<div class="customcmd-cmd">
-<h2><a name="mc.explorer.changesetting"></a>MC.Explorer.ChangeSetting</h2>
-<p>Change an Explorer Panel settings for the current active tab temporarily.
-Settings will NOT be saved
-See documentation for more information</p>
-<h3>Options</h3>
-<table class="table table-bordered">
-	<tr>
-		<td>NAME</td>
-		<td>Setting name</td>
-	</tr>
-	<tr>
-		<td>TOGGLE</td>
-		<td>Will toggle the named setting (if possible)</td>
-	</tr>
-	<tr>
-		<td>VALUE</td>
-		<td>New Settings Value</td>
-	</tr>
-</table>
-</div>
-<div class="customcmd-cmd">
-<h2><a name="mc.explorer.selection.select"></a>MC.Explorer.Selection.Select</h2>
-<p>Select items by filter (Support all views)</p>
-<h3>Options</h3>
-<table class="table table-bordered">
-	<tr>
-		<td>FILTER</td>
-		<td>Filter of what to match against</td>
-	</tr>
-	<tr>
-		<td>FILTERID</td>
-		<td>The Filter ID of an Advanced Filter that is already defined</td>
-	</tr>
-	<tr>
-		<td>ONLYFILES</td>
-		<td>Only filter files</td>
-	</tr>
-	<tr>
-		<td>ONLYFOLDERS</td>
-		<td>Only filter folders</td>
-	</tr>
-</table>
-</div>
-<div class="customcmd-cmd">
-<h2><a name="mc.explorer.selection.unselect"></a>MC.Explorer.Selection.Unselect</h2>
-<p>Unselect items by filter (Support all views)</p>
-<h3>Options</h3>
-<table class="table table-bordered">
-	<tr>
-		<td>FILTER</td>
-		<td>Filter of what to match against</td>
-	</tr>
-	<tr>
-		<td>ONLYFILES</td>
-		<td>Only filter files</td>
-	</tr>
-	<tr>
-		<td>ONLYFOLDERS</td>
-		<td>Only filter folders</td>
-	</tr>
-</table>
-</div>
-<div class="customcmd-cmd">
-<h2><a name="mc.explorer.selection.selectall"></a>MC.Explorer.Selection.SelectAll</h2>
-<p>Select all items</p>
-</div>
-<div class="customcmd-cmd">
-<h2><a name="mc.explorer.selection.unselectall"></a>MC.Explorer.Selection.UnselectAll</h2>
-<p>Unselect all items</p>
-</div>
-<div class="customcmd-cmd">
-<h2><a name="mc.explorer.selection.invertselection"></a>MC.Explorer.Selection.InvertSelection</h2>
-<p>Invert selections of items</p>
-</div>
-<div class="customcmd-cmd">
-<h2><a name="mc.explorer.selection.selectbycolor"></a>MC.Explorer.Selection.SelectByColor</h2>
-<p>Select by color (Color set by File Coloring Rules)</p>
-<h3>Options</h3>
-<table class="table table-bordered">
-	<tr>
-		<td>RULE</td>
-		<td>Name of the color rule to select files/folder by.
-(File coloring profile having the specified rule must be active)</td>
-	</tr>
-</table>
-</div>
-<div class="customcmd-cmd">
-<h2><a name="mc.explorer.selection.unselectbycolor"></a>MC.Explorer.Selection.UnselectByColor</h2>
-<p>Unselect by color (Color set by File Coloring Rules)</p>
-<h3>Options</h3>
-<table class="table table-bordered">
-	<tr>
-		<td>RULE</td>
-		<td>Name of the color rule to unselect files/folder by.
-(File coloring profile having the specified rule must be active)</td>
-	</tr>
-</table>
-</div>
-<div class="customcmd-cmd">
-<h2><a name="mc.explorer.selection.saveselectiontomemory"></a>MC.Explorer.Selection.SaveSelectionToMemory</h2>
-<p>Save selection to memory</p>
-<h3>Options</h3>
-<table class="table table-bordered">
-	<tr>
-		<td>NAME</td>
-		<td>Name that you want to save the selection as (Optional)</td>
-	</tr>
-</table>
-</div>
-<div class="customcmd-cmd">
-<h2><a name="mc.explorer.selection.loadselectionfrommemory"></a>MC.Explorer.Selection.LoadSelectionFromMemory</h2>
-<p>Load selection from memory</p>
-<h3>Options</h3>
-<table class="table table-bordered">
-	<tr>
-		<td>NAME</td>
-		<td>Name that you want to load the selection from (Optional)</td>
-	</tr>
-</table>
-</div>
-<div class="customcmd-cmd">
-<h2><a name="mc.explorer.selection.saveselectiontofile"></a>MC.Explorer.Selection.SaveSelectionToFile</h2>
-<p>Save selection to file</p>
-<h3>Options</h3>
-<table class="table table-bordered">
-	<tr>
-		<td>FILE</td>
-		<td>File to save selection to</td>
-	</tr>
-</table>
-</div>
-<div class="customcmd-cmd">
-<h2><a name="mc.explorer.selection.loadselectionfromfile"></a>MC.Explorer.Selection.LoadSelectionFromFile</h2>
-<p>Load selection from file</p>
-<h3>Options</h3>
-<table class="table table-bordered">
-	<tr>
-		<td>FILE</td>
-		<td>File to load selection from</td>
-	</tr>
-</table>
-</div>
-<div class="customcmd-cmd">
-<h2><a name="mc.explorer.selection.loadselectionfromclipboard"></a>MC.Explorer.Selection.LoadSelectionFromClipboard</h2>
-<p>Load selection from clipboard</p>
-<h3>Options</h3>
-<table class="table table-bordered">
-	<tr>
-		<td>WILDCARD</td>
-		<td>Do wildcard selection, (Will insert * before and after every part before doing the selection)</td>
-	</tr>
-</table>
-</div>
-<div class="customcmd-cmd">
-<h2><a name="mc.explorer.selection.comparefoldersforduplicates"></a>MC.Explorer.Selection.CompareFoldersForDuplicates</h2>
-<p>Compare target and source views and select duplicates</p>
-<h3>Options</h3>
-<table class="table table-bordered">
-	<tr>
-		<td>FILES</td>
-		<td>Compare files</td>
-	</tr>
-	<tr>
-		<td>FOLDERS</td>
-		<td>Compare folders</td>
-	</tr>
-</table>
-</div>
-<div class="customcmd-cmd">
-<h2><a name="mc.explorer.selection.comparefoldersforselected"></a>MC.Explorer.Selection.CompareFoldersForSelected</h2>
-<p>Compare target and source views and select selected on target</p>
-<h3>Options</h3>
-<table class="table table-bordered">
-	<tr>
-		<td>FILES</td>
-		<td>Compare files</td>
-	</tr>
-	<tr>
-		<td>FOLDERS</td>
-		<td>Compare folders</td>
-	</tr>
-</table>
-</div>
-<div class="customcmd-cmd">
-<h2><a name="mc.explorer.selection.comparefoldersformissingandnewer"></a>MC.Explorer.Selection.CompareFoldersForMissingAndNewer</h2>
-<p>Compare target and source views and select missing and newest</p>
-<h3>Options</h3>
-<table class="table table-bordered">
-	<tr>
-		<td>FILES</td>
-		<td>Compare files</td>
-	</tr>
-	<tr>
-		<td>FOLDERS</td>
-		<td>Compare folders</td>
-	</tr>
-</table>
-</div>
-<div class="customcmd-cmd">
-<h2><a name="mc.explorer.selection.comparefoldersformissing"></a>MC.Explorer.Selection.CompareFoldersForMissing</h2>
-<p>Compare target and source views and select missing</p>
-<h3>Options</h3>
-<table class="table table-bordered">
-	<tr>
-		<td>FILES</td>
-		<td>Compare files</td>
-	</tr>
-	<tr>
-		<td>FOLDERS</td>
-		<td>Compare folders</td>
-	</tr>
-</table>
-</div>
-<div class="customcmd-cmd">
-<h2><a name="mc.explorer.selection.comparefoldersfornewest"></a>MC.Explorer.Selection.CompareFoldersForNewest</h2>
-<p>Compare target and source views and select newest item</p>
-<h3>Options</h3>
-<table class="table table-bordered">
-	<tr>
-		<td>FILES</td>
-		<td>Compare files</td>
-	</tr>
-	<tr>
-		<td>FOLDERS</td>
-		<td>Compare folders</td>
-	</tr>
-</table>
-</div>
-<div class="customcmd-cmd">
-<h2><a name="mc.special.selectoldestbyname"></a>MC.Special.SelectOldestByName</h2>
-<p>Select oldest based on file/folder name</p>
-<h3>Options</h3>
-<table class="table table-bordered">
-	<tr>
-		<td>SOURCE</td>
-		<td>Select in source view</td>
-	</tr>
-	<tr>
-		<td>TARGET</td>
-		<td>Select in target view</td>
-	</tr>
-</table>
-</div>
-<div class="customcmd-cmd">
-<h2><a name="mc.utils.createlink"></a>MC.Utils.CreateLink</h2>
-<p>Create a File System Link, Symbolic, Hardlink, Junction or Shortcut</p>
-<h3>Options</h3>
-<table class="table table-bordered">
-	<tr>
-		<td>ASADMIN</td>
-		<td>Run as Administrator</td>
-	</tr>
-	<tr>
-		<td>LNKSRC</td>
-		<td>Link Source</td>
-	</tr>
-	<tr>
-		<td>LNKTRG</td>
-		<td>Link Target</td>
-	</tr>
-	<tr>
-		<td>LNKTYPE</td>
-		<td>Link type. 1 = Hardlink, 2 = Junction, 3 = Symlink, 4 = Shortcut</td>
-	</tr>
-</table>
-</div>
-<div class="customcmd-cmd">
-<h2><a name="mc.utils.sortlines"></a>MC.Utils.SortLines</h2>
-<p>Sort Lines in text file</p>
-<h3>Options</h3>
-<table class="table table-bordered">
-	<tr>
-		<td>DATEFORMAT</td>
-		<td>Date format</td>
-	</tr>
-	<tr>
-		<td>DELETE</td>
-		<td>Overwrite original file</td>
-	</tr>
-	<tr>
-		<td>ENDATWHITESPACE</td>
-		<td>End at any whitespace character</td>
-	</tr>
-	<tr>
-		<td>ENDCHAR</td>
-		<td>End character</td>
-	</tr>
-	<tr>
-		<td>FILE</td>
-		<td>File to sort lines in</td>
-	</tr>
-	<tr>
-		<td>IGNORECASE</td>
-		<td>Ignore case</td>
-	</tr>
-	<tr>
-		<td>ITEM</td>
-		<td>Item to sort by</td>
-	</tr>
-	<tr>
-		<td>ITEMSEP</td>
-		<td>Item separator</td>
-	</tr>
-	<tr>
-		<td>KEEPBACKUP</td>
-		<td>Keep a backup of original file (*.bak)</td>
-	</tr>
-	<tr>
-		<td>KEEPBOTTOM</td>
-		<td>Lines at the bottom to keep</td>
-	</tr>
-	<tr>
-		<td>KEEPTOP</td>
-		<td>Lines at the top to keep</td>
-	</tr>
-	<tr>
-		<td>LANGUAGEORDER</td>
-		<td>Use language-established sort order</td>
-	</tr>
-	<tr>
-		<td>LINEOFFSET</td>
-		<td>Where on the line to start sorting from (1-based; first position is 1, not 0)</td>
-	</tr>
-	<tr>
-		<td>NATRUALNUMORDER</td>
-		<td>Natural number order</td>
-	</tr>
-	<tr>
-		<td>OVERWRITE</td>
-		<td>Overwrite if target file already exists</td>
-	</tr>
-	<tr>
-		<td>REVERSE</td>
-		<td>Reverse sort order</td>
-	</tr>
-	<tr>
-		<td>SILENT</td>
-		<td>Silent. No error/done dialogs are shown</td>
-	</tr>
-	<tr>
-		<td>SKIPLEADINGSPACE</td>
-		<td>Skip leading spaces</td>
-	</tr>
-	<tr>
-		<td>SORTAS</td>
-		<td>Sort as Text, Number or Date (Default is: Text)</td>
-	</tr>
-	<tr>
-		<td>SORTBY</td>
-		<td>Sort lines by Line, SubString or Item. (Default is Line)</td>
-	</tr>
-	<tr>
-		<td>SUBSTRLEN</td>
-		<td>Substring length</td>
-	</tr>
-	<tr>
-		<td>TARGET</td>
-		<td>Name of the new file. (Name filter like &quot;*_New.*&quot;. Don't include path)</td>
-	</tr>
-</table>
-</div>
-<div class="customcmd-cmd">
-<h2><a name="mc.utils.findandreplace"></a>MC.Utils.FindAndReplace</h2>
-<p>Find and Replace in file</p>
-<h3>Options</h3>
-<table class="table table-bordered">
-	<tr>
-		<td>DELETE</td>
-		<td>Overwrite original file</td>
-	</tr>
-	<tr>
-		<td>FILE</td>
-		<td>File to replace text in</td>
-	</tr>
-	<tr>
-		<td>FIND</td>
-		<td>Text to find</td>
-	</tr>
-	<tr>
-		<td>FORCEUTF8</td>
-		<td>Force file format to UTF-8 if detected as ASCII</td>
-	</tr>
-	<tr>
-		<td>IGNORECASE</td>
-		<td>Ignore case</td>
-	</tr>
-	<tr>
-		<td>KEEPBACKUP</td>
-		<td>Keep a backup of original file (*.bak)</td>
-	</tr>
-	<tr>
-		<td>MODE</td>
-		<td>Find and Replace Mode. One, Many, ManySame, Multiline (Default: One)</td>
-	</tr>
-	<tr>
-		<td>OVERWRITE</td>
-		<td>Overwrite if target file already exists</td>
-	</tr>
-	<tr>
-		<td>REPLACEALL</td>
-		<td>Replace All</td>
-	</tr>
-	<tr>
-		<td>REPLACEWITH</td>
-		<td>Text to replace with</td>
-	</tr>
-	<tr>
-		<td>SILENT</td>
-		<td>Silent. No error/done dialogs are shown</td>
-	</tr>
-	<tr>
-		<td>TARGET</td>
-		<td>Name of the new file. (Name filter like &quot;*_New.*&quot;. Don't include path)</td>
-	</tr>
-	<tr>
-		<td>WILDCARD</td>
-		<td>Use wildcard matching</td>
-	</tr>
-</table>
-</div>
-<div class="customcmd-cmd">
-<h2><a name="mc.checksum.verify"></a>MC.CheckSum.Verify</h2>
-<p>Start CheckSum Tab and verify file(s)</p>
-<h3>Options</h3>
-<table class="table table-bordered">
-	<tr>
-		<td>ALLSELECTED</td>
-		<td>Verify all selected files (and files inside selected folders)</td>
-	</tr>
-	<tr>
-		<td>FILE</td>
-		<td>Path to file to verify. If folder then all checksum files in that folder will be used</td>
-	</tr>
-</table>
-</div>
-<div class="customcmd-cmd">
-<h2><a name="mc.checksum.create"></a>MC.CheckSum.Create</h2>
-<p>Start CheckSum Tab and create checksum file</p>
-<h3>Options</h3>
-<table class="table table-bordered">
-	<tr>
-		<td>ALLSELECTED</td>
-		<td>Add all selected files</td>
-	</tr>
-	<tr>
-		<td>AUTOSTART</td>
-		<td>Auto-start the creation of the checksum file</td>
-	</tr>
-	<tr>
-		<td>CHECKSUM</td>
-		<td>Checksum Mode to use: CRC32 or MD5 (default: CRC32)</td>
-	</tr>
-	<tr>
-		<td>ENCODING</td>
-		<td>Text Encoding of the SFV/MD5 file: ASCII/UTF-8/UNICODE (default: ASCII)</td>
-	</tr>
-	<tr>
-		<td>FILENAME</td>
-		<td>Filename of the SFV/MD5 file to create. If name is not set it name is auto-generated</td>
-	</tr>
-</table>
-</div>
-<div class="customcmd-cmd">
-<h2><a name="mc.dataviewer.view"></a>MC.DataViewer.View</h2>
-<p>Open a file for viewing</p>
-<h3>Options</h3>
-<table class="table table-bordered">
-	<tr>
-		<td>ASCII</td>
-		<td>View file as ASCII</td>
-	</tr>
-	<tr>
-		<td>AUTORELOAD</td>
-		<td>Enable AutoReload</td>
-	</tr>
-	<tr>
-		<td>BGCOLOR</td>
-		<td>Background Color</td>
-	</tr>
-	<tr>
-		<td>BINARY</td>
-		<td>View file as BINARY</td>
-	</tr>
-	<tr>
-		<td>COLOR</td>
-		<td>Text Color</td>
-	</tr>
-	<tr>
-		<td>FILE</td>
-		<td>Path to file to view</td>
-	</tr>
-	<tr>
-		<td>FONT</td>
-		<td>Font you want to use</td>
-	</tr>
-	<tr>
-		<td>FONTSIZE</td>
-		<td>Font size you want to use</td>
-	</tr>
-	<tr>
-		<td>FORMAT_1</td>
-		<td>Add formatting. Add FORMAT_2 and so on for more formats</td>
-	</tr>
-	<tr>
-		<td>HEX</td>
-		<td>View file as HEX</td>
-	</tr>
-	<tr>
-		<td>HIGHLIGHT</td>
-		<td>Highlight words</td>
-	</tr>
-	<tr>
-		<td>UNICODE</td>
-		<td>View file as UNICODE</td>
-	</tr>
-</table>
-</div>
-<div class="customcmd-cmd">
-<h2><a name="mc.picturetools.convert"></a>MC.PictureTools.Convert</h2>
-<p>Convert one or many pictures to another picture format</p>
-<h3>Options</h3>
-<table class="table table-bordered">
-	<tr>
-		<td>DELETE</td>
-		<td>Delete the original file if it was converted</td>
-	</tr>
-	<tr>
-		<td>FILE</td>
-		<td>File to convert</td>
-	</tr>
-	<tr>
-		<td>FILES</td>
-		<td>List of files to convert, Separate with Semicolon (&quot;;&quot;)</td>
-	</tr>
-	<tr>
-		<td>FOCUS</td>
-		<td>Convert file in focus only</td>
-	</tr>
-	<tr>
-		<td>FORMAT</td>
-		<td>Target format for conversion. Can be one of the following: PNG, JPG, GIF, BMP, TIF</td>
-	</tr>
-	<tr>
-		<td>JPGQUALITY</td>
-		<td>JPG Quality to use (0-100). (Only valid if FORMAT is JPG)</td>
-	</tr>
-	<tr>
-		<td>OVERWRITE</td>
-		<td>Overwrite target file if it already exists</td>
-	</tr>
-	<tr>
-		<td>SAVEAS</td>
-		<td>Save new file as. (Only valid if you also used FILE )
-By default the file name is kept but with the new file extension</td>
-	</tr>
-	<tr>
-		<td>SELECTED</td>
-		<td>Convert all selected files</td>
-	</tr>
-</table>
-</div>
-<div class="customcmd-cmd">
-<h2><a name="mc.picturetools.resize"></a>MC.PictureTools.Resize</h2>
-<p>Resize one or many pictures</p>
-<h3>Options</h3>
-<table class="table table-bordered">
-	<tr>
-		<td>FILE</td>
-		<td>File to resize</td>
-	</tr>
-	<tr>
-		<td>FILES</td>
-		<td>List of files to resize. Separate with Semicolon (&quot;;&quot;)</td>
-	</tr>
-	<tr>
-		<td>FOCUS</td>
-		<td>Resize file in focus only</td>
-	</tr>
-	<tr>
-		<td>HEIGHT</td>
-		<td>Height of target image in pixels or percent
-Use * to auto-calculate when keeping aspect ratio</td>
-	</tr>
-	<tr>
-		<td>OVERWRITE</td>
-		<td>Overwrite target file if it already exists</td>
-	</tr>
-	<tr>
-		<td>REPLACE</td>
-		<td>Replace original image file</td>
-	</tr>
-	<tr>
-		<td>SAVEAS</td>
-		<td>Save new file as. (Only valid if you also used FILE )
-By default the file name is kept but with the new file extension</td>
-	</tr>
-	<tr>
-		<td>SELECTED</td>
-		<td>Resize all selected files</td>
-	</tr>
-	<tr>
-		<td>WIDTH</td>
-		<td>Width of target image in pixels or percent
-Use * to auto-calculate when keeping aspect ratio</td>
-	</tr>
-</table>
-</div>
+  <table class="table table-bordered">
+    <tr>
+      <td><a href="#mc.run">MC.Run</a></td>
+      <td>Run an external program</td>
+    </tr>
+    <tr>
+      <td><a href="#mc.runusercmd">MC.RunUserCmd</a></td>
+      <td>Run a User Defined Command</td>
+    </tr>
+    <tr>
+      <td><a href="#mc.runcmd">MC.RunCmd</a></td>
+      <td>Run an Internal or User Defined Command</td>
+    </tr>
+    <tr>
+      <td><a href="#mc.cmdlineset">MC.CmdLineSet</a></td>
+      <td>Set a text in the Command Line field</td>
+    </tr>
+    <tr>
+      <td><a href="#mc.cmdlinerun">MC.CmdLineRun</a></td>
+      <td>Run a command via the Command Line field</td>
+    </tr>
+    <tr>
+      <td><a href="#mc.view">MC.View</a></td>
+      <td>View file. Viewer is selected by finding a match in the file type setup</td>
+    </tr>
+    <tr>
+      <td><a href="#mc.edit">MC.Edit</a></td>
+      <td>Edit file. Editor is selected by finding a match in the file type setup</td>
+    </tr>
+    <tr>
+      <td><a href="#mc.setactivepanel">MC.SetActivePanel</a></td>
+      <td>Set what panel side should be active</td>
+    </tr>
+    <tr>
+      <td><a href="#mc.setactivetab">MC.SetActiveTab</a></td>
+      <td>Set what tab should be active</td>
+    </tr>
+    <tr>
+      <td><a href="#mc.closealltabs">MC.CloseAllTabs</a></td>
+      <td>Close all tabs</td>
+    </tr>
+    <tr>
+      <td><a href="#mc.savetabs">MC.SaveTabs</a></td>
+      <td>Save current tabs panel layout</td>
+    </tr>
+    <tr>
+      <td><a href="#mc.loadtabs">MC.LoadTabs</a></td>
+      <td>Load a tabs panel layout</td>
+    </tr>
+    <tr>
+      <td><a href="#mc.changetabsession">MC.ChangeTabSession</a></td>
+      <td>Change to a preconfigured tab session</td>
+    </tr>
+    <tr>
+      <td><a href="#mc.xchangesettings">MC.XChangeSettings</a></td>
+      <td>Change a Multi Commander UI setting. (See online doc for supported settings to change)</td>
+    </tr>
+    <tr>
+      <td><a href="#mc.bindkey">MC.BindKey</a></td>
+      <td>Bind a keyboard key combination to a command (eg. BindKey CMD=Core.1360 KEY=Ctrl+N)</td>
+    </tr>
+    <tr>
+      <td><a href="#mc.unbindkey">MC.UnBindKey</a></td>
+      <td>Unbind a keyboard key combination from a command (eg. UnbindKey CMD=Core.1360)</td>
+    </tr>
+    <tr>
+      <td><a href="#mc.showfavwindow">MC.ShowFavWindow</a></td>
+      <td>Show Favorites Window</td>
+    </tr>
+    <tr>
+      <td><a href="#mc.showfavpopup">MC.ShowFavPopup</a></td>
+      <td>Show Favorites Popup menu</td>
+    </tr>
+    <tr>
+      <td><a href="#mc.shellpaste">MC.ShellPaste</a></td>
+      <td>Paste clipboard data using Windows Shell</td>
+    </tr>
+    <tr>
+      <td><a href="#mc.loadbuttonpanellayout">MC.LoadButtonPanelLayout</a></td>
+      <td>Load a button panel layout from file</td>
+    </tr>
+    <tr>
+      <td><a href="#mc.backupconfig">MC.BackupConfig</a></td>
+      <td>Backup configuration</td>
+    </tr>
+    <tr>
+      <td><a href="#mc.restoreconfig">MC.RestoreConfig</a></td>
+      <td>Restore configuration</td>
+    </tr>
+    <tr>
+      <td><a href="#mc.stopaudio">MC.StopAudio</a></td>
+      <td>Stop Audio</td>
+    </tr>
+    <tr>
+      <td><a href="#mc.playaudio">MC.PlayAudio</a></td>
+      <td>Play Audio</td>
+    </tr>
+    <tr>
+      <td><a href="#mc.filesystem.rename">MC.Filesystem.Rename</a></td>
+      <td>Rename a file or folder. Current file will be used if FILE parameter is not used</td>
+    </tr>
+    <tr>
+      <td><a href="#mc.filesystem.delete">MC.Filesystem.Delete</a></td>
+      <td>Delete a file(s) or folder(s). If no PATH parameter is given the current selected file(s)/folder(s) will be used</td>
+    </tr>
+    <tr>
+      <td><a href="#mc.filesystem.makedir">MC.Filesystem.Makedir</a></td>
+      <td>Create a new folder</td>
+    </tr>
+    <tr>
+      <td><a href="#mc.filesystem.packfiles">MC.Filesystem.PackFiles</a></td>
+      <td>Pack files into an archive (eg. .zip file). If no FILES parameter is giving the current selected files/folders are used</td>
+    </tr>
+    <tr>
+      <td><a href="#mc.filesystem.unpack">MC.Filesystem.Unpack</a></td>
+      <td>Unpack archives into a folder</td>
+    </tr>
+    <tr>
+      <td><a href="#mc.filesearch.search">MC.FileSearch.Search</a></td>
+      <td>Rename a file or folder. Current file will be used if FILE parameter is not used</td>
+    </tr>
+    <tr>
+      <td><a href="#mc.explorer.newbrowser">MC.Explorer.NewBrowser</a></td>
+      <td>Open a new Explorer Panel tab</td>
+    </tr>
+    <tr>
+      <td><a href="#mc.explorer.closeall">MC.Explorer.CloseAll</a></td>
+      <td>Close all Explorer Panel tabs</td>
+    </tr>
+    <tr>
+      <td><a href="#mc.explorer.goto">MC.Explorer.Goto</a></td>
+      <td>Show path in the Explorer Panel</td>
+    </tr>
+    <tr>
+      <td><a href="#mc.explorer.select">MC.Explorer.Select</a></td>
+      <td>Select files and folders in the Explorer Panel</td>
+    </tr>
+    <tr>
+      <td><a href="#mc.explorer.deselect">MC.Explorer.Deselect</a></td>
+      <td>Deselect files and folders in the Explorer Panel</td>
+    </tr>
+    <tr>
+      <td><a href="#mc.explorer.refresh">MC.Explorer.Refresh</a></td>
+      <td>Refresh the Explorer Panel</td>
+    </tr>
+    <tr>
+      <td><a href="#mc.explorer.refreshtree">MC.Explorer.RefreshTree</a></td>
+      <td>Refresh the Explorer Panel</td>
+    </tr>
+    <tr>
+      <td><a href="#mc.explorer.copy">MC.Explorer.Copy</a></td>
+      <td>Start a Copy operation</td>
+    </tr>
+    <tr>
+      <td><a href="#mc.explorer.delete">MC.Explorer.Delete</a></td>
+      <td>Start a Delete operation</td>
+    </tr>
+    <tr>
+      <td><a href="#mc.explorer.move">MC.Explorer.Move</a></td>
+      <td>Start a Move operation</td>
+    </tr>
+    <tr>
+      <td><a href="#mc.explorer.makedir">MC.Explorer.Makedir</a></td>
+      <td>Create folder</td>
+    </tr>
+    <tr>
+      <td><a href="#mc.explorer.setviewfilter">MC.Explorer.SetViewFilter</a></td>
+      <td>View filter for the Explorer Panel</td>
+    </tr>
+    <tr>
+      <td><a href="#mc.explorer.getviewfilter">MC.Explorer.GetViewFilter</a></td>
+      <td>View filter for the Explorer Panel</td>
+    </tr>
+    <tr>
+      <td><a href="#mc.explorer.setcolumns">MC.Explorer.SetColumns</a></td>
+      <td>Change what columns to show, change to a defined column set</td>
+    </tr>
+    <tr>
+      <td><a href="#mc.explorer.setviewmode">MC.Explorer.SetViewMode</a></td>
+      <td>Change view mode of Explorer Panel that is in focus</td>
+    </tr>
+    <tr>
+      <td><a href="#mc.explorer.settabprop">MC.Explorer.SetTabProp</a></td>
+      <td>Change tab properties of active Explorer Panel tab</td>
+    </tr>
+    <tr>
+      <td><a href="#mc.explorer.sort">MC.Explorer.Sort</a></td>
+      <td>Change which column data is sorted by</td>
+    </tr>
+    <tr>
+      <td><a href="#mc.explorer.sizefolder">MC.Explorer.SizeFolder</a></td>
+      <td>Size current selected folder(s)</td>
+    </tr>
+    <tr>
+      <td><a href="#mc.explorer.setitemfocus">MC.Explorer.SetItemFocus</a></td>
+      <td>Change focus to a specified file/folder in the current path</td>
+    </tr>
+    <tr>
+      <td><a href="#mc.explorer.setcoloringrules">MC.Explorer.SetColoringRules</a></td>
+      <td>Set Color Rules profile to use. Do not specify a name if you want to use the default color profile</td>
+    </tr>
+    <tr>
+      <td><a href="#mc.explorer.refreshcoloringrules">MC.Explorer.RefreshColoringRules</a></td>
+      <td>Refresh file coloring for all files and folders</td>
+    </tr>
+    <tr>
+      <td><a href="#mc.explorer.changesetting">MC.Explorer.ChangeSetting</a></td>
+      <td>
+        Change an Explorer Panel settings for the current active tab temporarily.
+        Settings will NOT be saved
+        See documentation for more information
+      </td>
+    </tr>
+    <tr>
+      <td><a href="#mc.explorer.selection.select">MC.Explorer.Selection.Select</a></td>
+      <td>Select items by filter (Support all views)</td>
+    </tr>
+    <tr>
+      <td><a href="#mc.explorer.selection.unselect">MC.Explorer.Selection.Unselect</a></td>
+      <td>Unselect items by filter (Support all views)</td>
+    </tr>
+    <tr>
+      <td><a href="#mc.explorer.selection.selectall">MC.Explorer.Selection.SelectAll</a></td>
+      <td>Select all items</td>
+    </tr>
+    <tr>
+      <td><a href="#mc.explorer.selection.unselectall">MC.Explorer.Selection.UnselectAll</a></td>
+      <td>Unselect all items</td>
+    </tr>
+    <tr>
+      <td><a href="#mc.explorer.selection.invertselection">MC.Explorer.Selection.InvertSelection</a></td>
+      <td>Invert selections of items</td>
+    </tr>
+    <tr>
+      <td><a href="#mc.explorer.selection.selectbycolor">MC.Explorer.Selection.SelectByColor</a></td>
+      <td>Select by color (Color set by File Coloring Rules)</td>
+    </tr>
+    <tr>
+      <td><a href="#mc.explorer.selection.unselectbycolor">MC.Explorer.Selection.UnselectByColor</a></td>
+      <td>Unselect by color (Color set by File Coloring Rules)</td>
+    </tr>
+    <tr>
+      <td><a href="#mc.explorer.selection.saveselectiontomemory">MC.Explorer.Selection.SaveSelectionToMemory</a></td>
+      <td>Save selection to memory</td>
+    </tr>
+    <tr>
+      <td><a href="#mc.explorer.selection.loadselectionfrommemory">MC.Explorer.Selection.LoadSelectionFromMemory</a></td>
+      <td>Load selection from memory</td>
+    </tr>
+    <tr>
+      <td><a href="#mc.explorer.selection.saveselectiontofile">MC.Explorer.Selection.SaveSelectionToFile</a></td>
+      <td>Save selection to file</td>
+    </tr>
+    <tr>
+      <td><a href="#mc.explorer.selection.loadselectionfromfile">MC.Explorer.Selection.LoadSelectionFromFile</a></td>
+      <td>Load selection from file</td>
+    </tr>
+    <tr>
+      <td><a href="#mc.explorer.selection.loadselectionfromclipboard">MC.Explorer.Selection.LoadSelectionFromClipboard</a></td>
+      <td>Load selection from clipboard</td>
+    </tr>
+    <tr>
+      <td><a href="#mc.explorer.selection.comparefoldersforduplicates">MC.Explorer.Selection.CompareFoldersForDuplicates</a></td>
+      <td>Compare target and source views and select duplicates</td>
+    </tr>
+    <tr>
+      <td><a href="#mc.explorer.selection.comparefoldersforselected">MC.Explorer.Selection.CompareFoldersForSelected</a></td>
+      <td>Compare target and source views and select selected on target</td>
+    </tr>
+    <tr>
+      <td><a href="#mc.explorer.selection.comparefoldersformissingandnewer">MC.Explorer.Selection.CompareFoldersForMissingAndNewer</a></td>
+      <td>Compare target and source views and select missing and newest</td>
+    </tr>
+    <tr>
+      <td><a href="#mc.explorer.selection.comparefoldersformissing">MC.Explorer.Selection.CompareFoldersForMissing</a></td>
+      <td>Compare target and source views and select missing</td>
+    </tr>
+    <tr>
+      <td><a href="#mc.explorer.selection.comparefoldersfornewest">MC.Explorer.Selection.CompareFoldersForNewest</a></td>
+      <td>Compare target and source views and select newest item</td>
+    </tr>
+    <tr>
+      <td><a href="#mc.special.selectoldestbyname">MC.Special.SelectOldestByName</a></td>
+      <td>Select oldest based on file/folder name</td>
+    </tr>
+    <tr>
+      <td><a href="#mc.utils.createlink">MC.Utils.CreateLink</a></td>
+      <td>Create a File System Link, Symbolic, Hardlink, Junction or Shortcut</td>
+    </tr>
+    <tr>
+      <td><a href="#mc.utils.sortlines">MC.Utils.SortLines</a></td>
+      <td>Sort Lines in text file</td>
+    </tr>
+    <tr>
+      <td><a href="#mc.utils.findandreplace">MC.Utils.FindAndReplace</a></td>
+      <td>Find and Replace in file</td>
+    </tr>
+    <tr>
+      <td><a href="#mc.checksum.verify">MC.CheckSum.Verify</a></td>
+      <td>Start CheckSum Tab and verify file(s)</td>
+    </tr>
+    <tr>
+      <td><a href="#mc.checksum.create">MC.CheckSum.Create</a></td>
+      <td>Start CheckSum Tab and create checksum file</td>
+    </tr>
+    <tr>
+      <td><a href="#mc.dataviewer.view">MC.DataViewer.View</a></td>
+      <td>Open a file for viewing</td>
+    </tr>
+    <tr>
+      <td><a href="#mc.picturetools.convert">MC.PictureTools.Convert</a></td>
+      <td>Convert one or many pictures to another picture format</td>
+    </tr>
+    <tr>
+      <td><a href="#mc.picturetools.resize">MC.PictureTools.Resize</a></td>
+      <td>Resize one or many pictures</td>
+    </tr>
+  </table>
+  <div class="customcmd-cmd">
+    <h2><a name="mc.run"></a>MC.Run</h2>
+    <p>Run an external program</p>
+    <h3>Options</h3>
+    <table class="table table-bordered">
+      <tr>
+        <td>ADMIN</td>
+        <td>Run program as Administrator</td>
+      </tr>
+      <tr>
+        <td>ARG</td>
+        <td>Arguments to sent to program</td>
+      </tr>
+      <tr>
+        <td>CMD</td>
+        <td>Path to program to run</td>
+      </tr>
+      <tr>
+        <td>SHELL</td>
+        <td>Determine how the file should be started</td>
+      </tr>
+      <tr>
+        <td>STARTIN</td>
+        <td>Path to folder in which the program should be started</td>
+      </tr>
+      <tr>
+        <td>WAIT</td>
+        <td>Wait for program to close before continuing</td>
+      </tr>
+    </table>
+  </div>
+  <div class="customcmd-cmd">
+    <h2><a name="mc.runusercmd"></a>MC.RunUserCmd</h2>
+    <p>Run a User Defined Command</p>
+    <h3>Options</h3>
+    <table class="table table-bordered">
+      <tr>
+        <td>ID</td>
+        <td>GUID of the command to run (eg. &quot;ID=fg3432f1ab4aBD422DAB3&quot;)</td>
+      </tr>
+    </table>
+  </div>
+  <div class="customcmd-cmd">
+    <h2><a name="mc.runcmd"></a>MC.RunCmd</h2>
+    <p>Run an Internal or User Defined Command</p>
+    <h3>Options</h3>
+    <table class="table table-bordered">
+      <tr>
+        <td>ASYNC</td>
+        <td>Run the command asynchronously</td>
+      </tr>
+      <tr>
+        <td>ID</td>
+        <td>ID name of the command to run (eg. &quot;ID=Core.1234&quot;)</td>
+      </tr>
+    </table>
+  </div>
+  <div class="customcmd-cmd">
+    <h2><a name="mc.cmdlineset"></a>MC.CmdLineSet</h2>
+    <p>Set a text in the Command Line field</p>
+    <h3>Options</h3>
+    <table class="table table-bordered">
+      <tr>
+        <td>SETFOCUS</td>
+        <td>Change focus to the Command Line field</td>
+      </tr>
+      <tr>
+        <td>TEXT</td>
+        <td>Text to set in the Command Line field</td>
+      </tr>
+    </table>
+  </div>
+  <div class="customcmd-cmd">
+    <h2><a name="mc.cmdlinerun"></a>MC.CmdLineRun</h2>
+    <p>Run a command via the Command Line field</p>
+    <h3>Options</h3>
+    <table class="table table-bordered">
+      <tr>
+        <td>CMD</td>
+        <td>Command to be run as if it was written in the Command Line field</td>
+      </tr>
+    </table>
+  </div>
+  <div class="customcmd-cmd">
+    <h2><a name="mc.view"></a>MC.View</h2>
+    <p>View file. Viewer is selected by finding a match in the file type setup</p>
+    <h3>Options</h3>
+    <table class="table table-bordered">
+      <tr>
+        <td>FILE</td>
+        <td>Path to file to view. If not specified, the file in focus will be used</td>
+      </tr>
+      <tr>
+        <td>VIEWAS</td>
+        <td>When looking for viewer to use, select as if file is this file type (eg. VIEWAS=&quot;.txt&quot;)</td>
+      </tr>
+    </table>
+  </div>
+  <div class="customcmd-cmd">
+    <h2><a name="mc.edit"></a>MC.Edit</h2>
+    <p>Edit file. Editor is selected by finding a match in the file type setup</p>
+    <h3>Options</h3>
+    <table class="table table-bordered">
+      <tr>
+        <td>EDITAS</td>
+        <td>When looking for editor to use, select as if file is this file type (eg. EDITAS=&quot;.jpg&quot;)</td>
+      </tr>
+      <tr>
+        <td>FILE</td>
+        <td>Path to file to view. If not specified, the file in focus will be used</td>
+      </tr>
+    </table>
+  </div>
+  <div class="customcmd-cmd">
+    <h2><a name="mc.setactivepanel"></a>MC.SetActivePanel</h2>
+    <p>Set what panel side should be active</p>
+    <h3>Options</h3>
+    <table class="table table-bordered">
+      <tr>
+        <td>PANEL</td>
+        <td>What panel should be active. LEFT, RIGHT, TOP, BOTTOM, TOGGLE</td>
+      </tr>
+    </table>
+  </div>
+  <div class="customcmd-cmd">
+    <h2><a name="mc.setactivetab"></a>MC.SetActiveTab</h2>
+    <p>Set what tab should be active</p>
+    <h3>Options</h3>
+    <table class="table table-bordered">
+      <tr>
+        <td>PANEL</td>
+        <td>Which panel side the tabs are located in: LEFT, RIGHT, TOP, BOTTOM, ACTIVE, INACTIVE</td>
+      </tr>
+      <tr>
+        <td>TAB</td>
+        <td>Tab to activate, starting with 1 and increasing. (Eg. TAB=2 or NEXT, PREV)</td>
+      </tr>
+    </table>
+  </div>
+  <div class="customcmd-cmd">
+    <h2><a name="mc.closealltabs"></a>MC.CloseAllTabs</h2>
+    <p>Close all tabs</p>
+    <h3>Options</h3>
+    <table class="table table-bordered">
+      <tr>
+        <td>DONOTASK</td>
+        <td>Do not prompt for confirmation when closing a locked tab</td>
+      </tr>
+      <tr>
+        <td>KEEPLOCKED</td>
+        <td>Do not close locked tabs</td>
+      </tr>
+      <tr>
+        <td>LEFTONLY</td>
+        <td>Close all tabs on the left/top side only</td>
+      </tr>
+      <tr>
+        <td>RIGHTONLY</td>
+        <td>Close all tabs on the right/bottom side only</td>
+      </tr>
+    </table>
+  </div>
+  <div class="customcmd-cmd">
+    <h2><a name="mc.savetabs"></a>MC.SaveTabs</h2>
+    <p>Save current tabs panel layout</p>
+    <h3>Options</h3>
+    <table class="table table-bordered">
+      <tr>
+        <td>CURRENT</td>
+        <td>Only current tab</td>
+      </tr>
+      <tr>
+        <td>FILENAME</td>
+        <td>File path to a tab definition file</td>
+      </tr>
+    </table>
+  </div>
+  <div class="customcmd-cmd">
+    <h2><a name="mc.loadtabs"></a>MC.LoadTabs</h2>
+    <p>Load a tabs panel layout</p>
+    <h3>Options</h3>
+    <table class="table table-bordered">
+      <tr>
+        <td>ADD</td>
+        <td>Add tab panels to current layout</td>
+      </tr>
+      <tr>
+        <td>DONOTASK</td>
+        <td>Do not ask for confirmation when closing locked tabs</td>
+      </tr>
+      <tr>
+        <td>FILENAME</td>
+        <td>File path to a tab definition file</td>
+      </tr>
+      <tr>
+        <td>REPLACE</td>
+        <td>Replace all current tabs panels</td>
+      </tr>
+    </table>
+  </div>
+  <div class="customcmd-cmd">
+    <h2><a name="mc.changetabsession"></a>MC.ChangeTabSession</h2>
+    <p>Change to a preconfigured tab session</p>
+    <h3>Options</h3>
+    <table class="table table-bordered">
+      <tr>
+        <td>ID</td>
+        <td>ID of the tab session to activate</td>
+      </tr>
+    </table>
+  </div>
+  <div class="customcmd-cmd">
+    <h2><a name="mc.xchangesettings"></a>MC.XChangeSettings</h2>
+    <p>Change a Multi Commander UI setting. (See online doc for supported settings to change)</p>
+    <h3>Options</h3>
+    <table class="table table-bordered">
+      <tr>
+        <td>NAME</td>
+        <td>Name of setting</td>
+      </tr>
+      <tr>
+        <td>VALUE</td>
+        <td>Value of the new setting</td>
+      </tr>
+    </table>
+  </div>
+  <div class="customcmd-cmd">
+    <h2><a name="mc.bindkey"></a>MC.BindKey</h2>
+    <p>Bind a keyboard key combination to a command (eg. BindKey CMD=Core.1360 KEY=Ctrl+N)</p>
+    <h3>Options</h3>
+    <table class="table table-bordered">
+      <tr>
+        <td>CMD</td>
+        <td>Command to bind to key (eg. Core.1360)</td>
+      </tr>
+      <tr>
+        <td>KEY</td>
+        <td>Key to bind to (eg. Ctrl+N )</td>
+      </tr>
+      <tr>
+        <td>SAVE</td>
+        <td>(Optional) should the keybinding be saved between restarts</td>
+      </tr>
+    </table>
+  </div>
+  <div class="customcmd-cmd">
+    <h2><a name="mc.unbindkey"></a>MC.UnBindKey</h2>
+    <p>Unbind a keyboard key combination from a command (eg. UnbindKey CMD=Core.1360)</p>
+    <h3>Options</h3>
+    <table class="table table-bordered">
+      <tr>
+        <td>CMD</td>
+        <td>Command to unbind from key (eg. Core.1360)</td>
+      </tr>
+      <tr>
+        <td>SAVE</td>
+        <td>(Optional) should the keybinding be saved between restarts</td>
+      </tr>
+    </table>
+  </div>
+  <div class="customcmd-cmd">
+    <h2><a name="mc.showfavwindow"></a>MC.ShowFavWindow</h2>
+    <p>Show Favorites Window</p>
+    <h3>Options</h3>
+    <table class="table table-bordered">
+      <tr>
+        <td>SECTION</td>
+        <td>Favorite section to show (Name or Number)</td>
+      </tr>
+      <tr>
+        <td>SHOWPATH</td>
+        <td>Show target path instead of favorite name</td>
+      </tr>
+    </table>
+  </div>
+  <div class="customcmd-cmd">
+    <h2><a name="mc.showfavpopup"></a>MC.ShowFavPopup</h2>
+    <p>Show Favorites Popup menu</p>
+    <h3>Options</h3>
+    <table class="table table-bordered">
+      <tr>
+        <td>POS</td>
+        <td>Where to show the popup (Mouse, CenterScreen, CenterMC, &quot;X,Y&quot; pos )</td>
+      </tr>
+      <tr>
+        <td>SHOWPATH</td>
+        <td>Show target path instead of favorite name</td>
+      </tr>
+    </table>
+  </div>
+  <div class="customcmd-cmd">
+    <h2><a name="mc.shellpaste"></a>MC.ShellPaste</h2>
+    <p>Paste clipboard data using Windows Shell</p>
+    <h3>Options</h3>
+    <table class="table table-bordered">
+      <tr>
+        <td>PATH</td>
+        <td>Path where to paste the data. If not set current active path is used</td>
+      </tr>
+    </table>
+  </div>
+  <div class="customcmd-cmd">
+    <h2><a name="mc.loadbuttonpanellayout"></a>MC.LoadButtonPanelLayout</h2>
+    <p>Load a button panel layout from file</p>
+    <h3>Options</h3>
+    <table class="table table-bordered">
+      <tr>
+        <td>FILE</td>
+        <td>Path to a button panel layout file</td>
+      </tr>
+    </table>
+  </div>
+  <div class="customcmd-cmd">
+    <h2><a name="mc.backupconfig"></a>MC.BackupConfig</h2>
+    <p>Backup configuration</p>
+    <h3>Options</h3>
+    <table class="table table-bordered">
+      <tr>
+        <td>FILE</td>
+        <td>Path to file</td>
+      </tr>
+      <tr>
+        <td>ONLY_CONFIG</td>
+        <td>Only configuration</td>
+      </tr>
+      <tr>
+        <td>ONLY_USERDATA</td>
+        <td>Only userdata</td>
+      </tr>
+    </table>
+  </div>
+  <div class="customcmd-cmd">
+    <h2><a name="mc.restoreconfig"></a>MC.RestoreConfig</h2>
+    <p>Restore configuration</p>
+    <h3>Options</h3>
+    <table class="table table-bordered">
+      <tr>
+        <td>FILE</td>
+        <td>Path to file</td>
+      </tr>
+    </table>
+  </div>
+  <div class="customcmd-cmd">
+    <h2><a name="mc.stopaudio"></a>MC.StopAudio</h2>
+    <p>Stop Audio</p>
+  </div>
+  <div class="customcmd-cmd">
+    <h2><a name="mc.playaudio"></a>MC.PlayAudio</h2>
+    <p>Play Audio</p>
+    <h3>Options</h3>
+    <table class="table table-bordered">
+      <tr>
+        <td>DURATION</td>
+        <td>Play only for this many seconds</td>
+      </tr>
+      <tr>
+        <td>FILE</td>
+        <td>Path to file</td>
+      </tr>
+      <tr>
+        <td>FILEINFOCUS</td>
+        <td>File in focus</td>
+      </tr>
+      <tr>
+        <td>SPEED</td>
+        <td>Playback speed ( 0.25 - 3.0 ) </td>
+      </tr>
+      <tr>
+        <td>STARTAT</td>
+        <td>Start play at # seconds into the audio or #% percent into the audio</td>
+      </tr>
+      <tr>
+        <td>VOLUME</td>
+        <td>Playback volume ( 0 - 100 ) </td>
+      </tr>
+    </table>
+  </div>
+  <div class="customcmd-cmd">
+    <h2><a name="mc.filesystem.rename"></a>MC.Filesystem.Rename</h2>
+    <p>Rename a file or folder. Current file will be used if FILE parameter is not used</p>
+    <h3>Options</h3>
+    <table class="table table-bordered">
+      <tr>
+        <td>ASKNAME</td>
+        <td>Show a dialog asking for the new name. If 'NEWNAME' is also specified, it will be used as a suggested name</td>
+      </tr>
+      <tr>
+        <td>FILE</td>
+        <td>Specify file you want to rename</td>
+      </tr>
+      <tr>
+        <td>NEWNAME</td>
+        <td>The name you want the file/folder renamed to</td>
+      </tr>
+    </table>
+  </div>
+  <div class="customcmd-cmd">
+    <h2><a name="mc.filesystem.delete"></a>MC.Filesystem.Delete</h2>
+    <p>Delete a file(s) or folder(s). If no PATH parameter is given the current selected file(s)/folder(s) will be used</p>
+    <h3>Options</h3>
+    <table class="table table-bordered">
+      <tr>
+        <td>FILTER</td>
+        <td>Filter what to delete. Separate with ';' eg. &quot;*.jpg;*.bmp;*.tif&quot;</td>
+      </tr>
+      <tr>
+        <td>NODIALOG</td>
+        <td>Do not show any confirm window. (Can be dangerous when used from script)</td>
+      </tr>
+      <tr>
+        <td>PATH</td>
+        <td>The file or folder to delete</td>
+      </tr>
+      <tr>
+        <td>RECURSIVE</td>
+        <td>Delete all subfolders</td>
+      </tr>
+      <tr>
+        <td>USE_CURRENT_SOURCEITEM</td>
+        <td>Use current source item as the item to delete, PATH parameter should then not be used</td>
+      </tr>
+    </table>
+  </div>
+  <div class="customcmd-cmd">
+    <h2><a name="mc.filesystem.makedir"></a>MC.Filesystem.Makedir</h2>
+    <p>Create a new folder</p>
+    <h3>Options</h3>
+    <table class="table table-bordered">
+      <tr>
+        <td>PATH</td>
+        <td>Full path to the folder you want to create</td>
+      </tr>
+    </table>
+  </div>
+  <div class="customcmd-cmd">
+    <h2><a name="mc.filesystem.packfiles"></a>MC.Filesystem.PackFiles</h2>
+    <p>Pack files into an archive (eg. .zip file). If no FILES parameter is giving the current selected files/folders are used</p>
+    <h3>Options</h3>
+    <table class="table table-bordered">
+      <tr>
+        <td>FILES</td>
+        <td>Which files or folders to pack. Separate multiple files and folders with ';'</td>
+      </tr>
+      <tr>
+        <td>FILTER</td>
+        <td>Filter to use. Separate filters with space eg. '*.txt -readme.txt *.info'</td>
+      </tr>
+      <tr>
+        <td>METHOD</td>
+        <td>Pack method to use Zip, 7Zip, Tar</td>
+      </tr>
+      <tr>
+        <td>SEPARATE</td>
+        <td>
+          Pack the selected files/folders into separate archives.
+          (TARGET must have wildcard in name. eg &quot;e:\file_*.zip&quot;)
+        </td>
+      </tr>
+      <tr>
+        <td>TARGET</td>
+        <td>Target name of the archive. (Set to auto to auto-generate a name)</td>
+      </tr>
+    </table>
+  </div>
+  <div class="customcmd-cmd">
+    <h2><a name="mc.filesystem.unpack"></a>MC.Filesystem.Unpack</h2>
+    <p>Unpack archives into a folder</p>
+    <h3>Options</h3>
+    <table class="table table-bordered">
+      <tr>
+        <td>FILE</td>
+        <td>Which archives to unpack. Separate multiple archives with ';'</td>
+      </tr>
+      <tr>
+        <td>FILTER</td>
+        <td>Filter to use. Separate filters with space eg. '*.txt -readme.txt *.info'</td>
+      </tr>
+      <tr>
+        <td>PASSWORD</td>
+        <td>Password to use if the archive is password protected. (If not set, a dialog will be shown if password is needed during unpacking)</td>
+      </tr>
+      <tr>
+        <td>TARGET</td>
+        <td>Folder where the archives should be unpacked</td>
+      </tr>
+    </table>
+  </div>
+  <div class="customcmd-cmd">
+    <h2><a name="mc.filesearch.search"></a>MC.FileSearch.Search</h2>
+    <p>Rename a file or folder. Current file will be used if FILE parameter is not used</p>
+    <h3>Options</h3>
+    <table class="table table-bordered">
+      <tr>
+        <td>ATTRIBUTE</td>
+        <td>Match file attributes. Any of the following characters are valid: ARHSDCE</td>
+      </tr>
+      <tr>
+        <td>AUTOSTART</td>
+        <td>Auto-start the search when the command is run</td>
+      </tr>
+      <tr>
+        <td>CONTENT</td>
+        <td>Search for this content in matching files</td>
+      </tr>
+      <tr>
+        <td>EXCLUDE</td>
+        <td>Path(s) to exclude. if folder with matching name is found, it is not searched</td>
+      </tr>
+      <tr>
+        <td>HIDE</td>
+        <td>Hide the 'Find Files' Dialog</td>
+      </tr>
+      <tr>
+        <td>IGNORECASE</td>
+        <td>Ignore case difference when matching content</td>
+      </tr>
+      <tr>
+        <td>NOTTHERE</td>
+        <td>File is a match if content is missing from the file</td>
+      </tr>
+      <tr>
+        <td>RESDEVICE</td>
+        <td>What RESx: device to use for result. (0-9), (0 = Auto)</td>
+      </tr>
+      <tr>
+        <td>SEARCHFOR</td>
+        <td>Match files or folder that has this substring in the name, (or use wildcard)</td>
+      </tr>
+      <tr>
+        <td>SEARCHFOR_REGEXP</td>
+        <td>Match files or folder against this regular expression</td>
+      </tr>
+      <tr>
+        <td>SEARCHIN</td>
+        <td>Path(s) to where to search. Separate by space or ;</td>
+      </tr>
+      <tr>
+        <td>SIZE</td>
+        <td>Match files with a file size. Use &gt; or &lt; for more or less then. Eg: &quot;&gt;2000000&quot;</td>
+      </tr>
+      <tr>
+        <td>SUBLEVELS</td>
+        <td>Search only # subfolders down</td>
+      </tr>
+      <tr>
+        <td>TIME</td>
+        <td>Set a time range from now. (Valid values: TODAY, YESTERDAY, THISWEEK, THISMONTH)</td>
+      </tr>
+      <tr>
+        <td>TIMEFROM</td>
+        <td>Match files with a date from this time. (Format date/time as YYY-MM-DD HH:MM:SS)</td>
+      </tr>
+      <tr>
+        <td>TIMETO</td>
+        <td>Match files with a date to this time. (Format date/time as YYY-MM-DD HH:MM:SS)</td>
+      </tr>
+      <tr>
+        <td>WORDS</td>
+        <td>Match content against whole words</td>
+      </tr>
+    </table>
+  </div>
+  <div class="customcmd-cmd">
+    <h2><a name="mc.explorer.newbrowser"></a>MC.Explorer.NewBrowser</h2>
+    <p>Open a new Explorer Panel tab</p>
+    <h3>Options</h3>
+    <table class="table table-bordered">
+      <tr>
+        <td>FLAT</td>
+        <td>Show path flat. Path and subfolders will be flattened and shown together</td>
+      </tr>
+      <tr>
+        <td>PATH</td>
+        <td>The path you want to show</td>
+      </tr>
+      <tr>
+        <td>SIDE</td>
+        <td>Open the new Explorer Panel tab on the LEFT, RIGHT, SOURCE, TARGET or AUTO</td>
+      </tr>
+      <tr>
+        <td>TABCOLORS</td>
+        <td>
+          Tab Colors to use. Comma-separated list
+          TABCOLORS=&lt;background&gt;,&lt;textcolor&gt;,&lt;Gradient (0/1)&gt;,&lt;HotWhenActive (0/1)&gt;
+        </td>
+      </tr>
+      <tr>
+        <td>TABLOCK</td>
+        <td>Lock Tab</td>
+      </tr>
+      <tr>
+        <td>TABLOCKALLOWSUBCHANGE</td>
+        <td>Lock Tab - Allow subpath change</td>
+      </tr>
+      <tr>
+        <td>TABNAME</td>
+        <td>Force the tab to be named using the provided text</td>
+      </tr>
+    </table>
+  </div>
+  <div class="customcmd-cmd">
+    <h2><a name="mc.explorer.closeall"></a>MC.Explorer.CloseAll</h2>
+    <p>Close all Explorer Panel tabs</p>
+  </div>
+  <div class="customcmd-cmd">
+    <h2><a name="mc.explorer.goto"></a>MC.Explorer.Goto</h2>
+    <p>Show path in the Explorer Panel</p>
+    <h3>Options</h3>
+    <table class="table table-bordered">
+      <tr>
+        <td>FLAT</td>
+        <td>Show path flat. Path and subfolders will be flattened and shown together</td>
+      </tr>
+      <tr>
+        <td>ITEMFOCUS</td>
+        <td>Change focus to a specified file/folder in the current path</td>
+      </tr>
+      <tr>
+        <td>LEFT</td>
+        <td>Left Path</td>
+      </tr>
+      <tr>
+        <td>PATH</td>
+        <td>The path you want to show</td>
+      </tr>
+      <tr>
+        <td>RIGHT</td>
+        <td>Right Path</td>
+      </tr>
+      <tr>
+        <td>SOURCE</td>
+        <td>Source Path</td>
+      </tr>
+      <tr>
+        <td>TARGET</td>
+        <td>Target Path</td>
+      </tr>
+    </table>
+  </div>
+  <div class="customcmd-cmd">
+    <h2><a name="mc.explorer.select"></a>MC.Explorer.Select</h2>
+    <p>Select files and folders in the Explorer Panel</p>
+    <h3>Options</h3>
+    <table class="table table-bordered">
+      <tr>
+        <td>FILTER</td>
+        <td>Filter of the files and folder to select</td>
+      </tr>
+      <tr>
+        <td>ONLYFILES</td>
+        <td>Only filter files</td>
+      </tr>
+      <tr>
+        <td>ONLYFOLDERS</td>
+        <td>Only filter folders</td>
+      </tr>
+    </table>
+  </div>
+  <div class="customcmd-cmd">
+    <h2><a name="mc.explorer.deselect"></a>MC.Explorer.Deselect</h2>
+    <p>Deselect files and folders in the Explorer Panel</p>
+    <h3>Options</h3>
+    <table class="table table-bordered">
+      <tr>
+        <td>FILTER</td>
+        <td>Filter of the files and folder to select</td>
+      </tr>
+      <tr>
+        <td>ONLYFILES</td>
+        <td>Only filter files</td>
+      </tr>
+      <tr>
+        <td>ONLYFOLDERS</td>
+        <td>Only filter folders</td>
+      </tr>
+    </table>
+  </div>
+  <div class="customcmd-cmd">
+    <h2><a name="mc.explorer.refresh"></a>MC.Explorer.Refresh</h2>
+    <p>Refresh the Explorer Panel</p>
+    <h3>Options</h3>
+    <table class="table table-bordered">
+      <tr>
+        <td>AUTO</td>
+        <td>Automatic detection of refresh method</td>
+      </tr>
+      <tr>
+        <td>FORCEREBUILD</td>
+        <td>Rescan and Rebuild (Remove all caches and rebuild them)</td>
+      </tr>
+      <tr>
+        <td>FORCEUPDATE</td>
+        <td>Rescan and Update (Update current caches)</td>
+      </tr>
+      <tr>
+        <td>REDRAWUI</td>
+        <td>Redraw UI only</td>
+      </tr>
+      <tr>
+        <td>UPDATEUICACHE</td>
+        <td>Update View Cache only</td>
+      </tr>
+    </table>
+  </div>
+  <div class="customcmd-cmd">
+    <h2><a name="mc.explorer.refreshtree"></a>MC.Explorer.RefreshTree</h2>
+    <p>Refresh the Explorer Panel</p>
+  </div>
+  <div class="customcmd-cmd">
+    <h2><a name="mc.explorer.copy"></a>MC.Explorer.Copy</h2>
+    <p>Start a Copy operation</p>
+    <h3>Options</h3>
+    <table class="table table-bordered">
+      <tr>
+        <td>NEWQUEUE</td>
+        <td>Always start a new file operations queue</td>
+      </tr>
+      <tr>
+        <td>NODIALOG</td>
+        <td>Do not show the 'Copy To' dialog. Use default settings</td>
+      </tr>
+      <tr>
+        <td>OVERWRITE_ALL</td>
+        <td>Auto overwrite, Overwrite All</td>
+      </tr>
+      <tr>
+        <td>OVERWRITE_AUTORENAME_EXISTING</td>
+        <td>Auto overwrite, Keep both - Rename existing file</td>
+      </tr>
+      <tr>
+        <td>OVERWRITE_AUTORENAME_NEW</td>
+        <td>Auto overwrite, Keep both - Rename new file</td>
+      </tr>
+      <tr>
+        <td>OVERWRITE_IFNEWER</td>
+        <td>Auto overwrite, Overwrite If date is newer</td>
+      </tr>
+      <tr>
+        <td>OVERWRITE_IFSIZEDIFF</td>
+        <td>Auto overwrite, Overwrite If size is different</td>
+      </tr>
+      <tr>
+        <td>OVERWRITE_IFSIZELARGER</td>
+        <td>Auto overwrite, Overwrite If size is larger</td>
+      </tr>
+      <tr>
+        <td>OVERWRITE_IFSIZESMALLER</td>
+        <td>Auto overwrite, Overwrite If size is smaller</td>
+      </tr>
+      <tr>
+        <td>SKIPEMPTYFOLDERS</td>
+        <td>Skip Empty folders</td>
+      </tr>
+      <tr>
+        <td>USEEXISTINGQUEUE</td>
+        <td>Use existing file operations queue if one exists</td>
+      </tr>
+    </table>
+  </div>
+  <div class="customcmd-cmd">
+    <h2><a name="mc.explorer.delete"></a>MC.Explorer.Delete</h2>
+    <p>Start a Delete operation</p>
+    <h3>Options</h3>
+    <table class="table table-bordered">
+      <tr>
+        <td>NEWQUEUE</td>
+        <td>Always start a new file operations queue</td>
+      </tr>
+      <tr>
+        <td>NODIALOG</td>
+        <td>Do not show the 'Delete' dialog. Use default settings</td>
+      </tr>
+      <tr>
+        <td>USEEXISTINGQUEUE</td>
+        <td>Use existing file operations queue if one exists</td>
+      </tr>
+    </table>
+  </div>
+  <div class="customcmd-cmd">
+    <h2><a name="mc.explorer.move"></a>MC.Explorer.Move</h2>
+    <p>Start a Move operation</p>
+    <h3>Options</h3>
+    <table class="table table-bordered">
+      <tr>
+        <td>NEWQUEUE</td>
+        <td>Always start a new file operations queue</td>
+      </tr>
+      <tr>
+        <td>NODIALOG</td>
+        <td>Do not show the 'Move To' dialog. Use default settings</td>
+      </tr>
+      <tr>
+        <td>OVERWRITE_ALL</td>
+        <td>Auto overwrite, Overwrite All</td>
+      </tr>
+      <tr>
+        <td>OVERWRITE_AUTORENAME_EXISTING</td>
+        <td>Auto overwrite, Keep both - Rename existing file</td>
+      </tr>
+      <tr>
+        <td>OVERWRITE_AUTORENAME_NEW</td>
+        <td>Auto overwrite, Keep both - Rename new file</td>
+      </tr>
+      <tr>
+        <td>OVERWRITE_IFNEWER</td>
+        <td>Auto overwrite, Overwrite If date is newer</td>
+      </tr>
+      <tr>
+        <td>OVERWRITE_IFSIZEDIFF</td>
+        <td>Auto overwrite, Overwrite If size is different</td>
+      </tr>
+      <tr>
+        <td>OVERWRITE_IFSIZELARGER</td>
+        <td>Auto overwrite, Overwrite If size is larger</td>
+      </tr>
+      <tr>
+        <td>OVERWRITE_IFSIZESMALLER</td>
+        <td>Auto overwrite, Overwrite If size is smaller</td>
+      </tr>
+      <tr>
+        <td>SKIPEMPTYFOLDERS</td>
+        <td>Skip Empty folders</td>
+      </tr>
+      <tr>
+        <td>USEEXISTINGQUEUE</td>
+        <td>Use existing file operations queue if one exists</td>
+      </tr>
+    </table>
+  </div>
+  <div class="customcmd-cmd">
+    <h2><a name="mc.explorer.makedir"></a>MC.Explorer.Makedir</h2>
+    <p>Create folder</p>
+    <h3>Options</h3>
+    <table class="table table-bordered">
+      <tr>
+        <td>FOLDERNAME</td>
+        <td>Folder name</td>
+      </tr>
+      <tr>
+        <td>GOTO</td>
+        <td>Go to folder path when created</td>
+      </tr>
+    </table>
+  </div>
+  <div class="customcmd-cmd">
+    <h2><a name="mc.explorer.setviewfilter"></a>MC.Explorer.SetViewFilter</h2>
+    <p>View filter for the Explorer Panel</p>
+    <h3>Options</h3>
+    <table class="table table-bordered">
+      <tr>
+        <td>FILTER</td>
+        <td>The View Filter you want to set</td>
+      </tr>
+      <tr>
+        <td>FILTERID</td>
+        <td>The Filter ID of an Advanced Filter that is already defined</td>
+      </tr>
+    </table>
+  </div>
+  <div class="customcmd-cmd">
+    <h2><a name="mc.explorer.getviewfilter"></a>MC.Explorer.GetViewFilter</h2>
+    <p>View filter for the Explorer Panel</p>
+  </div>
+  <div class="customcmd-cmd">
+    <h2><a name="mc.explorer.setcolumns"></a>MC.Explorer.SetColumns</h2>
+    <p>Change what columns to show, change to a defined column set</p>
+    <h3>Options</h3>
+    <table class="table table-bordered">
+      <tr>
+        <td>NAME</td>
+        <td>ColumnSet name</td>
+      </tr>
+    </table>
+  </div>
+  <div class="customcmd-cmd">
+    <h2><a name="mc.explorer.setviewmode"></a>MC.Explorer.SetViewMode</h2>
+    <p>Change view mode of Explorer Panel that is in focus</p>
+    <h3>Options</h3>
+    <table class="table table-bordered">
+      <tr>
+        <td>MODE</td>
+        <td>(1 = Detail, 2 = List, 3 = Thumbnail List, 4 = Thumbnail Detail)</td>
+      </tr>
+    </table>
+  </div>
+  <div class="customcmd-cmd">
+    <h2><a name="mc.explorer.settabprop"></a>MC.Explorer.SetTabProp</h2>
+    <p>Change tab properties of active Explorer Panel tab</p>
+    <h3>Options</h3>
+    <table class="table table-bordered">
+      <tr>
+        <td>RESET</td>
+        <td>Reset all tab properties. No other parameter used if this is set</td>
+      </tr>
+      <tr>
+        <td>TABCOLORS</td>
+        <td>
+          Tab Colors to use. Comma-separated list
+          TABCOLORS=&lt;background&gt;,&lt;textcolor&gt;,&lt;Gradient (0/1)&gt;,&lt;HotWhenActive (0/1)&gt;
+        </td>
+      </tr>
+      <tr>
+        <td>TABLOCK</td>
+        <td>Lock Tab</td>
+      </tr>
+      <tr>
+        <td>TABLOCKALLOWSUBCHANGE</td>
+        <td>Lock Tab - Allow subpath change</td>
+      </tr>
+      <tr>
+        <td>TABNAME</td>
+        <td>Force the tab to be named using the provided text</td>
+      </tr>
+    </table>
+  </div>
+  <div class="customcmd-cmd">
+    <h2><a name="mc.explorer.sort"></a>MC.Explorer.Sort</h2>
+    <p>Change which column data is sorted by</p>
+    <h3>Options</h3>
+    <table class="table table-bordered">
+      <tr>
+        <td>COL</td>
+        <td>Number of the column to sort by (starting from 1)</td>
+      </tr>
+      <tr>
+        <td>COLNAME</td>
+        <td>Name of the column to sort by (eg. COLNAME=name)</td>
+      </tr>
+      <tr>
+        <td>ORDER</td>
+        <td>Sort order. ASC for ascending, DES for descending</td>
+      </tr>
+    </table>
+  </div>
+  <div class="customcmd-cmd">
+    <h2><a name="mc.explorer.sizefolder"></a>MC.Explorer.SizeFolder</h2>
+    <p>Size current selected folder(s)</p>
+    <h3>Options</h3>
+    <table class="table table-bordered">
+      <tr>
+        <td>ALL</td>
+        <td>Force sizing of all folders in current location</td>
+      </tr>
+      <tr>
+        <td>ONLYFOCUS</td>
+        <td>Only size folder that is in focus</td>
+      </tr>
+    </table>
+  </div>
+  <div class="customcmd-cmd">
+    <h2><a name="mc.explorer.setitemfocus"></a>MC.Explorer.SetItemFocus</h2>
+    <p>Change focus to a specified file/folder in the current path</p>
+    <h3>Options</h3>
+    <table class="table table-bordered">
+      <tr>
+        <td>ITEM</td>
+        <td>Name of the file/folder</td>
+      </tr>
+    </table>
+  </div>
+  <div class="customcmd-cmd">
+    <h2><a name="mc.explorer.setcoloringrules"></a>MC.Explorer.SetColoringRules</h2>
+    <p>Set Color Rules profile to use. Do not specify a name if you want to use the default color profile</p>
+    <h3>Options</h3>
+    <table class="table table-bordered">
+      <tr>
+        <td>NAME</td>
+        <td>Name of the color profile</td>
+      </tr>
+    </table>
+  </div>
+  <div class="customcmd-cmd">
+    <h2><a name="mc.explorer.refreshcoloringrules"></a>MC.Explorer.RefreshColoringRules</h2>
+    <p>Refresh file coloring for all files and folders</p>
+  </div>
+  <div class="customcmd-cmd">
+    <h2><a name="mc.explorer.changesetting"></a>MC.Explorer.ChangeSetting</h2>
+    <p>
+      Change an Explorer Panel settings for the current active tab temporarily.
+      Settings will NOT be saved
+      See documentation for more information
+    </p>
+    <h3>Options</h3>
+    <table class="table table-bordered">
+      <tr>
+        <td>NAME</td>
+        <td>Setting name</td>
+      </tr>
+      <tr>
+        <td>TOGGLE</td>
+        <td>Will toggle the named setting (if possible)</td>
+      </tr>
+      <tr>
+        <td>VALUE</td>
+        <td>New Settings Value</td>
+      </tr>
+    </table>
+  </div>
+  <div class="customcmd-cmd">
+    <h2><a name="mc.explorer.selection.select"></a>MC.Explorer.Selection.Select</h2>
+    <p>Select items by filter (Support all views)</p>
+    <h3>Options</h3>
+    <table class="table table-bordered">
+      <tr>
+        <td>FILTER</td>
+        <td>Filter of what to match against</td>
+      </tr>
+      <tr>
+        <td>FILTERID</td>
+        <td>The Filter ID of an Advanced Filter that is already defined</td>
+      </tr>
+      <tr>
+        <td>ONLYFILES</td>
+        <td>Only filter files</td>
+      </tr>
+      <tr>
+        <td>ONLYFOLDERS</td>
+        <td>Only filter folders</td>
+      </tr>
+    </table>
+  </div>
+  <div class="customcmd-cmd">
+    <h2><a name="mc.explorer.selection.unselect"></a>MC.Explorer.Selection.Unselect</h2>
+    <p>Unselect items by filter (Support all views)</p>
+    <h3>Options</h3>
+    <table class="table table-bordered">
+      <tr>
+        <td>FILTER</td>
+        <td>Filter of what to match against</td>
+      </tr>
+      <tr>
+        <td>ONLYFILES</td>
+        <td>Only filter files</td>
+      </tr>
+      <tr>
+        <td>ONLYFOLDERS</td>
+        <td>Only filter folders</td>
+      </tr>
+    </table>
+  </div>
+  <div class="customcmd-cmd">
+    <h2><a name="mc.explorer.selection.selectall"></a>MC.Explorer.Selection.SelectAll</h2>
+    <p>Select all items</p>
+  </div>
+  <div class="customcmd-cmd">
+    <h2><a name="mc.explorer.selection.unselectall"></a>MC.Explorer.Selection.UnselectAll</h2>
+    <p>Unselect all items</p>
+  </div>
+  <div class="customcmd-cmd">
+    <h2><a name="mc.explorer.selection.invertselection"></a>MC.Explorer.Selection.InvertSelection</h2>
+    <p>Invert selections of items</p>
+  </div>
+  <div class="customcmd-cmd">
+    <h2><a name="mc.explorer.selection.selectbycolor"></a>MC.Explorer.Selection.SelectByColor</h2>
+    <p>Select by color (Color set by File Coloring Rules)</p>
+    <h3>Options</h3>
+    <table class="table table-bordered">
+      <tr>
+        <td>RULE</td>
+        <td>
+          Name of the color rule to select files/folder by.
+          (File coloring profile having the specified rule must be active)
+        </td>
+      </tr>
+    </table>
+  </div>
+  <div class="customcmd-cmd">
+    <h2><a name="mc.explorer.selection.unselectbycolor"></a>MC.Explorer.Selection.UnselectByColor</h2>
+    <p>Unselect by color (Color set by File Coloring Rules)</p>
+    <h3>Options</h3>
+    <table class="table table-bordered">
+      <tr>
+        <td>RULE</td>
+        <td>
+          Name of the color rule to unselect files/folder by.
+          (File coloring profile having the specified rule must be active)
+        </td>
+      </tr>
+    </table>
+  </div>
+  <div class="customcmd-cmd">
+    <h2><a name="mc.explorer.selection.saveselectiontomemory"></a>MC.Explorer.Selection.SaveSelectionToMemory</h2>
+    <p>Save selection to memory</p>
+    <h3>Options</h3>
+    <table class="table table-bordered">
+      <tr>
+        <td>NAME</td>
+        <td>Name that you want to save the selection as (Optional)</td>
+      </tr>
+    </table>
+  </div>
+  <div class="customcmd-cmd">
+    <h2><a name="mc.explorer.selection.loadselectionfrommemory"></a>MC.Explorer.Selection.LoadSelectionFromMemory</h2>
+    <p>Load selection from memory</p>
+    <h3>Options</h3>
+    <table class="table table-bordered">
+      <tr>
+        <td>NAME</td>
+        <td>Name that you want to load the selection from (Optional)</td>
+      </tr>
+    </table>
+  </div>
+  <div class="customcmd-cmd">
+    <h2><a name="mc.explorer.selection.saveselectiontofile"></a>MC.Explorer.Selection.SaveSelectionToFile</h2>
+    <p>Save selection to file</p>
+    <h3>Options</h3>
+    <table class="table table-bordered">
+      <tr>
+        <td>FILE</td>
+        <td>File to save selection to</td>
+      </tr>
+    </table>
+  </div>
+  <div class="customcmd-cmd">
+    <h2><a name="mc.explorer.selection.loadselectionfromfile"></a>MC.Explorer.Selection.LoadSelectionFromFile</h2>
+    <p>Load selection from file</p>
+    <h3>Options</h3>
+    <table class="table table-bordered">
+      <tr>
+        <td>FILE</td>
+        <td>File to load selection from</td>
+      </tr>
+    </table>
+  </div>
+  <div class="customcmd-cmd">
+    <h2><a name="mc.explorer.selection.loadselectionfromclipboard"></a>MC.Explorer.Selection.LoadSelectionFromClipboard</h2>
+    <p>Load selection from clipboard</p>
+    <h3>Options</h3>
+    <table class="table table-bordered">
+      <tr>
+        <td>WILDCARD</td>
+        <td>Do wildcard selection, (Will insert * before and after every part before doing the selection)</td>
+      </tr>
+    </table>
+  </div>
+  <div class="customcmd-cmd">
+    <h2><a name="mc.explorer.selection.comparefoldersforduplicates"></a>MC.Explorer.Selection.CompareFoldersForDuplicates</h2>
+    <p>Compare target and source views and select duplicates</p>
+    <h3>Options</h3>
+    <table class="table table-bordered">
+      <tr>
+        <td>FILES</td>
+        <td>Compare files</td>
+      </tr>
+      <tr>
+        <td>FOLDERS</td>
+        <td>Compare folders</td>
+      </tr>
+    </table>
+  </div>
+  <div class="customcmd-cmd">
+    <h2><a name="mc.explorer.selection.comparefoldersforselected"></a>MC.Explorer.Selection.CompareFoldersForSelected</h2>
+    <p>Compare target and source views and select selected on target</p>
+    <h3>Options</h3>
+    <table class="table table-bordered">
+      <tr>
+        <td>FILES</td>
+        <td>Compare files</td>
+      </tr>
+      <tr>
+        <td>FOLDERS</td>
+        <td>Compare folders</td>
+      </tr>
+    </table>
+  </div>
+  <div class="customcmd-cmd">
+    <h2><a name="mc.explorer.selection.comparefoldersformissingandnewer"></a>MC.Explorer.Selection.CompareFoldersForMissingAndNewer</h2>
+    <p>Compare target and source views and select missing and newest</p>
+    <h3>Options</h3>
+    <table class="table table-bordered">
+      <tr>
+        <td>FILES</td>
+        <td>Compare files</td>
+      </tr>
+      <tr>
+        <td>FOLDERS</td>
+        <td>Compare folders</td>
+      </tr>
+    </table>
+  </div>
+  <div class="customcmd-cmd">
+    <h2><a name="mc.explorer.selection.comparefoldersformissing"></a>MC.Explorer.Selection.CompareFoldersForMissing</h2>
+    <p>Compare target and source views and select missing</p>
+    <h3>Options</h3>
+    <table class="table table-bordered">
+      <tr>
+        <td>FILES</td>
+        <td>Compare files</td>
+      </tr>
+      <tr>
+        <td>FOLDERS</td>
+        <td>Compare folders</td>
+      </tr>
+    </table>
+  </div>
+  <div class="customcmd-cmd">
+    <h2><a name="mc.explorer.selection.comparefoldersfornewest"></a>MC.Explorer.Selection.CompareFoldersForNewest</h2>
+    <p>Compare target and source views and select newest item</p>
+    <h3>Options</h3>
+    <table class="table table-bordered">
+      <tr>
+        <td>FILES</td>
+        <td>Compare files</td>
+      </tr>
+      <tr>
+        <td>FOLDERS</td>
+        <td>Compare folders</td>
+      </tr>
+    </table>
+  </div>
+  <div class="customcmd-cmd">
+    <h2><a name="mc.special.selectoldestbyname"></a>MC.Special.SelectOldestByName</h2>
+    <p>Select oldest based on file/folder name</p>
+    <h3>Options</h3>
+    <table class="table table-bordered">
+      <tr>
+        <td>SOURCE</td>
+        <td>Select in source view</td>
+      </tr>
+      <tr>
+        <td>TARGET</td>
+        <td>Select in target view</td>
+      </tr>
+    </table>
+  </div>
+  <div class="customcmd-cmd">
+    <h2><a name="mc.utils.createlink"></a>MC.Utils.CreateLink</h2>
+    <p>Create a File System Link, Symbolic, Hardlink, Junction or Shortcut</p>
+    <h3>Options</h3>
+    <table class="table table-bordered">
+      <tr>
+        <td>ASADMIN</td>
+        <td>Run as Administrator</td>
+      </tr>
+      <tr>
+        <td>LNKSRC</td>
+        <td>Link Source</td>
+      </tr>
+      <tr>
+        <td>LNKTRG</td>
+        <td>Link Target</td>
+      </tr>
+      <tr>
+        <td>LNKTYPE</td>
+        <td>Link type. 1 = Hardlink, 2 = Junction, 3 = Symlink, 4 = Shortcut</td>
+      </tr>
+    </table>
+  </div>
+  <div class="customcmd-cmd">
+    <h2><a name="mc.utils.sortlines"></a>MC.Utils.SortLines</h2>
+    <p>Sort Lines in text file</p>
+    <h3>Options</h3>
+    <table class="table table-bordered">
+      <tr>
+        <td>DATEFORMAT</td>
+        <td>Date format</td>
+      </tr>
+      <tr>
+        <td>DELETE</td>
+        <td>Overwrite original file</td>
+      </tr>
+      <tr>
+        <td>ENDATWHITESPACE</td>
+        <td>End at any whitespace character</td>
+      </tr>
+      <tr>
+        <td>ENDCHAR</td>
+        <td>End character</td>
+      </tr>
+      <tr>
+        <td>FILE</td>
+        <td>File to sort lines in</td>
+      </tr>
+      <tr>
+        <td>IGNORECASE</td>
+        <td>Ignore case</td>
+      </tr>
+      <tr>
+        <td>ITEM</td>
+        <td>Item to sort by</td>
+      </tr>
+      <tr>
+        <td>ITEMSEP</td>
+        <td>Item separator</td>
+      </tr>
+      <tr>
+        <td>KEEPBACKUP</td>
+        <td>Keep a backup of original file (*.bak)</td>
+      </tr>
+      <tr>
+        <td>KEEPBOTTOM</td>
+        <td>Lines at the bottom to keep</td>
+      </tr>
+      <tr>
+        <td>KEEPTOP</td>
+        <td>Lines at the top to keep</td>
+      </tr>
+      <tr>
+        <td>LANGUAGEORDER</td>
+        <td>Use language-established sort order</td>
+      </tr>
+      <tr>
+        <td>LINEOFFSET</td>
+        <td>Where on the line to start sorting from (1-based; first position is 1, not 0)</td>
+      </tr>
+      <tr>
+        <td>NATRUALNUMORDER</td>
+        <td>Natural number order</td>
+      </tr>
+      <tr>
+        <td>OVERWRITE</td>
+        <td>Overwrite if target file already exists</td>
+      </tr>
+      <tr>
+        <td>REVERSE</td>
+        <td>Reverse sort order</td>
+      </tr>
+      <tr>
+        <td>SILENT</td>
+        <td>Silent. No error/done dialogs are shown</td>
+      </tr>
+      <tr>
+        <td>SKIPLEADINGSPACE</td>
+        <td>Skip leading spaces</td>
+      </tr>
+      <tr>
+        <td>SORTAS</td>
+        <td>Sort as Text, Number or Date (Default is: Text)</td>
+      </tr>
+      <tr>
+        <td>SORTBY</td>
+        <td>Sort lines by Line, SubString or Item. (Default is Line)</td>
+      </tr>
+      <tr>
+        <td>SUBSTRLEN</td>
+        <td>Substring length</td>
+      </tr>
+      <tr>
+        <td>TARGET</td>
+        <td>Name of the new file. (Name filter like &quot;*_New.*&quot;. Don't include path)</td>
+      </tr>
+    </table>
+  </div>
+  <div class="customcmd-cmd">
+    <h2><a name="mc.utils.findandreplace"></a>MC.Utils.FindAndReplace</h2>
+    <p>Find and Replace in file</p>
+    <h3>Options</h3>
+    <table class="table table-bordered">
+      <tr>
+        <td>DELETE</td>
+        <td>Overwrite original file</td>
+      </tr>
+      <tr>
+        <td>FILE</td>
+        <td>File to replace text in</td>
+      </tr>
+      <tr>
+        <td>FIND</td>
+        <td>Text to find</td>
+      </tr>
+      <tr>
+        <td>FORCEUTF8</td>
+        <td>Force file format to UTF-8 if detected as ASCII</td>
+      </tr>
+      <tr>
+        <td>IGNORECASE</td>
+        <td>Ignore case</td>
+      </tr>
+      <tr>
+        <td>KEEPBACKUP</td>
+        <td>Keep a backup of original file (*.bak)</td>
+      </tr>
+      <tr>
+        <td>MODE</td>
+        <td>Find and Replace Mode. One, Many, ManySame, Multiline (Default: One)</td>
+      </tr>
+      <tr>
+        <td>OVERWRITE</td>
+        <td>Overwrite if target file already exists</td>
+      </tr>
+      <tr>
+        <td>REPLACEALL</td>
+        <td>Replace All</td>
+      </tr>
+      <tr>
+        <td>REPLACEWITH</td>
+        <td>Text to replace with</td>
+      </tr>
+      <tr>
+        <td>SILENT</td>
+        <td>Silent. No error/done dialogs are shown</td>
+      </tr>
+      <tr>
+        <td>TARGET</td>
+        <td>Name of the new file. (Name filter like &quot;*_New.*&quot;. Don't include path)</td>
+      </tr>
+      <tr>
+        <td>WILDCARD</td>
+        <td>Use wildcard matching</td>
+      </tr>
+    </table>
+  </div>
+  <div class="customcmd-cmd">
+    <h2><a name="mc.checksum.verify"></a>MC.CheckSum.Verify</h2>
+    <p>Start CheckSum Tab and verify file(s)</p>
+    <h3>Options</h3>
+    <table class="table table-bordered">
+      <tr>
+        <td>ALLSELECTED</td>
+        <td>Verify all selected files (and files inside selected folders)</td>
+      </tr>
+      <tr>
+        <td>FILE</td>
+        <td>Path to file to verify. If folder then all checksum files in that folder will be used</td>
+      </tr>
+    </table>
+  </div>
+  <div class="customcmd-cmd">
+    <h2><a name="mc.checksum.create"></a>MC.CheckSum.Create</h2>
+    <p>Start CheckSum Tab and create checksum file</p>
+    <h3>Options</h3>
+    <table class="table table-bordered">
+      <tr>
+        <td>ALLSELECTED</td>
+        <td>Add all selected files</td>
+      </tr>
+      <tr>
+        <td>AUTOSTART</td>
+        <td>Auto-start the creation of the checksum file</td>
+      </tr>
+      <tr>
+        <td>CHECKSUM</td>
+        <td>Checksum Mode to use: CRC32 or MD5 (default: CRC32)</td>
+      </tr>
+      <tr>
+        <td>ENCODING</td>
+        <td>Text Encoding of the SFV/MD5 file: ASCII/UTF-8/UNICODE (default: ASCII)</td>
+      </tr>
+      <tr>
+        <td>FILENAME</td>
+        <td>Filename of the SFV/MD5 file to create. If name is not set it name is auto-generated</td>
+      </tr>
+    </table>
+  </div>
+  <div class="customcmd-cmd">
+    <h2><a name="mc.dataviewer.view"></a>MC.DataViewer.View</h2>
+    <p>Open a file for viewing</p>
+    <h3>Options</h3>
+    <table class="table table-bordered">
+      <tr>
+        <td>ASCII</td>
+        <td>View file as ASCII</td>
+      </tr>
+      <tr>
+        <td>AUTORELOAD</td>
+        <td>Enable AutoReload</td>
+      </tr>
+      <tr>
+        <td>BGCOLOR</td>
+        <td>Background Color</td>
+      </tr>
+      <tr>
+        <td>BINARY</td>
+        <td>View file as BINARY</td>
+      </tr>
+      <tr>
+        <td>COLOR</td>
+        <td>Text Color</td>
+      </tr>
+      <tr>
+        <td>FILE</td>
+        <td>Path to file to view</td>
+      </tr>
+      <tr>
+        <td>FONT</td>
+        <td>Font you want to use</td>
+      </tr>
+      <tr>
+        <td>FONTSIZE</td>
+        <td>Font size you want to use</td>
+      </tr>
+      <tr>
+        <td>FORMAT_1</td>
+        <td>Add formatting. Add FORMAT_2 and so on for more formats</td>
+      </tr>
+      <tr>
+        <td>HEX</td>
+        <td>View file as HEX</td>
+      </tr>
+      <tr>
+        <td>HIGHLIGHT</td>
+        <td>Highlight words</td>
+      </tr>
+      <tr>
+        <td>UNICODE</td>
+        <td>View file as UNICODE</td>
+      </tr>
+    </table>
+  </div>
+  <div class="customcmd-cmd">
+    <h2><a name="mc.picturetools.convert"></a>MC.PictureTools.Convert</h2>
+    <p>Convert one or many pictures to another picture format</p>
+    <h3>Options</h3>
+    <table class="table table-bordered">
+      <tr>
+        <td>DELETE</td>
+        <td>Delete the original file if it was converted</td>
+      </tr>
+      <tr>
+        <td>FILE</td>
+        <td>File to convert</td>
+      </tr>
+      <tr>
+        <td>FILES</td>
+        <td>List of files to convert, Separate with Semicolon (&quot;;&quot;)</td>
+      </tr>
+      <tr>
+        <td>FOCUS</td>
+        <td>Convert file in focus only</td>
+      </tr>
+      <tr>
+        <td>FORMAT</td>
+        <td>Target format for conversion. Can be one of the following: PNG, JPG, GIF, BMP, TIF</td>
+      </tr>
+      <tr>
+        <td>JPGQUALITY</td>
+        <td>JPG Quality to use (0-100). (Only valid if FORMAT is JPG)</td>
+      </tr>
+      <tr>
+        <td>OVERWRITE</td>
+        <td>Overwrite target file if it already exists</td>
+      </tr>
+      <tr>
+        <td>SAVEAS</td>
+        <td>
+          Save new file as. (Only valid if you also used FILE )
+          By default the file name is kept but with the new file extension
+        </td>
+      </tr>
+      <tr>
+        <td>SELECTED</td>
+        <td>Convert all selected files</td>
+      </tr>
+    </table>
+  </div>
+  <div class="customcmd-cmd">
+    <h2><a name="mc.picturetools.resize"></a>MC.PictureTools.Resize</h2>
+    <p>Resize one or many pictures</p>
+    <h3>Options</h3>
+    <table class="table table-bordered">
+      <tr>
+        <td>FILE</td>
+        <td>File to resize</td>
+      </tr>
+      <tr>
+        <td>FILES</td>
+        <td>List of files to resize. Separate with Semicolon (&quot;;&quot;)</td>
+      </tr>
+      <tr>
+        <td>FOCUS</td>
+        <td>Resize file in focus only</td>
+      </tr>
+      <tr>
+        <td>HEIGHT</td>
+        <td>
+          Height of target image in pixels or percent
+          Use * to auto-calculate when keeping aspect ratio
+        </td>
+      </tr>
+      <tr>
+        <td>JPGQUALITY</td>
+        <td>JPG Quality to use (0-100). (Only valid if FORMAT is JPG)</td>
+      </tr>
+      <tr>
+        <td>OVERWRITE</td>
+        <td>Overwrite target file if it already exists</td>
+      </tr>
+      <tr>
+        <td>REPLACE</td>
+        <td>Replace original image file</td>
+      </tr>
+      <tr>
+        <td>SAVEAS</td>
+        <td>
+          Save new file as. (Only valid if you also used FILE )
+          By default the file name is kept but with the new file extension
+        </td>
+      </tr>
+      <tr>
+        <td>SELECTED</td>
+        <td>Resize all selected files</td>
+      </tr>
+      <tr>
+        <td>WIDTH</td>
+        <td>
+          Width of target image in pixels or percent
+          Use * to auto-calculate when keeping aspect ratio
+        </td>
+      </tr>
+    </table>
+  </div>
 
 </div>
