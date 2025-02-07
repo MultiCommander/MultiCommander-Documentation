@@ -15,9 +15,9 @@
 
 <h2><a name="createscript">1. Creating a File Property Script</a></h2>
 
-<p>A file property script must follow a specific format to work as a Scriptable File Property. Here’s a simple example of a script that retrieves the file extension of the current file:</p>
+<p>A file property script must follow a specific format to work as a Scriptable File Property. Here is a simple example of a script that retrieves the file extension of the current file:</p>
 
-<img src="../../Images/scriptableFileProp.png"/>
+<img src="/Docs/Images/scriptableFileProp.png"/>
 <pre class="mscode">
 @var $ext = PathGetFileExtPart($_FILEPROP_FILEPATH);
 @var $_FILEPROP_DISPLAYNAME = $ext;
@@ -62,12 +62,12 @@ if(IsVariableDefined("$_FILEPROP_FILEPATH") == 0)
 
 <h2><a name="createcolumn">2. Creating a Scriptable Column</a></h2>
 <p>After creating the script, you can display its output in a column by defining a new Scriptable Column:</p>
-<img src="../../Images/scriptableFileColumn.png"/>
+<img src="/Docs/Images/scriptableFileColumn.png"/>
 <ul>
   <li>Right click on the column header in the file list and select "Customize column..."</li>
   <li>In the Available Columns list, click the button to the left to add a new ScriptColumn.</li>
   <li>A list of existing script columns will appear. Click New to add a new script column.</li>
-  <li>From the drop-down list, select the file property script you want to use. If the script isn't listed, make sure you’ve enabled the "AllowAsFileProp" option as explained earlier.</li>
+  <li>From the drop-down list, select the file property script you want to use. If the script isn't listed, make sure you will enabled the "AllowAsFileProp" option as explained earlier.</li>
   <li>If you've customized the input/output variable names in the script, update them here.</li>
   <li>Set a name for the column (this is the label that will appear in the file list).</li>
   <li>Click Save.</li>
