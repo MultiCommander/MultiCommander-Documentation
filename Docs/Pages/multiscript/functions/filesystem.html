@@ -980,7 +980,7 @@ PackFile( $filename, $folderToPack, "*.txt", "Internal Zip (Max)", "NOWAIT", "My
       <dt>options</dt>
       <dd>
         Optional parameter (case-sensitive). Separate multiple options with commas.<br />
-        "RECYLE" - Delete to recycle bin<br />
+        "RECYCLE" - Delete to recycle bin<br />
         "NOPROGRESS" - Show no progress window<br />
         "NODIALOG" - Show no confirmation dialog<br />
         "SILENT" - Show no error dialog if delete fails
@@ -993,8 +993,8 @@ PackFile( $filename, $folderToPack, "*.txt", "Internal Zip (Max)", "NOWAIT", "My
 
     <h3>Example</h3>
 
-<pre class="example">
-@var $options[] = {"NODIALOG", "SILENT", "RECYLE"};
+    <pre class="example">
+@var $options[] = {"NODIALOG", "SILENT", "RECYCLE"};
 DeleteFile( $filename, $options );</pre>
   </div>
 
@@ -1014,7 +1014,7 @@ DeleteFile( $filename, $options );</pre>
       <dt>options</dt>
       <dd>
         Optional parameter (case-sensitive). Separate multiple options with commas.<br />
-        "RECYLE" - Delete to recycle bin<br />
+        "RECYCLE" - Delete to recycle bin<br />
         "NOPROGRESS" - Show no progress window<br />
         "NODIALOG" - Show no confirmation dialog<br />
         "SILENT" - Show no error dialog if delete fails
@@ -1027,9 +1027,9 @@ DeleteFile( $filename, $options );</pre>
 
     <h3>Example</h3>
 
-<pre class="example">
+    <pre class="example">
 @var $filenames[] = {'e:\file1.txt', 'e:\file2.txt', 'e:\Folder1'};
-@var $options[] = {"NODIALOG", "SILENT", "RECYLE"};
+@var $options[] = {"NODIALOG", "SILENT", "RECYCLE"};
 DeleteFile( $filenames, $options );</pre>
   </div>
 
