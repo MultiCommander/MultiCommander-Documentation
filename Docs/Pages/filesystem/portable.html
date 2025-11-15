@@ -1,18 +1,402 @@
-<h2>FileSystem - Portable (WPD:)</h2>
-<p>The virtual filesystem device extension <b>Portable (WPD:)</b> allows portable devices like cameras and phones to be accessed.</p>
+<h2>Virtual Filesystem - Portable Devices (WPD:)</h2>
 
-<p>When connecting a phone, tablet or camera to the computer that device may allow full filesystem access and Windows will then provide a drive letter for the device and it is accessed as any other device. However, many modern devices do not support this and require that the device is accessed via a special protocol called MTP. Windows provide access to MTP devices via the Windows Portable Device interface. This file system extension will expose the WPD interface to Multi Commander providing access to MTP device.</p>
+<p>Multi Commander's Windows Portable Device (WPD:) virtual filesystem provides comprehensive support for modern portable devices including smartphones, tablets, digital cameras, and media players. This sophisticated system bridges the gap between traditional mass storage access and modern MTP (Media Transfer Protocol) devices, ensuring seamless file management across all types of portable devices.</p>
 
-<p>When full filesystem access to the device is not allowed some filesystem operations might not be accessible. This may differ from device to device. Note that transferring files to and from an MTP connected device is a lot slower than using a mapped drive letter.</p>
+<div class="alert alert-info">
+	<h6><i class="bi bi-info-circle me-2"></i>Modern Device Compatibility</h6>
+	<p class="mb-0">The WPD: filesystem automatically detects and adapts to different device connection methods, providing optimal access whether devices connect via traditional mass storage or modern MTP protocol, ensuring broad compatibility with contemporary mobile devices and cameras.</p>
+</div>
 
-<p>Some phones and tablets have a settings that will allow the device to be detected as a 'mass storage device' instead. Windows will then get full filesystem access to the device and will provide a drive letter for it. This way of accessing the device is a lot faster then using MTP/WPD and is recommended if available.</p>
+<nav class="navbar navbar-expand-lg navbar-light bg-light mb-4">
+	<div class="container-fluid">
+		<span class="navbar-brand">Quick Navigation</span>
+		<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#portableNav">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="portableNav">
+			<ul class="navbar-nav">
+				<li class="nav-item"><a class="nav-link" href="#overview">Overview</a></li>
+				<li class="nav-item"><a class="nav-link" href="#device-types">Device Types</a></li>
+				<li class="nav-item"><a class="nav-link" href="#mtp-protocol">MTP Protocol</a></li>
+				<li class="nav-item"><a class="nav-link" href="#device-access">Device Access</a></li>
+				<li class="nav-item"><a class="nav-link" href="#troubleshooting">Troubleshooting</a></li>
+			</ul>
+		</div>
+	</div>
+</nav>
 
-<p>Under WPD:\ all portable device are listed. If the device is not shown try to refresh the view by pressing the refresh button or F5/F2 (depending on setup).</p>
+<section id="overview">
+	<h3>Portable Device Architecture</h3>
+	<p>The WPD: virtual filesystem provides a unified interface for accessing portable devices regardless of their underlying connection protocol, automatically handling the complexities of different device types and connection methods while presenting a consistent file management experience.</p>
 
-<p><img alt="" src="/Docs/Images/BrowseWPD1.png" style="width: 508px; height: 109px;" /></p>
+	<div class="row">
+		<div class="col-md-6">
+			<div class="card">
+				<div class="card-header bg-primary text-white">
+					<h6 class="mb-0"><i class="bi bi-phone me-2"></i>Supported Connection Methods</h6>
+				</div>
+				<div class="card-body">
+					<ul class="small">
+						<li><strong>Mass Storage Device (MSD):</strong> Traditional USB mass storage protocol</li>
+						<li><strong>Media Transfer Protocol (MTP):</strong> Modern mobile device protocol</li>
+						<li><strong>Picture Transfer Protocol (PTP):</strong> Digital camera standard</li>
+						<li><strong>Windows Portable Devices (WPD):</strong> Microsoft's unified device interface</li>
+						<li><strong>USB Composite Devices:</strong> Devices with multiple interface modes</li>
+						<li><strong>Generic USB Storage:</strong> Basic USB storage devices</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-6">
+			<div class="card">
+				<div class="card-header bg-success text-white">
+					<h6 class="mb-0"><i class="bi bi-shield-check me-2"></i>Device Management Features</h6>
+				</div>
+				<div class="card-body">
+					<ul class="small">
+						<li><strong>Automatic Detection:</strong> Instant recognition of connected devices</li>
+						<li><strong>Hot-Plug Support:</strong> Dynamic device connection and disconnection</li>
+						<li><strong>Multi-Device Access:</strong> Simultaneous access to multiple portable devices</li>
+						<li><strong>Metadata Preservation:</strong> Maintain file timestamps and attributes</li>
+						<li><strong>Progress Tracking:</strong> Real-time transfer progress for large operations</li>
+						<li><strong>Error Recovery:</strong> Robust handling of connection interruptions</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
 
-<p>The content of a portable device will be shown as a filesystem.</p>
+</section>
 
-<p><img alt="" src="/Docs/Images/BrowseWPD2.png" style="width: 510px; height: 222px;" /></p>
+<section id="device-types" class="mt-5">
+	<h3>Supported Device Types</h3>
+	<p>Multi Commander's WPD: filesystem supports a comprehensive range of portable devices, each with specific characteristics and optimal usage patterns for different file management scenarios.</p>
+
+	<div class="row">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header bg-primary text-white">
+					<h6 class="mb-0"><i class="bi bi-phone me-2"></i>Mobile Devices</h6>
+				</div>
+				<div class="card-body">
+					<h6>Smartphones and Tablets</h6>
+					<ul class="small">
+						<li><strong>Android Devices:</strong> Full MTP support with storage access</li>
+						<li><strong>iOS Devices:</strong> Limited access through iTunes protocol</li>
+						<li><strong>Windows Mobile:</strong> Native WPD integration</li>
+						<li><strong>Feature Phones:</strong> Basic file transfer via MTP</li>
+					</ul>
+					<h6>Access Characteristics</h6>
+					<ul class="small">
+						<li><strong>Internal Storage:</strong> Device memory and user data</li>
+						<li><strong>External Storage:</strong> SD cards and removable media</li>
+						<li><strong>Compartmentalized Access:</strong> Some areas may be restricted</li>
+						<li><strong>Media-Optimized:</strong> Enhanced support for photos, videos, music</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	
+	</div>
+
+</section>
+
+<section id="mtp-protocol" class="mt-5">
+	<h3>Media Transfer Protocol (MTP) Integration</h3>
+	<p>Understanding MTP is crucial for effective portable device management, as most modern mobile devices use this protocol instead of traditional mass storage, requiring specialized handling for optimal performance and functionality.</p>
+
+	<div class="row">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header bg-primary text-white">
+					<h6 class="mb-0"><i class="bi bi-arrow-left-right me-2"></i>MTP Protocol Characteristics</h6>
+				</div>
+				<div class="card-body">
+					<h6>Protocol Advantages</h6>
+					<ul class="small">
+						<li><strong>Device Functionality:</strong> Device remains operational during file transfers</li>
+						<li><strong>Concurrent Access:</strong> Multiple applications can access device simultaneously</li>
+						<li><strong>Metadata Support:</strong> Rich metadata and property information</li>
+						<li><strong>Security Features:</strong> DRM and copy protection support</li>
+						<li><strong>Database Integration:</strong> Automatic media library updates</li>
+						<li><strong>Power Management:</strong> Efficient power usage during transfers</li>
+					</ul>
+
+					<h6>Performance Considerations</h6>
+					<ul class="small">
+						<li><strong>Transfer Speed:</strong> Generally slower than mass storage mode</li>
+						<li><strong>File Size Limitations:</strong> Some devices have file size restrictions</li>
+						<li><strong>Operation Overhead:</strong> Protocol overhead affects small file transfers</li>
+						<li><strong>Device Dependencies:</strong> Performance varies by device implementation</li>
+					</ul>
+
+					<h6>Operational Differences</h6>
+					<ul class="small">
+						<li><strong>No Drive Letter:</strong> Accessed through Windows Portable Device API</li>
+						<li><strong>Limited Operations:</strong> Some filesystem operations may not be available</li>
+						<li><strong>Device-Specific Features:</strong> Capabilities vary between device manufacturers</li>
+						<li><strong>Connection Dependencies:</strong> Requires device to be awake and responsive</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	
+	</div>
+
+</section>
+
+<section id="device-access" class="mt-5">
+	<h3>Accessing Portable Devices</h3>
+	<p>Multi Commander provides seamless access to portable devices through the WPD: virtual filesystem, with automatic device detection, intuitive navigation, and comprehensive file management capabilities.</p>
+
+	<div class="row">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header bg-primary text-white">
+					<h6 class="mb-0"><i class="bi bi-list me-2"></i>Device Discovery and Access</h6>
+				</div>
+				<div class="card-body">
+					<h6>Accessing the WPD: Device</h6>
+					<p class="small">To access portable devices in Multi Commander:</p>
+					<ol class="small">
+						<li><strong>Navigate to WPD: Device:</strong> Open the Portable Devices virtual filesystem</li>
+						<li><strong>Connect Device:</strong> Ensure device is properly connected via USB</li>
+						<li><strong>View Device List:</strong> All connected portable devices will be displayed</li>
+						<li><strong>Refresh if Needed:</strong> Use F5, F2, or refresh button to update device list</li>
+					</ol>
+
+					<div class="text-center mt-3 mb-3">
+						<img src="/Docs/Images/BrowseWPD1.png" alt="WPD Device List" class="img-fluid border rounded shadow-sm" />
+						<p class="text-muted small mt-2">WPD: device showing connected portable devices available for access</p>
+					</div>
+
+					<h6>Device Identification</h6>
+					<ul class="small">
+						<li><strong>Device Names:</strong> Devices shown with manufacturer and model names</li>
+						<li><strong>Connection Status:</strong> Visual indicators for device connectivity</li>
+						<li><strong>Device Type Icons:</strong> Different icons for phones, cameras, media players</li>
+						<li><strong>Multiple Devices:</strong> Support for simultaneous access to multiple devices</li>
+					</ul>
+
+					<h6>Opening Devices</h6>
+					<ul class="small">
+						<li><strong>Double-click:</strong> Open device in current panel</li>
+						<li><strong>Enter Key:</strong> Navigate into device like entering a folder</li>
+						<li><strong>Drag and Drop:</strong> Open device in opposite panel</li>
+						<li><strong>Right-click Options:</strong> Access device-specific operations</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header bg-success text-white">
+					<h6 class="mb-0"><i class="bi bi-refresh me-2"></i>Device Management</h6>
+				</div>
+				<div class="card-body">
+					<h6>Refresh Operations</h6>
+					<ul class="small">
+						<li><strong>F5 Refresh:</strong> Update device list</li>
+						<li><strong>F2 Refresh:</strong> Alternative refresh command</li>
+						<li><strong>Automatic Detection:</strong> Hot-plug device recognition</li>
+						<li><strong>Manual Refresh:</strong> Force device re-enumeration</li>
+					</ul>
+					<h6>Connection Issues</h6>
+					<ul class="small">
+						<li><strong>Device Not Shown:</strong> Try refreshing the view</li>
+						<li><strong>Connection Mode:</strong> Check device USB settings</li>
+						<li><strong>Driver Issues:</strong> Ensure proper device drivers</li>
+						<li><strong>Permission Issues:</strong> Check device authorization</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="row mt-3">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header bg-info text-white">
+					<h6 class="mb-0"><i class="bi bi-folder-open me-2"></i>Device Content Navigation</h6>
+				</div>
+				<div class="card-body">
+					<h6>Browsing Device Contents</h6>
+					<p class="small">Once a device is opened, its content is displayed as a standard filesystem:</p>
+
+					<div class="text-center mt-3 mb-3">
+						<img src="/Docs/Images/BrowseWPD2.png" alt="Device Content View" class="img-fluid border rounded shadow-sm" />
+						<p class="text-muted small mt-2">Device content displayed as a navigable filesystem structure</p>
+					</div>
+
+					<div class="row">
+						<div class="col-md-4">
+							<h6>Navigation Features</h6>
+							<ul class="small">
+								<li><strong>Folder Structure:</strong> Complete directory tree navigation</li>
+								<li><strong>Path Display:</strong> Clear indication of current location</li>
+								<li><strong>Back/Forward:</strong> Standard navigation controls</li>
+								<li><strong>Up Directory:</strong> Navigate to parent folders</li>
+								<li><strong>Breadcrumb Path:</strong> Visual path representation</li>
+							</ul>
+						</div>
+						<div class="col-md-4">
+							<h6>File Operations</h6>
+							<ul class="small">
+								<li><strong>Copy/Move:</strong> Transfer files to/from device</li>
+								<li><strong>Delete:</strong> Remove files from device (if supported)</li>
+								<li><strong>Rename:</strong> Modify filenames (if supported)</li>
+								<li><strong>View Properties:</strong> File metadata and information</li>
+								<li><strong>Preview:</strong> Thumbnail and preview support</li>
+							</ul>
+						</div>
+						<div class="col-md-4">
+							<h6>Device-Specific Features</h6>
+							<ul class="small">
+								<li><strong>Storage Areas:</strong> Access internal and external storage</li>
+								<li><strong>Media Folders:</strong> Optimized access to media locations</li>
+								<li><strong>System Folders:</strong> Device system and application folders</li>
+								<li><strong>Custom Organization:</strong> Device-specific folder structures</li>
+								<li><strong>Capacity Information:</strong> Storage usage and available space</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<section id="troubleshooting" class="mt-5">
+	<h3>Troubleshooting Portable Device Issues</h3>
+	<p>Common issues with portable device access and their solutions, covering connection problems, performance issues, and device-specific challenges.</p>
+
+	<div class="row">
+		<div class="col-md-6">
+			<div class="card">
+				<div class="card-header bg-warning text-dark">
+					<h6 class="mb-0"><i class="bi bi-exclamation-triangle me-2"></i>Common Connection Issues</h6>
+				</div>
+				<div class="card-body">
+					<h6>Device Not Detected</h6>
+					<ul class="small">
+						<li><strong>USB Connection:</strong> Verify secure USB cable connection</li>
+						<li><strong>Device Settings:</strong> Check USB connection mode on device</li>
+						<li><strong>Driver Installation:</strong> Ensure proper device drivers are installed</li>
+						<li><strong>Windows Recognition:</strong> Check if Windows recognizes the device</li>
+						<li><strong>Cable Quality:</strong> Try a different USB cable</li>
+						<li><strong>USB Port:</strong> Test different USB ports</li>
+					</ul>
+					<h6>Partial Device Access</h6>
+					<ul class="small">
+						<li><strong>Device Authorization:</strong> Allow computer access on device</li>
+						<li><strong>Trust Settings:</strong> Trust the computer connection</li>
+						<li><strong>Developer Options:</strong> Enable USB debugging (Android)</li>
+						<li><strong>File Transfer Mode:</strong> Set device to file transfer mode</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-6">
+			<div class="card">
+				<div class="card-header bg-danger text-white">
+					<h6 class="mb-0"><i class="bi bi-wifi-off me-2"></i>Performance and Transfer Issues</h6>
+				</div>
+				<div class="card-body">
+					<h6>Slow Transfer Speeds</h6>
+					<ul class="small">
+						<li><strong>USB Version:</strong> Use USB 3.0+ for faster transfers</li>
+						<li><strong>Device Mode:</strong> Try mass storage mode if available</li>
+						<li><strong>Background Apps:</strong> Close other applications using the device</li>
+						<li><strong>Device Resources:</strong> Ensure device has sufficient battery/power</li>
+						<li><strong>File Size:</strong> Large files transfer slower via MTP</li>
+					</ul>
+					<h6>Transfer Failures</h6>
+					<ul class="small">
+						<li><strong>Storage Space:</strong> Check available space on device</li>
+						<li><strong>File Permissions:</strong> Verify file access permissions</li>
+						<li><strong>Device Sleep:</strong> Keep device awake during transfers</li>
+						<li><strong>Connection Stability:</strong> Ensure stable USB connection</li>
+						<li><strong>Transfer Size:</strong> Break large transfers into smaller batches</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="row mt-3">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header bg-dark text-white">
+					<h6 class="mb-0"><i class="bi bi-tools me-2"></i>Advanced Troubleshooting</h6>
+				</div>
+				<div class="card-body">
+					<div class="row">
+						<div class="col-md-4">
+							<h6>Device-Specific Solutions</h6>
+							<p class="small"><strong>Android Devices:</strong></p>
+							<ul class="small">
+								<li>Enable "File Transfer" or "MTP" mode</li>
+								<li>Allow computer access when prompted</li>
+								<li>Check Developer Options for USB settings</li>
+								<li>Try different USB connection modes</li>
+							</ul>
+							<p class="small"><strong>iOS Devices:</strong></p>
+							<ul class="small">
+								<li>Install iTunes for driver support</li>
+								<li>Trust the computer when prompted</li>
+								<li>Access limited to media files</li>
+								<li>Use third-party tools for broader access</li>
+							</ul>
+						</div>
+						<div class="col-md-4">
+							<h6>Windows System Solutions</h6>
+							<p class="small"><strong>Driver Issues:</strong></p>
+							<ul class="small">
+								<li>Update device drivers through Device Manager</li>
+								<li>Uninstall and reinstall device drivers</li>
+								<li>Check Windows Update for driver updates</li>
+								<li>Download manufacturer-specific drivers</li>
+							</ul>
+							<p class="small"><strong>Windows Services:</strong></p>
+							<ul class="small">
+								<li>Restart Windows Media Player Network Sharing Service</li>
+								<li>Check Portable Device Enumerator Service</li>
+								<li>Restart Windows Portable Device services</li>
+								<li>Clear Windows device cache</li>
+							</ul>
+						</div>
+						<div class="col-md-4">
+							<h6>Hardware and Physical Issues</h6>
+							<p class="small"><strong>Connection Problems:</strong></p>
+							<ul class="small">
+								<li>Test with different USB cables</li>
+								<li>Try different USB ports (USB 2.0 vs 3.0)</li>
+								<li>Check for USB hub issues</li>
+								<li>Verify power supply to USB ports</li>
+							</ul>
+							<p class="small"><strong>Device Health:</strong></p>
+							<ul class="small">
+								<li>Ensure device has adequate battery charge</li>
+								<li>Check for device storage corruption</li>
+								<li>Verify device firmware is up to date</li>
+								<li>Test device on different computers</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<div class="alert alert-success mt-5">
+	<h6><i class="bi bi-lightbulb me-2"></i>Seamless Portable Device Management</h6>
+	<p class="mb-0">Multi Commander's WPD: filesystem transforms portable device management into an integrated file management experience. Whether working with smartphones, cameras, or media players, the unified interface and intelligent protocol handling ensure optimal access and performance across all device types.</p>
+</div>
+
+<div class="alert alert-info mt-4">
+	<h6><i class="bi bi-info-circle me-2"></i>Related Device Management Topics</h6>
+	<p class="mb-0">Explore other virtual filesystem capabilities: <a href="/Docs/filesystem/network" class="text-decoration-none">Network Filesystems</a>, <a href="/Docs/filesystem/archives" class="text-decoration-none">Archive Support</a>, and <a href="/Docs/filesystem" class="text-decoration-none">Virtual Filesystem Overview</a>.</p>
+</div>
 
 

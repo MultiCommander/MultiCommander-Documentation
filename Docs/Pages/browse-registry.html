@@ -1,22 +1,370 @@
-<h2>FileSystem - FS-Reg (REG:)</h2>
-<p>The virtual filesystem device extension <b>FS-Reg (REG:)</b> allows the Windows Registry to be accessed as a filesystem under the device path REG:</p>
+﻿<h2>Virtual Filesystem - Windows Registry (REG:)</h2>
 
-<p>Since Multi Commander treats it as a file system most things you can do in a filesystem can be done in the Windows Registry.</p>
+<p>Multi Commander's Registry Virtual Filesystem (FS-Reg / REG:) provides comprehensive access to the Windows Registry through an intuitive file management interface. This powerful system transforms complex registry manipulation from technical registry editing into familiar file operations, enabling advanced registry management tasks that are difficult or impossible with traditional registry editors.</p>
 
-<p>To browse the registry you select "Windows Registry" from the device list dropdown, or you can type in a registry path in the command line field e.g. "HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\" and it will go to the path you specified. You can also type REG: if you want to browse to the registry location yourself.</p>
+<div class="alert alert-info">
+	<h6><i class="bi bi-info-circle me-2"></i>Registry as Filesystem</h6>
+	<p class="mb-0">The FS-Reg plugin presents the Windows Registry as a navigable filesystem where registry keys appear as folders and registry values appear as files, enabling sophisticated operations like copying entire registry trees, cross-hive operations, and seamless backup/restore workflows.</p>
+</div>
 
-<p>When you create a <strong><em>new folder </em></strong>in the registry you are actually creating a new registry key. You can also <strong>Delete</strong> keys and values or <strong>Rename </strong>them. You are able to <strong>copy </strong>keys and values from one place in the registry to another and you can also copy keys and values to&nbsp;disk where they will be represented as folders and files. You can also copy them back from the filesystem to the Registry.</p>
+<nav class="navbar navbar-expand-lg navbar-light bg-light mb-4">
+	<div class="container-fluid">
+		<span class="navbar-brand">Quick Navigation</span>
+		<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#registryNav">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="registryNav">
+			<ul class="navbar-nav">
+				<li class="nav-item"><a class="nav-link" href="#overview">Overview</a></li>
+				<li class="nav-item"><a class="nav-link" href="#accessing-registry">Accessing Registry</a></li>
+				<li class="nav-item"><a class="nav-link" href="#registry-operations">Registry Operations</a></li>
+				<li class="nav-item"><a class="nav-link" href="#value-management">Value Management</a></li>
+				<li class="nav-item"><a class="nav-link" href="#advanced-features">Advanced Features</a></li>
+			</ul>
+		</div>
+	</div>
+</nav>
 
-<p><img alt="" src="/Docs/Images/EditAndBrowseReg.png" style="width: 521px; height: 534px;" /></p>
+<section id="overview">
+	<h3>Registry Filesystem Architecture</h3>
+	<p>The REG: virtual filesystem provides an innovative approach to Windows Registry management by abstracting the hierarchical registry structure into a familiar file and folder paradigm, enabling powerful operations not available in traditional registry editors.</p>
 
-<h2>Create New Value</h2>
+	<div class="row">
+		<div class="col-md-6">
+			<div class="card">
+				<div class="card-header bg-primary text-white">
+					<h6 class="mb-0"><i class="bi bi-diagram-3 me-2"></i>Registry Structure Mapping</h6>
+				</div>
+				<div class="card-body">
+					<ul class="small">
+						<li><strong>Registry Keys → Folders:</strong> Keys appear as navigable folders</li>
+						<li><strong>Registry Values → Files:</strong> Values appear as files with data content</li>
+						<li><strong>Hive Roots → Drive Letters:</strong> Major hives accessible as separate locations</li>
+						<li><strong>Nested Keys → Folder Hierarchy:</strong> Complex registry trees as nested folders</li>
+						<li><strong>Value Types → File Properties:</strong> Registry data types preserved as metadata</li>
+						<li><strong>Permissions → File Security:</strong> Registry ACLs mapped to file permissions</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-6">
+			<div class="card">
+				<div class="card-header bg-success text-white">
+					<h6 class="mb-0"><i class="bi bi-tools me-2"></i>Enhanced Registry Operations</h6>
+				</div>
+				<div class="card-body">
+					<ul class="small">
+						<li><strong>Cross-Hive Copy:</strong> Copy registry trees between different hives</li>
+						<li><strong>Bulk Operations:</strong> Multi-key and multi-value operations</li>
+						<li><strong>Selective Export:</strong> Export only selected values, not entire keys</li>
+						<li><strong>Registry-to-File:</strong> Save registry data as files for backup</li>
+						<li><strong>File-to-Registry:</strong> Import file data back to registry</li>
+						<li><strong>Advanced Search:</strong> Search across registry keys and values</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
 
-<p>Select what type of value you want to add from the context menu (<em>normally triggered by the right mouse button or the context menu key on your keyboard</em>).</p>
+</section>
 
-<p><img alt="" src="/Docs/Images/AddRegValue.png" style="width: 519px; height: 533px;" /></p>
+<section id="accessing-registry" class="mt-5">
+	<h3>Accessing the Windows Registry</h3>
+	<p>Multi Commander provides multiple intuitive methods to access and navigate the Windows Registry, making registry browsing as straightforward as navigating the local filesystem.</p>
 
-<h2>Export Values</h2>
+	<div class="row">
+		<div class="col-md-8">
+			<div class="card">
+				<div class="card-header bg-primary text-white">
+					<h6 class="mb-0"><i class="bi bi-list me-2"></i>Registry Access Methods</h6>
+				</div>
+				<div class="card-body">
+					<h6>Device List Selection</h6>
+					<p class="small">The most straightforward method for accessing the registry:</p>
+					<ol class="small">
+						<li><strong>Open Device Dropdown:</strong> Click the device selection dropdown</li>
+						<li><strong>Select "Windows Registry":</strong> Choose the registry option from the list</li>
+						<li><strong>Navigate Hives:</strong> Browse through the major registry hives</li>
+						<li><strong>Explore Structure:</strong> Navigate keys and values like folders and files</li>
+					</ol>
 
-<p>Selecting <em>export</em> from the context menu will allow you to export registry values to a standard <em>.reg</em> file. The difference between this and&nbsp; the export function in Windows' Registry editor is that here it will only export the values that you have selected. You do not need to export the entire key contents.</p>
+					<h6>Command Line Access</h6>
+					<p class="small">Direct registry path navigation via command line:</p>
+					<ul class="small">
+						<li><strong>REG: Protocol:</strong> Type "REG:" to browse to registry root</li>
+						<li><strong>Direct Path:</strong> Enter specific registry paths like "HKEY_CURRENT_USER\Software\Microsoft"</li>
+						<li><strong>Quick Navigation:</strong> Jump directly to frequently accessed registry locations</li>
+						<li><strong>Path Completion:</strong> Use tab completion for registry path navigation</li>
+					</ul>
+
+					<h6>Path Examples</h6>
+					<div class="bg-light p-3 rounded mt-3">
+						<p class="small mb-1"><strong>Registry Root:</strong> <code>REG:</code></p>
+						<p class="small mb-1"><strong>Current User Software:</strong> <code>HKEY_CURRENT_USER\Software</code></p>
+						<p class="small mb-1"><strong>System Configuration:</strong> <code>HKEY_LOCAL_MACHINE\SOFTWARE</code></p>
+						<p class="small mb-1"><strong>Windows Current Version:</strong> <code>HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion</code></p>
+						<p class="small mb-0"><strong>Classes Root:</strong> <code>HKEY_CLASSES_ROOT</code></p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-4">
+			<div class="card">
+				<div class="card-header bg-success text-white">
+					<h6 class="mb-0"><i class="bi bi-bookmark me-2"></i>Registry Navigation Tips</h6>
+				</div>
+				<div class="card-body">
+					<h6>Quick Access</h6>
+					<ul class="small">
+						<li><strong>Favorites:</strong> Bookmark frequently used registry paths</li>
+						<li><strong>History:</strong> Access recently visited registry locations</li>
+						<li><strong>Path Bar:</strong> Click path components for quick navigation</li>
+						<li><strong>Back/Forward:</strong> Standard navigation controls work</li>
+					</ul>
+					<h6>Registry Hives</h6>
+					<ul class="small">
+						<li><strong>HKEY_CURRENT_USER:</strong> Current user settings</li>
+						<li><strong>HKEY_LOCAL_MACHINE:</strong> System-wide settings</li>
+						<li><strong>HKEY_CLASSES_ROOT:</strong> File associations</li>
+						<li><strong>HKEY_USERS:</strong> All user profiles</li>
+						<li><strong>HKEY_CURRENT_CONFIG:</strong> Hardware profiles</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="row mt-3">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header bg-warning text-dark">
+					<h6 class="mb-0"><i class="bi bi-eye me-2"></i>Registry Browser Interface</h6>
+				</div>
+				<div class="card-body">
+					<div class="text-center mt-3 mb-3">
+						<img src="/Docs/Images/EditAndBrowseReg.png" alt="Registry Browser Interface" class="img-fluid border rounded shadow-sm" />
+						<p class="text-muted small mt-2">Multi Commander displaying the Windows Registry as a navigable filesystem with keys as folders and values as files</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<section id="registry-operations" class="mt-5">
+	<h3>Registry Operations and Management</h3>
+	<p>Multi Commander's registry filesystem enables sophisticated operations that go far beyond traditional registry editing, providing file-like operations for registry keys and values with powerful cross-location capabilities.</p>
+
+	<div class="row">
+		<div class="col-md-6">
+			<div class="card">
+				<div class="card-header bg-primary text-white">
+					<h6 class="mb-0"><i class="bi bi-folder me-2"></i>Registry Key Operations</h6>
+				</div>
+				<div class="card-body">
+					<h6>Creating Registry Keys</h6>
+					<ul class="small">
+						<li><strong>New Folder Creation:</strong> Creating a new folder creates a new registry key</li>
+						<li><strong>Nested Key Creation:</strong> Create complex key hierarchies easily</li>
+						<li><strong>Batch Key Creation:</strong> Create multiple keys simultaneously</li>
+					</ul>
+					<h6>Key Management Operations</h6>
+					<ul class="small">
+						<li><strong>Delete Keys:</strong> Remove registry keys and all subkeys</li>
+						<li><strong>Rename Keys:</strong> Change key names with full validation</li>
+						<li><strong>Copy Keys:</strong> Duplicate keys within or between hives</li>
+						<li><strong>Move Keys:</strong> Relocate keys to different registry locations</li>
+					</ul>
+					<h6>Advanced Key Operations</h6>
+					<ul class="small">
+						<li><strong>Cross-Hive Operations:</strong> Copy keys between different registry hives</li>
+						<li><strong>Recursive Operations:</strong> Apply operations to entire key trees</li>
+						<li><strong>Conditional Operations:</strong> Filter operations based on key properties</li>
+						<li><strong>Backup and Restore:</strong> Save key trees for later restoration</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-6">
+			<div class="card">
+				<div class="card-header bg-success text-white">
+					<h6 class="mb-0"><i class="bi bi-files me-2"></i>Registry Value Operations</h6>
+				</div>
+				<div class="card-body">
+					<h6>Value Manipulation</h6>
+					<ul class="small">
+						<li><strong>Edit Values:</strong> Modify registry value data inline</li>
+						<li><strong>Copy Values:</strong> Duplicate values within or between keys</li>
+						<li><strong>Delete Values:</strong> Remove specific registry values</li>
+						<li><strong>Rename Values:</strong> Change value names with validation</li>
+					</ul>
+					<h6>Data Type Support</h6>
+					<ul class="small">
+						<li><strong>REG_SZ:</strong> String values</li>
+						<li><strong>REG_DWORD:</strong> 32-bit numeric values</li>
+						<li><strong>REG_BINARY:</strong> Binary data</li>
+						<li><strong>REG_MULTI_SZ:</strong> Multi-string values</li>
+						<li><strong>REG_EXPAND_SZ:</strong> Expandable string values</li>
+						<li><strong>REG_QWORD:</strong> 64-bit numeric values</li>
+					</ul>
+					<h6>Cross-Platform Operations</h6>
+					<ul class="small">
+						<li><strong>Registry-to-File:</strong> Save registry values as files</li>
+						<li><strong>File-to-Registry:</strong> Import file content as registry data</li>
+						<li><strong>Bulk Value Operations:</strong> Process multiple values simultaneously</li>
+						<li><strong>Format Conversion:</strong> Convert between different data types</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+
+</section>
+
+<section id="value-management" class="mt-5">
+	<h3>Registry Value Creation and Management</h3>
+	<p>Multi Commander provides comprehensive registry value management capabilities with support for all Windows registry data types and sophisticated value manipulation operations.</p>
+
+	<div class="row">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header bg-primary text-white">
+					<h6 class="mb-0"><i class="bi bi-plus-circle me-2"></i>Creating New Registry Values</h6>
+				</div>
+				<div class="card-body">
+					<h6>Value Type Selection</h6>
+					<p class="small">Access the context menu (right-click or context menu key) to create new registry values:</p>
+
+					<div class="text-center mt-3 mb-3">
+						<img src="/Docs/Images/AddRegValue.png" alt="Add Registry Value Context Menu" class="img-fluid border rounded shadow-sm" />
+						<p class="text-muted small mt-2">Context menu showing registry value type options for creating new values</p>
+					</div>
+
+					<h6>Available Value Types</h6>
+					<ul class="small">
+						<li><strong>String Value (REG_SZ):</strong> Standard text strings</li>
+						<li><strong>Binary Value (REG_BINARY):</strong> Raw binary data</li>
+						<li><strong>DWORD Value (REG_DWORD):</strong> 32-bit numeric values</li>
+						<li><strong>QWORD Value (REG_QWORD):</strong> 64-bit numeric values</li>
+						<li><strong>Multi-String Value (REG_MULTI_SZ):</strong> Multiple string entries</li>
+						<li><strong>Expandable String (REG_EXPAND_SZ):</strong> Environment variable expansion</li>
+					</ul>
+
+					<h6>Value Creation Process</h6>
+					<ol class="small">
+						<li><strong>Navigate to Key:</strong> Browse to the desired registry key location</li>
+						<li><strong>Right-Click Menu:</strong> Open context menu in empty space</li>
+						<li><strong>Select Value Type:</strong> Choose appropriate data type for your needs</li>
+						<li><strong>Name the Value:</strong> Provide descriptive name for the registry value</li>
+						<li><strong>Set Data:</strong> Enter the initial data content for the value</li>
+					</ol>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header bg-success text-white">
+					<h6 class="mb-0"><i class="bi bi-gear me-2"></i>Value Type Guidelines</h6>
+				</div>
+				<div class="card-body">
+					<h6>When to Use Each Type</h6>
+					<ul class="small">
+						<li><strong>REG_SZ:</strong> Simple text, paths, names</li>
+						<li><strong>REG_DWORD:</strong> Numeric settings, flags, counters</li>
+						<li><strong>REG_BINARY:</strong> Complex data, serialized objects</li>
+						<li><strong>REG_MULTI_SZ:</strong> Lists, multiple options</li>
+						<li><strong>REG_EXPAND_SZ:</strong> Paths with environment variables</li>
+						<li><strong>REG_QWORD:</strong> Large numbers, 64-bit values</li>
+					</ul>
+					<h6>Value Naming</h6>
+					<ul class="small">
+						<li><strong>Descriptive Names:</strong> Use clear, meaningful names</li>
+						<li><strong>Consistency:</strong> Follow existing naming patterns</li>
+						<li><strong>Avoid Spaces:</strong> Consider using underscores or camelCase</li>
+						<li><strong>Reserved Names:</strong> Avoid system reserved value names</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+
+</section>
+
+<section id="advanced-features" class="mt-5">
+	<h3>Advanced Registry Features</h3>
+	<p>Multi Commander's registry filesystem provides advanced features that extend far beyond basic registry editing, including selective export capabilities, file system integration, and sophisticated backup and restore operations.</p>
+
+	<div class="row">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header bg-primary text-white">
+					<h6 class="mb-0"><i class="bi bi-download me-2"></i>Selective Export Capabilities</h6>
+				</div>
+				<div class="card-body">
+					<h6>Enhanced Export Functionality</h6>
+					<p class="small">Multi Commander's registry export goes beyond Windows Registry Editor capabilities:</p>
+					<ul class="small">
+						<li><strong>Selective Value Export:</strong> Export only selected values, not entire keys</li>
+						<li><strong>Multi-Value Export:</strong> Export multiple values from different keys</li>
+						<li><strong>Custom .REG Files:</strong> Create targeted registry files for specific purposes</li>
+					</ul>
+					<h6>Export Formats</h6>
+					<ul class="small">
+						<li><strong>Standard .REG Files:</strong> Windows registry format</li>
+						<li><strong>Binary Export:</strong> Raw registry data</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+
+</section>
+
+<section class="mt-5">
+	<h3>Registry Management Integration</h3>
+	<p>Multi Commander's registry filesystem extends beyond basic registry editing, providing comprehensive integration with the broader file management ecosystem and enterprise registry management workflows.</p>
+
+	<div class="row">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header bg-primary text-white">
+					<h6 class="mb-0"><i class="bi bi-link me-2"></i>System Integration</h6>
+				</div>
+				<div class="card-body">
+					<h6>Multi Commander Integration</h6>
+					<ul class="small">
+						<li><strong>Favorites System:</strong> Bookmark frequently accessed registry paths</li>
+						<li><strong>Tab Sessions:</strong> Include registry locations in saved tab sessions</li>
+						<li><strong>User Commands:</strong> Create custom commands for registry operations</li>
+						<li><strong>Script Support:</strong> MultiScript functions work with registry paths</li>
+					</ul>
+					<h6>Windows Integration</h6>
+					<ul class="small">
+						<li><strong>Registry Editor Compatibility:</strong> Seamless integration with regedit</li>
+						<li><strong>Shell Extensions:</strong> Context menu integration</li>
+						<li><strong>File Associations:</strong> Handle .reg files and registry exports</li>
+						<li><strong>System Tools:</strong> Integration with Windows registry tools</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		
+	</div>
+</section>
+
+<div class="alert alert-success mt-5">
+	<h6><i class="bi bi-lightbulb me-2"></i>Advanced Registry Management</h6>
+	<p class="mb-0">Multi Commander's registry filesystem transforms complex registry editing into intuitive file management operations. The innovative approach of treating registry keys as folders and values as files opens up powerful possibilities for registry manipulation, backup, and automation that go far beyond traditional registry editors.</p>
+</div>
+
+<div class="alert alert-warning mt-4">
+	<h6><i class="bi bi-exclamation-triangle me-2"></i>Registry Safety Reminder</h6>
+	<p class="mb-0">The Windows Registry contains critical system configuration data. Always create backups before making changes, test modifications in non-production environments, and ensure you understand the implications of registry changes before applying them to production systems.</p>
+</div>
+
+<div class="alert alert-info mt-4">
+	<h6><i class="bi bi-info-circle me-2"></i>Related Virtual Filesystem Topics</h6>
+	<p class="mb-0">Explore other virtual filesystem capabilities: <a href="/Docs/filesystem/network" class="text-decoration-none">Network Filesystems</a>, <a href="/Docs/filesystem/archives" class="text-decoration-none">Archive Support</a>, and <a href="/Docs/filesystem" class="text-decoration-none">Virtual Filesystem Overview</a>.</p>
+</div>
 
 

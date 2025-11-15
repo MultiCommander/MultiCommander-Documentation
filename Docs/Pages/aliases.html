@@ -1,42 +1,519 @@
-<h2>Managing Aliases</h2>
-<p><strong>Aliases</strong> are abbreviations for commands that can be used on the Multi Commander Command Line</p>
+﻿<h2>Alias Management System</h2>
 
-<p>Instead of writing a long command or path you can use the Alias Manager to create an <em>alias</em> for that command. An <em>alias</em>&nbsp;is a one-word abbreviation that can be automatically expanded into the complete command. Everything that is written after the alias is appended as a parameter to the expanded command.</p>
+<p>Multi Commander's <strong>Alias Management System</strong> provides powerful command-line efficiency through intelligent abbreviation expansion that transforms complex commands into simple, memorable shortcuts. This sophisticated text expansion system enables rapid command execution by automatically expanding user-defined aliases into complete commands, paths, or operations, dramatically reducing typing while maintaining the full functionality of Multi Commander's command-line interface.</p>
 
-<p>For example, if you create an alias for <strong>notepad.exe</strong> and call it "<strong>n</strong>", then you can write "<strong>n mytext.txt</strong>" in the Multi Commander Command Line and it will be expanded into "<strong>notepad.exe mytext.txt</strong>" before it is executed.</p>
+<div class="alert alert-primary">
+	<h6><i class="bi bi-lightning me-2"></i>Command Line Efficiency Enhancement</h6>
+	<p class="mb-0">Experience streamlined command-line operations through intelligent alias expansion that transforms lengthy commands into single-word shortcuts. The Alias Management System integrates seamlessly with Multi Commander's command-line interface to provide instant access to frequently used commands, complex paths, and sophisticated operations while preserving all original functionality and maintaining parameter support for maximum flexibility and productivity.</p>
+</div>
 
-<p>The Alias Manager is found under <strong>Configuration</strong> in the Menu Bar.</p>
+<nav class="navbar navbar-expand-lg navbar-light bg-light mb-4">
+	<div class="container-fluid">
+		<span class="navbar-brand">Quick Navigation</span>
+		<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#aliasNav">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="aliasNav">
+			<ul class="navbar-nav">
+				<li class="nav-item"><a class="nav-link" href="#overview">Overview</a></li>
+				<li class="nav-item"><a class="nav-link" href="#alias-manager">Alias Manager</a></li>
+				<li class="nav-item"><a class="nav-link" href="#special-features">Special Features</a></li>
+				<li class="nav-item"><a class="nav-link" href="#quick-commands">Quick Commands</a></li>
+				<li class="nav-item"><a class="nav-link" href="#practical-examples">Practical Examples</a></li>
+			</ul>
+		</div>
+	</div>
+</nav>
 
-<p><img align="absMiddle" alt="" src="/Docs/Images/AliasEditor.png" /></p>
+<section id="overview">
+	<h3>Alias System Overview</h3>
+	<p>Aliases provide intelligent command-line abbreviation that automatically expands short, memorable keywords into complete commands, paths, or complex operations, enabling rapid execution of frequently used tasks while maintaining full parameter support and functionality.</p>
 
-<h2>Run a User Defined Command</h2>
+	<div class="row">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header bg-info text-white">
+					<h6 class="mb-0"><i class="bi bi-diagram-3 me-2"></i>How Alias Expansion Works</h6>
+				</div>
+				<div class="card-body">
+					<h6>Alias Processing Mechanism</h6>
+					<div class="row">
+						<div class="col-md-4">
+							<h6>1. Alias Definition</h6>
+							<ul class="small">
+								<li><strong>Keyword Creation:</strong> Define short, memorable abbreviations for complex commands</li>
+								<li><strong>Target Assignment:</strong> Associate aliases with complete commands, paths, or operations</li>
+								<li><strong>Parameter Support:</strong> Enable parameter passing through to expanded commands</li>
+								<li><strong>Special Prefixes:</strong> Use prefixes for advanced functionality and command types</li>
+							</ul>
+						</div>
+						<div class="col-md-4">
+							<h6>2. Command Line Recognition</h6>
+							<ul class="small">
+								<li><strong>Automatic Detection:</strong> System recognizes alias keywords during command-line input</li>
+								<li><strong>Expansion Process:</strong> Aliases replaced with full commands before execution</li>
+								<li><strong>Parameter Preservation:</strong> Additional parameters appended to expanded commands</li>
+								<li><strong>Context Awareness:</strong> Expansion considers current working directory and state</li>
+							</ul>
+						</div>
+						<div class="col-md-4">
+							<h6>3. Command Execution</h6>
+							<ul class="small">
+								<li><strong>Seamless Operation:</strong> Expanded commands execute as if typed in full</li>
+								<li><strong>Full Functionality:</strong> All original command capabilities preserved</li>
+								<li><strong>Error Handling:</strong> Clear feedback for invalid aliases or expansions</li>
+								<li><strong>Performance Optimization:</strong> Instant expansion with no execution delay</li>
+							</ul>
+						</div>
+					</div>
 
-<p>If the 'expand into' text is prefixed with "<strong>@</strong>" followed with the unique id for a <strong>User Defined Command</strong>, it will run that command. (Eg. &nbsp;@8c83a15a69394bd3a0ad4ba3a58515a0).</p>
+					<h6>Key Benefits of Alias System</h6>
+					<ul class="small">
+						<li><strong>Typing Efficiency:</strong> Reduce complex commands to simple, memorable keywords</li>
+						<li><strong>Error Reduction:</strong> Eliminate typing mistakes in frequently used commands</li>
+						<li><strong>Workflow Acceleration:</strong> Instant access to sophisticated operations</li>
+						<li><strong>Memory Aid:</strong> Easy-to-remember shortcuts for complex file management tasks</li>
+					</ul>
 
-<h2>Force File To Be Executed</h2>
+					<div class="alert alert-success p-2 mt-3">
+						<h6 class="small mb-1"><i class="bi bi-rocket me-1"></i>Command Line Power</h6>
+						<p class="small mb-0">Aliases transform the command line from a typing challenge into an efficiency powerhouse, enabling rapid execution of complex operations through simple, memorable abbreviations.</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 
-<p>'Expand into' text that is prefixed with "!" will be launched by the Windows Shell. In the example image above, the alias "<strong>pe</strong>" would expand into a full path to a file, and if that text were not prefixed with "<strong>!</strong>", then instead of launching procexp.exe it would go to that path and set the focus to the procexp.exe file.</p>
+	<div class="row mt-3">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header bg-success text-white">
+					<h6 class="mb-0"><i class="bi bi-arrow-right me-2"></i>Basic Alias Expansion Example</h6>
+				</div>
+				<div class="card-body">
+					<h6>Simple Command Expansion</h6>
+					<div class="alert alert-light p-3">
+						<div class="row">
+							<div class="col-md-6">
+								<h6 class="small mb-2"><strong>Alias Definition:</strong></h6>
+								<p class="small mb-1"><strong>Alias:</strong> <code>n</code></p>
+								<p class="small mb-3"><strong>Expands to:</strong> <code>notepad.exe</code></p>
+							</div>
+							<div class="col-md-6">
+								<h6 class="small mb-2"><strong>Command Line Usage:</strong></h6>
+								<p class="small mb-1"><strong>Type:</strong> <code>n mytext.txt</code></p>
+								<p class="small mb-3"><strong>Executes:</strong> <code>notepad.exe mytext.txt</code></p>
+							</div>
+						</div>
+						<p class="small mb-0"><strong>Result:</strong> Opens mytext.txt in Notepad instantly with minimal typing</p>
+					</div>
 
-<h2>Quick command</h2>
+					<h6>Parameter Passing Demonstration</h6>
+					<ul class="small">
+						<li><strong>Automatic Appending:</strong> Everything typed after the alias becomes parameters for the expanded command</li>
+						<li><strong>Multiple Parameters:</strong> Support for complex parameter combinations and switches</li>
+						<li><strong>Path Handling:</strong> Intelligent handling of file paths and special characters</li>
+						<li><strong>Flexible Usage:</strong> Same alias works with different parameters for various scenarios</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
 
-<p>From the command line field it is possible to use the built-in quick command "alias" or "alias2" to create an alias command.<br />
-&nbsp;</p>
+<section id="alias-manager" class="mt-5">
+	<h3>Alias Manager Interface</h3>
+	<p>The Alias Manager provides a comprehensive interface for creating, editing, and organizing command-line aliases with advanced features for different alias types, parameter handling, and integration with Multi Commander's User Defined Commands system.</p>
 
-<pre>
-Usage Syntax
-alias &lt;alias&gt;=&lt;expand into&gt;
-alias2 &lt;alias&gt;</pre>
+	<div class="row">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header bg-primary text-white">
+					<h6 class="mb-0"><i class="bi bi-gear me-2"></i>Alias Manager Access and Interface</h6>
+				</div>
+				<div class="card-body">
+					<div class="text-center mt-3 mb-3">
+						<img src="/Docs/Images/AliasEditor.png" alt="Alias Manager Interface" class="img-fluid border rounded shadow-sm" />
+						<p class="text-muted small mt-2">Alias Manager interface accessible through Configuration menu for comprehensive alias management</p>
+					</div>
 
-<p>The command <b>alias2</b> takes the current path and assigns it to the specified alias.</p>
+					<h6>Alias Manager Access</h6>
+					<ul class="small">
+						<li><strong>Menu Location:</strong> Access through <strong>Configuration</strong> → <strong>Alias Manager</strong> in the main menu</li>
+						<li><strong>Centralized Management:</strong> Single interface for all alias creation, editing, and organization</li>
+						<li><strong>Real-Time Updates:</strong> Changes take effect immediately without restart requirement</li>
+						<li><strong>Import/Export:</strong> Backup and share alias configurations across installations</li>
+					</ul>
 
-<p>Example</p>
+					<h6>Interface Components</h6>
+					<div class="row">
+						<div class="col-md-6">
+							<ul class="small">
+								<li><strong>Alias List:</strong> Comprehensive view of all defined aliases with sorting capabilities</li>
+								<li><strong>Alias Field:</strong> Short keyword or abbreviation that triggers expansion</li>
+								<li><strong>Expand Into Field:</strong> Target command, path, or operation for expansion</li>
+								<li><strong>Description Field:</strong> Optional documentation for alias purpose and usage</li>
+							</ul>
+						</div>
+						<div class="col-md-6">
+							<ul class="small">
+								<li><strong>Add/Remove Buttons:</strong> Create new aliases or delete existing ones</li>
+								<li><strong>Edit Controls:</strong> Modify existing alias definitions and properties</li>
+								<li><strong>Validation System:</strong> Real-time checking for alias conflicts and syntax errors</li>
+								<li><strong>Testing Interface:</strong> Preview alias expansion before saving changes</li>
+							</ul>
+						</div>
+					</div>
 
-<pre>
-alias pic=E:\MyPictures</pre>
+					<h6>Best Practices for Alias Creation</h6>
+					<ul class="small">
+						<li><strong>Short and Memorable:</strong> Use brief, intuitive abbreviations that are easy to remember</li>
+						<li><strong>Consistent Patterns:</strong> Develop naming conventions for related aliases (e.g., 'np' for Notepad, 'ps' for PowerShell)</li>
+						<li><strong>Avoid Conflicts:</strong> Ensure aliases don't conflict with existing system commands</li>
+						<li><strong>Documentation:</strong> Use description fields to document complex aliases for future reference</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
 
-<p>If the current folder is E:\MyPictures then it is enough to write</p>
+<section id="special-features" class="mt-5">
+	<h3>Advanced Alias Features and Special Prefixes</h3>
+	<p>The Alias System supports advanced functionality through special prefixes and integration features that enable User Defined Command execution, forced file launching, and sophisticated command routing for enhanced workflow automation.</p>
 
-<pre>
-alias2 pic</pre>
+	<div class="row">
+		<div class="col-md-6">
+			<div class="card">
+				<div class="card-header bg-warning text-dark">
+					<h6 class="mb-0"><i class="bi bi-at me-2"></i>User Defined Command Integration</h6>
+				</div>
+				<div class="card-body">
+					<h6>@ Prefix for UDC Execution</h6>
+					<ul class="small">
+						<li><strong>Syntax:</strong> Prefix expansion text with "@" followed by User Defined Command unique ID</li>
+						<li><strong>Direct Execution:</strong> Runs User Defined Commands directly from command line</li>
+						<li><strong>Parameter Passing:</strong> Command parameters passed through to User Defined Command</li>
+						<li><strong>Advanced Integration:</strong> Access to full Multi Commander command system through aliases</li>
+					</ul>
+
+					<h6>UDC Alias Example</h6>
+					<div class="alert alert-light p-2">
+						<h6 class="small mb-1">User Defined Command Alias</h6>
+						<pre class="small mb-1"><code>Alias: backup
+Expand Into: @8c83a15a69394bd3a0ad4ba3a58515a0</code></pre>
+						<p class="small mb-0"><strong>Usage:</strong> Type <code>backup</code> to execute the specific User Defined Command</p>
+					</div>
+
+					<h6>Benefits of UDC Integration</h6>
+					<ul class="small">
+						<li><strong>Complex Operations:</strong> Execute sophisticated Multi Commander operations with simple aliases</li>
+						<li><strong>Workflow Automation:</strong> Trigger complex file management workflows instantly</li>
+						<li><strong>Parameter Support:</strong> Pass dynamic parameters to User Defined Commands</li>
+						<li><strong>System Integration:</strong> Bridge command line with advanced Multi Commander functionality</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-6">
+			<div class="card">
+				<div class="card-header bg-danger text-white">
+					<h6 class="mb-0"><i class="bi bi-exclamation me-2"></i>Forced File Execution</h6>
+				</div>
+				<div class="card-body">
+					<h6>! Prefix for Shell Execution</h6>
+					<ul class="small">
+						<li><strong>Syntax:</strong> Prefix expansion text with "!" to force Windows Shell execution</li>
+						<li><strong>Direct Launching:</strong> Launches applications directly instead of navigating to file location</li>
+						<li><strong>Override Behavior:</strong> Overrides default file focus behavior for executable files</li>
+						<li><strong>Shell Integration:</strong> Utilizes Windows Shell for proper application launching</li>
+					</ul>
+
+					<h6>Forced Execution Example</h6>
+					<div class="alert alert-light p-2">
+						<h6 class="small mb-1">Process Explorer Alias</h6>
+						<pre class="small mb-1"><code>Alias: pe
+Expand Into: !C:\Tools\ProcExp\procexp.exe</code></pre>
+						<p class="small mb-0"><strong>Result:</strong> Launches Process Explorer directly instead of navigating to file</p>
+					</div>
+
+					<h6>Use Cases for Forced Execution</h6>
+					<ul class="small">
+						<li><strong>Tool Launching:</strong> Quick access to utilities and applications from command line</li>
+						<li><strong>System Applications:</strong> Direct execution of system tools and administrative utilities</li>
+						<li><strong>Script Execution:</strong> Run batch files and scripts without file navigation</li>
+						<li><strong>Override Navigation:</strong> Force execution when default behavior would navigate to file</li>
+					</ul>
+
+					<h6>Execution Behavior Comparison</h6>
+					<div class="alert alert-info p-2 mt-3">
+						<h6 class="small mb-1">Without ! Prefix:</h6>
+						<p class="small mb-1">Navigates to file location and sets focus to the executable file</p>
+						<h6 class="small mb-1">With ! Prefix:</h6>
+						<p class="small mb-0">Launches the application directly using Windows Shell</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<section id="quick-commands" class="mt-5">
+	<h3>Quick Alias Creation Commands</h3>
+	<p>Multi Commander provides built-in quick commands for rapid alias creation directly from the command line, enabling instant alias definition without accessing the Alias Manager interface for maximum efficiency during active workflows.</p>
+
+	<div class="row">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header bg-success text-white">
+					<h6 class="mb-0"><i class="bi bi-lightning-charge me-2"></i>Command Line Alias Creation</h6>
+				</div>
+				<div class="card-body">
+					<h6>Built-in Quick Commands</h6>
+					<div class="row">
+						<div class="col-md-6">
+							<h6>alias Command - Custom Alias Creation</h6>
+							<div class="alert alert-light p-2">
+								<h6 class="small mb-1">Syntax:</h6>
+								<pre class="small mb-1"><code>alias &lt;alias&gt;=&lt;expand into&gt;</code></pre>
+								<h6 class="small mb-1">Example:</h6>
+								<pre class="small mb-0"><code>alias pic=E:\MyPictures</code></pre>
+							</div>
+							<ul class="small">
+								<li><strong>Direct Definition:</strong> Create aliases without opening Alias Manager</li>
+								<li><strong>Immediate Availability:</strong> Aliases ready for use instantly after creation</li>
+								<li><strong>Custom Targets:</strong> Specify any command, path, or operation as expansion target</li>
+								<li><strong>Workflow Integration:</strong> Create aliases during active file management sessions</li>
+							</ul>
+						</div>
+						<div class="col-md-6">
+							<h6>alias2 Command - Current Path Alias</h6>
+							<div class="alert alert-light p-2">
+								<h6 class="small mb-1">Syntax:</h6>
+								<pre class="small mb-1"><code>alias2 &lt;alias&gt;</code></pre>
+								<h6 class="small mb-1">Example (when in E:\MyPictures):</h6>
+								<pre class="small mb-0"><code>alias2 pic</code></pre>
+							</div>
+							<ul class="small">
+								<li><strong>Context-Aware:</strong> Automatically uses current directory as expansion target</li>
+								<li><strong>Navigation Shortcuts:</strong> Quickly create path aliases for frequently visited directories</li>
+								<li><strong>Instant Access:</strong> Create location shortcuts while browsing file system</li>
+								<li><strong>Dynamic Creation:</strong> Build navigation aliases during exploration workflows</li>
+							</ul>
+						</div>
+					</div>
+
+					<h6>Quick Command Practical Usage</h6>
+					<div class="table-responsive">
+						<table class="table table-bordered table-hover">
+							<thead class="table-light">
+								<tr>
+									<th style="width: 30%">Scenario</th>
+									<th style="width: 35%">Quick Command</th>
+									<th style="width: 35%">Result</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td><strong>Create Tool Shortcut</strong></td>
+									<td><code>alias np=notepad.exe</code></td>
+									<td>Type 'np' to launch Notepad</td>
+								</tr>
+								<tr>
+									<td><strong>Quick Path Access</strong></td>
+									<td><code>alias docs=C:\Users\John\Documents</code></td>
+									<td>Type 'docs' to navigate to Documents</td>
+								</tr>
+								<tr>
+									<td><strong>Current Directory Bookmark</strong></td>
+									<td><code>alias2 work</code> (in project folder)</td>
+									<td>Type 'work' to return to current location</td>
+								</tr>
+								<tr>
+									<td><strong>Complex Command Shortcut</strong></td>
+									<td><code>alias search=findstr /s /i</code></td>
+									<td>Type 'search pattern *.txt' for file search</td>
+								</tr>
+								<tr>
+									<td><strong>Network Path Alias</strong></td>
+									<td><code>alias server=\\server\share\folder</code></td>
+									<td>Type 'server' to access network location</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<section id="practical-examples" class="mt-5">
+	<h3>Practical Alias Examples and Use Cases</h3>
+	<p>Real-world alias configurations demonstrate the power and flexibility of the Alias System across different user scenarios, from basic file management to advanced system administration and development workflows.</p>
+
+	<div class="row">
+		<div class="col-md-6">
+			<div class="card">
+				<div class="card-header bg-info text-white">
+					<h6 class="mb-0"><i class="bi bi-folder me-2"></i>Navigation and Path Aliases</h6>
+				</div>
+				<div class="card-body">
+					<h6>Essential Path Shortcuts</h6>
+					<div class="alert alert-light p-2">
+						<pre class="small mb-0"><code>docs = C:\Users\%USERNAME%\Documents
+dl = C:\Users\%USERNAME%\Downloads
+desk = C:\Users\%USERNAME%\Desktop
+pics = C:\Users\%USERNAME%\Pictures
+temp = C:\Temp
+tools = C:\Tools
+proj = D:\Projects</code></pre>
+					</div>
+
+					<h6>Network and Remote Paths</h6>
+					<div class="alert alert-light p-2">
+						<pre class="small mb-0"><code>server = \\fileserver\shared
+backup = \\backup-server\daily
+archive = \\archive\company-data
+home = \\home-nas\personal</code></pre>
+					</div>
+
+					<h6>Dynamic Path Usage</h6>
+					<ul class="small">
+						<li><strong>Instant Navigation:</strong> Type alias name to navigate immediately</li>
+						<li><strong>Relative Operations:</strong> Use with file operations (copy, move, etc.)</li>
+						<li><strong>Cross-Drive Access:</strong> Quick access to different drives and partitions</li>
+						<li><strong>Network Efficiency:</strong> Eliminate UNC path typing for network resources</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-6">
+			<div class="card">
+				<div class="card-header bg-warning text-dark">
+					<h6 class="mb-0"><i class="bi bi-terminal me-2"></i>Application and Tool Aliases</h6>
+				</div>
+				<div class="card-body">
+					<h6>Common Application Shortcuts</h6>
+					<div class="alert alert-light p-2">
+						<pre class="small mb-0"><code>np = notepad.exe
+ps = powershell.exe
+cmd = cmd.exe
+calc = calc.exe
+paint = mspaint.exe
+code = !C:\Program Files\VS Code\Code.exe</code></pre>
+					</div>
+
+					<h6>Development and System Tools</h6>
+					<div class="alert alert-light p-2">
+						<pre class="small mb-0"><code>git = !C:\Program Files\Git\bin\git.exe
+py = !C:\Python39\python.exe
+node = !C:\Program Files\nodejs\node.exe
+docker = !C:\Program Files\Docker\docker.exe
+wireshark = !"C:\Program Files\Wireshark\Wireshark.exe"</code></pre>
+					</div>
+
+					<h6>Advanced Tool Integration</h6>
+					<ul class="small">
+						<li><strong>Parameter Support:</strong> Pass command-line arguments to applications</li>
+						<li><strong>Path Handling:</strong> Proper quoting for paths with spaces</li>
+						<li><strong>Environment Integration:</strong> Work with system PATH and environment variables</li>
+						<li><strong>Development Workflow:</strong> Quick access to compilers, interpreters, and tools</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="row mt-3">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header bg-primary text-white">
+					<h6 class="mb-0"><i class="bi bi-gear-wide-connected me-2"></i>Advanced Alias Configurations</h6>
+				</div>
+				<div class="card-body">
+					<h6>Complex Command Aliases</h6>
+					<div class="table-responsive">
+						<table class="table table-bordered table-hover">
+							<thead class="table-light">
+								<tr>
+									<th style="width: 15%">Alias</th>
+									<th style="width: 45%">Expansion</th>
+									<th style="width: 40%">Description and Usage</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td><code>search</code></td>
+									<td><code>findstr /s /i</code></td>
+									<td>Search text in files: <code>search "pattern" *.txt</code></td>
+								</tr>
+								<tr>
+									<td><code>backup</code></td>
+									<td><code>@8c83a15a69394bd3a0ad4ba3a58515a0</code></td>
+									<td>Execute User Defined backup command with parameters</td>
+								</tr>
+								<tr>
+									<td><code>web</code></td>
+									<td><code>!C:\Program Files\Google\Chrome\chrome.exe</code></td>
+									<td>Launch Chrome: <code>web https://example.com</code></td>
+								</tr>
+								<tr>
+									<td><code>edit</code></td>
+									<td><code>!C:\Program Files\Notepad++\notepad++.exe</code></td>
+									<td>Open files in Notepad++: <code>edit config.ini</code></td>
+								</tr>
+								<tr>
+									<td><code>compare</code></td>
+									<td><code>!C:\Program Files\Beyond Compare\BCompare.exe</code></td>
+									<td>File comparison: <code>compare file1.txt file2.txt</code></td>
+								</tr>
+								<tr>
+									<td><code>zip</code></td>
+									<td><code>!C:\Program Files\7-Zip\7z.exe a</code></td>
+									<td>Create archives: <code>zip backup.zip folder\</code></td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+
+					<h6>Professional Workflow Examples</h6>
+					<div class="row">
+						<div class="col-md-6">
+							<h6>System Administration</h6>
+							<div class="alert alert-light p-2">
+								<pre class="small mb-0"><code>services = !services.msc
+regedit = !regedit.exe
+eventvwr = !eventvwr.msc
+perfmon = !perfmon.exe
+taskmgr = !taskmgr.exe</code></pre>
+							</div>
+						</div>
+						<div class="col-md-6">
+							<h6>Development Environment</h6>
+							<div class="alert alert-light p-2">
+								<pre class="small mb-0"><code>vs = !"C:\Program Files\Visual Studio\devenv.exe"
+build = msbuild.exe
+test = dotnet test
+deploy = @deployment-command-id
+debug = !C:\Tools\Debugger\debugger.exe</code></pre>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<div class="alert alert-success mt-5">
+	<h6><i class="bi bi-lightbulb me-2"></i>Alias System Mastery</h6>
+	<p class="mb-0">Master the Alias System by creating strategic shortcuts for frequently used commands and paths, utilizing special prefixes (@) for User Defined Command integration and (!) for forced execution, and leveraging quick commands (alias/alias2) for instant alias creation during active workflows. Remember that effective aliases are short, memorable, and follow consistent naming patterns while avoiding conflicts with system commands. Use the Alias Manager for complex configurations and maintain regular cleanup to ensure optimal performance and organization. This powerful system transforms command-line efficiency by eliminating repetitive typing and providing instant access to sophisticated operations through simple, memorable abbreviations.</p>
+</div>
+
+<div class="alert alert-info mt-4">
+	<h6><i class="bi bi-info-circle me-2"></i>Related Command Line and Automation Documentation</h6>
+	<p class="mb-0">Enhance your command-line efficiency with related Multi Commander features: <a href="/Docs/commandlinebar" class="text-decoration-none">Command Line Bar</a>, <a href="/Docs/user-defined-commands" class="text-decoration-none">User Defined Commands</a>, <a href="/Docs/UDC_custom" class="text-decoration-none">Custom Commands</a>, <a href="/Docs/keyboard-customization" class="text-decoration-none">Keyboard Customization</a>, <a href="/Docs/quicklaunchbar" class="text-decoration-none">Quick Launch Bar</a>, and <a href="/Docs/buttonpanel" class="text-decoration-none">Button Panel</a>.</p>
+</div>
 
 

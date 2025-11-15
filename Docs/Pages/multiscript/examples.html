@@ -1,25 +1,43 @@
 <h2>MultiScript Examples</h2>
-<h2>Examples of MultiScripts</h2>
 
-<ul>
-  <li><a href="#searchgoogle">Search on Google from the command line bar</a></li>
-  <li><a href="#viewfileinfolder">View first *.txt file found in the folder currently in focus</a></li>
-  <li><a href="#PlayMovieInFolder">Play first *.avi or *.mkv in the folder currently in focus</a></li>
-</ul>
+<p>This page provides comprehensive examples of MultiScript usage, demonstrating the powerful scripting capabilities available in Multi Commander. These examples showcase various functionality areas from basic file operations to advanced automation workflows.</p>
 
-<p>&nbsp;</p>
+<div class="alert alert-info">
+	<h6><i class="bi bi-info-circle me-2"></i>About MultiScript</h6>
+	<p class="mb-0">MultiScript is Multi Commander's built-in scripting language that provides advanced automation capabilities. Scripts can access file system functions, manipulate strings and arrays, interact with the user interface, and integrate with external applications. All examples can be used as User Defined Commands and assigned to hotkeys or menu items.</p>
+</div>
 
-<hr />
-<p>&nbsp;</p>
+<nav class="navbar navbar-expand-lg navbar-light bg-light mb-4">
+	<div class="container-fluid">
+		<span class="navbar-brand">Example Categories</span>
+		<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#examplesNav">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="examplesNav">
+			<ul class="navbar-nav">
+				<li class="nav-item"><a class="nav-link" href="#basic-examples">Basic Examples</a></li>
+				<li class="nav-item"><a class="nav-link" href="#file-operations">File Operations</a></li>
+				<li class="nav-item"><a class="nav-link" href="#text-processing">Text Processing</a></li>
+				<li class="nav-item"><a class="nav-link" href="#user-interaction">User Interaction</a></li>
+				<li class="nav-item"><a class="nav-link" href="#advanced-examples">Advanced Examples</a></li>
+			</ul>
+		</div>
+	</div>
+</nav>
 
-<h2><a name="searchgoogle">Search on Google from the command line bar</a></h2>
+<section id="basic-examples">
+	<h3>Basic Examples</h3>
+	<p>Simple scripts demonstrating fundamental MultiScript concepts and common use cases.</p>
 
-<p>Read the parameters (arguments) supplied to this command and build a search url for Google and then go to that url.</p>
-
-<p>Create the command then go to the Alias Manager and assign 'g' to "@&lt;Unique &nbsp;command id&gt;"</p>
-
-<pre class="mscode">
-function CreateGoogleSearchQuery()
+	<div class="row">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header bg-primary text-white">
+					<h6 class="mb-0"><i class="bi bi-search me-2"></i>Search on Google from Command Line</h6>
+				</div>
+				<div class="card-body">
+					<p><strong>Usage:</strong> Create this command and assign alias 'g' in the Alias Manager. Then type <code>g search terms</code> in the command line.</p>
+					<pre class="mscode">function CreateGoogleSearchQuery()
 {
   @var $query = "";
   @var $n = 0;
@@ -33,37 +51,812 @@ function CreateGoogleSearchQuery()
   }
   return $query;
 }
-@var $s = "";
-$s = "http://www.google.com/search?g=" + CreateGoogleSearchQuery();
-MC.Run CMD="{$s}" SHELL
-</pre>
 
-<p>&nbsp;</p>
+@var $searchUrl = "http://www.google.com/search?q=" + CreateGoogleSearchQuery();
+MC.Run CMD="{$searchUrl}" SHELL</pre>
+				</div>
+			</div>
+		</div>
+	</div>
 
-<h2><a name="viewfileinfolder">View first *.txt file found in the folder currently in focus</a></h2>
-
-<p>Connect this command to a hotkey, for example Alt+V. Then in an Explorer Panel with a folder in focus, if you press Alt+V - and if a *.txt file exists under that folder - that file will be shown.</p>
-
-<pre class="mscode">
-MC.DataViewer.View FILE={_findfirstfile( "{focusfilepath}\\*.txt" )}
-</pre>
-
-<p><br />
-&nbsp;</p>
-
-<hr />
-<h2><a name="PlayMovieInFolder">Play First *.avi or *.mkv found in folder currently in focus</a></h2>
-
-<p>Connect this command to a hotkey, for example Alt+P. Then in an Explorer Panel with a folder in focus, if you press Alt+P, the first *.avi or *.mkv found will be played in your default movie player.</p>
-
-<pre class="mscode">
-@var $file;
-$file = _findfirstfile( "{focusfilepath}\\*.avi" );
-if(StrIsEqual($file,""))
+	<div class="row mt-3">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header bg-success text-white">
+					<h6 class="mb-0"><i class="bi bi-file-text me-2"></i>View First Text File</h6>
+				</div>
+				<div class="card-body">
+					<p><strong>Usage:</strong> Assign to hotkey (e.g., Alt+V) to view the first *.txt file in the focused folder.</p>
+					<pre class="mscode">@var $file = FindFirstFile( GetSourcePath() ^ "*.txt" );
+if( StrLen($file) &gt; 0 )
 {
-  $file = _findfirstfile( "{focusfilepath}\\*.mkv" );
+  MC.DataViewer.View FILE="{$file}"
 }
-MC.Run CMD={$file} SHELL
-</pre>
+else
+{
+  MessageBox("No Files", "No .txt files found in this folder", 0);
+}</pre>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header bg-warning text-dark">
+					<h6 class="mb-0"><i class="bi bi-play-circle me-2"></i>Play First Video File</h6>
+				</div>
+				<div class="card-body">
+					<p><strong>Usage:</strong> Assign to hotkey (e.g., Alt+P) to play the first video file found in the focused folder.</p>
+					<pre class="mscode">@var $file;
+$file = FindFirstFile( GetSourcePath() ^ "*.avi" );
+if( StrLen($file) == 0 )
+{
+  $file = FindFirstFile( GetSourcePath() ^ "*.mkv" );
+}
+if( StrLen($file) == 0 )
+{
+  $file = FindFirstFile( GetSourcePath() ^ "*.mp4" );
+}
+
+if( StrLen($file) &gt; 0 )
+{
+  MC.Run CMD="{$file}" SHELL
+}
+else
+{
+  MessageBox("No Videos", "No video files found", 0);
+}</pre>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<section id="file-operations" class="mt-5">
+	<h3>File Operations Examples</h3>
+	<p>Scripts demonstrating file system operations, batch processing, and file management tasks.</p>
+
+	<div class="row">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header bg-info text-white">
+					<h6 class="mb-0"><i class="bi bi-files me-2"></i>Batch File Organizer by Date</h6>
+				</div>
+				<div class="card-body">
+					<p><strong>Purpose:</strong> Organize selected files into folders based on their creation date (YYYY-MM format).</p>
+					<pre class="mscode">@var $files = GetSourceSelectedPaths();
+@var $sourceDir = GetSourcePath();
+@var $count = arrayCount($files);
+
+if( $count == 0 )
+{
+  MessageBox("No Selection", "Please select files to organize", 0);
+  return;
+}
+
+@var $n;
+for( $n = 0; $n &lt; $count; $n = $n + 1 )
+{
+  @var $file = $files[$n];
+  @var $fileTime = GetFileTime($file);
+  @var $dateFolder = FormatDate("yyyy-MM", $fileTime);
+  
+  @var $targetDir = $sourceDir ^ $dateFolder;
+  
+  // Create target directory if it doesn't exist
+  if( FileExists($targetDir) == 0 )
+  {
+    MakeDir($targetDir, "LOCAL");
+  }
+  
+  // Move file to date folder
+  @var $fileName = PathGetNamePart($file);
+  MoveFile($targetDir, $file, "NODIALOG");
+}
+
+MessageBox("Complete", "Organized " + $count + " files by date", 0);</pre>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="row mt-3">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header bg-primary text-white">
+					<h6 class="mb-0"><i class="bi bi-folder-plus me-2"></i>Create Project Folder Structure</h6>
+				</div>
+				<div class="card-body">
+					<p><strong>Purpose:</strong> Create a standardized project folder structure.</p>
+					<pre class="mscode">@var $projectName = AskText("Project Name", "", 0);
+if( StrLen($projectName) == 0 )
+{
+  return;
+}
+
+@var $basePath = GetSourcePath() ^ $projectName;
+@var $folders[] = {
+  "Documents",
+  "Source Code",
+  "Resources\\Images",
+  "Resources\\Data",
+  "Output\\Debug",
+  "Output\\Release",
+  "Tests"
+};
+
+// Create main project folder
+MakeDir($basePath, "LOCAL");
+
+// Create subfolders
+@var $i;
+@var $folderCount = arrayCount($folders);
+for( $i = 0; $i &lt; $folderCount; $i = $i + 1 )
+{
+  @var $folderPath = $basePath ^ $folders[$i];
+  MakeDir($folderPath, "LOCAL,RECURSIVE");
+}
+
+MessageBox("Success", "Project structure created for: " + $projectName, 0);</pre>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header bg-success text-white">
+					<h6 class="mb-0"><i class="bi bi-archive me-2"></i>Backup Selected Files</h6>
+				</div>
+				<div class="card-body">
+					<p><strong>Purpose:</strong> Create dated backup archive of selected files.</p>
+					<pre class="mscode">@var $files = GetSourceSelectedPaths();
+@var $count = arrayCount($files);
+
+if( $count == 0 )
+{
+  MessageBox("No Selection", "Select files to backup", 0);
+  return;
+}
+
+@var $timestamp = FormatDate("yyyy-MM-dd_HH-mm-ss", GetTime());
+@var $backupName = "Backup_" + $timestamp + ".zip";
+@var $backupPath = GetSourcePath() ^ $backupName;
+
+// Create backup archive
+@var $i;
+for( $i = 0; $i &lt; $count; $i = $i + 1 )
+{
+  @var $file = $files[$i];
+  if( $i == 0 )
+  {
+    // Create new archive with first file
+    PackFile($backupPath, $file, "*.*", "zip", "SILENT");
+  }
+  else
+  {
+    // Add remaining files to existing archive
+    PackFile($backupPath, $file, "*.*", "zip", "SILENT");
+  }
+}
+
+MessageBox("Backup Complete", "Created backup: " + $backupName, 0);</pre>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<section id="text-processing" class="mt-5">
+	<h3>Text Processing Examples</h3>
+	<p>Scripts demonstrating string manipulation, text file processing, and data transformation.</p>
+
+	<div class="row">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header bg-warning text-dark">
+					<h6 class="mb-0"><i class="bi bi-file-text me-2"></i>Process Log File - Extract Error Lines</h6>
+				</div>
+				<div class="card-body">
+					<p><strong>Purpose:</strong> Extract all error lines from a log file and save to a separate file.</p>
+					<pre class="mscode">@var $logFile = GetSourceFocusPath();
+if( StrLen($logFile) == 0 )
+{
+  MessageBox("No File", "Please select a log file", 0);
+  return;
+}
+
+// Load log file content
+@var $content = LoadStringFromFile($logFile);
+@var $lines = StrLines2Array($content);
+@var $errorLines[];
+@var $lineCount = arrayCount($lines);
+
+@var $i;
+for( $i = 0; $i &lt; $lineCount; $i = $i + 1 )
+{
+  @var $line = $lines[$i];
+  // Check for error keywords (case insensitive)
+  @var $upperLine = StrToUpper($line);
+  if( StrFind($upperLine, "ERROR", 0) &gt;= 0 || 
+      StrFind($upperLine, "EXCEPTION", 0) &gt;= 0 ||
+      StrFind($upperLine, "FAILED", 0) &gt;= 0 )
+  {
+    arrayAdd($errorLines, $line);
+  }
+}
+
+// Save error lines to new file
+@var $errorCount = arrayCount($errorLines);
+if( $errorCount &gt; 0 )
+{
+  @var $outputFile = PathGetPathPart($logFile) ^ "errors_" + FormatDate("yyyy-MM-dd", GetTime()) + ".txt";
+  @var $errorContent = StrLinesArray2String($errorLines);
+  SaveStringToFile($outputFile, $errorContent, 1); // UTF8 format
+  
+  MessageBox("Error Extraction Complete", "Found " + $errorCount + " error lines\nSaved to: " + PathGetNamePart($outputFile), 0);
+}
+else
+{
+  MessageBox("No Errors", "No error lines found in the log file", 0);
+}</pre>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="row mt-3">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header bg-info text-white">
+					<h6 class="mb-0"><i class="bi bi-list-ol me-2"></i>Generate File List Report</h6>
+				</div>
+				<div class="card-body">
+					<p><strong>Purpose:</strong> Create a detailed report of files in the current folder.</p>
+					<pre class="mscode">@var $currentPath = GetSourcePath();
+@var $files = GetSourceItems(1); // Get full paths
+@var $report[];
+@var $totalSize = 0;
+
+// Add header
+arrayAdd($report, "=== FILE REPORT ===");
+arrayAdd($report, "Path: " + $currentPath);
+arrayAdd($report, "Generated: " + FormatDate("yyyy-MM-dd", GetTime()) + " " + FormatTime("HH:mm:ss", GetTime()));
+arrayAdd($report, "");
+
+@var $fileCount = arrayCount($files);
+@var $i;
+for( $i = 0; $i &lt; $fileCount; $i = $i + 1 )
+{
+  @var $file = $files[$i];
+  if( IsFolder($file) == 0 ) // Only process files, not folders
+  {
+    @var $size = GetFileSize($file);
+    @var $fileTime = GetFileTime($file);
+    @var $name = PathGetNamePart($file);
+    
+    @var $sizeKB = $size / 1024;
+    @var $dateStr = FormatDate("yyyy-MM-dd", $fileTime);
+    
+    @var $line = $name + " | " + $sizeKB + " KB | " + $dateStr;
+    arrayAdd($report, $line);
+    
+    $totalSize = $totalSize + $size;
+  }
+}
+
+// Add summary
+arrayAdd($report, "");
+arrayAdd($report, "=== SUMMARY ===");
+arrayAdd($report, "Total Files: " + (arrayCount($report) - 5)); // Subtract header lines
+arrayAdd($report, "Total Size: " + ($totalSize / 1024) + " KB");
+
+// Save report
+@var $reportFile = $currentPath ^ "file_report_" + FormatDate("yyyy-MM-dd", GetTime()) + ".txt";
+@var $reportContent = StrLinesArray2String($report);
+SaveStringToFile($reportFile, $reportContent, 1);
+
+MessageBox("Report Generated", "File report saved as: " + PathGetNamePart($reportFile), 0);</pre>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header bg-primary text-white">
+					<h6 class="mb-0"><i class="bi bi-regex me-2"></i>Batch Rename with Pattern</h6>
+				</div>
+				<div class="card-body">
+					<p><strong>Purpose:</strong> Rename files using pattern replacement with user input.</p>
+					<pre class="mscode">@var $files = GetSourceSelectedFileNames();
+@var $count = arrayCount($files);
+
+if( $count == 0 )
+{
+  MessageBox("No Selection", "Select files to rename", 0);
+  return;
+}
+
+@var $searchPattern = AskText("Search Pattern", "Enter text to find", 0);
+if( StrLen($searchPattern) == 0 )
+{
+  return;
+}
+
+@var $replaceWith = AskText("Replace With", "Enter replacement text", 0);
+
+@var $renamed = 0;
+@var $i;
+for( $i = 0; $i &lt; $count; $i = $i + 1 )
+{
+  @var $oldName = $files[$i];
+  @var $newName = StrReplace($oldName, $searchPattern, $replaceWith);
+  
+  if( StrIsEqual($oldName, $newName) == 0 ) // Names are different
+  {
+    @var $sourcePath = GetSourcePath();
+    @var $fullOldPath = $sourcePath ^ $oldName;
+    
+    @var $result = RenameFile($fullOldPath, $newName, "SILENT");
+    if( $result == 1 )
+    {
+      $renamed = $renamed + 1;
+    }
+  }
+}
+
+MessageBox("Rename Complete", "Renamed " + $renamed + " files", 0);</pre>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<section id="user-interaction" class="mt-5">
+	<h3>User Interaction Examples</h3>
+	<p>Scripts demonstrating user input, dialog boxes, and interactive workflows.</p>
+
+	<div class="row">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header bg-success text-white">
+					<h6 class="mb-0"><i class="bi bi-ui-checks me-2"></i>Interactive File Processor</h6>
+				</div>
+				<div class="card-body">
+					<p><strong>Purpose:</strong> Process files with user choices for each operation.</p>
+					<pre class="mscode">@var $files = GetSourceSelectedPaths();
+@var $count = arrayCount($files);
+
+if( $count == 0 )
+{
+  MessageBox("No Selection", "Select files to process", 0);
+  return;
+}
+
+@var $operations[] = {
+  "Copy to Backup Folder",
+  "Move to Archive Folder", 
+  "Delete Files",
+  "Rename with Timestamp",
+  "Cancel"
+};
+
+@var $choice = AskOption("Choose Operation", $operations, 0);
+if( $choice == -1 || $choice == 4 ) // Cancel or last option
+{
+  return;
+}
+
+@var $processed = 0;
+@var $i;
+for( $i = 0; $i &lt; $count; $i = $i + 1 )
+{
+  @var $file = $files[$i];
+  @var $fileName = PathGetNamePart($file);
+  
+  if( $choice == 0 ) // Copy to Backup
+  {
+    @var $backupDir = GetSourcePath() ^ "Backup";
+    MakeDir($backupDir, "LOCAL");
+    CopyFile($backupDir, $file, "NODIALOG");
+    $processed = $processed + 1;
+  }
+  else if( $choice == 1 ) // Move to Archive
+  {
+    @var $archiveDir = GetSourcePath() ^ "Archive";
+    MakeDir($archiveDir, "LOCAL");
+    MoveFile($archiveDir, $file, "NODIALOG");
+    $processed = $processed + 1;
+  }
+  else if( $choice == 2 ) // Delete
+  {
+    @var $confirmDelete = MessageBox("Confirm Delete", "Delete " + $fileName + "?", 4); // Yes/No
+    if( $confirmDelete == 6 ) // Yes
+    {
+      DeleteFile($file, "RECYCLE");
+      $processed = $processed + 1;
+    }
+  }
+  else if( $choice == 3 ) // Rename with timestamp
+  {
+    @var $timestamp = FormatDate("yyyy-MM-dd_HH-mm-ss", GetTime());
+    @var $nameOnly = PathGetNamePart($file, 1);
+    @var $ext = PathGetFileExtPart($file);
+    @var $newName = $nameOnly + "_" + $timestamp + $ext;
+    RenameFile($file, $newName, "SILENT");
+    $processed = $processed + 1;
+  }
+}
+
+MessageBox("Processing Complete", "Processed " + $processed + " files", 0);</pre>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header bg-warning text-dark">
+					<h6 class="mb-0"><i class="bi bi-calculator me-2"></i>Folder Size Calculator</h6>
+				</div>
+				<div class="card-body">
+					<p><strong>Purpose:</strong> Calculate and display detailed folder size information.</p>
+					<pre class="mscode">@var $targetPath = GetSourcePath();
+@var $allFiles = FindFiles($targetPath ^ "*.*");
+@var $fileCount = arrayCount($allFiles);
+
+@var $totalSize = 0;
+@var $fileTypes = {};
+@var $sizeBuckets[] = {0, 0, 0, 0, 0}; // &lt;1KB, 1KB-1MB, 1MB-10MB, 10MB-100MB, &gt;100MB
+
+@var $i;
+for( $i = 0; $i &lt; $fileCount; $i = $i + 1 )
+{
+  @var $file = $allFiles[$i];
+  if( IsFolder($file) == 0 ) // Only count files
+  {
+    @var $size = GetFileSize($file);
+    $totalSize = $totalSize + $size;
+    
+    // Categorize by size
+    if( $size &lt; 1024 )
+    {
+      $sizeBuckets[0] = $sizeBuckets[0] + 1;
+    }
+    else if( $size &lt; 1048576 ) // 1MB
+    {
+      $sizeBuckets[1] = $sizeBuckets[1] + 1;
+    }
+    else if( $size &lt; 10485760 ) // 10MB
+    {
+      $sizeBuckets[2] = $sizeBuckets[2] + 1;
+    }
+    else if( $size &lt; 104857600 ) // 100MB
+    {
+      $sizeBuckets[3] = $sizeBuckets[3] + 1;
+    }
+    else
+    {
+      $sizeBuckets[4] = $sizeBuckets[4] + 1;
+    }
+  }
+}
+
+// Build report
+@var $sizeKB = $totalSize / 1024;
+@var $sizeMB = $sizeKB / 1024;
+@var $sizeGB = $sizeMB / 1024;
+
+@var $report = "FOLDER SIZE ANALYSIS\n";
+$report = $report + "Path: " + $targetPath + "\n\n";
+$report = $report + "Total Files: " + $fileCount + "\n";
+$report = $report + "Total Size: " + $totalSize + " bytes\n";
+$report = $report + "            " + $sizeKB + " KB\n";
+$report = $report + "            " + $sizeMB + " MB\n";
+$report = $report + "            " + $sizeGB + " GB\n\n";
+$report = $report + "SIZE DISTRIBUTION:\n";
+$report = $report + "< 1 KB: " + $sizeBuckets[0] + " files\n";
+$report = $report + "1 KB - 1 MB: " + $sizeBuckets[1] + " files\n";
+$report = $report + "1 MB - 10 MB: " + $sizeBuckets[2] + " files\n";
+$report = $report + "10 MB - 100 MB: " + $sizeBuckets[3] + " files\n";
+$report = $report + "> 100 MB: " + $sizeBuckets[4] + " files\n";
+
+MessageBox("Folder Size Analysis", $report, 0);</pre>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<section id="advanced-examples" class="mt-5">
+	<h3>Advanced Examples</h3>
+	<p>Complex scripts demonstrating advanced MultiScript features, error handling, and sophisticated automation workflows.</p>
+
+	<div class="row">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header bg-dark text-white">
+					<h6 class="mb-0"><i class="bi bi-gear-wide-connected me-2"></i>Comprehensive File Synchronizer</h6>
+				</div>
+				<div class="card-body">
+					<p><strong>Purpose:</strong> Synchronize files between source and target directories with conflict resolution.</p>
+					<pre class="mscode">function CompareDates($file1, $file2)
+{
+  @var $time1 = GetFileTime($file1);
+  @var $time2 = GetFileTime($file2);
+  
+  if( $time1 &gt; $time2 )
+  {
+    return 1; // file1 is newer
+  }
+  else if( $time1 &lt; $time2 )
+  {
+    return -1; // file2 is newer
+  }
+  else
+  {
+    return 0; // same date
+  }
+}
+
+function SyncFiles($sourceDir, $targetDir)
+{
+  @var $sourceFiles = FindFiles($sourceDir ^ "*.*");
+  @var $fileCount = arrayCount($sourceFiles);
+  @var $copied = 0;
+  @var $skipped = 0;
+  @var $conflicts = 0;
+  
+  @var $i;
+  for( $i = 0; $i &lt; $fileCount; $i = $i + 1 )
+  {
+    @var $sourceFile = $sourceFiles[$i];
+    if( IsFolder($sourceFile) == 0 ) // Only process files
+    {
+      @var $fileName = PathGetNamePart($sourceFile);
+      @var $targetFile = $targetDir ^ $fileName;
+      
+      if( FileExists($targetFile) == 0 )
+      {
+        // File doesn't exist in target, copy it
+        CopyFile($targetDir, $sourceFile, "NODIALOG");
+        $copied = $copied + 1;
+      }
+      else
+      {
+        // File exists, check dates
+        @var $comparison = CompareDates($sourceFile, $targetFile);
+        if( $comparison &gt; 0 )
+        {
+          // Source is newer, ask user
+          @var $choice = MessageBox("File Conflict", $fileName + " exists in target but source is newer.\nOverwrite?", 4); // Yes/No
+          if( $choice == 6 ) // Yes
+          {
+            CopyFile($targetDir, $sourceFile, "NODIALOG,OVERWRITE_ALL");
+            $copied = $copied + 1;
+          }
+          else
+          {
+            $skipped = $skipped + 1;
+          }
+        }
+        else if( $comparison == 0 )
+        {
+          // Same date, skip
+          $skipped = $skipped + 1;
+        }
+        else
+        {
+          // Target is newer, log conflict
+          $conflicts = $conflicts + 1;
+        }
+      }
+    }
+  }
+  
+  @var $result = "SYNC RESULTS:\n";
+  $result = $result + "Files copied: " + $copied + "\n";
+  $result = $result + "Files skipped: " + $skipped + "\n";
+  $result = $result + "Conflicts (target newer): " + $conflicts;
+  
+  return $result;
+}
+
+// Main execution
+@var $sourceDir = GetSourcePath();
+@var $targetDir = GetTargetPath();
+
+if( StrLen($targetDir) == 0 )
+{
+  MessageBox("Error", "Please select target directory in right panel", 0);
+  return;
+}
+
+@var $confirm = MessageBox("Confirm Sync", "Sync from:\n" + $sourceDir + "\n\nTo:\n" + $targetDir, 4); // Yes/No
+
+if( $confirm == 6 ) // Yes
+{
+  @var $result = SyncFiles($sourceDir, $targetDir);
+  MessageBox("Sync Complete", $result, 0);
+}</pre>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="row mt-3">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header bg-info text-white">
+					<h6 class="mb-0"><i class="bi bi-database me-2"></i>Database-Style File Query</h6>
+				</div>
+				<div class="card-body">
+					<p><strong>Purpose:</strong> Search files using multiple criteria like a database query.</p>
+					<pre class="mscode">function CreateFilter()
+{
+  @var $filter = FilterCreate();
+  
+  // Get search criteria from user
+  @var $namePattern = AskText("Name Pattern", "Enter filename pattern (* for any)", 0);
+  if( StrLen($namePattern) &gt; 0 )
+  {
+    FilterAddRule($filter, "fullname", "wildcard", $namePattern);
+  }
+  
+  @var $extensions[] = {"Any", "*.txt", "*.doc", "*.pdf", "*.jpg", "*.mp3"};
+  @var $extChoice = AskOption("File Extension", $extensions, 0);
+  if( $extChoice &gt; 0 )
+  {
+    FilterAddRule($filter, "ext", "wildcard", $extensions[$extChoice]);
+  }
+  
+  @var $sizes[] = {"Any Size", "&lt; 1 MB", "1-10 MB", "&gt; 10 MB"};
+  @var $sizeChoice = AskOption("File Size", $sizes, 0);
+  if( $sizeChoice == 1 )
+  {
+    FilterAddRule($filter, "size", "lessthan", "1048576");
+  }
+  else if( $sizeChoice == 2 )
+  {
+    FilterAddRule($filter, "size", "morethan", "1048576");
+    FilterAddRule($filter, "size", "lessthan", "10485760");
+  }
+  else if( $sizeChoice == 3 )
+  {
+    FilterAddRule($filter, "size", "morethan", "10485760");
+  }
+  
+  return $filter;
+}
+
+// Main query execution
+@var $filter = CreateFilter();
+@var $searchPath = GetSourcePath();
+@var $allFiles = FindFiles($searchPath ^ "*.*");
+@var $matches[];
+
+@var $fileCount = arrayCount($allFiles);
+@var $i;
+for( $i = 0; $i &lt; $fileCount; $i = $i + 1 )
+{
+  @var $file = $allFiles[$i];
+  if( FilterIsMatch($filter, $file) == 1 )
+  {
+    arrayAdd($matches, $file);
+  }
+}
+
+@var $matchCount = arrayCount($matches);
+if( $matchCount &gt; 0 )
+{
+  // Generate results file
+  @var $results = "QUERY RESULTS\n";
+  $results = $results + "Search Path: " + $searchPath + "\n";
+  $results = $results + "Matches Found: " + $matchCount + "\n\n";
+  
+  for( $i = 0; $i &lt; $matchCount; $i = $i + 1 )
+  {
+    @var $file = $matches[$i];
+    @var $size = GetFileSize($file);
+    @var $date = FormatDate("yyyy-MM-dd", GetFileTime($file));
+    $results = $results + PathGetNamePart($file) + " | " + $size + " bytes | " + $date + "\n";
+  }
+  
+  @var $resultsFile = $searchPath ^ "query_results.txt";
+  SaveStringToFile($resultsFile, $results, 1);
+  
+  MessageBox("Query Complete", "Found " + $matchCount + " matches\nResults saved to query_results.txt", 0);
+}
+else
+{
+  MessageBox("No Matches", "No files matched your query criteria", 0);
+}</pre>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header bg-primary text-white">
+					<h6 class="mb-0"><i class="bi bi-graph-up me-2"></i>System Information Logger</h6>
+				</div>
+				<div class="card-body">
+					<p><strong>Purpose:</strong> Collect and log detailed system and Multi Commander information.</p>
+					<pre class="mscode">function GetSystemInfo()
+{
+  @var $info[];
+  
+  // Basic system information
+  arrayAdd($info, "=== SYSTEM INFORMATION ===");
+  arrayAdd($info, "Timestamp: " + FormatDate("yyyy-MM-dd", GetTime()) + " " + FormatTime("HH:mm:ss", GetTime()));
+  arrayAdd($info, "Windows Directory: " + TranslateEnvString("%WINDIR%"));
+  arrayAdd($info, "User Profile: " + TranslateEnvString("%USERPROFILE%"));
+  arrayAdd($info, "Computer Name: " + TranslateEnvString("%COMPUTERNAME%"));
+  arrayAdd($info, "");
+  
+  // Multi Commander information
+  arrayAdd($info, "=== MULTI COMMANDER ===");
+  arrayAdd($info, "Install Path: " + GetTagValue("${mcinstallpath}"));
+  arrayAdd($info, "Config Path: " + GetTagValue("${mcconfigpath}"));
+  arrayAdd($info, "");
+  
+  // Current session information
+  arrayAdd($info, "=== CURRENT SESSION ===");
+  arrayAdd($info, "Source Path: " + GetSourcePath());
+  arrayAdd($info, "Target Path: " + GetTargetPath());
+  arrayAdd($info, "Active Panel: " + TabActivePanelSide());
+  arrayAdd($info, "Source Tab Count: " + TabCount("source"));
+  arrayAdd($info, "Target Tab Count: " + TabCount("target"));
+  arrayAdd($info, "");
+  
+  // File system information
+  arrayAdd($info, "=== CURRENT FOLDER STATS ===");
+  @var $currentFiles = GetSourceItems(1);
+  @var $fileCount = 0;
+  @var $folderCount = 0;
+  @var $totalSize = 0;
+  
+  @var $itemCount = arrayCount($currentFiles);
+  @var $i;
+  for( $i = 0; $i &lt; $itemCount; $i = $i + 1 )
+  {
+    @var $item = $currentFiles[$i];
+    if( IsFolder($item) == 1 )
+    {
+      $folderCount = $folderCount + 1;
+    }
+    else
+    {
+      $fileCount = $fileCount + 1;
+      $totalSize = $totalSize + GetFileSize($item);
+    }
+  }
+  
+  arrayAdd($info, "Files: " + $fileCount);
+  arrayAdd($info, "Folders: " + $folderCount);
+  arrayAdd($info, "Total Size: " + $totalSize + " bytes (" + ($totalSize / 1024) + " KB)");
+  
+  return $info;
+}
+
+// Generate and save system information
+@var $sysInfo = GetSystemInfo();
+@var $infoText = StrLinesArray2String($sysInfo);
+
+@var $logPath = GetSourcePath() ^ "system_info_" + FormatDate("yyyy-MM-dd_HH-mm-ss", GetTime()) + ".txt";
+SaveStringToFile($logPath, $infoText, 1);
+
+// Also save to clipboard
+SetClipboardText($infoText);
+
+MessageBox("System Info Collected", "System information saved to:\n" + PathGetNamePart($logPath) + "\n\nAlso copied to clipboard", 0);</pre>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<div class="alert alert-success mt-5">
+	<h6><i class="bi bi-lightbulb me-2"></i>MultiScript Best Practices</h6>
+	<p class="mb-0"><strong>Error Handling:</strong> Always check return values and validate user inputs. <strong>User Experience:</strong> Provide clear feedback through MessageBox dialogs and progress indicators. <strong>Code Organization:</strong> Use functions for reusable code blocks and meaningful variable names. <strong>Performance:</strong> Consider file counts and sizes when processing large datasets. <strong>Safety:</strong> Use "SILENT" and "NODIALOG" options carefully, and consider backup operations for destructive actions. <strong>Testing:</strong> Test scripts on small datasets before running on important files.</p>
+</div>
+
+<div class="alert alert-info mt-4">
+	<h6><i class="bi bi-info-circle me-2"></i>Related MultiScript Documentation</h6>
+	<p class="mb-0">Enhance your MultiScript knowledge with: <a href="/Docs/multiscript/languagesyntax" class="text-decoration-none">Language Syntax</a>, <a href="/Docs/multiscript/corefunctions" class="text-decoration-none">Core Functions</a>, <a href="/Docs/multiscript/functions/filesystem" class="text-decoration-none">File System Functions</a>, <a href="/Docs/multiscript/functions/string" class="text-decoration-none">String Functions</a>, <a href="/Docs/multiscript/functions/array" class="text-decoration-none">Array Functions</a>, <a href="/Docs/UDC_multiscript" class="text-decoration-none">User Defined Commands</a>, and <a href="/Docs/UDC_multiscript_debugger" class="text-decoration-none">MultiScript Debugger</a>.</p>
+</div>
 
 

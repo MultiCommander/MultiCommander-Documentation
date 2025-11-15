@@ -1,36 +1,393 @@
-<h2>Paste from Clipboard into Explorer Panel</h2>
-<p>If the data in the clipboard is text or picture data and you try to paste it into the Explorer Panel you will be asked to save the clipboard data as a text or image file.</p>
+﻿<h2>Explorer Panel - Paste from Clipboard</h2>
 
-<h3>Saving Text Data</h3>
+<p>The <strong>Explorer Panel Paste from Clipboard</strong> feature provides intelligent content detection and file creation capabilities that automatically recognize text, image, and path data in the clipboard and offer appropriate conversion options for saving content as files or navigating to locations. This sophisticated clipboard integration system transforms standard paste operations into powerful file management tools that enable direct content-to-file conversion, intelligent path navigation, and seamless workflow integration between external applications and the Multi Commander file system interface.</p>
 
-<p>If the data in your clipboard is <em>text </em>and you press Ctrl+V (or Menu &gt; Edit &gt; Paste) while the focus in Multi Commander is in an Explorer Panel, you will be shown a dialog where you can save the text content from the clipboard to a file.<br />
-<img alt="" src="/Docs/Images/SaveClipboardText.png" /><br />
-<br />
-The dialog lets you choose the format to save the text in</p>
+<div class="alert alert-primary">
+	<h6><i class="bi bi-clipboard-plus me-2"></i>Intelligent Clipboard Integration System</h6>
+	<p class="mb-0">Experience advanced clipboard functionality that automatically detects content type and provides appropriate conversion options for creating files, navigating to paths, or saving various data formats. The Paste from Clipboard system bridges external applications and file management through intelligent content recognition, format selection dialogs, and seamless integration with Explorer Panel navigation capabilities for enhanced productivity and workflow efficiency.</p>
+</div>
 
-<ul>
-	<li>Ascii</li>
-	<li>Unicode</li>
-	<li>Ascii - convert to CRLF</li>
-	<li>Unicode - convert to CRLF</li>
-	<li>Binary (Raw data)</li>
-</ul>
+<nav class="navbar navbar-expand-lg navbar-light bg-light mb-4">
+	<div class="container-fluid">
+		<span class="navbar-brand">Quick Navigation</span>
+		<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#pasteFromClipboardNav">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="pasteFromClipboardNav">
+			<ul class="navbar-nav">
+				<li class="nav-item"><a class="nav-link" href="#overview">Overview</a></li>
+				<li class="nav-item"><a class="nav-link" href="#text-data">Text Data</a></li>
+				<li class="nav-item"><a class="nav-link" href="#image-data">Image Data</a></li>
+				<li class="nav-item"><a class="nav-link" href="#path-navigation">Path Navigation</a></li>
+			</ul>
+		</div>
+	</div>
+</nav>
 
-<p>Some special handling is done for text data. If the text data in your clipboard looks like a <em>path</em> for an existing folder or file, then instead of opening a dialog, Multi Commander will immediately change the current location to that path you have in your clipboard data. If the path in the clipboard has a file specified then the focus will be set to that file.</p>
+<section id="overview">
+	<h3>Paste from Clipboard Overview</h3>
+	<p>The Paste from Clipboard system provides intelligent content detection that automatically identifies the type of data in the clipboard and offers appropriate handling options, transforming standard clipboard operations into sophisticated file creation and navigation tools that enhance Multi Commander's integration with external applications and workflows.</p>
 
-<h3>Saving Image Data</h3>
+	<div class="row">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header bg-info text-white">
+					<h6 class="mb-0"><i class="bi bi-magic me-2"></i>Intelligent Content Detection</h6>
+				</div>
+				<div class="card-body">
+					<h6>Automatic Data Type Recognition</h6>
+					<ul class="small">
+						<li><strong>Text Content Detection:</strong> Identifies plain text, formatted text, and path information</li>
+						<li><strong>Image Content Recognition:</strong> Detects screenshots, copied images, and picture data</li>
+						<li><strong>Path Intelligence:</strong> Recognizes file and folder paths for navigation purposes</li>
+						<li><strong>Format-Specific Handling:</strong> Provides appropriate conversion options for each data type</li>
+					</ul>
 
-<p>If the clipboard data is an <em>image</em> (for example if you pressed print screen to take a screenshot), you will be given the option to select the image format to save it in.<br />
-<img alt="" src="/Docs/Images/SaveClipboardImg.png" /><br />
-<br />
-You can save the image the following format</p>
+					<h6>Activation Methods</h6>
+					<ul class="small">
+						<li><strong>Keyboard Shortcut:</strong> <kbd>Ctrl</kbd>+<kbd>V</kbd> while Explorer Panel has focus</li>
+						<li><strong>Menu Access:</strong> Edit Menu → Paste command</li>
+						<li><strong>Context Sensitivity:</strong> Only activates when compatible clipboard content is detected</li>
+						<li><strong>Focus Requirement:</strong> Explorer Panel must be active for paste operations</li>
+					</ul>
 
-<ul>
-	<li>jpg</li>
-	<li>png</li>
-	<li>bmp</li>
-</ul>
+					<h6>Supported Content Types</h6>
+					<ul class="small">
+						<li><strong>Text Data:</strong> Plain text, Unicode text, formatted content from applications</li>
+						<li><strong>Image Data:</strong> Screenshots, copied images, picture data from graphics applications</li>
+						<li><strong>Path Data:</strong> File paths, folder paths, UNC network paths</li>
+						<li><strong>Binary Data:</strong> Raw clipboard content for specialized applications</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
 
-<p>&nbsp;</p>
+<section id="text-data" class="mt-5">
+	<h3>Text Data Handling and File Creation</h3>
+	<p>When clipboard content contains text data, the Paste from Clipboard system provides comprehensive text file creation options with multiple encoding formats, line ending conversion capabilities, and flexible save options that accommodate various text processing requirements and workflow scenarios.</p>
+
+	<div class="row">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header bg-success text-white">
+					<h6 class="mb-0"><i class="bi bi-file-text me-2"></i>Text File Creation Dialog</h6>
+				</div>
+				<div class="card-body">
+					<div class="text-center mt-3 mb-3">
+						<img src="/Docs/Images/SaveClipboardText.png" alt="Save Clipboard Text Dialog" class="img-fluid border rounded shadow-sm" />
+						<p class="text-muted small mt-2">Save clipboard text dialog showing format options and encoding choices</p>
+					</div>
+
+					<h6>Text Content Processing</h6>
+					<ul class="small">
+						<li><strong>Automatic Detection:</strong> System recognizes text content in clipboard automatically</li>
+						<li><strong>Format Selection Dialog:</strong> Interactive dialog for choosing text file format and encoding</li>
+						<li><strong>Filename Input:</strong> User-specified filename for created text file</li>
+						<li><strong>Save Location:</strong> File created in current Explorer Panel directory</li>
+					</ul>
+
+					<h6>Available Text Formats</h6>
+					<div class="row">
+						<div class="col-md-6">
+							<ul class="small">
+								<li><strong>ASCII:</strong> Standard ASCII text encoding for maximum compatibility</li>
+								<li><strong>Unicode:</strong> Unicode encoding for international character support</li>
+								<li><strong>ASCII - convert to CRLF:</strong> ASCII with Windows line endings conversion</li>
+							</ul>
+						</div>
+						<div class="col-md-6">
+							<ul class="small">
+								<li><strong>Unicode - convert to CRLF:</strong> Unicode with Windows line endings</li>
+								<li><strong>Binary (Raw data):</strong> Raw clipboard data without text processing</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="row mt-3">
+		<div class="col-md-6">
+			<div class="card">
+				<div class="card-header bg-warning text-dark">
+					<h6 class="mb-0"><i class="bi bi-type me-2"></i>Text Encoding Options</h6>
+				</div>
+				<div class="card-body">
+					<h6>Encoding Format Selection</h6>
+					<ul class="small">
+						<li><strong>ASCII Encoding:</strong> 7-bit character encoding for basic text compatibility</li>
+						<li><strong>Unicode Encoding:</strong> UTF-16 encoding supporting international characters</li>
+						<li><strong>Character Preservation:</strong> Maintains special characters and symbols</li>
+						<li><strong>Compatibility Considerations:</strong> Choose encoding based on intended use</li>
+					</ul>
+
+					<h6>Format Selection Guidelines</h6>
+					<ul class="small">
+						<li><strong>ASCII:</strong> Best for basic text, programming code, configuration files</li>
+						<li><strong>Unicode:</strong> Required for international text, special characters</li>
+						<li><strong>Binary:</strong> For preserving exact clipboard data structure</li>
+						<li><strong>Application Compatibility:</strong> Consider target application requirements</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-6">
+			<div class="card">
+				<div class="card-header bg-info text-white">
+					<h6 class="mb-0"><i class="bi bi-arrow-return-left me-2"></i>Line Ending Conversion</h6>
+				</div>
+				<div class="card-body">
+					<h6>CRLF Conversion Options</h6>
+					<ul class="small">
+						<li><strong>Convert to CRLF:</strong> Windows-style line endings (Carriage Return + Line Feed)</li>
+						<li><strong>Source Preservation:</strong> Maintain original line endings from source application</li>
+						<li><strong>Platform Compatibility:</strong> CRLF ensures Windows text editor compatibility</li>
+						<li><strong>Cross-Platform Considerations:</strong> Choose based on intended platform usage</li>
+					</ul>
+
+					<h6>Use Case Scenarios</h6>
+					<ul class="small">
+						<li><strong>Windows Applications:</strong> Use CRLF conversion for Notepad, WordPad compatibility</li>
+						<li><strong>Web Content:</strong> Preserve original line endings for HTML, CSS files</li>
+						<li><strong>Programming Code:</strong> Consider development environment preferences</li>
+						<li><strong>Data Processing:</strong> Raw format for maintaining exact data structure</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<section id="image-data" class="mt-5">
+	<h3>Image Data Processing and File Creation</h3>
+	<p>The image data handling system provides comprehensive support for screenshot capture, copied images, and graphic content from external applications, offering multiple output formats and quality options for optimal image file creation and organization within the file management workflow.</p>
+
+	<div class="row">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header bg-primary text-white">
+					<h6 class="mb-0"><i class="bi bi-image me-2"></i>Image Content Processing</h6>
+				</div>
+				<div class="card-body">
+					<div class="text-center mt-3 mb-3">
+						<img src="/Docs/Images/SaveClipboardImg.png" alt="Save Clipboard Image Dialog" class="img-fluid border rounded shadow-sm" />
+						<p class="text-muted small mt-2">Save clipboard image dialog showing format selection options for image content</p>
+					</div>
+
+					<h6>Image Content Detection</h6>
+					<ul class="small">
+						<li><strong>Screenshot Recognition:</strong> Automatic detection of Print Screen captures and screen regions</li>
+						<li><strong>Application Images:</strong> Images copied from graphics applications, web browsers, documents</li>
+						<li><strong>Graphic Content:</strong> Drawings, charts, diagrams, and visual content from various sources</li>
+						<li><strong>Format Intelligence:</strong> Appropriate format suggestions based on image characteristics</li>
+					</ul>
+
+					<h6>Available Image Formats</h6>
+					<div class="row">
+						<div class="col-md-4">
+							<div class="card border">
+								<div class="card-header bg-light">
+									<h6 class="small mb-0"><strong>JPG Format</strong></h6>
+								</div>
+								<div class="card-body p-2">
+									<ul class="small mb-0">
+										<li>Compressed format</li>
+										<li>Smaller file sizes</li>
+										<li>Best for photographs</li>
+										<li>Lossy compression</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-4">
+							<div class="card border">
+								<div class="card-header bg-light">
+									<h6 class="small mb-0"><strong>PNG Format</strong></h6>
+								</div>
+								<div class="card-body p-2">
+									<ul class="small mb-0">
+										<li>Lossless compression</li>
+										<li>Transparency support</li>
+										<li>Best for screenshots</li>
+										<li>Higher quality</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-4">
+							<div class="card border">
+								<div class="card-header bg-light">
+									<h6 class="small mb-0"><strong>BMP Format</strong></h6>
+								</div>
+								<div class="card-body p-2">
+									<ul class="small mb-0">
+										<li>Uncompressed format</li>
+										<li>Largest file sizes</li>
+										<li>Maximum quality</li>
+										<li>Universal compatibility</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+</section>
+
+<section id="path-navigation" class="mt-5">
+	<h3>Intelligent Path Navigation</h3>
+	<p>The Paste from Clipboard system includes sophisticated path recognition capabilities that automatically detect file and folder paths in clipboard content and provide seamless navigation functionality, enabling rapid location switching and file focusing through clipboard-based path operations.</p>
+
+	<div class="row">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header bg-info text-white">
+					<h6 class="mb-0"><i class="bi bi-signpost me-2"></i>Automatic Path Detection and Navigation</h6>
+				</div>
+				<div class="card-body">
+					<h6>Path Recognition System</h6>
+					<ul class="small">
+						<li><strong>Automatic Detection:</strong> System recognizes valid file and folder paths in clipboard text</li>
+						<li><strong>Path Validation:</strong> Verifies path existence before attempting navigation</li>
+						<li><strong>Immediate Navigation:</strong> Bypasses file creation dialog for recognized paths</li>
+						<li><strong>Focus Management:</strong> Sets focus to specified file when path includes filename</li>
+					</ul>
+
+					<h6>Supported Path Types</h6>
+					<ul class="small">
+						<li><strong>Local Paths:</strong> Windows drive paths (C:\Users\Documents\)</li>
+						<li><strong>Network Paths:</strong> UNC network locations (\\server\share\folder)</li>
+						<li><strong>Folder Paths:</strong> Directory paths for navigation to specific locations</li>
+						<li><strong>File Paths:</strong> Complete file paths for navigation and focus setting</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="row mt-3">
+		<div class="col-md-6">
+			<div class="card">
+				<div class="card-header bg-success text-white">
+					<h6 class="mb-0"><i class="bi bi-folder2-open me-2"></i>Folder Navigation</h6>
+				</div>
+				<div class="card-body">
+					<h6>Directory Path Handling</h6>
+					<ul class="small">
+						<li><strong>Folder Path Recognition:</strong> Detects clipboard content as valid folder path</li>
+						<li><strong>Immediate Navigation:</strong> Explorer Panel navigates directly to specified folder</li>
+						<li><strong>No Dialog Display:</strong> Bypasses save dialog when path is recognized</li>
+						<li><strong>Location Verification:</strong> Confirms folder existence before navigation</li>
+					</ul>
+
+					<h6>Navigation Examples</h6>
+					<div class="alert alert-light p-2 mt-3">
+						<h6 class="small mb-1">Clipboard Content Examples:</h6>
+						<pre class="small mb-0">C:\Users\Documents\Projects\
+\\NetworkServer\SharedFolder\
+D:\Downloads\Software\</pre>
+					</div>
+
+					<h6>Workflow Benefits</h6>
+					<ul class="small">
+						<li><strong>Rapid Navigation:</strong> Instant location switching without manual path entry</li>
+						<li><strong>External Integration:</strong> Navigate to paths copied from other applications</li>
+						<li><strong>Cross-Application Workflow:</strong> Bridge between applications and file management</li>
+						<li><strong>Productivity Enhancement:</strong> Eliminate manual path typing and navigation steps</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-6">
+			<div class="card">
+				<div class="card-header bg-primary text-white">
+					<h6 class="mb-0"><i class="bi bi-file-earmark me-2"></i>File Focus Navigation</h6>
+				</div>
+				<div class="card-body">
+					<h6>File Path with Focus</h6>
+					<ul class="small">
+						<li><strong>Complete File Path:</strong> Recognizes full file paths including filename</li>
+						<li><strong>Directory Navigation:</strong> Navigates to containing folder</li>
+						<li><strong>File Focus:</strong> Sets focus to specified file within directory</li>
+						<li><strong>Visual Highlighting:</strong> Target file highlighted in Explorer Panel</li>
+					</ul>
+
+					<h6>File Focus Examples</h6>
+					<div class="alert alert-light p-2 mt-3">
+						<h6 class="small mb-1">File Path Examples:</h6>
+						<pre class="small mb-0">C:\Users\Documents\report.pdf
+D:\Photos\vacation\beach.jpg
+\\Server\Files\project\readme.txt</pre>
+					</div>
+
+					<h6>Advanced Features</h6>
+					<ul class="small">
+						<li><strong>Intelligent Parsing:</strong> Distinguishes between folder and file paths automatically</li>
+						<li><strong>Error Handling:</strong> Graceful handling of invalid or inaccessible paths</li>
+						<li><strong>Focus Precision:</strong> Exact file targeting within large directories</li>
+						<li><strong>Context Preservation:</strong> Maintains Explorer Panel state during navigation</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+
+<section id="technical-details" class="mt-5">
+	<h3>Technical Details and Limitations</h3>
+	<p>Understanding the technical aspects and limitations of the Paste from Clipboard system enables optimal utilization and helps users make informed decisions about content handling, format selection, and workflow integration for maximum efficiency and compatibility.</p>
+
+	<div class="row">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header bg-dark text-white">
+					<h6 class="mb-0"><i class="bi bi-info-circle me-2"></i>System Requirements and Compatibility</h6>
+				</div>
+				<div class="card-body">
+					<h6>Content Type Support</h6>
+					<ul class="small">
+						<li><strong>Text Format Support:</strong> Plain text, Unicode text, formatted text from applications</li>
+						<li><strong>Image Format Support:</strong> Standard Windows clipboard image formats</li>
+						<li><strong>Path Recognition:</strong> Windows path formats, UNC paths, local and network locations</li>
+						<li><strong>Binary Data:</strong> Raw clipboard content for specialized applications</li>
+					</ul>
+
+					<h6>Format Limitations</h6>
+					<ul class="small">
+						<li><strong>Text Encoding:</strong> Limited to ASCII and Unicode (UTF-16) output formats</li>
+						<li><strong>Image Formats:</strong> Output limited to JPG, PNG, and BMP formats</li>
+						<li><strong>Path Validation:</strong> Path recognition limited to accessible file system locations</li>
+						<li><strong>Content Size:</strong> Large clipboard content may impact processing performance</li>
+					</ul>
+
+					<h6>Best Practice Recommendations</h6>
+					<ul class="small">
+						<li><strong>Content Verification:</strong> Verify content type and format before paste operation</li>
+						<li><strong>Directory Preparation:</strong> Ensure target directory exists and has write permissions</li>
+						<li><strong>Format Selection:</strong> Choose appropriate format based on intended use and compatibility</li>
+						<li><strong>File Naming:</strong> Use descriptive filenames for created content files</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<div class="alert alert-success mt-5">
+	<h6><i class="bi bi-lightbulb me-2"></i>Paste from Clipboard Mastery</h6>
+	<p class="mb-0">Master Explorer Panel Paste from Clipboard by utilizing <kbd>Ctrl</kbd>+<kbd>V</kbd> for intelligent content detection that automatically recognizes text, images, and paths in clipboard data. Choose PNG format for screenshots and UI documentation, JPG for photographic content, and Unicode encoding for international text. Remember that path recognition enables automatic navigation to clipboard-contained file and folder paths, eliminating manual path entry and enabling seamless workflow integration between external applications and Multi Commander's file management capabilities. This powerful feature transforms standard clipboard operations into sophisticated content-to-file conversion and navigation tools.</p>
+</div>
+
+<div class="alert alert-info mt-4">
+	<h6><i class="bi bi-info-circle me-2"></i>Related Clipboard and File Management Documentation</h6>
+	<p class="mb-0">Enhance your clipboard workflow with related Explorer Panel features: <a href="/Docs/SendToClipboard" class="text-decoration-none">Send to Clipboard</a>, <a href="/Docs/ExplorerPanel2" class="text-decoration-none">Explorer Panel Navigation</a>, <a href="/Docs/ExplorerPanel-Layout" class="text-decoration-none">Explorer Panel Layout</a>, <a href="/Docs/ExplorerPanelPathField" class="text-decoration-none">Path Field</a>, <a href="/Docs/file-operations" class="text-decoration-none">File Operations</a>, and <a href="/Docs/ExplorerPanelSettings" class="text-decoration-none">Explorer Panel Settings</a>.</p>
+</div>
 
 

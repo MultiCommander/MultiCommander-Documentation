@@ -1,27 +1,291 @@
 <h2>Explorer Panel</h2>
-<p>The <strong>Explorer Panel</strong> is the main panel in Multi Commander.<br />
-It is from here that you browse the filesystem and select files or folders for copying, moving, renaming, deleting, viewing and so forth.</p>
 
-<p><img alt="" src="/Docs/Images/ExplorerPanel_1_350.png" style="margin-left: 10px; margin-right: 10px; float: left; width: 350px; height: 362px;" /></p>
+<p>The <strong>Explorer Panel</strong> serves as the primary file management interface within Multi Commander, providing the core functionality for browsing file systems, selecting files and folders, and performing essential file operations including copying, moving, renaming, deleting, and viewing. This central application extension operates within the sophisticated tab-panel system and represents the fundamental workspace where users interact with their files and directories through an intuitive, powerful interface that combines traditional file manager concepts with advanced productivity features and extensive customization capabilities.</p>
 
-<p><img alt="" src="/Docs/Images/ExplorerPanel_2_350.png" style="margin-left: 10px; margin-right: 10px; width: 350px; height: 362px;" /></p>
-
-<div>
-<p>You can have multiple tabs that each contain one Explorer Panel. Each Explorer Panel is a separate file browser.</p>
-
-<p><br />
-The Explorer Panel also adds a couple of additonal commands to the context menu on the Panel tab. It adds supports for actions like <em>Duplicate Tab,</em> <em>Lock Tab, Tab Properties.</em></p>
-
-<p><img alt="" src="/Docs/Images/ExplorerPanel_TabMenu_350.png" style="width: 350px; height: 265px;" /></p>
-
-<p>By selecting "<strong>Duplicate Tab</strong>" from the Context Menu on the Tab or with the keyboard shortcut <strong>CTRL+T</strong>, a new Explorer Panel will be shown. It will display the same location as the current, active Explorer Panel.</p>
-
-<p>"<strong>Lock Tab</strong>" allows an Explorer Panel to be locked at the location it currently displays. If you try to go to another location a new Explorer Panel will be opened for that location.</p>
-
-<p><strong>Tab Properties</strong>&nbsp;will show a window where you can customize the tab color and override the tab name,</p>
-
-<p><a href="#docs_ExplorerPanel-Layout">Read more about the Layout</a> of the Explorer Panel.<br />
-<a href="#docs_ExplorerPanel2">Read more about the functionality of the Explorer Panel</a>.</p>
+<div class="alert alert-primary">
+	<h6><i class="bi bi-folder2-open me-2"></i>Core File Management Interface</h6>
+	<p class="mb-0">Experience comprehensive file system navigation and management through Multi Commander's primary interface. The Explorer Panel provides intuitive browsing capabilities, advanced selection tools, multiple display modes, and seamless integration with all file operations while supporting unlimited simultaneous instances through the sophisticated tab system for maximum productivity and workflow efficiency.</p>
 </div>
 
+<nav class="navbar navbar-expand-lg navbar-light bg-light mb-4">
+	<div class="container-fluid">
+		<span class="navbar-brand">Quick Navigation</span>
+		<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#explorerPanelNav">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="explorerPanelNav">
+			<ul class="navbar-nav">
+				<li class="nav-item"><a class="nav-link" href="#overview">Overview</a></li>
+				<li class="nav-item"><a class="nav-link" href="#interface">Display Modes</a></li>
+				<li class="nav-item"><a class="nav-link" href="#tab-integration">Tab Integration</a></li>
+				<li class="nav-item"><a class="nav-link" href="#multi-instance">Multi-Instance Support</a></li>
+				<li class="nav-item"><a class="nav-link" href="#management">Tab Management</a></li>
+			</ul>
+		</div>
+	</div>
+</nav>
+
+<section id="overview">
+	<h3>Explorer Panel Overview and Role</h3>
+	<p>The Explorer Panel functions as Multi Commander's primary file management interface, serving as the main application extension that enables users to browse, navigate, and manipulate files and folders across various file systems and storage devices through an intuitive and feature-rich interface design that adapts to diverse workflow requirements.</p>
+
+	<div class="row">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header bg-info text-white">
+					<h6 class="mb-0"><i class="bi bi-window-desktop me-2"></i>Primary File Management Interface</h6>
+				</div>
+				<div class="card-body">
+					<h6>Core Functionality</h6>
+					<ul class="small">
+						<li><strong>File System Navigation:</strong> Browse and navigate through local drives, network locations, and virtual file systems</li>
+						<li><strong>File Selection:</strong> Advanced selection capabilities for single files, multiple files, and complex selection patterns</li>
+						<li><strong>File Operations:</strong> Direct access to copying, moving, renaming, deleting, and viewing operations</li>
+						<li><strong>Tab-Panel Integration:</strong> Seamless operation within Multi Commander's tab-based workspace system</li>
+					</ul>
+
+					<h6>Interface Philosophy</h6>
+					<ul class="small">
+						<li><strong>Intuitive Design:</strong> Familiar file manager interface with advanced productivity enhancements</li>
+						<li><strong>Extensible Framework:</strong> Foundation for additional modules and specialized functionality</li>
+						<li><strong>Multi-Instance Support:</strong> Multiple Explorer Panels can operate simultaneously in different tabs</li>
+						<li><strong>Customizable Layout:</strong> Flexible interface configuration to match individual workflow preferences</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<section id="interface" class="mt-5">
+	<h3>Display Modes and Interface Configurations</h3>
+	<p>The Explorer Panel provides multiple display modes and interface configurations to accommodate different file types, user preferences, and workflow requirements, from detailed file listings to visual thumbnail displays that optimize information presentation.</p>
+
+	<div class="row">
+		<div class="col-md-6">
+			<div class="card">
+				<div class="card-header bg-success text-white">
+					<h6 class="mb-0"><i class="bi bi-list-ul me-2"></i>Detail Mode Display</h6>
+				</div>
+				<div class="card-body">
+					<div class="text-center mt-3 mb-3">
+						<img src="/Docs/Images/ExplorerPanel_1_350.png" alt="Explorer Panel Detail Mode" class="img-fluid border rounded shadow-sm" style="max-width: 350px;" />
+						<p class="text-muted small mt-2">File list shown in detail mode with file name, extension, size, date, and comprehensive file information</p>
+					</div>
+
+					<h6>Detail Mode Features</h6>
+					<ul class="small">
+						<li><strong>Comprehensive Information:</strong> Display file names, extensions, sizes, dates, and attributes</li>
+						<li><strong>Sortable Columns:</strong> Click column headers to sort by different criteria</li>
+						<li><strong>Customizable Columns:</strong> Add, remove, and rearrange columns based on needs</li>
+						<li><strong>Professional Layout:</strong> Clean, organized presentation for efficient file management</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-6">
+			<div class="card">
+				<div class="card-header bg-primary text-white">
+					<h6 class="mb-0"><i class="bi bi-grid me-2"></i>Thumbnail Mode Display</h6>
+				</div>
+				<div class="card-body">
+					<div class="text-center mt-3 mb-3">
+						<img src="/Docs/Images/ExplorerPanel_2_350.png" alt="Explorer Panel Thumbnail Mode" class="img-fluid border rounded shadow-sm" style="max-width: 350px;" />
+						<p class="text-muted small mt-2">File list shown as thumbnails with filenames for visual file identification</p>
+					</div>
+
+					<h6>Thumbnail Mode Benefits</h6>
+					<ul class="small">
+						<li><strong>Visual Recognition:</strong> Instant identification of images, documents, and media files</li>
+						<li><strong>Efficient Browsing:</strong> Quick scanning of large image collections</li>
+						<li><strong>File Preview:</strong> Immediate content preview without opening files</li>
+						<li><strong>Media Management:</strong> Optimized interface for photo and video file organization</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<section id="tab-integration" class="mt-5">
+	<h3>Tab System Integration and Enhanced Functionality</h3>
+	<p>The Explorer Panel operates seamlessly within Multi Commander's sophisticated tab management system, providing enhanced functionality through specialized tab operations and context menu integration that extends basic tab capabilities with Explorer Panel-specific features for optimal file management workflows.</p>
+
+	<div class="row">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header bg-warning text-dark">
+					<h6 class="mb-0"><i class="bi bi-menu-button me-2"></i>Enhanced Tab Operations</h6>
+				</div>
+				<div class="card-body">
+					<div class="text-center mt-3 mb-3">
+						<img src="/Docs/Images/ExplorerPanel_TabMenu_350.png" alt="Explorer Panel Tab Context Menu" class="img-fluid border rounded shadow-sm" style="max-width: 350px;" />
+						<p class="text-muted small mt-2">Explorer Panel tab context menu showing additional specialized operations for file management</p>
+					</div>
+
+					<h6>Explorer Panel Tab Extensions</h6>
+					<p class="small">The Explorer Panel adds specialized commands to the standard tab context menu, providing enhanced functionality specifically designed for file management workflows:</p>
+
+					<ul class="small">
+						<li><strong>Duplicate Tab:</strong> Create identical Explorer Panel tab showing same location for parallel operations</li>
+						<li><strong>Lock Tab:</strong> Prevent navigation changes to maintain stable reference location during complex workflows</li>
+						<li><strong>Tab Properties:</strong> Customize tab appearance with colors and custom naming for visual organization</li>
+						<li><strong>Standard Tab Operations:</strong> Full access to save/load, movement, and closure operations from base tab system</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<section id="multi-instance" class="mt-5">
+	<h3>Multi-Instance Support and Management</h3>
+	<p>Multi Commander's Explorer Panel system supports unlimited simultaneous instances, enabling complex file management workflows through multiple independent panels that can operate on different locations, maintain separate navigation states, and provide parallel access to various file system resources for enhanced productivity.</p>
+
+	<div class="row">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header bg-info text-white">
+					<h6 class="mb-0"><i class="bi bi-files me-2"></i>Multiple Panel Instances</h6>
+				</div>
+				<div class="card-body">
+					<h6>Instance Management</h6>
+					<ul class="small">
+						<li><strong>Unlimited Tabs:</strong> Create as many Explorer Panel tabs as needed for complex workflows</li>
+						<li><strong>Independent Instances:</strong> Each Explorer Panel maintains separate navigation state and configuration</li>
+						<li><strong>Cross-Panel Operations:</strong> Seamless file operations between different Explorer Panel instances</li>
+						<li><strong>Resource Efficiency:</strong> Optimized memory and system resource management for multiple instances</li>
+					</ul>
+
+					<h6>Workflow Benefits</h6>
+					<ul class="small">
+						<li><strong>Parallel Processing:</strong> Perform multiple file operations simultaneously</li>
+						<li><strong>Reference Maintenance:</strong> Keep reference locations open while working elsewhere</li>
+						<li><strong>Project Organization:</strong> Dedicate panels to different projects or workflow stages</li>
+						<li><strong>Comparison Operations:</strong> Compare contents of different directories side by side</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header bg-success text-white">
+					<h6 class="mb-0"><i class="bi bi-plus-circle me-2"></i>Tab Creation and Duplication</h6>
+				</div>
+				<div class="card-body">
+					<h6>Duplicate Tab Operation</h6>
+					<ul class="small">
+						<li><strong>Keyboard Shortcut:</strong> <kbd>Ctrl</kbd>+<kbd>T</kbd> for rapid tab duplication</li>
+						<li><strong>Context Menu Access:</strong> Right-click tab and select "Duplicate Tab"</li>
+						<li><strong>Identical State:</strong> New Explorer Panel displays same location as current active panel</li>
+						<li><strong>Parallel Operations:</strong> Enable simultaneous operations on same location with different views</li>
+					</ul>
+
+					<div class="alert alert-info p-2 mt-3">
+						<h6 class="small mb-1"><i class="bi bi-keyboard me-1"></i>Quick Creation</h6>
+						<p class="small mb-0">Use <kbd>Ctrl</kbd>+<kbd>T</kbd> to instantly duplicate the current Explorer Panel for parallel file operations and comparisons.</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<section id="management" class="mt-5">
+	<h3>Advanced Tab Management Features</h3>
+	<p>The Explorer Panel system provides sophisticated tab management capabilities that enhance workflow organization and navigation control through specialized locking mechanisms and visual customization options designed specifically for file management requirements.</p>
+
+	<div class="row">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header bg-warning text-dark">
+					<h6 class="mb-0"><i class="bi bi-lock me-2"></i>Tab Locking Functionality</h6>
+				</div>
+				<div class="card-body">
+					<h6>Navigation Lock Control</h6>
+					<ul class="small">
+						<li><strong>Path Locking:</strong> Lock Explorer Panel to current location to prevent accidental navigation</li>
+						<li><strong>Reference Stability:</strong> Maintain stable reference locations during complex file operations</li>
+						<li><strong>Automatic Handling:</strong> New Explorer Panel automatically opens when navigation is attempted on locked tab</li>
+						<li><strong>Workflow Protection:</strong> Prevent disruption of established workspace organization</li>
+					</ul>
+
+					<h6>Lock Configuration Options</h6>
+					<ul class="small">
+						<li><strong>Complete Lock:</strong> Prevent all navigation changes from locked location</li>
+						<li><strong>Subpath Navigation:</strong> Allow navigation within subdirectories while maintaining base path</li>
+						<li><strong>Explorer Panel Settings:</strong> Configure lock behavior for new tab creation or navigation ignore</li>
+						<li><strong>Visual Indicators:</strong> Clear visual feedback for locked tab status through interface elements</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header bg-dark text-white">
+					<h6 class="mb-0"><i class="bi bi-palette me-2"></i>Tab Properties and Customization</h6>
+				</div>
+				<div class="card-body">
+					<h6>Visual Customization Options</h6>
+					<ul class="small">
+						<li><strong>Custom Colors:</strong> Apply custom colors to tabs for visual organization and project identification</li>
+						<li><strong>Tab Naming:</strong> Override default tab names with descriptive custom labels</li>
+						<li><strong>Color Schemes:</strong> Choose between solid colors and gradient effects for enhanced visual distinction</li>
+						<li><strong>Workspace Organization:</strong> Use visual cues to categorize and organize multiple Explorer Panel instances</li>
+					</ul>
+
+					<h6>Enhanced Productivity Features</h6>
+					<ul class="small">
+						<li><strong>Project Identification:</strong> Color-code tabs by project, location type, or operational context</li>
+						<li><strong>Visual Navigation:</strong> Quickly identify specific panels in complex multi-tab workflows</li>
+						<li><strong>Status Indication:</strong> Use colors to indicate tab status, importance, or operational state</li>
+						<li><strong>Workflow Optimization:</strong> Streamline navigation through visual organization systems</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<section id="core-features" class="mt-5">
+	<h3>Core File Management Features</h3>
+	<p>The Explorer Panel provides comprehensive file management capabilities through integrated tools that support all essential file operations while maintaining seamless workflow efficiency and advanced productivity features for both basic and complex file manipulation tasks.</p>
+
+	<div class="row">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header bg-primary text-white">
+					<h6 class="mb-0"><i class="bi bi-files me-2"></i>Essential File Operations and Capabilities</h6>
+				</div>
+				<div class="card-body">
+					<h6>Primary File Operations</h6>
+					<ul class="small">
+						<li><strong>File Browsing:</strong> Navigate through local drives, network locations, and virtual file systems with full support</li>
+						<li><strong>File Selection:</strong> Advanced selection methods including single, multiple, and pattern-based file selection</li>
+						<li><strong>Copy and Move:</strong> Efficient file transfer operations with comprehensive progress monitoring and error handling</li>
+						<li><strong>Rename and Delete:</strong> Safe file and folder naming operations with confirmation and undo capabilities</li>
+					</ul>
+
+					<h6>Advanced Interface Features</h6>
+					<ul class="small">
+						<li><strong>Multiple Display Modes:</strong> Switch between detail, thumbnail, and other specialized view modes</li>
+						<li><strong>Customizable Columns:</strong> Add, remove, and rearrange columns to display relevant file information</li>
+						<li><strong>Sorting and Filtering:</strong> Comprehensive sorting options and filtering capabilities for large directories</li>
+						<li><strong>Search Integration:</strong> Direct access to powerful file search functionality from within panels</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<div class="alert alert-success mt-5">
+	<h6><i class="bi bi-lightbulb me-2"></i>Explorer Panel Mastery</h6>
+	<p class="mb-0">Master the Explorer Panel by utilizing multiple instances for complex file operations, leveraging tab duplication for parallel work on the same location, and using tab locking to maintain stable reference points during extensive file management tasks. Remember that each Explorer Panel instance operates independently, tab properties enable visual organization through colors and custom names, and the sophisticated display modes optimize information presentation for different file types and workflow requirements.</p>
+</div>
+
+<div class="alert alert-info mt-4">
+	<h6><i class="bi bi-info-circle me-2"></i>Detailed Explorer Panel Documentation</h6>
+	<p class="mb-0">Explore comprehensive Explorer Panel features and functionality: <a href="/Docs/ExplorerPanel-Layout" class="text-decoration-none">Explorer Panel Layout</a>, <a href="/Docs/ExplorerPanel2" class="text-decoration-none">Explorer Panel Navigation</a>, <a href="/Docs/ExplorerPanelPathField" class="text-decoration-none">Path Field</a>, <a href="/Docs/ExplorerPanel-CustomizeColumns" class="text-decoration-none">Customize Columns</a>, <a href="/Docs/ExplorerPanel-CustomizeColumnLayouts" class="text-decoration-none">Customize Column Layouts</a>, <a href="/Docs/ExplorerPanel-FolderTree" class="text-decoration-none">Folder Tree</a>, <a href="/Docs/ExplorerPanel-FileColoring" class="text-decoration-none">File Coloring</a>, <a href="/Docs/ExplorerPanel-PasteFromClipboard" class="text-decoration-none">Paste from Clipboard</a>, <a href="/Docs/selection" class="text-decoration-none">File Selection</a>, and <a href="/Docs/paneltabs" class="text-decoration-none">Panel Tabs</a>.</p>
+</div>
 

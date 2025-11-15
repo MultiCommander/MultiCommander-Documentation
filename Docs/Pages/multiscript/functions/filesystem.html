@@ -212,6 +212,39 @@
     </tbody>
   </table>
 
+  <h2>Unzip File Operations</h2>
+
+  <table class="table table-bordered">
+    <tbody>
+      <tr>
+        <td><a href="#unziptomemory">UnzipToMemory</a></td>
+        <td>Unzip a file into memory.</td>
+      </tr>
+      <tr>
+        <td><a href="#unzipcount">UnzipCount</a></td>
+        <td>return how many items there are in the zip archive.</td>
+      </tr>
+      <tr>
+        <td><a href="#unzipgetitemcontent">UnzipGetItemContent</a></td>
+        <td>Get the content of an item in the zip.</td>
+      </tr>
+      <tr>
+        <td><a href="#unzipgetitemsize">UnzipGetItemSize</a></td>
+        <td>Return size in bytes of item in zip.</td>
+      </tr>
+      <tr>
+        <td><a href="#unzipfinditem">UnzipFindItem</a></td>
+        <td>Return item index of an item if it exists.</td>
+      </tr>
+      <tr>
+        <td><a href="#unzipclose">UnzipClose</a></td>
+        <td>Close a unzip handle and release the memory.</td>
+      </tr>
+    </tbody>
+  </table>
+
+
+
   <div class="multiscriptfunc">
     <h2><a name="getfiletime"></a>GetFileTime</h2>
 
@@ -473,98 +506,98 @@ if( StrLen( $file ) &gt; 0 )
 </pre>
   </div>
 
-<div class="multiscriptfunc">
-  <h2><a name="getwinshortcuttarget"></a>GetWinShortcutTarget</h2>
+  <div class="multiscriptfunc">
+    <h2><a name="getwinshortcuttarget"></a>GetWinShortcutTarget</h2>
 
-  <p>Get the target path of a shortcut (.lnk).</p>
+    <p>Get the target path of a shortcut (.lnk).</p>
 
-  <pre>
+    <pre>
 &lt;str&gt; GetWinShortcutTarget( &lt;str&gt; path);</pre>
 
-  <h3>Parameters</h3>
+    <h3>Parameters</h3>
 
-  <dl>
-    <dt>path</dt>
-    <dd>Path to the file or folder of interest</dd>
-  </dl>
+    <dl>
+      <dt>path</dt>
+      <dd>Path to the file or folder of interest</dd>
+    </dl>
 
-  <h3>Return value</h3>
+    <h3>Return value</h3>
 
-  <p>The path of the shortcut.</p>
+    <p>The path of the shortcut.</p>
 
-  <h3>Example</h3>
+    <h3>Example</h3>
 
-  <pre class="example">
+    <pre class="example">
 @var $res = GetWinShortcutTarget( 'C:\\MyFolder\\MyShortcut.lnk' );
 // res == "C:\\Users"
 </pre>
-</div>
+  </div>
 
-<div class="multiscriptfunc">
-  <h2><a name="findfirstfile"></a>FindFirstFile</h2>
+  <div class="multiscriptfunc">
+    <h2><a name="findfirstfile"></a>FindFirstFile</h2>
 
-  <p>Return the first matching file name (this function also exists as "_findfirstfile" ).</p>
+    <p>Return the first matching file name (this function also exists as "_findfirstfile" ).</p>
 
-  <pre>
+    <pre>
 &lt;str&gt; FindFirstFile( &lt;str&gt; path, [&lt;num&gt; nameOnly], [&lt;num&gt; dbgInfo] );</pre>
 
-  <h3>Parameters</h3>
+    <h3>Parameters</h3>
 
-  <dl>
-    <dt>path</dt>
-    <dd>Path with filter. eg. "c:\\myfolder\\*.txt"</dd>
-    <dt>nameOnly</dt>
-    <dd>Optional. If 1, return only the name and extension; no path</dd>
-    <dt>dbgInfo (Optional)</dt>
-    <dd>If 1, output extra debugging information to the log window</dd>
-  </dl>
+    <dl>
+      <dt>path</dt>
+      <dd>Path with filter. eg. "c:\\myfolder\\*.txt"</dd>
+      <dt>nameOnly</dt>
+      <dd>Optional. If 1, return only the name and extension; no path</dd>
+      <dt>dbgInfo (Optional)</dt>
+      <dd>If 1, output extra debugging information to the log window</dd>
+    </dl>
 
-  <h3>Return value</h3>
+    <h3>Return value</h3>
 
-  <p>Full file path to the first matching file</p>
+    <p>Full file path to the first matching file</p>
 
-  <h3>Example</h3>
+    <h3>Example</h3>
 
-  <pre class="example">
+    <pre class="example">
 @var $file = FindFirstFile( "C:\\temp\\Co*.txt" );
 </pre>
-</div>
+  </div>
 
-<div class="multiscriptfunc">
-  <h2><a name="findfirstfileex"></a>FindFirstFileEx</h2>
+  <div class="multiscriptfunc">
+    <h2><a name="findfirstfileex"></a>FindFirstFileEx</h2>
 
-  <p>Return the first matching file name. Support scanning in subfolders.</p>
+    <p>Return the first matching file name. Support scanning in subfolders.</p>
 
-  <pre>
+    <pre>
 &lt;str&gt; FindFirstFile( &lt;str&gt; path, [ &lt;str&gt; options] );</pre>
 
-  <h3>Parameters</h3>
+    <h3>Parameters</h3>
 
-  <dl>
-    <dt>path</dt>
-    <dd>Path with filter. eg. "c:\\myfolder\\*.txt"</dd>
-    <dt>option</dt>
-    <dd>
-      <ul>
-        <li>SUBFOLDERS - Also scan in subfolders</li>
-        <li>ONLYFILENAME - Return only the filename</li>
-        <li>IGNOREFOLDERS - Ignore matching folder. continue scanning if a folder match is found.</li>
-        <li>DBG - Output extra information in the log window.</li>
-      </ul>
+    <dl>
+      <dt>path</dt>
+      <dd>Path with filter. eg. "c:\\myfolder\\*.txt"</dd>
+      <dt>option</dt>
+      <dd>
+        <ul>
+          <li>SUBFOLDERS - Also scan in subfolders</li>
+          <li>ONLYFILENAME - Return only the filename</li>
+          <li>IGNOREFOLDERS - Ignore matching folder. continue scanning if a folder match is found.</li>
+          <li>DBG - Output extra information in the log window.</li>
+        </ul>
 
-    </dd>
-  </dl>
+      </dd>
+    </dl>
 
-  <h3>Return value</h3>
+    <h3>Return value</h3>
 
-  <p>Full file path to the first matching file. if "ONLYFILENAME" option is set. Then it returns only the filename instead of full path.</p>
+    <p>Full file path to the first matching file. if "ONLYFILENAME" option is set. Then it returns only the filename instead of full path.</p>
 
-  <h3>Example</h3>
+    <h3>Example</h3>
 
-  <pre class="example">
+    <pre class="example">
 @var $file = FindFirstFileEx( "C:\\temp\\Co*.txt", "SUBFOLDERS, ONLYFILENAME" );
 </pre>
-</div>
+  </div>
 
 
   <div class="multiscriptfunc">
@@ -1517,6 +1550,171 @@ FilterAddRule( $filter, "date", "before", "2016-05-01" );
 @var $bw = NetWGet( "C:\\Temp\\MFile.zip", "http://www.example.com/file.zip", "OVERWRITE,VERIFY_SSLCERT" );
 </pre>
   </div>
+
+  <div class="multiscriptfunc">
+    <h2><a name="unziptomemory"></a>UnzipToMemory</h2>
+
+    <p>Unzip a zip archive to memory.</p>
+
+    <pre>
+&lt;handle&gt; UnzipToMemory( &lt;str&gt; zipFile);</pre>
+
+    <h3>Parameters</h3>
+
+    <dl>
+      <dt>zipFile</dt>
+      <dd>Full path to zip file</dd>
+    </dl>
+
+    <h3>Return value</h3>
+
+    <p>Handle to a unzip handler</p>
+
+    <h3>Example</h3>
+
+    <pre class="example">
+@var $z = UnzipToMemory( "D:\\Test.zip ");
+</pre>
+  </div>
+
+  <div class="multiscriptfunc">
+    <h2><a name="unzipcount"></a>UnzipCount</h2>
+
+    <p>Return how many items are in the zip archive that are unpack into memory.</p>
+
+    <pre>
+&lt;inte&gt; UnzipCount( &lt;handle&gt; zipHandler);</pre>
+
+    <h3>Parameters</h3>
+
+    <dl>
+      <dt>zipHandler</dt>
+      <dd>A Ziphandler that was returned by UnzipToMemory</dd>
+    </dl>
+
+    <h3>Return value</h3>
+
+    <p>Number of items in the zip</p>
+
+    <h3>Example</h3>
+
+    <pre class="example">
+@var $filesInZip = UnzipCount($z);
+</pre>
+  </div>
+
+  <div class="multiscriptfunc">
+    <h2><a name="unzipgetitemsize"></a>UnzipGetItemSize</h2>
+
+    <p>Return how many bytes an item in the zip is.</p>
+
+    <pre>
+&lt;inte&gt; UnzipGetItemSize( &lt;handle&gt; zipHandler, &lt;inte&gt; itemIdx);</pre>
+
+    <h3>Parameters</h3>
+
+    <dl>
+      <dt>zipHandler</dt>
+      <dd>A Ziphandler that was returned by UnzipToMemory</dd>
+      <dt>itemIdx</dt>
+      <dd>Index of item in the Ziphandler</dd>
+    </dl>
+
+    <h3>Return value</h3>
+
+    <p>Number of bytes an specific item has</p>
+
+    <h3>Example</h3>
+
+    <pre class="example">
+@var $itemSize = UnzipGetItemSize($z , 2 );
+</pre>
+  </div>
+
+  <div class="multiscriptfunc">
+    <h2><a name="unzipgetitemcontent"></a>UnzipGetItemContent</h2>
+
+    <p>Return content of an item in the zip. (ONLY valid for text content)</p>
+
+    <pre>
+&lt;str&gt; UnzipGetItemContent( &lt;handle&gt; zipHandler, &lt;inte&gt; itemIdx);</pre>
+
+    <h3>Parameters</h3>
+
+    <dl>
+      <dt>zipHandler</dt>
+      <dd>A Ziphandler that was returned by UnzipToMemory</dd>
+      <dt>itemIdx</dt>
+      <dd>Index of item in the Ziphandler</dd>
+    </dl>
+
+    <h3>Return value</h3>
+
+    <p>Return the content of an item in the zip as a string</p>
+
+    <h3>Example</h3>
+
+    <pre class="example">
+@var $content = UnzipGetItemContent($z , 2 );
+</pre>
+  </div>
+
+  <div class="multiscriptfunc">
+    <h2><a name="unzipfinditem"></a>UnzipFindItem</h2>
+
+    <p>Return the index an item in the zip. If it exists.</p>
+
+    <pre>
+&lt;int&gt; UnzipFindItem( &lt;handle&gt; zipHandler, &lt;str&gt; itemToFind, &lt;str&gt; caseSensative);</pre>
+
+    <h3>Parameters</h3>
+
+    <dl>
+      <dt>zipHandler</dt>
+      <dd>A Ziphandler that was returned by UnzipToMemory</dd>
+      <dt>itemIdx</dt>
+      <dd>Index of item in the Ziphandler</dd>
+      <dt>caseSensative</dt>
+      <dd>If 1 or more, the search will be case sensative. if 0 it will ignore case</dd>
+    </dl>
+
+    <h3>Return value</h3>
+
+    <p>Return the index of an item in the zip. -1 if item is not found</p>
+
+    <h3>Example</h3>
+
+    <pre class="example">
+@var $exists = UnzipFindItem($z, "File3.txt", 0);
+</pre>
+  </div>
+
+  <div class="multiscriptfunc">
+    <h2><a name="unzipclose"></a>UnzipClose</h2>
+
+    <p>Close a zip handler and return the memory it uses.</p>
+
+    <pre>
+&lt;int&gt; UnzipClose( &lt;handle&gt; zipHandler);</pre>
+
+    <h3>Parameters</h3>
+
+    <dl>
+      <dt>zipHandler</dt>
+      <dd>A Ziphandler that was returned by UnzipToMemory</dd>
+    </dl>
+
+    <h3>Return value</h3>
+
+    <p>Return 1 if successfull, else 0</p>
+
+    <h3>Example</h3>
+
+    <pre class="example">
+UnzipClose($z);
+</pre>
+  </div>
+
 </div>
 
 

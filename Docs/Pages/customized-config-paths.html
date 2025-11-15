@@ -1,117 +1,680 @@
-<h2>Customized Paths</h2>
-<p>In some situation it might be wanted to control where config files are stored. By adding a special file named CustomConfigPaths.xml this is possible.<br />
-From this file you can control where the Config / Log / UserData location are, You can also redirect individual config file to other files located in other places and you can also add additional script folder that should be used.<br />
-This file need to be stored in the App Config folder. NOT the user config folder. (For portable version these are the same)</p>
+<h2>Advanced Configuration: Customized Paths</h2>
 
-<ul>
-	<li>Portable version - It is the Config subfolder where MultiCommander.exe is located</li>
-	<li>Installed (For current user only) - C:\Users\%USERNAME%\AppData\Local\MultiCommander (X64)\Config\CustomConfigPaths.xml</li>
-	<li>Installed (For all user) - C:\Program Files\MultiCommander (X64)\Config\CustomConfigPaths.xml</li>
-</ul>
+<div class="alert alert-warning">
+	<h6><i class="bi bi-exclamation-triangle me-2"></i>Advanced User Feature</h6>
+	<p class="mb-0">This documentation is intended for advanced users, system administrators, and IT professionals who need granular control over Multi Commander's configuration storage. Basic users typically don't need these features and should use the default configuration structure.</p>
+</div>
 
-<p>If installed for all user this is under the program files folder as you see above. So it will only be writeable for user with admin permissions. So for IT depertments that want to control this installed version is recommeded.<br />
-It is also possible to just change permissions for the CustomConfigPaths.xml so it is only readable, MultiCommander.exe only reads that file.</p>
+<p>Multi Commander's <strong>CustomConfigPaths.xml</strong> system provides enterprise-grade control over configuration, logging, and user data storage locations. This powerful feature enables sophisticated deployment scenarios, centralized management, and custom organizational workflows.</p>
 
-<p>The config folders that are storing the user config files are not the same as the paths above. (With the exception of Portable version where user config overwriting the "default" config files).<br />
-For installed version user configuration is stored in C:\Users\%USERNAME%\AppData\Roaming\MultiCommander\Config\.<br />
-The folder under C:\Users\%USERNAME%\AppData\Roaming\MultiCommander\ is the folders that can be relocated to another location.</p>
+<nav class="navbar navbar-expand-lg navbar-light bg-light mb-4">
+	<div class="container-fluid">
+		<span class="navbar-brand">Quick Navigation</span>
+		<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#customPathsNav">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="customPathsNav">
+			<ul class="navbar-nav">
+				<li class="nav-item"><a class="nav-link" href="#overview">Overview</a></li>
+				<li class="nav-item"><a class="nav-link" href="#file-locations">File Locations</a></li>
+				<li class="nav-item"><a class="nav-link" href="#xml-structure">XML Structure</a></li>
+				<li class="nav-item"><a class="nav-link" href="#configuration-types">Configuration Types</a></li>
+				<li class="nav-item"><a class="nav-link" href="#enterprise-scenarios">Enterprise Scenarios</a></li>
+			</ul>
+		</div>
+	</div>
+</nav>
 
-<h2><strong>Create file</strong></h2>
+<section id="overview">
+	<h3>System Overview</h3>
+	<p>The CustomConfigPaths.xml system allows comprehensive redirection of Multi Commander's data storage, enabling sophisticated deployment and management scenarios.</p>
 
-<p>The config file is a text file with a .xml file extension. A xml need to be written in special ways else the program will fail to open it.<br />
-You can verify the file so it is readable by programs by drag and drop the file to a webbrowser like chrome, edge and it will show the content and report if there are any xml error that will cause issue when the file is read.</p>
+	<div class="row">
+		<div class="col-md-6">
+			<div class="card">
+				<div class="card-header bg-primary text-white">
+					<h6 class="mb-0"><i class="bi bi-gear me-2"></i>Capabilities</h6>
+				</div>
+				<div class="card-body">
+					<ul class="small">
+						<li><strong>Path Redirection:</strong> Change base Config, Log, and UserData locations</li>
+						<li><strong>Individual File Redirection:</strong> Redirect specific configuration files</li>
+						<li><strong>Script Folder Extensions:</strong> Add additional script locations</li>
+						<li><strong>Environment Variable Support:</strong> Dynamic path resolution</li>
+						<li><strong>Relative Path Support:</strong> Flexible deployment options</li>
+						<li><strong>Enterprise Management:</strong> Centralized configuration control</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-6">
+			<div class="card">
+				<div class="card-header bg-success text-white">
+					<h6 class="mb-0"><i class="bi bi-building me-2"></i>Use Cases</h6>
+				</div>
+				<div class="card-body">
+					<ul class="small">
+						<li><strong>Enterprise Deployment:</strong> Standardized configurations across organizations</li>
+						<li><strong>Network Storage:</strong> Centralized configuration and data storage</li>
+						<li><strong>Multi-User Systems:</strong> Shared configurations with personal data separation</li>
+						<li><strong>Development Environments:</strong> Version-controlled configurations</li>
+						<li><strong>Portable Scenarios:</strong> Advanced portable deployment customization</li>
+						<li><strong>Security Compliance:</strong> Controlled data location requirements</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
 
-<p>Create a file named CustomConfigPaths.xml in the location noted above.<br />
-Make sure you save the file using UTF-8 encoding. And then copy and paste the code below to it</p>
+	<div class="row mt-3">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header bg-info text-white">
+					<h6 class="mb-0"><i class="bi bi-diagram-3 me-2"></i>Architecture Understanding</h6>
+				</div>
+				<div class="card-body">
+					<div class="row">
+						<div class="col-md-4">
+							<h6>App Config vs User Config</h6>
+							<ul class="small">
+								<li><strong>App Config:</strong> Installation-wide settings (read-only for users)</li>
+								<li><strong>User Config:</strong> Personal user settings (read-write)</li>
+								<li><strong>Portable Exception:</strong> Both locations are the same directory</li>
+								<li><strong>IT Control:</strong> App Config requires admin rights to modify</li>
+							</ul>
+						</div>
+						<div class="col-md-4">
+							<h6>Configuration Hierarchy</h6>
+							<ul class="small">
+								<li><strong>Priority:</strong> CustomConfigPaths.xml takes precedence</li>
+								<li><strong>Inheritance:</strong> Unspecified paths use defaults</li>
+								<li><strong>Validation:</strong> Multi Commander validates XML on startup</li>
+								<li><strong>Fallback:</strong> Invalid configurations revert to defaults</li>
+							</ul>
+						</div>
+						<div class="col-md-4">
+							<h6>Security Considerations</h6>
+							<ul class="small">
+								<li><strong>Read-Only Control:</strong> File permissions restrict modification</li>
+								<li><strong>Network Paths:</strong> UNC paths supported for enterprise scenarios</li>
+								<li><strong>Access Control:</strong> NTFS permissions apply to redirected locations</li>
+								<li><strong>Audit Trail:</strong> Changes tracked through file system auditing</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
 
-<pre class="examples">
-&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+<section id="file-locations" class="mt-5">
+	<h3>CustomConfigPaths.xml File Locations</h3>
+	<p>The CustomConfigPaths.xml file must be placed in the App Config directory, which varies by installation type and provides different levels of administrative control.</p>
+
+	<div class="row">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header bg-success text-white">
+					<h6 class="mb-0"><i class="bi bi-archive me-2"></i>Portable Version</h6>
+				</div>
+				<div class="card-body">
+					<h6>Location</h6>
+					<p class="small"><code>[MultiCommander Directory]\Config\CustomConfigPaths.xml</code></p>
+					<h6>Characteristics</h6>
+					<ul class="small">
+						<li><strong>Single Location:</strong> App and User configs are identical</li>
+						<li><strong>File Access:</strong> Requires write access to application folder</li>
+						<li><strong>Deployment:</strong> Easily distributed with application</li>
+						<li><strong>Security:</strong> User-controlled configuration</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header bg-primary text-white">
+					<h6 class="mb-0"><i class="bi bi-person me-2"></i>Single User Installation</h6>
+				</div>
+				<div class="card-body">
+					<h6>Location</h6>
+					<p class="small"><code>C:\Users\[USERNAME]\AppData\Local\MultiCommander (X64)\Config\CustomConfigPaths.xml</code></p>
+					<h6>Characteristics</h6>
+					<ul class="small">
+						<li><strong>User-Specific:</strong> Individual user control</li>
+						<li><strong>No Admin Rights:</strong> Standard user can modify</li>
+						<li><strong>Personal Customization:</strong> Per-user configuration scenarios</li>
+						<li><strong>Local Profile:</strong> Roaming profile considerations</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header bg-warning text-dark">
+					<h6 class="mb-0"><i class="bi bi-people me-2"></i>All Users Installation</h6>
+				</div>
+				<div class="card-body">
+					<h6>Location</h6>
+					<p class="small"><code>C:\Program Files\MultiCommander (X64)\Config\CustomConfigPaths.xml</code></p>
+					<h6>Characteristics</h6>
+					<ul class="small">
+						<li><strong>Enterprise Control:</strong> IT department management</li>
+						<li><strong>Admin Required:</strong> Requires administrative privileges</li>
+						<li><strong>System-Wide:</strong> Affects all users</li>
+						<li><strong>Centralized Management:</strong> Single configuration point</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="row mt-3">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header bg-dark text-white">
+					<h6 class="mb-0"><i class="bi bi-shield me-2"></i>Security and Access Control</h6>
+				</div>
+				<div class="card-body">
+					<div class="row">
+						<div class="col-md-6">
+							<h6>File Permissions Strategy</h6>
+							<ul class="small">
+								<li><strong>Read-Only Deployment:</strong> Set file to read-only after configuration</li>
+								<li><strong>Administrative Control:</strong> Only admins can modify enterprise settings</li>
+								<li><strong>User Restriction:</strong> Prevent unauthorized configuration changes</li>
+								<li><strong>Audit Requirements:</strong> File access auditing for compliance</li>
+							</ul>
+						</div>
+						<div class="col-md-6">
+							<h6>User Data Separation</h6>
+							<p class="small">Important distinction between App Config and User Data locations:</p>
+							<ul class="small">
+								<li><strong>App Config:</strong> Controls where configuration is read from</li>
+								<li><strong>User Data:</strong> Stored in <code>C:\Users\[USERNAME]\AppData\Roaming\MultiCommander\</code></li>
+								<li><strong>Redirection:</strong> CustomConfigPaths.xml can relocate user data folders</li>
+								<li><strong>Separation:</strong> Enables shared configs with personal data isolation</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<section id="xml-structure" class="mt-5">
+	<h3>XML File Structure and Creation</h3>
+	<p>The CustomConfigPaths.xml file follows a specific XML schema that must be properly formatted to ensure successful parsing by Multi Commander.</p>
+
+	<div class="row">
+		<div class="col-md-8">
+			<div class="card">
+				<div class="card-header bg-primary text-white">
+					<h6 class="mb-0"><i class="bi bi-code-slash me-2"></i>XML Creation Process</h6>
+				</div>
+				<div class="card-body">
+					<h6>Step-by-Step Creation</h6>
+					<ol class="small">
+						<li><strong>Create file:</strong> Name it <code>CustomConfigPaths.xml</code> in the appropriate location</li>
+						<li><strong>Set encoding:</strong> Save using UTF-8 encoding (without BOM recommended)</li>
+						<li><strong>XML Declaration:</strong> Begin with proper XML header</li>
+						<li><strong>Root Element:</strong> Use <code>&lt;CustomConfigPaths&gt;</code> as container</li>
+						<li><strong>Add Configuration:</strong> Insert specific redirection elements</li>
+						<li><strong>Validate:</strong> Test XML syntax in web browser</li>
+					</ol>
+
+					<h6>Basic XML Template</h6>
+					<pre class="bg-light p-3 rounded small"><code>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
 &lt;CustomConfigPaths&gt;
+  &lt;!-- Configuration elements go here --&gt;
+&lt;/CustomConfigPaths&gt;</code></pre>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-4">
+			<div class="card">
+				<div class="card-header bg-success text-white">
+					<h6 class="mb-0"><i class="bi bi-check-circle me-2"></i>Validation and Testing</h6>
+				</div>
+				<div class="card-body">
+					<h6>XML Validation Methods</h6>
+					<ul class="small">
+						<li><strong>Browser Test:</strong> Drag XML file to Chrome/Edge</li>
+						<li><strong>XML Editor:</strong> Use specialized XML editors</li>
+						<li><strong>Visual Studio Code:</strong> XML syntax highlighting</li>
+						<li><strong>Multi Commander:</strong> Check application startup for errors</li>
+					</ul>
+					<h6>Common Issues</h6>
+					<ul class="small">
+						<li>Missing XML declaration</li>
+						<li>Unclosed tags</li>
+						<li>Invalid characters in paths</li>
+						<li>Incorrect encoding</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
 
-&lt;/CustomConfigPaths&gt;
-</pre>
+	<div class="row mt-3">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header bg-info text-white">
+					<h6 class="mb-0"><i class="bi bi-gear me-2"></i>Path Specification Rules</h6>
+				</div>
+				<div class="card-body">
+					<div class="row">
+						<div class="col-md-12">
+							<h6>Absolute Paths</h6>
+							<ul class="small">
+								<li><strong>Full Windows Paths:</strong> <code>C:\MyConfig\MultiCommander</code></li>
+								<li><strong>UNC Network Paths:</strong> <code>\\Server\Share\Config</code></li>
+								<li><strong>Drive References:</strong> Use existing drive letters</li>
+								<li><strong>Security:</strong> Ensure path accessibility</li>
+							</ul>
+						</div>
+						<div class="col-md-12">
+							<h6>Relative Paths</h6>
+							<ul class="small">
+								<li><strong>Base Directory:</strong> Relative to default user config path</li>
+								<li><strong>Parent Navigation:</strong> Use <code>..\</code> for parent directories</li>
+								<li><strong>Subdirectories:</strong> Use forward or backslashes</li>
+								<li><strong>Flexibility:</strong> Adapts to different user environments</li>
+							</ul>
+						</div>
+						<div class="col-md-12">
+							<h6>Environment Variables</h6>
+							<ul class="small">
+								<li><strong>%APPDATA%:</strong> User's application data folder</li>
+								<li><strong>%HOMEPATH%:</strong> User's home directory</li>
+								<li><strong>%USERNAME%:</strong> Current user's name</li>
+								<li><strong>%COMPUTERNAME%:</strong> Machine name for host-specific paths</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
 
-<p>This is the base of the file. Now you need to add what to relocate and such and every thing must be added before the "&lt;/CustomConfigPaths&gt;" tags.. so "&lt;/CustomConfigPaths&gt;" should always the the last text in the file.</p>
+<section id="configuration-types" class="mt-5">
+	<h3>Configuration Types and Elements</h3>
+	<p>CustomConfigPaths.xml supports three primary configuration types, each addressing different deployment and management scenarios.</p>
 
-<h3><strong>Redirect Base Config folder / Log folder and UserData folder</strong></h3>
+	<div class="row">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header bg-primary text-white">
+					<h6 class="mb-0"><i class="bi bi-folder me-2"></i>Base Path Redirection</h6>
+				</div>
+				<div class="card-body">
+					<h6>ConfigPath</h6>
+					<p class="small">Redirects the entire configuration folder location.</p>
+					<pre class="bg-light p-2 rounded small"><code>&lt;ConfigPath Path="C:\MC\Config"/&gt;</code></pre>
 
-<p>The base folder for Config/Log/UserData can be relocated using the ConfigPath,LogPath and UserDataPath tags and you then insert the new path as the value in the Path element. (See the example).The path you add can be a full path or a relative path.<br />
-If a relative path is used in is based from the default user config path. It is also possible to include environment variables into the path such as %APPDATA% , %HOMEPATH% and so on.</p>
+					<h6>LogPath</h6>
+					<p class="small">Changes where Multi Commander writes log files.</p>
+					<pre class="bg-light p-2 rounded small"><code>&lt;LogPath Path="%APPDATA%\MC\Logs"/&gt;</code></pre>
 
-<h4><strong>ConfigPath</strong></h4>
+					<h6>UserDataPath</h6>
+					<p class="small">Relocates user-specific data storage (FTP bookmarks, profiles).</p>
+					<pre class="bg-light p-2 rounded small"><code>&lt;UserDataPath Path="\\Server\UserData\%USERNAME%"/&gt;</code></pre>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header bg-success text-white">
+					<h6 class="mb-0"><i class="bi bi-file-earmark me-2"></i>Individual File Redirection</h6>
+				</div>
+				<div class="card-body">
+					<h6>ConfigFileRedirect</h6>
+					<p class="small">Redirect specific configuration files to alternative locations.</p>
+					<pre class="bg-light p-2 rounded small"><code>&lt;ConfigFileRedirect&gt;
+  &lt;ConfigFile File="UserMenu.xml" 
+              Redirected="SharedMenus\StandardMenu.xml" /&gt;
+  &lt;ConfigFile File="Extensions\MultiFileViewer\MultiFileViewer.xml" 
+              Redirected="SharedConfigs\FileViewer.xml" /&gt;
+&lt;/ConfigFileRedirect&gt;</code></pre>
 
-<p>Set this if you want to change the location of where MultiCommander should read / write all configuraton to.</p>
+					<h6>Use Cases</h6>
+					<ul class="small">
+						<li>Shared menu configurations</li>
+						<li>Standardized extension settings</li>
+						<li>Version-controlled specific configurations</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header bg-warning text-dark">
+					<h6 class="mb-0"><i class="bi bi-code me-2"></i>Additional Script Folders</h6>
+				</div>
+				<div class="card-body">
+					<h6>AdditionalScriptFolders</h6>
+					<p class="small">Add extra script locations for User Defined Commands.</p>
+					<pre class="bg-light p-2 rounded small"><code>&lt;AdditionalScriptFolders&gt;
+  &lt;ScriptFolder Name="CompanyScripts" 
+                Path="\\Server\Scripts\MC" 
+                Recursive="1" /&gt;
+  &lt;ScriptFolder Name="DevScripts" 
+                Path="..\Development\Scripts" 
+                Recursive="0" /&gt;
+&lt;/AdditionalScriptFolders&gt;</code></pre>
 
-<h4><strong>LogPath</strong></h4>
+					<h6>Attributes</h6>
+					<ul class="small">
+						<li><strong>Name:</strong> Category name in User Defined Commands</li>
+						<li><strong>Path:</strong> Script folder location</li>
+						<li><strong>Recursive:</strong> 1 = scan subfolders, 0 = current folder only</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
 
-<p>Set this if you want to change the location of where MultiCommander should write all log to.</p>
-
-<h4><strong>UserDataPath</strong></h4>
-
-<p>Set this if you want to change the location where MultiCommander store userdata.<br />
-User data is user specific data like profiles for MultiRename, FTP bookmarks and such.</p>
-
-<p>Examples</p>
-
-<pre class="example">
-&nbsp; &lt;ConfigPath Path="C:\MC\Config"/&gt;
-&nbsp; &lt;LogPath Path="C:\MC\Log"/&gt;
-&nbsp; &lt;UserDataPath Path="C:\MC\UserData"/&gt;
-</pre>
-
-<hr />
-<h3><strong>Redirect individual config file</strong></h3>
-
-<p>It is also possible to redirect individual config files. If redirect of individual config files are done the redirect of ConfigPath is not required. But if ConfigPath is relocated, Then relative path for the redirect are assumed from that path.</p>
-
-<p>Redirect of config files has two values that need to be set <strong>File </strong>and <strong>Redirected</strong>, <strong>File </strong>is the relative path of the file to redirect. relative to the config folder. So if you want to redirect UserMenu.xml no path before it is required.<br />
-If you want to redirect a config file from an extension the full path from the config folder is needed.<br />
-<strong>Redirected </strong>is full path of the file that is should read instead. If this is a relative path it is relative to the config folder.</p>
-
-<p>Example</p>
-
-<pre class="example">
-&nbsp; &lt;ConfigFileRedirect&gt;
-&nbsp; &nbsp; &lt;ConfigFile File="UserMenu.xml" Redirected="Menus\BasicMenu.xml" /&gt;
-&nbsp; &nbsp; &lt;ConfigFile File="Extensions\MultiFileViewer\MultiFileViewer.xml" Redirected="MultiFileViewer.xml" /&gt;
-&nbsp; &lt;/ConfigFileRedirect&gt;</pre>
-
-<hr />
-<h3><strong>Additional Script folders</strong></h3>
-
-<p>When MultiCommander starts it reads script from the config/Script folder. It is possible in this file add additional folder script also should be read from.</p>
-
-<p>The <strong>"Name"</strong> value is the name that the script will be added under when the user look in the User Defined Commands window.<br />
-<strong>"Path"</strong> is the folder that should be scanned for script<br />
-If <strong>"Recursive"</strong> is set to 1 then it will also scan all subfolders</p>
-
-<pre class="example">
-&nbsp; &lt;AdditionalScriptFolders&gt;
-&nbsp; &nbsp; &lt;ScriptFolder Name="MyScripts" Path="..\MCScript" Recursive="1" /&gt;
-&nbsp; &lt;/AdditionalScriptFolders&gt;</pre>
-
-<hr />
-<h3><strong>Example of a complete file</strong></h3>
-
-<p>Example of a complete CustomConfigPaths.xml file containing everything. You can use this as a template to modify and remove the parts that you do not need</p>
-
-<pre class="example">
-&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+	<div class="row mt-3">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header bg-dark text-white">
+					<h6 class="mb-0"><i class="bi bi-file-text me-2"></i>Complete Configuration Example</h6>
+				</div>
+				<div class="card-body">
+					<h6>Enterprise Deployment Template</h6>
+					<p class="small">This example demonstrates a comprehensive enterprise configuration with centralized management:</p>
+					<pre class="bg-light p-3 rounded small"><code>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
 &lt;CustomConfigPaths&gt;
-&nbsp; &lt;ConfigPath Path="C:\MC\Config"/&gt;
-&nbsp; &lt;LogPath Path="C:\MC\Log"/&gt;
-&nbsp; &lt;UserDataPath Path="C:\MC\UserData"/&gt;
+  &lt;!-- Centralized configuration storage --&gt;
+  &lt;ConfigPath Path="\\FileServer\MultiCommander\Config\%USERNAME%"/&gt;
+  
+  &lt;!-- Centralized logging for IT monitoring --&gt;
+  &lt;LogPath Path="\\LogServer\Applications\MultiCommander\%COMPUTERNAME%\%USERNAME%"/&gt;
+  
+  &lt;!-- User-specific data on network storage --&gt;
+  &lt;UserDataPath Path="\\UserDataServer\Profiles\%USERNAME%\MultiCommander"/&gt;
 
-&nbsp; &lt;ConfigFileRedirect&gt;
-&nbsp; &nbsp; &lt;ConfigFile File="UserMenu.xml" Redirected="Menus\BasicMenu.xml" /&gt;
-&nbsp; &nbsp; &lt;ConfigFile File="Extensions\MultiFileViewer\MultiFileViewer.xml" Redirected="MultiFileViewer.xml" /&gt;
-&nbsp; &lt;/ConfigFileRedirect&gt;
+  &lt;!-- Shared configuration files --&gt;
+  &lt;ConfigFileRedirect&gt;
+    &lt;ConfigFile File="UserMenu.xml" Redirected="\\FileServer\SharedConfigs\StandardMenu.xml" /&gt;
+    &lt;ConfigFile File="HotKeys.xml" Redirected="\\FileServer\SharedConfigs\CorporateHotkeys.xml" /&gt;
+    &lt;ConfigFile File="Extensions\FileSearch\FileSearch.xml" Redirected="SharedConfigs\SearchConfig.xml" /&gt;
+  &lt;/ConfigFileRedirect&gt;
 
-&nbsp; &lt;AdditionalScriptFolders&gt;
-&nbsp; &nbsp; &lt;ScriptFolder Name="MyScripts" Path="..\MCScript" Recursive="1" /&gt;
-&nbsp; &lt;/AdditionalScriptFolders&gt;
+  &lt;!-- Corporate and departmental scripts --&gt;
+  &lt;AdditionalScriptFolders&gt;
+    &lt;ScriptFolder Name="Corporate IT Scripts" Path="\\ScriptServer\IT\MultiCommander" Recursive="1" /&gt;
+    &lt;ScriptFolder Name="Department Scripts" Path="\\DeptServer\%USERNAME%\Scripts" Recursive="1" /&gt;
+    &lt;ScriptFolder Name="Development Tools" Path="C:\DevTools\MCScripts" Recursive="0" /&gt;
+  &lt;/AdditionalScriptFolders&gt;
+&lt;/CustomConfigPaths&gt;</code></pre>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
 
-&lt;/CustomConfigPaths&gt;<font face="sans-serif, Arial, Verdana, Trebuchet MS"><span style="white-space: normal;">
-</span></font></pre>
+<section id="enterprise-scenarios" class="mt-5">
+	<h3>Enterprise Deployment Scenarios</h3>
+	<p>Real-world examples of how CustomConfigPaths.xml can be leveraged in different organizational contexts and deployment strategies.</p>
+
+	<div class="row">
+		<div class="col-md-6">
+			<div class="card">
+				<div class="card-header bg-success text-white">
+					<h6 class="mb-0"><i class="bi bi-building me-2"></i>Corporate Standard Deployment</h6>
+				</div>
+				<div class="card-body">
+					<h6>Scenario</h6>
+					<p class="small">Large corporation with standardized configurations but personalized user data.</p>
+					
+					<h6>Implementation Strategy</h6>
+					<ul class="small">
+						<li><strong>Shared Configurations:</strong> Menu, keyboard shortcuts, and extension settings</li>
+						<li><strong>Personal Data:</strong> FTP bookmarks, recent files, personal scripts</li>
+						<li><strong>Centralized Logging:</strong> IT monitoring and compliance</li>
+						<li><strong>Version Control:</strong> Configuration versioning and rollback</li>
+					</ul>
+
+					<h6>Benefits</h6>
+					<ul class="small">
+						<li>Consistent user experience across organization</li>
+						<li>Simplified support and training</li>
+						<li>Centralized configuration management</li>
+						<li>Compliance and audit capabilities</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-6">
+			<div class="card">
+				<div class="card-header bg-primary text-white">
+					<h6 class="mb-0"><i class="bi bi-cloud me-2"></i>Cloud-Based Configuration</h6>
+				</div>
+				<div class="card-body">
+					<h6>Scenario</h6>
+					<p class="small">Remote workforce with cloud-synchronized configurations and data.</p>
+					
+					<h6>Implementation Strategy</h6>
+					<ul class="small">
+						<li><strong>Cloud Storage:</strong> OneDrive, SharePoint, or enterprise cloud</li>
+						<li><strong>Sync Folders:</strong> Automatic synchronization across devices</li>
+						<li><strong>Offline Access:</strong> Local caching for network independence</li>
+						<li><strong>Multi-Device:</strong> Same configuration on multiple machines</li>
+					</ul>
+
+					<h6>Configuration Example</h6>
+					<pre class="bg-light p-2 rounded small"><code>&lt;ConfigPath Path="%OneDrive%\MultiCommander\Config"/&gt;
+&lt;UserDataPath Path="%OneDrive%\MultiCommander\UserData"/&gt;</code></pre>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="row mt-3">
+		<div class="col-md-6">
+			<div class="card">
+				<div class="card-header bg-warning text-dark">
+					<h6 class="mb-0"><i class="bi bi-code-square me-2"></i>Development Environment</h6>
+				</div>
+				<div class="card-body">
+					<h6>Scenario</h6>
+					<p class="small">Software development team with version-controlled configurations and project-specific scripts.</p>
+					
+					<h6>Implementation Strategy</h6>
+					<ul class="small">
+						<li><strong>Git Repository:</strong> Configuration files in version control</li>
+						<li><strong>Project Scripts:</strong> Project-specific automation scripts</li>
+						<li><strong>Environment-Specific:</strong> Development, staging, production configs</li>
+						<li><strong>Team Sharing:</strong> Consistent development environment</li>
+					</ul>
+
+					<h6>Benefits</h6>
+					<ul class="small">
+						<li>Version-controlled configuration changes</li>
+						<li>Environment-specific customization</li>
+						<li>Automated deployment capabilities</li>
+						<li>Team collaboration and standardization</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-6">
+			<div class="card">
+				<div class="card-header bg-info text-white">
+					<h6 class="mb-0"><i class="bi bi-shield me-2"></i>High-Security Environment</h6>
+				</div>
+				<div class="card-body">
+					<h6>Scenario</h6>
+					<p class="small">Government or financial institution with strict security and audit requirements.</p>
+					
+					<h6>Implementation Strategy</h6>
+					<ul class="small">
+						<li><strong>Controlled Locations:</strong> Secure network storage with access controls</li>
+						<li><strong>Audit Trails:</strong> Comprehensive logging and monitoring</li>
+						<li><strong>Read-Only Configs:</strong> Prevent unauthorized modifications</li>
+						<li><strong>Compliance:</strong> Meet regulatory requirements</li>
+					</ul>
+
+					<h6>Security Features</h6>
+					<ul class="small">
+						<li>NTFS permissions on configuration files</li>
+						<li>Centralized audit logging</li>
+						<li>Network path access controls</li>
+						<li>Configuration change tracking</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="row mt-3">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header bg-dark text-white">
+					<h6 class="mb-0"><i class="bi bi-tools me-2"></i>Advanced Deployment Techniques</h6>
+				</div>
+				<div class="card-body">
+					<div class="row">
+						<div class="col-md-4">
+							<h6>Automated Deployment</h6>
+							<ul class="small">
+								<li><strong>Group Policy:</strong> Deploy via Windows Group Policy</li>
+								<li><strong>Configuration Management:</strong> Puppet, Chef, Ansible integration</li>
+								<li><strong>Scripted Installation:</strong> PowerShell deployment scripts</li>
+								<li><strong>MSI Packages:</strong> Custom installer packages</li>
+							</ul>
+						</div>
+						<div class="col-md-4">
+							<h6>Monitoring and Maintenance</h6>
+							<ul class="small">
+								<li><strong>Configuration Validation:</strong> Automated XML validation</li>
+								<li><strong>Path Accessibility:</strong> Network path monitoring</li>
+								<li><strong>Usage Analytics:</strong> Configuration usage tracking</li>
+								<li><strong>Health Checks:</strong> Regular configuration integrity checks</li>
+							</ul>
+						</div>
+						<div class="col-md-4">
+							<h6>Troubleshooting</h6>
+							<ul class="small">
+								<li><strong>Fallback Strategy:</strong> Default configuration recovery</li>
+								<li><strong>Logging Analysis:</strong> Configuration load error tracking</li>
+								<li><strong>User Support:</strong> Diagnostic information collection</li>
+								<li><strong>Rollback Procedures:</strong> Configuration version rollback</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<section class="mt-5">
+	<h3>Best Practices and Recommendations</h3>
+	<p>Professional guidelines for implementing and managing CustomConfigPaths.xml in production environments.</p>
+
+	<div class="row">
+		<div class="col-md-6">
+			<div class="card">
+				<div class="card-header bg-success text-white">
+					<h6 class="mb-0"><i class="bi bi-check-circle me-2"></i>Implementation Best Practices</h6>
+				</div>
+				<div class="card-body">
+					<h6>Planning and Design</h6>
+					<ul class="small">
+						<li><strong>Requirements Analysis:</strong> Understand organizational needs</li>
+						<li><strong>Path Planning:</strong> Design logical and scalable path structures</li>
+						<li><strong>Security Assessment:</strong> Evaluate access control requirements</li>
+						<li><strong>Backup Strategy:</strong> Plan for configuration backup and recovery</li>
+					</ul>
+					<h6>Testing and Validation</h6>
+					<ul class="small">
+						<li><strong>Pilot Deployment:</strong> Test with small user group first</li>
+						<li><strong>XML Validation:</strong> Verify syntax before deployment</li>
+						<li><strong>Path Testing:</strong> Ensure all paths are accessible</li>
+						<li><strong>Performance Testing:</strong> Verify network path performance</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-6">
+			<div class="card">
+				<div class="card-header bg-warning text-dark">
+					<h6 class="mb-0"><i class="bi bi-exclamation-triangle me-2"></i>Common Pitfalls to Avoid</h6>
+				</div>
+				<div class="card-body">
+					<h6>Configuration Errors</h6>
+					<ul class="small">
+						<li><strong>Invalid XML:</strong> Syntax errors preventing configuration load</li>
+						<li><strong>Inaccessible Paths:</strong> Network paths without proper access</li>
+						<li><strong>Performance Issues:</strong> Slow network paths affecting startup</li>
+						<li><strong>Circular References:</strong> Configuration redirection loops</li>
+					</ul>
+					<h6>Deployment Issues</h6>
+					<ul class="small">
+						<li><strong>Permission Problems:</strong> Insufficient access rights</li>
+						<li><strong>Network Dependencies:</strong> Configurations requiring constant connectivity</li>
+						<li><strong>Scale Issues:</strong> Configurations that don't scale to enterprise size</li>
+						<li><strong>Maintenance Overhead:</strong> Overly complex configurations</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="row mt-3">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header bg-primary text-white">
+					<h6 class="mb-0"><i class="bi bi-lightbulb me-2"></i>Advanced Tips and Techniques</h6>
+				</div>
+				<div class="card-body">
+					<div class="row">
+						<div class="col-md-4">
+							<h6>Environment Variables</h6>
+							<ul class="small">
+								<li><strong>Dynamic Paths:</strong> Use %USERNAME% for user-specific paths</li>
+								<li><strong>Computer-Specific:</strong> %COMPUTERNAME% for machine-specific configurations</li>
+								<li><strong>Custom Variables:</strong> Create custom environment variables for deployment</li>
+								<li><strong>Path Resolution:</strong> Understand Windows environment variable expansion</li>
+							</ul>
+						</div>
+						<div class="col-md-4">
+							<h6>Network Considerations</h6>
+							<ul class="small">
+								<li><strong>UNC Paths:</strong> Use UNC notation for network resources</li>
+								<li><strong>Performance:</strong> Consider network latency for configuration loading</li>
+								<li><strong>Offline Scenarios:</strong> Plan for network disconnection</li>
+								<li><strong>Caching Strategy:</strong> Implement local caching where appropriate</li>
+							</ul>
+						</div>
+						<div class="col-md-4">
+							<h6>Maintenance Strategies</h6>
+							<ul class="small">
+								<li><strong>Version Control:</strong> Track configuration file changes</li>
+								<li><strong>Documentation:</strong> Maintain comprehensive deployment documentation</li>
+								<li><strong>Monitoring:</strong> Monitor configuration file accessibility</li>
+								<li><strong>Support Process:</strong> Establish clear support procedures</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<div class="alert alert-success mt-5">
+	<h6><i class="bi bi-lightbulb me-2"></i>Professional Implementation</h6>
+	<p class="mb-0">CustomConfigPaths.xml is a powerful enterprise feature that requires careful planning and implementation. Start with simple scenarios and gradually build complexity as your understanding and requirements evolve. Always test thoroughly before production deployment.</p>
+</div>
+
+<div class="alert alert-info mt-4">
+	<h6><i class="bi bi-info-circle me-2"></i>Related Advanced Topics</h6>
+	<p class="mb-0">For complementary advanced configuration topics, see <a href="/Docs/user-defined-commands" class="text-decoration-none">User Defined Commands</a>, <a href="/Docs/button-editor" class="text-decoration-none">Button Editor</a>, and <a href="/Docs/keyboard-customization" class="text-decoration-none">Keyboard Customization</a> documentation.</p>
+</div>
 
 

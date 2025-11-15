@@ -1,63 +1,368 @@
-<h2>Rule Based File Coloring</h2>
-<p>Rule Based File Coloring make it possible to create rules that will define what color a file or folder should be shown as in an Explorer Panel.</p>
+﻿<h2>Explorer Panel - Rule Based File Coloring</h2>
 
-<p>It is also possible to have multiple color profiles each of which has its own setup of different rules and it is possible to switch to a different profile from a toolbar button.<br />
-You can also create user defined commands that will switch to a specific profile; these commands can be assigned to a hotkey or a menu.</p>
+<p>The <strong>Explorer Panel Rule Based File Coloring</strong> system provides sophisticated visual organization capabilities through customizable color rules that automatically apply foreground and background colors to files and folders based on configurable criteria. This advanced visual management system enables users to create multiple color profiles with specialized rule sets, implement intelligent file categorization through color coding, and enhance file management efficiency through immediate visual identification of file types, status conditions, and organizational categories that support complex workflows and information management requirements.</p>
 
-<h2>Where to Create the Rules</h2>
-
-<p><img alt="" src="/Docs/Images/FileColoring_Toolbar.png" /></p>
-
-<p>The File Coloring Rules Editor is opened by clicking on the Color Wheel icon on the toolbar.</p>
-
-<p>There are also options to enable/disable File Coloring and a list of available profiles.&nbsp; By default there is only the "[Default]" profile. But if you create own profiles they will also be listed here.<br />
-Clicking on "<b>Refresh file coloring for all files and folders</b>" will remove all coloring information and reapply it for all files and folder.</p>
-
-<p>The File Coloring Rules Editor can also accessed from the Configuration menu.<br />
-<img alt="" src="/Docs/Images/FileColoring_ConfigMenu.png" /></p>
-
-<h2>Rules Editor</h2>
-
-<p>In the File Coloring Rules Editor, It is possible to add/remove or modify existing rules or entire Color Profiles.<br />
-<img alt="" src="/Docs/Images/FileColoring_RulesEditor.png" style="width: 480px; height: 529px;" /></p>
-
-<p>The list with its rules also acts as a preview: the rule name will be listed in the colors set for it.</p>
-
-<p>Files and Folders are colored by rules <em>from top to bottom</em>. And <em>the first matching rule will be the one that decides the color</em>.<br />
-If you have multiple rule that can conflict with each other,&nbsp; you can use the Up and Down button above the list to move rules up and down the list.</p>
-
-<p>Every rule can have 3 criteria that must be true for the color rule to be applied. Only if <em>all parts </em>of the rule are true is the color rule applied.</p>
-
-<p>The checkboxes in the list of rules shows if a rule is enabled or not. If you uncheck a rule then it will not be applied when coloring files and folders.</p>
-
-<p>You can export rules to a file that you can later import. When exporting you are ask if you want to export all the rules or only the active rules. If any rules that are disabled will not be exported when you choose to export 'Only Active rules'.</p>
-
-<h2>Example</h2>
-
-<p>Example how the default color profile can color files and folders.<br />
-<img alt="" src="/Docs/Images/FileColoringRules-Examples.png" width="80%" /></p>
-
-<h2>Coloring of Background</h2>
-
-<p>In roder for File Coloring to be able to change the background color of files/folders the Explorer Panel setting options "<strong>Use file specified background colors</strong>" and/or "<strong>Use folder specified background colors</strong>" must be enabled.<br />
-(<em>See the two checked items in the image below</em>)&nbsp;<br />
-<br />
-<img alt="" src="/Docs/Images/FileColoring_BackgroundOptions.png" /></p>
-
-<p><img alt="" src="/Docs/Images/FileColoringRules-Examples2.png" width="80%" /></p>
-
-<h2>User Defined Commands</h2>
-
-<p>The File Coloring profile to use can be controlled by using user defined commands.<br />
-Create a user defined command of "CustomCommand" and use the MC.Explorer.SetColoringRules command.</p>
-
-<div class="well">
-<p>Example</p>
-
-<pre>
-MC.Explorer.SetColoringRules Name="MyColorProfile"</pre>
+<div class="alert alert-primary">
+	<h6><i class="bi bi-palette me-2"></i>Advanced Visual File Organization System</h6>
+	<p class="mb-0">Experience sophisticated file and folder visualization through rule-based color application that transforms standard file listings into intuitive, color-coded information displays. The File Coloring system enables creation of multiple specialized profiles, intelligent rule prioritization, and comprehensive visual categorization that enhances file management productivity through immediate visual recognition of file types, status conditions, and organizational structures.</p>
 </div>
 
-<p>After the command is created it can be assigned to a hotkey or to a menu.</p>
+<nav class="navbar navbar-expand-lg navbar-light bg-light mb-4">
+	<div class="container-fluid">
+		<span class="navbar-brand">Quick Navigation</span>
+		<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#fileColoringNav">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="fileColoringNav">
+			<ul class="navbar-nav">
+				<li class="nav-item"><a class="nav-link" href="#overview">Overview</a></li>
+				<li class="nav-item"><a class="nav-link" href="#access-configuration">Access & Configuration</a></li>
+				<li class="nav-item"><a class="nav-link" href="#rules-editor">Rules Editor</a></li>
+				<li class="nav-item"><a class="nav-link" href="#background-coloring">Background Coloring</a></li>
+				<li class="nav-item"><a class="nav-link" href="#automation">Automation</a></li>
+			</ul>
+		</div>
+	</div>
+</nav>
+
+<section id="overview">
+	<h3>Rule Based File Coloring Overview</h3>
+	<p>The Rule Based File Coloring system transforms file management through intelligent color application that provides immediate visual categorization of files and folders based on user-defined criteria, enabling enhanced organization, rapid identification, and improved workflow efficiency through sophisticated visual information management.</p>
+
+	<div class="row">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header bg-info text-white">
+					<h6 class="mb-0"><i class="bi bi-eye me-2"></i>Visual Organization Capabilities</h6>
+				</div>
+				<div class="card-body">
+					<h6>Core Coloring Features</h6>
+					<ul class="small">
+						<li><strong>Rule-Based Application:</strong> Define custom rules that automatically apply colors based on file attributes</li>
+						<li><strong>Multiple Color Profiles:</strong> Create and maintain different color schemes for various workflows</li>
+						<li><strong>Foreground and Background:</strong> Control both text color and background color of files and folders</li>
+						<li><strong>Intelligent Prioritization:</strong> Rules applied from top to bottom with first match determining color</li>
+					</ul>
+
+					<h6>Advanced Organizational Benefits</h6>
+					<ul class="small">
+						<li><strong>Visual Categorization:</strong> Immediate identification of file types, status, and organizational categories</li>
+						<li><strong>Workflow Enhancement:</strong> Rapid visual scanning and file selection through color coding</li>
+						<li><strong>Profile Switching:</strong> Quick adaptation to different project requirements through profile changes</li>
+						<li><strong>Automation Integration:</strong> Programmable profile switching through custom commands and hotkeys</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<section id="access-configuration" class="mt-5">
+	<h3>Access and Configuration Methods</h3>
+	<p>The File Coloring system provides multiple access methods through toolbar integration and configuration menu access that enable convenient rule management, profile switching, and system configuration for optimal visual file organization.</p>
+
+	<div class="row">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header bg-success text-white">
+					<h6 class="mb-0"><i class="bi bi-gear me-2"></i>Toolbar Access and Control</h6>
+				</div>
+				<div class="card-body">
+					<div class="text-center mt-3 mb-3">
+						<img src="/Docs/Images/FileColoring_Toolbar.png" alt="File Coloring Toolbar" class="img-fluid border rounded shadow-sm" />
+						<p class="text-muted small mt-2">File Coloring toolbar showing color wheel icon, enable/disable options, and profile selection</p>
+					</div>
+
+					<h6>Toolbar Components</h6>
+					<ul class="small">
+						<li><strong>Color Wheel Icon:</strong> Primary access button that opens the File Coloring Rules Editor</li>
+						<li><strong>Enable/Disable Toggle:</strong> Quick activation and deactivation of file coloring system</li>
+						<li><strong>Profile List:</strong> Dropdown showing available color profiles for rapid switching</li>
+						<li><strong>Refresh Option:</strong> "Refresh file coloring for all files and folders" to reapply rules</li>
+					</ul>
+
+					<h6>Quick Profile Management</h6>
+					<ul class="small">
+						<li><strong>Default Profile:</strong> "[Default]" profile available by default for immediate use</li>
+						<li><strong>Custom Profiles:</strong> User-created profiles appear in dropdown list for selection</li>
+						<li><strong>Instant Switching:</strong> Select any profile from dropdown for immediate application</li>
+						<li><strong>Visual Feedback:</strong> Current active profile clearly indicated in toolbar</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="row mt-3">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header bg-primary text-white">
+					<h6 class="mb-0"><i class="bi bi-menu-down me-2"></i>Configuration Menu Access</h6>
+				</div>
+				<div class="card-body">
+					<div class="text-center mt-3 mb-3">
+						<img src="/Docs/Images/FileColoring_ConfigMenu.png" alt="Configuration Menu Access" class="img-fluid border rounded shadow-sm" />
+						<p class="text-muted small mt-2">Configuration menu showing File Coloring Rules Editor access option</p>
+					</div>
+
+					<h6>Alternative Access Method</h6>
+					<ul class="small">
+						<li><strong>Configuration Menu:</strong> Access File Coloring Rules Editor through main Configuration menu</li>
+						<li><strong>Comprehensive Management:</strong> Full rule editing and profile management capabilities</li>
+						<li><strong>Settings Integration:</strong> File coloring configuration integrated with global settings</li>
+						<li><strong>Persistent Access:</strong> Always available regardless of toolbar configuration</li>
+					</ul>
+
+					<h6>Access Path Benefits</h6>
+					<ul class="small">
+						<li><strong>Menu Integration:</strong> Logical placement within configuration system</li>
+						<li><strong>Organized Settings:</strong> Part of comprehensive Multi Commander configuration</li>
+						<li><strong>Discovery Aid:</strong> Menu structure helps users locate coloring features</li>
+						<li><strong>Consistent Interface:</strong> Matches standard configuration access patterns</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<section id="rules-editor" class="mt-5">
+	<h3>File Coloring Rules Editor</h3>
+	<p>The File Coloring Rules Editor provides comprehensive rule creation and management capabilities through an intuitive interface that supports complex rule criteria, priority management, and complete profile organization for sophisticated visual file categorization systems.</p>
+
+	<div class="row">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header bg-warning text-dark">
+					<h6 class="mb-0"><i class="bi bi-tools me-2"></i>Rules Editor Interface</h6>
+				</div>
+				<div class="card-body">
+					<div class="text-center mt-3 mb-3">
+						<img src="/Docs/Images/FileColoring_RulesEditor.png" alt="File Coloring Rules Editor" class="img-fluid border rounded shadow-sm" style="max-width: 480px;" />
+						<p class="text-muted small mt-2">File Coloring Rules Editor showing rule list with color preview and management controls</p>
+					</div>
+
+					<h6>Editor Capabilities</h6>
+					<ul class="small">
+						<li><strong>Rule Management:</strong> Add, remove, and modify existing color rules</li>
+						<li><strong>Profile Management:</strong> Create, edit, and organize entire color profiles</li>
+						<li><strong>Visual Preview:</strong> Rule list displays in assigned colors for immediate verification</li>
+						<li><strong>Priority Control:</strong> Up and Down buttons for rule order management</li>
+					</ul>
+
+					<h6>Rule Processing Logic</h6>
+					<ul class="small">
+						<li><strong>Top-to-Bottom Processing:</strong> Rules evaluated in list order from top to bottom</li>
+						<li><strong>First Match Wins:</strong> First matching rule determines color, subsequent rules ignored</li>
+						<li><strong>Conflict Resolution:</strong> Rule order critical for handling overlapping criteria</li>
+						<li><strong>Priority Management:</strong> Use Up/Down buttons to resolve rule conflicts</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="row mt-3">
+		<div class="col-md-6">
+			<div class="card">
+				<div class="card-header bg-info text-white">
+					<h6 class="mb-0"><i class="bi bi-check-square me-2"></i>Rule Criteria and Activation</h6>
+				</div>
+				<div class="card-body">
+					<h6>Multi-Criteria Rule System</h6>
+					<ul class="small">
+						<li><strong>Three Criteria Maximum:</strong> Each rule can have up to 3 criteria conditions</li>
+						<li><strong>All Must Match:</strong> All criteria parts must be true for rule application</li>
+						<li><strong>Boolean Logic:</strong> AND logic applied across all criteria within single rule</li>
+						<li><strong>Comprehensive Matching:</strong> File attributes, names, extensions, and properties supported</li>
+					</ul>
+
+					<h6>Rule Activation Control</h6>
+					<ul class="small">
+						<li><strong>Checkbox Control:</strong> Enable/disable individual rules through checkboxes</li>
+						<li><strong>Temporary Deactivation:</strong> Disable rules without deletion for testing</li>
+						<li><strong>Active Rule Processing:</strong> Only checked rules participate in color application</li>
+						<li><strong>Rule Testing:</strong> Easy testing through activation/deactivation toggles</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-6">
+			<div class="card">
+				<div class="card-header bg-success text-white">
+					<h6 class="mb-0"><i class="bi bi-download me-2"></i>Import and Export</h6>
+				</div>
+				<div class="card-body">
+					<h6>Rule Portability</h6>
+					<ul class="small">
+						<li><strong>Export Functionality:</strong> Save rules to file for backup or sharing</li>
+						<li><strong>Import Capability:</strong> Load previously exported rule files</li>
+						<li><strong>Selective Export:</strong> Choose between all rules or only active rules</li>
+						<li><strong>Rule Sharing:</strong> Transfer rule sets between Multi Commander installations</li>
+					</ul>
+
+					<h6>Export Options</h6>
+					<ul class="small">
+						<li><strong>All Rules Export:</strong> Includes both active and disabled rules</li>
+						<li><strong>Active Rules Only:</strong> Exports only currently enabled rules</li>
+						<li><strong>Configuration Backup:</strong> Create backups of complex rule configurations</li>
+						<li><strong>Team Distribution:</strong> Share standardized color schemes across teams</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="row mt-3">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header bg-dark text-white">
+					<h6 class="mb-0"><i class="bi bi-image me-2"></i>Visual Examples and Practical Application</h6>
+				</div>
+				<div class="card-body">
+					<div class="text-center mt-3 mb-3">
+						<img src="/Docs/Images/FileColoringRules-Examples.png" alt="File Coloring Examples" class="img-fluid border rounded shadow-sm" style="width: 80%;" />
+						<p class="text-muted small mt-2">Example of default color profile application showing various file types with different colors</p>
+					</div>
+
+					<h6>Practical Color Applications</h6>
+					<ul class="small">
+						<li><strong>File Type Identification:</strong> Different colors for executables, documents, images, archives</li>
+						<li><strong>Status Indication:</strong> Special colors for system files, hidden files, read-only files</li>
+						<li><strong>Size-Based Coloring:</strong> Visual indication of file sizes for storage management</li>
+						<li><strong>Date-Based Highlighting:</strong> Recent files, old files, or files modified within timeframes</li>
+					</ul>
+
+					<h6>Default Profile Examples</h6>
+					<ul class="small">
+						<li><strong>System Files:</strong> Distinctive coloring for system and critical files</li>
+						<li><strong>Media Files:</strong> Visual grouping of images, videos, and audio files</li>
+						<li><strong>Document Types:</strong> Office documents, PDFs, and text files with appropriate colors</li>
+						<li><strong>Development Files:</strong> Source code, configuration, and project files highlighted</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<section id="background-coloring" class="mt-5">
+	<h3>Background Coloring Configuration</h3>
+	<p>Background coloring provides enhanced visual impact through complete color control over file and folder display, requiring specific Explorer Panel settings activation to enable background color application alongside foreground text coloring for comprehensive visual organization.</p>
+
+	<div class="row">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header bg-warning text-dark">
+					<h6 class="mb-0"><i class="bi bi-paint-bucket me-2"></i>Background Color Requirements</h6>
+				</div>
+				<div class="card-body">
+					<div class="text-center mt-3 mb-3">
+						<img src="/Docs/Images/FileColoring_BackgroundOptions.png" alt="Background Color Settings" class="img-fluid border rounded shadow-sm" />
+						<p class="text-muted small mt-2">Explorer Panel Settings showing background color options that must be enabled</p>
+					</div>
+
+					<h6>Required Settings Activation</h6>
+					<ul class="small">
+						<li><strong>"Use file specified background colors":</strong> Enable background coloring for files</li>
+						<li><strong>"Use folder specified background colors":</strong> Enable background coloring for folders</li>
+						<li><strong>Independent Control:</strong> Files and folders can be configured separately</li>
+						<li><strong>Settings Location:</strong> Explorer Panel Settings → Visual appearance configuration</li>
+					</ul>
+
+					<h6>Configuration Requirements</h6>
+					<ul class="small">
+						<li><strong>Prerequisite Settings:</strong> Background coloring requires explicit activation in settings</li>
+						<li><strong>Selective Application:</strong> Choose file-only, folder-only, or both background coloring</li>
+						<li><strong>Visual Impact:</strong> Background colors provide stronger visual distinction than text colors</li>
+						<li><strong>Performance Consideration:</strong> Background coloring may impact display performance with large directories</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="row mt-3">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header bg-success text-white">
+					<h6 class="mb-0"><i class="bi bi-palette2 me-2"></i>Enhanced Visual Results</h6>
+				</div>
+				<div class="card-body">
+					<div class="text-center mt-3 mb-3">
+						<img src="/Docs/Images/FileColoringRules-Examples2.png" alt="Background Coloring Examples" class="img-fluid border rounded shadow-sm" style="width: 80%;" />
+						<p class="text-muted small mt-2">File listing showing enhanced visual impact with both foreground and background coloring applied</p>
+					</div>
+
+					<h6>Visual Enhancement Benefits</h6>
+					<ul class="small">
+						<li><strong>Stronger Visual Impact:</strong> Background colors provide more prominent visual distinction</li>
+						<li><strong>Enhanced Categorization:</strong> Combined foreground and background colors create sophisticated visual schemes</li>
+						<li><strong>Improved Scanning:</strong> Background colors enable faster visual scanning of large file lists</li>
+						<li><strong>Professional Appearance:</strong> Coordinated color schemes create polished, organized interface</li>
+					</ul>
+
+					<h6>Design Considerations</h6>
+					<ul class="small">
+						<li><strong>Color Coordination:</strong> Balance foreground and background colors for optimal readability</li>
+						<li><strong>Contrast Management:</strong> Ensure sufficient contrast between text and background colors</li>
+						<li><strong>Visual Hierarchy:</strong> Use background colors to establish clear visual priorities</li>
+						<li><strong>Accessibility:</strong> Consider color vision accessibility when designing color schemes</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<section id="automation" class="mt-5">
+	<h3>Automation and Profile Control</h3>
+	<p>The File Coloring system supports automation through user-defined commands that enable programmatic profile switching, hotkey integration, and menu assignment for dynamic color scheme management that adapts to changing workflow requirements and project contexts.</p>
+
+	<div class="row">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header bg-primary text-white">
+					<h6 class="mb-0"><i class="bi bi-terminal me-2"></i>User Defined Commands Integration</h6>
+				</div>
+				<div class="card-body">
+					<h6>Command-Based Profile Control</h6>
+					<ul class="small">
+						<li><strong>MC.Explorer.SetColoringRules:</strong> Command for programmatic profile switching</li>
+						<li><strong>CustomCommand Type:</strong> Create user-defined commands for profile management</li>
+						<li><strong>Profile Name Parameter:</strong> Specify target profile through "Name" parameter</li>
+						<li><strong>Integration Flexibility:</strong> Commands can be assigned to hotkeys or menu items</li>
+					</ul>
+
+					<div class="alert alert-info p-2 mt-3 mb-3">
+						<h6 class="small mb-1"><i class="bi bi-code me-1"></i>Command Example</h6>
+						<pre class="small mb-0">MC.Explorer.SetColoringRules Name="MyColorProfile"</pre>
+						<p class="small mb-0 mt-2">Create a CustomCommand with this syntax to switch to "MyColorProfile" color scheme.</p>
+					</div>
+
+					<h6>Automation Benefits</h6>
+					<ul class="small">
+						<li><strong>Workflow Adaptation:</strong> Quickly switch color schemes for different project types</li>
+						<li><strong>Context Switching:</strong> Adapt visual organization to current task requirements</li>
+						<li><strong>Efficiency Enhancement:</strong> Eliminate manual profile switching through automation</li>
+						<li><strong>Team Coordination:</strong> Standardized profile switching across team workflows</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+		
+</section>
+
+
+<div class="alert alert-success mt-5">
+	<h6><i class="bi bi-lightbulb me-2"></i>File Coloring Mastery</h6>
+	<p class="mb-0">Master Rule Based File Coloring by creating logical color schemes that group related file types, utilizing rule priority ordering with specific rules before general ones, and enabling background coloring in Explorer Panel Settings for enhanced visual impact. Remember that rules are processed top-to-bottom with first match determining color, multiple color profiles enable workflow adaptation, and automation through custom commands provides rapid profile switching via hotkeys and menus. Design color schemes with sufficient contrast for readability, use export/import functionality for backup and sharing, and leverage the three-criteria rule system for sophisticated file categorization that enhances visual file management efficiency.</p>
+</div>
+
+<div class="alert alert-info mt-4">
+	<h6><i class="bi bi-info-circle me-2"></i>Related Visual Organization Documentation</h6>
+	<p class="mb-0">Enhance your visual file management with related Explorer Panel features: <a href="/Docs/ExplorerPanel-CustomizeColumns" class="text-decoration-none">Customize Columns</a>, <a href="/Docs/ExplorerPanel-Layout" class="text-decoration-none">Explorer Panel Layout</a>, <a href="/Docs/ExplorerPanelSettings" class="text-decoration-none">Explorer Panel Settings</a>, <a href="/Docs/selection" class="text-decoration-none">File Selection</a>, <a href="/Docs/UDC_custom" class="text-decoration-none">Custom Commands</a>, and <a href="/Docs/keyboard-customization" class="text-decoration-none">Keyboard Customization</a>.</p>
+</div>
 
 

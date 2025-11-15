@@ -1,53 +1,531 @@
-<h2>FileSystem - FTP (FTP:)</h2>
-<p>The virtual filesystem device extension <b>FTP (FTP:)</b> allows network connections to other machines using the FTP protocol.</p>
+﻿<h2>Virtual Filesystem - FTP Protocol (FTP:)</h2>
 
-<p>An FTP connection will be integrated into Multi Commander's virtual filesystem and the connection can then be access as a normal filesystem.</p>
+<p>Multi Commander's FTP Virtual Filesystem (FS-FTP / FTP:) provides comprehensive File Transfer Protocol support, seamlessly integrating remote FTP servers into the familiar file management interface. This powerful system transforms complex FTP operations into intuitive file management tasks, enabling effortless remote file access with the same ease as local file operations.</p>
 
-<p>The filesystem location FTP: is special; special FTP commands and all FTP bookmarks exists there. When an FTP connection is established the virtual filesystem will connect that location to a numbered device, between 0: and 9:. The first FTP connection will be 0:, the next 1:, and so on.</p>
+<div class="alert alert-info">
+	<h6><i class="bi bi-info-circle me-2"></i>Seamless FTP Integration</h6>
+	<p class="mb-0">The FTP filesystem presents remote servers as standard file locations, allowing you to copy, move, delete, and browse remote files using familiar drag-and-drop operations while maintaining full protocol compatibility and advanced FTP features.</p>
+</div>
 
-<p><img alt="" src="/Docs/Images/BrowseFTP.png" style="width: 526px; height: 158px;" /></p>
+<nav class="navbar navbar-expand-lg navbar-light bg-light mb-4">
+	<div class="container-fluid">
+		<span class="navbar-brand">Quick Navigation</span>
+		<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#ftpNav">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="ftpNav">
+			<ul class="navbar-nav">
+				<li class="nav-item"><a class="nav-link" href="#overview">Overview</a></li>
+				<li class="nav-item"><a class="nav-link" href="#connection-management">Connection Management</a></li>
+				<li class="nav-item"><a class="nav-link" href="#quick-connect">Quick Connect</a></li>
+				<li class="nav-item"><a class="nav-link" href="#bookmark-management">Bookmark Management</a></li>
+				<li class="nav-item"><a class="nav-link" href="#file-operations">File Operations</a></li>
+				<li class="nav-item"><a class="nav-link" href="#advanced-features">Advanced Features</a></li>
+			</ul>
+		</div>
+	</div>
+</nav>
 
-<h2>Quick Connect</h2>
+<section id="overview">
+	<h3>FTP Filesystem Architecture</h3>
+	<p>The FTP: virtual filesystem provides sophisticated remote file access through the File Transfer Protocol, automatically handling connection management, authentication, and protocol-specific operations while presenting a unified file management experience.</p>
 
-<p>The Quick Connect command will open the Quick Connect window, allowing a connection to be created without adding an FTB bookmark.</p>
+	<div class="row">
+		<div class="col-md-6">
+			<div class="card">
+				<div class="card-header bg-primary text-white">
+					<h6 class="mb-0"><i class="bi bi-cloud me-2"></i>FTP Protocol Support</h6>
+				</div>
+				<div class="card-body">
+					<ul class="small">
+						<li><strong>Standard FTP:</strong> Full RFC-compliant FTP implementation</li>
+						<li><strong>Passive Mode:</strong> Passive/active mode negotiation</li>
+						<li><strong>Active Mode:</strong> Support for active FTP connections</li>
+						<li><strong>SSL/TLS Encryption:</strong> Secure FTP connections (FTPS)</li>
+						<li><strong>Authentication Methods:</strong> Username/password and anonymous access</li>
+						<li><strong>Resume Support:</strong> Resume interrupted file transfers</li>
+						<li><strong>FXP Support:</strong> Site-to-site direct server transfers (File eXchange Protocol)</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-6">
+			<div class="card">
+				<div class="card-header bg-success text-white">
+					<h6 class="mb-0"><i class="bi bi-gear me-2"></i>Advanced Features</h6>
+				</div>
+				<div class="card-body">
+					<ul class="small">
+						<li><strong>Multi-Connection:</strong> Support for up to 10 simultaneous connections</li>
+						<li><strong>Connection Pooling:</strong> Efficient connection reuse and management</li>
+						<li><strong>Bookmark System:</strong> Save and organize frequent connections</li>
+						<li><strong>Quick Connect:</strong> Temporary connections without bookmark creation</li>
+						<li><strong>Comprehensive Logging:</strong> Detailed connection and transfer logs</li>
+						<li><strong>Error Recovery:</strong> Automatic retry and connection restoration</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
 
-<p><img alt="" src="/Docs/Images/FTPQuickConnect.png" style="width: 447px; height: 427px;" /></p>
+	<div class="row mt-3">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header bg-info text-white">
+					<h6 class="mb-0"><i class="bi bi-diagram-3 me-2"></i>Connection Management System</h6>
+				</div>
+				<div class="card-body">
+					<div class="row">
+						<div class="col-md-6">
+							<h6>Virtual Device Mapping</h6>
+							<ul class="small">
+								<li><strong>FTP: Root:</strong> Special location for commands and bookmarks</li>
+								<li><strong>Numbered Devices:</strong> Active connections mapped to 0: through 9:</li>
+								<li><strong>Dynamic Assignment:</strong> First connection becomes 0:, second becomes 1:, etc.</li>
+								<li><strong>Persistent Sessions:</strong> Connections remain active until explicitly closed</li>
+							</ul>
+						</div>
+						<div class="col-md-6">
+							<h6>Session Management</h6>
+							<ul class="small">
+								<li><strong>Multi-Server Access:</strong> Connect to multiple FTP servers simultaneously</li>
+								<li><strong>Session Isolation:</strong> Each connection operates independently</li>
+								<li><strong>Resource Optimization:</strong> Intelligent connection sharing where possible</li>
+								<li><strong>Graceful Disconnection:</strong> Clean connection termination and cleanup</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
 
-<p>Enter the information needed to connect to an FTP site. Press the Connect button to complete the connection.</p>
+<section id="connection-management" class="mt-5">
+	<h3>FTP Connection Management</h3>
+	<p>Multi Commander provides comprehensive FTP connection management with automatic device mapping, persistent sessions, and intelligent resource utilization for optimal remote file access performance.</p>
 
-<p>By checking the option "<b>Add to bookmark</b>s" a bookmark for this site will also be created.</p>
+	<div class="row">
+		<div class="col-md-8">
+			<div class="card">
+				<div class="card-header bg-primary text-white">
+					<h6 class="mb-0"><i class="bi bi-list me-2"></i>FTP Device Structure</h6>
+				</div>
+				<div class="card-body">
+					<h6>Accessing the FTP Root (FTP:)</h6>
+					<p class="small">The FTP: device serves as the central hub for all FTP operations:</p>
+					<ul class="small">
+						<li><strong>Command Center:</strong> Access FTP-specific commands and utilities</li>
+						<li><strong>Bookmark Library:</strong> Browse and manage saved FTP connections</li>
+						<li><strong>Quick Connect:</strong> Launch new connections without creating bookmarks</li>
+						<li><strong>Site Manager:</strong> Comprehensive bookmark management interface</li>
+					</ul>
 
-<p>The quick connection information (but not the password) is remembered for the next time you need to connect to the site.</p>
+					<div class="text-center mt-3 mb-3">
+						<img src="/Docs/Images/BrowseFTP.png" alt="FTP Browser Interface" class="img-fluid border rounded shadow-sm" />
+						<p class="text-muted small mt-2">FTP: device showing available commands and bookmarked connections</p>
+					</div>
 
-<p>Uncheck the option "<b>Remember site</b>" and the Quick Connect window will not remember anything entered into it.</p>
+					<h6>Dynamic Device Assignment</h6>
+					<p class="small">Active FTP connections are automatically assigned to numbered devices:</p>
+					<ul class="small">
+						<li><strong>0: through 9::</strong> Up to 10 simultaneous FTP connections</li>
+						<li><strong>Sequential Assignment:</strong> First connection becomes 0:, second becomes 1:, etc.</li>
+						<li><strong>Automatic Mapping:</strong> No manual device configuration required</li>
+						<li><strong>Visual Indicators:</strong> Connection status and server information displayed</li>
+					</ul>
 
-<h2>Add/Edit Bookmark</h2>
+					<h6>Connection Navigation</h6>
+					<ul class="small">
+						<li><strong>Direct Access:</strong> Type device number (e.g., "0:") to access active connection</li>
+						<li><strong>Device Dropdown:</strong> Select from active connections in device list</li>
+						<li><strong>Tab Integration:</strong> FTP connections appear as regular filesystem tabs</li>
+						<li><strong>Bookmark Shortcut:</strong> Double-click bookmarks to connect and navigate</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-4">
+			<div class="card">
+				<div class="card-header bg-success text-white">
+					<h6 class="mb-0"><i class="bi bi-info-circle me-2"></i>Connection Status</h6>
+				</div>
+				<div class="card-body">
+					<h6>Status Indicators</h6>
+					<ul class="small">
+						<li><strong>Connected:</strong> Active connection with server response</li>
+						<li><strong>Connecting:</strong> Connection attempt in progress</li>
+						<li><strong>Disconnected:</strong> No active connection to server</li>
+						<li><strong>Error State:</strong> Connection failure or authentication issue</li>
+					</ul>
+					<h6>Connection Information</h6>
+					<ul class="small">
+						<li><strong>Server Name:</strong> Hostname or IP address</li>
+						<li><strong>Port Number:</strong> FTP service port (default 21)</li>
+						<li><strong>Username:</strong> Authentication identity</li>
+						<li><strong>Security Mode:</strong> Plain FTP or FTPS encryption</li>
+						<li><strong>Transfer Mode:</strong> Active or passive mode</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
 
-<p>This command will show the Site Manager window. In this window new bookmarks for sites can be added, removed or changed.</p>
+</section>
 
-<p><img alt="" src="/Docs/Images/FTPBookmarks.png" style="width: 652px; height: 494px;" /></p>
+<section id="quick-connect" class="mt-5">
+	<h3>Quick Connect Feature</h3>
+	<p>The Quick Connect feature provides immediate FTP access without the need to create permanent bookmarks, perfect for one-time connections or testing new servers before adding them to your bookmark collection.</p>
 
-<p>Create a new bookmark by pressing the "<b>New</b>" button. Then enter all the information needed for that bookmark and the press the "<b>Save</b>" button.</p>
+	<div class="row">
+		<div class="col-md-8">
+			<div class="card">
+				<div class="card-header bg-primary text-white">
+					<h6 class="mb-0"><i class="bi bi-lightning me-2"></i>Quick Connect Interface</h6>
+				</div>
+				<div class="card-body">
+					<h6>Launching Quick Connect</h6>
+					<p class="small">Access the Quick Connect dialog from the FTP: device:</p>
+					<ol class="small">
+						<li><strong>Navigate to FTP::</strong> Open the FTP virtual filesystem</li>
+						<li><strong>Select Quick Connect:</strong> Choose the Quick Connect command</li>
+						<li><strong>Configure Connection:</strong> Enter server details and credentials</li>
+						<li><strong>Connect:</strong> Establish connection and begin browsing</li>
+					</ol>
 
-<p>The "<b>Duplicate</b>" button will create a duplicate of the selected bookmark. Change the Name and edit the new bookmark and then press the "<b>Save</b>" button.</p>
+					<div class="text-center mt-3 mb-3">
+						<img src="/Docs/Images/FTPQuickConnect.png" alt="Quick Connect Dialog" class="img-fluid border rounded shadow-sm" />
+						<p class="text-muted small mt-2">Quick Connect dialog for immediate FTP server access</p>
+					</div>
 
-<p>Too delete a bookmark, first selected the bookmark to delete and then press the "<b>Delete</b>" button.</p>
+					<h6>Connection Configuration</h6>
+					<ul class="small">
+						<li><strong>Server Information:</strong> Hostname or IP address with optional port</li>
+						<li><strong>Authentication:</strong> Username and password for server access</li>
+						<li><strong>Security Options:</strong> SSL/TLS encryption settings</li>
+						<li><strong>Transfer Mode:</strong> Active or passive FTP mode selection</li>
+						<li><strong>Advanced Settings:</strong> Timeout, encoding, and protocol options</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-4">
+			<div class="card">
+				<div class="card-header bg-success text-white">
+					<h6 class="mb-0"><i class="bi bi-bookmark me-2"></i>Quick Connect Options</h6>
+				</div>
+				<div class="card-body">
+					<h6>Bookmark Creation</h6>
+					<ul class="small">
+						<li><strong>"Add to bookmarks":</strong> Automatically create bookmark from connection</li>
+						<li><strong>One-Time Use:</strong> Connect without saving for temporary access</li>
+						<li><strong>Bookmark Naming:</strong> Automatic or custom bookmark names</li>
+						<li><strong>Category Assignment:</strong> Organize new bookmarks into groups</li>
+					</ul>
+					<h6>Memory Features</h6>
+					<ul class="small">
+						<li><strong>"Remember site":</strong> Save connection details for next time</li>
+						<li><strong>Form Persistence:</strong> Automatic form field completion</li>
+						<li><strong>Security Note:</strong> Passwords are not saved for security</li>
+						<li><strong>Quick Access:</strong> Recently used servers appear in dropdown</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
 
-<p>When closing the Site Manager window the FTP: view should refresh and show the new sites. If this does not happen do a manual refresh by pressing the refresh button or the press F2/F5 (depending on setup).</p>
+</section>
 
-<h2>Connect</h2>
+<section id="bookmark-management" class="mt-5">
+	<h3>FTP Bookmark Management</h3>
+	<p>Multi Commander's comprehensive bookmark system provides organized storage and management of FTP connections, enabling quick access to frequently used servers with full configuration management and categorization capabilities.</p>
 
-<p>Connecting to an FTP site can be done from the Site Manager by selecting the bookmark to connect to and pressing "<b>Connect</b>".</p>
+	<div class="row">
+		<div class="col-md-8">
+			<div class="card">
+				<div class="card-header bg-primary text-white">
+					<h6 class="mb-0"><i class="bi bi-folder me-2"></i>Site Manager Interface</h6>
+				</div>
+				<div class="card-body">
+					<h6>Accessing the Site Manager</h6>
+					<p class="small">The Site Manager provides comprehensive bookmark management capabilities:</p>
+					<ol class="small">
+						<li><strong>Open Site Manager:</strong> Select "Add/Edit Bookmark" from FTP: device</li>
+						<li><strong>Manage Bookmarks:</strong> Create, edit, duplicate, or delete saved connections</li>
+						<li><strong>Organize Collections:</strong> Group bookmarks into logical categories</li>
+						<li><strong>Test Connections:</strong> Verify bookmark settings before saving</li>
+					</ol>
 
-<p>Executing a bookmark in the list by double-clicking it or by selecting it and pressing the return/enter key will also initiate a connection to the site.</p>
+					<div class="text-center mt-3 mb-3">
+						<img src="/Docs/Images/FTPBookmarks.png" alt="FTP Site Manager" class="img-fluid border rounded shadow-sm" />
+						<p class="text-muted small mt-2">Site Manager interface for comprehensive FTP bookmark management</p>
+					</div>
 
-<p>Logging is very important in FTP. The FTP Logs are used to store error messages, but the FTP server also uses the logs to show shows information about the site you are connecting to. Most FTP servers will save a lot of important connection information here.<br />
-A log tab will be created for every site or bookmark for which a connection is made.</p>
+					<h6>Bookmark Operations</h6>
+					<ul class="small">
+						<li><strong>New:</strong> Create new bookmark with full configuration options</li>
+						<li><strong>Duplicate:</strong> Copy existing bookmark as template for similar servers</li>
+						<li><strong>Edit:</strong> Modify existing bookmark settings and credentials</li>
+						<li><strong>Delete:</strong> Remove unwanted bookmarks from collection</li>
+						<li><strong>Import/Export:</strong> Share bookmark collections between installations</li>
+					</ul>
 
-<h2>Disconnect</h2>
+					<h6>Configuration Management</h6>
+					<ul class="small">
+						<li><strong>Server Settings:</strong> Host, port, protocol, and security configuration</li>
+						<li><strong>Authentication:</strong> Username, password, and authentication method</li>
+						<li><strong>Advanced Options:</strong> Transfer modes, encoding, and optimization settings</li>
+						<li><strong>Default Paths:</strong> Set initial remote and local directories</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-4">
+			<div class="card">
+				<div class="card-header bg-success text-white">
+					<h6 class="mb-0"><i class="bi bi-list me-2"></i>Bookmark Organization</h6>
+				</div>
+				<div class="card-body">
+					<h6>Categorization</h6>
+					<ul class="small">
+						<li><strong>Folder Groups:</strong> Organize bookmarks into logical folders</li>
+						<li><strong>Project-Based:</strong> Group by project or client</li>
+						<li><strong>Server Type:</strong> Separate web servers, file servers, backup servers</li>
+						<li><strong>Geographic:</strong> Organize by location or region</li>
+					</ul>
+					<h6>Quick Access</h6>
+					<ul class="small">
+						<li><strong>Favorite Marking:</strong> Mark frequently used connections</li>
+						<li><strong>Recent Connections:</strong> Automatic recent connection tracking</li>
+						<li><strong>Search Function:</strong> Find bookmarks by name or server</li>
+						<li><strong>Keyboard Shortcuts:</strong> Assign hotkeys to specific bookmarks</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
 
-<p>Press the disconnect button located in the Explorer Panel to disconnect from the FTP server.</p>
+</section>
 
-<p><img alt="" src="/Docs/Images/BrowseFTPDisconnect.png" style="width: 529px; height: 199px;" /></p>
+<section id="file-operations" class="mt-5">
+	<h3>FTP File Operations and Connection Management</h3>
+	<p>Multi Commander integrates FTP operations seamlessly into the standard file management workflow, providing familiar operations for remote files with comprehensive logging and connection management.</p>
+
+	<div class="row">
+		
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header bg-success text-white">
+					<h6 class="mb-0"><i class="bi bi-files me-2"></i>File Management Operations</h6>
+				</div>
+				<div class="card-body">
+					<h6>Standard Operations</h6>
+					<ul class="small">
+						<li><strong>Browse Directories:</strong> Navigate remote filesystem like local folders</li>
+						<li><strong>Upload Files:</strong> Transfer files from local to remote locations</li>
+						<li><strong>Download Files:</strong> Copy remote files to local storage</li>
+						<li><strong>Delete Files:</strong> Remove files and directories from server</li>
+						<li><strong>Rename Files:</strong> Modify filenames on remote server</li>
+						<li><strong>Create Directories:</strong> Create new folders on remote server</li>
+					</ul>
+					<h6>Advanced Operations</h6>
+					<ul class="small">
+						<li><strong>Drag and Drop:</strong> Intuitive file transfer between panels</li>
+						<li><strong>Multi-File Operations:</strong> Select and process multiple files</li>
+						<li><strong>Resume Transfers:</strong> Resume interrupted file transfers</li>
+						<li><strong>Permission Management:</strong> View and modify file permissions (if supported)</li>
+						<li><strong>Symbolic Links:</strong> Handle Unix symbolic links appropriately</li>
+						<li><strong>FXP Site-to-Site:</strong> Direct transfers between FTP servers without local routing</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="row mt-3">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header bg-info text-white">
+					<h6 class="mb-0"><i class="bi bi-journal-text me-2"></i>FTP Logging System</h6>
+				</div>
+				<div class="card-body">
+					<h6>Comprehensive Logging</h6>
+					<p class="small">FTP logging is crucial for monitoring connections, troubleshooting issues, and understanding server behavior:</p>
+					<ul class="small">
+						<li><strong>Connection Logs:</strong> Authentication, commands, and server responses</li>
+						<li><strong>Transfer Logs:</strong> File upload/download progress and completion status</li>
+						<li><strong>Error Logs:</strong> Detailed error messages and troubleshooting information</li>
+						<li><strong>Server Messages:</strong> Welcome messages, server information, and announcements</li>
+						<li><strong>Command History:</strong> Complete record of FTP commands sent to server</li>
+					</ul>
+
+					<h6>Log Tab Management</h6>
+					<ul class="small">
+						<li><strong>Per-Connection Logs:</strong> Separate log tab created for each FTP connection</li>
+						<li><strong>Session Persistence:</strong> Logs maintained throughout connection lifetime</li>
+						<li><strong>Log Filtering:</strong> Filter logs by message type or severity</li>
+						<li><strong>Export Capability:</strong> Save logs to files for analysis or support</li>
+					</ul>
+
+					<h6>Troubleshooting Support</h6>
+					<ul class="small">
+						<li><strong>Detailed Error Information:</strong> Specific error codes and descriptions</li>
+						<li><strong>Protocol Debugging:</strong> Low-level FTP command and response logging</li>
+						<li><strong>Performance Metrics:</strong> Transfer speeds and timing information</li>
+						<li><strong>Connection Analysis:</strong> Network connectivity and server behavior insights</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header bg-warning text-dark">
+					<h6 class="mb-0"><i class="bi bi-x-circle me-2"></i>Disconnection Management</h6>
+				</div>
+				<div class="card-body">
+					<h6>Clean Disconnection</h6>
+					<p class="small">Properly disconnect from FTP servers to maintain server resources and session integrity:</p>
+
+					<div class="text-center mt-3 mb-3">
+						<img src="/Docs/Images/BrowseFTPDisconnect.png" alt="FTP Disconnect Button" class="img-fluid border rounded shadow-sm" />
+						<p class="text-muted small mt-2">Disconnect button in Explorer Panel for clean FTP disconnection</p>
+					</div>
+
+					<h6>Disconnection Methods</h6>
+					<ul class="small">
+						<li><strong>Disconnect Button:</strong> Click disconnect button in Explorer Panel toolbar</li>
+						<li><strong>Close Tab:</strong> Close FTP tab to disconnect automatically</li>
+						<li><strong>Exit Application:</strong> Multi Commander automatically disconnects on exit</li>
+						<li><strong>Timeout Disconnection:</strong> Automatic disconnection after idle timeout</li>
+					</ul>
+
+					<h6>Post-Disconnection</h6>
+					<ul class="small">
+						<li><strong>Device Release:</strong> Numbered device becomes available for reuse</li>
+						<li><strong>Log Preservation:</strong> Connection logs remain accessible</li>
+						<li><strong>Resource Cleanup:</strong> Memory and network resources properly released</li>
+						<li><strong>Reconnection Ready:</strong> Bookmark remains available for future connections</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<section id="advanced-features" class="mt-5">
+	<h3>Advanced FTP Features and Integration</h3>
+	<p>Multi Commander's FTP implementation extends beyond basic file transfer with advanced protocol features, security options, and seamless integration with the broader file management ecosystem.</p>
+
+	<div class="row">
+		<div class="col-md-6">
+			<div class="card">
+				<div class="card-header bg-primary text-white">
+					<h6 class="mb-0"><i class="bi bi-shield-lock me-2"></i>Security and Encryption</h6>
+				</div>
+				<div class="card-body">
+					<h6>FTPS Support (FTP over SSL/TLS)</h6>
+					<ul class="small">
+						<li><strong>Explicit SSL/TLS:</strong> Upgrade plain FTP connection to encrypted</li>
+						<li><strong>Implicit SSL/TLS:</strong> SSL/TLS encryption from connection start</li>
+						<li><strong>Certificate Validation:</strong> Verify server certificates for authenticity</li>
+						<li><strong>Data Encryption:</strong> Encrypt both command and data channels</li>
+					</ul>
+					<h6>Authentication Security</h6>
+					<ul class="small">
+						<li><strong>Secure Credential Storage:</strong> Encrypted password storage</li>
+						<li><strong>Anonymous Access:</strong> Safe anonymous FTP connections</li>
+						<li><strong>Timeout Management:</strong> Automatic disconnection for idle connections</li>
+						<li><strong>Access Control:</strong> Respect server-side access restrictions</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-6">
+			<div class="card">
+				<div class="card-header bg-success text-white">
+					<h6 class="mb-0"><i class="bi bi-speedometer2 me-2"></i>Performance Optimization</h6>
+				</div>
+				<div class="card-body">
+					<h6>Transfer Optimization</h6>
+					<ul class="small">
+						<li><strong>Resume Support:</strong> Resume interrupted file transfers automatically</li>
+						<li><strong>Passive Mode:</strong> Navigate firewalls and NAT devices efficiently</li>
+						<li><strong>Buffer Tuning:</strong> Optimize transfer buffer sizes for network conditions</li>
+						<li><strong>Parallel Transfers:</strong> Multiple simultaneous file transfers</li>
+						<li><strong>Compression:</strong> On-the-fly compression for compatible servers</li>
+					</ul>
+					<h6>Connection Efficiency</h6>
+					<ul class="small">
+						<li><strong>Keep-Alive:</strong> Maintain connections during idle periods</li>
+						<li><strong>Connection Pooling:</strong> Reuse connections for multiple operations</li>
+						<li><strong>Smart Reconnection:</strong> Automatic reconnection with exponential backoff</li>
+						<li><strong>Bandwidth Management:</strong> Control transfer speeds and priorities</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+	<div class="row mt-3">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header bg-info text-white">
+					<h6 class="mb-0"><i class="bi bi-exclamation-triangle me-2"></i>Troubleshooting and Support</h6>
+				</div>
+				<div class="card-body">
+					<div class="row">
+						<div class="col-md-3">
+							<h6>Common Connection Issues</h6>
+							<ul class="small">
+								<li><strong>Firewall Problems:</strong> Configure passive mode for firewall traversal</li>
+								<li><strong>Authentication Failures:</strong> Verify credentials and server settings</li>
+								<li><strong>Timeout Issues:</strong> Adjust timeout settings for slow networks</li>
+								<li><strong>SSL/TLS Errors:</strong> Check certificate validation and cipher settings</li>
+							</ul>
+						</div>
+						<div class="col-md-3">
+							<h6>Transfer Problems</h6>
+							<ul class="small">
+								<li><strong>Resume Failures:</strong> Check server resume support and file integrity</li>
+								<li><strong>Slow Transfers:</strong> Optimize buffer sizes and connection modes</li>
+								<li><strong>Incomplete Transfers:</strong> Monitor logs for error patterns</li>
+								<li><strong>Permission Errors:</strong> Verify server-side file and directory permissions</li>
+							</ul>
+						</div>
+						<div class="col-md-3">
+							<h6>FXP Site-to-Site Issues</h6>
+							<ul class="small">
+								<li><strong>FXP Not Working:</strong> Verify both servers support FXP protocol</li>
+								<li><strong>Server Connectivity:</strong> Ensure servers can connect to each other</li>
+								<li><strong>Port Restrictions:</strong> Check data port access between servers</li>
+								<li><strong>FXP Fallback:</strong> Monitor automatic fallback to standard transfer</li>
+							</ul>
+						</div>
+						<div class="col-md-3">
+							<h6>Diagnostic Tools</h6>
+							<ul class="small">
+								<li><strong>Detailed Logging:</strong> Enable verbose logging for troubleshooting</li>
+								<li><strong>Connection Testing:</strong> Test bookmark settings before use</li>
+								<li><strong>Network Analysis:</strong> Monitor network connectivity and latency</li>
+								<li><strong>Server Compatibility:</strong> Test with different FTP server implementations</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<div class="alert alert-success mt-5">
+	<h6><i class="bi bi-lightbulb me-2"></i>Efficient FTP File Management</h6>
+	<p class="mb-0">Multi Commander's FTP filesystem transforms remote file management into a seamless extension of local file operations. The combination of comprehensive protocol support, intuitive interface design, and powerful integration features—including advanced FXP site-to-site transfers—makes FTP file management as natural as working with local drives while maintaining the performance and security required for professional use.</p>
+</div>
+
+<div class="alert alert-info mt-4">
+	<h6><i class="bi bi-info-circle me-2"></i>Related Network Technologies</h6>
+	<p class="mb-0">Explore other remote access capabilities: <a href="/Docs/filesystem/SFTP" class="text-decoration-none">SFTP (Secure FTP)</a>, <a href="/Docs/filesystem/network" class="text-decoration-none">Network Filesystems</a>, and <a href="/Docs/filesystem" class="text-decoration-none">Virtual Filesystem Overview</a>.</p>
+</div>
 
 

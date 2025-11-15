@@ -1,12 +1,301 @@
-<h2>User Defined Commands - Internal Commands</h2>
-<p><strong>Internal commands</strong> are commands that Multi Commander or an Extension or Plug-in has provided. For example, the menu and tool bars use these commands.&nbsp;They are simple commands that just tell Multi Commander or the Extension that the command has been called, and no parameters or customization for that command can be added.</p>
+﻿<h2>User Defined Commands - Internal Commands</h2>
 
-<p><img alt="" src="/Docs/Images/UDC_internal.png" /></p>
+<p>Internal Commands represent the simplest and most direct way to create User Defined Commands by leveraging Multi Commander's existing functionality. These commands provide immediate access to built-in features, extension functions, and plug-in capabilities through a unified command interface, making them ideal for creating shortcuts, aliases, and custom menu entries for frequently used operations.</p>
 
-<p>One reason to create a User Defined Command that uses <em>internal commands</em> is to create an <em>alias</em> for that command so you can call that command from the command line bar. Another use would be to assign that command to a button on the button panel.</p>
+<div class="alert alert-primary">
+	<h6><i class="bi bi-gear me-2"></i>Built-in Function Access</h6>
+	<p class="mb-0">Internal Commands directly execute existing Multi Commander functions, extension commands, and plug-in operations without requiring any scripting or complex configuration. Simply select the desired function from organized dropdown menus to create instant access to any built-in capability through buttons, hotkeys, menus, or command line aliases.</p>
+</div>
 
-<p>The command might also be something that is not normally visible in the menu bar, but you would like to put it there. In this case, you can create a User Defined Command that calls the internal command, then add the User Defined Command to the menu bar using the <em>User Menu</em> Configuration.</p>
+<nav class="navbar navbar-expand-lg navbar-light bg-light mb-4">
+	<div class="container-fluid">
+		<span class="navbar-brand">Quick Navigation</span>
+		<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#internalCommandsNav">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="internalCommandsNav">
+			<ul class="navbar-nav">
+				<li class="nav-item"><a class="nav-link" href="#overview">Overview</a></li>
+				<li class="nav-item"><a class="nav-link" href="#configuration">Configuration</a></li>
+				<li class="nav-item"><a class="nav-link" href="#common-uses">Common Uses</a></li>
+				<li class="nav-item"><a class="nav-link" href="#examples">Examples</a></li>
+			</ul>
+		</div>
+	</div>
+</nav>
 
-<p>&nbsp;</p>
+<section id="overview">
+	<h3>Internal Commands Overview</h3>
+	<p>Internal Commands provide direct access to Multi Commander's extensive built-in functionality, including core file operations, view management, navigation commands, and all features provided by installed extensions and plug-ins.</p>
+
+	<div class="row">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header bg-info text-white">
+					<h6 class="mb-0"><i class="bi bi-list-ul me-2"></i>What Are Internal Commands?</h6>
+				</div>
+				<div class="card-body">
+					<h6>Command Types Available</h6>
+					<div class="row">
+						<div class="col-md-6">
+							<ul class="small">
+								<li><strong>Core Functions:</strong> File operations, navigation, view management</li>
+								<li><strong>Menu Commands:</strong> All menu bar and context menu functions</li>
+								<li><strong>Toolbar Functions:</strong> Button panel operations and tool commands</li>
+								<li><strong>Panel Operations:</strong> Explorer panel manipulation and configuration</li>
+							</ul>
+						</div>
+						<div class="col-md-6">
+							<ul class="small">
+								<li><strong>Extension Commands:</strong> Functions provided by installed extensions</li>
+								<li><strong>Plug-in Functions:</strong> Operations from loaded plug-in modules</li>
+								<li><strong>System Integration:</strong> Windows shell integration commands</li>
+								<li><strong>Advanced Features:</strong> Specialized tools and utilities</li>
+							</ul>
+						</div>
+					</div>
+
+					<h6>Key Characteristics</h6>
+					<ul class="small">
+						<li><strong>No Scripting Required:</strong> Simple selection from organized dropdown menus</li>
+						<li><strong>Immediate Execution:</strong> Commands run instantly when triggered</li>
+						<li><strong>No Parameters:</strong> Functions execute with their default behavior</li>
+						<li><strong>Full Integration:</strong> Access to every built-in Multi Commander capability</li>
+					</ul>
+
+					<div class="alert alert-info p-2 mt-3">
+						<h6 class="small mb-1"><i class="bi bi-lightbulb me-1"></i>Simplicity Advantage</h6>
+						<p class="small mb-0">Internal Commands offer the fastest path from idea to implementation - no scripting knowledge required, just select the function you want to access and save the command.</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="row mt-3">
+		<div class="col-md-6">
+			<div class="card">
+				<div class="card-header bg-success text-white">
+					<h6 class="mb-0"><i class="bi bi-check-circle me-2"></i>Benefits of Internal Commands</h6>
+				</div>
+				<div class="card-body">
+					<h6>Immediate Access</h6>
+					<ul class="small">
+						<li><strong>Quick Setup:</strong> Create commands in seconds without scripting</li>
+						<li><strong>Reliable Execution:</strong> Commands use tested, built-in functionality</li>
+						<li><strong>Consistent Behavior:</strong> Functions behave exactly like menu or toolbar access</li>
+						<li><strong>No Maintenance:</strong> Commands automatically stay current with software updates</li>
+					</ul>
+
+					<h6>Interface Customization</h6>
+					<ul class="small">
+						<li><strong>Personal Shortcuts:</strong> Create hotkeys for any menu function</li>
+						<li><strong>Custom Buttons:</strong> Add frequently used functions to button panels</li>
+						<li><strong>Menu Organization:</strong> Group related functions in custom menus</li>
+						<li><strong>Command Line Access:</strong> Create memorable aliases for complex function names</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-6">
+			<div class="card">
+				<div class="card-header bg-warning text-dark">
+					<h6 class="mb-0"><i class="bi bi-target me-2"></i>Primary Use Cases</h6>
+				</div>
+				<div class="card-body">
+					<h6>Workflow Optimization</h6>
+					<ul class="small">
+						<li><strong>Frequently Used Functions:</strong> Quick access to operations you use daily</li>
+						<li><strong>Hidden Menu Items:</strong> Surface functions that aren't prominently displayed</li>
+						<li><strong>Extension Features:</strong> Easy access to powerful extension capabilities</li>
+						<li><strong>Efficiency Improvements:</strong> Reduce clicks and navigation time</li>
+					</ul>
+
+					<h6>Interface Personalization</h6>
+					<ul class="small">
+						<li><strong>Preferred Access Methods:</strong> Use buttons instead of menus or vice versa</li>
+						<li><strong>Logical Grouping:</strong> Organize functions by your workflow patterns</li>
+						<li><strong>Memorable Names:</strong> Create command line aliases you can easily remember</li>
+						<li><strong>Consistent Interface:</strong> Standardize access across different Multi Commander installations</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<section id="configuration" class="mt-5">
+	<h3>Configuring Internal Commands</h3>
+	<p>Setting up Internal Commands involves a straightforward two-step selection process that provides access to every available function in Multi Commander and its installed extensions.</p>
+
+	<div class="row">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header bg-primary text-white">
+					<h6 class="mb-0"><i class="bi bi-gear-wide me-2"></i>Configuration Interface</h6>
+				</div>
+				<div class="card-body">
+					<div class="text-center mt-3 mb-3">
+						<img src="/Docs/Images/UDC_internal.png" alt="Internal Commands Configuration" class="img-fluid border rounded shadow-sm" />
+						<p class="text-muted small mt-2">The Internal Commands configuration interface showing the two-dropdown selection system</p>
+					</div>
+
+					<h6>Configuration Process</h6>
+					<ol>
+						<li><strong>Select Command Type:</strong> Choose "Internal Commands" when creating your User Defined Command</li>
+						<li><strong>Choose Module:</strong> Select the module containing your desired function from the first dropdown</li>
+						<li><strong>Select Function:</strong> Choose the specific command from the second dropdown</li>
+						<li><strong>Save Command:</strong> Complete the command creation process</li>
+						<li><strong>Assign Access:</strong> Configure buttons, hotkeys, menus, or aliases for the command</li>
+					</ol>
+
+					<h6>Two-Dropdown System</h6>
+					<div class="row">
+						<div class="col-md-6">
+							<h6>First Dropdown: Module Selection</h6>
+							<ul class="small">
+								<li><strong>Core Modules:</strong> Multi Commander's built-in functionality</li>
+								<li><strong>Extension Modules:</strong> Installed extension packages</li>
+								<li><strong>Plug-in Modules:</strong> Loaded plug-in components</li>
+								<li><strong>System Modules:</strong> Windows integration functions</li>
+							</ul>
+						</div>
+						<div class="col-md-6">
+							<h6>Second Dropdown: Function Selection</h6>
+							<ul class="small">
+								<li><strong>Dynamic Content:</strong> Updates based on first dropdown selection</li>
+								<li><strong>Organized Functions:</strong> Commands grouped by functional area</li>
+								<li><strong>Descriptive Names:</strong> Clear function descriptions for easy identification</li>
+								<li><strong>Complete Access:</strong> Every available function in the selected module</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="row mt-3">
+		<div class="col-md-6">
+			<div class="card">
+				<div class="card-header bg-success text-white">
+					<h6 class="mb-0"><i class="bi bi-list-check me-2"></i>Module Categories</h6>
+				</div>
+				<div class="card-body">
+					<h6>Core Multi Commander Modules</h6>
+					<ul class="small">
+						<li><strong>File Operations:</strong> Copy, move, delete, rename functions</li>
+						<li><strong>View Management:</strong> Panel layout, view modes, sorting</li>
+						<li><strong>Navigation:</strong> Path changes, history, bookmarks</li>
+						<li><strong>Selection:</strong> File selection patterns and operations</li>
+						<li><strong>Search:</strong> Find functions and search operations</li>
+						<li><strong>Tools:</strong> Built-in utilities and system tools</li>
+					</ul>
+
+					<div class="alert alert-info p-2 mt-3">
+						<h6 class="small mb-1"><i class="bi bi-info-circle me-1"></i>Module Organization</h6>
+						<p class="small mb-0">Modules are logically organized by functionality, making it easy to find the specific command you need.</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-6">
+			<div class="card">
+				<div class="card-header bg-warning text-dark">
+					<h6 class="mb-0"><i class="bi bi-puzzle me-2"></i>Extension & Plug-in Modules</h6>
+				</div>
+				<div class="card-body">
+					<h6>Extension-Provided Functions</h6>
+					<ul class="small">
+						<li><strong>Archive Tools:</strong> Advanced compression and extraction</li>
+						<li><strong>File Viewers:</strong> Specialized file viewing capabilities</li>
+						<li><strong>Development Tools:</strong> Programming and development utilities</li>
+						<li><strong>System Utilities:</strong> Advanced system management functions</li>
+						<li><strong>Custom Extensions:</strong> User-created or third-party extensions</li>
+					</ul>
+
+					<h6>Dynamic Availability</h6>
+					<ul class="small">
+						<li><strong>Installation Dependent:</strong> Available modules depend on what's installed</li>
+						<li><strong>Automatic Detection:</strong> New extensions appear automatically in the list</li>
+						<li><strong>Version Updates:</strong> Module content updates with extension updates</li>
+						<li><strong>Organized Display:</strong> Extensions grouped separately from core functions</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<section id="common-uses" class="mt-5">
+	<h3>Common Uses for Internal Commands</h3>
+	<p>Internal Commands excel in specific scenarios where you need quick, reliable access to existing functionality without the complexity of scripting or parameter configuration.</p>
+
+	<div class="row">
+		<div class="col-md-6">
+			<div class="card">
+				<div class="card-header bg-primary text-white">
+					<h6 class="mb-0"><i class="bi bi-lightning me-2"></i>Workflow Acceleration</h6>
+				</div>
+				<div class="card-body">
+					<h6>Creating Command Line Aliases</h6>
+					<p class="small">Transform complex menu navigation into simple command line entries:</p>
+					<ul class="small">
+						<li><strong>Quick Navigation:</strong> Create aliases like "home" for "Go to Home Directory"</li>
+						<li><strong>View Changes:</strong> Use "details" or "thumbs" for view mode switches</li>
+						<li><strong>Tool Access:</strong> Create "calc" for calculator, "search" for file search</li>
+						<li><strong>Function Shortcuts:</strong> Simplify access to buried menu functions</li>
+					</ul>
+
+					<h6>Custom Button Creation</h6>
+					<p class="small">Add frequently used functions to button panels:</p>
+					<ul class="small">
+						<li><strong>Daily Operations:</strong> File operations you perform regularly</li>
+						<li><strong>View Toggles:</strong> Quick switches between different panel views</li>
+						<li><strong>Extension Tools:</strong> One-click access to extension functions</li>
+						<li><strong>System Integration:</strong> Windows shell function buttons</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-6">
+			<div class="card">
+				<div class="card-header bg-success text-white">
+					<h6 class="mb-0"><i class="bi bi-menu-app me-2"></i>Interface Customization</h6>
+				</div>
+				<div class="card-body">
+					<h6>Menu Organization</h6>
+					<p class="small">Surface hidden or deeply nested functions:</p>
+					<ul class="small">
+						<li><strong>Hidden Functions:</strong> Make rarely-visible functions easily accessible</li>
+						<li><strong>Personal Menus:</strong> Create custom menu categories for your workflow</li>
+						<li><strong>Quick Access:</strong> Move frequently used items to prominent locations</li>
+						<li><strong>Logical Grouping:</strong> Organize functions by task rather than technical category</li>
+					</ul>
+
+					<h6>Keyboard Shortcut Assignment</h6>
+					<p class="small">Create hotkeys for any function:</p>
+					<ul class="small">
+						<li><strong>Muscle Memory:</strong> Assign keys that match your work patterns</li>
+						<li><strong>Efficiency Gains:</strong> Eliminate menu navigation for common tasks</li>
+						<li><strong>Consistent Access:</strong> Use the same hotkeys across different computers</li>
+						<li><strong>Extension Functions:</strong> Create shortcuts for powerful extension capabilities</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+
+</section>
+
+<div class="alert alert-success mt-5">
+	<h6><i class="bi bi-lightbulb me-2"></i>Internal Commands Best Practices</h6>
+	<p class="mb-0">Master Internal Commands by exploring all available modules to discover useful functions, creating meaningful aliases for command line access, and organizing frequently used functions into logical button groups or custom menus. Remember that Internal Commands provide the fastest path to functionality - when you need direct access to existing features without customization, they offer immediate, reliable execution with zero maintenance requirements. Use them as building blocks for more complex automation workflows.</p>
+</div>
+
+<div class="alert alert-info mt-4">
+	<h6><i class="bi bi-info-circle me-2"></i>Related Command Documentation</h6>
+	<p class="mb-0">Explore other User Defined Command types: <a href="/Docs/user-defined-commands" class="text-decoration-none">User Defined Commands Overview</a>, <a href="/Docs/UDC_external" class="text-decoration-none">External Commands</a>, <a href="/Docs/UDC_custom" class="text-decoration-none">Custom Commands</a>, <a href="/Docs/UDC_batch" class="text-decoration-none">Batch Scripts</a>, <a href="/Docs/UDC_multiscript" class="text-decoration-none">MultiScript</a>, and integration tools: <a href="/Docs/button-editor" class="text-decoration-none">Button Editor</a>, <a href="/Docs/keyboard-customization" class="text-decoration-none">Keyboard Customization</a>, <a href="/Docs/aliases" class="text-decoration-none">Alias Editor</a>.</p>
+</div>
 
 

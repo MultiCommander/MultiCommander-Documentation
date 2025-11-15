@@ -1,50 +1,338 @@
-<h2>FileSystem - Network (NET:)</h2>
-<p>The virtual filesystem device extension <b>Network (NET:)</b> allows the local network the be scanned for computers or network-attached devices.<br />
-All found devices will then be listed.</p>
+<h2>Virtual Filesystem - Network Discovery (NET:)</h2>
 
-<p><img alt="" src="/Docs/Images/BrowserNetwork.png" style="width: 511px; height: 116px;" /></p>
+<p>Multi Commander's Network Virtual Filesystem (NET:) provides comprehensive network discovery and remote system access capabilities, enabling seamless integration with local network resources, shared storage, and remote desktop environments. This powerful system transforms network navigation from complex UNC path management into an intuitive browsing experience.</p>
 
-<p>To scan the network for computers and devices execute the "<b>Scan Network</b>" command (a progress window will be shown during the scan). The scan can take a couple of minutes if the network is large. When finished all discovered devices within a shared filesystem will be listed.</p>
+<div class="alert alert-info">
+	<h6><i class="bi bi-info-circle me-2"></i>Intelligent Network Integration</h6>
+	<p class="mb-0">The Network filesystem automatically discovers and catalogs network-attached devices, computers, and shared resources, presenting them in a unified interface that simplifies access to distributed file systems and remote storage.</p>
+</div>
 
-<p>The list of devices is by default remembered between restarts of Multi Commander.</p>
+<nav class="navbar navbar-expand-lg navbar-light bg-light mb-4">
+	<div class="container-fluid">
+		<span class="navbar-brand">Quick Navigation</span>
+		<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#networkNav">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="networkNav">
+			<ul class="navbar-nav">
+				<li class="nav-item"><a class="nav-link" href="#overview">Overview</a></li>
+				<li class="nav-item"><a class="nav-link" href="#network-discovery">Network Discovery</a></li>
+				<li class="nav-item"><a class="nav-link" href="#remote-desktop">Remote Desktop</a></li>
+				<li class="nav-item"><a class="nav-link" href="#management">Device Management</a></li>
+				<li class="nav-item"><a class="nav-link" href="#configuration">Configuration</a></li>
+			</ul>
+		</div>
+	</div>
+</nav>
 
-<p>Opening a computer in the list will cause Multi Commander to browse that server path. The server path browsing is then handled by the normal <a href="#docs_filesystem">FS-Local</a> virtual file system plug-in. Just as if the path was entered manually.</p>
+<section id="overview">
+	<h3>Network Filesystem Architecture</h3>
+	<p>The NET: virtual filesystem provides a sophisticated layer for network resource discovery and access, bridging the gap between local file management and distributed network storage through automated discovery and intelligent caching mechanisms.</p>
 
-<h2>TS Client - Remote Desktop</h2>
+	<div class="row">
+		<div class="col-md-6">
+			<div class="card">
+				<div class="card-header bg-primary text-white">
+					<h6 class="mb-0"><i class="bi bi-network me-2"></i>Network Capabilities</h6>
+				</div>
+				<div class="card-body">
+					<ul class="small">
+						<li><strong>Automatic Discovery:</strong> Scan and identify network-attached devices</li>
+						<li><strong>SMB/CIFS Support:</strong> Access Windows shares and Samba resources</li>
+						<li><strong>Workgroup Integration:</strong> Browse workgroup and domain computers</li>
+						<li><strong>Service Detection:</strong> Identify file sharing services automatically</li>
+						<li><strong>Persistent Cache:</strong> Remember discovered devices between sessions</li>
+						<li><strong>Real-time Updates:</strong> Dynamic addition and removal of network resources</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-6">
+			<div class="card">
+				<div class="card-header bg-success text-white">
+					<h6 class="mb-0"><i class="bi bi-shield-check me-2"></i>Access and Security</h6>
+				</div>
+				<div class="card-body">
+					<ul class="small">
+						<li><strong>Credential Management:</strong> Integrated Windows authentication</li>
+						<li><strong>Domain Integration:</strong> Seamless domain user authentication</li>
+						<li><strong>Guest Access:</strong> Handle anonymous network resources</li>
+						<li><strong>Security Context:</strong> Respect network security policies</li>
+						<li><strong>Connection Pooling:</strong> Efficient management of network connections</li>
+						<li><strong>Timeout Handling:</strong> Graceful handling of network unavailability</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
 
-<p>Running on a computer that is logged in from Remote Desktop, the local drives can be accessed on the remote machine under \\TSClient (If Remote Desktop is configured to show drives on the remote computer).<br />
-The Network virtual filesystem plug-in will detect if Multi Commander is running in a Remote Desktop session. If it is, and there are remote connected drives, a <b>TSClient</b> entry will also listed. It works in the same way as any other computer entry listed.</p>
+</section>
 
-<h2>Network Commands</h2>
+<section id="network-discovery" class="mt-5">
+	<h3>Network Discovery and Scanning</h3>
+	<p>Multi Commander's network discovery engine provides comprehensive scanning capabilities to automatically identify and catalog network resources, making them easily accessible through the familiar file management interface.</p>
 
-<p>Right-clicking on a computer in the list will open a popup window is shown with some additinal commands.</p>
+	<div class="row">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header bg-primary text-white">
+					<h6 class="mb-0"><i class="bi bi-search me-2"></i>Discovery Process</h6>
+				</div>
+				<div class="card-body">
+					<h6>Initiating Network Scan</h6>
+					<p class="small">The network discovery process can be initiated manually or automatically:</p>
+					<ol class="small">
+						<li><strong>Navigate to NET: Device:</strong> Open the Network virtual filesystem</li>
+						<li><strong>Execute Scan Network Command:</strong> Trigger comprehensive network discovery</li>
+						<li><strong>Monitor Progress:</strong> Track scanning progress in real-time</li>
+						<li><strong>Review Results:</strong> Examine discovered devices and services</li>
+					</ol>
 
-<p><img alt="" src="/Docs/Images/BrowserNetworkPopup.png" style="width: 506px; height: 172px;" /></p>
+					<div class="text-center mt-3 mb-3">
+						<img src="/Docs/Images/BrowserNetwork.png" alt="Network Browser Interface" class="img-fluid border rounded shadow-sm" />
+						<p class="text-muted small mt-2">Network browser showing discovered computers and network-attached devices</p>
+					</div>
 
-<h3>Pin this Computer</h3>
+				</div>
+			</div>
+		</div>
 
-<p>This command will pin the selected computer. If a new scan of the network is done this computer will not be removed from the list even if it was not found.</p>
+	</div>
 
-<h3>Remove from list</h3>
+</section>
 
-<p>This command will remove the selected computer from the list.</p>
+<section id="remote-desktop" class="mt-5">
+	<h3>Remote Desktop Integration (TSClient)</h3>
+	<p>Multi Commander provides specialized support for Remote Desktop environments, automatically detecting and providing access to local drives when running in Terminal Services or Remote Desktop sessions.</p>
 
-<h3>Remove all from list (Except pinned)</h3>
+	<div class="row">
+		<div class="col-md-6">
+			<div class="card">
+				<div class="card-header bg-primary text-white">
+					<h6 class="mb-0"><i class="bi bi-display me-2"></i>TSClient Support</h6>
+				</div>
+				<div class="card-body">
+					<h6>Automatic Detection</h6>
+					<ul class="small">
+						<li><strong>Session Recognition:</strong> Automatically detect Remote Desktop sessions</li>
+						<li><strong>Local Drive Access:</strong> Access client computer drives remotely</li>
+						<li><strong>Drive Redirection:</strong> Support for redirected local drives</li>
+						<li><strong>Seamless Integration:</strong> Treat remote drives like network resources</li>
+					</ul>
+					<h6>TSClient Features</h6>
+					<ul class="small">
+						<li><strong>Full File Operations:</strong> Complete read/write access to local drives</li>
+						<li><strong>Drag and Drop:</strong> Transfer files between local and remote systems</li>
+						<li><strong>Path Resolution:</strong> Automatic UNC path translation</li>
+						<li><strong>Performance Optimization:</strong> Efficient file transfer over RDP</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-6">
+			<div class="card">
+				<div class="card-header bg-success text-white">
+					<h6 class="mb-0"><i class="bi bi-shield-check me-2"></i>Configuration Requirements</h6>
+				</div>
+				<div class="card-body">
+					<h6>Remote Desktop Settings</h6>
+					<ul class="small">
+						<li><strong>Drive Redirection:</strong> Enable local drive redirection in RDP client</li>
+						<li><strong>Resource Sharing:</strong> Configure appropriate resource sharing policies</li>
+						<li><strong>Security Policies:</strong> Ensure drive redirection is permitted</li>
+						<li><strong>User Permissions:</strong> Verify user has access to local drives</li>
+					</ul>
+					<h6>Network Considerations</h6>
+					<ul class="small">
+						<li><strong>Bandwidth:</strong> Consider network bandwidth for file operations</li>
+						<li><strong>Latency:</strong> Account for network latency in file transfers</li>
+						<li><strong>Security:</strong> Understand security implications of drive redirection</li>
+						<li><strong>Compression:</strong> Leverage RDP compression for better performance</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
 
-<p>This will remove all computers from the list (with the exception of pinned computers - these will not be removed).</p>
+</section>
 
-<h2>Settings</h2>
+<section id="management" class="mt-5">
+	<h3>Network Device Management</h3>
+	<p>Multi Commander provides comprehensive management capabilities for discovered network devices, including persistent storage, manual organization, and contextual operations through intuitive right-click menus.</p>
 
-<p>Execute the "<b>Settings</b>" command to open the settings page</p>
+	<div class="row">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header bg-primary text-white">
+					<h6 class="mb-0"><i class="bi bi-list-ul me-2"></i>Device List Management</h6>
+				</div>
+				<div class="card-body">
+					<h6>Persistent Device Storage</h6>
+					<p class="small">The Network filesystem maintains a persistent list of discovered devices:</p>
+					<ul class="small">
+						<li><strong>Automatic Persistence:</strong> Device list remembered between Multi Commander sessions</li>
+						<li><strong>Cache Management:</strong> Intelligent caching balances performance and accuracy</li>
+						<li><strong>Stale Device Cleanup:</strong> Automatic removal of unavailable devices over time</li>
+						<li><strong>Manual Override:</strong> User control over device list management</li>
+					</ul>
 
-<p><img alt="" src="/Docs/Images/BrowserNetworkSettingsPage.png" style="width: 572px; height: 123px;" /></p>
+					<h6>Device Access</h6>
+					<p class="small">Accessing discovered network devices is straightforward:</p>
+					<ol class="small">
+						<li><strong>Double-click Device:</strong> Open device in current panel</li>
+						<li><strong>Enter Key:</strong> Navigate to device like entering a folder</li>
+						<li><strong>Drag to Panel:</strong> Open device in opposite panel</li>
+						<li><strong>Right-click Options:</strong> Access additional device operations</li>
+					</ol>
 
-<p><b>Network browse method</b></p>
+					<h6>Seamless Integration</h6>
+					<ul class="small">
+						<li><strong>UNC Path Translation:</strong> Automatic conversion to appropriate network paths</li>
+						<li><strong>Authentication Flow:</strong> Integrated Windows authentication handling</li>
+						<li><strong>Error Handling:</strong> Graceful handling of access issues and network problems</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header bg-success text-white">
+					<h6 class="mb-0"><i class="bi bi-gear me-2"></i>Device Operations</h6>
+				</div>
+				<div class="card-body">
+					<div class="text-center mb-3">
+						<img src="/Docs/Images/BrowserNetworkPopup.png" alt="Network Device Context Menu" class="img-fluid border rounded shadow-sm" />
+						<p class="text-muted small mt-2">Right-click context menu showing network device management options</p>
+					</div>
+					<h6>Available Commands</h6>
+					<ul class="small">
+						<li><strong>Pin Computer:</strong> Permanently retain device in list</li>
+						<li><strong>Remove from List:</strong> Delete specific device entry</li>
+						<li><strong>Remove All (Except Pinned):</strong> Clear unpinned devices</li>
+						<li><strong>Refresh Device:</strong> Update device information</li>
+						<li><strong>Properties:</strong> View detailed device information</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
 
-<p>There are three methods (Current Context, Global and Shell) available to use to scan the network. If computer is not found in the list after a scan, try changing Network browse method and then scan the network again.</p>
+</section>
 
-<p><b>Keep cache of found networked computers</b></p>
+<section id="configuration" class="mt-5">
+	<h3>Network Filesystem Configuration</h3>
+	<p>Multi Commander provides comprehensive configuration options for the Network filesystem, allowing fine-tuning of discovery methods, caching behavior, and performance characteristics to match specific network environments.</p>
 
-<p>If this is checked, discovered computers will be remembered between restarts of Multi Commander.</p>
+	<div class="row">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header bg-primary text-white">
+					<h6 class="mb-0"><i class="bi bi-gear me-2"></i>Configuration Interface</h6>
+				</div>
+				<div class="card-body">
+					<h6>Accessing Settings</h6>
+					<p class="small">Network filesystem settings can be accessed through the Settings command in the NET: device interface.</p>
+
+					<div class="text-center mt-3 mb-3">
+						<img src="/Docs/Images/BrowserNetworkSettingsPage.png" alt="Network Settings Dialog" class="img-fluid border rounded shadow-sm" />
+						<p class="text-muted small mt-2">Network filesystem configuration dialog showing browse methods and caching options</p>
+					</div>
+
+					<h6>Configuration Categories</h6>
+					<ul class="small">
+						<li><strong>Discovery Methods:</strong> Configure how devices are discovered</li>
+						<li><strong>Caching Behavior:</strong> Control device list persistence</li>
+						<li><strong>Performance Settings:</strong> Optimize for network characteristics</li>
+						<li><strong>Security Options:</strong> Configure authentication and access controls</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header bg-success text-white">
+					<h6 class="mb-0"><i class="bi bi-list-check me-2"></i>Key Settings</h6>
+				</div>
+				<div class="card-body">
+					<h6>Network Browse Method</h6>
+					<ul class="small">
+						<li><strong>Current Context:</strong> Use current user security context</li>
+						<li><strong>Global:</strong> Use system-wide network discovery</li>
+						<li><strong>Shell:</strong> Use Windows Shell network enumeration</li>
+					</ul>
+					<h6>Cache Management</h6>
+					<ul class="small">
+						<li><strong>Keep Cache:</strong> Persist device list between sessions</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+
+</section>
+
+<section class="mt-5">
+	<h3>Network Integration Features</h3>
+	<p>The Network filesystem extends beyond basic device discovery, providing comprehensive integration with Multi Commander's broader file management ecosystem and enterprise networking capabilities.</p>
+
+	<div class="row">
+		<div class="col-md-6">
+			<div class="card">
+				<div class="card-header bg-primary text-white">
+					<h6 class="mb-0"><i class="bi bi-link me-2"></i>System Integration</h6>
+				</div>
+				<div class="card-body">
+					<h6>Multi Commander Integration</h6>
+					<ul class="small">
+						<li><strong>Favorites System:</strong> Bookmark frequently accessed network locations</li>
+						<li><strong>Tab Sessions:</strong> Include network locations in saved tab sessions</li>
+						<li><strong>User Commands:</strong> Create custom commands for network operations</li>
+						<li><strong>Script Support:</strong> MultiScript functions work with network paths</li>
+					</ul>
+					<h6>Windows Integration</h6>
+					<ul class="small">
+						<li><strong>Explorer Consistency:</strong> Behavior consistent with Windows Explorer</li>
+						<li><strong>Shell Extensions:</strong> Support for Windows Shell extensions on network resources</li>
+						<li><strong>Context Menus:</strong> Windows context menus available for network files</li>
+						<li><strong>Association Support:</strong> File associations work with network files</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-6">
+			<div class="card">
+				<div class="card-header bg-success text-white">
+					<h6 class="mb-0"><i class="bi bi-building me-2"></i>Enterprise Features</h6>
+				</div>
+				<div class="card-body">
+					<h6>Domain Environment Support</h6>
+					<ul class="small">
+						<li><strong>Active Directory Integration:</strong> Automatic discovery of domain resources</li>
+						<li><strong>Group Policy Compliance:</strong> Respect network access policies</li>
+						<li><strong>Kerberos Authentication:</strong> Secure authentication in domain environments</li>
+						<li><strong>DFS Support:</strong> Work with Distributed File System namespaces</li>
+					</ul>
+					<h6>Performance and Reliability</h6>
+					<ul class="small">
+						<li><strong>Connection Pooling:</strong> Efficient management of network connections</li>
+						<li><strong>Offline Handling:</strong> Graceful handling of network disconnections</li>
+						<li><strong>Retry Logic:</strong> Automatic retry for temporary network issues</li>
+						<li><strong>Error Recovery:</strong> Robust error handling and recovery mechanisms</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<div class="alert alert-success mt-5">
+	<h6><i class="bi bi-lightbulb me-2"></i>Efficient Network Resource Management</h6>
+	<p class="mb-0">Multi Commander's Network filesystem transforms complex network resource management into an intuitive, integrated experience. The automatic discovery, intelligent caching, and seamless integration capabilities make accessing and managing distributed file resources as natural as working with local files.</p>
+</div>
+
+<div class="alert alert-info mt-4">
+	<h6><i class="bi bi-info-circle me-2"></i>Related Network Topics</h6>
+	<p class="mb-0">Explore other virtual filesystem capabilities: <a href="/Docs/filesystem/archives" class="text-decoration-none">Archive Support</a>, <a href="/Docs/filesystem/favorites" class="text-decoration-none">Favorites Management</a>, and <a href="/Docs/filesystem" class="text-decoration-none">Virtual Filesystem Overview</a>.</p>
+</div>
 
 

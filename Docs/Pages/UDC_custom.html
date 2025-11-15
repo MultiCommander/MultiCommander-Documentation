@@ -1,57 +1,655 @@
-<h2>User Defined Commands - Custom Commands</h2>
-<p><strong>Custom commands</strong> are commands that Multi Commander or its Extensions or Plug-ins provide. These commands often expose features you already have, but you can call them with special settings and options available to them.&nbsp;</p>
+﻿<h2>User Defined Commands - Custom Commands</h2>
 
-<p>Custom Commands can also be called from MultiScript and that combination allows you to create <em>very</em> advanced and powerful commands.</p>
+<p>Custom Commands provide a structured approach to creating sophisticated Multi Commander automation by utilizing pre-built functions from Multi Commander's core system and installed extensions. This command type bridges the gap between simple Internal Commands and complex MultiScript programming, offering a powerful yet accessible syntax for automating file operations, panel management, and system interactions through guided function selection and parameter configuration.</p>
 
-<p><img align="middle" alt="" src="/Docs/Images/UDC_custom.png" /></p>
+<div class="alert alert-primary">
+	<h6><i class="bi bi-code-square me-2"></i>Structured Command System</h6>
+	<p class="mb-0">Custom Commands expose Multi Commander's extensive built-in functionality through an organized Group → Function → Parameter selection system. These commands provide access to advanced features with customizable options and MultiTag support, enabling sophisticated automation workflows without requiring full scripting knowledge while maintaining compatibility with MultiScript for even more advanced integrations.</p>
+</div>
 
-<p><small>(The example in the image above will start a filesearch for *.jpg file in the path of the current source panel. Furthermore, the search will autostart.)</small></p>
+<nav class="navbar navbar-expand-lg navbar-light bg-light mb-4">
+	<div class="container-fluid">
+		<span class="navbar-brand">Quick Navigation</span>
+		<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#customCommandsNav">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="customCommandsNav">
+			<ul class="navbar-nav">
+				<li class="nav-item"><a class="nav-link" href="#overview">Overview</a></li>
+				<li class="nav-item"><a class="nav-link" href="#configuration">Configuration</a></li>
+				<li class="nav-item"><a class="nav-link" href="#multitags">MultiTags</a></li>
+				<li class="nav-item"><a class="nav-link" href="#options">Command Options</a></li>
+				<li class="nav-item"><a class="nav-link" href="#examples">Examples</a></li>
+			</ul>
+		</div>
+	</div>
+</nav>
 
-<h2>Create a command</h2>
+<section id="overview">
+	<h3>Custom Commands Overview</h3>
+	<p>Custom Commands represent the middle ground of User Defined Commands complexity, providing structured access to Multi Commander's extensive built-in functionality through an organized function selection system that doesn't require scripting expertise.</p>
 
-<p><strong>Custom commands</strong> are created by choosing <em>Custom Commands</em> in the Command Type dropdown of the <em>User Commands</em> dialog. To help you create the Custom Command there are three dropdown boxes from which you choose <em>Group</em>, <em>Function</em> and <em>Options/Parameters</em>. Using these dropdowns you can find all the functions and options that are provided for each group.</p>
+	<div class="row">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header bg-info text-white">
+					<h6 class="mb-0"><i class="bi bi-diagram-3 me-2"></i>How Custom Commands Work</h6>
+				</div>
+				<div class="card-body">
+					<h6>Three-Tier Selection System</h6>
+					<div class="row">
+						<div class="col-md-4">
+							<h6>1. Group Selection</h6>
+							<ul class="small">
+								<li><strong>Core Modules:</strong> Multi Commander's built-in functionality</li>
+								<li><strong>Extensions:</strong> Installed extension packages</li>
+								<li><strong>Plug-ins:</strong> Loaded plug-in modules</li>
+								<li><strong>System Functions:</strong> Windows integration capabilities</li>
+							</ul>
+						</div>
+						<div class="col-md-4">
+							<h6>2. Function Selection</h6>
+							<ul class="small">
+								<li><strong>Dynamic List:</strong> Functions update based on selected group</li>
+								<li><strong>Organized Display:</strong> Functions grouped by capability</li>
+								<li><strong>Descriptive Names:</strong> Clear function descriptions</li>
+								<li><strong>Complete Access:</strong> All available functions in the group</li>
+							</ul>
+						</div>
+						<div class="col-md-4">
+							<h6>3. Parameter Selection</h6>
+							<ul class="small">
+								<li><strong>Context-Sensitive:</strong> Parameters specific to selected function</li>
+								<li><strong>Guided Input:</strong> Dropdown lists for available options</li>
+								<li><strong>MultiTag Support:</strong> Dynamic values using MultiTags</li>
+								<li><strong>Flexible Configuration:</strong> Mix static and dynamic parameters</li>
+							</ul>
+						</div>
+					</div>
 
-<p>The <em>Group</em> dropdown shows all the modules that have registered Custom Commands. The commands are separated into groups showing which module, extension or plug-in they belong to.</p>
+					<h6>Command Execution Process</h6>
+					<ul class="small">
+						<li><strong>Command Building:</strong> Selected function and parameters form complete command syntax</li>
+						<li><strong>MultiTag Processing:</strong> Dynamic values replaced with current context information</li>
+						<li><strong>Function Execution:</strong> Multi Commander executes the constructed command</li>
+						<li><strong>Result Handling:</strong> Function results integrated into Multi Commander interface</li>
+					</ul>
 
-<p>When a module is selected the<em> Function</em> drop down list is updated to show the functions that module supports. When a function is selected the Options/Parameters drop down list is updated with the options and parameters you can send to that function.</p>
+					<div class="alert alert-info p-2 mt-3">
+						<h6 class="small mb-1"><i class="bi bi-lightbulb me-1"></i>Power and Accessibility</h6>
+						<p class="small mb-0">Custom Commands provide access to the same powerful functions used by Multi Commander's built-in features, but with user-customizable parameters and options.</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 
-<p>If you know the command you want you can write it directly into the editor. You do not have to use the drop down lists; they are just there to help you.</p>
+	<div class="row mt-3">
+		<div class="col-md-6">
+			<div class="card">
+				<div class="card-header bg-success text-white">
+					<h6 class="mb-0"><i class="bi bi-check-circle me-2"></i>Key Advantages</h6>
+				</div>
+				<div class="card-body">
+					<h6>Structured Approach</h6>
+					<ul class="small">
+						<li><strong>Guided Creation:</strong> Helper dropdowns eliminate guesswork</li>
+						<li><strong>Function Discovery:</strong> Explore available capabilities through browsing</li>
+						<li><strong>Parameter Validation:</strong> Built-in validation for function parameters</li>
+						<li><strong>Syntax Assistance:</strong> Automatic command syntax generation</li>
+					</ul>
 
-<p><a href="#docs_customcommands_examples">Custom Commands Examples</a></p>
+					<h6>Flexibility</h6>
+					<ul class="small">
+						<li><strong>Manual Editing:</strong> Direct command editing for advanced users</li>
+						<li><strong>MultiTag Integration:</strong> Dynamic values for context-aware commands</li>
+						<li><strong>Parameter Combinations:</strong> Mix static settings with dynamic values</li>
+						<li><strong>Extension Access:</strong> Utilize extension and plug-in capabilities</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-6">
+			<div class="card">
+				<div class="card-header bg-warning text-dark">
+					<h6 class="mb-0"><i class="bi bi-target me-2"></i>Primary Applications</h6>
+				</div>
+				<div class="card-body">
+					<h6>File Management Automation</h6>
+					<ul class="small">
+						<li><strong>Selection Operations:</strong> Advanced file selection with custom patterns</li>
+						<li><strong>View Control:</strong> Automated panel view and filter management</li>
+						<li><strong>Navigation:</strong> Sophisticated path navigation and bookmarks</li>
+						<li><strong>Search Operations:</strong> Customized file search with specific parameters</li>
+					</ul>
 
-<p><a href="#docs_customcommands_list">List And Description of Custom Commands</a></p>
+					<h6>Interface Customization</h6>
+					<ul class="small">
+						<li><strong>Panel Management:</strong> Configure panel layouts and views</li>
+						<li><strong>Tool Integration:</strong> Access built-in tools with custom settings</li>
+						<li><strong>Workflow Optimization:</strong> Automate repetitive interface operations</li>
+						<li><strong>Extension Utilization:</strong> Leverage extension features in custom workflows</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
 
-<h2>MultiTags</h2>
+<section id="configuration" class="mt-5">
+	<h3>Configuring Custom Commands</h3>
+	<p>Setting up Custom Commands involves using the three-dropdown helper system to select functions and parameters, or directly editing command syntax for advanced users who know the specific commands they want to create.</p>
 
-<p>MultiTags are specially formatted texts that will be replaced with dynamic information. For example, the MultiTag <strong>${sourcepath}</strong> will be replaced with the full path of the source panel (the currently active panel). The Custom Command is run through a process that will translate <strong>MultiTags</strong> before it is executed.</p>
+	<div class="row">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header bg-primary text-white">
+					<h6 class="mb-0"><i class="bi bi-gear-wide me-2"></i>Configuration Interface</h6>
+				</div>
+				<div class="card-body">
+					<div class="text-center mt-3 mb-3">
+						<img src="/Docs/Images/UDC_custom.png" alt="Custom Commands Configuration" class="img-fluid border rounded shadow-sm" />
+						<p class="text-muted small mt-2">The Custom Commands configuration interface with Group, Function, and Parameter selection system</p>
+						<p class="text-muted small">Example: File search command for *.jpg files with auto-start enabled</p>
+					</div>
 
-<p><a href="#docs_multitags">Read more about MultiTags</a></p>
+					<h6>Helper Dropdown System</h6>
+					<div class="row">
+						<div class="col-md-4">
+							<h6>Group Dropdown</h6>
+							<ul class="small">
+								<li><strong>Core Groups:</strong> Multi Commander's built-in function categories</li>
+								<li><strong>Extension Groups:</strong> Functions from installed extensions</li>
+								<li><strong>Plug-in Groups:</strong> Capabilities from loaded plug-ins</li>
+								<li><strong>Dynamic Content:</strong> Available groups depend on installation</li>
+							</ul>
+						</div>
+						<div class="col-md-4">
+							<h6>Function Dropdown</h6>
+							<ul class="small">
+								<li><strong>Contextual Update:</strong> Functions update when group changes</li>
+								<li><strong>Complete Listing:</strong> All functions available in selected group</li>
+								<li><strong>Descriptive Names:</strong> Clear function names and purposes</li>
+								<li><strong>Add Button:</strong> Insert selected function into command field</li>
+							</ul>
+						</div>
+						<div class="col-md-4">
+							<h6>Options/Parameters Dropdown</h6>
+							<ul class="small">
+								<li><strong>Function-Specific:</strong> Parameters relevant to selected function</li>
+								<li><strong>Required Parameters:</strong> Parameters ending with "=" need values</li>
+								<li><strong>Optional Settings:</strong> Additional function configuration options</li>
+								<li><strong>Add Integration:</strong> Append parameters to command</li>
+							</ul>
+						</div>
+					</div>
 
-<p>&nbsp;</p>
+					<h6>Command Editor</h6>
+					<ul class="small">
+						<li><strong>Direct Editing:</strong> Manual command entry for experienced users</li>
+						<li><strong>Syntax Building:</strong> Helper dropdowns build command syntax automatically</li>
+						<li><strong>MultiTag Integration:</strong> Insert dynamic values using MultiTags</li>
+						<li><strong>Validation:</strong> Real-time syntax checking and parameter validation</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
 
-<h2>Options</h2>
+	<div class="row mt-3">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header bg-success text-white">
+					<h6 class="mb-0"><i class="bi bi-list-ol me-2"></i>Configuration Process</h6>
+				</div>
+				<div class="card-body">
+					<h6>Step-by-Step Setup</h6>
+					<ol>
+						<li><strong>Select Custom Commands:</strong> Choose "Custom Commands" as the command type</li>
+						<li><strong>Choose Group:</strong> Select the function group from the first dropdown</li>
+						<li><strong>Select Function:</strong> Choose the specific function from the updated second dropdown</li>
+						<li><strong>Add Function:</strong> Press the "Add" button to insert function into command field</li>
+						<li><strong>Configure Parameters:</strong> Select and add required and optional parameters</li>
+						<li><strong>Add MultiTags:</strong> Insert dynamic values using MultiTag syntax</li>
+						<li><strong>Test Command:</strong> Verify command syntax and functionality</li>
+						<li><strong>Save and Assign:</strong> Save command and assign to interface elements</li>
+					</ol>
 
-<p><img alt="" src="/Docs/Images/UDC_custom_runoptions.png" /></p>
+					<h6>Alternative: Direct Command Entry</h6>
+					<ul class="small">
+						<li><strong>Expert Mode:</strong> Type commands directly if you know the syntax</li>
+						<li><strong>Syntax Reference:</strong> Use <a href="/Docs/customcommands_list" class="text-decoration-none">Custom Commands List</a> for command reference</li>
+						<li><strong>Mixed Approach:</strong> Use dropdowns for discovery, then edit manually</li>
+						<li><strong>Copy and Modify:</strong> Start with examples and customize parameters</li>
+					</ul>
 
-<p>When you press the <strong>Options </strong>button you get a list of options that can be assigned to the command, as shown above.</p>
+					<div class="alert alert-warning p-2 mt-3">
+						<h6 class="small mb-1"><i class="bi bi-exclamation-triangle me-1"></i>Parameter Requirements</h6>
+						<p class="small mb-0">Parameters ending with "=" require additional information. The helper system guides you through required parameter values.</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
 
-<ol>
-	<li>
-	<h3>Display Confirmation</h3>
+<section id="multitags" class="mt-5">
+	<h3>MultiTags in Custom Commands</h3>
+	<p>Custom Commands support the full range of MultiTags for dynamic parameter values, enabling commands to adapt to current file selections, panel paths, and contextual information automatically.</p>
 
-	<p>This option displays a dialog asking the user to confirm that the command really should be run. This is recommended if the program to be started could change anything on the computer, such as removing or modifying files. If the command is for example shown in the menu bar, it is very easy to accidentally call the command, and you might make changes to your system when you do not want to.</p>
-	</li>
-	<li>
-	<h3>Run Separately</h3>
+	<div class="row">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header bg-dark text-white">
+					<h6 class="mb-0"><i class="bi bi-tags me-2"></i>Common MultiTags for Custom Commands</h6>
+				</div>
+				<div class="card-body">
+					<div class="table-responsive">
+						<table class="table table-bordered table-hover">
+							<thead class="table-light">
+								<tr>
+									<th style="width: 30%">MultiTag</th>
+									<th style="width: 40%">Description</th>
+									<th style="width: 30%">Common Usage</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td><code>${sourcepath}</code></td>
+									<td>Current source panel path</td>
+									<td>Search operations, navigation commands</td>
+								</tr>
+								<tr>
+									<td><code>${targetpath}</code></td>
+									<td>Current target panel path</td>
+									<td>Copy/move operations, path navigation</td>
+								</tr>
+								<tr>
+									<td><code>${focusfilepath}</code></td>
+									<td>Full path to focused file</td>
+									<td>File-specific operations, tool launching</td>
+								</tr>
+								<tr>
+									<td><code>${selectedfiles}</code></td>
+									<td>Names of all selected files</td>
+									<td>Batch operations, selection processing</td>
+								</tr>
+								<tr>
+									<td><code>${currentfilepath}</code></td>
+									<td>Current file in multi-file operations</td>
+									<td>Per-file processing with "Run Separately" option</td>
+								</tr>
+								<tr>
+									<td><code>${param:n}</code></td>
+									<td>Command line parameter (n = number)</td>
+									<td>Parameterized commands, scripting integration</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
 
-	<p>When this option is enabled the command is run separately for each file that is selected, with the MultiTag <strong>${currentfilepath}</strong> changed to match that file path.</p>
-	</li>
-</ol>
+					<h6>MultiTag Integration Examples</h6>
+					<div class="row">
+						<div class="col-md-6">
+							<h6>File Search with Dynamic Path</h6>
+							<pre class="bg-light p-2 rounded small"><code>MC.Explorer.Search SEARCHPATH="${sourcepath}" SEARCHFOR="*.jpg" AUTOSTART</code></pre>
+							<p class="small">Searches for JPG files in the current source panel path.</p>
 
-<h2>Command Parameters</h2>
+							<h6>Panel Navigation</h6>
+							<pre class="bg-light p-2 rounded small"><code>MC.Explorer.Goto PANEL=LEFT PATH="${targetpath}"</code></pre>
+							<p class="small">Navigates left panel to the current target panel path.</p>
+						</div>
+						<div class="col-md-6">
+							<h6>Selection with Pattern</h6>
+							<pre class="bg-light p-2 rounded small"><code>MC.Explorer.Selection.Select PATTERN="${param:0}" SETFOCUS</code></pre>
+							<p class="small">Selects files matching pattern from command parameter.</p>
 
-<p>The script supports parameters to be sent to the command if it is called from the Commandline bar.</p>
+							<h6>View Filter Application</h6>
+							<pre class="bg-light p-2 rounded small"><code>MC.Explorer.SetViewFilter FILTER="*.${param:0}" PANEL=ACTIVE</code></pre>
+							<p class="small">Sets view filter to show files with extension from parameter.</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 
-<p>The parameters are accessed by using the MultiTags <strong>${param:&lt;num&gt;}</strong> where &lt;num&gt; is the index of the parameter to use. <strong>${param:0}</strong> will be the first parameter,<strong> ${param:1}</strong> the second,<strong>&nbsp;${param:2}</strong> the third and so forth.</p>
+	<div class="row mt-3">
+		<div class="col-md-6">
+			<div class="card">
+				<div class="card-header bg-info text-white">
+					<h6 class="mb-0"><i class="bi bi-gear me-2"></i>MultiTag Best Practices</h6>
+				</div>
+				<div class="card-body">
+					<h6>Effective MultiTag Usage</h6>
+					<ul class="small">
+						<li><strong>Context Awareness:</strong> Choose MultiTags that match command purpose</li>
+						<li><strong>Parameter Validation:</strong> Ensure MultiTags provide expected data types</li>
+						<li><strong>Fallback Values:</strong> Consider what happens when MultiTags are empty</li>
+						<li><strong>Path Handling:</strong> Use appropriate path tags for file vs. directory operations</li>
+					</ul>
+
+					<h6>Common Patterns</h6>
+					<ul class="small">
+						<li><strong>Current Context:</strong> Use <code>${sourcepath}</code> for operations on current location</li>
+						<li><strong>File Processing:</strong> Use <code>${selectedfiles}</code> for batch operations</li>
+						<li><strong>Cross-Panel:</strong> Use <code>${targetpath}</code> for source-to-target operations</li>
+						<li><strong>Parameterized:</strong> Use <code>${param:n}</code> for flexible command line usage</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-6">
+			<div class="card">
+				<div class="card-header bg-warning text-dark">
+					<h6 class="mb-0"><i class="bi bi-link me-2"></i>MultiTags Reference</h6>
+				</div>
+				<div class="card-body">
+					<h6>Complete Documentation</h6>
+					<p class="small">Custom Commands support the full MultiTags system. For complete tag reference including advanced tags and formatting options:</p>
+					
+					<div class="alert alert-light p-2">
+						<strong>📖 <a href="/Docs/multitags" class="text-decoration-none">Complete MultiTags Documentation</a></strong><br>
+						<span class="small">Comprehensive reference for all available MultiTags</span>
+					</div>
+
+					<h6>Testing MultiTags</h6>
+					<ul class="small">
+						<li><strong>Command Line Testing:</strong> Test MultiTag resolution in command line bar</li>
+						<li><strong>Different Contexts:</strong> Test with various file selections and paths</li>
+						<li><strong>Empty Values:</strong> Verify behavior when tags resolve to empty values</li>
+						<li><strong>Special Characters:</strong> Test with files containing special characters</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<section id="options" class="mt-5">
+	<h3>Command Options and Features</h3>
+	<p>Custom Commands provide specialized options for controlling execution behavior, including confirmation dialogs and per-file processing capabilities for enhanced workflow control and safety.</p>
+
+	<div class="row">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header bg-warning text-dark">
+					<h6 class="mb-0"><i class="bi bi-sliders me-2"></i>Execution Control Options</h6>
+				</div>
+				<div class="card-body">
+					<div class="text-center mt-3 mb-3">
+						<img src="/Docs/Images/UDC_custom_runoptions.png" alt="Custom Command Options" class="img-fluid border rounded shadow-sm" />
+						<p class="text-muted small mt-2">Available execution options for Custom Commands</p>
+					</div>
+
+					<div class="row">
+						<div class="col-md-6">
+							<h6>Display Confirmation</h6>
+							<ul class="small">
+								<li><strong>Safety Feature:</strong> Shows confirmation dialog before command execution</li>
+								<li><strong>User Review:</strong> Allows users to review command before execution</li>
+								<li><strong>Accidental Prevention:</strong> Prevents unintended command execution</li>
+								<li><strong>Recommended Use:</strong> Commands that modify files or system state</li>
+							</ul>
+
+							<h6>When to Use Confirmation</h6>
+							<ul class="small">
+								<li><strong>File Modifications:</strong> Commands that change, move, or delete files</li>
+								<li><strong>System Changes:</strong> Operations that affect system settings</li>
+								<li><strong>Batch Operations:</strong> Commands that process multiple files</li>
+								<li><strong>Menu Placement:</strong> Commands accessible through menu bars</li>
+							</ul>
+						</div>
+						<div class="col-md-6">
+							<h6>Run Separately</h6>
+							<ul class="small">
+								<li><strong>Per-File Execution:</strong> Command runs once for each selected file</li>
+								<li><strong>Current File Context:</strong> <code>${currentfilepath}</code> changes for each iteration</li>
+								<li><strong>Sequential Processing:</strong> Files processed one at a time</li>
+								<li><strong>Individual Results:</strong> Each execution produces separate results</li>
+							</ul>
+
+							<h6>Run Separately Use Cases</h6>
+							<ul class="small">
+								<li><strong>File Processing:</strong> Operations that work on one file at a time</li>
+								<li><strong>Tool Integration:</strong> External tools that accept single file input</li>
+								<li><strong>Conditional Logic:</strong> Per-file decision making in MultiScript calls</li>
+								<li><strong>Result Aggregation:</strong> Collecting results from multiple file operations</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="row mt-3">
+		<div class="col-md-6">
+			<div class="card">
+				<div class="card-header bg-success text-white">
+					<h6 class="mb-0"><i class="bi bi-shield-check me-2"></i>Safety and Workflow</h6>
+				</div>
+				<div class="card-body">
+					<h6>Best Practices for Options</h6>
+					<ul class="small">
+						<li><strong>Confirmation for Risk:</strong> Enable confirmation for potentially destructive operations</li>
+						<li><strong>Testing First:</strong> Test commands without confirmation initially</li>
+						<li><strong>User Education:</strong> Document what confirmation dialogs will show</li>
+						<li><strong>Context Consideration:</strong> Consider where commands will be accessed</li>
+					</ul>
+
+					<h6>Option Combinations</h6>
+					<ul class="small">
+						<li><strong>Both Options:</strong> Can enable both confirmation and run separately</li>
+						<li><strong>Confirmation per File:</strong> With both enabled, confirms each file operation</li>
+						<li><strong>Selective Use:</strong> Different options for different command types</li>
+						<li><strong>User Preference:</strong> Consider user workflow and experience level</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-6">
+			<div class="card">
+				<div class="card-header bg-info text-white">
+					<h6 class="mb-0"><i class="bi bi-arrow-repeat me-2"></i>Parameter Support</h6>
+				</div>
+				<div class="card-body">
+					<h6>Command Line Parameters</h6>
+					<ul class="small">
+						<li><strong>Parameter Access:</strong> Use <code>${param:n}</code> MultiTags for command line arguments</li>
+						<li><strong>Flexible Input:</strong> Commands can accept variable arguments</li>
+						<li><strong>Scripting Integration:</strong> Call Custom Commands from MultiScript with parameters</li>
+						<li><strong>Dynamic Behavior:</strong> Same command behaves differently based on parameters</li>
+					</ul>
+
+					<h6>Parameter Examples</h6>
+					<ul class="small">
+						<li><strong><code>${param:0}</code>:</strong> First command line argument</li>
+						<li><strong><code>${param:1}</code>:</strong> Second command line argument</li>
+						<li><strong>Mixed Usage:</strong> Combine parameters with MultiTags and static values</li>
+						<li><strong>Validation:</strong> Commands should handle missing or invalid parameters gracefully</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<section id="examples" class="mt-5">
+	<h3>Practical Custom Command Examples</h3>
+	<p>These examples demonstrate the power and flexibility of Custom Commands across different categories of Multi Commander functionality and automation scenarios.</p>
+
+	<div class="row">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header bg-primary text-white">
+					<h6 class="mb-0"><i class="bi bi-search me-2"></i>Search and Navigation</h6>
+				</div>
+				<div class="card-body">
+					<h6>Smart File Search</h6>
+					<div class="alert alert-light p-2">
+						<strong>Command:</strong> <code>MC.Explorer.Search SEARCHPATH="${sourcepath}" SEARCHFOR="*.${param:0}" AUTOSTART</code><br>
+						<strong>Usage:</strong> Create alias "findt" → Type "findt jpg" to search for JPG files<br>
+						<strong>Description:</strong> Parameterized search for files by extension
+					</div>
+
+					<h6>Quick Navigation to Target</h6>
+					<div class="alert alert-light p-2">
+						<strong>Command:</strong> <code>MC.Explorer.Goto PANEL=LEFT PATH="${targetpath}"</code><br>
+						<strong>Usage:</strong> Assign to hotkey (e.g., Ctrl+Shift+G)<br>
+						<strong>Description:</strong> Navigate left panel to current target path
+					</div>
+
+					<h6>Bookmark Current Location</h6>
+					<div class="alert alert-light p-2">
+						<strong>Command:</strong> <code>MC.Explorer.Favorites.Add PATH="${sourcepath}" NAME="${param:0}"</code><br>
+						<strong>Usage:</strong> "bookmark ProjectFiles" creates bookmark with name<br>
+						<strong>Description:</strong> Add current path to favorites with custom name
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header bg-success text-white">
+					<h6 class="mb-0"><i class="bi bi-files me-2"></i>Selection and Filtering</h6>
+				</div>
+				<div class="card-body">
+					<h6>Advanced File Selection</h6>
+					<div class="alert alert-light p-2">
+						<strong>Command:</strong> <code>MC.Explorer.Selection.Select PATTERN="*.${param:0}" SETFOCUS</code><br>
+						<strong>Usage:</strong> "select doc" selects all .doc files<br>
+						<strong>Description:</strong> Select files by extension with parameter
+					</div>
+
+					<h6>View Filter Toggle</h6>
+					<div class="alert alert-light p-2">
+						<strong>Command:</strong> <code>MC.Explorer.SetViewFilter FILTER="${param:0}" PANEL=ACTIVE</code><br>
+						<strong>Usage:</strong> "filter *.txt" shows only text files<br>
+						<strong>Description:</strong> Set view filter using command parameter
+					</div>
+
+					<h6>Select Files Modified Today</h6>
+					<div class="alert alert-light p-2">
+						<strong>Command:</strong> <code>MC.Explorer.Selection.Select DATERANGE="TODAY" SETFOCUS</code><br>
+						<strong>Usage:</strong> Assign to button for one-click selection<br>
+						<strong>Description:</strong> Select all files modified today
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="row mt-3">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header bg-warning text-dark">
+					<h6 class="mb-0"><i class="bi bi-layout-three-columns me-2"></i>Panel Management</h6>
+				</div>
+				<div class="card-body">
+					<h6>Dual Panel Synchronization</h6>
+					<div class="alert alert-light p-2">
+						<strong>Command:</strong> <code>MC.Explorer.Goto PANEL=RIGHT PATH="${sourcepath}"</code><br>
+						<strong>Usage:</strong> Assign to hotkey for instant panel sync<br>
+						<strong>Description:</strong> Make both panels show the same path
+					</div>
+
+					<h6>View Mode Switcher</h6>
+					<div class="alert alert-light p-2">
+						<strong>Command:</strong> <code>MC.Explorer.SetViewMode VIEWMODE="${param:0}" PANEL=ACTIVE</code><br>
+						<strong>Usage:</strong> "view details" or "view thumbnails"<br>
+						<strong>Description:</strong> Change view mode via parameter
+					</div>
+
+					<h6>Panel Layout Toggle</h6>
+					<div class="alert alert-light p-2">
+						<strong>Command:</strong> <code>MC.Explorer.Panel.ToggleLayout LAYOUT=HORIZONTAL</code><br>
+						<strong>Usage:</strong> Quick button for layout switching<br>
+						<strong>Description:</strong> Toggle between vertical and horizontal layouts
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header bg-info text-white">
+					<h6 class="mb-0"><i class="bi bi-tools me-2"></i>Tools Integration</h6>
+				</div>
+				<div class="card-body">
+					<h6>Calculate Folder Size</h6>
+					<div class="alert alert-light p-2">
+						<strong>Command:</strong> <code>MC.Tools.FolderSize PATH="${sourcepath}" SHOWRESULT</code><br>
+						<strong>Usage:</strong> Right-click menu or button assignment<br>
+						<strong>Description:</strong> Calculate size of current folder
+					</div>
+
+					<h6>File Checksum Verification</h6>
+					<div class="alert alert-light p-2">
+						<strong>Command:</strong> <code>MC.Tools.Checksum FILE="${focusfilepath}" ALGORITHM="${param:0}"</code><br>
+						<strong>Usage:</strong> "checksum MD5" calculates MD5 hash<br>
+						<strong>Description:</strong> Calculate file checksum with algorithm parameter
+					</div>
+
+					<h6>Multi-Rename Setup</h6>
+					<div class="alert alert-light p-2">
+						<strong>Command:</strong> <code>MC.Tools.MultiRename FILES="${selectedfilepaths}" PRESET="${param:0}"</code><br>
+						<strong>Usage:</strong> "rename photos" uses "photos" preset<br>
+						<strong>Description:</strong> Launch Multi-Rename with selected files and preset
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="row mt-3">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header bg-dark text-white">
+					<h6 class="mb-0"><i class="bi bi-arrow-repeat me-2"></i>Advanced: Per-File Processing Example</h6>
+				</div>
+				<div class="card-body">
+					<h6>Individual File Tool Processing</h6>
+					<div class="row">
+						<div class="col-md-6">
+							<h6>Configuration</h6>
+							<ul class="small">
+								<li><strong>Command:</strong> <code>MC.Tools.FileInfo FILE="${currentfilepath}" EXPORT="${targetpath}${currentfilename}_info.txt"</code></li>
+								<li><strong>Options:</strong> Run Separately ✓, Display Confirmation ✓</li>
+								<li><strong>Assignment:</strong> Create button "Export File Info"</li>
+								<li><strong>Purpose:</strong> Export detailed file information for each selected file</li>
+							</ul>
+						</div>
+						<div class="col-md-6">
+							<h6>Execution Flow</h6>
+							<ol class="small">
+								<li><strong>Select Files:</strong> User selects multiple files in source panel</li>
+								<li><strong>Set Target:</strong> Navigate target panel to output directory</li>
+								<li><strong>Execute Command:</strong> Click "Export File Info" button</li>
+								<li><strong>Per-File Processing:</strong> Command runs once for each selected file</li>
+								<li><strong>Confirmation Each:</strong> User confirms each file operation</li>
+								<li><strong>Result:</strong> Individual info files created in target directory</li>
+							</ol>
+						</div>
+					</div>
+
+					<div class="alert alert-success p-2 mt-3">
+						<h6 class="small mb-1"><i class="bi bi-check-circle me-1"></i>Multi-File Processing Benefits</h6>
+						<p class="small mb-0">The "Run Separately" option enables sophisticated per-file workflows while maintaining user control through confirmation dialogs and providing access to individual file context via <code>${currentfilepath}</code> and related MultiTags.</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<div class="alert alert-success mt-5">
+	<h6><i class="bi bi-lightbulb me-2"></i>Custom Commands Mastery</h6>
+	<p class="mb-0">Master Custom Commands by exploring the Group → Function → Parameter system to discover Multi Commander's extensive capabilities, utilizing MultiTags for dynamic parameter values, and leveraging execution options like "Run Separately" for per-file processing. Remember that Custom Commands bridge the gap between simple Internal Commands and complex MultiScript programming, providing structured access to powerful functionality. Use the helper dropdowns for discovery and learning, then graduate to direct command editing for advanced customization and integration with MultiScript workflows.</p>
+</div>
+
+<div class="alert alert-info mt-4">
+	<h6><i class="bi bi-info-circle me-2"></i>Related Documentation</h6>
+	<p class="mb-0">Enhance your Custom Commands knowledge with: <a href="/Docs/user-defined-commands" class="text-decoration-none">User Defined Commands Overview</a>, <a href="/Docs/customcommands_list" class="text-decoration-none">Complete Custom Commands List</a>, <a href="/Docs/customcommands_examples" class="text-decoration-none">More Examples</a>, <a href="/Docs/multitags" class="text-decoration-none">MultiTags Reference</a>, <a href="/Docs/UDC_multiscript" class="text-decoration-none">MultiScript Integration</a>, and other command types: <a href="/Docs/UDC_internal" class="text-decoration-none">Internal Commands</a>, <a href="/Docs/UDC_external" class="text-decoration-none">External Commands</a>, <a href="/Docs/UDC_batch" class="text-decoration-none">Batch Scripts</a>.</p>
+</div>
 
 

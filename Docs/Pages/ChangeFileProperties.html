@@ -1,22 +1,345 @@
-<h2>Change File Properties</h2>
-<p>Attributes and Date/Times of files and folders can be changed from the Change attributes dialog.</p>
+﻿<h2>Change File Properties</h2>
 
-<p><img alt="" src="/Docs/Images/ChangeFileAttributes.png" /></p>
+<p>Multi Commander's <strong>Change File Properties</strong> tool provides comprehensive control over file and folder attributes, timestamps, and metadata. Whether you need to modify read-only flags, update creation dates, or batch-change system attributes across multiple files, this powerful tool streamlines property management for efficient file system administration.</p>
 
-<p>Select the files or folders whose properties you want to change, then select "Change Properties (Attributes/Time)..." under the Tools menu.</p>
+<div class="alert alert-primary">
+	<h6><i class="bi bi-sliders me-2"></i>Advanced Property Management</h6>
+	<p class="mb-0">Transform file attributes and timestamps with precision control. Batch process multiple files simultaneously, manage system-level attributes, and maintain complete control over file metadata for system administration, archival processes, and compliance requirements.</p>
+</div>
 
-<p>Multiple files and folders can be changed at once. It is also possible to change all the files in folders and sub-folders.</p>
+<nav class="navbar navbar-expand-lg navbar-light bg-light mb-4">
+	<div class="container-fluid">
+		<span class="navbar-brand">Quick Navigation</span>
+		<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#filePropsNav">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="filePropsNav">
+			<ul class="navbar-nav">
+				<li class="nav-item"><a class="nav-link" href="#overview">Overview</a></li>
+				<li class="nav-item"><a class="nav-link" href="#accessing">Accessing the Tool</a></li>
+				<li class="nav-item"><a class="nav-link" href="#attributes">File Attributes</a></li>
+				<li class="nav-item"><a class="nav-link" href="#timestamps">Date and Time</a></li>
+				<li class="nav-item"><a class="nav-link" href="#advanced-features">Advanced Features</a></li>
+			</ul>
+		</div>
+	</div>
+</nav>
 
-<p>Each attribute checkbox can have one of&nbsp; 3 states:</p>
+<section id="overview">
+	<h3>Understanding File Properties</h3>
+	<p>File properties encompass both attributes and timestamps that control file behavior, visibility, and metadata within the Windows file system. Understanding these properties enables effective file management and system administration.</p>
 
-<p>If <strong>Unchecked, </strong>the attribute will be turned off.</p>
+	<div class="row">
+		<div class="col-md-6">
+			<div class="card">
+				<div class="card-header bg-primary text-white">
+					<h6 class="mb-0"><i class="bi bi-tag me-2"></i>File Attributes</h6>
+				</div>
+				<div class="card-body">
+					<h6>Standard Attributes</h6>
+					<ul class="small">
+						<li><strong>Read-Only:</strong> Prevents file modification and deletion</li>
+						<li><strong>Hidden:</strong> Hides files from normal directory listings</li>
+						<li><strong>Archive:</strong> Marks files for backup operations</li>
+						<li><strong>System:</strong> Designates critical system files</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-6">
+			<div class="card">
+				<div class="card-header bg-success text-white">
+					<h6 class="mb-0"><i class="bi bi-clock me-2"></i>Timestamp Properties</h6>
+				</div>
+				<div class="card-body">
+					<h6>File Timestamps</h6>
+					<ul class="small">
+						<li><strong>Creation Time:</strong> When the file was originally created</li>
+						<li><strong>Modified Time:</strong> When the file content was last changed</li>
+						<li><strong>Access Time:</strong> When the file was last accessed or read</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
 
-<p>If <strong>Checked</strong>, the attribute will be turned on.&nbsp;</p>
+<section id="accessing" class="mt-5">
+	<h3>Accessing the Tool</h3>
+	<p>The Change File Properties tool is accessible through multiple methods, providing flexible access for both single-file operations and batch processing scenarios.</p>
 
-<p>If <strong>Blocked</strong> (as 'Archive' and 'System', seen in the image above), the attribute will not be changed: the current attribute will be kept.</p>
+	<div class="row">
+		<div class="col-md-8">
+			<div class="card">
+				<div class="card-header bg-primary text-white">
+					<h6 class="mb-0"><i class="bi bi-menu-app me-2"></i>Access Methods</h6>
+				</div>
+				<div class="card-body">
+					<h6>Primary Access - Tools Menu</h6>
+					<ol>
+						<li>Select the files or folders whose properties you want to change</li>
+						<li>Navigate to <strong>Tools → Change Properties (Attributes/Time)...</strong></li>
+						<li>The Change File Properties dialog will open</li>
+					</ol>
 
-<div class="well">
-<p>If you hold down <strong>CTRL</strong> and <strong>Double Click</strong> in the date or attribute column for a file/folder, the Change attributes window will be shown, but <em>only </em>for that file/folder, even if multiple files are selected.</p>
+					<div class="text-center mt-3 mb-3">
+						<img src="/Docs/Images/ChangeFileAttributes.png" alt="Change File Properties Dialog" class="img-fluid border rounded shadow-sm" />
+						<p class="text-muted small mt-2">Change File Properties dialog showing attribute and timestamp controls</p>
+					</div>
+
+					<h6>Quick Access - Column Double-Click</h6>
+					<div class="alert alert-info p-2 mt-3">
+						<p class="small mb-0"><strong>Power User Tip:</strong> Hold <kbd>Ctrl</kbd> and double-click in the date or attribute column for any file/folder to open the Change Properties dialog for that specific item only, even if multiple files are selected.</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-4">
+			<div class="card">
+				<div class="card-header bg-success text-white">
+					<h6 class="mb-0"><i class="bi bi-layers me-2"></i>Selection Flexibility</h6>
+				</div>
+				<div class="card-body">
+					<h6>Batch Operations</h6>
+					<ul class="small">
+						<li><strong>Multiple Files:</strong> Process many files simultaneously</li>
+						<li><strong>Mixed Selection:</strong> Handle files and folders together</li>
+						<li><strong>Recursive Processing:</strong> Apply changes to folder contents</li>
+						<li><strong>Single Item Focus:</strong> Use Ctrl+double-click for individual files</li>
+					</ul>
+					<h6>Scope Control</h6>
+					<ul class="small">
+						<li><strong>Selected Items:</strong> Only modify explicitly selected items</li>
+						<li><strong>Folder Contents:</strong> Include all files within selected folders</li>
+						<li><strong>Subdirectory Inclusion:</strong> Recursively process subfolder contents</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<section id="attributes" class="mt-5">
+	<h3>File Attribute Management</h3>
+	<p>File attributes control file behavior and visibility within the Windows file system. The tool provides granular control over all standard and advanced attributes with tri-state checkbox functionality.</p>
+
+	<div class="card">
+		<div class="card-header bg-primary text-white">
+			<h6 class="mb-0"><i class="bi bi-check-square me-2"></i>Attribute Control System</h6>
+		</div>
+		<div class="card-body">
+			<h6>Tri-State Checkbox Behavior</h6>
+			<p class="small">Each attribute checkbox supports three distinct states for precise control over attribute changes:</p>
+
+			<div class="row mt-3">
+				<div class="col-md-4">
+					<div class="card border-success">
+						<div class="card-header bg-success text-white">
+							<h6 class="mb-0">✓ Checked State</h6>
+						</div>
+						<div class="card-body">
+							<p class="small mb-2"><strong>Action:</strong> Attribute will be turned ON</p>
+							<p class="small mb-0"><strong>Result:</strong> Forces the attribute to be set regardless of current state</p>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-4">
+					<div class="card border-danger">
+						<div class="card-header bg-danger text-white">
+							<h6 class="mb-0">☐ Unchecked State</h6>
+						</div>
+						<div class="card-body">
+							<p class="small mb-2"><strong>Action:</strong> Attribute will be turned OFF</p>
+							<p class="small mb-0"><strong>Result:</strong> Forces the attribute to be cleared regardless of current state</p>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-4">
+					<div class="card border-warning">
+						<div class="card-header bg-warning text-dark">
+							<h6 class="mb-0">⊟ Blocked State</h6>
+						</div>
+						<div class="card-body">
+							<p class="small mb-2"><strong>Action:</strong> Attribute will NOT be changed</p>
+							<p class="small mb-0"><strong>Result:</strong> Preserves current attribute state for each file</p>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="alert alert-info mt-3">
+				<h6><i class="bi bi-info-circle me-2"></i>Blocked State Usage</h6>
+				<p class="small mb-0">The blocked state is particularly useful when processing multiple files with different current attributes. It allows you to modify some attributes while preserving others, providing selective control over batch operations.</p>
+			</div>
+		</div>
+	</div>
+
+	<div class="row mt-3">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header bg-info text-white">
+					<h6 class="mb-0"><i class="bi bi-list me-2"></i>Complete Attribute Reference</h6>
+				</div>
+				<div class="card-body">
+					<div class="table-responsive">
+						<table class="table table-bordered table-hover">
+							<thead class="table-light">
+								<tr>
+									<th style="width: 20%">Attribute</th>
+									<th style="width: 50%">Description</th>
+									<th style="width: 30%">Common Usage</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td><strong>Read-Only</strong></td>
+									<td>Prevents modification or deletion of the file</td>
+									<td>Protect important files, configuration files, templates</td>
+								</tr>
+								<tr>
+									<td><strong>Hidden</strong></td>
+									<td>Hides file from normal directory listings</td>
+									<td>System files, configuration data, private files</td>
+								</tr>
+								<tr>
+									<td><strong>Archive</strong></td>
+									<td>Marks file as modified since last backup</td>
+									<td>Incremental backup systems, change tracking</td>
+								</tr>
+								<tr>
+									<td><strong>System</strong></td>
+									<td>Designates file as part of the operating system</td>
+									<td>Critical system files, boot files, drivers</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<section id="timestamps" class="mt-5">
+	<h3>Date and Time Management</h3>
+	<p>File timestamps provide critical metadata for file management, backup operations, and compliance requirements. The tool enables precise control over all timestamp properties with flexible input methods.</p>
+
+	<div class="row">
+		<div class="col-md-6">
+			<div class="card">
+				<div class="card-header bg-primary text-white">
+					<h6 class="mb-0"><i class="bi bi-calendar me-2"></i>Timestamp Types</h6>
+				</div>
+				<div class="card-body">
+					<h6>File System Timestamps</h6>
+					<ul class="small">
+						<li><strong>Creation Date/Time:</strong> When the file was originally created</li>
+						<li><strong>Modified Date/Time:</strong> When the file content was last changed</li>
+						<li><strong>Accessed Date/Time:</strong> When the file was last opened or read</li>
+					</ul>
+					<h6>Timestamp Applications</h6>
+					<ul class="small">
+						<li><strong>Archive Organization:</strong> Standardize timestamps for chronological filing</li>
+						<li><strong>Backup Coordination:</strong> Align timestamps across multiple systems</li>
+						<li><strong>Forensic Analysis:</strong> Preserve or modify timestamps for investigation</li>
+						<li><strong>Compliance Dating:</strong> Set specific dates for regulatory requirements</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-6">
+			<div class="card">
+				<div class="card-header bg-success text-white">
+					<h6 class="mb-0"><i class="bi bi-tools me-2"></i>Timestamp Control Features</h6>
+				</div>
+				<div class="card-body">
+					<h6>Input Methods</h6>
+					<ul class="small">
+						<li><strong>Manual Entry:</strong> Type specific dates and times</li>
+						<li><strong>Date Picker:</strong> Use calendar interface for date selection</li>
+						<li><strong>Time Controls:</strong> Precise hour, minute, second specification</li>
+						<li><strong>Current Time:</strong> Set to current system time</li>
+					</ul>
+					<h6>Batch Operations</h6>
+					<ul class="small">
+						<li><strong>Uniform Timestamps:</strong> Apply same timestamp to all selected files</li>
+						<li><strong>Relative Adjustments:</strong> Modify timestamps by specific intervals</li>
+						<li><strong>Conditional Changes:</strong> Update only specific timestamp types</li>
+						<li><strong>Preservation Options:</strong> Leave certain timestamps unchanged</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<section id="advanced-features" class="mt-5">
+	<h3>Advanced Features and Custom Commands</h3>
+	<p>The Change File Properties functionality extends beyond the standard dialog through custom command integration and advanced automation capabilities.</p>
+
+	<div class="row">
+		<div class="col-md-8">
+			<div class="card">
+				<div class="card-header bg-dark text-white">
+					<h6 class="mb-0"><i class="bi bi-code me-2"></i>Custom Command Integration</h6>
+				</div>
+				<div class="card-body">
+					<h6>User Defined Commands</h6>
+					<p class="small">Create custom commands to automate common property changes using Multi Commander's scripting capabilities:</p>
+
+					<pre class="bg-light p-3 rounded small"><code>// Example: Set read-only attribute for selected files
+MC.Filesystem.SetAttributes ATTRIBUTES="R" FILES="${focuspath}"
+
+// Example: Clear archive bit after backup
+MC.Filesystem.SetAttributes ATTRIBUTES="-A" RECURSIVE
+
+// Example: Set creation date to current time
+MC.Filesystem.SetTime CREATETIME="NOW" FILES="${selectedfiles}"</code></pre>
+
+					<h6>Automation Scenarios</h6>
+					<ul class="small">
+						<li><strong>Backup Post-Processing:</strong> Clear archive bits after successful backup</li>
+						<li><strong>Security Hardening:</strong> Apply read-only to configuration files</li>
+						<li><strong>Archive Organization:</strong> Standardize timestamps for filing systems</li>
+						<li><strong>Batch Processing:</strong> Apply consistent attributes to processed files</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-4">
+			<div class="card">
+				<div class="card-header bg-warning text-dark">
+					<h6 class="mb-0"><i class="bi bi-exclamation-triangle me-2"></i>Important Considerations</h6>
+				</div>
+				<div class="card-body">
+					<h6>Safety Guidelines</h6>
+					<ul class="small">
+						<li><strong>System Files:</strong> Avoid modifying system and hidden files unnecessarily</li>
+						<li><strong>Backup First:</strong> Create backups before bulk attribute changes</li>
+						<li><strong>Test Operations:</strong> Verify changes on sample files first</li>
+						<li><strong>Permission Requirements:</strong> Some changes may require administrator privileges</li>
+					</ul>
+					<h6>Best Practices</h6>
+					<ul class="small">
+						<li><strong>Selective Changes:</strong> Use blocked state to preserve some attributes</li>
+						<li><strong>Documentation:</strong> Record significant timestamp changes</li>
+						<li><strong>Consistency:</strong> Maintain uniform attribute policies</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+
+</section>
+
+<div class="alert alert-success mt-5">
+	<h6><i class="bi bi-lightbulb me-2"></i>Advanced Property Management Tip</h6>
+	<p class="mb-0">Combine the Change File Properties tool with Multi Commander's selection features for powerful batch operations. Use the tri-state checkboxes strategically - set specific attributes to enabled/disabled while leaving others in blocked state to preserve existing settings. This approach enables surgical precision in large-scale file management operations.</p>
+</div>
+
+<div class="alert alert-info mt-4">
+	<h6><i class="bi bi-info-circle me-2"></i>Related File Management Tools</h6>
+	<p class="mb-0">Enhance your file management workflow with related features: <a href="/Docs/correctfoldertime" class="text-decoration-none">Correct Folder Date/Time</a>, <a href="/Docs/find_opened_locked_files" class="text-decoration-none">Find Opened/Locked Files</a>, and <a href="/Docs/customcommands_list" class="text-decoration-none">Custom Commands Reference</a>.</p>
 </div>
 
 

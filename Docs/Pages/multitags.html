@@ -1,190 +1,620 @@
-<h2>MultiTags</h2>
-<p><strong>MultiTags</strong> are text tags that can be used with some User Commands.</p>
+﻿<h2>MultiTags Reference</h2>
 
-<p>These tags are processed and translated before the command is executed.</p>
+<p>MultiTags are dynamic text placeholders that provide Multi Commander's User Defined Commands with real-time access to file management context information. These powerful tags automatically resolve to current paths, selections, focused files, and system information, enabling commands to adapt dynamically to user actions and current workspace state without requiring manual input or hardcoded values.</p>
 
-<p>MultiTags are supported by External Commands, Custom Commands and Batch Scripts.<br />
-MultiTags <strong>CANNOT be used in MultiScript</strong> directly. To use them from MultiScript you must use the <a href="#docs_multiscript/functions/misc#gettagvalue">GetTagValue()</a> function.</p>
+<div class="alert alert-primary">
+	<h6><i class="bi bi-tags me-2"></i>Dynamic Context Integration</h6>
+	<p class="mb-0">MultiTags bridge the gap between static command syntax and dynamic file management operations by injecting current context information directly into command parameters. These tags transform User Defined Commands into powerful automation tools that respond intelligently to file selections, panel states, and user interactions, creating adaptive workflows that enhance productivity through context-aware automation.</p>
+</div>
 
-<table class="table table-bordered">
-	<tbody>
-		<tr>
-			<th>MultiTag</th>
-			<th>Description</th>
-			<th>Example Output</th>
-		</tr>
-		<tr>
-			<td>${focusfilepath}</td>
-			<td>Full path to the file/folder in focus</td>
-			<td>C:\Programs Files\MultiCommander\MyFile.exe</td>
-		</tr>
-		<tr>
-			<td>${date:&lt;date-format&gt;}</td>
-			<td>Current local date</td>
-			<td>${date:yyyy-MM-dd} -&gt; 2016-02-28</td>
-		</tr>
-		<tr>
-			<td>${time:&lt;time-format&gt;}</td>
-			<td>Current local time</td>
-			<td>${time:hh:mm:ss} -&gt; "15:23:01"</td>
-		</tr>
-		<tr>
-			<td>${targetpath}</td>
-			<td>Current path of the target panel</td>
-			<td>D:\MyBackup\</td>
-		</tr>
-		<tr>
-			<td>${sourcepath}</td>
-			<td>Current path of the source panel</td>
-			<td>C:\Programs Files\MultiCommander\</td>
-		</tr>
-		<tr>
-			<td>${targetdevice}</td>
-			<td>Current device of the target panel</td>
-			<td>D</td>
-		</tr>
-		<tr>
-			<td>${sourcedevice}</td>
-			<td>Current device of the source panel</td>
-			<td>E</td>
-		</tr>
-		<tr>
-			<td>${sourcefocuspath}</td>
-			<td>Full path to item in focus, in the source view.<br />
-			This MultiTag is the same as ${focusfilepath}</td>
-			<td>F:\my folder\filename.txt</td>
-		</tr>
-		<tr>
-			<td>${targetfocuspath}</td>
-			<td>Full path to item in focus, in the target view.</td>
-			<td>D:\Temp\Folder 2\report.txt</td>
-		</tr>
-		<tr>
-			<td>${sourcefocusname}</td>
-			<td>Name of item in focus, in the source view.</td>
-			<td>filename.txt</td>
-		</tr>
-		<tr>
-			<td>${targetfocusname}</td>
-			<td>Name of item in focus, in the target view.</td>
-			<td>report.txt</td>
-		</tr>
-		<tr>
-			<td>${sourcefocusext}</td>
-			<td>Extension of item in focus, in the source view.</td>
-			<td>txt</td>
-		</tr>
-		<tr>
-			<td>${targetfocusext}</td>
-			<td>Extension of item in focus, in the target view.</td>
-			<td>txt</td>
-		</tr>
-		<tr>
-			<td colspan="3">${leftpath}, ${leftfocuspath}, ${leftfocusname} | ${rightpath}, ${rightfocuspath}, ${rightfocusname}
-			<p>Same as the ${sourcefocuspath} tags above, but referring to the left/right panel, independent of which panel is source or target.</p>
-			</td>
-		</tr>
-        <tr>
-           <td>$(pid)</td>
-           <td>The Process ID of MultiCommander</td>
-           <td>&nbsp;</td>
-        </tr>
-        <tr>
-           <td>$(mctemp)</td>
-           <td>Root temp folder used by MultiCommander</td>
-           <td>&nbsp;</td>
-        </tr>
-		<tr>
-			<td>${param:&lt;num&gt;}</td>
-			<td>
-			<p>Script parameter.<br />
-			where &lt;num&gt; is the index of the parameter</p>
-			</td>
-			<td>${param:0} -&gt; "D:\MyBackup\"</td>
-		</tr>
-	</tbody>
-</table>
+<nav class="navbar navbar-expand-lg navbar-light bg-light mb-4">
+	<div class="container-fluid">
+		<span class="navbar-brand">Quick Navigation</span>
+		<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#multitagsNav">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="multitagsNav">
+			<ul class="navbar-nav">
+				<li class="nav-item"><a class="nav-link" href="#overview">Overview</a></li>
+				<li class="nav-item"><a class="nav-link" href="#compatibility">Compatibility</a></li>
+				<li class="nav-item"><a class="nav-link" href="#complete-reference">Complete Reference</a></li>
+				<li class="nav-item"><a class="nav-link" href="#usage-examples">Usage Examples</a></li>
+				<li class="nav-item"><a class="nav-link" href="#best-practices">Best Practices</a></li>
+			</ul>
+		</div>
+	</div>
+</nav>
 
-<p>All the paths below depend on how Multi Commander is installed, ie. for a Single User, Multi User, or a portable installation.</p>
+<section id="overview">
+	<h3>MultiTags Overview</h3>
+	<p>MultiTags provide User Defined Commands with access to Multi Commander's current state and context information through specially formatted text placeholders that are automatically resolved during command execution.</p>
 
-<table class="table table-bordered">
-	<tbody>
-		<tr>
-			<td>${mcinstallpath}</td>
-			<td>The path from which Multi Commander is run.</td>
-			<td>C:\Program Files\MultiCommander</td>
-		</tr>
-		<tr>
-			<td>${mcappdatapath}</td>
-			<td>Path to Multi Commander's application data folder.</td>
-			<td>C:\Users\&lt;username&gt;\AppData\Roaming\MultiCommander\</td>
-		</tr>
-		<tr>
-			<td>${mclogpath}</td>
-			<td>Path to Multi Commander's log folder</td>
-			<td>C:\Users\&lt;username&gt;\AppData\Roaming\MultiCommander\Logs\</td>
-		</tr>
-		<tr>
-			<td>${mcconfigpath}</td>
-			<td>Path to Multi Commander's main config folder.</td>
-			<td>C:\Users\&lt;username&gt;\AppData\Roaming\MultiCommander\Config\</td>
-		</tr>
-		<tr>
-			<td>${mcuserappdata}</td>
-			<td>Path to Multi Commander's user data storage. Used by plugins and extensions to store user data.</td>
-			<td>C:\Users\&lt;username&gt;\AppData\Roaming\MultiCommander\UserData\</td>
-		</tr>
-	</tbody>
-</table>
+	<div class="row">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header bg-info text-white">
+					<h6 class="mb-0"><i class="bi bi-diagram-3 me-2"></i>How MultiTags Work</h6>
+				</div>
+				<div class="card-body">
+					<h6>Processing Mechanism</h6>
+					<div class="row">
+						<div class="col-md-4">
+							<h6>1. Command Creation</h6>
+							<ul class="small">
+								<li><strong>Tag Insertion:</strong> Include MultiTags in command syntax using ${tagname} format</li>
+								<li><strong>Dynamic Parameters:</strong> Replace static values with context-aware tags</li>
+								<li><strong>Flexible Placement:</strong> Use tags anywhere within command parameters</li>
+								<li><strong>Multiple Tags:</strong> Combine multiple tags in single commands</li>
+							</ul>
+						</div>
+						<div class="col-md-4">
+							<h6>2. Execution Time</h6>
+							<ul class="small">
+								<li><strong>Context Capture:</strong> Multi Commander captures current workspace state</li>
+								<li><strong>Tag Resolution:</strong> Each MultiTag replaced with actual current value</li>
+								<li><strong>Real-Time Data:</strong> Values reflect current file selections and panel states</li>
+								<li><strong>Command Assembly:</strong> Resolved command assembled with actual values</li>
+							</ul>
+						</div>
+						<div class="col-md-4">
+							<h6>3. Command Execution</h6>
+							<ul class="small">
+								<li><strong>Final Command:</strong> Fully resolved command executed with real values</li>
+								<li><strong>Context Accuracy:</strong> Operations use current file management context</li>
+								<li><strong>Dynamic Behavior:</strong> Same command behaves differently based on context</li>
+								<li><strong>Automatic Adaptation:</strong> Commands adapt to different scenarios</li>
+							</ul>
+						</div>
+					</div>
 
-<p>&nbsp;</p>
+					<h6>Key Benefits</h6>
+					<ul class="small">
+						<li><strong>Dynamic Adaptation:</strong> Commands automatically adapt to current context</li>
+						<li><strong>User Convenience:</strong> No manual path entry or file specification required</li>
+						<li><strong>Workflow Integration:</strong> Commands integrate seamlessly with file management tasks</li>
+						<li><strong>Reusability:</strong> Same command works in different folders and with different files</li>
+					</ul>
 
-<p>&nbsp;</p>
+					<div class="alert alert-success p-2 mt-3">
+						<h6 class="small mb-1"><i class="bi bi-lightbulb me-1"></i>Power of Context</h6>
+						<p class="small mb-0">MultiTags eliminate the need for static, hardcoded values in commands, creating truly dynamic automation that responds intelligently to user actions and current workspace state.</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
 
-<hr />
-<p>Paths that are expanded from MultiTags are <strong>NOT quoted</strong>, so you might need to put quotes around the MultiTag. You might also need to put single quotes around the entire command. (See the first MC.Run example below.)<br />
-&nbsp;</p>
+<section id="compatibility" class="mt-5">
+	<h3>Command Type Compatibility</h3>
+	<p>MultiTags support varies across different User Defined Command types, with most command types providing direct support while MultiScript requires special function calls for tag access.</p>
 
-<h3>Examples</h3>
+	<div class="row">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header bg-success text-white">
+					<h6 class="mb-0"><i class="bi bi-check-circle me-2"></i>Direct MultiTags Support</h6>
+				</div>
+				<div class="card-body">
+					<div class="row">
+						<div class="col-md-6">
+							<h6>External Commands</h6>
+							<ul class="small">
+								<li><strong>Full Support:</strong> All MultiTags available in program paths and arguments</li>
+								<li><strong>Path Integration:</strong> Perfect for launching applications with current file context</li>
+								<li><strong>Parameter Passing:</strong> Pass current selections and paths to external tools</li>
+								<li><strong>Dynamic Execution:</strong> Same external command adapts to different contexts</li>
+							</ul>
 
-<p><b>Custom Commands</b></p>
+							<h6>Custom Commands</h6>
+							<ul class="small">
+								<li><strong>Comprehensive Support:</strong> All tags available in command parameters</li>
+								<li><strong>Function Parameters:</strong> Use tags in any Custom Command parameter</li>
+								<li><strong>Advanced Operations:</strong> Enable sophisticated file management automation</li>
+								<li><strong>Extension Integration:</strong> MultiTags work with extension-provided functions</li>
+							</ul>
+						</div>
+						<div class="col-md-6">
+							<h6>Batch Script (.BAT)</h6>
+							<ul class="small">
+								<li><strong>Script Integration:</strong> MultiTags resolved before script generation</li>
+								<li><strong>Path Quoting:</strong> Tags automatically integrated into batch syntax</li>
+								<li><strong>Dynamic Scripts:</strong> Same script template adapts to different contexts</li>
+								<li><strong>System Integration:</strong> Bridge Multi Commander context to Windows batch</li>
+							</ul>
 
-<pre class="mscode">
-MC.Explorer.Goto PATH="${focusfilepath}"
+							<div class="alert alert-warning p-2 mt-3">
+								<h6 class="small mb-1"><i class="bi bi-exclamation-triangle me-1"></i>Important Note</h6>
+								<p class="small mb-0">MultiTags are NOT automatically quoted. Always enclose path-based tags in quotes: <code>"${sourcepath}"</code></p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header bg-warning text-dark">
+					<h6 class="mb-0"><i class="bi bi-gear me-2"></i>MultiScript Special Handling</h6>
+				</div>
+				<div class="card-body">
+					<h6>MultiScript Limitations and Solutions</h6>
+					<div class="row">
+						<div class="col-md-6">
+							<h6>Direct MultiTag Limitations</h6>
+							<ul class="small">
+								<li><strong>No Direct Support:</strong> MultiTags cannot be used directly in MultiScript variables</li>
+								<li><strong>Variable Assignment:</strong> <code>@var $path = "${sourcepath}";</code> does NOT work</li>
+								<li><strong>Script Context:</strong> MultiScript has its own variable and function system</li>
+								<li><strong>Alternative Required:</strong> Must use special functions for context access</li>
+							</ul>
+						</div>
+						<div class="col-md-6">
+							<h6>Correct MultiScript Approaches</h6>
+							<ul class="small">
+								<li><strong>GetTagValue() Function:</strong> <code>@var $path = GetTagValue("sourcepath");</code></li>
+								<li><strong>Dedicated Functions:</strong> <code>GetSourcePath()</code>, <code>GetTargetPath()</code>, etc.</li>
+								<li><strong>Custom Command Lines:</strong> MultiTags work in Custom Command calls from MultiScript</li>
+								<li><strong>Mixed Approach:</strong> Combine MultiScript logic with Custom Command execution</li>
+							</ul>
+						</div>
+					</div>
 
-MC.Run CMD="C:\bin\Compare.exe" ARG='-s "${sourcepath}" -d "${targetpath}"'</pre>
+					<div class="alert alert-info p-2 mt-3">
+						<h6 class="small mb-1"><i class="bi bi-info-circle me-1"></i>MultiScript Integration</h6>
+						<p class="small mb-0">For MultiScript context access, use <strong><a href="/Docs/multiscript/functions/misc#gettagvalue" class="text-decoration-none">GetTagValue()</a></strong> function or dedicated context functions like <strong>GetSourcePath()</strong>.</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
 
-<p>As you see in the <b>MC.Run</b> example. The <b>ARG</b> command has spaces and quote (") characters in it, so the entire ARG must then be encapsulated in single quote ( ' ) characters.&nbsp;</p>
+<section id="complete-reference" class="mt-5">
+	<h3>Complete MultiTags Reference</h3>
+	<p>This comprehensive reference covers all available MultiTags organized by category for easy lookup and understanding of each tag's purpose and output format.</p>
 
-<p><b>External Commands</b></p>
+	<div class="row">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header bg-primary text-white">
+					<h6 class="mb-0"><i class="bi bi-list me-2"></i>Complete MultiTags List</h6>
+				</div>
+				<div class="card-body">
+					<div class="table-responsive">
+						<table class="table table-bordered table-hover">
+							<thead class="table-light">
+								<tr>
+									<th style="width: 25%">MultiTag</th>
+									<th style="width: 45%">Description</th>
+									<th style="width: 30%">Example Output</th>
+								</tr>
+							</thead>
+							<tbody>
+								<!-- File and Folder Focus -->
+								<tr class="table-info">
+									<td colspan="3"><strong>File and Folder Focus</strong></td>
+								</tr>
+								<tr>
+									<td><code>${focusfilepath}</code></td>
+									<td>Full path to the file/folder currently in focus</td>
+									<td>C:\Program Files\MultiCommander\MyFile.exe</td>
+								</tr>
+								<tr>
+									<td><code>${sourcefocuspath}</code></td>
+									<td>Full path to item in focus in the source view (same as ${focusfilepath})</td>
+									<td>F:\my folder\filename.txt</td>
+								</tr>
+								<tr>
+									<td><code>${targetfocuspath}</code></td>
+									<td>Full path to item in focus in the target view</td>
+									<td>D:\Temp\Folder 2\report.txt</td>
+								</tr>
+								<tr>
+									<td><code>${sourcefocusname}</code></td>
+									<td>Name of item in focus in the source view</td>
+									<td>filename.txt</td>
+								</tr>
+								<tr>
+									<td><code>${targetfocusname}</code></td>
+									<td>Name of item in focus in the target view</td>
+									<td>report.txt</td>
+								</tr>
+								<tr>
+									<td><code>${sourcefocusext}</code></td>
+									<td>Extension of item in focus in the source view</td>
+									<td>txt</td>
+								</tr>
+								<tr>
+									<td><code>${targetfocusext}</code></td>
+									<td>Extension of item in focus in the target view</td>
+									<td>txt</td>
+								</tr>
 
-<pre class="mscode">
-"C:\Program Files\Beyond Compare 3\BCompare.exe" -s "${leftfocuspath}" -d "${rightfocuspath}"</pre>
+								<!-- Panel Paths -->
+								<tr class="table-success">
+									<td colspan="3"><strong>Panel Paths and Locations</strong></td>
+								</tr>
+								<tr>
+									<td><code>${sourcepath}</code></td>
+									<td>Current path of the source panel</td>
+									<td>C:\Program Files\MultiCommander\</td>
+								</tr>
+								<tr>
+									<td><code>${targetpath}</code></td>
+									<td>Current path of the target panel</td>
+									<td>D:\MyBackup\</td>
+								</tr>
+								<tr>
+									<td><code>${sourcedevice}</code></td>
+									<td>Current device/drive letter of the source panel</td>
+									<td>C</td>
+								</tr>
+								<tr>
+									<td><code>${targetdevice}</code></td>
+									<td>Current device/drive letter of the target panel</td>
+									<td>D</td>
+								</tr>
 
-<p><b>MultiScript Commands</b></p>
+								<!-- Left/Right Panel Independent -->
+								<tr class="table-warning">
+									<td colspan="3"><strong>Left/Right Panel Tags (Independent of Source/Target)</strong></td>
+								</tr>
+								<tr>
+									<td><code>${leftpath}</code></td>
+									<td>Current path of the left panel</td>
+									<td>C:\Documents\</td>
+								</tr>
+								<tr>
+									<td><code>${rightpath}</code></td>
+									<td>Current path of the right panel</td>
+									<td>D:\Backup\</td>
+								</tr>
+								<tr>
+									<td><code>${leftfocuspath}</code></td>
+									<td>Full path to item in focus in the left panel</td>
+									<td>C:\Documents\report.doc</td>
+								</tr>
+								<tr>
+									<td><code>${rightfocuspath}</code></td>
+									<td>Full path to item in focus in the right panel</td>
+									<td>D:\Backup\archive.zip</td>
+								</tr>
+								<tr>
+									<td><code>${leftfocusname}</code></td>
+									<td>Name of item in focus in the left panel</td>
+									<td>report.doc</td>
+								</tr>
+								<tr>
+									<td><code>${rightfocusname}</code></td>
+									<td>Name of item in focus in the right panel</td>
+									<td>archive.zip</td>
+								</tr>
 
-<p>MultiTags are only supported in MultiScript on lines that are<strong> Custom Command</strong>s.</p>
+								<!-- File Selections -->
+								<tr class="table-danger">
+									<td colspan="3"><strong>File Selections</strong></td>
+								</tr>
+								<tr>
+									<td><code>${selectedfiles}</code></td>
+									<td>Names of all currently selected files and folders</td>
+									<td>file1.txt file2.doc folder1</td>
+								</tr>
+								<tr>
+									<td><code>${selectedfilepaths}</code></td>
+									<td>Full paths to all currently selected files and folders</td>
+									<td>C:\folder\file1.txt C:\folder\file2.doc C:\folder\folder1</td>
+								</tr>
+								<tr>
+									<td><code>${currentfilepath}</code></td>
+									<td>Current file path in per-file processing (used with "Run Separately" option)</td>
+									<td>C:\folder\current-file.txt</td>
+								</tr>
 
-<pre class="mscode">
-@var $cmd = "C:\\Bin\\Compare.exe";
+								<!-- Date and Time -->
+								<tr class="table-info">
+									<td colspan="3"><strong>Date and Time</strong></td>
+								</tr>
+								<tr>
+									<td><code>${date:&lt;format&gt;}</code></td>
+									<td>Current local date with custom formatting</td>
+									<td>${date:yyyy-MM-dd} → 2024-03-15</td>
+								</tr>
+								<tr>
+									<td><code>${time:&lt;format&gt;}</code></td>
+									<td>Current local time with custom formatting</td>
+									<td>${time:HH:mm:ss} → 15:23:01</td>
+								</tr>
 
-// <strong>INCORRECT</strong>
-@var $path1 = "${sourcepath}"; // <strong>Not supported</strong> 
-@var $path2 = "${targetpath}"; // <strong>Not supported</strong> 
-MC.Run CMD="{$cmd}" ARG='-s "{$path1}" -d "{$path2}"'
+								<!-- Command Parameters -->
+								<tr class="table-primary">
+									<td colspan="3"><strong>Command Parameters</strong></td>
+								</tr>
+								<tr>
+									<td><code>${param:&lt;num&gt;}</code></td>
+									<td>Script parameter where &lt;num&gt; is the parameter index (0-based)</td>
+									<td>${param:0} → "first parameter"<br>${param:1} → "second parameter"</td>
+								</tr>
 
-// <strong>CORRECT</strong>
-@var $path1 = GetSourcePath();
-@var $path2 = GetTargetPath();
-MC.Run CMD="{$cmd}" ARG='-s "{$path1}" -d "{$path2}"'
+								<!-- System Information -->
+								<tr class="table-secondary">
+									<td colspan="3"><strong>System Information</strong></td>
+								</tr>
+								<tr>
+									<td><code>${pid}</code></td>
+									<td>Process ID of the Multi Commander instance</td>
+									<td>1234</td>
+								</tr>
+								<tr>
+									<td><code>${mctemp}</code></td>
+									<td>Root temporary folder used by Multi Commander</td>
+									<td>C:\Users\username\AppData\Local\Temp\MultiCommander\</td>
+								</tr>
 
-// <strong>CORRECT</strong>
-MC.Run CMD="{$cmd}" ARG='-s "${sourcepath}" -d "${targetpath}"'
+								<!-- Multi Commander Paths -->
+								<tr class="table-dark text-white">
+									<td colspan="3"><strong>Multi Commander Installation Paths</strong></td>
+								</tr>
+								<tr>
+									<td><code>${mcinstallpath}</code></td>
+									<td>Path from which Multi Commander is running</td>
+									<td>C:\Program Files\MultiCommander</td>
+								</tr>
+								<tr>
+									<td><code>${mcappdatapath}</code></td>
+									<td>Path to Multi Commander's application data folder</td>
+									<td>C:\Users\username\AppData\Roaming\MultiCommander\</td>
+								</tr>
+								<tr>
+									<td><code>${mclogpath}</code></td>
+									<td>Path to Multi Commander's log folder</td>
+									<td>C:\Users\username\AppData\Roaming\MultiCommander\Logs\</td>
+								</tr>
+								<tr>
+									<td><code>${mcconfigpath}</code></td>
+									<td>Path to Multi Commander's main configuration folder</td>
+									<td>C:\Users\username\AppData\Roaming\MultiCommander\Config\</td>
+								</tr>
+								<tr>
+									<td><code>${mcuserappdata}</code></td>
+									<td>Path to Multi Commander's user data storage for plugins and extensions</td>
+									<td>C:\Users\username\AppData\Roaming\MultiCommander\UserData\</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
 
-</pre>
+					<div class="alert alert-info p-2 mt-3">
+						<h6 class="small mb-1"><i class="bi bi-info-circle me-1"></i>Installation Path Dependencies</h6>
+						<p class="small mb-0">Multi Commander path tags (${mc*}) reflect your installation type: Single User, Multi User, or Portable installation, automatically adapting to your configuration.</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
 
-<p><i>MultiScript calling a CustomCommand with Script variables</i>. Custom Commands that are run from MultiScript are run by the Custom Command engine, so script parts in the Custom Command line must be encapsulated with { } (as the variables are above). They will be evaluated and expanded before that line is sent to the Custom Command engine.</p>
+<section id="usage-examples" class="mt-5">
+	<h3>Practical Usage Examples</h3>
+	<p>These comprehensive examples demonstrate how to use MultiTags effectively across different command types and scenarios, showing the power of dynamic context integration.</p>
 
-<p>&nbsp;</p>
+	<div class="row">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header bg-success text-white">
+					<h6 class="mb-0"><i class="bi bi-code me-2"></i>Custom Commands</h6>
+				</div>
+				<div class="card-body">
+					<h6>Basic Panel Navigation</h6>
+					<div class="alert alert-light p-2">
+						<pre class="small mb-1"><code>MC.Explorer.Goto PATH="${focusfilepath}"</code></pre>
+						<p class="small mb-0">Navigate to the location of the currently focused item</p>
+					</div>
+
+					<h6>Advanced Search Operation</h6>
+					<div class="alert alert-light p-2">
+						<pre class="small mb-1"><code>MC.FileSearch.Search SEARCHIN="${sourcepath}" SEARCHFOR="*.${param:0}" AUTOSTART</code></pre>
+						<p class="small mb-0">Search for files by extension in current source path using command parameter</p>
+					</div>
+
+					<h6>Dynamic Archive Creation</h6>
+					<div class="alert alert-light p-2">
+						<pre class="small mb-1"><code>MC.Filesystem.PackFiles FILES="${selectedfilepaths}" TARGET="${targetpath}${date:yyyy-MM-dd}.zip"</code></pre>
+						<p class="small mb-0">Create timestamped archive of selected files in target directory</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header bg-warning text-dark">
+					<h6 class="mb-0"><i class="bi bi-terminal me-2"></i>External Commands</h6>
+				</div>
+				<div class="card-body">
+					<h6>Open File in External Editor</h6>
+					<div class="alert alert-light p-2">
+						<pre class="small mb-1"><code>"C:\Program Files\Notepad++\notepad++.exe" "${focusfilepath}"</code></pre>
+						<p class="small mb-0">Open currently focused file in Notepad++</p>
+					</div>
+
+					<h6>Folder Comparison Tool</h6>
+					<div class="alert alert-light p-2">
+						<pre class="small mb-1"><code>"C:\Program Files\Beyond Compare 4\BCompare.exe" "${leftpath}" "${rightpath}"</code></pre>
+						<p class="small mb-0">Compare left and right panel contents with Beyond Compare</p>
+					</div>
+
+					<h6>Git Repository Operations</h6>
+					<div class="alert alert-light p-2">
+						<pre class="small mb-1"><code>"C:\Program Files\Git\bin\git.exe" add "${selectedfilepaths}"</code></pre>
+						<p class="small mb-0">Add selected files to Git staging area</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="row mt-3">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header bg-primary text-white">
+					<h6 class="mb-0"><i class="bi bi-file-code me-2"></i>Batch Script Examples</h6>
+				</div>
+				<div class="card-body">
+					<h6>Smart Backup Script</h6>
+					<div class="alert alert-light p-3">
+						<pre class="bg-dark text-light p-2 rounded mb-2"><code>@echo off
+set BACKUP_NAME=${param:0}
+if "%BACKUP_NAME%"=="" set BACKUP_NAME=Backup
+mkdir "${targetpath}\%BACKUP_NAME%"
+xcopy "${sourcepath}\*" "${targetpath}\%BACKUP_NAME%\" /s /e /h
+echo Backup completed: %BACKUP_NAME%</code></pre>
+						<p class="small mb-0"><strong>Usage:</strong> Create organized backup with optional custom name parameter</p>
+					</div>
+
+					<h6>File Processing with Timestamp</h6>
+					<div class="alert alert-light p-3">
+						<pre class="bg-dark text-light p-2 rounded mb-2"><code>@echo off
+set LOGFILE="${targetpath}\process_${date:yyyy-MM-dd}_${time:HH-mm-ss}.log"
+echo Processing started at ${date:yyyy-MM-dd} ${time:HH:mm:ss} > "%LOGFILE%"
+for %%f in (${selectedfiles}) do (
+    echo Processing %%f >> "%LOGFILE%"
+    copy "%%f" "${targetpath}\" >> "%LOGFILE%"
+)</code></pre>
+						<p class="small mb-0"><strong>Usage:</strong> Process selected files with detailed timestamped logging</p>
+					</div>
+
+					<h6>Development Workflow Integration</h6>
+					<div class="alert alert-light p-3">
+						<pre class="bg-dark text-light p-2 rounded mb-2"><code>@echo off
+cd /d "${sourcepath}"
+echo Building project in %CD%
+dotnet build --configuration Release
+if %ERRORLEVEL%==0 (
+    echo Build successful - deploying to "${targetpath}"
+    xcopy "bin\Release\*" "${targetpath}\" /s /e /y
+) else (
+    echo Build failed - check output
+)</code></pre>
+						<p class="small mb-0"><strong>Usage:</strong> Build project in source directory and deploy to target on success</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="row mt-3">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header bg-dark text-white">
+					<h6 class="mb-0"><i class="bi bi-braces me-2"></i>MultiScript Integration Examples</h6>
+				</div>
+				<div class="card-body">
+					<h6>Correct MultiScript Context Access</h6>
+					<div class="alert alert-light p-3">
+						<pre class="bg-dark text-light p-2 rounded mb-2"><code>// CORRECT - Using dedicated functions
+@var $sourcePath = GetSourcePath();
+@var $targetPath = GetTargetPath();
+@var $focusFile = GetSourceFocusPath();
+
+// CORRECT - Using GetTagValue function  
+@var $selectedFiles = GetTagValue("selectedfiles");
+
+// CORRECT - MultiTags in Custom Command calls
+MC.Run CMD="notepad.exe" ARG="${focusfilepath}"</code></pre>
+						<p class="small mb-3"><strong>Usage:</strong> Proper methods for accessing context in MultiScript</p>
+
+						<h6 class="small mb-2">Incorrect MultiScript Usage</h6>
+						<pre class="bg-danger text-light p-2 rounded mb-2"><code>// INCORRECT - Direct MultiTag assignment does NOT work
+@var $path = "${sourcepath}";  // This will NOT resolve
+@var $file = "${focusfilepath}"; // This will NOT work</code></pre>
+						<p class="small mb-0"><strong>Note:</strong> MultiTags cannot be used directly in MultiScript variable assignments</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<section id="best-practices" class="mt-5">
+	<h3>Best Practices and Guidelines</h3>
+	<p>Follow these essential practices to use MultiTags effectively and avoid common pitfalls that can cause command failures or unexpected behavior.</p>
+
+	<div class="row">
+		<div class="col-md-6">
+			<div class="card">
+				<div class="card-header bg-danger text-white">
+					<h6 class="mb-0"><i class="bi bi-exclamation-triangle me-2"></i>Critical Requirements</h6>
+				</div>
+				<div class="card-body">
+					<h6>Path Quoting Requirements</h6>
+					<ul class="small">
+						<li><strong>Always Quote Paths:</strong> MultiTags are NOT automatically quoted</li>
+						<li><strong>Space Handling:</strong> Paths containing spaces will break commands without quotes</li>
+						<li><strong>Special Characters:</strong> Paths with ampersands, parentheses need proper quoting</li>
+						<li><strong>Consistent Practice:</strong> Quote all path-based tags even if not immediately necessary</li>
+					</ul>
+
+					<h6>Correct Quoting Examples</h6>
+					<div class="alert alert-success p-2">
+						<h6 class="small mb-1">✅ Correct</h6>
+						<pre class="small mb-0"><code>"${sourcepath}"
+"${focusfilepath}"
+"${selectedfilepaths}"</code></pre>
+					</div>
+
+					<div class="alert alert-danger p-2">
+						<h6 class="small mb-1">❌ Incorrect</h6>
+						<pre class="small mb-0"><code>${sourcepath}
+${focusfilepath}
+${selectedfilepaths}</code></pre>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-6">
+			<div class="card">
+				<div class="card-header bg-info text-white">
+					<h6 class="mb-0"><i class="bi bi-shield-check me-2"></i>Safety and Testing</h6>
+				</div>
+				<div class="card-body">
+					<h6>Testing Strategies</h6>
+					<ul class="small">
+						<li><strong>Test Different Contexts:</strong> Verify commands work with various file selections</li>
+						<li><strong>Edge Cases:</strong> Test with empty selections, special file names</li>
+						<li><strong>Path Variations:</strong> Test with short paths, long paths, network paths</li>
+						<li><strong>Character Sets:</strong> Test with international characters and symbols</li>
+					</ul>
+
+					<h6>Error Prevention</h6>
+					<ul class="small">
+						<li><strong>Validation Logic:</strong> Add checks for empty or invalid tag values</li>
+						<li><strong>Fallback Values:</strong> Provide default values when tags might be empty</li>
+						<li><strong>User Feedback:</strong> Include error messages for failed operations</li>
+						<li><strong>Documentation:</strong> Document expected behavior and limitations</li>
+					</ul>
+
+					<h6>Command Debugging</h6>
+					<ul class="small">
+						<li><strong>Echo Commands:</strong> Use echo to display resolved tag values</li>
+						<li><strong>Log Output:</strong> Create logs showing tag resolution</li>
+						<li><strong>Step-by-Step Testing:</strong> Test individual components before combining</li>
+						<li><strong>Context Verification:</strong> Ensure commands work in intended contexts</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+
+</section>
+
+<div class="alert alert-success mt-5">
+	<h6><i class="bi bi-lightbulb me-2"></i>MultiTags Mastery</h6>
+	<p class="mb-0">Master MultiTags by understanding their role as dynamic context bridges between Multi Commander's file management state and User Defined Commands. Always quote path-based tags to handle spaces and special characters, choose appropriate tags for your command's purpose, and test commands thoroughly with different file selections and path scenarios. Remember that MultiTags transform static commands into dynamic, context-aware automation tools that adapt intelligently to user actions and current workspace state. For MultiScript integration, use GetTagValue() function or dedicated context functions instead of direct tag assignment.</p>
+</div>
+
+<div class="alert alert-info mt-4">
+	<h6><i class="bi bi-info-circle me-2"></i>Related Documentation</h6>
+	<p class="mb-0">Enhance your MultiTags knowledge with related command documentation: <a href="/Docs/user-defined-commands" class="text-decoration-none">User Defined Commands Overview</a>, <a href="/Docs/UDC_custom" class="text-decoration-none">Custom Commands</a>, <a href="/Docs/UDC_external" class="text-decoration-none">External Commands</a>, <a href="/Docs/UDC_batch" class="text-decoration-none">Batch Scripts</a>, <a href="/Docs/UDC_multiscript" class="text-decoration-none">MultiScript</a>, and <a href="/Docs/multiscript/functions/misc#gettagvalue" class="text-decoration-none">GetTagValue() Function</a>.</p>
+</div>
 
 

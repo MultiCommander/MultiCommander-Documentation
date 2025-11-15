@@ -1,53 +1,351 @@
-<h2>Quick Launch Bar</h2>
-<p><img alt="" src="/Docs/Images/QuickLaunchBar1.png" /></p>
+﻿<h2>Quick Launch Bar</h2>
 
-<p>The <strong>Quick Launch Bar</strong> is located after the <em>command line field</em> and the more buttons that are added the shorter the command line field will be.</p>
+<p>The <strong>Quick Launch Bar</strong> provides instant access to frequently used applications, files, folders, and custom commands through a highly customizable toolbar interface that seamlessly integrates with Multi Commander's command line system. This powerful productivity enhancement tool enables rapid workflow automation by combining drag-and-drop simplicity with advanced user-defined command capabilities, transforming routine tasks into single-click operations while maintaining optimal workspace efficiency.</p>
 
-<p>Here is a list of some of the features of the Quick Launch bar:</p>
+<div class="alert alert-primary">
+	<h6><i class="bi bi-lightning me-2"></i>Instant Access Productivity Hub</h6>
+	<p class="mb-0">Experience the power of instant access to your most critical tools and workflows. The Quick Launch Bar eliminates repetitive navigation by providing immediate access to applications, scripts, and custom operations, while intelligent space management ensures optimal use of the command line area for both quick access and text input functionality.</p>
+</div>
 
-<ul>
-	<li>
-	<p>If you drop a file or folder on the Quick Launch bar area, a button for it will be automatically added for it.</p>
-	</li>
-	<li>
-	<p>You can rearrange the buttons in the Quick Launch bar by dragging them around.</p>
-	</li>
-	<li>
-	<p>If a file is dropped on a program button, that file is sent as a parameter to the program it is dropped on. For example, if you drop a text file on the notepad button, the text file will be opened in notepad.</p>
-	</li>
-	<li>
-	<p>If you click on a folder button, that folder will be opened inside Multi Commander.</p>
-	</li>
-	<li>
-	<p>If you (left-) click on a program button, that program will be started. If you right-click on it, a menu will be opened that allows you to:</p>
+<nav class="navbar navbar-expand-lg navbar-light bg-light mb-4">
+	<div class="container-fluid">
+		<span class="navbar-brand">Quick Navigation</span>
+		<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#quickLaunchNav">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="quickLaunchNav">
+			<ul class="navbar-nav">
+				<li class="nav-item"><a class="nav-link" href="#overview">Overview</a></li>
+				<li class="nav-item"><a class="nav-link" href="#basic-operations">Basic Operations</a></li>
+				<li class="nav-item"><a class="nav-link" href="#button-types">Button Types</a></li>
+				<li class="nav-item"><a class="nav-link" href="#organization">Organization</a></li>
+				<li class="nav-item"><a class="nav-link" href="#configuration">Configuration</a></li>
+				<li class="nav-item"><a class="nav-link" href="#custom-commands">Custom Commands</a></li>
+			</ul>
+		</div>
+	</div>
+</nav>
 
-	<ol>
-		<li>Start it normally</li>
-		<li>Start it as Administrator (Vista/Win7 +)</li>
-		<li>Go to the folder containing the program file</li>
-		<li>Remove the button from the Quick Launch bar</li>
-		<li>Customize the way the program is opened, or what icon or tooltip to show for it, etc.</li>
-		<li>Insert a user-defined command button on its left</li>
-		<li>Insert a separator to its left. (This lets you group Quick Launch buttons.)</li>
-	</ol>
-	</li>
-</ul>
+<section id="overview">
+	<h3>Quick Launch Bar Overview</h3>
+	<p>The Quick Launch Bar occupies the space immediately following the command line field within the Command Line Bar, creating a dynamic balance between text input area and quick access functionality. As more buttons are added, the command line field automatically adjusts its width to accommodate the toolbar while maintaining optimal usability for both components.</p>
 
-<h3>Entire Quick Launch Row</h3>
+	<div class="row">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header bg-info text-white">
+					<h6 class="mb-0"><i class="bi bi-layout-text-sidebar me-2"></i>Interface Position and Layout</h6>
+				</div>
+				<div class="card-body">
+					<div class="text-center mt-3 mb-3">
+						<img src="/Docs/Images/QuickLaunchBar1.png" alt="Quick Launch Bar Position" class="img-fluid border rounded shadow-sm" />
+						<p class="text-muted small mt-2">Quick Launch Bar positioned after the command line field, showing customizable button layout</p>
+					</div>
 
-<p>To add an entire Quick Launch row, go to <em>Configuration &gt; Core Settings &gt; Application Layout &gt; Toolbars &gt; Quicklaunch bar (Entire row)</em> and click on the checkbox. (Clear the checkbox to remove the extra row.)</p>
+					<h6>Layout Characteristics</h6>
+					<ul class="small">
+						<li><strong>Dynamic Sizing:</strong> Command line field automatically adjusts width based on number of Quick Launch buttons</li>
+						<li><strong>Space Optimization:</strong> Intelligent balance between command input area and quick access functionality</li>
+						<li><strong>Visual Integration:</strong> Seamless integration with Command Line Bar design and functionality</li>
+						<li><strong>Responsive Design:</strong> Adapts to available toolbar space and window resizing</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
 
-<p><img alt="Option for an Entire QuickLaunchBar Row" src="/Docs/Images/QuickLaunchBar_EntireRowOption.png" /></p>
+<section id="basic-operations" class="mt-5">
+	<h3>Basic Operations and Interactions</h3>
+	<p>The Quick Launch Bar supports intuitive drag-and-drop operations, flexible button management, and smart interaction modes that adapt to different button types and content, providing both novice and advanced users with efficient access methods for their preferred workflows.</p>
 
-<p>You will now have two Quick Launch Bars.</p>
+	<div class="row">
+		<div class="col-md-6">
+			<div class="card">
+				<div class="card-header bg-success text-white">
+					<h6 class="mb-0"><i class="bi bi-plus-circle me-2"></i>Adding Buttons</h6>
+				</div>
+				<div class="card-body">
+					<h6>Drag-and-Drop Creation</h6>
+					<ul class="small">
+						<li><strong>Files and Folders:</strong> Drag any file or folder directly onto the Quick Launch Bar area</li>
+						<li><strong>Automatic Detection:</strong> Multi Commander automatically creates appropriate button types</li>
+						<li><strong>Icon Assignment:</strong> Buttons inherit standard Windows icons or custom icons when available</li>
+						<li><strong>Instant Availability:</strong> New buttons become immediately functional after creation</li>
+					</ul>
 
-<p><img alt="" src="/Docs/Images/QuickLaunchBar2.png" /></p>
+					<h6>Manual Configuration</h6>
+					<ul class="small">
+						<li><strong>Right-Click Menu:</strong> Access "Insert User Defined Command" option</li>
+						<li><strong>Custom Commands:</strong> Create sophisticated automation and workflow buttons</li>
+						<li><strong>Separator Insertion:</strong> Add visual separators for logical button grouping</li>
+						<li><strong>Advanced Options:</strong> Configure tooltips, icons, and execution parameters</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-6">
+			<div class="card">
+				<div class="card-header bg-primary text-white">
+					<h6 class="mb-0"><i class="bi bi-arrow-left-right me-2"></i>Button Management</h6>
+				</div>
+				<div class="card-body">
+					<h6>Organization Controls</h6>
+					<ul class="small">
+						<li><strong>Drag Reordering:</strong> Drag buttons to new positions for optimal workflow organization</li>
+						<li><strong>Visual Feedback:</strong> Clear indication of drop targets during drag operations</li>
+						<li><strong>Flexible Positioning:</strong> Insert buttons at any position within the toolbar</li>
+						<li><strong>Group Management:</strong> Use separators to create logical button collections</li>
+					</ul>
 
-<h3>&nbsp;</h3>
+					<h6>Context Operations</h6>
+					<ul class="small">
+						<li><strong>Right-Click Menus:</strong> Access comprehensive button configuration options</li>
+						<li><strong>Quick Removal:</strong> Remove unwanted buttons through context menu</li>
+						<li><strong>Property Access:</strong> Modify button behavior, icons, and tooltips</li>
+						<li><strong>Advanced Settings:</strong> Configure execution modes and parameters</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
 
-<h3>Enable/Disable</h3>
+<section id="button-types" class="mt-5">
+	<h3>Button Types and Behaviors</h3>
+	<p>The Quick Launch Bar supports multiple button types, each with specialized behaviors optimized for different content types and use cases, enabling intelligent interaction patterns that enhance productivity through context-aware operations.</p>
 
-<p>If the Quick Launch Bar items are unchecked under Core Settings, then they are not created or loaded during startup. But if they are checked in Core Settings, they can still be hidden if <em>Configuration &gt; Core Settings &gt; Application Layout &gt; Toolbars &gt; CommandLine Bar &gt; Quick Launch ba</em>r is unchecked.<br />
-You should only use that option to temporarily hide them. If you want to permanently remove them, then uncheck them under Core Settings. If they are just hidden they are still using memory resources and are loaded and created during startup. To minimize resource usage, disable them under Core Settings.</p>
+	<div class="row">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header bg-warning text-dark">
+					<h6 class="mb-0"><i class="bi bi-grid-3x3-gap me-2"></i>Button Type Classification</h6>
+				</div>
+				<div class="card-body">
+					<div class="row">
+						<div class="col-md-4">
+							<h6>Folder Buttons</h6>
+							<ul class="small">
+								<li><strong>Single Click:</strong> Navigate directly to folder location within Multi Commander</li>
+								<li><strong>Target Integration:</strong> Opens folder in currently active explorer panel</li>
+								<li><strong>Quick Navigation:</strong> Instant access to frequently used directories</li>
+								<li><strong>Drag Support:</strong> Accept files for copy/move operations to target folder</li>
+							</ul>
+						</div>
+						<div class="col-md-4">
+							<h6>Program Buttons</h6>
+							<ul class="small">
+								<li><strong>Left Click:</strong> Launch application with default settings</li>
+								<li><strong>Right Click:</strong> Access comprehensive execution options menu</li>
+								<li><strong>Drag Target:</strong> Accept files as command-line parameters</li>
+								<li><strong>Admin Mode:</strong> Optional elevated privileges execution</li>
+							</ul>
+						</div>
+						<div class="col-md-4">
+							<h6>Custom Command Buttons</h6>
+							<ul class="small">
+								<li><strong>Script Execution:</strong> Run MultiScript and custom command sequences</li>
+								<li><strong>Parameter Support:</strong> Dynamic parameter passing from selections</li>
+								<li><strong>Advanced Operations:</strong> Complex automation and workflow integration</li>
+								<li><strong>Context Awareness:</strong> Adapt behavior to current panel state</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="row mt-3">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header bg-info text-white">
+					<h6 class="mb-0"><i class="bi bi-mouse me-2"></i>Advanced Interaction Patterns</h6>
+				</div>
+				<div class="card-body">
+					<h6>File Drop Operations</h6>
+					<ul class="small">
+						<li><strong>Program Targets:</strong> Files dropped on program buttons launch with file as parameter</li>
+						<li><strong>Example Use Case:</strong> Drop text file on notepad button to open file in Notepad</li>
+						<li><strong>Batch Processing:</strong> Support for multiple file operations with compatible applications</li>
+						<li><strong>Parameter Passing:</strong> Intelligent command-line argument construction</li>
+					</ul>
+
+					<h6>Right-Click Context Menu Options</h6>
+					<ol class="small">
+						<li><strong>Start Normally:</strong> Execute with standard user privileges and default settings</li>
+						<li><strong>Start as Administrator:</strong> Launch with elevated privileges (Windows Vista/7+)</li>
+						<li><strong>Go to Folder:</strong> Navigate to directory containing the program executable</li>
+						<li><strong>Remove Button:</strong> Delete button from Quick Launch Bar</li>
+						<li><strong>Customize Button:</strong> Modify icon, tooltip, execution parameters, and behavior</li>
+						<li><strong>Insert User-Defined Command:</strong> Add custom command button to the left</li>
+						<li><strong>Insert Separator:</strong> Add visual grouping separator to the left</li>
+					</ol>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<section id="organization" class="mt-5">
+	<h3>Button Organization and Grouping</h3>
+	<p>Effective Quick Launch Bar organization enhances productivity through logical button grouping, visual separation techniques, and strategic positioning that supports natural workflow patterns and reduces cognitive overhead during task execution.</p>
+
+	<div class="row">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header bg-success text-white">
+					<h6 class="mb-0"><i class="bi bi-diagram-2 me-2"></i>Organization Strategies</h6>
+				</div>
+				<div class="card-body">
+					<h6>Logical Grouping Approaches</h6>
+					<ul class="small">
+						<li><strong>By Function:</strong> Group applications by purpose (editors, utilities, system tools)</li>
+						<li><strong>By Frequency:</strong> Position most-used buttons in easily accessible locations</li>
+						<li><strong>By Project:</strong> Create project-specific button groups with separators</li>
+						<li><strong>By Workflow:</strong> Arrange buttons in task execution order</li>
+					</ul>
+
+					<h6>Visual Separation Techniques</h6>
+					<ul class="small">
+						<li><strong>Separator Lines:</strong> Insert visual separators between logical button groups</li>
+						<li><strong>Spacing Strategy:</strong> Use separators to create white space and visual breathing room</li>
+						<li><strong>Contextual Grouping:</strong> Separate administrative tools from daily-use applications</li>
+						<li><strong>Workflow Sections:</strong> Create distinct areas for different types of operations</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<section id="configuration" class="mt-5">
+	<h3>Configuration and Layout Options</h3>
+	<p>The Quick Launch Bar provides comprehensive configuration options for layout optimization, visibility management, and performance tuning, enabling users to create tailored productivity environments that balance functionality with system resource efficiency.</p>
+
+	<div class="row">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header bg-dark text-white">
+					<h6 class="mb-0"><i class="bi bi-gear me-2"></i>Layout Configuration Options</h6>
+				</div>
+				<div class="card-body">
+					<h6>Entire Row Configuration</h6>
+					<p class="small">Expand the Quick Launch Bar to utilize an entire toolbar row for maximum button capacity:</p>
+					<ol class="small">
+						<li>Navigate to <strong>Configuration → Core Settings → Application Layout → Toolbars</strong></li>
+						<li>Locate <strong>Quicklaunch bar (Entire row)</strong> option</li>
+						<li>Check the checkbox to enable full-row Quick Launch Bar</li>
+						<li>Clear the checkbox to return to inline mode</li>
+					</ol>
+
+					<div class="text-center mt-3 mb-3">
+						<img src="/Docs/Images/QuickLaunchBar_EntireRowOption.png" alt="Quick Launch Bar Entire Row Configuration" class="img-fluid border rounded shadow-sm" />
+						<p class="text-muted small mt-2">Configuration option for enabling entire row Quick Launch Bar layout</p>
+					</div>
+
+					<h6>Dual Quick Launch Bar Result</h6>
+					<div class="text-center mt-3 mb-3">
+						<img src="/Docs/Images/QuickLaunchBar2.png" alt="Dual Quick Launch Bar Layout" class="img-fluid border rounded shadow-sm" />
+						<p class="text-muted small mt-2">Interface showing both inline and full-row Quick Launch Bars simultaneously</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="row mt-3">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header bg-warning text-dark">
+					<h6 class="mb-0"><i class="bi bi-toggle-on me-2"></i>Visibility and Performance Management</h6>
+				</div>
+				<div class="card-body">
+					<h6>Enable/Disable Configuration</h6>
+					<div class="alert alert-info p-2">
+						<p class="small mb-0"><strong>Important Distinction:</strong> Quick Launch Bar items can be disabled in Core Settings (preventing loading during startup) or hidden via toolbar settings (maintaining memory usage while hiding display).</p>
+					</div>
+
+					<h6>Core Settings Configuration</h6>
+					<ul class="small">
+						<li><strong>Permanent Removal:</strong> Uncheck Quick Launch Bar items in Core Settings</li>
+						<li><strong>Startup Optimization:</strong> Prevents button creation and loading during application start</li>
+						<li><strong>Memory Efficiency:</strong> Eliminates resource usage for disabled components</li>
+						<li><strong>Recommended Approach:</strong> Use for permanent Quick Launch Bar removal</li>
+					</ul>
+
+					<h6>Toolbar Visibility Configuration</h6>
+					<ul class="small">
+						<li><strong>Temporary Hiding:</strong> Configuration → Core Settings → Application Layout → Toolbars → CommandLine Bar → Quick Launch Bar</li>
+						<li><strong>Memory Impact:</strong> Components remain loaded and use system resources</li>
+						<li><strong>Quick Toggle:</strong> Suitable for temporary workspace optimization</li>
+						<li><strong>Performance Note:</strong> Should only be used for temporary hiding, not permanent removal</li>
+					</ul>
+
+					<div class="alert alert-warning p-2 mt-3">
+						<h6 class="small mb-1"><i class="bi bi-exclamation-triangle me-1"></i>Performance Recommendation</h6>
+						<p class="small mb-0">For optimal system performance, disable Quick Launch Bar components in Core Settings rather than hiding them through toolbar settings. Hidden components continue to consume memory and processing resources during startup and operation.</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<section id="custom-commands" class="mt-5">
+	<h3>Custom Commands Integration</h3>
+	<p>The Quick Launch Bar seamlessly integrates with Multi Commander's User Defined Commands system, enabling the creation of sophisticated automation buttons that combine MultiScript capabilities with instant access convenience for complex workflow operations and advanced file management tasks.</p>
+
+	<div class="row">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header bg-primary text-white">
+					<h6 class="mb-0"><i class="bi bi-code me-2"></i>User Defined Commands Integration</h6>
+				</div>
+				<div class="card-body">
+					<h6>Custom Command Button Creation</h6>
+					<ul class="small">
+						<li><strong>Right-Click Access:</strong> Right-click in Quick Launch Bar area and select "Insert User Defined Command"</li>
+						<li><strong>Existing Commands:</strong> Choose from previously created user-defined commands</li>
+						<li><strong>New Command Creation:</strong> Create new custom commands directly from the Quick Launch Bar interface</li>
+						<li><strong>Advanced Automation:</strong> Combine MultiScript, Custom Commands, and MultiTags for powerful operations</li>
+					</ul>
+
+					<h6>Custom Command Capabilities</h6>
+					<ul class="small">
+						<li><strong>MultiScript Integration:</strong> Execute complex scripts with single button clicks</li>
+						<li><strong>Parameter Passing:</strong> Use current selection and panel state as command parameters</li>
+						<li><strong>Dynamic Operations:</strong> Create context-aware commands that adapt to current conditions</li>
+						<li><strong>Workflow Automation:</strong> Chain multiple operations into single button actions</li>
+					</ul>
+
+					<h6>Example Custom Command Applications</h6>
+					<ul class="small">
+						<li><strong>File Processing:</strong> Batch operations on selected files with custom parameters</li>
+						<li><strong>System Integration:</strong> Launch external tools with current path and selection data</li>
+						<li><strong>Project Management:</strong> Open development environments with project-specific configurations</li>
+						<li><strong>Backup Operations:</strong> Automated backup routines with intelligent source detection</li>
+					</ul>
+
+					<div class="alert alert-success p-2 mt-3">
+						<h6 class="small mb-1"><i class="bi bi-lightbulb me-1"></i>Workflow Enhancement Tip</h6>
+						<p class="small mb-0">Combine Quick Launch Bar custom command buttons with MultiTags like <code>${sourcepath}</code> and <code>${currentfilepath}</code> to create dynamic automation that adapts to your current location and selection, maximizing productivity through intelligent context awareness.</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+</section>
+
+<div class="alert alert-success mt-5">
+	<h6><i class="bi bi-lightbulb me-2"></i>Quick Launch Bar Mastery</h6>
+	<p class="mb-0">Master the Quick Launch Bar by strategically combining drag-and-drop simplicity with advanced custom command capabilities: organize buttons logically with separators for visual clarity, leverage file drop operations for instant parameter passing, utilize the full-row option for extensive button collections, and integrate user-defined commands for sophisticated automation. Remember that effective organization and smart use of custom commands transforms the Quick Launch Bar from simple shortcuts into a comprehensive productivity command center.</p>
+</div>
+
+<div class="alert alert-info mt-4">
+	<h6><i class="bi bi-info-circle me-2"></i>Related Productivity Tools</h6>
+	<p class="mb-0">Enhance your Quick Launch Bar workflows with related Multi Commander features: <a href="/Docs/UDC_custom" class="text-decoration-none">User Defined Commands</a>, <a href="/Docs/customcommands_list" class="text-decoration-none">Custom Commands Reference</a>, <a href="/Docs/commandlinebar" class="text-decoration-none">Command Line Bar</a>, and <a href="/Docs/buttonpanel" class="text-decoration-none">Button Panel</a>.</p>
+</div>
 
 

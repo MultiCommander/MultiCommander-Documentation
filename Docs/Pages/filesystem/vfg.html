@@ -1,0 +1,386 @@
+﻿<h2>FileSystem - Virtual Folder Groups (VFG:)</h2>
+
+<p>The <strong>Virtual Folder Groups (VFG)</strong> filesystem is an advanced Multi Commander plugin that creates virtual drives (VFG0:, VFG1:, VFG2:, etc.) which automatically synchronize file operations across multiple physical locations. When you write a file to a VFG drive, it's instantly mirrored to all configured folders in that group, providing seamless multi-location backup and synchronization.</p>
+
+<h3>Key Benefits</h3>
+
+<div class="row mt-4">
+	<div class="col-md-6">
+		<ul>
+			<li><strong>Automatic Multi-Location Backup:</strong> Files written once, saved everywhere</li>
+			<li><strong>Transparent Operation:</strong> Works like any normal drive in Multi Commander</li>
+			<li><strong>High Performance:</strong> Dual-mode file writing (streaming/buffering)</li>
+			<li><strong>Robust Error Handling:</strong> Continues operation even if some locations fail</li>
+		</ul>
+	</div>
+	<div class="col-md-6">
+		<ul>
+			<li><strong>Flexible Configuration:</strong> Multiple groups with different behaviors</li>
+			<li><strong>Real-time Monitoring:</strong> Comprehensive logging and sync status tracking</li>
+			<li><strong>Advanced Error Management:</strong> Strict and Resilient error handling modes</li>
+			<li><strong>Environment Variable Support:</strong> Dynamic path resolution</li>
+		</ul>
+	</div>
+</div>
+
+<h3>How VFG Solves Real-World Problems</h3>
+
+<p>Traditional file synchronization requires manual copying to multiple locations, separate backup tools with complex scheduling, risk of forgetting to backup important files, and difficulty maintaining multiple copies in sync. VFG eliminates these issues by creating <strong>virtual drives that automatically write to multiple physical locations simultaneously</strong>.</p>
+
+<div class="row mt-4">
+	<div class="col-md-6">
+		<div class="card">
+			<div class="card-header bg-danger text-white">
+				<h6 class="mb-0"><i class="bi bi-x-circle me-2"></i>Traditional Problems</h6>
+			</div>
+			<div class="card-body">
+				<ul class="small mb-0">
+					<li>Manual copying to multiple locations</li>
+					<li>Complex backup scheduling tools</li>
+					<li>Risk of forgetting to backup files</li>
+					<li>Difficulty maintaining sync</li>
+					<li>Time delays between save and backup</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<div class="col-md-6">
+		<div class="card">
+			<div class="card-header bg-success text-white">
+				<h6 class="mb-0"><i class="bi bi-check-circle me-2"></i>VFG Solutions</h6>
+			</div>
+			<div class="card-body">
+				<ul class="small mb-0">
+					<li>Real-time redundancy protection</li>
+					<li>Seamless integration with normal workflow</li>
+					<li>Instant availability in all locations</li>
+					<li>Flexible organization by purpose</li>
+					<li>Zero-delay automatic synchronization</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>
+
+<h3>Getting Started with VFG</h3>
+
+<h4>Step 1: Configure Your First VFG Group</h4>
+<ol>
+	<li>Go to <strong>Menu → Configuration → FileSystem Plugin Settings → FS-Virtual Folder Groups</strong></li>
+	<li>Select a device (e.g., VFG1:) from the dropdown</li>
+	<li>Click <strong>Add Location</strong> to add your first folder</li>
+	<li>Set one location as <strong>Primary</strong> (required)</li>
+	<li>Add additional locations as needed</li>
+	<li>Configure error handling mode (Strict or Resilient)</li>
+	<li>Click <strong>OK</strong> to save</li>
+</ol>
+
+<h4>Step 2: Using Your VFG Drive</h4>
+<ul>
+	<li>Navigate to <strong>VFG1:</strong> in Multi Commander</li>
+	<li>Copy or create files normally</li>
+	<li>Files automatically appear in all configured locations</li>
+	<li>Green checkmarks indicate synchronized files</li>
+	<li>Monitor sync status through file attributes</li>
+</ul>
+
+<h3>VFG Architecture and Components</h3>
+
+<h4>Virtual Device Range</h4>
+<p>VFG supports virtual devices numbered 0-9, creating these accessible drives:</p>
+
+<div class="row mt-4">
+	<div class="col-md-4">
+		<div class="card">
+			<div class="card-body text-center">
+				<h6 class="card-title">VFG0: - VFG4:</h6>
+				<p class="card-text small">General purpose virtual drives for various synchronization needs</p>
+			</div>
+		</div>
+	</div>
+	<div class="col-md-4">
+		<div class="card">
+			<div class="card-body text-center">
+				<h6 class="card-title">VFG5: - VFG9:</h6>
+				<p class="card-text small">Additional drives for specialized or project-specific synchronization</p>
+			</div>
+		</div>
+	</div>
+	<div class="col-md-4">
+		<div class="card">
+			<div class="card-body text-center">
+				<h6 class="card-title">Path Examples</h6>
+				<p class="card-text small"><code>VFG1:\documents\file.txt</code><br><code>VFG2:\projects\code\</code></p>
+			</div>
+		</div>
+	</div>
+</div>
+
+<h4>Location Properties</h4>
+<p>Each location in a VFG group has specific properties that control its behavior:</p>
+
+<div class="table-responsive">
+	<table class="table table-striped">
+		<thead>
+			<tr>
+				<th>Property</th>
+				<th>Purpose</th>
+				<th>Notes</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td><strong>Name</strong></td>
+				<td>Display identifier</td>
+				<td>User-friendly name for the location</td>
+			</tr>
+			<tr>
+				<td><strong>Path</strong></td>
+				<td>Physical location</td>
+				<td>Supports environment variables like %USERNAME%</td>
+			</tr>
+			<tr>
+				<td><strong>Description</strong></td>
+				<td>Documentation</td>
+				<td>Optional descriptive text</td>
+			</tr>
+			<tr>
+				<td><strong>Primary</strong></td>
+				<td>Default for reads</td>
+				<td>Only one per group allowed</td>
+			</tr>
+			<tr>
+				<td><strong>Enabled</strong></td>
+				<td>Active in group</td>
+				<td>Can be temporarily disabled</td>
+			</tr>
+			<tr>
+				<td><strong>Writable</strong></td>
+				<td>Accepts writes</td>
+				<td>Read-only backup locations possible</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+
+<h3>Error Handling Modes</h3>
+
+<p>VFG implements sophisticated error handling to ensure operations continue even when some target locations fail. The system provides two distinct modes:</p>
+
+<div class="row mt-4">
+	<div class="col-md-6">
+		<div class="card">
+			<div class="card-header bg-warning text-dark">
+				<h5 class="mb-0"><i class="bi bi-shield-exclamation me-2"></i>Strict Mode</h5>
+			</div>
+			<div class="card-body">
+				<p><strong>Behavior:</strong> Operations succeed only if <em>all</em> enabled, writable locations succeed.</p>
+				<p><strong>Use Case:</strong> Critical data where complete synchronization is mandatory.</p>
+				<p><strong>Example:</strong> Legal documents, financial records, system backups.</p>
+				<p class="small text-muted">If any location fails, the entire operation fails and user is notified.</p>
+			</div>
+		</div>
+	</div>
+	<div class="col-md-6">
+		<div class="card">
+			<div class="card-header bg-success text-white">
+				<h5 class="mb-0"><i class="bi bi-shield-check me-2"></i>Resilient Mode</h5>
+			</div>
+			<div class="card-body">
+				<p><strong>Behavior:</strong> Operations succeed if <em>at least one</em> enabled, writable location succeeds.</p>
+				<p><strong>Use Case:</strong> General purpose storage where availability is more important than complete redundancy.</p>
+				<p><strong>Example:</strong> Development files, temporary storage, draft documents.</p>
+				<p class="small text-muted">Operation continues if any location works, sync status indicates partial sync.</p>
+			</div>
+		</div>
+	</div>
+</div>
+
+<h3>File Operation Modes</h3>
+
+<p>VFG uses two sophisticated file writing modes to optimize performance across different scenarios:</p>
+
+<h4>Streaming Mode (High Performance)</h4>
+<ul>
+	<li><strong>Direct Writing:</strong> Data is written simultaneously to all target locations</li>
+	<li><strong>Real-time Sync:</strong> Files appear instantly in all locations</li>
+	<li><strong>Optimal for:</strong> Large files, fast storage, reliable network connections</li>
+	<li><strong>Automatic Selection:</strong> System chooses based on file size and capabilities</li>
+</ul>
+
+<h4>Buffering Mode (Compatibility)</h4>
+<ul>
+	<li><strong>Memory Buffering:</strong> Data accumulated in memory during write operations</li>
+	<li><strong>Batch Writing:</strong> All data written to locations when file is closed</li>
+	<li><strong>Optimal for:</strong> Small files, slow network connections, unreliable storage</li>
+	<li><strong>Fallback Mode:</strong> Used when streaming mode encounters issues</li>
+</ul>
+
+<h3>Browsing Modes</h3>
+
+<p>VFG supports two browsing modes to accommodate different use cases and performance requirements:</p>
+
+<div class="row mt-4">
+	<div class="col-md-6">
+		<div class="card">
+			<div class="card-header bg-primary text-white">
+				<h6 class="mb-0">Aggregation Mode</h6>
+			</div>
+			<div class="card-body">
+				<p class="small"><strong>Setting:</strong> <code>OnlyShowPrimary = false</code></p>
+				<p class="small"><strong>Behavior:</strong></p>
+				<ul class="small mb-0">
+					<li>Scans all enabled, valid locations</li>
+					<li>Shows unified view of all unique files</li>
+					<li>Deduplicates filenames automatically</li>
+					<li>Complete visibility across all locations</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<div class="col-md-6">
+		<div class="card">
+			<div class="card-header bg-info text-white">
+				<h6 class="mb-0">Primary-Only Mode</h6>
+			</div>
+			<div class="card-body">
+				<p class="small"><strong>Setting:</strong> <code>OnlyShowPrimary = true</code></p>
+				<p class="small"><strong>Behavior:</strong></p>
+				<ul class="small mb-0">
+					<li>Shows only files from primary location</li>
+					<li>Better performance for large folder groups</li>
+					<li>Files still written to all locations</li>
+					<li>Simplified view for focused work</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>
+
+<h3>Logging and Monitoring</h3>
+
+<p>VFG includes comprehensive logging capabilities for monitoring synchronization operations:</p>
+
+<h4>Log Configuration Options</h4>
+<ul>
+	<li><strong>Enable Logging:</strong> Group-specific logging control</li>
+	<li><strong>Log Detailed Operations:</strong> Debug-level logging for troubleshooting</li>
+	<li><strong>Log Successful Operations:</strong> Success confirmation logging</li>
+	<li><strong>Show Log on Errors:</strong> Auto-display log window on failures</li>
+</ul>
+
+<h4>Log File Locations</h4>
+<p>Each VFG device maintains its own log file for easy monitoring:</p>
+<ul>
+	<li><code>VFG1.log</code> - Logs for VFG1: device operations</li>
+	<li><code>VFG2.log</code> - Logs for VFG2: device operations</li>
+</ul>
+
+<h3>Performance Optimization</h3>
+
+<h4>Best Practices</h4>
+<ul>
+	<li><strong>Location Count:</strong> Balance redundancy with performance (3-5 locations optimal)</li>
+	<li><strong>Network Locations:</strong> Be mindful of network speed and reliability</li>
+	<li><strong>Primary Selection:</strong> Choose fastest, most reliable location as primary</li>
+	<li><strong>Browse Mode:</strong> Use Primary-Only mode for large folder groups</li>
+</ul>
+
+<h4>Performance Monitoring</h4>
+<ul>
+	<li>Monitor log files for slow operations</li>
+	<li>Track error patterns for problematic locations</li>
+	<li>Use sync status indicators to identify issues</li>
+	<li>Regular validation of location accessibility</li>
+</ul>
+
+<h3>Troubleshooting</h3>
+
+<div class="accordion" id="vfgAccordion">
+	<div class="accordion-item">
+		<h2 class="accordion-header" id="vfgHeading1">
+			<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#vfgCollapse1">
+				VFG devices don't appear in Multi Commander
+			</button>
+		</h2>
+		<div id="vfgCollapse1" class="accordion-collapse collapse" data-bs-parent="#vfgAccordion">
+			<div class="accordion-body">
+				<ul>
+					<li>Verify FSVFG feature is enabled in Session Configuration</li>
+					<li>Restart Multi Commander after enabling the feature</li>
+					<li>Check if VFG plugin is properly installed and loaded</li>
+					<li>Review Multi Commander startup logs for error messages</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<div class="accordion-item">
+		<h2 class="accordion-header" id="vfgHeading2">
+			<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#vfgCollapse2">
+				Files not synchronizing to all locations
+			</button>
+		</h2>
+		<div id="vfgCollapse2" class="accordion-collapse collapse" data-bs-parent="#vfgAccordion">
+			<div class="accordion-body">
+				<ul>
+					<li>Check if all locations are enabled and writable</li>
+					<li>Verify error handling mode matches your requirements</li>
+					<li>Review VFG logs for specific error messages</li>
+					<li>Test individual location accessibility manually</li>
+					<li>Check disk space on all target locations</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<div class="accordion-item">
+		<h2 class="accordion-header" id="vfgHeading3">
+			<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#vfgCollapse3">
+				Performance issues with VFG operations
+			</button>
+		</h2>
+		<div id="vfgCollapse3" class="accordion-collapse collapse" data-bs-parent="#vfgCollapse3">
+			<div class="accordion-body">
+				<ul>
+					<li>Consider reducing the number of locations in the group</li>
+					<li>Enable Primary-Only browsing mode for large folders</li>
+					<li>Check network speed for remote locations</li>
+					<li>Monitor system resources during large file operations</li>
+					<li>Review detailed operation logs for bottlenecks</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<div class="accordion-item">
+		<h2 class="accordion-header" id="vfgHeading4">
+			<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#vfgCollapse4">
+				Configuration changes not taking effect
+			</button>
+		</h2>
+		<div id="vfgCollapse4" class="accordion-collapse collapse" data-bs-parent="#vfgAccordion">
+			<div class="accordion-body">
+				<ul>
+					<li>Ensure configuration is saved properly</li>
+					<li>Check write permissions to Multi Commander config folder</li>
+					<li>Restart Multi Commander to reload configuration</li>
+					<li>Verify XML configuration file syntax is valid</li>
+					<li>Check for configuration file corruption</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>
+
+<h3>Configuration File Location</h3>
+
+<p>VFG configuration is stored in XML format at:</p>
+<p><code>%APPDATA%\MultiCommander\Config\FSVFG_Config.xml</code></p>
+
+<div class="alert alert-success mt-4">
+	<h6><i class="bi bi-lightbulb me-2"></i>Pro Tip</h6>
+	<p class="mb-0">VFG becomes even more powerful when combined with Multi Commander's other features. Use VFG drives as targets for automated file operations, integrate them with custom commands, or combine them with the favorites system for quick access to synchronized project folders.</p>
+</div>
+
+<div class="alert alert-info mt-4">
+	<h6><i class="bi bi-info-circle me-2"></i>Related Documentation</h6>
+	<p class="mb-0">For more information about Multi Commander's filesystem capabilities, see <a href="/Docs/filesystem" class="text-decoration-none">Virtual FileSystem Overview</a> and <a href="/Docs/extensions" class="text-decoration-none">Extensions and Plug-ins</a>.</p>
+</div>

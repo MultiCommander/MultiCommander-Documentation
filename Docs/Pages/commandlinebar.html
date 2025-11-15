@@ -1,213 +1,515 @@
-<h2>Command Line Bar</h2>
-<p>The fourth line in the Main Application Layout is the <strong>Command Line Bar</strong>, shown below. This toolbar can be removed from the display by unchecking the check box in <strong>View-&gt;Toolbars</strong>.</p>
+﻿<h2>Command Line Bar</h2>
 
-<p><img alt="" src="/Docs/Images/ToolbarCmdLineBar.png" style="width: 857px; height: 98px;" /></p>
+<p>Multi Commander's <strong>Command Line Bar</strong> serves as a powerful navigation and command execution center, providing instant access to browser-style navigation controls, advanced favorites management, comprehensive command line functionality, and customizable quick launch capabilities. This integrated toolbar transforms file management workflows by combining traditional command-line efficiency with modern GUI convenience.</p>
 
-<p>The buttons are enabled if the active extension (panel) supports back/forward/history. If the active extension does not support these commands, the buttons are disabled.</p>
-
-<h2>1. Back</h2>
-
-<p>Button <strong>1 </strong>tells the extension to go back one step. If this button is held down for 2 seconds, a list of previous locations that you can select from is displayed. If the active extension is an Explorer Panel it will go back to the previously visited path.</p>
-
-<h2>2. Forward</h2>
-
-<p>Button <strong>2 </strong>tells the extension to go forward one step. This can only be done if you have previously gone backwards. If this button is held down for 2 seconds, a list of all available forward locations is shown.</p>
-
-<h2>3. History</h2>
-
-<p>Button <strong>3 </strong>shows a list of the previous 40 locations that the currently active extension has visited. From this list a previous location can be accessed quickly.</p>
-
-<div class="well">
-<p>The default keyboard shortcut for Back is Alt+Left Arrow, Forward is Alt+Right Arrow and History is Alt+Down Arrow.<br />
-In the Explorer Panel the Back and Forward mouse button can also be used if your mouse supports these buttons.</p>
+<div class="alert alert-primary">
+	<h6><i class="bi bi-terminal me-2"></i>Integrated Navigation and Command Center</h6>
+	<p class="mb-0">Experience the power of combined navigation controls, command execution, and quick access tools in a unified interface. The Command Line Bar bridges the gap between graphical file management and command-line efficiency, providing both novice and advanced users with optimal workflow tools.</p>
 </div>
 
-<h2>4. Favorites Window</h2>
+<nav class="navbar navbar-expand-lg navbar-light bg-light mb-4">
+	<div class="container-fluid">
+		<span class="navbar-brand">Quick Navigation</span>
+		<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#commandLineNav">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="commandLineNav">
+			<ul class="navbar-nav">
+				<li class="nav-item"><a class="nav-link" href="#overview">Overview</a></li>
+				<li class="nav-item"><a class="nav-link" href="#navigation-controls">Navigation Controls</a></li>
+				<li class="nav-item"><a class="nav-link" href="#favorites-system">Favorites System</a></li>
+				<li class="nav-item"><a class="nav-link" href="#command-execution">Command Execution</a></li>
+				<li class="nav-item"><a class="nav-link" href="#quick-launch">Quick Launch</a></li>
+				<li class="nav-item"><a class="nav-link" href="#advanced-features">Advanced Features</a></li>
+			</ul>
+		</div>
+	</div>
+</nav>
 
-<p>The button shown as a <em>star </em>at the left end of the <em>Command Line</em>. Clicking the <em>star </em>button brings up the <strong>Favorites </strong>window. This window contains three sections:</p>
+<section id="overview">
+	<h3>Command Line Bar Layout and Visibility</h3>
+	<p>The Command Line Bar occupies the third line in Multi Commander's Main Application Layout, providing a comprehensive toolbar that can be customized and toggled based on user preferences and workflow requirements.</p>
 
-<ul>
-	<li>
-	<h3>Quick Paths (F1)</h3>
+	<div class="row">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header bg-primary text-white">
+					<h6 class="mb-0"><i class="bi bi-layout-text-sidebar me-2"></i>Toolbar Layout and Components</h6>
+				</div>
+				<div class="card-body">
+					<div class="text-center mt-3 mb-3">
+						<img src="/Docs/Images/ToolbarCmdLineBar.png" alt="Command Line Bar Layout" class="img-fluid border rounded shadow-sm" style="max-width: 857px;" />
+						<p class="text-muted small mt-2">Command Line Bar showing all components: navigation controls, favorites access, command field, and quick launch area</p>
+					</div>
 
-	<p><strong>Quick Paths </strong>are paths that can be selected by pressing <em>Ctrl+num</em>. There can be only 10 <em>Quick Paths </em>defined.</p>
-	</li>
-	<li>
-	<h3>Favorites (F2)</h3>
+					<h6>Component Overview</h6>
+					<ul class="small">
+						<li><strong>1-3. Navigation Controls:</strong> Back, Forward, and History buttons for browser-style navigation</li>
+						<li><strong>4. Favorites Window:</strong> Star button providing access to Quick Paths, Favorites, and Web locations</li>
+						<li><strong>5. Command Line Field:</strong> Versatile command execution and path navigation input</li>
+						<li><strong>6. Quick Launch Buttons:</strong> Customizable area for frequently used commands and applications</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header bg-info text-white">
+					<h6 class="mb-0"><i class="bi bi-gear me-2"></i>Visibility and Customization</h6>
+				</div>
+				<div class="card-body">
+					<h6>Display Control</h6>
+					<ul class="small">
+						<li><strong>Toggle Visibility:</strong> Access via View → Toolbars menu</li>
+						<li><strong>Context-Aware Buttons:</strong> Controls enable/disable based on active panel capabilities</li>
+						<li><strong>Extension Support:</strong> Functionality adapts to current panel type</li>
+						<li><strong>Responsive Layout:</strong> Components adjust to available space</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
 
-	<p><strong>Favorites </strong>are paths that can be defined and stored as a list. To select a Favorite path, simply select it and press Enter.</p>
-	</li>
-	<li>
-	<h3>Web (F3)</h3>
+<section id="navigation-controls" class="mt-5">
+	<h3>Navigation Controls (1-3)</h3>
+	<p>The navigation controls provide browser-style forward and backward movement through visited locations, complete with history management and quick access to previous locations through intuitive mouse and keyboard interactions.</p>
 
-	<p><strong>Web </strong>paths are URLs that can be defined in a list of web addresses. To select a web address, simply select it and press Enter.</p>
-	</li>
-</ul>
+	<div class="row">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header bg-success text-white">
+					<h6 class="mb-0"><i class="bi bi-arrow-left me-2"></i>1. Back Button</h6>
+				</div>
+				<div class="card-body">
+					<h6>Navigation Behavior</h6>
+					<ul class="small">
+						<li><strong>Single Click:</strong> Navigate back one step in location history</li>
+						<li><strong>Long Press (2 seconds):</strong> Display dropdown list of previous locations</li>
+						<li><strong>Explorer Panel:</strong> Returns to previously visited path</li>
+						<li><strong>Extension Support:</strong> Functions only with extensions supporting navigation</li>
+					</ul>
+					<h6>Keyboard Integration</h6>
+					<ul class="small">
+						<li><strong>Shortcut:</strong> <kbd>Alt</kbd>+<kbd>Left Arrow</kbd></li>
+						<li><strong>Mouse Support:</strong> Back button on compatible mice</li>
+						<li><strong>Quick Access:</strong> Immediate response for rapid navigation</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header bg-primary text-white">
+					<h6 class="mb-0"><i class="bi bi-arrow-right me-2"></i>2. Forward Button</h6>
+				</div>
+				<div class="card-body">
+					<h6>Forward Navigation</h6>
+					<ul class="small">
+						<li><strong>Availability:</strong> Active only after using Back navigation</li>
+						<li><strong>Single Click:</strong> Move forward one step in navigation history</li>
+						<li><strong>Long Press (2 seconds):</strong> Show available forward locations</li>
+						<li><strong>State Management:</strong> Maintains forward history until new navigation occurs</li>
+					</ul>
+					<h6>User Experience</h6>
+					<ul class="small">
+						<li><strong>Shortcut:</strong> <kbd>Alt</kbd>+<kbd>Right Arrow</kbd></li>
+						<li><strong>Mouse Support:</strong> Forward button on compatible mice</li>
+						<li><strong>Visual Feedback:</strong> Disabled state when no forward history available</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header bg-info text-white">
+					<h6 class="mb-0"><i class="bi bi-clock-history me-2"></i>3. History Button</h6>
+				</div>
+				<div class="card-body">
+					<h6>History Management</h6>
+					<ul class="small">
+						<li><strong>History Scope:</strong> Displays previous 40 locations visited by active extension</li>
+						<li><strong>Quick Access:</strong> Direct selection from history dropdown</li>
+						<li><strong>Extension Specific:</strong> Each panel maintains separate history</li>
+						<li><strong>Immediate Navigation:</strong> Click any entry for instant location change</li>
+					</ul>
+					<h6>Efficiency Features</h6>
+					<ul class="small">
+						<li><strong>Shortcut:</strong> <kbd>Alt</kbd>+<kbd>Down Arrow</kbd></li>
+						<li><strong>Visual History:</strong> Clear list of previously visited locations</li>
+						<li><strong>Session Persistence:</strong> History maintained throughout session</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
 
-<h2>5. Command Line field</h2>
+<section id="favorites-system" class="mt-5">
+	<h3>Favorites Window (4)</h3>
+	<p>The Favorites system provides comprehensive bookmark management through three distinct categories: Quick Paths for keyboard shortcuts, Favorites for saved locations, and Web paths for internet resources, all accessible through the convenient star button interface.</p>
 
-<p>The Command Line field (number <strong>5</strong>) allows you to enter commands for the active extension or plug-in. If the extension or plug-in does not handle the command it is sent to Windows to handle. If the command is a filename and is sent to Windows to be handled, Windows will launch that program. If the command is a URL, a browser is opened for it.</p>
+	<div class="row">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header bg-warning text-dark">
+					<h6 class="mb-0"><i class="bi bi-star me-2"></i>Favorites Window Access and Categories</h6>
+				</div>
+				<div class="card-body">
+					<h6>Access Method</h6>
+					<p class="small">Click the <strong>star button</strong> located at the left end of the Command Line to open the Favorites window has three distinct default sections:</p>
 
-<p>If you type a command for Windows to launch, you can insert a "*" in front of it to run it as Administrator. For example, <strong>"*cmd" </strong>will launch the command prompt as Administrator.</p>
+					<div class="row">
+						<div class="col-md-4">
+							<h6>Quick Paths (F1)</h6>
+							<ul class="small">
+								<li><strong>Keyboard Shortcuts:</strong> Accessible via <kbd>Ctrl</kbd>+<kbd>0-9</kbd></li>
+								<li><strong>Limitation:</strong> Maximum of 10 Quick Paths can be defined</li>
+								<li><strong>Rapid Access:</strong> Instant navigation to frequently used locations</li>
+								<li><strong>Productivity Focus:</strong> Designed for power users requiring quick location switching</li>
+							</ul>
+						</div>
+						<div class="col-md-4">
+							<h6>Favorites (F2)</h6>
+							<ul class="small">
+								<li><strong>Unlimited Storage:</strong> Save any number of favorite locations</li>
+								<li><strong>Organization:</strong> Maintain organized lists of important paths</li>
+								<li><strong>Navigation:</strong> Select entry and press Enter to navigate</li>
+								<li><strong>Management:</strong> Add, edit, and remove favorite locations</li>
+							</ul>
+						</div>
+						<div class="col-md-4">
+							<h6>Web (F3)</h6>
+							<ul class="small">
+								<li><strong>URL Storage:</strong> Save frequently accessed web addresses</li>
+								<li><strong>Browser Integration:</strong> Direct opening in default browser</li>
+								<li><strong>Resource Access:</strong> Quick access to online documentation, tools, and references</li>
+								<li><strong>Mixed Navigation:</strong> Combine local and web resource management</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
 
-<p>The Explorer Panel supports commands such as the command prompt's<strong> "cd" </strong>command. Thus if an Explorer Panel is currently active you can type <strong>"cd .." </strong>, <strong>"mkdir myfolder" </strong>and the Explorer Panel will create this folder.</p>
+<section id="command-execution" class="mt-5">
+	<h3>Command Line Field (5)</h3>
+	<p>The Command Line Field serves as a versatile command execution and navigation interface, supporting extension-specific commands, Windows system commands, administrative operations, and specialized internal functions for comprehensive system control.</p>
 
-<h3>Special Internal Commands</h3>
+	<div class="row">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header bg-dark text-white">
+					<h6 class="mb-0"><i class="bi bi-terminal me-2"></i>Command Processing and Execution</h6>
+				</div>
+				<div class="card-body">
+					<h6>Command Handling Hierarchy</h6>
+					<ol class="small">
+						<li><strong>Extension Commands:</strong> Processed by active extension or plugin first</li>
+						<li><strong>Internal Commands:</strong> Multi Commander's built-in command set</li>
+						<li><strong>Windows Commands:</strong> Passed to Windows for system-level execution</li>
+						<li><strong>File Execution:</strong> Launch programs or open files through Windows associations</li>
+					</ol>
 
-<p>The Command Line field supports some special internal commands:</p>
+					<h6>Administrative Capabilities</h6>
+					<ul class="small">
+						<li><strong>Elevated Execution:</strong> Prefix commands with "*" to run as Administrator</li>
+						<li><strong>Example:</strong> <code>*cmd</code> launches Command Prompt with admin privileges</li>
+						<li><strong>System Integration:</strong> Direct access to Windows administrative tools</li>
+						<li><strong>Security Context:</strong> Proper privilege elevation handling</li>
+					</ul>
 
-<table class="table table-bordered">
-	<tbody>
-		<tr>
-			<td>*&lt;external program&gt;</td>
-			<td>Start an external program as administrator, e.g. "*cmd" starts an admin prompt at the current path</td>
-		</tr>
-		<tr>
-			<td>!&lt;cmd / path&gt;</td>
-			<td>Normally Multi Commander will go to a path if it is entered. Typing ! in front of the path will force the path/cmd to be opened by the Windows Shell</td>
-		</tr>
-		<tr>
-			<td>cd &lt;path&gt;</td>
-			<td>Change directory</td>
-		</tr>
-		<tr>
-			<td>mkdir &lt;path&gt;</td>
-			<td>Create a folder</td>
-		</tr>
-		<tr>
-			<td>cf &lt;file&gt;</td>
-			<td>Create a new, empty file</td>
-		</tr>
-		<tr>
-			<td>alias &lt;name&gt;=&lt;expanded to&gt;</td>
-			<td>Create a new alias, eg. "alias d=d:\bin"</td>
-		</tr>
-		<tr>
-			<td>alias2 &lt;name&gt;</td>
-			<td>Create a new alias for the current path, eg. "alias2 d"</td>
-		</tr>
-		<tr>
-			<td>topmost 1</td>
-			<td>Change whether Multi Commander is always on top of other windows. Use 1 to enable, any other value to disable</td>
-		</tr>
-		<tr>
-			<td>addlanguage</td>
-			<td>Used to add support for another language so that you can create new translations</td>
-		</tr>
-		<tr>
-			<td>importcmd</td>
-			<td>Used to import a script command quickly</td>
-		</tr>
-		<tr>
-			<td>dbg folog</td>
-			<td>Enable full file operations logging</td>
-		</tr>
-		<tr>
-			<td>dbg fslog</td>
-			<td>Enable full file system logging</td>
-		</tr>
-		<tr>
-			<td>dbg applog</td>
-			<td>Enable full application logging</td>
-		</tr>
-		<tr>
-			<td>:save</td>
-			<td>Save all autoload settings for all tabs. This is the same save as is done before exit</td>
-		</tr>
-		<tr>
-			<td>:showhidden</td>
-			<td>Change the settings to show all system and hidden files and folders</td>
-		</tr>
-		<tr>
-			<td>:hidehidden</td>
-			<td>Change the settings to hide all system and hidden files and folders</td>
-		</tr>
-		<tr>
-			<td>:goapp</td>
-			<td>Go to the path from which Multi Commander is started</td>
-		</tr>
-		<tr>
-			<td>:userdata</td>
-			<td>Go to the path under the Windows user account where Multi Commander saves data</td>
-		</tr>
-		<tr>
-			<td>:gomcreg</td>
-			<td>Go to the registry path used by Multi Commander</td>
-		</tr>
-		<tr>
-			<td>:golog</td>
-			<td>Go to the path where Multi Commander stores its log files</td>
-		</tr>
-		<tr>
-			<td>:goconfig</td>
-			<td>Go to the path where Multi Commander reads/writes its settings files</td>
-		</tr>
-		<tr>
-			<td>:box</td>
-			<td>Go to the location where you have your DropBox folder (if you have DropBox installed)</td>
-		</tr>
-		<tr>
-			<td>:sky</td>
-			<td>Go to the location where you have your SkyDrive folder (if you have SkyDrive installed)</td>
-		</tr>
-		<tr>
-			<td>:one<td>
-			<td>Go to the location where you have your OneDrive folder (if you have OneDrive installed)</td>
-		</tr>
-		<tr>
-			<td>:desk</td>
-			<td>Go to the desktop</td>
-		</tr>
-		<tr>
-			<td>:dl</td>
-			<td>Go to the Windows Download folder (not available on Windows XP/Server 2003)</td>
-		</tr>
-		<tr>
-			<td>:doc</td>
-			<td>Go to the My Documents folder</td>
-		</tr>
-		<tr>
-			<td>:ctc</td>
-			<td>Clear Thumbnail Cache - Will remove all thumbnail cache information stored in memory</td>
-		</tr>
-		<tr>
-			<td>:rdrive</td>
-			<td>Refresh all devices in Device dropdown and Device Toolbar</td>
-		</tr>
-		<tr>
-			<td>:hex2dec &lt;num&gt;</td>
-			<td>Convert a hex value to decimal. eg. ":hex2dec ff"</td>
-		</tr>
-		<tr>
-			<td>:winerr &lt;num&gt;</td>
-			<td>Show the error message of an internal windows error code. Eg. ":winerr 5"</td>
-		</tr>
-		<tr>
-			<td>:sysinfo</td>
-			<td>Get some system information</td>
-		</tr>
-	</tbody>
-</table>
+					<h6>Explorer Panel Integration</h6>
+					<ul class="small">
+						<li><strong>Directory Navigation:</strong> <code>cd ..</code> for parent directory navigation</li>
+						<li><strong>Folder Creation:</strong> <code>mkdir myfolder</code> creates new directories</li>
+						<li><strong>File Creation:</strong> <code>cf newfile.txt</code> creates empty files</li>
+						<li><strong>Path Navigation:</strong> Direct path entry for location changes</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header bg-info text-white">
+					<h6 class="mb-0"><i class="bi bi-gear me-2"></i>Special Execution Modes</h6>
+				</div>
+				<div class="card-body">
+					<h6>Execution Prefixes</h6>
+					<ul class="small">
+						<li><strong>Admin Mode:</strong> <code>*command</code> - Run with administrative privileges</li>
+						<li><strong>Shell Force:</strong> <code>!path</code> - Force Windows Shell to handle path/command</li>
+						<li><strong>Direct Navigation:</strong> Enter paths directly for location changes</li>
+					</ul>
+					<h6>Integration Features</h6>
+					<ul class="small">
+						<li><strong>URL Support:</strong> Direct URL entry opens in default browser</li>
+						<li><strong>File Association:</strong> Automatic program launching based on file type</li>
+						<li><strong>Context Awareness:</strong> Commands adapt to current panel type</li>
+						<li><strong>Error Handling:</strong> Graceful handling of invalid commands</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
 
-<h2>6. Quick Launch Buttons</h2>
+	<div class="row mt-3">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header bg-primary text-white">
+					<h6 class="mb-0"><i class="bi bi-code me-2"></i>Special Internal Commands Reference</h6>
+				</div>
+				<div class="card-body">
+					<h6>Essential Internal Commands</h6>
+					<div class="table-responsive">
+						<table class="table table-bordered table-hover">
+							<thead class="table-light">
+								<tr>
+									<th style="width: 25%">Command</th>
+									<th style="width: 75%">Description</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td><code>*&lt;program&gt;</code></td>
+									<td>Start external program as administrator (e.g., <code>*cmd</code> for admin command prompt)</td>
+								</tr>
+								<tr>
+									<td><code>!&lt;cmd/path&gt;</code></td>
+									<td>Force path/command to be opened by Windows Shell instead of Multi Commander</td>
+								</tr>
+								<tr>
+									<td><code>cd &lt;path&gt;</code></td>
+									<td>Change directory to specified path</td>
+								</tr>
+								<tr>
+									<td><code>mkdir &lt;path&gt;</code></td>
+									<td>Create new folder at specified location</td>
+								</tr>
+								<tr>
+									<td><code>cf &lt;file&gt;</code></td>
+									<td>Create new, empty file with specified name</td>
+								</tr>
+								<tr>
+									<td><code>alias &lt;name&gt;=&lt;path&gt;</code></td>
+									<td>Create new alias for path (e.g., <code>alias d=d:\bin</code>)</td>
+								</tr>
+								<tr>
+									<td><code>alias2 &lt;name&gt;</code></td>
+									<td>Create new alias for current path</td>
+								</tr>
+								<tr>
+									<td><code>topmost 1</code></td>
+									<td>Toggle Multi Commander always-on-top behavior (1=enable, other=disable)</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
 
-<p>The area following the <em>Command Line Field </em>is used for <strong>Quick Launch Buttons</strong>. If you right-click in that area, a menu will open with the following entries:</p>
+					<h6>Navigation and Utility Commands</h6>
+					<div class="table-responsive">
+						<table class="table table-bordered table-hover">
+							<thead class="table-light">
+								<tr>
+									<th style="width: 25%">Command</th>
+									<th style="width: 75%">Description</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td><code>:goapp</code></td>
+									<td>Navigate to Multi Commander application directory</td>
+								</tr>
+								<tr>
+									<td><code>:userdata</code></td>
+									<td>Navigate to Multi Commander user data directory</td>
+								</tr>
+								<tr>
+									<td><code>:goconfig</code></td>
+									<td>Navigate to Multi Commander configuration directory</td>
+								</tr>
+								<tr>
+									<td><code>:golog</code></td>
+									<td>Navigate to Multi Commander log files directory</td>
+								</tr>
+								<tr>
+									<td><code>:desk</code></td>
+									<td>Navigate to Windows Desktop</td>
+								</tr>
+								<tr>
+									<td><code>:doc</code></td>
+									<td>Navigate to My Documents folder</td>
+								</tr>
+								<tr>
+									<td><code>:dl</code></td>
+									<td>Navigate to Windows Downloads folder</td>
+								</tr>
+								<tr>
+									<td><code>:box</code></td>
+									<td>Navigate to Dropbox folder (if installed)</td>
+								</tr>
+								<tr>
+									<td><code>:one</code></td>
+									<td>Navigate to OneDrive folder (if installed)</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
 
-<p>For further information, see <a href="#docs_quicklaunchbar">Quick Launch Bar</a>.</p>
+<section id="quick-launch" class="mt-5">
+	<h3>Quick Launch Buttons (6)</h3>
+	<p>The Quick Launch area provides customizable button space for frequently used commands, applications, and user-defined operations, with full support for drag-and-drop configuration and flexible button management.</p>
 
-<ul>
-	<li>
-	<h3>Allow - Insert button by dropping file/folder</h3>
-	If selected, this allows the use of drag and drop to insert a file or folder.</li>
-	<li>
-	<h3>Allow - Rearrange of buttons</h3>
-	If selected, this allows the buttons to be rearranged using drag and drop.</li>
-	<li>
-	<h3>Insert User Defined Command</h3>
-	Opens the <em>User Defined Command </em>menu, where you can select an existing User Defined Command (or create a new one) to be inserted.</li>
-	<li>
-	<h3>Insert Separator</h3>
-	Inserts a vertical separator line.</li>
-</ul>
+	<div class="row">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header bg-success text-white">
+					<h6 class="mb-0"><i class="bi bi-lightning me-2"></i>Quick Launch Configuration and Management</h6>
+				</div>
+				<div class="card-body">
+					<h6>Configuration Access</h6>
+					<p class="small">Right-click in the Quick Launch area to access the configuration menu with the following options:</p>
+
+					<ul class="small">
+						<li><strong>Allow - Insert button by dropping file/folder:</strong> Enable drag-and-drop button creation</li>
+						<li><strong>Allow - Rearrange of buttons:</strong> Enable drag-and-drop button reordering</li>
+						<li><strong>Insert User Defined Command:</strong> Add existing or create new user-defined commands</li>
+						<li><strong>Insert Separator:</strong> Add visual separators between button groups</li>
+					</ul>
+
+					<h6>Button Types and Capabilities</h6>
+					<ul class="small">
+						<li><strong>File/Folder Shortcuts:</strong> Drag files or folders to create instant access buttons</li>
+						<li><strong>User Defined Commands:</strong> Custom scripts and command sequences</li>
+						<li><strong>Application Launchers:</strong> Quick access to frequently used programs</li>
+						<li><strong>Internal Commands:</strong> Multi Commander function shortcuts</li>
+					</ul>
+
+					<h6>Organizational Features</h6>
+					<ul class="small">
+						<li><strong>Drag-and-Drop Reordering:</strong> Reorganize buttons by dragging to new positions</li>
+						<li><strong>Visual Separators:</strong> Group related buttons with separator lines</li>
+						<li><strong>Context Menus:</strong> Right-click buttons for additional options</li>
+						<li><strong>Dynamic Sizing:</strong> Button area adapts to available toolbar space</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="alert alert-info mt-3 p-2">
+			<h6 class="small mb-1"><i class="bi bi-info-circle me-1"></i>Detailed Information</h6>
+			<p class="small mb-0">For more information about the Quick Launch Bar, see <a href="/Docs/quicklaunchbar" class="text-decoration-none">Quick Launch Bar</a>.</p>
+		</div>
+
+	</div>
+
+</section>
+
+<section id="advanced-features" class="mt-5">
+	<h3>Advanced Features and Integration</h3>
+	<p>The Command Line Bar integrates seamlessly with Multi Commander's advanced features, providing custom command support, scripting capabilities, and comprehensive automation options for power users and administrators.</p>
+
+	<div class="row">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header bg-dark text-white">
+					<h6 class="mb-0"><i class="bi bi-code me-2"></i>Advanced Command Integration</h6>
+				</div>
+				<div class="card-body">
+					<h6>System and Debug Commands</h6>
+					<div class="table-responsive">
+						<table class="table table-sm">
+							<thead class="table-light">
+								<tr>
+									<th>Command</th>
+									<th>Function</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td><code>:save</code></td>
+									<td>Save all autoload settings for all tabs</td>
+								</tr>
+								<tr>
+									<td><code>:showhidden</code></td>
+									<td>Show all system and hidden files</td>
+								</tr>
+								<tr>
+									<td><code>:hidehidden</code></td>
+									<td>Hide all system and hidden files</td>
+								</tr>
+								<tr>
+									<td><code>:ctc</code></td>
+									<td>Clear thumbnail cache from memory</td>
+								</tr>
+								<tr>
+									<td><code>:rdrive</code></td>
+									<td>Refresh all devices in drive lists</td>
+								</tr>
+								<tr>
+									<td><code>:sysinfo</code></td>
+									<td>Display system information</td>
+								</tr>
+								<tr>
+									<td><code>dbg folog</code></td>
+									<td>Enable full file operations logging</td>
+								</tr>
+								<tr>
+									<td><code>dbg fslog</code></td>
+									<td>Enable full file system logging</td>
+								</tr>
+								<tr>
+									<td><code>importcmd</code></td>
+									<td>Import script command quickly</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+
+					<h6>Utility and Conversion Commands</h6>
+					<ul class="small">
+						<li><strong>Number Conversion:</strong> <code>:hex2dec ff</code> converts hexadecimal to decimal</li>
+						<li><strong>Error Lookup:</strong> <code>:winerr 5</code> displays Windows error message for code</li>
+						<li><strong>Registry Access:</strong> <code>:gomcreg</code> opens Multi Commander registry location</li>
+						<li><strong>Language Support:</strong> <code>addlanguage</code> adds new language support</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header bg-info text-white">
+					<h6 class="mb-0"><i class="bi bi-speedometer2 me-2"></i>Performance and Efficiency</h6>
+				</div>
+				<div class="card-body">
+					<h6>Keyboard Integration</h6>
+					<ul class="small">
+						<li><strong>Navigation Shortcuts:</strong> <kbd>Alt</kbd>+Arrow keys for history navigation</li>
+						<li><strong>Quick Paths:</strong> <kbd>Ctrl</kbd>+Number for instant favorites access</li>
+						<li><strong>Mouse Support:</strong> Back/Forward mouse buttons when available</li>
+						<li><strong>Tab Completion:</strong> Smart completion for paths and commands</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+
+</section>
+
+<div class="alert alert-success mt-5">
+	<h6><i class="bi bi-lightbulb me-2"></i>Command Line Bar Mastery</h6>
+	<p class="mb-0">Master the Command Line Bar by combining navigation efficiency with command power: use the navigation controls for quick location switching, organize frequently accessed paths in favorites with keyboard shortcuts, leverage the command line for both file operations and system administration, and customize the quick launch area with your most-used tools. This integrated approach transforms the Command Line Bar from a simple toolbar into a comprehensive command center that accelerates every aspect of file management workflow.</p>
+</div>
+
+<div class="alert alert-info mt-4">
+	<h6><i class="bi bi-info-circle me-2"></i>Related Interface Tools</h6>
+	<p class="mb-0">Enhance your command line workflows with related features: <a href="/Docs/quicklaunchbar" class="text-decoration-none">Quick Launch Bar</a>, <a href="/Docs/user-defined-commands" class="text-decoration-none">User Defined Commands</a>, <a href="/Docs/aliases" class="text-decoration-none">Alias Management</a>, and <a href="/Docs/keyboard-customization" class="text-decoration-none">Keyboard Customization</a>.</p>
+</div>
 
 

@@ -1,25 +1,294 @@
-<h2>File Security</h2>
-<p><img alt="" src="/Docs/Images/FileSecurity_menu.png" style="width: 500px; height: 396px;" /></p>
+﻿<h2>File Security</h2>
 
-<p>Under the Tools menu is a <strong>File Security</strong> entry with which you can change permissions for files and folders.<br />
-This function requires Administarator permission to operate, so you may need to run Multi Commander as an Administrator.</p>
+<p>Multi Commander's <strong>File Security</strong> tools provide comprehensive Windows file system permissions management, enabling secure access control, ownership administration, and permission configuration for files and folders. These powerful administrative tools require elevated privileges but offer complete control over file system security through an intuitive interface integrated into the file management workflow.</p>
 
-<p>The File Security submenu provides the following options:</p>
+<div class="alert alert-primary">
+	<h6><i class="bi bi-shield-lock me-2"></i>Advanced File System Security Management</h6>
+	<p class="mb-0">Take complete control of file and folder permissions with enterprise-grade security tools. Manage ownership, configure access rights, and implement security policies directly within Multi Commander's familiar interface while maintaining full Windows security model compliance.</p>
+</div>
 
-<h2>Take Ownership</h2>
+<nav class="navbar navbar-expand-lg navbar-light bg-light mb-4">
+	<div class="container-fluid">
+		<span class="navbar-brand">Quick Navigation</span>
+		<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#fileSecurityNav">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="fileSecurityNav">
+			<ul class="navbar-nav">
+				<li class="nav-item"><a class="nav-link" href="#overview">Overview</a></li>
+				<li class="nav-item"><a class="nav-link" href="#accessing">Accessing Tools</a></li>
+				<li class="nav-item"><a class="nav-link" href="#ownership-management">Ownership Management</a></li>
+				<li class="nav-item"><a class="nav-link" href="#permission-management">Permission Management</a></li>
+				<li class="nav-item"><a class="nav-link" href="#advanced-features">Advanced Features</a></li>
+			</ul>
+		</div>
+	</div>
+</nav>
 
-<p>Allows you become the owner of the selected files and folders.</p>
+<section id="overview">
+	<h3>Windows File System Security</h3>
+	<p>Windows file system security relies on Access Control Lists (ACLs) that define who can access files and folders and what operations they can perform. Multi Commander's File Security tools provide direct access to these powerful security mechanisms through an intuitive interface.</p>
 
-<h2>Remove all permissions</h2>
+	<div class="row">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header bg-primary text-white">
+					<h6 class="mb-0"><i class="bi bi-shield-check me-2"></i>Security Components</h6>
+				</div>
+				<div class="card-body">
+					<h6>Ownership Control</h6>
+					<ul class="small">
+						<li><strong>File Ownership:</strong> Control who owns individual files and folders</li>
+						<li><strong>Administrative Takeover:</strong> Assume ownership of inaccessible files</li>
+						<li><strong>Inheritance Management:</strong> Control ownership inheritance for subdirectories</li>
+						<li><strong>Security Descriptor Control:</strong> Manage complete security metadata</li>
+					</ul>
+					<h6>Permission Types</h6>
+					<ul class="small">
+						<li><strong>Read Access:</strong> View file content and properties</li>
+						<li><strong>Write Access:</strong> Modify file content and attributes</li>
+						<li><strong>Execute Access:</strong> Run executable files and access directories</li>
+						<li><strong>Full Control:</strong> Complete access including permission modification</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
 
-<p>This removes permissions for all users and groups from the selected files and folders. Note: <em>no-one will have access to the files after this change</em>. Use the <em>Add Permissions</em> command to add permission for yourself and/or others if needed.</p>
+<section id="accessing" class="mt-5">
+	<h3>Accessing File Security Tools</h3>
+	<p>File Security tools are located in Multi Commander's Tools menu and require administrative privileges to function. Running Multi Commander as Administrator is necessary for these operations to succeed.</p>
 
-<h2>Add Permissions</h2>
+	<div class="row">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header bg-primary text-white">
+					<h6 class="mb-0"><i class="bi bi-menu-app me-2"></i>Tools Menu Location</h6>
+				</div>
+				<div class="card-body">
+					<h6>Navigation Path</h6>
+					<p class="small">Navigate to <strong>Tools → File Security</strong> to access the complete suite of security management utilities.</p>
 
-<p>This adds permissions for users to the selected files and folders. You can easily add read-only access or read/write or full-control.</p>
+					<div class="text-center mt-3 mb-3">
+						<img src="/Docs/Images/FileSecurity_menu.png" alt="File Security Tools Menu" class="img-fluid border rounded shadow-sm" style="max-width: 500px;" />
+						<p class="text-muted small mt-2">Tools menu showing File Security submenu with administrative permission management options</p>
+					</div>
 
-<p>If you want to give everyone access to a file/folder you can add read/write or full-control access to the group <b>Everyone</b> for the selected files/folders.</p>
+					<h6>Available Operations</h6>
+					<ul class="small">
+						<li><strong>Take Ownership (Admin):</strong> Assume ownership of selected files and folders</li>
+						<li><strong>Remove all file/folder permissions (Admin):</strong> Clear all permission entries</li>
+						<li><strong>Add file/folder permissions for user (Admin):</strong> Grant specific access rights</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header bg-warning text-dark">
+					<h6 class="mb-0"><i class="bi bi-exclamation-triangle me-2"></i>Administrative Requirements</h6>
+				</div>
+				<div class="card-body">
+					<h6>Privilege Requirements</h6>
+					<ul class="small">
+						<li><strong>Administrator Rights:</strong> All security operations require elevated privileges</li>
+						<li><strong>Multi Commander as Admin:</strong> Launch Multi Commander with "Run as Administrator"</li>
+						<li><strong>UAC Considerations:</strong> Windows User Account Control may prompt for confirmation</li>
+						<li><strong>Network Limitations:</strong> Some operations may not work on network resources</li>
+					</ul>
+					<h6>Safety Considerations</h6>
+					<ul class="small">
+						<li><strong>Backup Important Data:</strong> Always backup before major permission changes</li>
+						<li><strong>Test on Sample Files:</strong> Verify operations on non-critical files first</li>
+						<li><strong>Document Changes:</strong> Record permission modifications for audit purposes</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
 
-<p><img alt="" src="/Docs/Images/filesecurity_add.png" /></p>
+<section id="ownership-management" class="mt-5">
+	<h3>Ownership Management</h3>
+	<p>File ownership determines who has ultimate control over files and folders, including the ability to modify permissions and grant access to other users. Taking ownership is often necessary when recovering access to orphaned or inaccessible files.</p>
+
+	<div class="row">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header bg-success text-white">
+					<h6 class="mb-0"><i class="bi bi-person-check me-2"></i>Take Ownership</h6>
+				</div>
+				<div class="card-body">
+					<h6>Ownership Transfer Process</h6>
+					<p class="small">The Take Ownership operation transfers ownership of selected files and folders to the current user account:</p>
+					<ol class="small">
+						<li><strong>Selection:</strong> Select the files or folders requiring ownership transfer</li>
+						<li><strong>Execution:</strong> Choose "Take Ownership" from the File Security submenu</li>
+						<li><strong>Processing:</strong> Multi Commander applies ownership changes to all selected items</li>
+						<li><strong>Verification:</strong> Confirm successful ownership transfer through file properties</li>
+					</ol>
+
+					<h6>Common Ownership Scenarios</h6>
+					<ul class="small">
+						<li><strong>Orphaned Files:</strong> Files with deleted or invalid owner accounts</li>
+						<li><strong>Access Recovery:</strong> Recovering access to files with restrictive permissions</li>
+						<li><strong>Administrative Takeover:</strong> Assuming control of system or user files</li>
+						<li><strong>Migration Recovery:</strong> Correcting ownership after system migrations</li>
+					</ul>
+
+					<h6>Ownership Benefits</h6>
+					<ul class="small">
+						<li><strong>Permission Control:</strong> Ability to modify file and folder permissions</li>
+						<li><strong>Access Restoration:</strong> Restore access to previously inaccessible files</li>
+						<li><strong>Administrative Control:</strong> Complete management authority over file resources</li>
+						<li><strong>Security Management:</strong> Implement security policies and access controls</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header bg-info text-white">
+					<h6 class="mb-0"><i class="bi bi-info-circle me-2"></i>Ownership Implications</h6>
+				</div>
+				<div class="card-body">
+					<h6>Legal Considerations</h6>
+					<ul class="small">
+						<li><strong>System Files:</strong> Taking ownership of system files may affect system stability</li>
+						<li><strong>User Data:</strong> Respect privacy and legal requirements when accessing user files</li>
+						<li><strong>Corporate Policies:</strong> Follow organizational guidelines for file access</li>
+						<li><strong>Audit Requirements:</strong> Document ownership changes for compliance</li>
+					</ul>
+					<h6>Technical Impact</h6>
+					<ul class="small">
+						<li><strong>Permission Inheritance:</strong> May affect how permissions are inherited by subfolders</li>
+						<li><strong>Application Access:</strong> Some applications may require specific ownership patterns</li>
+						<li><strong>Service Dependencies:</strong> System services may depend on specific file ownership</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<section id="permission-management" class="mt-5">
+	<h3>Permission Management</h3>
+	<p>Permission management controls who can access files and folders and what operations they can perform. Multi Commander provides tools to both remove and add permissions with granular control over access rights.</p>
+
+	<div class="row">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header bg-danger text-white">
+					<h6 class="mb-0"><i class="bi bi-shield-x me-2"></i>Remove All Permissions</h6>
+				</div>
+				<div class="card-body">
+					<h6>Complete Permission Removal</h6>
+					<p class="small">This operation removes all permission entries from selected files and folders, effectively denying access to all users and groups:</p>
+					<ul class="small">
+						<li><strong>Total Lockdown:</strong> No user or group will have any access to the files</li>
+						<li><strong>Including Owner:</strong> Even the file owner loses access after this operation</li>
+						<li><strong>Inheritance Clearing:</strong> Removes both explicit and inherited permissions</li>
+						<li><strong>Recovery Required:</strong> Use "Add Permissions" to restore any access</li>
+					</ul>
+
+					<div class="alert alert-warning p-2">
+						<h6 class="small mb-1"><i class="bi bi-exclamation-triangle me-1"></i>Critical Warning</h6>
+						<p class="small mb-0">After removing all permissions, NO ONE will have access to the affected files. You must use the "Add Permissions" command to restore access, or the files will remain permanently inaccessible.</p>
+					</div>
+
+					<h6>Use Cases</h6>
+					<ul class="small">
+						<li><strong>Security Lockdown:</strong> Secure sensitive files by removing all access</li>
+						<li><strong>Permission Reset:</strong> Clear complex permission structures for rebuilding</li>
+						<li><strong>Quarantine Files:</strong> Isolate potentially dangerous files</li>
+						<li><strong>Access Control Testing:</strong> Verify application behavior with no file access</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header bg-success text-white">
+					<h6 class="mb-0"><i class="bi bi-shield-plus me-2"></i>Add Permissions</h6>
+				</div>
+				<div class="card-body">
+					<h6>Permission Assignment</h6>
+					<p class="small">The Add Permissions tool provides granular control over user and group access rights:</p>
+					<ul class="small">
+						<li><strong>User-Specific:</strong> Grant permissions to individual user accounts</li>
+						<li><strong>Group-Based:</strong> Assign permissions to security groups</li>
+						<li><strong>Permission Levels:</strong> Choose from read-only, read/write, or full control</li>
+						<li><strong>Everyone Access:</strong> Grant permissions to the "Everyone" group for universal access</li>
+					</ul>
+
+					<div class="text-center mt-3 mb-3">
+						<img src="/Docs/Images/filesecurity_add.png" alt="Add Permissions Dialog" class="img-fluid border rounded shadow-sm" />
+						<p class="text-muted small mt-2">Add Permissions dialog showing user selection and permission level options</p>
+					</div>
+
+					<h6>Permission Types</h6>
+					<ul class="small">
+						<li><strong>Read-Only:</strong> View file content and properties without modification rights</li>
+						<li><strong>Read/Write:</strong> View and modify file content and basic properties</li>
+						<li><strong>Full Control:</strong> Complete access including permission modification</li>
+						<li><strong>Custom Permissions:</strong> Advanced permission combinations for specific requirements</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<section id="advanced-features" class="mt-5">
+	<h3>Advanced Features and Custom Commands</h3>
+	<p>Beyond the basic permission management tools, Multi Commander's security capabilities can be extended through custom commands and scripting for automated security administration workflows.</p>
+
+	<div class="row">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header bg-dark text-white">
+					<h6 class="mb-0"><i class="bi bi-code me-2"></i>Custom Command Integration</h6>
+				</div>
+				<div class="card-body">
+					<h6>Security Automation Commands</h6>
+					<p class="small">Integrate security operations into custom commands for automated administrative workflows:</p>
+
+					<pre class="bg-light p-3 rounded small"><code>// Take ownership of selected files
+MC.Utils.TakeOwnership FILES="${selectedfiles}"
+
+// Remove all permissions from files
+MC.Utils.RemovePermissions FILES="${selectedfiles}" RECURSIVE=1
+
+// Add read/write permissions for current user
+MC.Utils.AddPermissions FILES="${selectedfiles}" USER="${currentuser}" RIGHTS="ReadWrite"
+
+// Grant full access to Everyone group
+MC.Utils.AddPermissions FILES="${selectedfiles}" USER="Everyone" RIGHTS="FullControl"</code></pre>
+
+					<h6>Workflow Integration Scenarios</h6>
+					<ul class="small">
+						<li><strong>Automated Security Hardening:</strong> Apply consistent security policies to file collections</li>
+						<li><strong>Migration Scripts:</strong> Correct permissions after system migrations or deployments</li>
+						<li><strong>Incident Response:</strong> Quickly secure or quarantine files during security incidents</li>
+						<li><strong>Compliance Automation:</strong> Implement organizational security policies systematically</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		
+	</div>
+
+</section>
+
+<div class="alert alert-success mt-5">
+	<h6><i class="bi bi-lightbulb me-2"></i>Security Management Strategy</h6>
+	<p class="mb-0">Master file system security by combining Multi Commander's tools strategically: use ownership takeover to regain access to orphaned files, implement the principle of least privilege when adding permissions, and leverage custom commands for consistent security policy enforcement. Always backup critical data before making significant permission changes, and document modifications for audit and troubleshooting purposes. This systematic approach ensures robust security while maintaining operational efficiency.</p>
+</div>
+
+<div class="alert alert-info mt-4">
+	<h6><i class="bi bi-info-circle me-2"></i>Related Security Tools</h6>
+	<p class="mb-0">Enhance your file security workflows with related features: <a href="/Docs/filechecksumTools" class="text-decoration-none">File Checksum Tools</a>, <a href="/Docs/ChangeFileProperties" class="text-decoration-none">Change File Properties</a>, <a href="/Docs/customcommands_list" class="text-decoration-none">Custom Commands Reference</a>, and <a href="/Docs/find_opened_locked_files" class="text-decoration-none">Find Opened/Locked Files</a>.</p>
+</div>
 
 

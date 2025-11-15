@@ -1,103 +1,668 @@
-<h2>Custom Commands - Examples</h2>
-<p>Examples of Custom commands</p>
+﻿<h2>Custom Commands - Examples</h2>
 
-<ul>
-	<li><a href="#setviewfilter">Set View filter for the Explorer Panel</a></li>
-	<li><a href="#selectfiles">Select files and folder in the Explorer Panel</a></li>
-	<li><a href="#runapplication">Run an external program</a></li>
-	<li><a href="#PackFiles">Pack Files</a></li>
-	<li><a href="#searchforfiles">Search For Files</a></li>
-</ul>
+<p>Custom Commands Examples demonstrate the practical application of Multi Commander's structured command system through real-world scenarios. These examples showcase how to leverage the Group → Function → Parameter selection system to create powerful automation commands that enhance file management workflows, from simple view filtering to complex file processing operations.</p>
 
-<hr />
-<h2><a name="setviewfilter">Set View Filter</a></h2>
+<div class="alert alert-primary">
+	<h6><i class="bi bi-code-square me-2"></i>Practical Command Reference</h6>
+	<p class="mb-0">These working examples provide copy-and-paste command syntax for immediate implementation in your Custom Commands. Each example includes the complete command syntax, parameter explanations, and practical usage scenarios to accelerate your Custom Commands mastery and workflow automation.</p>
+</div>
 
-<p>Set a filter to determine which files and/or folders are visible in the Explorer Panel:</p>
+<nav class="navbar navbar-expand-lg navbar-light bg-light mb-4">
+	<div class="container-fluid">
+		<span class="navbar-brand">Quick Navigation</span>
+		<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#examplesNav">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="examplesNav">
+			<ul class="navbar-nav">
+				<li class="nav-item"><a class="nav-link" href="#view-filtering">View Filtering</a></li>
+				<li class="nav-item"><a class="nav-link" href="#file-selection">File Selection</a></li>
+				<li class="nav-item"><a class="nav-link" href="#application-launching">Application Launching</a></li>
+				<li class="nav-item"><a class="nav-link" href="#file-packing">File Packing</a></li>
+				<li class="nav-item"><a class="nav-link" href="#search-operations">Search Operations</a></li>
+				<li class="nav-item"><a class="nav-link" href="#tab-management">Tab Management</a></li>
+				<li class="nav-item"><a class="nav-link" href="#advanced-selection">Advanced Selection</a></li>
+				<li class="nav-item"><a class="nav-link" href="#interface-customization">Interface Customization</a></li>
+				<li class="nav-item"><a class="nav-link" href="#file-tools">File Tools</a></li>
+				<li class="nav-item"><a class="nav-link" href="#data-processing">Data Processing</a></li>
+			</ul>
+		</div>
+	</div>
+</nav>
 
-<pre class="custcomcode">
-MC.Explorer.SetViewFilter FILTER="*.jpg"
-</pre>
+<section id="view-filtering">
+	<h3>View Filtering Examples</h3>
+	<p>Control what files and folders are visible in Explorer Panels using view filter commands that dynamically adjust panel content based on file patterns and criteria.</p>
 
-<pre class="custcomcode">
-MC.Explorer.SetViewFilter FILTER="*.jpg *.gif *.png *.tiff"
-</pre>
+	<div class="row">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header bg-info text-white">
+					<h6 class="mb-0"><i class="bi bi-funnel me-2"></i>MC.Explorer.SetViewFilter Examples</h6>
+				</div>
+				<div class="card-body">
+					<h6>Basic File Type Filtering</h6>
+					<div class="alert alert-light p-3">
+						<h6 class="small mb-2">Show Only JPEG Images</h6>
+						<pre class="bg-dark text-light p-2 rounded mb-2"><code>MC.Explorer.SetViewFilter FILTER="*.jpg"</code></pre>
+						<p class="small mb-3"><strong>Usage:</strong> Display only JPEG files in the current panel, hiding all other file types and folders.</p>
 
-<p>Exclude folders named ".svn":</p>
+						<h6 class="small mb-2">Multiple Image Formats</h6>
+						<pre class="bg-dark text-light p-2 rounded mb-2"><code>MC.Explorer.SetViewFilter FILTER="*.jpg *.gif *.png *.tiff"</code></pre>
+						<p class="small mb-3"><strong>Usage:</strong> Show multiple image formats simultaneously using space-separated patterns.</p>
 
-<pre class="custcomcode">
-MC.Explorer.SetViewFilter FILTER="-/.svn"
-</pre>
+						<h6 class="small mb-2">Document Files Filter</h6>
+						<pre class="bg-dark text-light p-2 rounded mb-2"><code>MC.Explorer.SetViewFilter FILTER="*.doc *.docx *.pdf *.txt"</code></pre>
+						<p class="small mb-0"><strong>Usage:</strong> Display common document formats for document management workflows.</p>
+					</div>
 
-<hr />
-<h2><a name="selectfiles">Select Files and Folders</a></h2>
+					<h6>Advanced Filtering Techniques</h6>
+					<div class="alert alert-light p-3">
+						<h6 class="small mb-2">Exclude Specific Folders</h6>
+						<pre class="bg-dark text-light p-2 rounded mb-2"><code>MC.Explorer.SetViewFilter FILTER="-/.svn"</code></pre>
+						<p class="small mb-3"><strong>Usage:</strong> Hide Subversion control folders from view while showing all files and other folders.</p>
 
-<p>Select files and/or folders in the Explorer Panel:</p>
+						<h6 class="small mb-2">Exclude Multiple Folder Types</h6>
+						<pre class="bg-dark text-light p-2 rounded mb-2"><code>MC.Explorer.SetViewFilter FILTER="-/.git -/.svn -/node_modules"</code></pre>
+						<p class="small mb-3"><strong>Usage:</strong> Hide version control and dependency folders in development projects.</p>
 
-<pre class="custcomcode">
-MC.Explorer.Selection.Select FILTER="*.jpg *.png"
-</pre>
+						<h6 class="small mb-2">Clear All Filters</h6>
+						<pre class="bg-dark text-light p-2 rounded mb-2"><code>MC.Explorer.SetViewFilter FILTER=""</code></pre>
+						<p class="small mb-0"><strong>Usage:</strong> Remove all filters to show all files and folders in the panel.</p>
+					</div>
 
-<hr />
-<h2><a name="runapplication">Run Application</a></h2>
+					<div class="alert alert-info p-2 mt-3">
+						<h6 class="small mb-1"><i class="bi bi-lightbulb me-1"></i>Filter Syntax Tips</h6>
+						<p class="small mb-0"><strong>Inclusion:</strong> Use standard wildcards (*.ext) to show specific types. <strong>Exclusion:</strong> Use minus prefix (-/folder) to hide items. <strong>Combination:</strong> Mix inclusion and exclusion patterns in the same filter.</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
 
-<p>Run an External Application:</p>
+<section id="file-selection" class="mt-5">
+	<h3>File Selection Examples</h3>
+	<p>Automate file and folder selection in Explorer Panels using pattern-based selection commands that can target specific file types, date ranges, and size criteria.</p>
 
-<pre class="custcomcode">
-MC.Run CMD="Notepad.exe"
-</pre>
+	<div class="row">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header bg-success text-white">
+					<h6 class="mb-0"><i class="bi bi-check-square me-2"></i>MC.Explorer.Selection.Select Examples</h6>
+				</div>
+				<div class="card-body">
+					<h6>Pattern-Based Selection</h6>
+					<div class="alert alert-light p-3">
+						<h6 class="small mb-2">Select Image Files</h6>
+						<pre class="bg-dark text-light p-2 rounded mb-2"><code>MC.Explorer.Selection.Select FILTER="*.jpg *.png"</code></pre>
+						<p class="small mb-3"><strong>Usage:</strong> Select all JPEG and PNG images in the current panel for batch operations.</p>
 
-<p>Run an Application with Parameters:</p>
+						<h6 class="small mb-2">Select by Extension Parameter</h6>
+						<pre class="bg-dark text-light p-2 rounded mb-2"><code>MC.Explorer.Selection.Select PATTERN="*.${param:0}" SETFOCUS</code></pre>
+						<p class="small mb-3"><strong>Usage:</strong> Create parameterized command - use "select doc" to select all .doc files.</p>
 
-<pre class="custcomcode">
-MC.Run CMD="Notepad.exe" ARG="C:\myFile.txt"
-</pre>
+						<h6 class="small mb-2">Select Large Files</h6>
+						<pre class="bg-dark text-light p-2 rounded mb-2"><code>MC.Explorer.Selection.Select FILTER="*.*" SIZE=">100MB" SETFOCUS</code></pre>
+						<p class="small mb-0"><strong>Usage:</strong> Select files larger than 100MB for cleanup or archiving operations.</p>
+					</div>
 
-<p>Run an External Application as Administrator:</p>
+					<h6>Advanced Selection Criteria</h6>
+					<div class="alert alert-light p-3">
+						<h6 class="small mb-2">Select Files Modified Today</h6>
+						<pre class="bg-dark text-light p-2 rounded mb-2"><code>MC.Explorer.Selection.Select FILTER="*.*" DATERANGE="TODAY" SETFOCUS</code></pre>
+						<p class="small mb-3"><strong>Usage:</strong> Select all files modified today for review or backup operations.</p>
 
-<pre class="custcomcode">
-MC.Run CMD="Notepad.exe" ADMIN
-</pre>
+						<h6 class="small mb-2">Select Old Files for Cleanup</h6>
+						<pre class="bg-dark text-light p-2 rounded mb-2"><code>MC.Explorer.Selection.Select FILTER="*.*" DATE="<30d" SETFOCUS</code></pre>
+						<p class="small mb-3"><strong>Usage:</strong> Select files older than 30 days for archiving or deletion.</p>
 
-<p>Let Windows decide how the file should be opened. In the example below, Windows will open it in your default browser:</p>
+						<h6 class="small mb-2">Deselect All Files</h6>
+						<pre class="bg-dark text-light p-2 rounded mb-2"><code>MC.Explorer.Selection.Deselect FILTER="*.*"</code></pre>
+						<p class="small mb-0"><strong>Usage:</strong> Clear all current selections to start fresh selection process.</p>
+					</div>
 
-<pre class="custcomcode">
-MC.Run CMD="<a href="http://www.google.com">http://www.google.com</a>" SHELL
-</pre>
+					<div class="alert alert-warning p-2 mt-3">
+						<h6 class="small mb-1"><i class="bi bi-exclamation-triangle me-1"></i>Selection Parameters</h6>
+						<p class="small mb-0"><strong>SETFOCUS:</strong> Moves focus to first selected item. <strong>SIZE:</strong> Use operators like &gt;100MB, &lt;1KB. <strong>DATE:</strong> Use relative formats like TODAY, &lt;30d, &gt;1w.</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
 
-<p>Run external application with the file in focus as argument:</p>
+<section id="application-launching" class="mt-5">
+	<h3>Application Launching Examples</h3>
+	<p>Launch external applications with specific parameters, files, and security settings using MC.Run commands that integrate seamlessly with your system and workflow tools.</p>
 
-<pre class="custcomcode">
-MC.Run CMD="MyApp.exe" ARG="${focusfilepath}"
-</pre>
+	<div class="row">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header bg-warning text-dark">
+					<h6 class="mb-0"><i class="bi bi-play-circle me-2"></i>MC.Run Application Examples</h6>
+				</div>
+				<div class="card-body">
+					<h6>Basic Application Launching</h6>
+					<div class="alert alert-light p-3">
+						<h6 class="small mb-2">Launch Notepad</h6>
+						<pre class="bg-dark text-light p-2 rounded mb-2"><code>MC.Run CMD="Notepad.exe"</code></pre>
+						<p class="small mb-3"><strong>Usage:</strong> Open Windows Notepad without any specific file.</p>
 
-<pre class="custcomcode">
-MC.Run CMD="MyApp.exe" ARG="-a -f -i:${focusfilepath}"
-</pre>
+						<h6 class="small mb-2">Open File in Notepad</h6>
+						<pre class="bg-dark text-light p-2 rounded mb-2"><code>MC.Run CMD="Notepad.exe" ARG="C:\myFile.txt"</code></pre>
+						<p class="small mb-3"><strong>Usage:</strong> Launch Notepad with a specific file already loaded.</p>
 
+						<h6 class="small mb-2">Run with Administrator Privileges</h6>
+						<pre class="bg-dark text-light p-2 rounded mb-2"><code>MC.Run CMD="Notepad.exe" ADMIN</code></pre>
+						<p class="small mb-0"><strong>Usage:</strong> Launch application with elevated privileges for system file editing.</p>
+					</div>
 
-<hr />
-<h2><a name="PackFiles">Pack Files</a></h2>
+					<h6>Dynamic File Integration</h6>
+					<div class="alert alert-light p-3">
+						<h6 class="small mb-2">Open Focused File in External Editor</h6>
+						<pre class="bg-dark text-light p-2 rounded mb-2"><code>MC.Run CMD="MyApp.exe" ARG="${focusfilepath}"</code></pre>
+						<p class="small mb-3"><strong>Usage:</strong> Pass the currently focused file to any external application.</p>
 
-<p>Pack all files in "D:\MyFiles" using zip into a file named Backup.zip in the target location:</p>
+						<h6 class="small mb-2">Application with Complex Arguments</h6>
+						<pre class="bg-dark text-light p-2 rounded mb-2"><code>MC.Run CMD="MyApp.exe" ARG="-a -f -i:${focusfilepath}"</code></pre>
+						<p class="small mb-3"><strong>Usage:</strong> Launch application with multiple command line switches and focused file.</p>
 
-<pre class="custcomcode">
-MC.Filesystem.PackFiles FILES="D:\MyFiles\*.*" METHOD="Zip" TARGET="${targetpath}Backup.zip"
-</pre>
+						<h6 class="small mb-2">System Shell Integration</h6>
+						<pre class="bg-dark text-light p-2 rounded mb-2"><code>MC.Run CMD="http://www.google.com" SHELL</code></pre>
+						<p class="small mb-0"><strong>Usage:</strong> Use Windows shell to open URLs or files with default applications.</p>
+					</div>
 
-<p>Pack all files in "D:\MyFiles" using zip into a file named "Backup-2010-03-10-12:22:22.zip" and store the file in the current target location. The date and time will be the date/time at the moment the command is run:</p>
+					<h6>Advanced Application Control</h6>
+					<div class="alert alert-light p-3">
+						<h6 class="small mb-2">Launch PowerShell in Current Directory</h6>
+						<pre class="bg-dark text-light p-2 rounded mb-2"><code>MC.Run CMD="powershell.exe" ARG="-NoExit -Command cd '${sourcepath}'"</code></pre>
+						<p class="small mb-3"><strong>Usage:</strong> Open PowerShell terminal in the current source panel directory.</p>
 
-<pre class="custcomcode">
-MC.Filesystem.PackFiles FILES="D:\MyFiles\*.*" METHOD="Zip"
-   TARGET="${targetpath}${date:yyyy-MM-dd}-${time:hh:mm:ss}.zip"
-</pre>
+						<h6 class="small mb-2">Git Client with Repository Path</h6>
+						<pre class="bg-dark text-light p-2 rounded mb-2"><code>MC.Run CMD="C:\Program Files\Git\bin\git.exe" ARG="status" WORKDIR="${sourcepath}"</code></pre>
+						<p class="small mb-0"><strong>Usage:</strong> Run Git commands in the current directory context.</p>
+					</div>
 
-<hr />
-<h2><a name="searchforfiles">Search for Files</a></h2>
+					<div class="alert alert-info p-2 mt-3">
+						<h6 class="small mb-1"><i class="bi bi-gear me-1"></i>MC.Run Parameters</h6>
+						<p class="small mb-0"><strong>CMD:</strong> Application executable path or name. <strong>ARG:</strong> Command line arguments. <strong>WORKDIR:</strong> Working directory. <strong>ADMIN:</strong> Run as administrator. <strong>SHELL:</strong> Use system shell.</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
 
-<p>Find all *.jpg and *.tiff files in the current source path; do not search in the ".backup" folder; auto-start the search when the command is run;</p>
+<section id="file-packing" class="mt-5">
+	<h3>File Packing Examples</h3>
+	<p>Create archives and compressed files using MC.Filesystem.PackFiles commands with dynamic naming, multiple compression methods, and flexible source selection options.</p>
 
-<pre class="custcomcode">
-MC.FileSearch.Search SEARCHIN="${sourcepath}" SEARCHFOR="*.jpg *.tiff" EXCLUDE=".backup" AUTOSTART
-</pre>
+	<div class="row">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header bg-primary text-white">
+					<h6 class="mb-0"><i class="bi bi-archive me-2"></i>MC.Filesystem.PackFiles Examples</h6>
+				</div>
+				<div class="card-body">
+					<h6>Basic Archive Creation</h6>
+					<div class="alert alert-light p-3">
+						<h6 class="small mb-2">Simple ZIP Archive</h6>
+						<pre class="bg-dark text-light p-2 rounded mb-2"><code>MC.Filesystem.PackFiles FILES="D:\MyFiles\*.*" METHOD="Zip" TARGET="${targetpath}Backup.zip"</code></pre>
+						<p class="small mb-3"><strong>Usage:</strong> Pack all files from D:\MyFiles into a ZIP archive named Backup.zip in the target panel location.</p>
+
+						<h6 class="small mb-2">Pack Selected Files</h6>
+						<pre class="bg-dark text-light p-2 rounded mb-2"><code>MC.Filesystem.PackFiles FILES="${selectedfilepaths}" METHOD="Zip" TARGET="${targetpath}SelectedFiles.zip"</code></pre>
+						<p class="small mb-3"><strong>Usage:</strong> Create archive from currently selected files in source panel.</p>
+
+						<h6 class="small mb-2">7-Zip High Compression</h6>
+						<pre class="bg-dark text-light p-2 rounded mb-2"><code>MC.Filesystem.PackFiles FILES="${sourcepath}*.*" METHOD="7z" TARGET="${targetpath}Archive.7z" COMPRESSION="Ultra"</code></pre>
+						<p class="small mb-0"><strong>Usage:</strong> Create highly compressed 7z archive of all files in source directory.</p>
+					</div>
+
+					<h6>Dynamic Archive Naming</h6>
+					<div class="alert alert-light p-3">
+						<h6 class="small mb-2">Timestamp-Based Archive Name</h6>
+						<pre class="bg-dark text-light p-2 rounded mb-2"><code>MC.Filesystem.PackFiles FILES="D:\MyFiles\*.*" METHOD="Zip" TARGET="${targetpath}Backup-${date:yyyy-MM-dd}-${time:HH-mm-ss}.zip"</code></pre>
+						<p class="small mb-3"><strong>Usage:</strong> Create archive with current date and time in filename (e.g., Backup-2024-01-15-14-30-22.zip).</p>
+
+						<h6 class="small mb-2">Project-Based Archive</h6>
+						<pre class="bg-dark text-light p-2 rounded mb-2"><code>MC.Filesystem.PackFiles FILES="${sourcepath}*.*" METHOD="Zip" TARGET="${targetpath}${sourcefolderame}-${date:yyyyMMdd}.zip"</code></pre>
+						<p class="small mb-3"><strong>Usage:</strong> Create archive named after source folder with date suffix.</p>
+
+						<h6 class="small mb-2">Parameterized Archive Name</h6>
+						<pre class="bg-dark text-light p-2 rounded mb-2"><code>MC.Filesystem.PackFiles FILES="${selectedfilepaths}" METHOD="Zip" TARGET="${targetpath}${param:0}.zip"</code></pre>
+						<p class="small mb-0"><strong>Usage:</strong> Use command parameter for archive name - "pack ProjectBackup" creates ProjectBackup.zip.</p>
+					</div>
+
+					<h6>Advanced Packing Options</h6>
+					<div class="alert alert-light p-3">
+						<h6 class="small mb-2">RAR Archive with Password</h6>
+						<pre class="bg-dark text-light p-2 rounded mb-2"><code>MC.Filesystem.PackFiles FILES="${selectedfilepaths}" METHOD="RAR" TARGET="${targetpath}Secure.rar" PASSWORD="${param:0}"</code></pre>
+						<p class="small mb-3"><strong>Usage:</strong> Create password-protected RAR archive using command line parameter.</p>
+
+						<h6 class="small mb-2">Exclude Pattern During Packing</h6>
+						<pre class="bg-dark text-light p-2 rounded mb-2"><code>MC.Filesystem.PackFiles FILES="${sourcepath}*.*" METHOD="Zip" TARGET="${targetpath}Clean.zip" EXCLUDE="*.tmp *.log"</code></pre>
+						<p class="small mb-0"><strong>Usage:</strong> Pack all files except temporary and log files.</p>
+					</div>
+
+					<div class="alert alert-success p-2 mt-3">
+						<h6 class="small mb-1"><i class="bi bi-archive me-1"></i>Compression Methods</h6>
+						<p class="small mb-0"><strong>Available:</strong> Zip, 7z, RAR, TAR, GZIP. <strong>Compression Levels:</strong> Store, Fast, Normal, Good, Ultra. <strong>Features:</strong> Password protection, file exclusion, directory preservation.</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<section id="search-operations" class="mt-5">
+	<h3>Search Operations Examples</h3>
+	<p>Execute sophisticated file searches using MC.FileSearch.Search commands with multiple criteria, exclusion patterns, and automated search execution for efficient file discovery.</p>
+
+	<div class="row">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header bg-dark text-white">
+					<h6 class="mb-0"><i class="bi bi-search me-2"></i>MC.FileSearch.Search Examples</h6>
+				</div>
+				<div class="card-body">
+					<h6>Basic Search Operations</h6>
+					<div class="alert alert-light p-3">
+						<h6 class="small mb-2">Search for Image Files</h6>
+						<pre class="bg-dark text-light p-2 rounded mb-2"><code>MC.FileSearch.Search SEARCHIN="${sourcepath}" SEARCHFOR="*.jpg *.tiff" AUTOSTART</code></pre>
+						<p class="small mb-3"><strong>Usage:</strong> Find all JPEG and TIFF images in the current source directory with automatic search execution.</p>
+
+						<h6 class="small mb-2">Search with Exclusions</h6>
+						<pre class="bg-dark text-light p-2 rounded mb-2"><code>MC.FileSearch.Search SEARCHIN="${sourcepath}" SEARCHFOR="*.jpg *.tiff" EXCLUDE=".backup" AUTOSTART</code></pre>
+						<p class="small mb-3"><strong>Usage:</strong> Search for image files but exclude any files in folders named ".backup".</p>
+
+						<h6 class="small mb-2">Parameterized Search</h6>
+						<pre class="bg-dark text-light p-2 rounded mb-2"><code>MC.FileSearch.Search SEARCHIN="${sourcepath}" SEARCHFOR="*.${param:0}" AUTOSTART</code></pre>
+						<p class="small mb-0"><strong>Usage:</strong> Create flexible search command - use "search mp3" to find all MP3 files.</p>
+					</div>
+
+					<h6>Advanced Search Criteria</h6>
+					<div class="alert alert-light p-3">
+						<h6 class="small mb-2">Search by File Size</h6>
+						<pre class="bg-dark text-light p-2 rounded mb-2"><code>MC.FileSearch.Search SEARCHIN="${sourcepath}" SEARCHFOR="*.*" SIZE=">100MB" AUTOSTART</code></pre>
+						<p class="small mb-3"><strong>Usage:</strong> Find all files larger than 100MB in the current directory tree.</p>
+
+						<h6 class="small mb-2">Search by Date Range</h6>
+						<pre class="bg-dark text-light p-2 rounded mb-2"><code>MC.FileSearch.Search SEARCHIN="${sourcepath}" SEARCHFOR="*.*" DATE="TODAY" AUTOSTART</code></pre>
+						<p class="small mb-3"><strong>Usage:</strong> Find all files modified today in the source directory.</p>
+
+						<h6 class="small mb-2">Content-Based Search</h6>
+						<pre class="bg-dark text-light p-2 rounded mb-2"><code>MC.FileSearch.Search SEARCHIN="${sourcepath}" SEARCHFOR="*.txt" CONTENT="${param:0}" AUTOSTART</code></pre>
+						<p class="small mb-0"><strong>Usage:</strong> Search for text files containing specific content - "textsearch password" finds files with "password".</p>
+					</div>
+
+					<h6>Complex Search Scenarios</h6>
+					<div class="alert alert-light p-3">
+						<h6 class="small mb-2">Development File Search</h6>
+						<pre class="bg-dark text-light p-2 rounded mb-2"><code>MC.FileSearch.Search SEARCHIN="${sourcepath}" SEARCHFOR="*.cs *.js *.html" EXCLUDE="bin obj node_modules" AUTOSTART</code></pre>
+						<p class="small mb-3"><strong>Usage:</strong> Search for source code files while excluding build and dependency directories.</p>
+
+						<h6 class="small mb-2">Duplicate File Detection</h6>
+						<pre class="bg-dark text-light p-2 rounded mb-2"><code>MC.FileSearch.Search SEARCHIN="${sourcepath}" SEARCHFOR="*.*" DUPLICATES="SIZE+DATE" AUTOSTART</code></pre>
+						<p class="small mb-3"><strong>Usage:</strong> Find potential duplicate files based on size and modification date.</p>
+
+						<h6 class="small mb-2">Cross-Drive Search</h6>
+						<pre class="bg-dark text-light p-2 rounded mb-2"><code>MC.FileSearch.Search SEARCHIN="C:\ D:\ E:\" SEARCHFOR="*.${param:0}" AUTOSTART</code></pre>
+						<p class="small mb-0"><strong>Usage:</strong> Search across multiple drives for specific file types.</p>
+					</div>
+
+					<div class="alert alert-warning p-2 mt-3">
+						<h6 class="small mb-1"><i class="bi bi-search me-1"></i>Search Parameters</h6>
+						<p class="small mb-0"><strong>SEARCHIN:</strong> Directory paths to search. <strong>SEARCHFOR:</strong> File patterns. <strong>EXCLUDE:</strong> Folders to skip. <strong>AUTOSTART:</strong> Begin search immediately. <strong>SIZE/DATE:</strong> Additional criteria filters.</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<section id="tab-management" class="mt-5">
+	<h3>Tab Management Examples</h3>
+	<p>Control Explorer Panel tabs with commands for creating, managing, and organizing tab layouts to streamline multi-location file management workflows.</p>
+
+	<div class="row">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header bg-secondary text-white">
+					<h6 class="mb-0"><i class="bi bi-window me-2"></i>Tab Control Examples</h6>
+				</div>
+				<div class="card-body">
+					<h6>Tab Creation and Navigation</h6>
+					<div class="alert alert-light p-3">
+						<h6 class="small mb-2">Open New Tab with Specific Path</h6>
+						<pre class="bg-dark text-light p-2 rounded mb-2"><code>MC.Explorer.NewBrowser PATH="${param:0}" SIDE="SOURCE"</code></pre>
+						<p class="small mb-3"><strong>Usage:</strong> Create command "newtab C:\Projects" to open new tab with specified path.</p>
+
+						<h6 class="small mb-2">Open Target Path in New Tab</h6>
+						<pre class="bg-dark text-light p-2 rounded mb-2"><code>MC.Explorer.NewBrowser PATH="${targetpath}" SIDE="LEFT"</code></pre>
+						<p class="small mb-3"><strong>Usage:</strong> Open current target panel path in new tab on left side.</p>
+
+						<h6 class="small mb-2">Switch to Next Tab</h6>
+						<pre class="bg-dark text-light p-2 rounded mb-2"><code>MC.SetActiveTab PANEL="ACTIVE" TAB="NEXT"</code></pre>
+						<p class="small mb-0"><strong>Usage:</strong> Navigate to next tab in current panel - ideal for hotkey assignment.</p>
+					</div>
+
+					<h6>Advanced Tab Features</h6>
+					<div class="alert alert-light p-3">
+						<h6 class="small mb-2">Create Locked Tab with Color</h6>
+						<pre class="bg-dark text-light p-2 rounded mb-2"><code>MC.Explorer.NewBrowser PATH="${sourcepath}" TABLOCK TABCOLORS="255,0,0,0,1" TABNAME="Important"</code></pre>
+						<p class="small mb-3"><strong>Usage:</strong> Create locked tab with red background color and custom name.</p>
+
+						<h6 class="small mb-2">Close All Tabs Except Locked</h6>
+						<pre class="bg-dark text-light p-2 rounded mb-2"><code>MC.CloseAllTabs KEEPLOCKED DONOTASK</code></pre>
+						<p class="small mb-3"><strong>Usage:</strong> Clean up tab clutter while preserving important locked tabs.</p>
+
+						<h6 class="small mb-2">Save Current Tab Layout</h6>
+						<pre class="bg-dark text-light p-2 rounded mb-2"><code>MC.SaveTabs FILENAME="${targetpath}${param:0}.tabs"</code></pre>
+						<p class="small mb-0"><strong>Usage:</strong> Save current tab configuration - "savetabs project" creates project.tabs file.</p>
+					</div>
+
+					<div class="alert alert-info p-2 mt-3">
+						<h6 class="small mb-1"><i class="bi bi-window me-1"></i>Tab Management Tips</h6>
+						<p class="small mb-0"><strong>Color Format:</strong> TABCOLORS uses Red,Green,Blue,TextColor,Gradient. <strong>Tab States:</strong> TABLOCK prevents accidental closure. <strong>Layout Saving:</strong> Store tab configurations for project-specific workflows.</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<section id="advanced-selection" class="mt-5">
+	<h3>Advanced Selection Operations</h3>
+	<p>Utilize sophisticated selection commands for complex file management scenarios including folder comparison, color-based selection, and selection memory management.</p>
+
+	<div class="row">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header bg-danger text-white">
+					<h6 class="mb-0"><i class="bi bi-bullseye me-2"></i>Advanced Selection Examples</h6>
+				</div>
+				<div class="card-body">
+					<h6>Folder Comparison Operations</h6>
+					<div class="alert alert-light p-3">
+						<h6 class="small mb-2">Select Duplicate Files Between Panels</h6>
+						<pre class="bg-dark text-light p-2 rounded mb-2"><code>MC.Explorer.Selection.CompareFoldersForDuplicates FILES</code></pre>
+						<p class="small mb-3"><strong>Usage:</strong> Compare source and target panels to identify and select duplicate files.</p>
+
+						<h6 class="small mb-2">Select Missing Files in Target</h6>
+						<pre class="bg-dark text-light p-2 rounded mb-2"><code>MC.Explorer.Selection.CompareFoldersForMissing FILES</code></pre>
+						<p class="small mb-3"><strong>Usage:</strong> Select files in source that don't exist in target - perfect for backup verification.</p>
+
+						<h6 class="small mb-2">Select Newer Files for Sync</h6>
+						<pre class="bg-dark text-light p-2 rounded mb-2"><code>MC.Explorer.Selection.CompareFoldersForNewest FILES</code></pre>
+						<p class="small mb-0"><strong>Usage:</strong> Select files that are newer in source than target for synchronization operations.</p>
+					</div>
+
+					<h6>Color-Based and Memory Selection</h6>
+					<div class="alert alert-light p-3">
+						<h6 class="small mb-2">Select Files by Color Rule</h6>
+						<pre class="bg-dark text-light p-2 rounded mb-2"><code>MC.Explorer.Selection.SelectByColor RULE="${param:0}"</code></pre>
+						<p class="small mb-3"><strong>Usage:</strong> Select files matching specific color rule - "selectcolor Important" selects files colored by "Important" rule.</p>
+
+						<h6 class="small mb-2">Save Selection to Memory</h6>
+						<pre class="bg-dark text-light p-2 rounded mb-2"><code>MC.Explorer.Selection.SaveSelectionToMemory NAME="${param:0}"</code></pre>
+						<p class="small mb-3"><strong>Usage:</strong> Store current selection for later use - "savesel backup" stores selection as "backup".</p>
+
+						<h6 class="small mb-2">Load Clipboard Selection</h6>
+						<pre class="bg-dark text-light p-2 rounded mb-2"><code>MC.Explorer.Selection.LoadSelectionFromClipboard WILDCARD</code></pre>
+						<p class="small mb-0"><strong>Usage:</strong> Select files based on names copied to clipboard with wildcard matching.</p>
+					</div>
+
+					<div class="alert alert-success p-2 mt-3">
+						<h6 class="small mb-1"><i class="bi bi-check-circle me-1"></i>Selection Power Tips</h6>
+						<p class="small mb-0"><strong>Memory Storage:</strong> Save complex selections for reuse across sessions. <strong>Color Integration:</strong> Combine file coloring rules with selection automation. <strong>Comparison Logic:</strong> Use folder comparison for synchronization workflows.</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<section id="interface-customization" class="mt-5">
+	<h3>Interface Customization Examples</h3>
+	<p>Customize Multi Commander's interface dynamically using commands that control view modes, panel layouts, and visual appearance for optimal workflow adaptation.</p>
+
+	<div class="row">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header bg-indigo text-white">
+					<h6 class="mb-0"><i class="bi bi-palette me-2"></i>Interface Control Examples</h6>
+				</div>
+				<div class="card-body">
+					<h6>View Mode and Layout Control</h6>
+					<div class="alert alert-light p-3">
+						<h6 class="small mb-2">Switch to Thumbnail View</h6>
+						<pre class="bg-dark text-light p-2 rounded mb-2"><code>MC.Explorer.SetViewMode MODE="4"</code></pre>
+						<p class="small mb-3"><strong>Usage:</strong> Change active panel to thumbnail detail view - ideal for image folders.</p>
+
+						<h6 class="small mb-2">Toggle Active Panel</h6>
+						<pre class="bg-dark text-light p-2 rounded mb-2"><code>MC.SetActivePanel PANEL="TOGGLE"</code></pre>
+						<p class="small mb-3"><strong>Usage:</strong> Switch focus between left and right panels quickly.</p>
+
+						<h6 class="small mb-2">Synchronize Panel Views</h6>
+						<pre class="bg-dark text-light p-2 rounded mb-2"><code>MC.Explorer.Goto PANEL="RIGHT" PATH="${sourcepath}"</code></pre>
+						<p class="small mb-0"><strong>Usage:</strong> Make both panels show the same directory for comparison.</p>
+					</div>
+
+					<h6>Visual Customization</h6>
+					<div class="alert alert-light p-3">
+						<h6 class="small mb-2">Apply Color Profile</h6>
+						<pre class="bg-dark text-light p-2 rounded mb-2"><code>MC.Explorer.SetColoringRules NAME="${param:0}"</code></pre>
+						<p class="small mb-3"><strong>Usage:</strong> Switch color schemes - "colors development" applies development color profile.</p>
+
+						<h6 class="small mb-2">Change Column Layout</h6>
+						<pre class="bg-dark text-light p-2 rounded mb-2"><code>MC.Explorer.SetColumns NAME="${param:0}"</code></pre>
+						<p class="small mb-3"><strong>Usage:</strong> Apply predefined column sets - "columns media" shows media-specific columns.</p>
+
+						<h6 class="small mb-2">Refresh Coloring Rules</h6>
+						<pre class="bg-dark text-light p-2 rounded mb-2"><code>MC.Explorer.RefreshColoringRules</code></pre>
+						<p class="small mb-0"><strong>Usage:</strong> Update file colors after rule changes or new files.</p>
+					</div>
+
+					<div class="alert alert-warning p-2 mt-3">
+						<h6 class="small mb-1"><i class="bi bi-palette me-1"></i>View Mode Reference</h6>
+						<p class="small mb-0"><strong>Modes:</strong> 1=Detail, 2=List, 3=Thumbnail List, 4=Thumbnail Detail. <strong>Panel IDs:</strong> LEFT, RIGHT, ACTIVE, SOURCE, TARGET. <strong>Profiles:</strong> Use predefined color and column profile names.</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<section id="file-tools" class="mt-5">
+	<h3>File Tools Examples</h3>
+	<p>Leverage Multi Commander's built-in file processing tools including checksum verification, picture conversion, and data viewing through automated command execution.</p>
+
+	<div class="row">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header bg-teal text-white">
+					<h6 class="mb-0"><i class="bi bi-tools me-2"></i>File Processing Examples</h6>
+				</div>
+				<div class="card-body">
+					<h6>Checksum and Verification</h6>
+					<div class="alert alert-light p-3">
+						<h6 class="small mb-2">Create MD5 Checksum File</h6>
+						<pre class="bg-dark text-light p-2 rounded mb-2"><code>MC.CheckSum.Create ALLSELECTED CHECKSUM="MD5" AUTOSTART FILENAME="${targetpath}checksums.md5"</code></pre>
+						<p class="small mb-3"><strong>Usage:</strong> Generate MD5 checksum file for all selected files in target directory.</p>
+
+						<h6 class="small mb-2">Verify File Integrity</h6>
+						<pre class="bg-dark text-light p-2 rounded mb-2"><code>MC.CheckSum.Verify FILE="${focusfilepath}"</code></pre>
+						<p class="small mb-3"><strong>Usage:</strong> Verify checksum file in focus to validate file integrity.</p>
+
+						<h6 class="small mb-2">Batch Verify Selected</h6>
+						<pre class="bg-dark text-light p-2 rounded mb-2"><code>MC.CheckSum.Verify ALLSELECTED</code></pre>
+						<p class="small mb-0"><strong>Usage:</strong> Verify all selected checksum files and folders containing checksums.</p>
+					</div>
+
+					<h6>Picture Processing</h6>
+					<div class="alert alert-light p-3">
+						<h6 class="small mb-2">Convert Images to JPEG</h6>
+						<pre class="bg-dark text-light p-2 rounded mb-2"><code>MC.PictureTools.Convert SELECTED FORMAT="JPG" JPGQUALITY="90"</code></pre>
+						<p class="small mb-3"><strong>Usage:</strong> Convert all selected images to high-quality JPEG format.</p>
+
+						<h6 class="small mb-2">Resize Images for Web</h6>
+						<pre class="bg-dark text-light p-2 rounded mb-2"><code>MC.PictureTools.Resize SELECTED WIDTH="800" HEIGHT="*" JPGQUALITY="85"</code></pre>
+						<p class="small mb-3"><strong>Usage:</strong> Resize selected images to 800px width while maintaining aspect ratio.</p>
+
+						<h6 class="small mb-2">Batch Convert with Parameter</h6>
+						<pre class="bg-dark text-light p-2 rounded mb-2"><code>MC.PictureTools.Convert SELECTED FORMAT="${param:0}" OVERWRITE</code></pre>
+						<p class="small mb-0"><strong>Usage:</strong> Convert to specified format - "convert PNG" converts selected images to PNG.</p>
+					</div>
+
+					<h6>Data Viewing</h6>
+					<div class="alert alert-light p-3">
+						<h6 class="small mb-2">View File as Hex</h6>
+						<pre class="bg-dark text-light p-2 rounded mb-2"><code>MC.DataViewer.View FILE="${focusfilepath}" HEX</code></pre>
+						<p class="small mb-3"><strong>Usage:</strong> Open focused file in data viewer with hexadecimal display.</p>
+
+						<h6 class="small mb-2">View with Auto-Reload</h6>
+						<pre class="bg-dark text-light p-2 rounded mb-2"><code>MC.DataViewer.View FILE="${focusfilepath}" AUTORELOAD</code></pre>
+						<p class="small mb-0"><strong>Usage:</strong> Monitor file changes by viewing with automatic reload enabled.</p>
+					</div>
+
+					<div class="alert alert-info p-2 mt-3">
+						<h6 class="small mb-1"><i class="bi bi-tools me-1"></i>File Tools Reference</h6>
+						<p class="small mb-0"><strong>Image Formats:</strong> PNG, JPG, GIF, BMP, TIF. <strong>Size Syntax:</strong> Use * for auto-calculation. <strong>Quality:</strong> 0-100 for JPEG compression. <strong>Checksum Types:</strong> CRC32, MD5.</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<section id="data-processing" class="mt-5">
+	<h3>Data Processing Examples</h3>
+	<p>Process text files and manipulate data using Multi Commander's text processing utilities for sorting, find-and-replace operations, and content transformation.</p>
+
+	<div class="row">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header bg-purple text-white">
+					<h6 class="mb-0"><i class="bi bi-file-text me-2"></i>Text Processing Examples</h6>
+				</div>
+				<div class="card-body">
+					<h6>Text File Manipulation</h6>
+					<div class="alert alert-light p-3">
+						<h6 class="small mb-2">Sort Lines in Text File</h6>
+						<pre class="bg-dark text-light p-2 rounded mb-2"><code>MC.Utils.SortLines FILE="${focusfilepath}" TARGET="*_Sorted.*" KEEPBACKUP</code></pre>
+						<p class="small mb-3"><strong>Usage:</strong> Sort lines in focused text file, creating sorted copy with backup of original.</p>
+
+						<h6 class="small mb-2">Sort by Date Column</h6>
+						<pre class="bg-dark text-light p-2 rounded mb-2"><code>MC.Utils.SortLines FILE="${focusfilepath}" SORTBY="Item" ITEM="3" SORTAS="Date" ITEMSEP="," OVERWRITE</code></pre>
+						<p class="small mb-3"><strong>Usage:</strong> Sort CSV file by third column treating values as dates.</p>
+
+						<h6 class="small mb-2">Find and Replace Text</h6>
+						<pre class="bg-dark text-light p-2 rounded mb-2"><code>MC.Utils.FindAndReplace FILE="${focusfilepath}" FIND="${param:0}" REPLACEWITH="${param:1}" REPLACEALL KEEPBACKUP</code></pre>
+						<p class="small mb-0"><strong>Usage:</strong> Replace text - "replace oldtext newtext" replaces all occurrences.</p>
+					</div>
+
+					<h6>Advanced Text Operations</h6>
+					<div class="alert alert-light p-3">
+						<h6 class="small mb-2">Case-Insensitive Replace</h6>
+						<pre class="bg-dark text-light p-2 rounded mb-2"><code>MC.Utils.FindAndReplace FILE="${focusfilepath}" FIND="error" REPLACEWITH="ERROR" IGNORECASE REPLACEALL TARGET="*_Fixed.*"</code></pre>
+						<p class="small mb-3"><strong>Usage:</strong> Replace "error" with "ERROR" regardless of case, creating new file.</p>
+
+						<h6 class="small mb-2">Sort with Natural Numbers</h6>
+						<pre class="bg-dark text-light p-2 rounded mb-2"><code>MC.Utils.SortLines FILE="${focusfilepath}" SORTAS="Number" NATRUALNUMORDER REVERSE DELETE</code></pre>
+						<p class="small mb-3"><strong>Usage:</strong> Sort numbers naturally (1,2,10 instead of 1,10,2) in reverse order.</p>
+
+						<h6 class="small mb-2">Extract and Sort Data</h6>
+						<pre class="bg-dark text-light p-2 rounded mb-2"><code>MC.Utils.SortLines FILE="${focusfilepath}" SORTBY="SubString" LINEOFFSET="10" SUBSTRLEN="20" TARGET="${targetpath}extracted.txt"</code></pre>
+						<p class="small mb-0"><strong>Usage:</strong> Sort by substring at position 10 with length 20, useful for fixed-width data.</p>
+					</div>
+
+					<div class="alert alert-success p-2 mt-3">
+						<h6 class="small mb-1"><i class="bi bi-file-text me-1"></i>Text Processing Tips</h6>
+						<p class="small mb-0"><strong>Backup Safety:</strong> Use KEEPBACKUP for important files. <strong>Sort Types:</strong> Text, Number, Date available. <strong>Target Patterns:</strong> Use * wildcards for dynamic naming. <strong>Encoding:</strong> FORCEUTF8 ensures proper character handling.</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<section id="implementation" class="mt-5">
+	<h3>Implementation and Usage</h3>
+	<p>Transform these examples into working Custom Commands by understanding the implementation process and integration options for maximum workflow efficiency.</p>
+
+	<div class="row">
+		<div class="col-md-6">
+			<div class="card">
+				<div class="card-header bg-success text-white">
+					<h6 class="mb-0"><i class="bi bi-gear me-2"></i>How to Use These Examples</h6>
+				</div>
+				<div class="card-body">
+					<h6>Implementation Steps</h6>
+					<ol class="small">
+						<li><strong>Copy Command:</strong> Copy the command syntax from any example above</li>
+						<li><strong>Create UDC:</strong> Open User Defined Commands and create new command</li>
+						<li><strong>Select Type:</strong> Choose "Custom Commands" as command type</li>
+						<li><strong>Paste Syntax:</strong> Paste the copied command into the command field</li>
+						<li><strong>Modify Parameters:</strong> Adjust paths, patterns, or options as needed</li>
+						<li><strong>Save Command:</strong> Save the command with descriptive name</li>
+						<li><strong>Assign Access:</strong> Create button, hotkey, or menu item</li>
+					</ol>
+
+					<h6>Customization Tips</h6>
+					<ul class="small">
+						<li><strong>Path Adaptation:</strong> Replace static paths with MultiTags for dynamic behavior</li>
+						<li><strong>Parameter Usage:</strong> Use <code>${param:0}</code> for command line flexibility</li>
+						<li><strong>Pattern Modification:</strong> Adjust file patterns for your specific needs</li>
+						<li><strong>Option Addition:</strong> Add parameters like CONFIRMATION or SETFOCUS</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-6">
+			<div class="card">
+				<div class="card-header bg-info text-white">
+					<h6 class="mb-0"><i class="bi bi-lightbulb me-2"></i>Advanced Combinations</h6>
+				</div>
+				<div class="card-body">
+					<h6>Combining Multiple Commands</h6>
+					<ul class="small">
+						<li><strong>Search and Select:</strong> Use search results to select specific files</li>
+						<li><strong>Filter and Pack:</strong> Apply view filter, then pack visible files</li>
+						<li><strong>Select and Launch:</strong> Select files by pattern, then launch external app</li>
+						<li><strong>MultiScript Integration:</strong> Call Custom Commands from MultiScript for complex workflows</li>
+					</ul>
+
+					<h6>Workflow Integration</h6>
+					<ul class="small">
+						<li><strong>Button Panels:</strong> Create toolbar buttons for frequently used commands</li>
+						<li><strong>Keyboard Shortcuts:</strong> Assign hotkeys for instant command execution</li>
+						<li><strong>Menu Integration:</strong> Add commands to custom menu categories</li>
+						<li><strong>Command Line:</strong> Create aliases for parameterized commands</li>
+					</ul>
+
+					<h6>Error Prevention</h6>
+					<ul class="small">
+						<li><strong>Path Validation:</strong> Test commands with various path scenarios</li>
+						<li><strong>Parameter Testing:</strong> Verify behavior with different parameter values</li>
+						<li><strong>Confirmation Dialogs:</strong> Add confirmation for destructive operations</li>
+						<li><strong>Backup First:</strong> Test new commands on sample data initially</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<div class="alert alert-success mt-5">
+	<h6><i class="bi bi-lightbulb me-2"></i>Custom Commands Examples Mastery</h6>
+	<p class="mb-0">Master Custom Commands by starting with these proven examples and adapting them to your specific workflows. Remember that most commands can be enhanced with MultiTags for dynamic behavior, parameters for flexibility, and execution options for safety. Begin with simple examples like view filtering and file selection, then progress to complex operations like automated archiving and multi-criteria searches. These examples provide the foundation for creating powerful workflow automation that transforms Multi Commander into a personalized productivity environment.</p>
+</div>
+
+<div class="alert alert-info mt-4">
+	<h6><i class="bi bi-info-circle me-2"></i>Related Documentation</h6>
+	<p class="mb-0">Expand your Custom Commands knowledge with: <a href="/Docs/UDC_custom" class="text-decoration-none">Custom Commands Guide</a>, <a href="/Docs/customcommands_list" class="text-decoration-none">Complete Commands List</a>, <a href="/Docs/multitags" class="text-decoration-none">MultiTags Reference</a>, <a href="/Docs/user-defined-commands" class="text-decoration-none">User Defined Commands Overview</a>, and other command types: <a href="/Docs/UDC_internal" class="text-decoration-none">Internal Commands</a>, <a href="/Docs/UDC_external" class="text-decoration-none">External Commands</a>, <a href="/Docs/UDC_multiscript" class="text-decoration-none">MultiScript</a>.</p>
+</div>
 
 

@@ -1,44 +1,441 @@
 <h2>Select/Unselect Files and Folders</h2>
-<p>Under the <strong>Edit</strong> menu there are a number of special commands for selecting files and folders.</p>
 
-<p><img alt="" src="/Docs/Images/selections.png" /></p>
+<p>Multi Commander's comprehensive <strong>Selection Management System</strong> provides powerful tools for precisely controlling file and folder selections through filters, patterns, comparisons, and memory operations. These advanced selection capabilities enable efficient batch operations, intelligent folder comparisons, and sophisticated file management workflows that go far beyond basic manual selection.</p>
 
-<h2>Select using filters</h2>
+<div class="alert alert-primary">
+	<h6><i class="bi bi-check-square me-2"></i>Advanced Selection Control</h6>
+	<p class="mb-0">Transform how you work with files through intelligent selection patterns, cross-panel comparisons, and persistent selection management. From simple wildcard filters to sophisticated folder synchronization analysis, Multi Commander's selection system adapts to your workflow needs.</p>
+</div>
 
-<p>The <strong>Select </strong>and<strong> Unselect</strong> options show a select/unselect dialog where you select files using filters. You can enter a <strong>wildcard</strong> filter to select/unselect files, eg. "*.jpg *.tiff" for all jpg and tiff files.&nbsp; Separate multiple filers with a space.</p>
+<nav class="navbar navbar-expand-lg navbar-light bg-light mb-4">
+	<div class="container-fluid">
+		<span class="navbar-brand">Quick Navigation</span>
+		<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#selectionNav">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="selectionNav">
+			<ul class="navbar-nav">
+				<li class="nav-item"><a class="nav-link" href="#overview">Overview</a></li>
+				<li class="nav-item"><a class="nav-link" href="#filter-selection">Filter Selection</a></li>
+				<li class="nav-item"><a class="nav-link" href="#memory-operations">Memory Operations</a></li>
+				<li class="nav-item"><a class="nav-link" href="#folder-comparison">Folder Comparison</a></li>
+				<li class="nav-item"><a class="nav-link" href="#advanced-operations">Advanced Operations</a></li>
+			</ul>
+		</div>
+	</div>
+</nav>
 
-<h2>Save/Load Selection to/from File or Memory</h2>
+<section id="overview">
+	<h3>Selection System Overview</h3>
+	<p>Multi Commander's selection system operates through the Edit menu, providing a comprehensive suite of tools for managing file and folder selections with precision and efficiency.</p>
 
-<p><strong>Save selection to file</strong> will save all the selected files to a filename you specify. You can then load that file and recover all of your selections at any time.</p>
+	<div class="text-center mt-3 mb-3">
+		<img src="/Docs/Images/selections.png" alt="Selection Menu" class="img-fluid border rounded shadow-sm" />
+		<p class="text-muted small mt-2">Edit menu selection commands for comprehensive file and folder management</p>
+	</div>
 
-<p><strong>Load selection from file</strong> will load a file and treat every line in that file as a selection filter. Each line can be an exact match for a file/folder that you want to select or it can be a selection filter containing wildcards.</p>
+	<div class="row">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header bg-primary text-white">
+					<h6 class="mb-0"><i class="bi bi-funnel me-2"></i>Selection Categories</h6>
+				</div>
+				<div class="card-body">
+					<h6>Basic Selection Operations</h6>
+					<ul class="small">
+						<li><strong>Select/Unselect:</strong> Pattern-based selection using wildcards</li>
+						<li><strong>Select All/None:</strong> Complete selection control</li>
+						<li><strong>Invert Selection:</strong> Reverse current selection state</li>
+						<li><strong>Same Extension/Name:</strong> Pattern matching based on focused file</li>
+					</ul>
+					<h6>Advanced Selection Tools</h6>
+					<ul class="small">
+						<li><strong>Filter-Based:</strong> Complex wildcard patterns for precise selection</li>
+						<li><strong>Memory Operations:</strong> Save and restore selection states</li>
+						<li><strong>File Operations:</strong> Persistent selection lists across sessions</li>
+						<li><strong>Cross-Panel:</strong> Intelligent folder comparison selections</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
 
-<p><strong>Save/Load to/from memory</strong> options work the same way but will not survive a restart of Multi Commander.</p>
+<section id="filter-selection" class="mt-5">
+	<h3>Filter-Based Selection</h3>
+	<p>The Select and Unselect filter dialogs provide powerful pattern matching capabilities for precise file and folder selection control using wildcard expressions and multiple filter criteria.</p>
 
-<h2>Compare Folders</h2>
+	<div class="row">
+		<div class="col-md-8">
+			<div class="card">
+				<div class="card-header bg-primary text-white">
+					<h6 class="mb-0"><i class="bi bi-funnel me-2"></i>Wildcard Filter System</h6>
+				</div>
+				<div class="card-body">
+					<h6>Basic Filter Syntax</h6>
+					<p class="small">Use standard wildcard expressions to create powerful selection patterns:</p>
+					<ul class="small">
+						<li><strong>Asterisk (*):</strong> Matches any number of characters</li>
+						<li><strong>Question Mark (?):</strong> Matches any single character</li>
+						<li><strong>Brackets ([]):</strong> Matches any character within the brackets</li>
+						<li><strong>Multiple Filters:</strong> Separate multiple patterns with spaces</li>
+					</ul>
 
-<p><strong>Compare Folders</strong> will compare the paths in the source and target panel and select differences depending on which compare command is called</p>
+					<h6>Filter Examples</h6>
+					<div class="table-responsive mt-3">
+						<table class="table table-sm table-bordered">
+							<thead class="table-light">
+								<tr>
+									<th style="width: 40%">Filter Pattern</th>
+									<th style="width: 60%">Selection Result</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td><code>*.jpg *.png</code></td>
+									<td>All JPEG and PNG image files</td>
+								</tr>
+								<tr>
+									<td><code>backup_*.zip</code></td>
+									<td>All ZIP files starting with "backup_"</td>
+								</tr>
+								<tr>
+									<td><code>report_????.pdf</code></td>
+									<td>PDF files like "report_2023.pdf" (4 character suffix)</td>
+								</tr>
+								<tr>
+									<td><code>*[0-9].txt</code></td>
+									<td>Text files ending with a number</td>
+								</tr>
+								<tr>
+									<td><code>temp* *.tmp *.bak</code></td>
+									<td>All temporary and backup files</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
 
-<p>It is possible to enable or disable whether the compare command should work on only files or only folders.</p>
+					<h6>Advanced Filter Techniques</h6>
+					<ul class="small">
+						<li><strong>Extension Groups:</strong> <code>*.doc *.docx *.pdf</code> for document files</li>
+						<li><strong>Date Patterns:</strong> <code>*2024* *2023*</code> for year-specific files</li>
+						<li><strong>Size Categories:</strong> Combine with file properties for complex selections</li>
+						<li><strong>Project Patterns:</strong> <code>project_* draft_*</code> for workflow-based selection</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-4">
+			<div class="card">
+				<div class="card-header bg-info text-white">
+					<h6 class="mb-0"><i class="bi bi-gear me-2"></i>Selection Methods</h6>
+				</div>
+				<div class="card-body">
+					<h6>Access Points</h6>
+					<ul class="small">
+						<li><strong>Edit Menu:</strong> Select and Unselect options</li>
+						<li><strong>Toolbar Buttons:</strong> Quick access to expand/shrink selection</li>
+						<li><strong>Right-Click Toolbar:</strong> Dynamic selection options</li>
+						<li><strong>Keyboard Shortcuts:</strong> Configurable hotkeys for common patterns</li>
+					</ul>
+					<h6>Context-Aware Options</h6>
+					<ul class="small">
+						<li><strong>Same Extension:</strong> Auto-detect from focused file</li>
+						<li><strong>Same Name:</strong> Select files with identical names</li>
+						<li><strong>Dynamic Patterns:</strong> Generated from current folder content</li>
+						<li><strong>Custom Presets:</strong> User-defined filter collections</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
 
-<h3>Compare Folders, Select Newest/Missing</h3>
+<section id="memory-operations" class="mt-5">
+	<h3>Selection Memory and File Operations</h3>
+	<p>Multi Commander provides sophisticated selection persistence through both temporary memory storage and permanent file-based selection management, enabling complex workflow scenarios and reproducible operations.</p>
 
-<p>Will select the files that are missing in the other panel or, if folders/files are found in both panels, the newest file/folder is selected</p>
+	<div class="row">
+		<div class="col-md-6">
+			<div class="card">
+				<div class="card-header bg-success text-white">
+					<h6 class="mb-0"><i class="bi bi-memory me-2"></i>Memory Operations</h6>
+				</div>
+				<div class="card-body">
+					<h6>Temporary Selection Storage</h6>
+					<p class="small">Memory-based operations provide quick selection backup and restoration within the current session:</p>
+					<ul class="small">
+						<li><strong>Save Selection to Memory:</strong> Store current selection internally</li>
+						<li><strong>Load Selection from Memory:</strong> Restore previously saved selection</li>
+						<li><strong>Session Scope:</strong> Memory selections persist until Multi Commander closes</li>
+						<li><strong>Quick Operations:</strong> No file I/O overhead for rapid workflows</li>
+					</ul>
+					<h6>Practical Applications</h6>
+					<ul class="small">
+						<li><strong>Operation Backup:</strong> Save selection before risky operations</li>
+						<li><strong>Multi-Step Workflows:</strong> Preserve selections between operations</li>
+						<li><strong>Quick Comparisons:</strong> Switch between different selection sets</li>
+						<li><strong>Undo Capability:</strong> Restore selections after accidental changes</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-6">
+			<div class="card">
+				<div class="card-header bg-primary text-white">
+					<h6 class="mb-0"><i class="bi bi-file-text me-2"></i>File-Based Operations</h6>
+				</div>
+				<div class="card-body">
+					<h6>Persistent Selection Management</h6>
+					<p class="small">File-based operations enable long-term selection storage and cross-session workflows:</p>
+					<ul class="small">
+						<li><strong>Save Selection to File:</strong> Create permanent selection lists</li>
+						<li><strong>Load Selection from File:</strong> Restore selections from saved files</li>
+						<li><strong>Cross-Session Persistence:</strong> Selections survive Multi Commander restarts</li>
+						<li><strong>Shareable Lists:</strong> Transfer selections between users or systems</li>
+					</ul>
+					<h6>File Format Flexibility</h6>
+					<ul class="small">
+						<li><strong>Exact Matches:</strong> One filename per line for precise selection</li>
+						<li><strong>Filter Patterns:</strong> Wildcard expressions for dynamic selection</li>
+						<li><strong>Mixed Format:</strong> Combine exact names and patterns in single file</li>
+						<li><strong>Manual Creation:</strong> Create selection files in any text editor</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
 
-<h3>Compare Folders, Select Missing</h3>
+	<div class="row mt-3">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header bg-dark text-white">
+					<h6 class="mb-0"><i class="bi bi-code me-2"></i>Custom Command Integration</h6>
+				</div>
+				<div class="card-body">
+					<h6>Selection Commands for Automation</h6>
+					<p class="small">Integrate selection operations into custom commands and scripts for advanced automation:</p>
 
-<p>Will select only the files that are missing from the other panel.</p>
+					<pre class="bg-light p-3 rounded small"><code>// Save current selection to file
+MC.Explorer.Selection.SaveSelectionToFile FILENAME="backup_selection.txt"
 
-<h3>Compare Folders, Select Newest</h3>
+// Load selection from file  
+MC.Explorer.Selection.LoadSelectionFromFile FILENAME="project_files.txt"
 
-<p>Will find files/folder that exist in both panels and select only the newest of them.</p>
+// Load selection from clipboard content
+MC.Explorer.Selection.LoadSelectionFromClipboard
 
-<h3>Compare Folders, Select Duplicates</h3>
+// Select files using custom pattern
+MC.Explorer.Selection.Select FILTER="*.log *.tmp" REGEXP=0</code></pre>
 
-<p>Will select only files/folders that exist in both panels.</p>
+					<h6>Automation Scenarios</h6>
+					<div class="row">
+						<div class="col-md-4">
+							<ul class="small">
+								<li>Automated backup workflows</li>
+								<li>Batch processing pipelines</li>
+								<li>Quality assurance procedures</li>
+								<li>Archive management tasks</li>
+							</ul>
+						</div>
+						<div class="col-md-4">
+							<ul class="small">
+								<li>Deployment preparation</li>
+								<li>File validation routines</li>
+								<li>Synchronization processes</li>
+								<li>Maintenance operations</li>
+							</ul>
+						</div>
+						<div class="col-md-4">
+							<ul class="small">
+								<li>Report generation</li>
+								<li>Compliance checking</li>
+								<li>Content organization</li>
+								<li>Migration planning</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
 
-<h3>Compare Folders, Select Selected</h3>
+<section id="folder-comparison" class="mt-5">
+	<h3>Folder Comparison Operations</h3>
+	<p>Multi Commander's folder comparison system provides intelligent analysis of file and folder differences between panels, enabling sophisticated synchronization, backup validation, and content management workflows.</p>
 
-<p>The files that are currently selected in the source panel will also be selected in the target panel if they exist.</p>
+	<div class="row">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header bg-primary text-white">
+					<h6 class="mb-0"><i class="bi bi-diagram-3 me-2"></i>Comparison Operations</h6>
+				</div>
+				<div class="card-body">
+					<h6>Available Comparison Types</h6>
+					<div class="table-responsive">
+						<table class="table table-bordered table-hover">
+							<thead class="table-light">
+								<tr>
+									<th style="width: 30%">Operation</th>
+									<th style="width: 70%">Selection Behavior</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td><strong>Select Newest/Missing</strong></td>
+									<td>Selects files that are missing from the other panel OR files that exist in both panels but are newer</td>
+								</tr>
+								<tr>
+									<td><strong>Select Missing</strong></td>
+									<td>Selects only files that are completely missing from the opposite panel</td>
+								</tr>
+								<tr>
+									<td><strong>Select Newest</strong></td>
+									<td>Finds files that exist in both panels and selects only the newer version</td>
+								</tr>
+								<tr>
+									<td><strong>Select Duplicates</strong></td>
+									<td>Selects files that exist in both panels (regardless of modification date)</td>
+								</tr>
+								<tr>
+									<td><strong>Select Selected</strong></td>
+									<td>Mirrors current selection: files selected in source panel are also selected in target panel if they exist</td>
+								</tr>
+								<tr>
+									<td><strong>Advanced Comparison</strong></td>
+									<td>Custom comparison using date, size, content, and profile-based criteria</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+
+					<h6>Comparison Configuration</h6>
+					<ul class="small">
+						<li><strong>Files Only:</strong> Compare folder should compare files (checkbox option)</li>
+						<li><strong>Folders Only:</strong> Compare folder should compare subfolders (checkbox option)</li>
+						<li><strong>Mixed Mode:</strong> Both files and folders included in comparison</li>
+						<li><strong>Recursive Comparison:</strong> Include subdirectory contents in analysis</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="row mt-3">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header bg-info text-white">
+					<h6 class="mb-0"><i class="bi bi-gear me-2"></i>Advanced Comparison Features</h6>
+				</div>
+				<div class="card-body">
+					<h6>Comparison Criteria</h6>
+					<div class="row">
+						<div class="col-md-4">
+							<h6>Date-Based Comparison</h6>
+							<ul class="small">
+								<li>Modification time analysis</li>
+								<li>Creation date differences</li>
+								<li>Access time considerations</li>
+								<li>Timestamp tolerance settings</li>
+							</ul>
+						</div>
+						<div class="col-md-4">
+							<h6>Size-Based Comparison</h6>
+							<ul class="small">
+								<li>File size differences</li>
+								<li>Folder size analysis</li>
+								<li>Size threshold settings</li>
+								<li>Byte-level accuracy</li>
+							</ul>
+						</div>
+						<div class="col-md-4">
+							<h6>Content-Based Comparison</h6>
+							<ul class="small">
+								<li>Binary content comparison</li>
+								<li>Checksum validation</li>
+								<li>Hash-based analysis</li>
+								<li>Deep content verification</li>
+							</ul>
+						</div>
+					</div>
+
+					<h6>Comparison Profiles</h6>
+					<p class="small">Pre-configured comparison profiles for common scenarios:</p>
+					<ul class="small">
+						<li><strong>Quick Sync:</strong> Date and size-based comparison for fast synchronization</li>
+						<li><strong>Backup Validation:</strong> Comprehensive comparison including content verification</li>
+						<li><strong>Development Sync:</strong> Focus on recently modified files</li>
+						<li><strong>Archive Comparison:</strong> Deep analysis for data integrity verification</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<section id="advanced-operations" class="mt-5">
+	<h3>Advanced Selection Operations</h3>
+	<p>Beyond basic selection and comparison, Multi Commander provides specialized selection tools for complex file management scenarios and workflow optimization.</p>
+
+	<div class="row">
+		<div class="col-md-6">
+			<div class="card">
+				<div class="card-header bg-dark text-white">
+					<h6 class="mb-0"><i class="bi bi-cpu me-2"></i>Specialized Selection Tools</h6>
+				</div>
+				<div class="card-body">
+					<h6>Pattern-Based Selection</h6>
+					<ul class="small">
+						<li><strong>Same Extension:</strong> Auto-select files matching the focused file's extension</li>
+						<li><strong>Same Name:</strong> Select files with identical names (different extensions)</li>
+						<li><strong>Oldest by Name:</strong> Select oldest files based on naming patterns</li>
+						<li><strong>Version Selection:</strong> Identify oldest duplicates based on version numbers</li>
+					</ul>
+					<h6>Dynamic Selection Methods</h6>
+					<ul class="small">
+						<li><strong>Context-Aware Patterns:</strong> Generated from current folder content</li>
+						<li><strong>Right-Click Toolbar:</strong> Dynamic options based on visible files</li>
+						<li><strong>Extension Detection:</strong> Automatic pattern recognition</li>
+						<li><strong>Content Analysis:</strong> Selection based on file properties</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-6">
+			<div class="card">
+				<div class="card-header bg-warning text-dark">
+					<h6 class="mb-0"><i class="bi bi-speedometer2 me-2"></i>Performance Optimization</h6>
+				</div>
+				<div class="card-body">
+					<h6>Efficient Operations</h6>
+					<ul class="small">
+						<li><strong>Incremental Selection:</strong> Build complex selections step by step</li>
+						<li><strong>Memory Caching:</strong> Fast access to frequently used patterns</li>
+						<li><strong>Batch Processing:</strong> Optimize for large file collections</li>
+						<li><strong>Background Analysis:</strong> Non-blocking comparison operations</li>
+					</ul>
+					<h6>Workflow Integration</h6>
+					<ul class="small">
+						<li><strong>Command Chaining:</strong> Combine selection with file operations</li>
+						<li><strong>Script Integration:</strong> Automate complex selection scenarios</li>
+						<li><strong>Profile Management:</strong> Save and reuse comparison configurations</li>
+						<li><strong>Hotkey Assignment:</strong> Quick access to common selection patterns</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<div class="alert alert-success mt-5">
+	<h6><i class="bi bi-lightbulb me-2"></i>Advanced Selection Strategy</h6>
+	<p class="mb-0">Master Multi Commander's selection system by combining multiple techniques: start with filter-based patterns to identify candidate files, use folder comparison to refine selections based on differences, save complex selections to memory for immediate reuse, and create permanent selection files for recurring workflows. This layered approach transforms complex file management tasks into simple, repeatable operations.</p>
+</div>
+
+<div class="alert alert-info mt-4">
+	<h6><i class="bi bi-info-circle me-2"></i>Related File Management Tools</h6>
+	<p class="mb-0">Enhance your selection workflows with related features: <a href="/Docs/customcommands_list" class="text-decoration-none">Custom Commands Reference</a>, <a href="/Docs/file-search" class="text-decoration-none">File Search</a>, and <a href="/Docs/MultiRename" class="text-decoration-none">Multi-Rename Tool</a>.</p>
+</div>
 
 

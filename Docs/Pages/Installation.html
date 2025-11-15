@@ -1,100 +1,325 @@
-<h2>Download and Installation</h2>
-<h2>Download</h2>
+﻿<h2>Download and Installation</h2>
 
-<p>The official download location is <a href="https://multicommander.com/downloads">https://multicommander.com/downloads</a>. If you download it from another location make certain that you really trust that source: you never know if somebody has manipulated the package.<br />
-This is especially important with the portable version since the package is only a .zip. <strong>Never</strong> download the portable version from another source.</p>
+<p>Installing Multi Commander is straightforward and flexible, with options for both traditional installation and portable use. Multi Commander is completely free and safe to use, with no bundled software, adware, or modifications to your Windows system.</p>
 
-<h2>Installation</h2>
+<h3>Before You Begin</h3>
 
-<p><strong>Full Installer (.exe)</strong></p>
-
-<p>The full installer is named <strong>MultiCommander_x64_([version]).exe </strong>or <strong>MultiCommander_win32_([version]).exe</strong></p>
-
-<p>You will be given two choices at the beginning of the installation: <strong>Single User</strong> or <strong>All users</strong>.</p>
-
-<p><img alt="" src="/Docs/Images/InstallModes.png" style="width: 50%; height: 50%;" /></p>
-
-<p>If you choose <strong>Single User</strong> the installer will, by default, select an installation location that is under your private account. By doing this the installer will not require any administrator rights for the installation.</p>
-
-<p>If you select <strong>All users</strong> the installer will, by default, select the shared Program Files folder as the install location. By installing it here <em>all </em>user accounts on the machine will have access to the program.<br />
-This installation option requires administrator rights and the installer will restart itself and ask for admin permission if needed.</p>
-
-<p>All users that then run Multi Commander will get their own configuration. The configuration is always stored under the user account, located under the <strong>Application Data Path</strong>.<br />
-Eg. <strong>C:\Users\&lt;username&gt;\AppData\Roaming\MultiCommander\Config\</strong></p>
-
-<div class="dochints">
-<fieldset><legend>Hint</legend>
-
-<p>By typing "<strong>:goconfig</strong>" in the command line field inside Multi Commander. The active Explorer Panel will then open at the Multi Commander configuration folder</p>
-</fieldset>
+<div class="alert alert-info">
+	<h5><i class="bi bi-info-circle me-2"></i>Download Security</h5>
+	<p><strong>Always download Multi Commander from the official website:</strong> <a href="https://multicommander.com/downloads" class="fw-bold">https://multicommander.com/downloads</a></p>
+	<p>Never download from third-party sources, especially the portable version, as the files may have been modified or compromised. The official site ensures you get the authentic, unmodified software.</p>
 </div>
 
-<p><strong>Portable Installer (.zip)</strong></p>
-
-<p>The portable installer is named <strong>MultiCommander_x64_Portable_([version]).zip</strong> or <strong>MultiCommander_win32_Portable_([version]).zip</strong></p>
-
-<p>The portable package is a zip archive that you only need to unpack to a folder. Just make sure that you keep the folder structure from the zip package.<br />
-The portable version is the same as the installed version. The difference is that the portable version is configured to store all settings and configuration in the folder that Multi Commander is installed in and run from.<br />
-The portable version does not save anything to the registry or to the user account folder. Everything is saved in the Multi Commander folder. So the program must have write permissions to the folder that you start Multi Commander from.<br />
-This version is ideal to be installed to - and run from - a USB memory stick.</p>
-
-<div class="dochints">
-<fieldset><legend>Note for WinPE Users</legend>
-
-<p>If you want to use Multi Commander in WinPE 4.0, and assuming your WinPE directory is X:,<br />
-copy the following files to the following directories <em>before </em>you build WinPE:</p>
-
-<p>C:\Windows\System32\en-EN\oledlg.dll.mui -&gt; X:\Windows\System32\en-EN\<br />
-C:\Windows\Syswow64\en-EN\oledlg.dll.mui -&gt; X:\Windows\SysWOW64\en-EN\<br />
-C:\Windows\Syswow64\oledlg.dll -&gt; X:\Windows\SysWOW64\<br />
-C:\Windows\System32\oledlg.dll -&gt; X:\Windows\System32\</p>
-
-<p>Contributed by user Ulrich; tested on Windows 10 PE, x86 and x64.</p>
-</fieldset>
+<div class="alert alert-success">
+	<h5><i class="bi bi-shield-check me-2"></i>Clean Installation Promise</h5>
+	<p>Multi Commander is <strong>100% clean</strong> - no third-party software, toolbars, or adware will be installed. The application does not modify Windows settings, registry entries beyond what's necessary, or hook into Windows components.</p>
 </div>
 
-<h2>Installer Parameters</h2>
+<h3>Installation Options</h3>
 
-<p>The installer accepts parameters that make it possible to run the installer silently or from a script.</p>
+<p>Multi Commander offers two installation methods to suit different needs:</p>
 
-<pre>
-MultiCommander_x64_(6.2.0.2147).exe /S /D=[Target Folder] /PrevInstall=[Upgrade|Uninstall]
-/InstallMode=[All|User] /Kill=[Ask|Auto|Abort]</pre>
+<div class="row mt-4">
+	<div class="col-md-6">
+		<div class="card">
+			<div class="card-header bg-primary text-white">
+				<h5 class="mb-0"><i class="bi bi-download me-2"></i>Full Installer (.exe)</h5>
+			</div>
+			<div class="card-body">
+				<p><strong>Best for:</strong> Most users, permanent installation</p>
+				<ul>
+					<li>Traditional Windows installation</li>
+					<li>Automatic updates</li>
+					<li>Start menu and desktop shortcuts</li>
+					<li>File association options</li>
+					<li>Uninstaller included</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<div class="col-md-6">
+		<div class="card">
+			<div class="card-header bg-success text-white">
+				<h5 class="mb-0"><i class="bi bi-archive me-2"></i>Portable Version (.zip)</h5>
+			</div>
+			<div class="card-body">
+				<p><strong>Best for:</strong> USB drives, temporary use, testing</p>
+				<ul>
+					<li>No installation required</li>
+					<li>Runs from any folder</li>
+					<li>Perfect for USB drives</li>
+					<li>Leaves no traces on system</li>
+					<li>Same features as installed version</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>
 
+<h3>Full Installer Installation</h3>
+
+<h4>File Names</h4>
+<p>The installer files are named according to this pattern:</p>
 <ul>
-	<li><strong>/S</strong> - Silent<br />
-	Do not show any UI or ask any questions</li>
-	<li><strong>/D</strong> - Destination<br />
-	The target where Multi Commander should be installed. If not specified the default path under the Program Files folder is used.
-	<div>Eg. /D="D:\MyPrograms\MultiCommander"</div>
-	</li>
-	<li><strong>/PrevInstall</strong> - Previous Installation<br />
-	What to do with existing installation. The options are "Upgrade" or "Uninstall"
-	<div>Eg. /PrevInstall=Upgrade</div>
-	</li>
-	<li><strong>/InstallMode</strong> - Installation Mode<br />
-	Install Multi Commander for All users or current user. If "All" is set and install path is under a protected location (eg. Program Files) make sure the installation is run as administrator. The options are "All" or "User"
-	<div>Eg. /InstallMode=All</div>
-	</li>
-	<li><strong>/Kill</strong> - Kill running instances of Multi Commander<br />
-	When doing an upgrade Multi Commander may be running. Use /Kill=Auto to automatically kill any running instance of MultiCommander<br />
-	/Kill=Ask will show a dialog asking what to do. /Kill=Abort will abort the upgrade if Multi Commander is running.
-	<div>Eg. /Kill=Auto</div>
-	</li>
-	<li><strong>/CLEAR=Uninstall</strong> - Clear Uninstall Data<br />
-	Clear all entries of Multi Commander from the Installed Programs locations in the registry
-	<div>Eg. /CLEAR=Uninstall</div>
-	</li>
-	<li><strong>/FORCEDEST="Path"</strong> - Force a new path<br />
-	Force a new path even if a previous path was found in the registry
-	<div>Eg. /FORCEDEST="D:\NewInstallPath\"</div>
-	</li>
+	<li><code>MultiCommander_x64_([version]).exe</code> - for 64-bit systems</li>
+	<li><code>MultiCommander_win32_([version]).exe</code> - for 32-bit systems</li>
 </ul>
 
-<p><strong>Example</strong></p>
+<h4>Installation Modes</h4>
+<p>When you run the installer, you'll be presented with two installation options:</p>
 
-<pre>
-# Upgrade Current
-MultiCommander_x64_(6.2.0.2147).exe /S /D="C:\Bin\MultiCommander" /PrevInstall=Upgrade /InstallMode=All /Kill=Auto</pre>
+<div class="text-center my-4">
+	<img src="/Docs/Images/InstallModes.png" alt="Installation Mode Selection" class="img-fluid border rounded shadow-sm" style="max-width: 400px;" />
+</div>
+
+<div class="row">
+	<div class="col-md-6">
+		<div class="card mb-3">
+			<div class="card-header">
+				<h5 class="mb-0"><i class="bi bi-person me-2"></i>Single User Installation</h5>
+			</div>
+			<div class="card-body">
+				<p><strong>Recommended for most users</strong></p>
+				<ul>
+					<li><strong>No administrator rights required</strong></li>
+					<li>Installs to your user profile folder</li>
+					<li>Only accessible by your user account</li>
+					<li>Faster and simpler installation</li>
+					<li>Ideal for personal computers</li>
+				</ul>
+				<p class="text-muted small">Default location: <code>C:\Users\[username]\AppData\Local\Programs\MultiCommander\</code></p>
+			</div>
+		</div>
+	</div>
+	<div class="col-md-6">
+		<div class="card mb-3">
+			<div class="card-header">
+				<h5 class="mb-0"><i class="bi bi-people me-2"></i>All Users Installation</h5>
+			</div>
+			<div class="card-body">
+				<p><strong>For shared computers</strong></p>
+				<ul>
+					<li><strong>Requires administrator rights</strong></li>
+					<li>Installs to Program Files folder</li>
+					<li>Available to all user accounts</li>
+					<li>Better for enterprise/shared environments</li>
+					<li>May prompt for admin elevation</li>
+				</ul>
+				<p class="text-muted small">Default location: <code>C:\Program Files\MultiCommander\</code></p>
+			</div>
+		</div>
+	</div>
+</div>
+
+<h4>Configuration Storage</h4>
+<p>Regardless of installation mode, each user gets their own configuration:</p>
+<ul>
+	<li><strong>Location:</strong> <code>C:\Users\[username]\AppData\Roaming\MultiCommander\Config\</code></li>
+	<li><strong>Contents:</strong> Personal settings, layouts, hotkeys, favorites, and user data</li>
+	<li><strong>Privacy:</strong> Each user's configuration is completely separate and private</li>
+</ul>
+
+<div class="alert alert-light">
+	<h6><i class="bi bi-lightbulb me-2"></i>Pro Tip</h6>
+	<p>To quickly navigate to your configuration folder, type <strong><code>:goconfig</code></strong> in Multi Commander's command line field, and the active panel will open at your configuration directory.</p>
+</div>
+
+<h3>Portable Installation</h3>
+
+<h4>File Names</h4>
+<p>The portable packages are named:</p>
+<ul>
+	<li><code>MultiCommander_x64_Portable_([version]).zip</code> - for 64-bit systems</li>
+	<li><code>MultiCommander_win32_Portable_([version]).zip</code> - for 32-bit systems</li>
+</ul>
+
+<h4>Setup Process</h4>
+<ol>
+	<li><strong>Extract the archive</strong> to your desired location (USB drive, folder, etc.)</li>
+	<li><strong>Preserve the folder structure</strong> when extracting</li>
+	<li><strong>Run MultiCommander.exe</strong> from the extracted folder</li>
+	<li><strong>That's it!</strong> Multi Commander is ready to use</li>
+</ol>
+
+<h4>Portable Version Benefits</h4>
+<ul>
+	<li><strong>Self-contained:</strong> All settings stored in the application folder</li>
+	<li><strong>No registry usage:</strong> Leaves no traces on the host system</li>
+	<li><strong>Write permissions required:</strong> The folder must be writable for settings storage</li>
+	<li><strong>Perfect for USB drives:</strong> Take your file manager anywhere</li>
+	<li><strong>Identical functionality:</strong> Same features as the installed version</li>
+</ul>
+
+<div class="alert alert-warning">
+	<h6><i class="bi bi-exclamation-triangle me-2"></i>Important Notes for Portable Version</h6>
+	<ul class="mb-0">
+		<li>Ensure the folder has write permissions for settings storage</li>
+		<li>Some antivirus software may flag portable applications - this is normal</li>
+	</ul>
+</div>
+
+<h3>Creating Portable from Installed Version</h3>
+<p>If you already have Multi Commander installed, you can easily create a portable version:</p>
+<ol>
+	<li>Open Multi Commander</li>
+	<li>Go to <strong>Help menu</strong></li>
+	<li>Select <strong>"Install Multi Commander to USB Device"</strong></li>
+	<li>Follow the wizard to create your portable installation</li>
+</ol>
+
+<h3>WinPE Support</h3>
+<p>For users who need Multi Commander in Windows PE environments:</p>
+
+<div class="alert alert-info">
+	<h6><i class="bi bi-info-circle me-2"></i>WinPE 4.0 Setup</h6>
+	<p>Before building your WinPE image, copy these files to the corresponding directories:</p>
+	<ul class="small mb-0">
+		<li><code>C:\Windows\System32\en-EN\oledlg.dll.mui</code> → <code>X:\Windows\System32\en-EN\</code></li>
+		<li><code>C:\Windows\Syswow64\en-EN\oledlg.dll.mui</code> → <code>X:\Windows\SysWOW64\en-EN\</code></li>
+		<li><code>C:\Windows\Syswow64\oledlg.dll</code> → <code>X:\Windows\SysWOW64\</code></li>
+		<li><code>C:\Windows\System32\oledlg.dll</code> → <code>X:\Windows\System32\</code></li>
+	</ul>
+	<p class="small text-muted mt-2"><em>Contributed by user Ulrich; tested on Windows 10 PE, x86 and x64.</em></p>
+</div>
+
+<h3>Silent Installation & Command Line Parameters</h3>
+
+<p>For system administrators and automated deployments, the installer supports silent installation with various parameters:</p>
+
+<h4>Basic Silent Installation</h4>
+<pre class="bg-light p-3 rounded"><code>MultiCommander_x64_(10.5.0.3105).exe /S</code></pre>
+
+<h4>Complete Parameter List</h4>
+<div class="table-responsive">
+	<table class="table table-striped">
+		<thead>
+			<tr>
+				<th>Parameter</th>
+				<th>Description</th>
+				<th>Example</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td><code>/S</code></td>
+				<td>Silent installation - no UI or prompts</td>
+				<td><code>/S</code></td>
+			</tr>
+			<tr>
+				<td><code>/D="path"</code></td>
+				<td>Custom installation directory</td>
+				<td><code>/D="D:\MyPrograms\MultiCommander"</code></td>
+			</tr>
+			<tr>
+				<td><code>/PrevInstall</code></td>
+				<td>Handle existing installation (Upgrade/Uninstall)</td>
+				<td><code>/PrevInstall=Upgrade</code></td>
+			</tr>
+			<tr>
+				<td><code>/InstallMode</code></td>
+				<td>Installation scope (All/User)</td>
+				<td><code>/InstallMode=All</code></td>
+			</tr>
+			<tr>
+				<td><code>/Kill</code></td>
+				<td>Handle running instances (Ask/Auto/Abort)</td>
+				<td><code>/Kill=Auto</code></td>
+			</tr>
+			<tr>
+				<td><code>/CLEAR=Uninstall</code></td>
+				<td>Clear registry uninstall entries</td>
+				<td><code>/CLEAR=Uninstall</code></td>
+			</tr>
+			<tr>
+				<td><code>/FORCEDEST="path"</code></td>
+				<td>Force new path, ignoring registry</td>
+				<td><code>/FORCEDEST="D:\NewPath\"</code></td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+
+<h4>Example: Complete Silent Upgrade</h4>
+<pre class="bg-light p-3 rounded"><code>MultiCommander_x64_(10.5.0.3105).exe /S /D="C:\Bin\MultiCommander" /PrevInstall=Upgrade /InstallMode=All /Kill=Auto</code></pre>
+
+<h3>Post-Installation</h3>
+
+<h4>First Launch</h4>
+<p>When you first run Multi Commander:</p>
+<ul>
+	<li>The interface will appear with default settings</li>
+	<li>You may be prompted to choose a keyboard layout style (Commander or Windows Explorer)</li>
+	<li>The application will create its configuration directory automatically</li>
+	<li>No additional setup is required - Multi Commander is ready to use immediately</li>
+</ul>
+
+<h4>Updates</h4>
+<ul>
+	<li><strong>Automatic checking:</strong> Multi Commander can check for updates automatically</li>
+	<li><strong>Manual updates:</strong> Download and run newer installers to upgrade</li>
+	<li><strong>Portable updates:</strong> Simply extract new portable versions over the old ones</li>
+</ul>
+
+<h3>Troubleshooting</h3>
+
+<div class="accordion" id="troubleshootingAccordion">
+	<div class="accordion-item">
+		<h2 class="accordion-header" id="headingOne">
+			<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne">
+				Installation fails with permission errors
+			</button>
+		</h2>
+		<div id="collapseOne" class="accordion-collapse collapse" data-bs-parent="#troubleshootingAccordion">
+			<div class="accordion-body">
+				<ul>
+					<li>Try "Single User" installation mode</li>
+					<li>If using "All Users" mode, ensure you're running as administrator</li>
+					<li>Check that the target directory is writable</li>
+					<li>Temporarily disable antivirus software during installation</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<div class="accordion-item">
+		<h2 class="accordion-header" id="headingTwo">
+			<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo">
+				Portable version won't save settings
+			</button>
+		</h2>
+		<div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#troubleshootingAccordion">
+			<div class="accordion-body">
+				<ul>
+					<li>Ensure the folder has write permissions</li>
+					<li>Check if the USB drive is write-protected</li>
+					<li>Try running as administrator (temporarily)</li>
+					<li>Verify the folder structure was preserved during extraction</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<div class="accordion-item">
+		<h2 class="accordion-header" id="headingThree">
+			<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree">
+				Application won't start
+			</button>
+		</h2>
+		<div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#troubleshootingAccordion">
+			<div class="accordion-body">
+				<ul>
+					<li>Verify you downloaded the correct architecture (32-bit vs 64-bit)</li>
+					<li>Check Windows compatibility (see System Requirements)</li>
+					<li>Try running in compatibility mode</li>
+					<li>Ensure all files were extracted properly (for portable version)</li>
+					<li>Check Windows Event Viewer for error details</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="alert alert-success mt-4">
+	<h6><i class="bi bi-check-circle me-2"></i>Ready to Go!</h6>
+	<p class="mb-0">Once installed, Multi Commander is ready to use immediately. No additional configuration is required, though you may want to explore the extensive customization options to tailor it to your preferences.</p>
+</div>
 
 

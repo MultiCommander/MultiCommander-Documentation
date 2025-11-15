@@ -1,40 +1,658 @@
-<h2>Picture Tools</h2>
-<p><img alt="" src="/Docs/Images/PictureToolsMenu.png" style="width: 500px; height: 466px;" /></p>
+﻿<h2>Picture Tools</h2>
 
-<p>Under the Tools menu is a <strong>Picture Tools</strong> option that opens a submenu containing the following options:</p>
+<p>Multi Commander's <strong>Picture Tools</strong> provide comprehensive image processing capabilities that enable efficient batch conversion, rotation, EXIF metadata management, and image resizing for multiple image files simultaneously. These powerful tools transform Multi Commander into a sophisticated image processing workstation, offering professional-grade format conversion, intelligent rotation algorithms, flexible resizing options, and complete EXIF data management while maintaining the familiar file management interface for streamlined image organization workflows.</p>
 
-<h2><strong>Convert Picture Format...</strong></h2>
+<div class="alert alert-primary">
+	<h6><i class="bi bi-image me-2"></i>Professional Image Processing Suite</h6>
+	<p class="mb-0">Experience comprehensive image processing capabilities that combine batch operations with intelligent format conversion, automatic rotation detection, flexible image resizing, and complete EXIF metadata management. Picture Tools integrate seamlessly with Multi Commander's file management interface to provide professional image processing workflows that handle multiple formats, preserve quality through lossless operations where possible, and offer complete control over image dimensions, metadata, and file organization for photographers, designers, and digital asset managers.</p>
+</div>
 
-<p>This converts all selected picture files into a specified format.</p>
+<nav class="navbar navbar-expand-lg navbar-light bg-light mb-4">
+	<div class="container-fluid">
+		<span class="navbar-brand">Quick Navigation</span>
+		<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#pictureToolsNav">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="pictureToolsNav">
+			<ul class="navbar-nav">
+				<li class="nav-item"><a class="nav-link" href="#overview">Overview</a></li>
+				<li class="nav-item"><a class="nav-link" href="#format-conversion">Format Conversion</a></li>
+				<li class="nav-item"><a class="nav-link" href="#rotation-tools">Rotation Tools</a></li>
+				<li class="nav-item"><a class="nav-link" href="#resize-tools">Resize Tools</a></li>
+				<li class="nav-item"><a class="nav-link" href="#exif-management">EXIF Management</a></li>
+				<li class="nav-item"><a class="nav-link" href="#batch-operations">Batch Operations</a></li>
+			</ul>
+		</div>
+	</div>
+</nav>
 
-<p>Supported target picture formats are: <em>JPEG</em>, <em>PNG</em> and <em>Bitmap (BMP)</em>.</p>
+<section id="overview">
+	<h3>Picture Tools Overview</h3>
+	<p>Picture Tools provide professional image processing capabilities directly within Multi Commander's file management interface, enabling efficient batch operations on multiple image files with format conversion, rotation correction, image resizing, and metadata management functionality that streamlines digital asset workflows.</p>
 
-<p>Options that may be selected allow you to delete the original file if successful, and/or overwrite if the target file already exists.</p>
+	<div class="row">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header bg-info text-white">
+					<h6 class="mb-0"><i class="bi bi-menu-app me-2"></i>Picture Tools Access and Features</h6>
+				</div>
+				<div class="card-body">
+					<div class="text-center mt-3 mb-3">
+						<img src="/Docs/Images/PictureToolsMenu.png" alt="Picture Tools Menu" class="img-fluid border rounded shadow-sm" style="max-width: 500px;" />
+						<p class="text-muted small mt-2">Picture Tools submenu accessed through Tools → Picture Tools</p>
+					</div>
 
-<p><img alt="" src="/Docs/Images/pictures_convert.png" /></p>
+					<h6>Available Picture Processing Operations</h6>
+					<div class="row">
+						<div class="col-md-6">
+							<ul class="small">
+								<li><strong>Format Conversion:</strong> Convert images between JPEG, PNG, BMP, and other supported formats</li>
+								<li><strong>Picture Rotation:</strong> Rotate and flip images with manual and automatic orientation detection</li>
+								<li><strong>Image Resizing:</strong> Resize images by percentage or absolute dimensions with aspect ratio control</li>
+								<li><strong>EXIF Data Management:</strong> Strip or export EXIF metadata from image files</li>
+								<li><strong>Batch Processing:</strong> Process multiple selected images simultaneously</li>
+							</ul>
+						</div>
+						<div class="col-md-6">
+							<ul class="small">
+								<li><strong>Quality Preservation:</strong> Lossless operations where technically possible</li>
+								<li><strong>Automatic Detection:</strong> Smart algorithms for orientation and format optimization</li>
+								<li><strong>Aspect Ratio Control:</strong> Maintain proportions or specify custom dimensions</li>
+								<li><strong>File Management Integration:</strong> Seamless workflow within Explorer Panel</li>
+								<li><strong>Professional Features:</strong> Advanced options for photographers and designers</li>
+							</ul>
+						</div>
+					</div>
 
-<h2><strong>Rotate Pictures</strong></h2>
+					<h6>Supported Image Formats</h6>
+					<ul class="small">
+						<li><strong>Input Formats:</strong> JPEG, PNG, BMP, GIF, TIFF, DDS, HEIF, JPEG XL, Windows Media Photo</li>
+						<li><strong>Output Formats:</strong> JPEG, PNG, BMP, DDS, GIF, MS HEIF, JPEG XL, TIFF, Windows Media Photo</li>
+						<li><strong>Metadata Support:</strong> EXIF data reading and manipulation across supported formats</li>
+						<li><strong>Quality Control:</strong> Format-specific quality and compression settings</li>
+					</ul>
 
-<p>This rotates the selected picture(s) according to the selected rotation or flip settings.</p>
+					<div class="alert alert-success p-2 mt-3">
+						<h6 class="small mb-1"><i class="bi bi-magic me-1"></i>Professional Image Processing</h6>
+						<p class="small mb-0">Picture Tools bring professional image processing capabilities to file management, enabling photographers and digital asset managers to perform complex operations including precision resizing without leaving the familiar Multi Commander interface.</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
 
-<p><img alt="" src="/Docs/Images/pictures_rotate.png" /></p>
+<section id="format-conversion" class="mt-5">
+	<h3>Picture Format Conversion</h3>
+	<p>The Convert Picture Format tool provides comprehensive image format conversion capabilities with intelligent quality settings, batch processing support, and professional options for preserving or replacing original files during the conversion process.</p>
 
-<h3>Auto Rotate</h3>
+	<div class="row">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header bg-primary text-white">
+					<h6 class="mb-0"><i class="bi bi-arrow-left-right me-2"></i>Format Conversion Interface</h6>
+				</div>
+				<div class="card-body">
+					<div class="text-center mt-3 mb-3">
+						<img src="/Docs/Images/pictures_convert.png" alt="Picture Format Conversion Dialog" class="img-fluid border rounded shadow-sm" />
+						<p class="text-muted small mt-2">Picture format conversion dialog showing target format selection and processing options</p>
+					</div>
 
-<p><strong>Auto Rotate</strong> reads the <em>EXIF</em> information from the picture file; if orientation information is present the image is rotated according to that information.</p>
+					<h6>Conversion Process</h6>
+					<div class="row">
+						<div class="col-md-6">
+							<h6>1. File Selection and Target Format</h6>
+							<ul class="small">
+								<li><strong>Multi-File Selection:</strong> Convert multiple images simultaneously</li>
+								<li><strong>Target Format Choice:</strong> Select from comprehensive list of supported output formats</li>
+								<li><strong>Quality Settings:</strong> Format-specific quality and compression options</li>
+								<li><strong>Preview Information:</strong> Current and target format details</li>
+							</ul>
+						</div>
+						<div class="col-md-6">
+							<h6>2. Processing Options</h6>
+							<ul class="small">
+								<li><strong>Overwrite Protection:</strong> Choose whether to overwrite existing target files</li>
+								<li><strong>Original File Handling:</strong> Option to delete original files after successful conversion</li>
+								<li><strong>Error Handling:</strong> Robust error management for failed conversions</li>
+								<li><strong>Progress Tracking:</strong> Real-time conversion progress for batch operations</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 
-<h3>Lossless JPEG Rotation</h3>
+	<div class="row mt-3">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header bg-success text-white">
+					<h6 class="mb-0"><i class="bi bi-grid-3x3 me-2"></i>Supported Output Formats</h6>
+				</div>
+				<div class="card-body">
+					<div class="table-responsive">
+						<table class="table table-bordered table-hover">
+							<thead class="table-light">
+								<tr>
+									<th style="width: 15%">Format</th>
+									<th style="width: 25%">Description</th>
+									<th style="width: 35%">Best Use Cases</th>
+									<th style="width: 25%">Key Features</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td><strong>JPEG</strong></td>
+									<td>Joint Photographic Experts Group format</td>
+									<td>Photographs, web images, email attachments</td>
+									<td>Lossy compression, small file sizes, universal support</td>
+								</tr>
+								<tr>
+									<td><strong>PNG</strong></td>
+									<td>Portable Network Graphics format</td>
+									<td>Screenshots, graphics with transparency, web images</td>
+									<td>Lossless compression, transparency support, excellent quality</td>
+								</tr>
+								<tr>
+									<td><strong>BMP</strong></td>
+									<td>Windows Bitmap format</td>
+									<td>System integration, compatibility requirements</td>
+									<td>Uncompressed, universal Windows support, large files</td>
+								</tr>
+								<tr>
+									<td><strong>TIFF</strong></td>
+									<td>Tagged Image File Format</td>
+									<td>Professional photography, print preparation, archival</td>
+									<td>Lossless, multiple pages, extensive metadata support</td>
+								</tr>
+								<tr>
+									<td><strong>GIF</strong></td>
+									<td>Graphics Interchange Format</td>
+									<td>Simple animations, web graphics, limited color images</td>
+									<td>Animation support, 256 color limit, transparency</td>
+								</tr>
+								<tr>
+									<td><strong>HEIF</strong></td>
+									<td>High Efficiency Image Format</td>
+									<td>Modern mobile devices, space-efficient storage</td>
+									<td>Superior compression, modern standard, high quality</td>
+								</tr>
+								<tr>
+									<td><strong>JPEG XL</strong></td>
+									<td>JPEG XL next-generation format</td>
+									<td>Future-proof storage, high-quality archival</td>
+									<td>Advanced compression, lossless and lossy options</td>
+								</tr>
+								<tr>
+									<td><strong>WMP</strong></td>
+									<td>Windows Media Photo format</td>
+									<td>Microsoft ecosystem, high dynamic range</td>
+									<td>Advanced compression, HDR support, metadata rich</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 
-<p>If a picture's height and width are divisible by 16 then it is possible to rotate the image without re-encoding it and without loss of quality. If the option <b>Only do lossless rotation on JPG</b> is enabled it will rotate pictures only if it is possible to do so without quality loss; otherwise it will skip rotating that picture.</p>
+	<div class="row mt-3">
+		<div class="col-md-6">
+			<div class="card">
+				<div class="card-header bg-warning text-dark">
+					<h6 class="mb-0"><i class="bi bi-gear me-2"></i>Conversion Options</h6>
+				</div>
+				<div class="card-body">
+					<h6>File Handling Options</h6>
+					<ul class="small">
+						<li><strong>Delete Original if Successful:</strong> Automatically remove source files after successful conversion</li>
+						<li><strong>Overwrite Existing Files:</strong> Replace target files if they already exist</li>
+						<li><strong>Preserve Timestamps:</strong> Maintain original file dates and times</li>
+						<li><strong>Error Recovery:</strong> Continue processing remaining files if individual conversions fail</li>
+					</ul>
 
-<h2><strong>Strip EXIF Information</strong></h2>
+					<h6>Quality Settings</h6>
+					<ul class="small">
+						<li><strong>JPEG Quality:</strong> Adjustable compression levels for size vs. quality balance</li>
+						<li><strong>PNG Optimization:</strong> Lossless compression optimization settings</li>
+						<li><strong>Format-Specific Options:</strong> Specialized settings for advanced formats</li>
+						<li><strong>Metadata Preservation:</strong> Option to maintain or strip metadata during conversion</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-6">
+			<div class="card">
+				<div class="card-header bg-info text-white">
+					<h6 class="mb-0"><i class="bi bi-lightbulb me-2"></i>Format Selection Guidelines</h6>
+				</div>
+				<div class="card-body">
+					<h6>Choosing the Right Format</h6>
+					<ul class="small">
+						<li><strong>For Photographs:</strong> JPEG for web/email, TIFF for archival, HEIF for modern storage</li>
+						<li><strong>For Screenshots:</strong> PNG for highest quality, JPEG for smaller files</li>
+						<li><strong>For Graphics:</strong> PNG for transparency, GIF for simple animations</li>
+						<li><strong>For Professional Work:</strong> TIFF for print, JPEG XL for future-proofing</li>
+					</ul>
 
-<p>Removes all <em>EXIF</em> information from the selected picture files.</p>
+					<h6>Conversion Best Practices</h6>
+					<ul class="small">
+						<li><strong>Backup Strategy:</strong> Keep originals when converting irreversibly</li>
+						<li><strong>Quality Testing:</strong> Test conversion settings on sample files first</li>
+						<li><strong>Format Knowledge:</strong> Understand target format limitations and strengths</li>
+						<li><strong>Batch Efficiency:</strong> Process similar images together for consistent results</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
 
-<h2><strong>Export EXIF Information</strong></h2>
+<section id="rotation-tools" class="mt-5">
+	<h3>Picture Rotation and Orientation Tools</h3>
+	<p>Picture rotation tools provide comprehensive image orientation capabilities with intelligent automatic rotation based on EXIF data, manual rotation controls, and specialized lossless JPEG rotation for maximum quality preservation during orientation corrections.</p>
 
-<p>Exports all <em>EXIF</em> information from the selected pictures into text files. The text files will have the same name as the picture files but with 'EXIF-data' appended to them.</p>
+	<div class="row">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header bg-warning text-dark">
+					<h6 class="mb-0"><i class="bi bi-arrow-clockwise me-2"></i>Rotation and Flip Operations</h6>
+				</div>
+				<div class="card-body">
+					<div class="text-center mt-3 mb-3">
+						<img src="/Docs/Images/pictures_rotate.png" alt="Picture Rotation Dialog" class="img-fluid border rounded shadow-sm" />
+						<p class="text-muted small mt-2">Picture rotation interface showing orientation options and lossless rotation settings</p>
+					</div>
 
-<p><img alt="" src="/Docs/Images/pictures_exportexif.png" /></p>
+					<h6>Available Rotation Operations</h6>
+					<div class="row">
+						<div class="col-md-6">
+							<h6>Manual Rotation Options</h6>
+							<ul class="small">
+								<li><strong>90° Clockwise:</strong> Standard right rotation for portrait to landscape</li>
+								<li><strong>90° Counter-Clockwise:</strong> Left rotation for landscape to portrait</li>
+								<li><strong>180° Rotation:</strong> Complete flip for upside-down correction</li>
+								<li><strong>Horizontal Flip:</strong> Mirror image left-to-right</li>
+								<li><strong>Vertical Flip:</strong> Mirror image top-to-bottom</li>
+							</ul>
+						</div>
+						<div class="col-md-6">
+							<h6>Intelligent Rotation Features</h6>
+							<ul class="small">
+								<li><strong>Auto Rotate:</strong> Automatic orientation based on EXIF data</li>
+								<li><strong>Lossless JPEG:</strong> Quality-preserving rotation for compatible files</li>
+								<li><strong>Batch Processing:</strong> Apply same rotation to multiple images</li>
+								<li><strong>Orientation Detection:</strong> Smart analysis of image orientation requirements</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="row mt-3">
+		<div class="col-md-6">
+			<div class="card">
+				<div class="card-header bg-success text-white">
+					<h6 class="mb-0"><i class="bi bi-magic me-2"></i>Auto Rotate Feature</h6>
+				</div>
+				<div class="card-body">
+					<h6>EXIF-Based Automatic Rotation</h6>
+					<ul class="small">
+						<li><strong>EXIF Data Reading:</strong> Analyzes orientation information embedded in image files</li>
+						<li><strong>Camera Orientation:</strong> Corrects images based on camera position during capture</li>
+						<li><strong>Intelligent Processing:</strong> Only rotates images that require orientation correction</li>
+						<li><strong>Metadata Preservation:</strong> Updates orientation flags after rotation</li>
+					</ul>
+
+					<h6>Auto Rotate Benefits</h6>
+					<ul class="small">
+						<li><strong>Photographer Workflow:</strong> Automatically corrects camera-rotated images</li>
+						<li><strong>Batch Efficiency:</strong> Process entire photo collections without manual review</li>
+						<li><strong>Smart Detection:</strong> Skips images that don't need rotation</li>
+						<li><strong>Metadata Accuracy:</strong> Ensures EXIF data reflects actual image orientation</li>
+					</ul>
+
+					<h6>Use Case Scenarios</h6>
+					<ul class="small">
+						<li><strong>Photo Import:</strong> Correct orientation after importing from camera or phone</li>
+						<li><strong>Archive Processing:</strong> Fix orientation issues in existing photo collections</li>
+						<li><strong>Web Preparation:</strong> Ensure proper display orientation for web galleries</li>
+						<li><strong>Print Preparation:</strong> Correct orientation for optimal printing results</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-6">
+			<div class="card">
+				<div class="card-header bg-primary text-white">
+					<h6 class="mb-0"><i class="bi bi-shield-check me-2"></i>Lossless JPEG Rotation</h6>
+				</div>
+				<div class="card-body">
+					<h6>Quality-Preserving Rotation Technology</h6>
+					<ul class="small">
+						<li><strong>Technical Requirements:</strong> Image dimensions must be divisible by 16 for lossless operation</li>
+						<li><strong>Quality Preservation:</strong> No re-encoding or quality degradation during rotation</li>
+						<li><strong>Conditional Processing:</strong> Option to skip rotation if lossless operation not possible</li>
+						<li><strong>Professional Quality:</strong> Maintains original image quality for professional workflows</li>
+					</ul>
+
+					<h6>Lossless Rotation Options</h6>
+					<ul class="small">
+						<li><strong>Only Lossless JPG:</strong> Skip rotation if lossless operation not possible</li>
+						<li><strong>Quality Priority:</strong> Maintains maximum image quality when technically feasible</li>
+						<li><strong>Automatic Detection:</strong> System determines lossless compatibility automatically</li>
+						<li><strong>Fallback Options:</strong> Choose between skipping or accepting quality loss</li>
+					</ul>
+
+					<h6>Technical Considerations</h6>
+					<ul class="small">
+						<li><strong>16-Pixel Rule:</strong> Both width and height must be divisible by 16</li>
+						<li><strong>JPEG Structure:</strong> Maintains original compression and quality settings</li>
+						<li><strong>Metadata Handling:</strong> Preserves all image metadata during lossless rotation</li>
+						<li><strong>Professional Standards:</strong> Meets professional photography quality requirements</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<section id="resize-tools" class="mt-5">
+	<h3>Picture Resize and Dimension Control</h3>
+	<p>The Picture Resize tool provides comprehensive image dimension control with flexible sizing options, intelligent aspect ratio management, and professional quality preservation for both percentage-based and absolute dimension resizing operations across multiple image formats.</p>
+
+	<div class="row">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header bg-primary text-white">
+					<h6 class="mb-0"><i class="bi bi-aspect-ratio me-2"></i>Image Resize Interface and Options</h6>
+				</div>
+				<div class="card-body">
+					<h6>Resize Methods and Flexibility</h6>
+					<div class="row">
+						<div class="col-md-6">
+							<h6>Percentage-Based Resizing</h6>
+							<ul class="small">
+								<li><strong>Proportional Scaling:</strong> Resize images by percentage of original dimensions</li>
+								<li><strong>Uniform Scaling:</strong> Single percentage value affects both width and height equally</li>
+								<li><strong>Batch Consistency:</strong> Apply same percentage scaling to multiple images</li>
+								<li><strong>Quality Preservation:</strong> Maintains aspect ratio automatically with percentage scaling</li>
+							</ul>
+
+							<h6>Common Percentage Applications</h6>
+							<ul class="small">
+								<li><strong>50% Scaling:</strong> Reduce file size for web optimization or storage</li>
+								<li><strong>200% Scaling:</strong> Enlarge images for print or detailed viewing</li>
+								<li><strong>Custom Percentages:</strong> Precise scaling for specific requirements</li>
+								<li><strong>Thumbnail Creation:</strong> Small percentages for preview generation</li>
+							</ul>
+						</div>
+						<div class="col-md-6">
+							<h6>Absolute Dimension Resizing</h6>
+							<ul class="small">
+								<li><strong>Pixel-Perfect Control:</strong> Specify exact width and height in pixels</li>
+								<li><strong>Fixed Dimensions:</strong> Create images with standardized dimensions</li>
+								<li><strong>Selective Dimension Control:</strong> Set width or height while auto-calculating the other</li>
+								<li><strong>Professional Standards:</strong> Meet specific dimension requirements for platforms</li>
+							</ul>
+
+							<h6>Absolute Dimension Use Cases</h6>
+							<ul class="small">
+								<li><strong>Social Media:</strong> Standardize images for platform requirements</li>
+								<li><strong>Web Development:</strong> Create images with exact specifications</li>
+								<li><strong>Print Production:</strong> Meet precise dimension requirements</li>
+								<li><strong>Template Creation:</strong> Generate images for specific layouts</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="row mt-3">
+		<div class="col-md-6">
+			<div class="card">
+				<div class="card-header bg-success text-white">
+					<h6 class="mb-0"><i class="bi bi-lock me-2"></i>Aspect Ratio Preservation</h6>
+				</div>
+				<div class="card-body">
+					<h6>Keep Aspect Ratio Option</h6>
+					<ul class="small">
+						<li><strong>Proportional Scaling:</strong> Maintains original width-to-height relationship</li>
+						<li><strong>Prevents Distortion:</strong> Eliminates stretching or squashing of image content</li>
+						<li><strong>Auto-Calculation:</strong> When one dimension is specified, the other is calculated automatically</li>
+						<li><strong>Professional Quality:</strong> Ensures images maintain their intended visual proportions</li>
+					</ul>
+
+					<h6>Aspect Ratio Control Methods</h6>
+					<ul class="small">
+						<li><strong>Width Priority:</strong> Set width, height calculated automatically</li>
+						<li><strong>Height Priority:</strong> Set height, width calculated automatically</li>
+						<li><strong>Fit to Constraints:</strong> Resize to fit within maximum width and height limits</li>
+						<li><strong>Percentage Scaling:</strong> Aspect ratio automatically preserved with percentage method</li>
+					</ul>
+
+					<h6>Wildcard Dimension Support</h6>
+					<ul class="small">
+						<li><strong>Width Auto-Calculate:</strong> Use "*" for width to auto-calculate from height</li>
+						<li><strong>Height Auto-Calculate:</strong> Use "*" for height to auto-calculate from width</li>
+						<li><strong>Intelligent Processing:</strong> System calculates optimal dimension automatically</li>
+						<li><strong>Batch Operations:</strong> Consistent aspect ratio maintenance across multiple files</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-6">
+			<div class="card">
+				<div class="card-header bg-warning text-dark">
+					<h6 class="mb-0"><i class="bi bi-rulers me-2"></i>Custom Aspect Ratio Control</h6>
+				</div>
+				<div class="card-body">
+					<h6>Free-Form Dimension Control</h6>
+					<ul class="small">
+						<li><strong>Independent Dimensions:</strong> Set width and height independently when aspect ratio lock is disabled</li>
+						<li><strong>Custom Proportions:</strong> Create images with non-standard aspect ratios</li>
+						<li><strong>Creative Control:</strong> Artistic freedom for specific visual effects</li>
+						<li><strong>Format Requirements:</strong> Meet specific platform or application dimension needs</li>
+					</ul>
+
+					<h6>Professional Applications</h6>
+					<ul class="small">
+						<li><strong>Banner Creation:</strong> Wide aspect ratios for web banners and headers</li>
+						<li><strong>Social Media Formats:</strong> Platform-specific dimension requirements</li>
+						<li><strong>Print Layout:</strong> Custom dimensions for specific print applications</li>
+						<li><strong>Display Applications:</strong> Screen-specific or display-optimized dimensions</li>
+					</ul>
+
+					<h6>Quality Considerations</h6>
+					<ul class="small">
+						<li><strong>Resampling Algorithms:</strong> High-quality scaling algorithms preserve image detail</li>
+						<li><strong>Interpolation Methods:</strong> Intelligent pixel interpolation for smooth scaling</li>
+						<li><strong>Upscaling Limitations:</strong> Consider quality implications when enlarging images</li>
+						<li><strong>Downscaling Optimization:</strong> Efficient file size reduction without significant quality loss</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+
+</section>
+
+<section id="exif-management" class="mt-5">
+	<h3>EXIF Metadata Management</h3>
+	<p>EXIF management tools provide comprehensive metadata control for digital images, offering capabilities to remove sensitive information, export metadata for analysis, and manage privacy concerns while preserving important technical data when needed.</p>
+
+	<div class="row">
+		<div class="col-md-6">
+			<div class="card">
+				<div class="card-header bg-danger text-white">
+					<h6 class="mb-0"><i class="bi bi-shield-x me-2"></i>Strip EXIF Information</h6>
+				</div>
+				<div class="card-body">
+					<h6>Privacy and Security Protection</h6>
+					<ul class="small">
+						<li><strong>Complete Removal:</strong> Removes all EXIF metadata from selected image files</li>
+						<li><strong>Privacy Protection:</strong> Eliminates GPS coordinates, camera details, and timestamps</li>
+						<li><strong>File Size Reduction:</strong> Reduces file size by removing metadata overhead</li>
+						<li><strong>Batch Processing:</strong> Strip EXIF data from multiple images simultaneously</li>
+					</ul>
+
+					<h6>Security Applications</h6>
+					<ul class="small">
+						<li><strong>Social Media Preparation:</strong> Remove metadata before sharing images online</li>
+						<li><strong>Privacy Protection:</strong> Eliminate location and device information</li>
+						<li><strong>Professional Delivery:</strong> Clean images for client delivery</li>
+						<li><strong>Archive Optimization:</strong> Reduce storage requirements for large collections</li>
+					</ul>
+
+					<h6>Data Types Removed</h6>
+					<ul class="small">
+						<li><strong>Location Data:</strong> GPS coordinates and location names</li>
+						<li><strong>Camera Information:</strong> Make, model, settings, and serial numbers</li>
+						<li><strong>Timestamps:</strong> Creation and modification dates</li>
+						<li><strong>User Data:</strong> Comments, keywords, and personal information</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-6">
+			<div class="card">
+				<div class="card-header bg-info text-white">
+					<h6 class="mb-0"><i class="bi bi-download me-2"></i>Export EXIF Information</h6>
+				</div>
+				<div class="card-body">
+					<div class="text-center mt-3 mb-3">
+						<img src="/Docs/Images/pictures_exportexif.png" alt="Export EXIF Dialog" class="img-fluid border rounded shadow-sm" />
+						<p class="text-muted small mt-2">EXIF export interface showing metadata extraction options</p>
+					</div>
+
+					<h6>Metadata Export Process</h6>
+					<ul class="small">
+						<li><strong>Text File Creation:</strong> Exports EXIF data as human-readable text files</li>
+						<li><strong>Naming Convention:</strong> Creates files with original name plus 'EXIF-data' suffix</li>
+						<li><strong>Comprehensive Data:</strong> Includes all available metadata information</li>
+						<li><strong>Batch Export:</strong> Process multiple images with single operation</li>
+					</ul>
+
+					<h6>Exported Information Categories</h6>
+					<ul class="small">
+						<li><strong>Technical Data:</strong> Camera settings, lens information, exposure details</li>
+						<li><strong>Creation Information:</strong> Date, time, and software used</li>
+						<li><strong>Image Properties:</strong> Dimensions, color space, resolution</li>
+						<li><strong>Additional Metadata:</strong> Keywords, comments, copyright information</li>
+					</ul>
+
+					<h6>Professional Applications</h6>
+					<ul class="small">
+						<li><strong>Photography Analysis:</strong> Study camera settings and techniques</li>
+						<li><strong>Technical Documentation:</strong> Archive technical specifications</li>
+						<li><strong>Legal Evidence:</strong> Preserve metadata for authentication</li>
+						<li><strong>Workflow Documentation:</strong> Track processing history and settings</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<section id="batch-operations" class="mt-5">
+	<h3>Batch Operations and Workflow Integration</h3>
+	<p>Picture Tools excel at batch processing operations, enabling efficient management of large image collections through Multi Commander's file selection system and integration with User Defined Commands for advanced automation workflows.</p>
+
+	<div class="row">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header bg-success text-white">
+					<h6 class="mb-0"><i class="bi bi-stack me-2"></i>Efficient Batch Processing</h6>
+				</div>
+				<div class="card-body">
+					<h6>File Selection and Processing</h6>
+					<div class="row">
+						<div class="col-md-6">
+							<ul class="small">
+								<li><strong>Multi-File Selection:</strong> Use Ctrl+Click, Shift+Click, or Select All for batch operations</li>
+								<li><strong>Filter Integration:</strong> Use view filters to isolate specific image types</li>
+								<li><strong>Progress Tracking:</strong> Real-time progress indication for large batch operations</li>
+								<li><strong>Error Handling:</strong> Robust error management with detailed reporting</li>
+							</ul>
+						</div>
+						<div class="col-md-6">
+							<ul class="small">
+								<li><strong>Format-Specific Processing:</strong> Apply operations to specific image formats only</li>
+								<li><strong>Selective Operations:</strong> Choose which files to process based on criteria</li>
+								<li><strong>Quality Control:</strong> Preview and verify results before committing changes</li>
+								<li><strong>Undo Protection:</strong> Backup strategies for irreversible operations</li>
+							</ul>
+						</div>
+					</div>
+
+					<h6>Integration with Multi Commander Features</h6>
+					<ul class="small">
+						<li><strong>Explorer Panel Integration:</strong> Seamless workflow within familiar file management interface</li>
+						<li><strong>User Defined Commands:</strong> Automate Picture Tools operations through custom commands</li>
+						<li><strong>Button Panel Access:</strong> Quick access through customizable button configurations</li>
+						<li><strong>Keyboard Shortcuts:</strong> Assign hotkeys for frequently used picture operations</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="row mt-3">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header bg-warning text-dark">
+					<h6 class="mb-0"><i class="bi bi-code-square me-2"></i>Custom Commands Integration</h6>
+				</div>
+				<div class="card-body">
+					<h6>Automation through Custom Commands</h6>
+					<div class="alert alert-light p-2">
+						<h6 class="small mb-1">Example: Automated JPEG Conversion</h6>
+						<pre class="small mb-0"><code>MC.Tools.PictureTools.Convert FORMAT=JPEG QUALITY=85 DELETEORIGINAL=true</code></pre>
+					</div>
+
+					<div class="alert alert-light p-2">
+						<h6 class="small mb-1">Example: Auto-Rotate with EXIF</h6>
+						<pre class="small mb-0"><code>MC.Tools.PictureTools.AutoRotate LOSSLESSJPEG=true</code></pre>
+					</div>
+
+					<div class="alert alert-light p-2">
+						<h6 class="small mb-1">Example: Batch Resize for Web</h6>
+						<pre class="small mb-0"><code>MC.Tools.PictureTools.Resize WIDTH=800 HEIGHT=* KEEPASPECT=true</code></pre>
+					</div>
+
+					<div class="alert alert-light p-2">
+						<h6 class="small mb-1">Example: Percentage Resize</h6>
+						<pre class="small mb-0"><code>MC.Tools.PictureTools.Resize PERCENTAGE=50 SELECTED=true</code></pre>
+					</div>
+
+					<h6>Automation Benefits</h6>
+					<ul class="small">
+						<li><strong>Workflow Automation:</strong> Create custom image processing workflows including resizing</li>
+						<li><strong>Batch Scripting:</strong> Integrate with batch scripts for complex operations</li>
+						<li><strong>Parameter Control:</strong> Fine-tune operations through command parameters</li>
+						<li><strong>Scheduling Integration:</strong> Combine with scheduling tools for automated processing</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		
+	</div>
+</section>
+
+<div class="alert alert-success mt-5">
+	<h6><i class="bi bi-lightbulb me-2"></i>Picture Tools Mastery</h6>
+	<p class="mb-0">Master Picture Tools by utilizing batch selection for efficient multi-file processing, choosing appropriate output formats based on intended use (PNG for screenshots, JPEG for photographs, TIFF for archival), leveraging automatic rotation with EXIF detection for photography workflows, and utilizing flexible resize options for dimension control. Remember that percentage-based resizing maintains aspect ratio automatically, while absolute dimension control offers precise sizing for specific requirements. Lossless JPEG rotation preserves maximum quality when image dimensions allow, and EXIF management provides both privacy protection through metadata removal and professional documentation through metadata export. Integrate Picture Tools with User Defined Commands for automated workflows and combine with Multi Commander's file management capabilities for comprehensive digital asset management that streamlines image processing tasks while maintaining professional quality standards.</p>
+</div>
+
+<div class="alert alert-info mt-4">
+	<h6><i class="bi bi-info-circle me-2"></i>Related Image and File Management Documentation</h6>
+	<p class="mb-0">Enhance your image processing workflows with related Multi Commander features: <a href="/Docs/ExplorerPanel" class="text-decoration-none">Explorer Panel</a>, <a href="/Docs/selection" class="text-decoration-none">File Selection</a>, <a href="/Docs/user-defined-commands" class="text-decoration-none">User Defined Commands</a>, <a href="/Docs/UDC_custom" class="text-decoration-none">Custom Commands</a>, <a href="/Docs/buttonpanel" class="text-decoration-none">Button Panel</a>, <a href="/Docs/keyboard-customization" class="text-decoration-none">Keyboard Customization</a>, and <a href="/Docs/menubar" class="text-decoration-none">Menu Bar</a>.</p>
+</div>
 
 

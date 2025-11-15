@@ -1,36 +1,560 @@
-<h2>Multi Commander Hangs and is Not Responding</h2>
-<h2>Symptom</h2>
+﻿<h2>Multi Commander Hangs and is Not Responding</h2>
 
-<p>When Multi Commander hangs it is often because it is waiting for some external operation to finished, but it can also be because of a problem within Multi Commander itself.<br />
-A 'hang' is when Multi Commander becomes unresponsive. The main user interface no longer accepts any input and you see the Windows message "Not Responding" in the title bar.</p>
+<p>When Multi Commander becomes unresponsive, it's essential to understand the cause and take appropriate action to resolve the issue while preserving valuable diagnostic information. This comprehensive guide will help you identify, troubleshoot, and report hanging issues effectively.</p>
 
-<p><img alt="Multi Commander Hang" src="/Docs/Images/MCHang.png" width="50%" /></p>
+<div class="alert alert-warning">
+	<h6><i class="bi bi-exclamation-triangle me-2"></i>What is a "Hang"?</h6>
+	<p class="mb-0">A hang occurs when Multi Commander stops responding to user input, the interface becomes frozen, and Windows displays "Not Responding" in the title bar. This differs from a crash, where the application terminates unexpectedly.</p>
+</div>
 
-<h2>What To Do</h2>
+<nav class="navbar navbar-expand-lg navbar-light bg-light mb-4">
+	<div class="container-fluid">
+		<span class="navbar-brand">Quick Navigation</span>
+		<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#hangNav">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="hangNav">
+			<ul class="navbar-nav">
+				<li class="nav-item"><a class="nav-link" href="#symptoms">Symptoms</a></li>
+				<li class="nav-item"><a class="nav-link" href="#immediate-response">Immediate Response</a></li>
+				<li class="nav-item"><a class="nav-link" href="#creating-dump">Creating Dump</a></li>
+				<li class="nav-item"><a class="nav-link" href="#reporting">Reporting</a></li>
+				<li class="nav-item"><a class="nav-link" href="#prevention">Prevention</a></li>
+			</ul>
+		</div>
+	</div>
+</nav>
 
-<p>If Multi Commander actually <em>crashes </em>a mini dump file is created and sent to our crash report system where we can investigate why it crashed.<br />
-For a hang this is not done automatically; to be able to find out why it hung, and to be able to fix it, we need to know what Multi Commander was doing when it hung. To do that, we need a dump of the hung 'MultiCommander.exe. process, but you, the user, will need to create that dump and send it to us.</p>
+<section id="symptoms">
+	<h3>Recognizing the Problem</h3>
+	<p>Understanding the symptoms of a hung Multi Commander process helps distinguish between temporary slowdowns and actual hangs requiring intervention.</p>
 
-<h2>Creating a Dump File</h2>
+	<div class="text-center my-4">
+		<img src="/Docs/Images/MCHang.png" alt="Multi Commander Not Responding" class="img-fluid border rounded shadow-sm" style="max-width: 50%;" />
+		<p class="text-muted small mt-2">Multi Commander showing "Not Responding" in the title bar, indicating a hung state</p>
+	</div>
 
-<p>To create a dump file you can use the Windows Task Manager (For Windows XP or Windows Server2003 you have to use a tool like <a href="http://technet.microsoft.com/en-us/sysinternals/dd996900.aspx">procdump</a>).</p>
+	<div class="row">
+		<div class="col-md-6">
+			<div class="card">
+				<div class="card-header bg-danger text-white">
+					<h6 class="mb-0"><i class="bi bi-x-circle me-2"></i>Hang Symptoms</h6>
+				</div>
+				<div class="card-body">
+					<ul class="small">
+						<li><strong>"Not Responding"</strong> appears in the window title bar</li>
+						<li><strong>Interface becomes unresponsive</strong> to mouse clicks and keyboard input</li>
+						<li><strong>Screen may appear grayed out</strong> or become semi-transparent</li>
+						<li><strong>No response to menu selections</strong> or button clicks</li>
+						<li><strong>Window cannot be moved or resized</strong></li>
+						<li><strong>File operations appear frozen</strong> with no progress</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-6">
+			<div class="card">
+				<div class="card-header bg-warning text-dark">
+					<h6 class="mb-0"><i class="bi bi-clock me-2"></i>vs. Temporary Slowdowns</h6>
+				</div>
+				<div class="card-body">
+					<ul class="small">
+						<li><strong>Progress indicators still updating</strong> (even if slowly)</li>
+						<li><strong>Window title remains normal</strong> without "Not Responding"</li>
+						<li><strong>Some interface elements still respond</strong></li>
+						<li><strong>File operation dialogs show progress</strong></li>
+						<li><strong>Network or disk activity visible</strong> in system monitors</li>
+						<li><strong>Temporary unresponsiveness</strong> during large operations</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
 
-<p>Start Task Manager by pressing Ctrl+Shift+Esc (or right-click on the status bar and select "Start Task Manager"), select the Processes tab.<br />
-Find the "not responding" MultiCommander.exe process in the list, right-click it and select "Create Dump File".</p>
+	<div class="row mt-3">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header bg-info text-white">
+					<h6 class="mb-0"><i class="bi bi-search me-2"></i>Common Hang Scenarios</h6>
+				</div>
+				<div class="card-body">
+					<div class="row">
+						<div class="col-md-4">
+							<h6>Network Operations</h6>
+							<ul class="small">
+								<li>Accessing disconnected network drives</li>
+								<li>Slow or unresponsive network connections</li>
+								<li>SMB/CIFS timeout issues</li>
+								<li>VPN connection problems</li>
+							</ul>
+						</div>
+						<div class="col-md-4">
+							<h6>File System Issues</h6>
+							<ul class="small">
+								<li>Corrupted filesystem or bad sectors</li>
+								<li>External drives suddenly disconnected</li>
+								<li>Very large directory listings</li>
+								<li>Antivirus deep scanning conflicts</li>
+							</ul>
+						</div>
+						<div class="col-md-4">
+							<h6>System Resources</h6>
+							<ul class="small">
+								<li>Low available memory</li>
+								<li>High CPU usage by other processes</li>
+								<li>Disk space exhaustion</li>
+								<li>System-wide resource conflicts</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
 
-<p><br />
-<img alt="" src="/Docs/Images/MCCreateDumpFile.png" width="50%" /></p>
+<section id="immediate-response" class="mt-5">
+	<h3>Immediate Response Actions</h3>
+	<p>When Multi Commander hangs, your immediate response can determine whether the issue can be resolved or requires diagnostic information collection.</p>
 
-<p>When the dump file is saved you will be presented with a dialog telling you where the dump file was written.<br />
-<br />
-<img alt="" src="/Docs/Images/MCCreateDumpLocation.png" /></p>
+	<div class="row">
+		<div class="col-md-6">
+			<div class="card">
+				<div class="card-header bg-primary text-white">
+					<h6 class="mb-0"><i class="bi bi-hourglass me-2"></i>Wait or Act?</h6>
+				</div>
+				<div class="card-body">
+					<h6>When to Wait</h6>
+					<ul class="small">
+						<li><strong>Large file operations:</strong> Give 5-10 minutes for completion</li>
+						<li><strong>Network operations:</strong> Allow time for timeout resolution</li>
+						<li><strong>First occurrence:</strong> May be a temporary system issue</li>
+						<li><strong>High system load:</strong> Other processes may be consuming resources</li>
+					</ul>
+					<h6>When to Act Immediately</h6>
+					<ul class="small">
+						<li><strong>Repeated hangs:</strong> Pattern indicates a deeper issue</li>
+						<li><strong>Critical workflow:</strong> Need to continue working</li>
+						<li><strong>System instability:</strong> Other applications also affected</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-6">
+			<div class="card">
+				<div class="card-header bg-success text-white">
+					<h6 class="mb-0"><i class="bi bi-shield-check me-2"></i>Safe Recovery Steps</h6>
+				</div>
+				<div class="card-body">
+					<ol class="small">
+						<li><strong>Check system resources</strong> (Task Manager → Performance)</li>
+						<li><strong>Verify network connectivity</strong> if using network drives</li>
+						<li><strong>Wait 2-3 minutes</strong> for potential auto-recovery</li>
+						<li><strong>Note the current operation</strong> when hang occurred</li>
+						<li><strong>Check for external factors</strong> (USB drives, network status)</li>
+						<li><strong>Prepare for dump creation</strong> if hang persists</li>
+					</ol>
+				</div>
+			</div>
+		</div>
+	</div>
 
-<p>The path in the dialog must be selected so that you can copy and paste that path into Multi Commander or Windows Explorer to go to that location.</p>
+	<div class="row mt-3">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header bg-warning text-dark">
+					<h6 class="mb-0"><i class="bi bi-exclamation-triangle me-2"></i>What NOT to Do</h6>
+				</div>
+				<div class="card-body">
+					<div class="row">
+						<div class="col-md-6">
+							<h6>Avoid These Actions</h6>
+							<ul class="small">
+								<li><strong>Force killing immediately:</strong> Loses diagnostic information</li>
+								<li><strong>Multiple restart attempts:</strong> May mask the real issue</li>
+								<li><strong>Ignoring the problem:</strong> Patterns may indicate serious issues</li>
+								<li><strong>Making system changes:</strong> During troubleshooting process</li>
+							</ul>
+						</div>
+						<div class="col-md-6">
+							<h6>Better Alternatives</h6>
+							<ul class="small">
+								<li><strong>Create dump file first:</strong> Preserve diagnostic data</li>
+								<li><strong>Document conditions:</strong> Note what triggered the hang</li>
+								<li><strong>Systematic approach:</strong> Follow structured troubleshooting</li>
+								<li><strong>Report findings:</strong> Help improve the software</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
 
-<p><img alt="" src="/Docs/Images/MCCreateDumpCopyLocation.png" /></p>
+<section id="creating-dump" class="mt-5">
+	<h3>Creating Diagnostic Dump Files</h3>
+	<p>Dump files provide crucial diagnostic information that helps developers understand and fix hanging issues. Creating these files is essential for effective troubleshooting.</p>
 
-<p>Compress the dump file with Zip/7-zip/Rar. The fastest way is to just right-click the file and select "Send To &gt; Compressed Folder".</p>
+	<div class="alert alert-info">
+		<h6><i class="bi bi-info-circle me-2"></i>Why Dump Files Matter</h6>
+		<p class="mb-0">Unlike crashes that automatically generate reports, hangs require manual dump creation. These files contain the exact state of Multi Commander when it hung, enabling developers to identify the root cause and develop fixes.</p>
+	</div>
 
-<p>Then upload that file to <a href="http://multicommander.com/upload">http://multicommander.com/upload</a> and we can take a look and see what Multi Commander was waiting for and why it hung.</p>
+	<div class="row">
+		<div class="col-md-8">
+			<div class="card">
+				<div class="card-header bg-primary text-white">
+					<h6 class="mb-0"><i class="bi bi-gear me-2"></i>Using Windows Task Manager</h6>
+				</div>
+				<div class="card-body">
+					<h6>Step-by-Step Process</h6>
+					<ol>
+						<li><strong>Open Task Manager:</strong> Press <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>Esc</kbd></li>
+						<li><strong>Switch to Processes tab:</strong> If not already selected</li>
+						<li><strong>Locate MultiCommander.exe:</strong> Look for the "not responding" process</li>
+						<li><strong>Right-click the process:</strong> Select "Create Dump File"</li>
+						<li><strong>Wait for completion:</strong> The system will create the dump file</li>
+						<li><strong>Note the file location:</strong> Copy the path shown in the dialog</li>
+					</ol>
+					
+					<div class="text-center mt-3">
+						<img src="/Docs/Images/MCCreateDumpFile.png" alt="Creating Dump File" class="img-fluid border rounded shadow-sm" style="max-width: 100%;" />
+						<p class="text-muted small mt-2">Right-clicking on the hung MultiCommander.exe process to create a dump file</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-4">
+			<div class="card">
+				<div class="card-header bg-warning text-dark">
+					<h6 class="mb-0"><i class="bi bi-windows me-2"></i>System Requirements</h6>
+				</div>
+				<div class="card-body">
+					<h6>Task Manager Method</h6>
+					<ul class="small">
+						<li><strong>Windows 7 and later:</strong> Built-in support</li>
+						<li><strong>No additional tools needed:</strong> Uses Windows functionality</li>
+						<li><strong>Administrator rights:</strong> May be required for some processes</li>
+					</ul>
+					<h6>Alternative Tools</h6>
+					<ul class="small">
+						<li><strong>Windows XP/Server 2003:</strong> Use ProcDump utility</li>
+						<li><strong>Advanced scenarios:</strong> Process Explorer, DebugDiag</li>
+						<li><strong>Automated collection:</strong> Custom scripts</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
 
-<p>If you need feedback on your submitted file, then also post a message in the forum or send us an email.</p>
+	<div class="row mt-3">
+		<div class="col-md-6">
+			<div class="card">
+				<div class="card-header bg-success text-white">
+					<h6 class="mb-0"><i class="bi bi-folder me-2"></i>Locating the Dump File</h6>
+				</div>
+				<div class="card-body">
+					<div class="text-center mb-3">
+						<img src="/Docs/Images/MCCreateDumpLocation.png" alt="Dump File Location Dialog" class="img-fluid border rounded shadow-sm" />
+						<p class="text-muted small mt-2">Dialog showing where the dump file was saved</p>
+					</div>
+					<h6>Finding Your Dump File</h6>
+					<ol class="small">
+						<li><strong>Copy the path:</strong> Select and copy the full path from the dialog</li>
+						<li><strong>Navigate in Explorer:</strong> Paste the path into Windows Explorer</li>
+						<li><strong>Alternative:</strong> Use Multi Commander to navigate to the location</li>
+					</ol>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-6">
+			<div class="card">
+				<div class="card-header bg-info text-white">
+					<h6 class="mb-0"><i class="bi bi-archive me-2"></i>Preparing for Upload</h6>
+				</div>
+				<div class="card-body">
+					<div class="text-center mb-3">
+						<img src="/Docs/Images/MCCreateDumpCopyLocation.png" alt="Copying Dump File Path" class="img-fluid border rounded shadow-sm" />
+						<p class="text-muted small mt-2">Selecting the path text for copying to navigate to the dump file location</p>
+					</div>
+					<h6>Compression Steps</h6>
+					<ol class="small">
+						<li><strong>Right-click the dump file:</strong> In Windows Explorer</li>
+						<li><strong>Select "Send To":</strong> Choose "Compressed Folder"</li>
+						<li><strong>Alternative methods:</strong> Use 7-Zip, WinRAR, or other compression tools</li>
+						<li><strong>Verify compression:</strong> Dump files compress significantly</li>
+					</ol>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="row mt-3">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header bg-dark text-white">
+					<h6 class="mb-0"><i class="bi bi-terminal me-2"></i>Alternative Methods for Older Systems</h6>
+				</div>
+				<div class="card-body">
+					<div class="row">
+						<div class="col-md-6">
+							<h6>ProcDump Utility (Windows XP/2003)</h6>
+							<ol class="small">
+								<li>Download ProcDump from <a href="https://docs.microsoft.com/en-us/sysinternals/downloads/procdump" target="_blank">Microsoft Sysinternals</a></li>
+								<li>Open command prompt in ProcDump directory</li>
+								<li>Run: <code>procdump -ma MultiCommander.exe</code></li>
+								<li>Wait for dump creation to complete</li>
+							</ol>
+						</div>
+						<div class="col-md-6">
+							<h6>Process Explorer Method</h6>
+							<ol class="small">
+								<li>Download and run Process Explorer</li>
+								<li>Find MultiCommander.exe in the process list</li>
+								<li>Right-click → Create Dump → Create Full Dump</li>
+								<li>Choose save location and filename</li>
+							</ol>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<section id="reporting" class="mt-5">
+	<h3>Reporting and Upload Process</h3>
+	<p>Properly reporting hang issues with diagnostic files helps ensure quick resolution and benefits the entire Multi Commander community.</p>
+
+	<div class="row">
+		<div class="col-md-6">
+			<div class="card">
+				<div class="card-header bg-success text-white">
+					<h6 class="mb-0"><i class="bi bi-cloud-upload me-2"></i>Upload Process</h6>
+				</div>
+				<div class="card-body">
+					<h6>File Upload Steps</h6>
+					<ol class="small">
+						<li><strong>Compress the dump file:</strong> Create .zip, .7z, or .rar archive</li>
+						<li><strong>Visit upload page:</strong> <a href="http://multicommander.com/support/upload" target="_blank">http://multicommander.com/support/upload</a></li>
+						<li><strong>Select compressed file:</strong> Choose your archived dump file</li>
+						<li><strong>Add description:</strong> Include details about the hang</li>
+						<li><strong>Submit upload:</strong> Wait for confirmation</li>
+					</ol>
+					<div class="alert alert-warning p-2 mt-3">
+						<p class="small mb-0"><strong>File Size:</strong> Dump files can be large (100MB+), but compress well. Ensure stable internet connection for upload.</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-6">
+			<div class="card">
+				<div class="card-header bg-primary text-white">
+					<h6 class="mb-0"><i class="bi bi-chat-text me-2"></i>Providing Context</h6>
+				</div>
+				<div class="card-body">
+					<h6>Essential Information</h6>
+					<ul class="small">
+						<li><strong>Multi Commander version:</strong> Help → About Multi Commander</li>
+						<li><strong>Windows version:</strong> OS edition and build number</li>
+						<li><strong>Operation in progress:</strong> What was happening when it hung</li>
+						<li><strong>Frequency:</strong> How often this occurs</li>
+						<li><strong>Reproducibility:</strong> Steps to recreate the issue</li>
+						<li><strong>System configuration:</strong> Special hardware or software</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="row mt-3">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header bg-info text-white">
+					<h6 class="mb-0"><i class="bi bi-envelope me-2"></i>Communication Channels</h6>
+				</div>
+				<div class="card-body">
+					<div class="row">
+						<div class="col-md-4">
+							<h6>Forum Discussion</h6>
+							<ul class="small">
+								<li>Public discussion of the issue</li>
+								<li>Community input and similar experiences</li>
+								<li>Detailed technical discussions</li>
+								<li>Follow-up on resolution progress</li>
+							</ul>
+						</div>
+						<div class="col-md-4">
+							<h6>Direct Email</h6>
+							<ul class="small">
+								<li>Private communication with developers</li>
+								<li>Sensitive system information</li>
+								<li>Corporate or confidential environments</li>
+								<li>Urgent or critical issues</li>
+							</ul>
+						</div>
+						<div class="col-md-4">
+							<h6>Issue Tracking</h6>
+							<ul class="small">
+								<li>Reference number for tracking</li>
+								<li>Progress updates and notifications</li>
+								<li>Resolution confirmation</li>
+								<li>Future version fix information</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<section id="prevention" class="mt-5">
+	<h3>Prevention and Mitigation Strategies</h3>
+	<p>While not all hangs can be prevented, following best practices can significantly reduce their frequency and impact.</p>
+
+	<div class="row">
+		<div class="col-md-6">
+			<div class="card">
+				<div class="card-header bg-success text-white">
+					<h6 class="mb-0"><i class="bi bi-shield-check me-2"></i>Preventive Measures</h6>
+				</div>
+				<div class="card-body">
+					<h6>System Maintenance</h6>
+					<ul class="small">
+						<li><strong>Keep Windows updated:</strong> Install security and stability updates</li>
+						<li><strong>Update Multi Commander:</strong> Use latest stable versions</li>
+						<li><strong>Monitor disk health:</strong> Check for failing drives</li>
+						<li><strong>Manage disk space:</strong> Maintain adequate free space</li>
+						<li><strong>Network stability:</strong> Ensure reliable network connections</li>
+					</ul>
+					<h6>Usage Best Practices</h6>
+					<ul class="small">
+						<li><strong>Avoid very large operations:</strong> Break into smaller tasks</li>
+						<li><strong>Monitor resource usage:</strong> Watch memory and CPU</li>
+						<li><strong>Regular restarts:</strong> Refresh system resources</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-6">
+			<div class="card">
+				<div class="card-header bg-warning text-dark">
+					<h6 class="mb-0"><i class="bi bi-tools me-2"></i>Configuration Adjustments</h6>
+				</div>
+				<div class="card-body">
+					<h6>Multi Commander Settings</h6>
+					<ul class="small">
+						<li><strong>Network timeouts:</strong> Adjust for slow connections</li>
+						<li><strong>Cache settings:</strong> Optimize for your system</li>
+						<li><strong>Memory limits:</strong> Configure for available RAM</li>
+					</ul>
+					<h6>System Configuration</h6>
+					<ul class="small">
+						<li><strong>Antivirus exclusions:</strong> Add Multi Commander to exclusions</li>
+						<li><strong>Network drive mapping:</strong> Use persistent connections</li>
+						<li><strong>Power management:</strong> Prevent sleep during operations</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="row mt-3">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header bg-dark text-white">
+					<h6 class="mb-0"><i class="bi bi-graph-up me-2"></i>Monitoring and Early Detection</h6>
+				</div>
+				<div class="card-body">
+					<div class="row">
+						<div class="col-md-4">
+							<h6>System Monitoring</h6>
+							<ul class="small">
+								<li>Task Manager performance monitoring</li>
+								<li>Event Viewer error checking</li>
+								<li>Disk health utilities (CrystalDiskInfo)</li>
+								<li>Network connection stability tools</li>
+							</ul>
+						</div>
+						<div class="col-md-4">
+							<h6>Usage Patterns</h6>
+							<ul class="small">
+								<li>Note when hangs occur most frequently</li>
+								<li>Identify triggering operations</li>
+								<li>Document environmental factors</li>
+								<li>Track frequency and duration</li>
+							</ul>
+						</div>
+						<div class="col-md-4">
+							<h6>Proactive Response</h6>
+							<ul class="small">
+								<li>Create dumps before force-killing</li>
+								<li>Document patterns for reporting</li>
+								<li>Maintain backup workflow methods</li>
+								<li>Share findings with community</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<section class="mt-5">
+	<h3>Quick Reference Guide</h3>
+	<p>Essential steps for handling Multi Commander hangs effectively.</p>
+
+	<div class="row">
+		<div class="col-md-6">
+			<div class="card">
+				<div class="card-header bg-primary text-white">
+					<h6 class="mb-0"><i class="bi bi-list-check me-2"></i>Immediate Action Checklist</h6>
+				</div>
+				<div class="card-body">
+					<ol class="small">
+						<li><kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>Esc</kbd> - Open Task Manager</li>
+						<li>Find "MultiCommander.exe (not responding)"</li>
+						<li>Right-click → "Create Dump File"</li>
+						<li>Wait for completion dialog</li>
+						<li>Copy the file path from dialog</li>
+						<li>Navigate to location and compress file</li>
+						<li>Upload to multicommander.com/upload</li>
+						<li>Post in forum or send email with details</li>
+					</ol>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-6">
+			<div class="card">
+				<div class="card-header bg-info text-white">
+					<h6 class="mb-0"><i class="bi bi-info-circle me-2"></i>Information to Collect</h6>
+				</div>
+				<div class="card-body">
+					<ul class="small">
+						<li><strong>Version:</strong> Help → About Multi Commander</li>
+						<li><strong>OS:</strong> Windows version and build</li>
+						<li><strong>Operation:</strong> What was being done when it hung</li>
+						<li><strong>Duration:</strong> How long before creating dump</li>
+						<li><strong>Frequency:</strong> How often this occurs</li>
+						<li><strong>Network:</strong> Local or network drives involved</li>
+						<li><strong>System Load:</strong> Memory and CPU usage</li>
+						<li><strong>Error Messages:</strong> Any preceding warnings</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<div class="alert alert-success mt-5">
+	<h6><i class="bi bi-lightbulb me-2"></i>Community Contribution</h6>
+	<p class="mb-0">By reporting hangs with proper diagnostic information, you're helping improve Multi Commander for everyone. Each dump file provides valuable insights that lead to more stable software and better user experiences.</p>
+</div>
+
+<div class="alert alert-info mt-4">
+	<h6><i class="bi bi-info-circle me-2"></i>Additional Resources</h6>
+	<p class="mb-0">For more technical support information, visit the <a href="/Support" class="text-decoration-none">Support Page</a>, check the <a href="/Support/ReportIssue" class="text-decoration-none">Issue Reporting</a> guidelines, or browse the community forum for similar issues and solutions.</p>
+</div>

@@ -1,114 +1,526 @@
 <h2>Panel Tabs</h2>
-<p><img alt="" src="/Docs/Images/TabArea.png" style="border-width: 1px; border-style: solid;" /></p>
 
-<p>Each Multi Commander tab holds an instance of an Explorer Panel or another module, for example Settings or Search.</p>
+<p>The <strong>Panel Tabs</strong> system provides sophisticated workspace management through advanced tab functionality that enables efficient organization and navigation of multiple Explorer Panels, extension interfaces, and specialized modules within Multi Commander's dual-panel environment. This comprehensive tab management system transforms complex multi-location workflows into streamlined operations through intuitive drag-and-drop organization, powerful session management, and extensive customization capabilities that adapt to diverse productivity requirements.</p>
 
-<p>By clicking on an inactive tab that tab will become active.<br />
-Double-clicking on empty area in the tab area will open a new Explorer Panel. It is possible to configure which module is opened by default in Core Settings.</p>
-
-<p>It is also possible to move tabs from one side to the other by dragging and dropping them.</p>
-
-<p>Right-clicking on the tab will show a popup menu with some tab options.</p>
-
-<p><img alt="" src="/Docs/Images/TabPopup.png" /></p>
-
-<p>The list of options will change depending on which module is open in the tab.</p>
-
-<p>For an Explorer Panel the following options will be availible:</p>
-
-<ol>
-	<li><a href="#closetab">Close Tab</a></li>
-	<li><a href="#closeall">Close All Tabs But This</a></li>
-	<li><a href="#dupe">Duplicate Tab</a></li>
-	<li><a href="#move">Move Tab</a></li>
-	<li><a href="#save">Save Tabs To File...</a></li>
-	<li><a href="#load">Load Tabs From File...</a></li>
-	<li><a href="#lock">Lock Tab</a></li>
-	<li><a href="#lockallowsubchange">Lock Tab - Allow subpath change</a></li>
-	<li><a href="#properties">Tab Properties</a></li>
-</ol>
-
-<h2><a name="closetab"></a>1. Close Tab</h2>
-
-<p>Close the current tab.</p>
-
-<div class="dochints">
-<fieldset><legend>Shortcuts</legend> Ctrl-W - Close Current Tab</fieldset>
+<div class="alert alert-primary">
+	<h6><i class="bi bi-folder2-open me-2"></i>Advanced Multi-Panel Workspace Management</h6>
+	<p class="mb-0">Experience powerful workspace organization through intelligent tab management that supports unlimited panels, cross-panel tab movement, session saving and restoration, and comprehensive customization options. The Panel Tabs system eliminates workspace limitations while providing sophisticated organization tools that scale from simple dual-panel operations to complex multi-location project management workflows.</p>
 </div>
 
-<h2><a name="closeall"></a>2. Close All Tabs But This</h2>
+<nav class="navbar navbar-expand-lg navbar-light bg-light mb-4">
+	<div class="container-fluid">
+		<span class="navbar-brand">Quick Navigation</span>
+		<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#panelTabsNav">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="panelTabsNav">
+			<ul class="navbar-nav">
+				<li class="nav-item"><a class="nav-link" href="#overview">Overview</a></li>
+				<li class="nav-item"><a class="nav-link" href="#basic-operations">Basic Operations</a></li>
+				<li class="nav-item"><a class="nav-link" href="#tab-management">Tab Management</a></li>
+				<li class="nav-item"><a class="nav-link" href="#session-management">Session Management</a></li>
+				<li class="nav-item"><a class="nav-link" href="#tab-locking">Tab Locking</a></li>
+				<li class="nav-item"><a class="nav-link" href="#customization">Customization</a></li>
+			</ul>
+		</div>
+	</div>
+</nav>
 
-<p>Close all tabs except the current one. The current tab will remain open.</p>
+<section id="overview">
+	<h3>Panel Tabs Overview and Interface</h3>
+	<p>The Panel Tabs area in Multi Commander's main application layout, providing the essential interface for managing multiple Explorer Panels and extension modules through an intuitive tabbed environment that supports both mouse and keyboard interaction methods.</p>
 
-<h2><a name="dupe"></a>3. Duplicate Tab</h2>
+	<div class="row">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header bg-info text-white">
+					<h6 class="mb-0"><i class="bi bi-window-desktop me-2"></i>Tab Area Interface and Functionality</h6>
+				</div>
+				<div class="card-body">
+					<div class="text-center mt-3 mb-3">
+						<img src="/Docs/Images/TabArea.png" alt="Panel Tabs Interface" class="img-fluid border rounded shadow-sm" />
+						<p class="text-muted small mt-2">Panel Tabs area showing multiple tabs with drag-and-drop organization capabilities</p>
+					</div>
 
-<p>Duplicate the current tab. Open a new Explorer Panel tab showing the same path as the current tab.<br />
-This only works if the current tab is an Explorer Panel.</p>
+					<h6>Core Tab Functionality</h6>
+					<ul class="small">
+						<li><strong>Module Hosting:</strong> Each tab contains an instance of Explorer Panel, Settings, Search, or other Multi Commander modules</li>
+						<li><strong>Click Activation:</strong> Single-click on inactive tabs to make them active and bring content to foreground</li>
+						<li><strong>Cross-Panel Movement:</strong> Drag and drop tabs between left and right panel sides for flexible organization</li>
+						<li><strong>Context Menu Access:</strong> Right-click tabs for comprehensive management options and advanced operations</li>
+					</ul>
 
-<div class="dochints">
-<fieldset><legend>Shortcuts</legend> Ctrl-T - Duplicate Tab (Create new based on current tab)</fieldset>
+					<h6>Quick Tab Creation</h6>
+					<ul class="small">
+						<li><strong>Double-Click Creation:</strong> Double-click empty area in tab area to open new Explorer Panel</li>
+						<li><strong>Configurable Default:</strong> Set preferred module type in Core Settings for new tab creation</li>
+						<li><strong>Instant Access:</strong> Immediate tab creation without menu navigation</li>
+						<li><strong>Workflow Integration:</strong> Seamless tab creation for expanding workspace as needed</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<section id="basic-operations" class="mt-5">
+	<h3>Basic Tab Operations and Navigation</h3>
+	<p>Panel Tabs provide intuitive interaction methods for tab activation, creation, and organization through mouse operations and keyboard shortcuts that ensure efficient workspace management regardless of user preference or accessibility requirements.</p>
+
+	<div class="row">
+		<div class="col-md-6">
+			<div class="card">
+				<div class="card-header bg-success text-white">
+					<h6 class="mb-0"><i class="bi bi-mouse me-2"></i>Mouse Operations</h6>
+				</div>
+				<div class="card-body">
+					<h6>Click Interactions</h6>
+					<ul class="small">
+						<li><strong>Tab Activation:</strong> Single-click inactive tabs to bring them to foreground</li>
+						<li><strong>New Tab Creation:</strong> Double-click empty tab area to create new Explorer Panel</li>
+						<li><strong>Drag-and-Drop Movement:</strong> Drag tabs between left and right panel sides</li>
+						<li><strong>Context Menu Access:</strong> Right-click tabs for management options</li>
+					</ul>
+
+					<h6>Visual Feedback</h6>
+					<ul class="small">
+						<li><strong>Active Indication:</strong> Clear visual distinction between active and inactive tabs</li>
+						<li><strong>Drag Indicators:</strong> Visual feedback during tab movement operations</li>
+						<li><strong>Drop Zones:</strong> Clear indication of valid drop locations for tab placement</li>
+						<li><strong>Hover Effects:</strong> Immediate visual feedback for interactive elements</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-6">
+			<div class="card">
+				<div class="card-header bg-primary text-white">
+					<h6 class="mb-0"><i class="bi bi-keyboard me-2"></i>Keyboard Operations</h6>
+				</div>
+				<div class="card-body">
+					<h6>Essential Keyboard Shortcuts</h6>
+					<div class="table-responsive">
+						<table class="table table-sm">
+							<thead class="table-light">
+								<tr>
+									<th>Shortcut</th>
+									<th>Function</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td><kbd>Ctrl</kbd>+<kbd>W</kbd></td>
+									<td>Close current tab</td>
+								</tr>
+								<tr>
+									<td><kbd>Ctrl</kbd>+<kbd>T</kbd></td>
+									<td>Duplicate current tab</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+
+					<h6>Keyboard Benefits</h6>
+					<ul class="small">
+						<li><strong>Rapid Operation:</strong> Instant tab management without mouse movement</li>
+						<li><strong>Workflow Integration:</strong> Seamless integration with keyboard-centric workflows</li>
+						<li><strong>Accessibility Support:</strong> Full functionality for users requiring keyboard navigation</li>
+						<li><strong>Efficiency Focus:</strong> Quick access to most common tab operations</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<section id="tab-management" class="mt-5">
+	<h3>Comprehensive Tab Management</h3>
+	<p>The Panel Tabs system provides extensive management capabilities through a comprehensive context menu that offers specialized operations for tab organization, movement, duplication, and lifecycle management tailored to different module types and workflow requirements.</p>
+
+	<div class="row">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header bg-warning text-dark">
+					<h6 class="mb-0"><i class="bi bi-menu-button me-2"></i>Context Menu Operations</h6>
+				</div>
+				<div class="card-body">
+					<div class="text-center mt-3 mb-3">
+						<img src="/Docs/Images/TabPopup.png" alt="Tab Context Menu" class="img-fluid border rounded shadow-sm" />
+						<p class="text-muted small mt-2">Tab right-click context menu showing available management operations</p>
+					</div>
+
+					<h6>Available Tab Operations</h6>
+					<p class="small">The context menu options adapt based on the module type contained within the tab. For Explorer Panel tabs, the following comprehensive operations are available:</p>
+
+					<div class="row">
+						<div class="col-md-6">
+							<ol class="small">
+								<li><strong><a href="#close-tab" class="text-decoration-none">Close Tab:</a></strong> Remove current tab from workspace</li>
+								<li><strong><a href="#close-all-but-this" class="text-decoration-none">Close All Tabs But This:</a></strong> Keep only current tab open</li>
+								<li><strong><a href="#duplicate-tab" class="text-decoration-none">Duplicate Tab:</a></strong> Create copy of current tab</li>
+								<li><strong><a href="#move-tab" class="text-decoration-none">Move Tab:</a></strong> Cross-panel tab movement options</li>
+								<li><strong><a href="#save-tabs" class="text-decoration-none">Save Tabs To File:</a></strong> Export tab layouts</li>
+							</ol>
+						</div>
+						<div class="col-md-6">
+							<ol class="small" start="6">
+								<li><strong><a href="#load-tabs" class="text-decoration-none">Load Tabs From File:</a></strong> Import saved tab configurations</li>
+								<li><strong><a href="#lock-tab" class="text-decoration-none">Lock Tab:</a></strong> Prevent navigation changes</li>
+								<li><strong><a href="#lock-subpath" class="text-decoration-none">Lock Tab - Allow Subpath Change:</a></strong> Limited navigation locking</li>
+								<li><strong><a href="#tab-properties" class="text-decoration-none">Tab Properties:</a></strong> Visual customization options</li>
+							</ol>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<section id="close-tab" class="mt-5">
+	<h3>1. Close Tab</h3>
+	<p>The Close Tab operation provides immediate tab removal functionality with keyboard shortcut support for efficient workspace management and quick cleanup of unused panels.</p>
+
+	<div class="row">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header bg-danger text-white">
+					<h6 class="mb-0"><i class="bi bi-x-circle me-2"></i>Tab Closure Operations</h6>
+				</div>
+				<div class="card-body">
+					<h6>Close Current Tab</h6>
+					<ul class="small">
+						<li><strong>Immediate Closure:</strong> Instantly remove the current tab from the workspace</li>
+						<li><strong>Keyboard Shortcut:</strong> <kbd>Ctrl</kbd>+<kbd>W</kbd> for rapid tab closure</li>
+						<li><strong>Context Menu Access:</strong> Right-click tab and select Close Tab option</li>
+						<li><strong>Workspace Cleanup:</strong> Essential for maintaining organized workspace</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<section id="close-all-but-this" class="mt-5">
+	<h3>2. Close All Tabs But This</h3>
+	<p>This powerful operation enables rapid workspace simplification by closing all tabs except the currently active one, providing immediate focus on a single location while eliminating workspace clutter.</p>
+
+	<div class="row">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header bg-warning text-dark">
+					<h6 class="mb-0"><i class="bi bi-funnel me-2"></i>Workspace Simplification</h6>
+				</div>
+				<div class="card-body">
+					<h6>Selective Tab Retention</h6>
+					<ul class="small">
+						<li><strong>Mass Cleanup:</strong> Close all tabs except the current one in single operation</li>
+						<li><strong>Focus Enhancement:</strong> Eliminate distractions by keeping only essential tab</li>
+						<li><strong>Current Tab Protection:</strong> Active tab remains open and functional</li>
+						<li><strong>Workflow Simplification:</strong> Instant transition from complex to simple workspace</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<section id="duplicate-tab" class="mt-5">
+	<h3>3. Duplicate Tab</h3>
+	<p>Tab duplication creates identical copies of Explorer Panel tabs, enabling parallel operations on the same location or rapid setup of related workspace configurations for enhanced productivity workflows.</p>
+
+	<div class="row">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header bg-success text-white">
+					<h6 class="mb-0"><i class="bi bi-files me-2"></i>Tab Duplication System</h6>
+				</div>
+				<div class="card-body">
+					<h6>Duplicate Current Tab</h6>
+					<ul class="small">
+						<li><strong>Explorer Panel Only:</strong> Duplication available only for Explorer Panel tabs</li>
+						<li><strong>Identical Copy:</strong> New tab shows same path and configuration as current tab</li>
+						<li><strong>Keyboard Shortcut:</strong> <kbd>Ctrl</kbd>+<kbd>T</kbd> for rapid tab duplication</li>
+						<li><strong>Parallel Operations:</strong> Enable simultaneous operations on same location</li>
+					</ul>
+
+					<h6>Use Cases</h6>
+					<ul class="small">
+						<li><strong>Comparison Operations:</strong> Compare different views or sort orders of same location</li>
+						<li><strong>Backup Navigation:</strong> Maintain reference tab while exploring subdirectories</li>
+						<li><strong>Multi-Selection Tasks:</strong> Perform different selection operations simultaneously</li>
+						<li><strong>Workflow Branching:</strong> Create starting points for different operation sequences</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<section id="move-tab" class="mt-5">
+	<h3>4. Move Tab</h3>
+	<p>The Move Tab functionality provides sophisticated tab positioning options through panel swapping and cross-panel movement, enabling optimal workspace organization for different operational requirements and dual-panel workflows.</p>
+
+	<div class="row">
+		<div class="col-md-6">
+			<div class="card">
+				<div class="card-header bg-primary text-white">
+					<h6 class="mb-0"><i class="bi bi-arrow-left-right me-2"></i>Panel Swapping</h6>
+				</div>
+				<div class="card-body">
+					<h6>Swap Location of Left/Right Panel</h6>
+					<ul class="small">
+						<li><strong>Position Exchange:</strong> Active panels exchange positions between left and right sides</li>
+						<li><strong>Content Preservation:</strong> All tab content and settings remain intact during swap</li>
+						<li><strong>Workflow Optimization:</strong> Adapt panel positioning to current task requirements</li>
+						<li><strong>Instant Operation:</strong> Immediate position change without data loss</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-6">
+			<div class="card">
+				<div class="card-header bg-info text-white">
+					<h6 class="mb-0"><i class="bi bi-arrow-right me-2"></i>Cross-Panel Movement</h6>
+				</div>
+				<div class="card-body">
+					<h6>Move Active Panel to Other Side</h6>
+					<ul class="small">
+						<li><strong>Panel Transfer:</strong> Move current panel to opposite side of interface</li>
+						<li><strong>Left to Right:</strong> Panels on left side move to right side</li>
+						<li><strong>Right to Left:</strong> Panels on right side move to left side</li>
+						<li><strong>Workspace Reorganization:</strong> Flexible panel arrangement for optimal workflow</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<section id="session-management" class="mt-5">
+	<h3>Session Management and Tab Persistence</h3>
+	<p>The comprehensive session management system enables saving and restoring complete tab layouts, providing project-specific workspace configurations and seamless workflow continuity across Multi Commander sessions.</p>
+
+	<div class="row">
+		<div class="col-md-6">
+			<div class="card">
+				<div class="card-header bg-success text-white">
+					<h6 class="mb-0"><i class="bi bi-download me-2"></i><a name="save-tabs"></a>5. Save Tabs To File</h6>
+				</div>
+				<div class="card-body">
+					<h6>Tab Layout Export</h6>
+					<ul class="small">
+						<li><strong>Complete Layout:</strong> Save current tab configuration or all tabs to file</li>
+						<li><strong>Project Workflows:</strong> Create project-specific workspace configurations</li>
+						<li><strong>Backup Configurations:</strong> Preserve complex tab setups for future restoration</li>
+						<li><strong>Sharing Capability:</strong> Export tab layouts for use on other Multi Commander installations</li>
+					</ul>
+
+					<div class="alert alert-info p-2 mt-3">
+						<h6 class="small mb-1"><i class="bi bi-code me-1"></i>Command Integration</h6>
+						<p class="small mb-0">Tab layouts can be saved programmatically using the Custom Command <a href="/Docs/customcommands_list#mc.savetabs" class="text-decoration-none">MC.SaveTabs</a> in User Defined Commands.</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-6">
+			<div class="card">
+				<div class="card-header bg-primary text-white">
+					<h6 class="mb-0"><i class="bi bi-upload me-2"></i><a name="load-tabs"></a>6. Load Tabs From File</h6>
+				</div>
+				<div class="card-body">
+					<h6>Configuration Restoration</h6>
+					<ul class="small">
+						<li><strong>Layout Import:</strong> Load previously saved tab configurations from file</li>
+						<li><strong>Instant Setup:</strong> Immediately restore complex workspace arrangements</li>
+						<li><strong>Project Switching:</strong> Quickly switch between different project configurations</li>
+						<li><strong>Workflow Continuity:</strong> Resume work exactly where previous session ended</li>
+					</ul>
+
+					<div class="alert alert-info p-2 mt-3">
+						<h6 class="small mb-1"><i class="bi bi-code me-1"></i>Command Integration</h6>
+						<p class="small mb-0">Tab layouts can be loaded programmatically using the Custom Command <a href="/Docs/customcommands_list#mc.loadtabs" class="text-decoration-none">MC.LoadTabs</a> in User Defined Commands.</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<section id="tab-locking" class="mt-5">
+	<h3>Tab Locking and Navigation Control</h3>
+	<p>Advanced tab locking functionality provides precise control over tab navigation behavior, enabling workspace stability and preventing accidental navigation changes while supporting both complete path locking and flexible subpath navigation options.</p>
+
+	<div class="row">
+		<div class="col-md-6">
+			<div class="card">
+				<div class="card-header bg-warning text-dark">
+					<h6 class="mb-0"><i class="bi bi-lock me-2"></i><a name="lock-tab"></a>7. Lock Tab</h6>
+				</div>
+				<div class="card-body">
+					<h6>Complete Path Locking</h6>
+					<ul class="small">
+						<li><strong>Explorer Panel Only:</strong> Locking available only for Explorer Panel tabs</li>
+						<li><strong>Path Restriction:</strong> Prevents navigation away from current path</li>
+						<li><strong>Visual Indicator:</strong> Asterisk (*) displayed before tab name when locked</li>
+						<li><strong>Navigation Control:</strong> Configure in Explorer Panel settings whether to open new tab or ignore navigation</li>
+					</ul>
+
+					<h6>Lock Behavior Configuration</h6>
+					<ul class="small">
+						<li><strong>New Tab Option:</strong> Open new tab for navigation attempts when locked</li>
+						<li><strong>Ignore Navigation:</strong> Simply ignore navigation attempts to maintain current path</li>
+						<li><strong>Setting Location:</strong> Configure behavior in Explorer Panel settings</li>
+						<li><strong>Workflow Stability:</strong> Prevent accidental navigation from important reference locations</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-6">
+			<div class="card">
+				<div class="card-header bg-info text-white">
+					<h6 class="mb-0"><i class="bi bi-unlock me-2"></i><a name="lock-subpath"></a>8. Lock Tab - Allow Subpath Change</h6>
+				</div>
+				<div class="card-body">
+					<h6>Flexible Subpath Navigation</h6>
+					<ul class="small">
+						<li><strong>Partial Locking:</strong> Lock to specific path while allowing subfolder navigation</li>
+						<li><strong>Hierarchy Respect:</strong> Navigate to any subfolder under locked path</li>
+						<li><strong>Example Behavior:</strong> If locked to C:\Windows, allows navigation to any subfolder under C:\Windows\</li>
+						<li><strong>Contained Exploration:</strong> Explore directory hierarchies while maintaining base path restriction</li>
+					</ul>
+
+					<h6>Use Cases</h6>
+					<ul class="small">
+						<li><strong>Project Boundaries:</strong> Stay within specific project directories</li>
+						<li><strong>Security Zones:</strong> Limit navigation to safe directory areas</li>
+						<li><strong>Workflow Focus:</strong> Maintain focus on specific directory hierarchies</li>
+						<li><strong>Training Environments:</strong> Restrict navigation for learning scenarios</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<section id="customization" class="mt-5">
+	<h3>Tab Properties and Visual Customization</h3>
+	<p>The Tab Properties system provides comprehensive visual customization capabilities, enabling personalized tab appearance through color schemes, naming options, and visual behavior settings that enhance workspace organization and navigation efficiency.</p>
+
+	<div class="row">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header bg-dark text-white">
+					<h6 class="mb-0"><i class="bi bi-palette me-2"></i><a name="tab-properties"></a>9. Tab Properties</h6>
+				</div>
+				<div class="card-body">
+					<div class="text-center mt-3 mb-3">
+						<img src="/Docs/Images/TabProperties.png" alt="Tab Properties Dialog" class="img-fluid border rounded shadow-sm" />
+						<p class="text-muted small mt-2">Tab Properties dialog showing color customization and naming options</p>
+					</div>
+
+					<h6>Visual Customization Options</h6>
+					<ul class="small">
+						<li><strong>Color Customization:</strong> Personalize Explorer Panel tab appearance with custom colors</li>
+						<li><strong>Custom Naming:</strong> Override default tab names with descriptive custom labels</li>
+						<li><strong>Solid vs Gradient:</strong> Choose between solid color or gradient color effect</li>
+						<li><strong>Hover Behavior:</strong> Configure active tab color behavior when hovering</li>
+					</ul>
+
+					<h6>Color Rendering Options</h6>
+					<ul class="small">
+						<li><strong>Solid Color:</strong> Tab rendered with single solid color for bold identification</li>
+						<li><strong>Gradient Effect:</strong> Color fades from standard UI color into selected custom color</li>
+						<li><strong>Hover Color Settings:</strong> Active tab uses hover color when "Use Hover Color when tab is active" is enabled</li>
+						<li><strong>Color Requirements:</strong> Core Settings must have "Allow tab colors" enabled for color effects</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="row mt-3">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header bg-success text-white">
+					<h6 class="mb-0"><i class="bi bi-brush me-2"></i>Visual Appearance Examples</h6>
+				</div>
+				<div class="card-body">
+					<div class="text-center mt-3 mb-3">
+						<img src="/Docs/Images/ColoredTab.png" alt="Colored Tab Examples" class="img-fluid border rounded shadow-sm" />
+						<p class="text-muted small mt-2">Example of customized tab colors showing visual differentiation capabilities</p>
+					</div>
+
+					<h6>Color Configuration Details</h6>
+					<ul class="small">
+						<li><strong>Lighter Active Color:</strong> When "Use Hover Color when tab is active" is enabled, active tabs appear lighter for distinction</li>
+						<li><strong>Consistent Color:</strong> Uncheck hover option to maintain same color regardless of tab state</li>
+						<li><strong>Global Color Setting:</strong> Core Settings "Allow tab colors" must be enabled for color effects to display</li>
+						<li><strong>Visual Organization:</strong> Use different colors to categorize tabs by project, location type, or importance</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<section id="keyboard-shortcuts" class="mt-5">
+	<h3>Complete Keyboard Shortcuts Reference</h3>
+	<p>The Panel Tabs system provides essential keyboard shortcuts for efficient tab management without requiring mouse interaction, enabling rapid workspace organization and navigation for keyboard-centric workflows.</p>
+
+	<div class="row">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header bg-primary text-white">
+					<h6 class="mb-0"><i class="bi bi-keyboard me-2"></i>Tab Management Shortcuts</h6>
+				</div>
+				<div class="card-body">
+					<div class="table-responsive">
+						<table class="table table-bordered table-hover">
+							<thead class="table-light">
+								<tr>
+									<th style="width: 30%">Shortcut</th>
+									<th style="width: 70%">Function</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td><kbd>Ctrl</kbd>+<kbd>W</kbd></td>
+									<td>Close current tab</td>
+								</tr>
+								<tr>
+									<td><kbd>Ctrl</kbd>+<kbd>T</kbd></td>
+									<td>Duplicate current tab (create new based on current tab)</td>
+								</tr>
+								<tr>
+									<td>Double-click empty area</td>
+									<td>Create new Explorer Panel tab</td>
+								</tr>
+								<tr>
+									<td>Right-click tab</td>
+									<td>Access comprehensive tab management context menu</td>
+								</tr>
+								<tr>
+									<td>Drag and drop</td>
+									<td>Move tabs between left and right panel sides</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<div class="alert alert-success mt-5">
+	<h6><i class="bi bi-lightbulb me-2"></i>Panel Tabs Mastery</h6>
+	<p class="mb-0">Master Panel Tabs by utilizing drag-and-drop for flexible tab organization, leveraging keyboard shortcuts for rapid tab management, saving complex tab layouts for project-specific configurations, and using tab locking to maintain workspace stability. Remember that each tab can contain different modules beyond Explorer Panels, session management enables complete workspace restoration, and visual customization through Tab Properties helps organize complex multi-tab workflows through color coding and custom naming.</p>
 </div>
 
-<h2><a name="move"></a>4. Move Tab</h2>
-
-<ol>
-	<li><b>Swap the location of left/right panel</b>
-
-	<p>Swap the locations of the active panels in the two panel sides. The tab on the left will move to the right, that on the right will move to the left.</p>
-	</li>
-	<li><b>Move Active panel to other side</b>
-	<p>The current panel will be moved to the other side. A panel on the left side will be moved to the right and vice versa.</p>
-	</li>
-</ol>
-
-<h2><a name="save"></a>5. Save Tabs To File</h2>
-
-<p>Save the layout of the current tab (or all tabs) to a file. This file can then be used to load a new set of tabs, either by selecting "Load Tabs From File" or by creating a User Defined Command.</p>
-
-<div class="dochints">
-<fieldset><legend>Hint</legend>
-
-<p>Tab layouts can be saved from a User Defined Command using the Custom Command <a href="http://multicommander.com#docs_customcommands_list#mc.savetabs">MC.SaveTabs</a></p>
-</fieldset>
+<div class="alert alert-info mt-4">
+	<h6><i class="bi bi-info-circle me-2"></i>Related Workspace Management</h6>
+	<p class="mb-0">Enhance your tab management workflow with related Multi Commander features: <a href="/Docs/mainlayout" class="text-decoration-none">Main Application Layout</a>, <a href="/Docs/user-defined-commands" class="text-decoration-none">User Defined Commands</a>, <a href="/Docs/buttonpanel" class="text-decoration-none">Button Panel</a>, <a href="/Docs/keyboard-customization" class="text-decoration-none">Keyboard Customization</a>, and <a href="/Docs/customcommands_list" class="text-decoration-none">Custom Commands Reference</a>.</p>
 </div>
-
-<h2><a name="load"></a>6. Load Tabs From File</h2>
-
-<p>Loads the layout of tabs from a file that was saved using the "Save Tabs To File" command.</p>
-
-<div class="dochints">
-<fieldset><legend>Hint</legend>
-
-<p>Tab layouts can be loaded from a User Defined Command using the Custom Command <a href="http://multicommander.com#docs_customcommands_list#mc.loadtabs">MC.LoadTabs</a></p>
-</fieldset>
-</div>
-
-<h2><a name="lock"></a>7. Lock Tab</h2>
-
-<p>If the tab is an Explorer Panel then it will be locked to its current path: it will not be possible to navigate away from this path.<br />
-In Explorer Panel settings it is possible to configure whether a new tab should be open instead or if the new path navigation should simply be ignored.<br />
-A <b>*</b> will be shown before the tab name to indicate that the tab is locked.</p>
-
-<h2><a name="lockallowsubchange"></a>8. Lock Tab - Allow subpath change</h2>
-
-<p>If the tab is an Explorer Panel and "Lock Tab - Allow subpath change" is enabled, the Explorer Panel is locked to a path, but it will allow a change of path to a subfolder under the locked path. For example, if the path is locked to C:\Windows it will allow navigation to any subfolder and sub-subfolder under C:\Windows\.</p>
-
-<h2><a name="properties"></a>9. Tab Properties</h2>
-
-<p>In Tab Properties you can can customize the look of an Explorer Panel tab, for example to change colors or force a tab name.</p>
-
-<p><img alt="" src="/Docs/Images/TabProperties.png" /></p>
-
-<p>If <b>"Solid Color"</b> is selected the tab will be drawn with one solid colorotherwise it will be rendered with a color gradient, starting with the standard UI color (often greyish) that fades into the selected color.</p>
-
-<p>If the Core settings for "Allow tab colors" is disabled, this color setting will have no effect.</p>
-
-<p>If <strong>"Use Hover Color when tab is active"</strong> is active, then when the tab is active the color will be the same as when hovering over it.<br />
-It will be shown a little lighter than the selected color to make it stand out.<br />
-If the color should always be the same as the selected color, uncheck this option.</p>
-
-<p>&nbsp;</p>
-
-<p><img alt="" src="/Docs/Images/ColoredTab.png" style="border-width: 1px; border-style: solid;" /></p>
 
 

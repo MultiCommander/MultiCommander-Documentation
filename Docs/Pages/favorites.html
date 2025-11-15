@@ -1,69 +1,423 @@
 <h2>Favorites</h2>
-<p>The Favorites window will be shown if you press the Favorites button on the toolbar.</p>
 
-<p><img alt="" src="/Docs/Images/Favorites_ToolbarBtn.png" style="width: 500px; height: 151px;" /></p>
+<p>The <strong>Favorites</strong> system provides comprehensive bookmark management for file system locations and web addresses through an intuitive window interface that combines instant access, organizational flexibility, and powerful keyboard shortcuts. This essential productivity tool transforms repetitive navigation into efficient workflow automation by offering multiple access methods, hierarchical organization, and seamless integration with Multi Commander's dual-panel interface.</p>
 
-<div class="dochints">
-<fieldset><legend>Shortcuts</legend>
-
-<p>ALT+Backspace - Show Favorites Window</p>
-</fieldset>
+<div class="alert alert-primary">
+	<h6><i class="bi bi-star me-2"></i>Comprehensive Bookmark Management</h6>
+	<p class="mb-0">Experience the power of organized location management through Quick Paths for instant keyboard access, unlimited Favorites for comprehensive bookmark collections, and specialized sections for different types of content. The Favorites system eliminates repetitive navigation while providing flexible organization tools that adapt to any workflow requirement.</p>
 </div>
 
-<p>When the Favorites window is shown it will open with the section that you had opened last.</p>
+<nav class="navbar navbar-expand-lg navbar-light bg-light mb-4">
+	<div class="container-fluid">
+		<span class="navbar-brand">Quick Navigation</span>
+		<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#favoritesNav">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="favoritesNav">
+			<ul class="navbar-nav">
+				<li class="nav-item"><a class="nav-link" href="#access">Access Methods</a></li>
+				<li class="nav-item"><a class="nav-link" href="#interface">Window Interface</a></li>
+				<li class="nav-item"><a class="nav-link" href="#sections">Favorites Sections</a></li>
+				<li class="nav-item"><a class="nav-link" href="#quickpaths">Quick Paths</a></li>
+				<li class="nav-item"><a class="nav-link" href="#management">Management</a></li>
+				<li class="nav-item"><a class="nav-link" href="#virtual-filesystem">Virtual FileSystem</a></li>
+			</ul>
+		</div>
+	</div>
+</nav>
 
-<p><img alt="" src="/Docs/Images/FavoritesWindow.png" style="width: 500px; height: 350px;" /></p>
+<section id="access">
+	<h3>Accessing the Favorites Window</h3>
+	<p>The Favorites window provides multiple access methods designed for different usage patterns and preferences, ensuring that bookmark management remains efficient whether using mouse, keyboard, or toolbar interactions.</p>
 
-<p>Favorites is a path to location that can be access faster. It can be a path to a filesystem location, but also path to a web address is possible.<br />
-The Favorites window is automatically close if it loses input focus, So you do not have to click the X button. pressing ESC or clicking anywhere outside the window will automatically close it.</p>
+	<div class="row">
+		<div class="col-md-6">
+			<div class="card">
+				<div class="card-header bg-success text-white">
+					<h6 class="mb-0"><i class="bi bi-mouse me-2"></i>Toolbar Access</h6>
+				</div>
+				<div class="card-body">
+					<div class="text-center mt-3 mb-3">
+						<img src="/Docs/Images/Favorites_ToolbarBtn.png" alt="Favorites Toolbar Button" class="img-fluid border rounded shadow-sm" style="max-width: 500px;" />
+						<p class="text-muted small mt-2">Favorites button located in the toolbar for instant access</p>
+					</div>
 
-<h3>1. Favorites Sections</h3>
+					<h6>Mouse Access</h6>
+					<ul class="small">
+						<li><strong>Star Button:</strong> Click the star button in the toolbar</li>
+						<li><strong>Visual Indicator:</strong> Clear star icon provides instant recognition</li>
+						<li><strong>Single Click:</strong> Immediate window activation with last used section</li>
+						<li><strong>Consistent Location:</strong> Always available regardless of current panel state</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-6">
+			<div class="card">
+				<div class="card-header bg-primary text-white">
+					<h6 class="mb-0"><i class="bi bi-keyboard me-2"></i>Keyboard Access</h6>
+				</div>
+				<div class="card-body">
+					<div class="alert alert-info p-2">
+						<h6 class="small mb-1"><i class="bi bi-keyboard me-1"></i>Keyboard Shortcut</h6>
+						<p class="small mb-0"><kbd>Alt</kbd>+<kbd>Backspace</kbd> - Show Favorites Window</p>
+					</div>
 
-<p>It is possible to have multiple sections of Favorites for easier management.<br />
-In many sections it is possible to have different lists of Favorites for different purposes</p>
+					<h6>Keyboard Benefits</h6>
+					<ul class="small">
+						<li><strong>Universal Access:</strong> Works from any Multi Commander location or mode</li>
+						<li><strong>Rapid Operation:</strong> Instant access without mouse movement</li>
+						<li><strong>Workflow Integration:</strong> Seamless integration with keyboard-centric workflows</li>
+						<li><strong>Consistent Behavior:</strong> Same shortcut across all Multi Commander contexts</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
 
-<p>Above the section name you will see F1, F2 and so on. This is the shortcut key to switch to that section.</p>
+<section id="interface" class="mt-5">
+	<h3>Favorites Window Interface</h3>
+	<p>The Favorites window serves as the central hub for managing bookmarked locations, providing access to Quick Paths for keyboard shortcuts, unlimited Favorites collections, and specialized sections for different content types. The window intelligently remembers your last active section and automatically closes when focus is lost, ensuring minimal workspace disruption while maintaining instant accessibility.</p>
 
-<h3>2. QuickPaths</h3>
+	<div class="row">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header bg-info text-white">
+					<h6 class="mb-0"><i class="bi bi-window me-2"></i>Window Layout and Behavior</h6>
+				</div>
+				<div class="card-body">
+					<div class="text-center mt-3 mb-3">
+						<img src="/Docs/Images/FavoritesWindow.png" alt="Favorites Window Interface" class="img-fluid border rounded shadow-sm" style="max-width: 500px;" />
+						<p class="text-muted small mt-2">Favorites window showing numbered interface components and organizational structure</p>
+					</div>
 
-<p>The first section is special. This section has 10 fixed Favorites that are assigned to the QuickPath shortcut keys.<br />
-The QuickPaths may be accessed from almost anywhere by pressing <strong>Ctrl+1</strong>, <strong>Ctrl+2</strong> and so on up to <strong>Ctrl+0</strong></p>
+					<h6>Key Features</h6>
+					<ul class="small">
+						<li><strong>Session Memory:</strong> Opens with the last active section for workflow continuity</li>
+						<li><strong>Auto-Close Behavior:</strong> Automatically closes when losing input focus to minimize workspace clutter</li>
+						<li><strong>Multiple Content Types:</strong> Supports file system paths and web addresses in unified interface</li>
+						<li><strong>Keyboard Navigation:</strong> Complete keyboard control for rapid operation without mouse interaction</li>
+					</ul>
 
-<p>Right click on a QuickPath item and select the actin you need: Clear/Modify/Copy/Set Current</p>
+					<h6>Auto-Close Functionality</h6>
+					<ul class="small">
+						<li><strong>Focus Loss:</strong> Window automatically closes when clicking outside or switching applications</li>
+						<li><strong>ESC Key:</strong> Press <kbd>Esc</kbd> for immediate window closure</li>
+						<li><strong>No Manual Closing:</strong> Eliminates need to click X button for streamlined operation</li>
+						<li><strong>Workspace Efficiency:</strong> Prevents window clutter while maintaining instant accessibility</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
 
-<p>To set the current active path to a QuickPath item, select the path and press <strong>Ctrl+S</strong></p>
+<section id="sections" class="mt-5">
+	<h3>1. Favorites Sections</h3>
+	<p>The Favorites system provides multiple organizational sections, each optimized for specific use cases and access patterns, from instant keyboard shortcuts to comprehensive bookmark collections and specialized content types.</p>
 
-<h3>3. Add Section</h3>
+	<div class="row">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header bg-primary text-white">
+					<h6 class="mb-0"><i class="bi bi-layers me-2"></i>Section Management and Navigation</h6>
+				</div>
+				<div class="card-body">
+					<h6>Multiple Sections for Enhanced Organization</h6>
+					<ul class="small">
+						<li><strong>Purpose-Based Organization:</strong> Create different sections for different project types or workflows</li>
+						<li><strong>Function Key Access:</strong> Use <kbd>F1</kbd>, <kbd>F2</kbd>, <kbd>F3</kbd> etc. to switch between sections</li>
+						<li><strong>Visual Indicators:</strong> Function key numbers displayed above section names for quick identification</li>
+						<li><strong>Flexible Management:</strong> Add, rename, or remove sections based on changing needs</li>
+					</ul>
 
-<p>Press this to add a new section to the list.</p>
+					<h6>Section Operations</h6>
+					<ul class="small">
+						<li><strong>Add Sections:</strong> Create new sections for specialized organization</li>
+						<li><strong>Section Naming:</strong> Right-click section titles to rename or remove them</li>
+						<li><strong>Tab Interface:</strong> Click section names to change active section</li>
+						<li><strong>Session Memory:</strong> Window opens with previously active section</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
 
-<p>Right click on existing section titles to rename or remove them</p>
+<section id="quickpaths" class="mt-5">
+	<h3>2. Quick Paths</h3>
+	<p>The first section provides a special Quick Paths system designed for power users who need instant keyboard access to their most frequently used locations. This system offers unparalleled speed for navigating to essential directories.</p>
 
-<h3>4. Favorites list</h3>
+	<div class="row">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header bg-success text-white">
+					<h6 class="mb-0"><i class="bi bi-lightning me-2"></i>Quick Paths System</h6>
+				</div>
+				<div class="card-body">
+					<h6>Instant Keyboard Access</h6>
+					<ul class="small">
+						<li><strong>Fixed Capacity:</strong> Exactly 10 Quick Path slots for optimal keyboard accessibility</li>
+						<li><strong>Keyboard Shortcuts:</strong> Access via <kbd>Ctrl</kbd>+<kbd>1</kbd>, <kbd>Ctrl</kbd>+<kbd>2</kbd>, up to <kbd>Ctrl</kbd>+<kbd>0</kbd></li>
+						<li><strong>Universal Access:</strong> Available from almost anywhere within Multi Commander</li>
+						<li><strong>Immediate Navigation:</strong> Single key combination for instant location switching</li>
+					</ul>
 
-<p>All Favorites for the active section are listed here. With right click a menu is shown with actions that can performed in the list<br />
-It is also possible to create subsections where favorites can be placed or moved to. Subsections are useful when you have many Favorites and theyneed to be better organized.</p>
+					<h6>Quick Path Management</h6>
+					<ul class="small">
+						<li><strong>Right-Click Menu:</strong> Access Clear, Modify, Copy, or Set Current options</li>
+						<li><strong>Set Current Path:</strong> Select a Quick Path slot and press <kbd>Ctrl</kbd>+<kbd>S</kbd> to assign current active path</li>
+						<li><strong>Direct Assignment:</strong> Type path directly or browse to location</li>
+						<li><strong>Productivity Optimization:</strong> Eliminate repetitive navigation to commonly used locations</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
 
-<p>To Add a new Favorite to the list press <strong>Ctrl+N</strong>.&nbsp; The Favorite's name and path are by default the path of the active panel.<br />
-Press <strong>Ctrl+F</strong> to create a new subsection. <strong>Ctrl+E</strong> will edit and allow the current selected Favorite item to be modified.</p>
+<section id="add-section" class="mt-5">
+	<h3>3. Add Section</h3>
+	<p>The Add Section functionality provides flexible organizational capabilities, enabling users to create custom bookmark categories that match their specific workflow requirements and project structures.</p>
 
-<p>Pressing <strong>Ctrl+Q</strong> and the list will toggle between showing the Favorites name and the target path.</p>
+	<div class="row">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header bg-warning text-dark">
+					<h6 class="mb-0"><i class="bi bi-plus-circle me-2"></i>Section Creation and Management</h6>
+				</div>
+				<div class="card-body">
+					<h6>Creating New Sections</h6>
+					<ul class="small">
+						<li><strong>Add Button:</strong> Press the Add Section button to create a new organizational section</li>
+						<li><strong>Custom Naming:</strong> Assign meaningful names that reflect the section's purpose</li>
+						<li><strong>Project Organization:</strong> Create sections for different projects, clients, or workflows</li>
+						<li><strong>Flexible Structure:</strong> Adapt section organization to changing requirements</li>
+					</ul>
 
-<p><strong>Ctrl+C</strong> and <strong>Ctrl+V</strong> can be use to copy and paste Favorites. They can be used to copy a Favorite from one section and paste it into another.<br />
-<span style="line-height: 1.6;">It is also possible to drag and drop Favorites to rearrange their order and placement inside the current section.</span></p>
+					<h6>Section Management Operations</h6>
+					<ul class="small">
+						<li><strong>Right-Click Context Menu:</strong> Right-click on existing section titles to access management options</li>
+						<li><strong>Rename Sections:</strong> Modify section names to reflect current usage patterns</li>
+						<li><strong>Remove Sections:</strong> Delete unused sections to maintain clean organization</li>
+						<li><strong>Reorder Sections:</strong> Arrange sections in order of importance or frequency of use</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
 
-<h3>5. Help/Hint Texts</h3>
+<section id="management" class="mt-5">
+	<h3>4. Favorites List</h3>
+	<p>The Favorites list serves as the primary workspace for managing bookmarked locations within each section, providing comprehensive tools for creation, editing, organization, and navigation of favorite entries.</p>
 
-<p>This field will show hints and help text</p>
+	<div class="row">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header bg-info text-white">
+					<h6 class="mb-0"><i class="bi bi-list-ul me-2"></i>Favorites List Management</h6>
+				</div>
+				<div class="card-body">
+					<h6>Core Management Functions</h6>
+					<ul class="small">
+						<li><strong>Add New Favorite:</strong> Press <kbd>Ctrl</kbd>+<kbd>N</kbd> to create new favorite with current panel path</li>
+						<li><strong>Create Subsection:</strong> Press <kbd>Ctrl</kbd>+<kbd>F</kbd> to add organizational subsections</li>
+						<li><strong>Edit Favorite:</strong> Press <kbd>Ctrl</kbd>+<kbd>E</kbd> to modify selected favorite properties</li>
+						<li><strong>Toggle Display:</strong> Press <kbd>Ctrl</kbd>+<kbd>Q</kbd> to switch between showing names and target paths</li>
+					</ul>
 
-<h3>6. Filter</h3>
+					<h6>Organizational Features</h6>
+					<ul class="small">
+						<li><strong>Subsections:</strong> Create nested organization for better management of large favorite collections</li>
+						<li><strong>Drag-and-Drop:</strong> Rearrange favorites by dragging to new positions within sections</li>
+						<li><strong>Right-Click Menus:</strong> Access comprehensive context menus for advanced operations</li>
+						<li><strong>Copy/Paste Operations:</strong> Use <kbd>Ctrl</kbd>+<kbd>C</kbd> and <kbd>Ctrl</kbd>+<kbd>V</kbd> to transfer favorites between sections</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
 
-<p>Type here and the list result will be filtered. It is a way to minimize the list if there are a lot of Favorites.</p>
+<section id="help-hints" class="mt-5">
+	<h3>5. Help/Hint Texts</h3>
+	<p>The Help and Hint area provides contextual guidance and status information to enhance user understanding and provide real-time feedback during favorites management operations.</p>
 
-<h2><strong>Browse Favorites like a FileSystem</strong></h2>
+	<div class="row">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header bg-dark text-white">
+					<h6 class="mb-0"><i class="bi bi-info-circle me-2"></i>Contextual Help System</h6>
+				</div>
+				<div class="card-body">
+					<h6>Information Display</h6>
+					<ul class="small">
+						<li><strong>Operation Hints:</strong> Display helpful tips and guidance for current operations</li>
+						<li><strong>Status Information:</strong> Show current operation status and available actions</li>
+						<li><strong>Keyboard Shortcuts:</strong> Display relevant keyboard shortcuts for current context</li>
+						<li><strong>Error Messages:</strong> Provide clear feedback for invalid operations or missing resources</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
 
-<p>Favorites are also exposed as a virtual filesystem under the virtual device <strong>FAV:</strong> and also found in the device dropdown or folder tree</p>
+<section id="filter" class="mt-5">
+	<h3>6. Filter</h3>
+	<p>The Filter functionality provides efficient navigation through large favorite collections by offering real-time search capabilities that reduce displayed results to match specific criteria.</p>
 
-<p><a href="#docs_filesystem/favorites">Read more about that here</a></p>
+	<div class="row">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header bg-success text-white">
+					<h6 class="mb-0"><i class="bi bi-funnel me-2"></i>Search and Filter System</h6>
+				</div>
+				<div class="card-body">
+					<h6>Filter Capabilities</h6>
+					<ul class="small">
+						<li><strong>Real-Time Filtering:</strong> Type in filter field to instantly reduce displayed favorites list</li>
+						<li><strong>Name and Path Search:</strong> Filter searches both favorite names and target paths</li>
+						<li><strong>Dynamic Results:</strong> Results update instantly as you type for immediate feedback</li>
+						<li><strong>Large Collection Management:</strong> Essential tool for managing extensive favorite collections efficiently</li>
+					</ul>
+
+					<h6>Filter Benefits</h6>
+					<ul class="small">
+						<li><strong>Quick Location:</strong> Rapidly find specific favorites in large collections</li>
+						<li><strong>Reduced Visual Clutter:</strong> Focus on relevant entries by hiding non-matching items</li>
+						<li><strong>Improved Productivity:</strong> Eliminate scrolling through long lists to find desired bookmarks</li>
+						<li><strong>Pattern Matching:</strong> Use partial text to find favorites with similar characteristics</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<section id="virtual-filesystem" class="mt-5">
+	<h3>Browse Favorites like a FileSystem</h3>
+	<p>The Favorites system extends beyond the traditional window interface through the innovative FAV: virtual filesystem, which presents your bookmarks as a browsable file system that supports drag-and-drop operations and standard file management actions.</p>
+
+	<div class="row">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header bg-primary text-white">
+					<h6 class="mb-0"><i class="bi bi-hdd me-2"></i>FAV: Virtual Device Access</h6>
+				</div>
+				<div class="card-body">
+					<h6>Virtual FileSystem Integration</h6>
+					<p class="small">Favorites are exposed as a virtual filesystem under the virtual device <strong>FAV:</strong> and can be found in the device dropdown or folder tree, providing an alternative interface for bookmark management.</p>
+
+					<h6>Access Methods</h6>
+					<ul class="small">
+						<li><strong>Device Dropdown:</strong> Select FAV: from the drive dropdown menu</li>
+						<li><strong>Address Bar:</strong> Type "FAV:" directly in the address bar</li>
+						<li><strong>Folder Tree:</strong> Navigate to FAV: device through the folder tree panel</li>
+						<li><strong>Command Line:</strong> Use command line navigation to access FAV: device</li>
+					</ul>
+
+					<h6>FileSystem Benefits</h6>
+					<ul class="small">
+						<li><strong>Familiar Interface:</strong> Manage favorites using standard file operations</li>
+						<li><strong>Drag-and-Drop Support:</strong> Add favorites by dropping files and folders</li>
+						<li><strong>Dual-Panel Integration:</strong> Use favorites alongside normal file management</li>
+						<li><strong>Standard Operations:</strong> Copy, cut, paste, and delete work as expected</li>
+					</ul>
+
+					<div class="alert alert-info p-2 mt-3">
+						<h6 class="small mb-1"><i class="bi bi-info-circle me-1"></i>Additional Information</h6>
+						<p class="small mb-0">For comprehensive details about the FAV: virtual filesystem, see <a href="/Docs/filesystem/favorites" class="text-decoration-none">Favorites FileSystem Documentation</a>.</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<section id="keyboard-shortcuts" class="mt-5">
+	<h3>Complete Keyboard Shortcuts Reference</h3>
+	<p>The Favorites system provides comprehensive keyboard control for efficient operation without mouse interaction, enabling rapid bookmark management and navigation for keyboard-centric workflows.</p>
+
+	<div class="row">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header bg-dark text-white">
+					<h6 class="mb-0"><i class="bi bi-keyboard me-2"></i>Keyboard Shortcuts Reference</h6>
+				</div>
+				<div class="card-body">
+					<div class="table-responsive">
+						<table class="table table-bordered table-hover">
+							<thead class="table-light">
+								<tr>
+									<th style="width: 30%">Shortcut</th>
+									<th style="width: 70%">Function</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td><kbd>Alt</kbd>+<kbd>Backspace</kbd></td>
+									<td>Show Favorites Window</td>
+								</tr>
+								<tr>
+									<td><kbd>F1</kbd>, <kbd>F2</kbd>, <kbd>F3</kbd></td>
+									<td>Switch between favorites sections</td>
+								</tr>
+								<tr>
+									<td><kbd>Ctrl</kbd>+<kbd>1-9</kbd>, <kbd>0</kbd></td>
+									<td>Navigate to Quick Path locations</td>
+								</tr>
+								<tr>
+									<td><kbd>Ctrl</kbd>+<kbd>S</kbd></td>
+									<td>Set current path to selected Quick Path slot</td>
+								</tr>
+								<tr>
+									<td><kbd>Ctrl</kbd>+<kbd>N</kbd></td>
+									<td>Add new favorite to current section</td>
+								</tr>
+								<tr>
+									<td><kbd>Ctrl</kbd>+<kbd>F</kbd></td>
+									<td>Create new subsection</td>
+								</tr>
+								<tr>
+									<td><kbd>Ctrl</kbd>+<kbd>E</kbd></td>
+									<td>Edit selected favorite</td>
+								</tr>
+								<tr>
+									<td><kbd>Ctrl</kbd>+<kbd>Q</kbd></td>
+									<td>Toggle between showing names and paths</td>
+								</tr>
+								<tr>
+									<td><kbd>Ctrl</kbd>+<kbd>C</kbd></td>
+									<td>Copy selected favorites</td>
+								</tr>
+								<tr>
+									<td><kbd>Ctrl</kbd>+<kbd>V</kbd></td>
+									<td>Paste favorites into current section</td>
+								</tr>
+								<tr>
+									<td><kbd>Esc</kbd></td>
+									<td>Close Favorites window</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<div class="alert alert-success mt-5">
+	<h6><i class="bi bi-lightbulb me-2"></i>Favorites System Mastery</h6>
+	<p class="mb-0">Master the Favorites system by utilizing Quick Paths for your most frequently accessed locations, organizing comprehensive bookmark collections in the main Favorites section with logical subsections, and leveraging the FAV: virtual filesystem for drag-and-drop convenience. Remember that effective favorites management combines keyboard shortcuts for rapid access with visual organization through sections and subsections, creating a personalized navigation system that eliminates repetitive browsing and accelerates every workflow.</p>
+</div>
+
+<div class="alert alert-info mt-4">
+	<h6><i class="bi bi-info-circle me-2"></i>Related Productivity Features</h6>
+	<p class="mb-0">Enhance your navigation efficiency with related Multi Commander features: <a href="/Docs/filesystem/favorites" class="text-decoration-none">FAV: Virtual FileSystem</a>, <a href="/Docs/commandlinebar" class="text-decoration-none">Command Line Bar</a>, <a href="/Docs/quicklaunchbar" class="text-decoration-none">Quick Launch Bar</a>, and <a href="/Docs/keyboard-customization" class="text-decoration-none">Keyboard Customization</a>.</p>
+</div>
 
 

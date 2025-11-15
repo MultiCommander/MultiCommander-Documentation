@@ -1,32 +1,630 @@
 <h2>Multi Commander Crashes</h2>
-<h2>If Multi Commander Crashes</h2>
 
-<p>A crash can happen for many different reasons. Perhaps because of a bug in Multi Commander, but also because of external factors, like bad memory or bad hardware or conflicts with other software.</p>
+<p>Multi Commander crashes can occur due to various factors, ranging from internal software bugs to external system issues, hardware problems, or conflicts with third-party software. Understanding the crash reporting system and implementing proper troubleshooting strategies helps identify and resolve these issues effectively.</p>
 
-<p>When Multi Commander crashes it will, by default, try to create a mini crash dump and send it to our crash report system.<br />
-The crash report system will then do an automatic analysis of the crash and send the result for review. If the issue needs more investigation it will be analyzed manually.</p>
+<div class="alert alert-info">
+	<h6><i class="bi bi-info-circle me-2"></i>Automatic Crash Reporting</h6>
+	<p class="mb-0">When Multi Commander crashes, it automatically creates a mini crash dump and sends it to our crash report system for analysis. This helps developers identify and fix issues quickly, but you can also take steps to provide more detailed information.</p>
+</div>
 
-<p>With the crash dump we can see where in Multi Commander the crash happened and sometimes the reason why.<br />
-However, the crash dump file that is created by default has very limited information and sometimes does not have enough for us to find out what has happened.</p>
+<nav class="navbar navbar-expand-lg navbar-light bg-light mb-4">
+	<div class="container-fluid">
+		<span class="navbar-brand">Quick Navigation</span>
+		<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#crashNav">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="crashNav">
+			<ul class="navbar-nav">
+				<li class="nav-item"><a class="nav-link" href="#understanding-crashes">Understanding</a></li>
+				<li class="nav-item"><a class="nav-link" href="#shell-extensions">Shell Extensions</a></li>
+				<li class="nav-item"><a class="nav-link" href="#crash-reporting">Crash Reporting</a></li>
+				<li class="nav-item"><a class="nav-link" href="#troubleshooting">Troubleshooting</a></li>
+				<li class="nav-item"><a class="nav-link" href="#prevention">Prevention</a></li>
+			</ul>
+		</div>
+	</div>
+</nav>
 
-<h2>Shell Extensions</h2>
+<section id="understanding-crashes">
+	<h3>Understanding Multi Commander Crashes</h3>
+	<p>Crashes occur when Multi Commander encounters an unrecoverable error that forces the application to terminate unexpectedly. Identifying the root cause is essential for effective resolution.</p>
 
-<p>The most common reason for crashes is third party programs that get executed inside the Multi Commander process. This happens often when Multi Commander is using Windows Explorer Shell Extensions for building the Context Menu ("Right-Click" menu).</p>
+	<div class="row">
+		<div class="col-md-6">
+			<div class="card">
+				<div class="card-header bg-danger text-white">
+					<h6 class="mb-0"><i class="bi bi-x-circle me-2"></i>Internal Causes</h6>
+				</div>
+				<div class="card-body">
+					<h6>Software-Related Issues</h6>
+					<ul class="small">
+						<li><strong>Programming bugs:</strong> Logic errors or memory management issues</li>
+						<li><strong>Resource exhaustion:</strong> Memory leaks or excessive resource usage</li>
+						<li><strong>Data corruption:</strong> Invalid configuration or damaged files</li>
+						<li><strong>Extension conflicts:</strong> Incompatible or buggy extensions</li>
+						<li><strong>File system errors:</strong> Corrupted filesystem structures</li>
+						<li><strong>Threading issues:</strong> Race conditions or deadlocks</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-6">
+			<div class="card">
+				<div class="card-header bg-warning text-dark">
+					<h6 class="mb-0"><i class="bi bi-exclamation-triangle me-2"></i>External Causes</h6>
+				</div>
+				<div class="card-body">
+					<h6>System and Hardware Issues</h6>
+					<ul class="small">
+						<li><strong>Hardware failures:</strong> Bad RAM, failing storage devices</li>
+						<li><strong>Driver conflicts:</strong> Outdated or incompatible device drivers</li>
+						<li><strong>System instability:</strong> Overheating, power supply issues</li>
+						<li><strong>Antivirus interference:</strong> Overly aggressive scanning</li>
+						<li><strong>Third-party software:</strong> System utilities or security software</li>
+						<li><strong>Windows updates:</strong> System changes affecting compatibility</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
 
-<p>A lot of shell extensions are only tested on Windows Explorer, so when programs like Multi Commander call them, they can crash Multi Commander because the Extension has a coding error. There is nothing Multi Commander can do about this.</p>
+	<div class="row mt-3">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header bg-info text-white">
+					<h6 class="mb-0"><i class="bi bi-graph-up me-2"></i>Crash Analysis Process</h6>
+				</div>
+				<div class="card-body">
+					<div class="row">
+						<div class="col-md-4">
+							<h6>1. Automatic Collection</h6>
+							<ul class="small">
+								<li>Mini crash dump created automatically</li>
+								<li>Basic system information gathered</li>
+								<li>Crash location and stack trace captured</li>
+								<li>Automatic submission to crash report system</li>
+							</ul>
+						</div>
+						<div class="col-md-4">
+							<h6>2. Analysis Processing</h6>
+							<ul class="small">
+								<li>Automated crash analysis performed</li>
+								<li>Pattern recognition and categorization</li>
+								<li>Duplicate detection and grouping</li>
+								<li>Priority assignment based on frequency</li>
+							</ul>
+						</div>
+						<div class="col-md-4">
+							<h6>3. Developer Investigation</h6>
+							<ul class="small">
+								<li>Manual review of complex crashes</li>
+								<li>Root cause analysis and debugging</li>
+								<li>Fix development and testing</li>
+								<li>Release scheduling and distribution</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
 
-<p>One thing you as a user can do is to disable Shell Extensions one by one to find out which one is at fault. A tool to disable/enable Shell Extensions is the free <a href="http://www.nirsoft.net/utils/shexview.html" target="_blank">ShellExView by NirSoft</a></p>
+<section id="shell-extensions" class="mt-5">
+	<h3>Shell Extensions: The Primary Crash Cause</h3>
+	<p>Third-party shell extensions are the most common cause of Multi Commander crashes. These extensions run within Multi Commander's process space and can cause instability when poorly coded or incompatible.</p>
 
-<h2>Provide Better Crash Information</h2>
+	<div class="alert alert-warning">
+		<h6><i class="bi bi-exclamation-triangle me-2"></i>Shell Extension Risk</h6>
+		<p class="mb-0">Shell extensions are often tested only with Windows Explorer. When Multi Commander uses these extensions for context menus and file operations, coding errors in the extensions can crash Multi Commander through no fault of the application itself.</p>
+	</div>
 
-<p>Since the default crash report is limited in information, what it does provide is not always useful. If you have regular crashes, please consider changing the Crash Dump Format to a higher level. This will provide us with more and better information to determine why it crashed.</p>
+	<div class="row">
+		<div class="col-md-6">
+			<div class="card">
+				<div class="card-header bg-primary text-white">
+					<h6 class="mb-0"><i class="bi bi-puzzle me-2"></i>What are Shell Extensions?</h6>
+				</div>
+				<div class="card-body">
+					<h6>Shell Extension Types</h6>
+					<ul class="small">
+						<li><strong>Context Menu Handlers:</strong> Right-click menu additions</li>
+						<li><strong>Icon Overlay Handlers:</strong> File icon modifications</li>
+						<li><strong>Property Sheet Handlers:</strong> File properties extensions</li>
+						<li><strong>Thumbnail Handlers:</strong> Custom preview generators</li>
+						<li><strong>Preview Handlers:</strong> File preview providers</li>
+						<li><strong>Column Providers:</strong> Additional file list columns</li>
+					</ul>
+					<h6>Common Sources</h6>
+					<ul class="small">
+						<li>Cloud storage clients (Dropbox, OneDrive, Google Drive)</li>
+						<li>Version control systems (Git, SVN, TFS)</li>
+						<li>Compression utilities (WinRAR, 7-Zip)</li>
+						<li>Media software (codec packs, players)</li>
+						<li>Security software (antivirus, encryption)</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-6">
+			<div class="card">
+				<div class="card-header bg-danger text-white">
+					<h6 class="mb-0"><i class="bi bi-bug me-2"></i>Why Shell Extensions Crash Multi Commander</h6>
+				</div>
+				<div class="card-body">
+					<h6>Technical Issues</h6>
+					<ul class="small">
+						<li><strong>Memory violations:</strong> Improper memory management</li>
+						<li><strong>Exception handling:</strong> Unhandled exceptions propagating</li>
+						<li><strong>Threading problems:</strong> Unsafe multi-threading practices</li>
+						<li><strong>API misuse:</strong> Incorrect Windows API usage</li>
+						<li><strong>Resource leaks:</strong> Failing to release system resources</li>
+						<li><strong>Version incompatibility:</strong> Outdated or incompatible code</li>
+					</ul>
+					<h6>Impact on Multi Commander</h6>
+					<ul class="small">
+						<li>Immediate application termination</li>
+						<li>Data loss in ongoing operations</li>
+						<li>System instability</li>
+						<li>User workflow disruption</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
 
-<p>You find the settings under Core Settings</p>
+	<div class="row mt-3">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header bg-success text-white">
+					<h6 class="mb-0"><i class="bi bi-tools me-2"></i>Shell Extension Management with ShellExView</h6>
+				</div>
+				<div class="card-body">
+					<div class="row">
+						<div class="col-md-8">
+							<h6>Using ShellExView by NirSoft</h6>
+							<p class="small">ShellExView is a free utility that allows you to easily disable and enable shell extensions to identify problematic ones.</p>
+							<ol class="small">
+								<li><strong>Download ShellExView:</strong> Get it from <a href="http://www.nirsoft.net/utils/shexview.html" target="_blank" class="text-decoration-none">NirSoft's website</a></li>
+								<li><strong>Run as Administrator:</strong> Ensure proper permissions for system changes</li>
+								<li><strong>Identify suspects:</strong> Look for non-Microsoft extensions</li>
+								<li><strong>Disable systematically:</strong> Disable extensions one by one</li>
+								<li><strong>Test stability:</strong> Use Multi Commander after each change</li>
+								<li><strong>Isolate the problem:</strong> Identify the specific problematic extension</li>
+							</ol>
+						</div>
+						<div class="col-md-4">
+							<h6>Systematic Testing Process</h6>
+							<ul class="small">
+								<li><strong>Backup first:</strong> Export current settings</li>
+								<li><strong>Start with recent:</strong> Focus on recently installed software</li>
+								<li><strong>Group testing:</strong> Disable by software vendor</li>
+								<li><strong>Document results:</strong> Keep track of changes</li>
+								<li><strong>Re-enable safe ones:</strong> Restore known-good extensions</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
 
-<p><img alt="" src="/Docs/Images/MCCrashSettings.png" /></p>
+<section id="crash-reporting" class="mt-5">
+	<h3>Enhanced Crash Reporting</h3>
+	<p>While automatic crash reporting provides basic information, configuring enhanced crash dumps provides developers with detailed information necessary for complex issue resolution.</p>
 
-<p>If you did something specific which triggered the crash, please send an email or leave a post in the forum letting us know what exactly you did to trigger the crash. The more information we get the better the chance that we can fix the problem.</p>
+	<div class="row">
+		<div class="col-md-8">
+			<div class="card">
+				<div class="card-header bg-primary text-white">
+					<h6 class="mb-0"><i class="bi bi-gear me-2"></i>Configuring Crash Dump Settings</h6>
+				</div>
+				<div class="card-body">
+					<h6>Accessing Crash Settings</h6>
+					<ol>
+						<li>Open Multi Commander</li>
+						<li>Go to <strong>Configuration</strong> menu</li>
+						<li>Select <strong>Core Settings</strong></li>
+						<li>Navigate to the <strong>Crash Dump</strong> section</li>
+						<li>Choose your preferred dump format level</li>
+					</ol>
+					
+					<div class="text-center mt-3">
+						<img src="/Docs/Images/MCCrashSettings.png" alt="Multi Commander Crash Settings" class="img-fluid border rounded shadow-sm" />
+						<p class="text-muted small mt-2">Crash dump format settings in Multi Commander's Core Settings</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-4">
+			<div class="card">
+				<div class="card-header bg-info text-white">
+					<h6 class="mb-0"><i class="bi bi-layers me-2"></i>Dump Format Levels</h6>
+				</div>
+				<div class="card-body">
+					<h6>Available Options</h6>
+					<ul class="small">
+						<li><strong>Minimal (Default):</strong> Basic crash information, small file size</li>
+						<li><strong>Standard:</strong> More detailed context, moderate size</li>
+						<li><strong>Maximum:</strong> Complete memory dump, large file size</li>
+					</ul>
+					<h6>When to Use Maximum</h6>
+					<ul class="small">
+						<li>Frequent crashes occurring</li>
+						<li>Complex or rare crash scenarios</li>
+						<li>Developer specifically requests it</li>
+						<li>Standard dumps aren't providing enough information</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
 
-<p>The crash dumps with maximum information contain all the memory addresses that the Multi Commander.exe process used, so they can be large. But they also give us a good view on what is going on inside Multi Commander and information about the internal state of its various components.</p>
+	<div class="row mt-3">
+		<div class="col-md-6">
+			<div class="card">
+				<div class="card-header bg-success text-white">
+					<h6 class="mb-0"><i class="bi bi-info-circle me-2"></i>Crash Dump Information Levels</h6>
+				</div>
+				<div class="card-body">
+					<div class="table-responsive">
+						<table class="table table-sm">
+							<thead>
+								<tr>
+									<th>Level</th>
+									<th>File Size</th>
+									<th>Information Included</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td><strong>Minimal</strong></td>
+									<td>~50KB</td>
+									<td>Stack trace, basic system info</td>
+								</tr>
+								<tr>
+									<td><strong>Standard</strong></td>
+									<td>~500KB</td>
+									<td>Extended context, loaded modules</td>
+								</tr>
+								<tr>
+									<td><strong>Maximum</strong></td>
+									<td>50-200MB</td>
+									<td>Complete memory state, all variables</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-6">
+			<div class="card">
+				<div class="card-header bg-warning text-dark">
+					<h6 class="mb-0"><i class="bi bi-upload me-2"></i>Reporting Considerations</h6>
+				</div>
+				<div class="card-body">
+					<h6>File Size Impact</h6>
+					<ul class="small">
+						<li><strong>Storage space:</strong> Maximum dumps are very large</li>
+						<li><strong>Upload time:</strong> Longer transmission to servers</li>
+						<li><strong>Network usage:</strong> Significant bandwidth consumption</li>
+						<li><strong>Processing time:</strong> More time for analysis</li>
+					</ul>
+					<h6>When Maximum is Worth It</h6>
+					<ul class="small">
+						<li>Recurring crashes that minimal dumps can't solve</li>
+						<li>Complex crashes involving multiple components</li>
+						<li>Intermittent issues that are hard to reproduce</li>
+						<li>Critical workflow-blocking problems</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<section id="troubleshooting" class="mt-5">
+	<h3>Systematic Crash Troubleshooting</h3>
+	<p>Effective crash troubleshooting requires a methodical approach to identify and eliminate potential causes while preserving diagnostic information.</p>
+
+	<div class="row">
+		<div class="col-md-6">
+			<div class="card">
+				<div class="card-header bg-primary text-white">
+					<h6 class="mb-0"><i class="bi bi-list-check me-2"></i>Initial Assessment</h6>
+				</div>
+				<div class="card-body">
+					<h6>Information Gathering</h6>
+					<ol class="small">
+						<li><strong>Document the crash:</strong> What were you doing when it occurred?</li>
+						<li><strong>Note frequency:</strong> Is this a one-time or recurring issue?</li>
+						<li><strong>Check timing:</strong> Recent software installations or updates?</li>
+						<li><strong>System state:</strong> High resource usage or system load?</li>
+						<li><strong>Error messages:</strong> Any warnings before the crash?</li>
+						<li><strong>Reproducibility:</strong> Can you make it crash again?</li>
+					</ol>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-6">
+			<div class="card">
+				<div class="card-header bg-success text-white">
+					<h6 class="mb-0"><i class="bi bi-wrench me-2"></i>Quick Fixes</h6>
+				</div>
+				<div class="card-body">
+					<h6>Immediate Steps</h6>
+					<ol class="small">
+						<li><strong>Restart Multi Commander:</strong> Clear temporary state</li>
+						<li><strong>Update to latest version:</strong> Check for recent fixes</li>
+						<li><strong>Reset to defaults:</strong> Test with clean configuration</li>
+						<li><strong>Disable extensions:</strong> Temporarily disable all shell extensions</li>
+						<li><strong>Safe mode:</strong> Run Multi Commander with minimal functionality</li>
+						<li><strong>Memory test:</strong> Check for hardware memory issues</li>
+					</ol>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="row mt-3">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header bg-info text-white">
+					<h6 class="mb-0"><i class="bi bi-search me-2"></i>Systematic Elimination Process</h6>
+				</div>
+				<div class="card-body">
+					<div class="row">
+						<div class="col-md-3">
+							<h6>1. Shell Extensions</h6>
+							<ul class="small">
+								<li>Use ShellExView to disable all extensions</li>
+								<li>Test Multi Commander stability</li>
+								<li>If stable, re-enable extensions one by one</li>
+								<li>Test after each re-enable</li>
+								<li>Identify the problematic extension</li>
+							</ul>
+						</div>
+						<div class="col-md-3">
+							<h6>2. Multi Commander Configuration</h6>
+							<ul class="small">
+								<li>Create backup of current configuration</li>
+								<li>Reset to factory defaults</li>
+								<li>Test with clean configuration</li>
+								<li>Gradually restore customizations</li>
+								<li>Identify problematic settings</li>
+							</ul>
+						</div>
+						<div class="col-md-3">
+							<h6>3. System Factors</h6>
+							<ul class="small">
+								<li>Check Windows Event Log for errors</li>
+								<li>Run memory diagnostic tools</li>
+								<li>Update device drivers</li>
+								<li>Scan for malware</li>
+								<li>Check disk health</li>
+							</ul>
+						</div>
+						<div class="col-md-3">
+							<h6>4. Software Conflicts</h6>
+							<ul class="small">
+								<li>Temporarily disable antivirus</li>
+								<li>Close unnecessary background programs</li>
+								<li>Test in Windows Safe Mode</li>
+								<li>Uninstall recently added software</li>
+								<li>Check for Windows updates</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<section id="prevention" class="mt-5">
+	<h3>Crash Prevention Strategies</h3>
+	<p>Implementing preventive measures significantly reduces the likelihood of crashes and improves overall system stability.</p>
+
+	<div class="row">
+		<div class="col-md-6">
+			<div class="card">
+				<div class="card-header bg-success text-white">
+					<h6 class="mb-0"><i class="bi bi-shield-check me-2"></i>System Maintenance</h6>
+				</div>
+				<div class="card-body">
+					<h6>Regular Maintenance Tasks</h6>
+					<ul class="small">
+						<li><strong>Keep Windows updated:</strong> Install security and stability patches</li>
+						<li><strong>Update Multi Commander:</strong> Use the latest stable version</li>
+						<li><strong>Driver updates:</strong> Maintain current device drivers</li>
+						<li><strong>Disk cleanup:</strong> Maintain adequate free space</li>
+						<li><strong>Registry cleanup:</strong> Remove obsolete entries</li>
+						<li><strong>Memory testing:</strong> Periodically test RAM integrity</li>
+					</ul>
+					<h6>Hardware Monitoring</h6>
+					<ul class="small">
+						<li>Monitor system temperatures</li>
+						<li>Check power supply stability</li>
+						<li>Verify storage device health</li>
+						<li>Ensure adequate power and cooling</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-6">
+			<div class="card">
+				<div class="card-header bg-primary text-white">
+					<h6 class="mb-0"><i class="bi bi-gear me-2"></i>Configuration Best Practices</h6>
+				</div>
+				<div class="card-body">
+					<h6>Multi Commander Settings</h6>
+					<ul class="small">
+						<li><strong>Conservative extensions:</strong> Only enable necessary shell extensions</li>
+						<li><strong>Memory limits:</strong> Configure appropriate memory usage</li>
+						<li><strong>Cache settings:</strong> Optimize for system capabilities</li>
+						<li><strong>Network timeouts:</strong> Set reasonable timeout values</li>
+						<li><strong>Backup configurations:</strong> Save working setups</li>
+						<li><strong>Test changes:</strong> Verify stability after modifications</li>
+					</ul>
+					<h6>System Configuration</h6>
+					<ul class="small">
+						<li>Configure antivirus exclusions appropriately</li>
+						<li>Manage startup programs effectively</li>
+						<li>Optimize virtual memory settings</li>
+						<li>Maintain system file integrity</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="row mt-3">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header bg-dark text-white">
+					<h6 class="mb-0"><i class="bi bi-eye me-2"></i>Monitoring and Early Warning</h6>
+				</div>
+				<div class="card-body">
+					<div class="row">
+						<div class="col-md-4">
+							<h6>System Monitoring</h6>
+							<ul class="small">
+								<li>Windows Event Viewer for error patterns</li>
+								<li>Performance Monitor for resource usage</li>
+								<li>Reliability Monitor for system stability</li>
+								<li>Multi Commander logs for application issues</li>
+							</ul>
+						</div>
+						<div class="col-md-4">
+							<h6>Warning Signs</h6>
+							<ul class="small">
+								<li>Increasing memory usage over time</li>
+								<li>Frequent "not responding" states</li>
+								<li>Slow performance degradation</li>
+								<li>Unusual error messages or warnings</li>
+							</ul>
+						</div>
+						<div class="col-md-4">
+							<h6>Proactive Measures</h6>
+							<ul class="small">
+								<li>Regular application restarts</li>
+								<li>Periodic configuration backups</li>
+								<li>System health monitoring</li>
+								<li>Preventive maintenance scheduling</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<section class="mt-5">
+	<h3>Reporting Crashes Effectively</h3>
+	<p>Providing detailed crash information helps developers resolve issues quickly and benefits the entire Multi Commander community.</p>
+
+	<div class="row">
+		<div class="col-md-6">
+			<div class="card">
+				<div class="card-header bg-success text-white">
+					<h6 class="mb-0"><i class="bi bi-chat-text me-2"></i>Essential Information</h6>
+				</div>
+				<div class="card-body">
+					<h6>Include in Your Report</h6>
+					<ul class="small">
+						<li><strong>Multi Commander version:</strong> Help ? About Multi Commander</li>
+						<li><strong>Windows version:</strong> OS edition and build number</li>
+						<li><strong>Crash trigger:</strong> Specific action that caused the crash</li>
+						<li><strong>Frequency:</strong> How often this crash occurs</li>
+						<li><strong>Reproducibility:</strong> Steps to recreate the issue</li>
+						<li><strong>System configuration:</strong> Hardware specs and installed software</li>
+						<li><strong>Recent changes:</strong> New software or system updates</li>
+						<li><strong>Error patterns:</strong> Any related warning messages</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-6">
+			<div class="card">
+				<div class="card-header bg-primary text-white">
+					<h6 class="mb-0"><i class="bi bi-envelope me-2"></i>Communication Channels</h6>
+				</div>
+				<div class="card-body">
+					<h6>How to Report</h6>
+					<ul class="small">
+						<li><strong>Forum post:</strong> Public discussion and community input</li>
+						<li><strong>Email support:</strong> Direct communication with developers</li>
+						<li><strong>Crash dump upload:</strong> Automatic via Multi Commander</li>
+						<li><strong>Issue tracker:</strong> Formal bug reporting system</li>
+					</ul>
+					<h6>Follow-up Actions</h6>
+					<ul class="small">
+						<li>Monitor for responses and additional questions</li>
+						<li>Test suggested workarounds or fixes</li>
+						<li>Report results of troubleshooting steps</li>
+						<li>Update when new versions resolve the issue</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<section class="mt-5">
+	<h3>Quick Reference Guide</h3>
+	<p>Essential steps for handling Multi Commander crashes systematically.</p>
+
+	<div class="row">
+		<div class="col-md-6">
+			<div class="card">
+				<div class="card-header bg-danger text-white">
+					<h6 class="mb-0"><i class="bi bi-exclamation-triangle me-2"></i>When a Crash Occurs</h6>
+				</div>
+				<div class="card-body">
+					<ol class="small">
+						<li><strong>Document immediately:</strong> What were you doing?</li>
+						<li><strong>Check for crash dump:</strong> Automatic reporting should occur</li>
+						<li><strong>Note system state:</strong> Resource usage, running programs</li>
+						<li><strong>Restart Multi Commander:</strong> Test if issue persists</li>
+						<li><strong>Try to reproduce:</strong> Repeat the action that caused crash</li>
+						<li><strong>Enable maximum dumps:</strong> If crashes continue</li>
+						<li><strong>Report with details:</strong> Forum post or email</li>
+					</ol>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-6">
+			<div class="card">
+				<div class="card-header bg-info text-white">
+					<h6 class="mb-0"><i class="bi bi-tools me-2"></i>Shell Extension Troubleshooting</h6>
+				</div>
+				<div class="card-body">
+					<ol class="small">
+						<li><strong>Download ShellExView:</strong> From NirSoft website</li>
+						<li><strong>Run as Administrator:</strong> Ensure proper permissions</li>
+						<li><strong>Disable all non-Microsoft:</strong> Start with clean slate</li>
+						<li><strong>Test Multi Commander:</strong> Verify stability</li>
+						<li><strong>Re-enable systematically:</strong> One by one testing</li>
+						<li><strong>Identify culprit:</strong> Note which extension causes crash</li>
+						<li><strong>Find alternative:</strong> Look for updated or replacement software</li>
+					</ol>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<div class="alert alert-success mt-5">
+	<h6><i class="bi bi-lightbulb me-2"></i>Community Contribution</h6>
+	<p class="mb-0">By reporting crashes with detailed information and following systematic troubleshooting steps, you help improve Multi Commander's stability for everyone. Each crash report contributes to identifying and fixing issues that affect the entire user community.</p>
+</div>
+
+<div class="alert alert-info mt-4">
+	<h6><i class="bi bi-info-circle me-2"></i>Additional Resources</h6>
+	<p class="mb-0">For more troubleshooting guidance, see <a href="/Docs/troubleshooting-hang" class="text-decoration-none">Multi Commander Hangs</a>, visit the <a href="/Support" class="text-decoration-none">Support Page</a>, or check the community forum for similar issues and solutions.</p>
+</div>
 
 

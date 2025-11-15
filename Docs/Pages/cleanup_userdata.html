@@ -1,21 +1,453 @@
-<h2>Cleanup User Data</h2>
-<p>Multi Commander stores user-specific data in different places. To remove all this data you can run <strong>Cleanup User Data</strong>.<br />
-Select "<strong>Cleanup userdata...</strong>" from the Help menu to start it.</p>
+﻿<h2>Cleanup User Data</h2>
 
-<p><img alt="" src="/Docs/Images/CleanupUserdata.png" /></p>
+<p>Multi Commander's user data cleanup system provides comprehensive control over removing accumulated data, temporary files, and personal information. This powerful maintenance tool enables privacy protection, system optimization, and clean slate scenarios for troubleshooting or migration purposes.</p>
 
-<p>Select the type of user data you want to remove then click <em>OK</em>. After the user data is removed it is recommended to exit Multi Commander so any new information can be stored.</p>
+<div class="alert alert-info">
+	<h6><i class="bi bi-info-circle me-2"></i>Safe and Selective Cleanup</h6>
+	<p class="mb-0">The cleanup system allows selective removal of different data types, ensuring you only remove what you intend to while preserving important configuration and user preferences as needed.</p>
+</div>
 
-<h2>Configuration and settings</h2>
+<nav class="navbar navbar-expand-lg navbar-light bg-light mb-4">
+	<div class="container-fluid">
+		<span class="navbar-brand">Quick Navigation</span>
+		<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#cleanupNav">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="cleanupNav">
+			<ul class="navbar-nav">
+				<li class="nav-item"><a class="nav-link" href="#overview">Overview</a></li>
+				<li class="nav-item"><a class="nav-link" href="#cleanup-process">Cleanup Process</a></li>
+				<li class="nav-item"><a class="nav-link" href="#data-types">Data Types</a></li>
+				<li class="nav-item"><a class="nav-link" href="#use-cases">Use Cases</a></li>
+				<li class="nav-item"><a class="nav-link" href="#best-practices">Best Practices</a></li>
+			</ul>
+		</div>
+	</div>
+</nav>
 
-<p>Multi Commander stores configuration and settings files in an application data folder for the user account. Checking this option will remove all these files.</p>
+<section id="overview">
+	<h3>User Data Management Overview</h3>
+	<p>Multi Commander stores various types of user-specific data across different locations in your system. The cleanup functionality provides centralized control over this data removal for maintenance, privacy, and troubleshooting purposes.</p>
 
-<h2>Logs, History and Session Information</h2>
+	<div class="row">
+		<div class="col-md-6">
+			<div class="card">
+				<div class="card-header bg-primary text-white">
+					<h6 class="mb-0"><i class="bi bi-database me-2"></i>Data Storage Locations</h6>
+				</div>
+				<div class="card-body">
+					<h6>Application Data Folder</h6>
+					<ul class="small">
+						<li><strong>Configuration Files:</strong> Settings, preferences, and customizations</li>
+						<li><strong>Extension Data:</strong> Plugin-specific configurations and caches</li>
+						<li><strong>User Profiles:</strong> Custom layouts, button configurations</li>
+						<li><strong>Log Files:</strong> Operation logs, error reports, debug information</li>
+						<li><strong>Cache Files:</strong> Temporary data for performance optimization</li>
+					</ul>
+					<h6>Windows Registry</h6>
+					<ul class="small">
+						<li><strong>History Information:</strong> Command history, search patterns</li>
+						<li><strong>Session Data:</strong> Window positions, recent file lists</li>
+						<li><strong>Dropdown Lists:</strong> Previously used values and selections</li>
+						<li><strong>MRU Lists:</strong> Most Recently Used files and folders</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-6">
+			<div class="card">
+				<div class="card-header bg-success text-white">
+					<h6 class="mb-0"><i class="bi bi-shield-check me-2"></i>Why Clean User Data?</h6>
+				</div>
+				<div class="card-body">
+					<h6>Privacy and Security</h6>
+					<ul class="small">
+						<li><strong>Personal Information:</strong> Remove traces of accessed files and folders</li>
+						<li><strong>Usage Patterns:</strong> Clear history of your computer usage</li>
+						<li><strong>Network Activity:</strong> Remove FTP connection logs and histories</li>
+						<li><strong>Sensitive Paths:</strong> Clear recently accessed confidential locations</li>
+					</ul>
+					<h6>System Optimization</h6>
+					<ul class="small">
+						<li><strong>Performance:</strong> Remove accumulated cache and temporary files</li>
+						<li><strong>Storage Space:</strong> Reclaim disk space used by logs and caches</li>
+						<li><strong>Registry Cleanup:</strong> Remove obsolete registry entries</li>
+						<li><strong>Fresh Start:</strong> Reset to clean state for troubleshooting</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
 
-<p>Multi Commander stores logs of file operations and failures in the user's application data folder. These logs are used to identify why problems happen if Multi Commander fails. History and session information is stored in the Windows Registry. This information is used to create dropdown lists with selections you have made earlier. for example, previously-run commands from the Command Line bar are listed when you use its dropdown list.</p>
+	<div class="row mt-3">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header bg-info text-white">
+					<h6 class="mb-0"><i class="bi bi-diagram-3 me-2"></i>Cleanup Categories and Impact</h6>
+				</div>
+				<div class="card-body">
+					<div class="row">
+						<div class="col-md-6">
+							<h6>Configuration Data</h6>
+							<ul class="small">
+								<li><strong>Impact:</strong> Removes all personal settings and customizations</li>
+								<li><strong>Result:</strong> Multi Commander returns to default configuration</li>
+								<li><strong>Recovery:</strong> Can be restored from backups</li>
+								<li><strong>Recommendation:</strong> Backup before cleaning</li>
+							</ul>
+						</div>
+						<div class="col-md-6">
+							<h6>History and Logs</h6>
+							<ul class="small">
+								<li><strong>Impact:</strong> Removes usage history and operational logs</li>
+								<li><strong>Result:</strong> Clears privacy-sensitive information</li>
+								<li><strong>Recovery:</strong> Cannot be restored (information is lost)</li>
+								<li><strong>Recommendation:</strong> Safe for routine cleanup</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
 
-<h2>License and Registration information</h2>
+<section id="cleanup-process" class="mt-5">
+	<h3>User Data Cleanup Process</h3>
+	<p>The cleanup process provides a safe, selective interface for removing different types of user data with clear understanding of what will be affected.</p>
 
-<p>Checking this option will remove the license and registration information for Multi Commander.</p>
+	<div class="row">
+		<div class="col-md-8">
+			<div class="card">
+				<div class="card-header bg-primary text-white">
+					<h6 class="mb-0"><i class="bi bi-trash me-2"></i>Step-by-Step Cleanup Process</h6>
+				</div>
+				<div class="card-body">
+					<h6>Accessing the Cleanup Function</h6>
+					<ol>
+						<li><strong>Open Multi Commander</strong></li>
+						<li><strong>Navigate to Help Menu:</strong> Click on "Help" in the menu bar</li>
+						<li><strong>Select Cleanup userdata...:</strong> Choose from the dropdown menu</li>
+						<li><strong>Cleanup Dialog Opens:</strong> The user data cleanup dialog appears</li>
+					</ol>
+
+					<div class="text-center mt-3 mb-3">
+						<img src="/Docs/Images/CleanupUserdata.png" alt="Cleanup User Data Dialog" class="img-fluid border rounded shadow-sm" />
+						<p class="text-muted small mt-2">Multi Commander's Cleanup User Data dialog showing selective cleanup options</p>
+					</div>
+
+					<h6>Selecting Data to Clean</h6>
+					<ol start="5">
+						<li><strong>Review Options:</strong> Examine each data type and its implications</li>
+						<li><strong>Select Categories:</strong> Check boxes for data types you want to remove</li>
+						<li><strong>Understand Impact:</strong> Verify you understand what will be deleted</li>
+						<li><strong>Click OK:</strong> Initiate the cleanup process</li>
+						<li><strong>Wait for Completion:</strong> Allow the cleanup process to finish</li>
+					</ol>
+
+					<div class="alert alert-warning mt-3">
+						<h6><i class="bi bi-exclamation-triangle me-2"></i>Important: Restart Recommended</h6>
+						<p class="mb-0">After cleanup is complete, it's recommended to exit and restart Multi Commander to ensure all changes take effect and any cached data is properly cleared.</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-4">
+			<div class="card">
+				<div class="card-header bg-warning text-dark">
+					<h6 class="mb-0"><i class="bi bi-exclamation-triangle me-2"></i>Pre-Cleanup Considerations</h6>
+				</div>
+				<div class="card-body">
+					<h6>Before Cleaning Data</h6>
+					<ul class="small">
+						<li><strong>Backup Configuration:</strong> Save current settings if you might want them back</li>
+						<li><strong>Document Customizations:</strong> Note important custom settings</li>
+						<li><strong>Close Other Instances:</strong> Ensure Multi Commander isn't running elsewhere</li>
+					</ul>
+					<h6>Recovery Planning</h6>
+					<ul class="small">
+						<li><strong>Configuration Backup:</strong> Use Help → Backup/Restore first</li>
+						<li><strong>Custom Scripts:</strong> Backup important user-defined commands</li>
+						<li><strong>FTP Bookmarks:</strong> Export important connection settings</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<section id="data-types" class="mt-5">
+	<h3>Types of User Data</h3>
+	<p>Understanding the different types of user data helps you make informed decisions about what to clean while preserving important information you may want to keep.</p>
+
+	<div class="row">
+		<div class="col-md-6">
+			<div class="card">
+				<div class="card-header bg-primary text-white">
+					<h6 class="mb-0"><i class="bi bi-gear me-2"></i>Configuration and Settings</h6>
+				</div>
+				<div class="card-body">
+					<h6>What Gets Removed</h6>
+					<ul class="small">
+						<li><strong>Core Settings:</strong> All Multi Commander preferences and options</li>
+						<li><strong>Interface Layout:</strong> Window positions, panel configurations</li>
+						<li><strong>Keyboard Shortcuts:</strong> Custom hotkey assignments</li>
+						<li><strong>User Menus:</strong> Customized menu structures and commands</li>
+						<li><strong>Button Panel:</strong> Toolbar customizations and layouts</li>
+						<li><strong>File Associations:</strong> Custom file type handling</li>
+						<li><strong>Extension Settings:</strong> All plugin and extension configurations</li>
+					</ul>
+					<h6>Storage Location</h6>
+					<p class="small">Stored in user's application data folder, typically:</p>
+					<p class="small"><code>C:\Users\[username]\AppData\Roaming\MultiCommander\Config\</code></p>
+					<h6>Impact Level</h6>
+					<div class="alert alert-danger p-2">
+						<p class="small mb-0"><strong>High Impact:</strong> Complete loss of all customizations and personal settings</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-6">
+			<div class="card">
+				<div class="card-header bg-success text-white">
+					<h6 class="mb-0"><i class="bi bi-clock-history me-2"></i>Logs, History and Session Information</h6>
+				</div>
+				<div class="card-body">
+					<h6>What Gets Removed</h6>
+					<ul class="small">
+						<li><strong>Operation Logs:</strong> File operation histories and error logs</li>
+						<li><strong>Command History:</strong> Previously entered command line commands</li>
+						<li><strong>Search History:</strong> Saved search patterns and criteria</li>
+						<li><strong>Path History:</strong> Recently visited folders and locations</li>
+						<li><strong>Session Data:</strong> Window positions and layout information</li>
+						<li><strong>Recent Files:</strong> Most recently used file lists</li>
+						<li><strong>Dropdown Lists:</strong> Historical entries in various dropdown menus</li>
+					</ul>
+					<h6>Storage Locations</h6>
+					<ul class="small">
+						<li><strong>Log Files:</strong> Application data folder</li>
+						<li><strong>History Data:</strong> Windows Registry</li>
+						<li><strong>Session Info:</strong> Registry and temporary files</li>
+					</ul>
+					<h6>Impact Level</h6>
+					<div class="alert alert-warning p-2">
+						<p class="small mb-0"><strong>Medium Impact:</strong> Loss of convenience features but no functionality impact</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	
+	</div>
+
+	<div class="row mt-3">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header bg-dark text-white">
+					<h6 class="mb-0"><i class="bi bi-info-circle me-2"></i>Additional Data Types and Considerations</h6>
+				</div>
+				<div class="card-body">
+					<div class="row">
+						<div class="col-md-4">
+							<h6>Cache and Temporary Files</h6>
+							<ul class="small">
+								<li><strong>Thumbnail Caches:</strong> Generated image previews</li>
+								<li><strong>Directory Caches:</strong> Cached folder listings for performance</li>
+								<li><strong>Network Caches:</strong> Cached network resource information</li>
+								<li><strong>Extension Caches:</strong> Plugin-specific temporary data</li>
+								<li><strong>Icon Caches:</strong> Cached file type icons</li>
+							</ul>
+						</div>
+						<div class="col-md-4">
+							<h6>User-Specific Data</h6>
+							<ul class="small">
+								<li><strong>FTP Bookmarks:</strong> Saved server connection details</li>
+								<li><strong>Favorites:</strong> Bookmarked folders and locations</li>
+								<li><strong>Column Sets:</strong> Custom file list column configurations</li>
+								<li><strong>Color Rules:</strong> File coloring and visual customization</li>
+								<li><strong>Custom Scripts:</strong> User-defined commands and automation</li>
+							</ul>
+						</div>
+						<div class="col-md-4">
+							<h6>Debug and Diagnostic Data</h6>
+							<ul class="small">
+								<li><strong>Crash Reports:</strong> Automatically generated crash information</li>
+								<li><strong>Debug Logs:</strong> Detailed operation logging for troubleshooting</li>
+								<li><strong>Performance Data:</strong> Usage statistics and performance metrics</li>
+								<li><strong>Error Reports:</strong> Detailed error information and stack traces</li>
+								<li><strong>System Information:</strong> Hardware and software environment data</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<section id="use-cases" class="mt-5">
+	<h3>Common Use Cases and Scenarios</h3>
+	<p>Different scenarios require different cleanup strategies. Understanding when and what to clean helps ensure optimal results while preserving important data.</p>
+
+	<div class="row">
+		<div class="col-md-6">
+			<div class="card">
+				<div class="card-header bg-success text-white">
+					<h6 class="mb-0"><i class="bi bi-shield-check me-2"></i>Privacy and Security Scenarios</h6>
+				</div>
+				<div class="card-body">
+					<h6>Computer Sharing</h6>
+					<ul class="small">
+						<li><strong>Shared Workstation:</strong> Clear personal usage history</li>
+						<li><strong>Public Computer:</strong> Remove all traces of personal activity</li>
+						<li><strong>End of Session:</strong> Clear sensitive file access history</li>
+					</ul>
+					<p class="small"><strong>Recommended Cleanup:</strong> Logs, History and Session Information</p>
+
+					<h6>Before System Transfer</h6>
+					<ul class="small">
+						<li><strong>Selling/Donating Computer:</strong> Remove all personal information</li>
+						<li><strong>Returning Corporate Device:</strong> Clear personal usage data</li>
+						<li><strong>Security Compliance:</strong> Meet data removal requirements</li>
+					</ul>
+					<p class="small"><strong>Recommended Cleanup:</strong> All data types (complete cleanup)</p>
+
+					<h6>Confidential Work</h6>
+					<ul class="small">
+						<li><strong>Legal Requirements:</strong> Remove access traces to confidential files</li>
+						<li><strong>Client Data Protection:</strong> Clear history of sensitive file access</li>
+						<li><strong>Project Completion:</strong> Remove project-specific access patterns</li>
+					</ul>
+					<p class="small"><strong>Recommended Cleanup:</strong> Logs and History (preserve configuration)</p>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-6">
+			<div class="card">
+				<div class="card-header bg-primary text-white">
+					<h6 class="mb-0"><i class="bi bi-tools me-2"></i>Technical and Maintenance Scenarios</h6>
+				</div>
+				<div class="card-body">
+					<h6>Troubleshooting Issues</h6>
+					<ul class="small">
+						<li><strong>Configuration Problems:</strong> Reset to default settings</li>
+						<li><strong>Performance Issues:</strong> Clear caches and temporary data</li>
+						<li><strong>Corruption Recovery:</strong> Remove potentially corrupted data</li>
+					</ul>
+					<p class="small"><strong>Recommended Cleanup:</strong> Selective based on issue type</p>
+
+					<h6>Fresh Installation Setup</h6>
+					<ul class="small">
+						<li><strong>Clean Deployment:</strong> Start with completely fresh configuration</li>
+						<li><strong>Testing Environment:</strong> Ensure no previous configuration interference</li>
+						<li><strong>Training Setup:</strong> Provide standard, clean interface for training</li>
+					</ul>
+					<p class="small"><strong>Recommended Cleanup:</strong> Configuration and Settings</p>
+
+					<h6>System Optimization</h6>
+					<ul class="small">
+						<li><strong>Performance Improvement:</strong> Remove accumulated cache files</li>
+						<li><strong>Disk Space Recovery:</strong> Clean up large log files</li>
+						<li><strong>Registry Cleanup:</strong> Remove obsolete registry entries</li>
+					</ul>
+					<p class="small"><strong>Recommended Cleanup:</strong> Logs and History (preserve configuration)</p>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="row mt-3">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header bg-info text-white">
+					<h6 class="mb-0"><i class="bi bi-diagram-3 me-2"></i>Strategic Cleanup Approaches</h6>
+				</div>
+				<div class="card-body">
+					<div class="row">
+						<div class="col-md-4">
+							<h6>Minimal Cleanup (Privacy Focus)</h6>
+							<ul class="small">
+								<li><strong>What to Clean:</strong> Logs, History and Session Information only</li>
+								<li><strong>What to Preserve:</strong> Configuration and settings</li>
+								<li><strong>Benefits:</strong> Removes privacy-sensitive data while keeping customizations</li>
+								<li><strong>Use Case:</strong> Regular privacy maintenance</li>
+							</ul>
+						</div>
+						<div class="col-md-4">
+							<h6>Moderate Cleanup (Reset Configuration)</h6>
+							<ul class="small">
+								<li><strong>What to Clean:</strong> Configuration and History</li>
+								<li><strong>Benefits:</strong> Fresh start while keeping product activated</li>
+								<li><strong>Use Case:</strong> Troubleshooting or major reconfiguration</li>
+							</ul>
+						</div>
+						<div class="col-md-4">
+							<h6>Complete Cleanup (Total Reset)</h6>
+							<ul class="small">
+								<li><strong>What to Clean:</strong> All data types</li>
+								<li><strong>What to Preserve:</strong> Nothing (complete reset)</li>
+								<li><strong>Benefits:</strong> Complete fresh start</li>
+								<li><strong>Use Case:</strong> System transfer or major troubleshooting</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<section class="mt-5">
+	<h3>Quick Reference Guide</h3>
+	<p>Essential procedures for safe and effective user data cleanup operations.</p>
+
+	<div class="row">
+		<div class="col-md-6">
+			<div class="card">
+				<div class="card-header bg-primary text-white">
+					<h6 class="mb-0"><i class="bi bi-list-check me-2"></i>Quick Cleanup Checklist</h6>
+				</div>
+				<div class="card-body">
+					<ol class="small">
+						<li>Backup configuration (Help → Backup/Restore)</li>
+						<li>Help → Cleanup userdata...</li>
+						<li>Select appropriate data types to clean</li>
+						<li>Review impact and confirm understanding</li>
+						<li>Click OK to proceed with cleanup</li>
+						<li>Exit and restart Multi Commander</li>
+						<li>Verify cleanup achieved desired results</li>
+					</ol>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-6">
+			<div class="card">
+				<div class="card-header bg-success text-white">
+					<h6 class="mb-0"><i class="bi bi-shield-check me-2"></i>Safety Verification</h6>
+				</div>
+				<div class="card-body">
+					<ul class="small">
+						<li><strong>Configuration Backup:</strong> ✓ Saved before cleanup</li>
+						<li><strong>Important Data:</strong> ✓ FTP bookmarks and favorites exported</li>
+						<li><strong>Custom Scripts:</strong> ✓ User-defined commands backed up</li>
+						<li><strong>Impact Understanding:</strong> ✓ Know what will be removed</li>
+						<li><strong>Recovery Plan:</strong> ✓ Can restore if needed</li>
+						<li><strong>Timing:</strong> ✓ Appropriate time for potential downtime</li>
+						<li><strong>Support Access:</strong> ✓ Know how to get help if needed</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<div class="alert alert-success mt-5">
+	<h6><i class="bi bi-lightbulb me-2"></i>Effective Data Management</h6>
+	<p class="mb-0">Regular, thoughtful cleanup of user data helps maintain Multi Commander's performance while protecting your privacy. Always balance the benefits of cleanup with the convenience of preserved settings and history.</p>
+</div>
+
+<div class="alert alert-info mt-4">
+	<h6><i class="bi bi-info-circle me-2"></i>Related Data Management Topics</h6>
+	<p class="mb-0">For comprehensive data management, see <a href="/Docs/backup_restore_config" class="text-decoration-none">Backup and Restore Configuration</a>, <a href="/Docs/customized-config-paths" class="text-decoration-none">Customized Configuration Paths</a>, and <a href="/Docs/troubleshooting" class="text-decoration-none">Troubleshooting Guides</a>.</p>
+</div>
 
 

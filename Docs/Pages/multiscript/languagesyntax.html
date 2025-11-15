@@ -1,654 +1,623 @@
 <h2>MultiScript Language Syntax</h2>
-<h2>Supported Language Features</h2>
 
-<ul>
-  <li><a href="#LanguageSyntax">Language Syntax</a></li>
-  <li><a href="#Keywords">Reserved Keywords</a></li>
-  <li><a href="#DataTypes">Data Types</a></li>
-  <li><a href="#Variables">Variables</a></li>
-  <li><a href="#Constants">Constants</a></li>
-  <li><a href="#escseq">Escape Sequences</a></li>
-  <li><a href="#Arrays">Arrays</a></li>
-  <li><a href="#Operators">Operators</a> ( +, /, *, -, ...)</li>
-  <li><a href="#IndexOperator">Index Operator</a></li>
-  <li><a href="#AssignmentOperators">Assignment Operators</a> (&nbsp;=, +=, -=&nbsp;)</li>
-  <li><a href="#CompareOperators">Comparison Operators</a> (&nbsp;==, &gt;, &lt;, &gt;=, &lt;=&nbsp;)</li>
-  <li><a href="#NegationOperators">Negation Operator</a> (&nbsp;!&nbsp;)</li>
-  <li><a href="#SpecialPathOperator">Special Path Operators</a> ( ^ )</li>
-  <li><a href="#if_condition">IF - Condition</a></li>
-  <li><a href="#for_loop">FOR - Loop</a></li>
-  <li><a href="#while_loops">WHILE - Loop</a></li>
-  <li><a href="#functions">Functions</a></li>
-  <li><a href="#class">Classes</a></li>
-</ul>
+<p>MultiScript is Multi Commander's built-in scripting language that provides powerful automation capabilities through a simple yet comprehensive syntax. Understanding MultiScript syntax enables you to create sophisticated automation scripts, custom commands, and advanced file management workflows that extend Multi Commander's functionality beyond basic operations.</p>
 
-<hr />
-<h2><a name="LanguageSyntax">Language Syntax</a></h2>
+<div class="alert alert-primary">
+	<h6><i class="bi bi-code-slash me-2"></i>Comprehensive Scripting Language</h6>
+	<p class="mb-0">MultiScript provides a complete programming environment with variables, functions, classes, control structures, and extensive built-in functions. The language is designed for ease of use while maintaining the power needed for complex automation tasks in file management and system administration scenarios.</p>
+</div>
 
-<p>The MultiScript script engine is a line-by-line engine, meaning that every script command must be on a single line. A command cannot be split across multiple lines.</p>
+<nav class="navbar navbar-expand-lg navbar-light bg-light mb-4">
+	<div class="container-fluid">
+		<span class="navbar-brand">Quick Navigation</span>
+		<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#languageSyntaxNav">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="languageSyntaxNav">
+			<ul class="navbar-nav">
+				<li class="nav-item"><a class="nav-link" href="#basic-syntax">Basic Syntax</a></li>
+				<li class="nav-item"><a class="nav-link" href="#data-types">Data Types</a></li>
+				<li class="nav-item"><a class="nav-link" href="#operators">Operators</a></li>
+				<li class="nav-item"><a class="nav-link" href="#control-structures">Control Structures</a></li>
+				<li class="nav-item"><a class="nav-link" href="#functions-classes">Functions & Classes</a></li>
+			</ul>
+		</div>
+	</div>
+</nav>
 
-<p>Every script command should end with "<strong>;</strong>". (This is not strictly required yet, but will be in the future. at that time it will then be possible to split commands over multiple lines.)</p>
+<section id="basic-syntax">
+	<h3>Basic Language Syntax Rules</h3>
+	<p>MultiScript follows specific syntax rules that ensure consistent and predictable script execution across all Multi Commander environments.</p>
 
-<p>New scope is declared with <strong>{</strong> <strong>}</strong> and is used for conditions, loops, functions and classes.</p>
+	<div class="row">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header bg-info text-white">
+					<h6 class="mb-0"><i class="bi bi-list-ul me-2"></i>Fundamental Syntax Rules</h6>
+				</div>
+				<div class="card-body">
+					<h6>Script Execution Model</h6>
+					<ul class="small">
+						<li><strong>Line-by-Line Processing:</strong> MultiScript is a line-by-line engine - every command must be on a single line</li>
+						<li><strong>Statement Termination:</strong> Commands should end with semicolon (<code>;</code>) for future compatibility</li>
+						<li><strong>Scope Declaration:</strong> New scope is declared with curly braces <code>{ }</code> for conditions, loops, functions, and classes</li>
+						<li><strong>Expression Evaluation:</strong> Left-to-right evaluation with parentheses taking precedence</li>
+					</ul>
 
-<p>Example:</p>
+					<h6>Comment Syntax</h6>
+					<ul class="small">
+						<li><strong>Comment Lines:</strong> Lines starting with <code>//</code> or <code>#</code> are treated as comments</li>
+						<li><strong>Inline Comments:</strong> Not supported - comments cannot be on the same line as valid code</li>
+						<li><strong>Documentation:</strong> Use comments to document complex logic and script functionality</li>
+					</ul>
 
-<pre class="mscode">
-$len = StrLen($str);
+					<div class="alert alert-warning p-2 mt-3">
+						<h6 class="small mb-1"><i class="bi bi-exclamation-triangle me-1"></i>Expression Evaluation Important</h6>
+						<p class="small mb-0"><strong>Operator Precedence:</strong> MultiScript evaluates expressions left-to-right without operator precedence. Use parentheses to control evaluation order: <code>2 + 4 * 8</code> equals 48, but <code>2 + (4 * 8)</code> equals 34.</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="row mt-3">
+		<div class="col-md-6">
+			<div class="card">
+				<div class="card-header bg-success text-white">
+					<h6 class="mb-0"><i class="bi bi-code me-2"></i>Basic Syntax Example</h6>
+				</div>
+				<div class="card-body">
+					<pre class="mscode">// Calculate string length
+@var $str = "Hello World";
+@var $len = StrLen($str);
 if( $len &gt; 10 )
 {
   $str = "Too long";
-}
-</pre>
+}</pre>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-6">
+			<div class="card">
+				<div class="card-header bg-warning text-dark">
+					<h6 class="mb-0"><i class="bi bi-tags me-2"></i>Reserved Keywords</h6>
+				</div>
+				<div class="card-body">
+					<div class="table-responsive">
+						<table class="table table-sm table-bordered">
+							<tbody>
+								<tr>
+									<td><code>if</code></td>
+									<td><code>for</code></td>
+									<td><code>while</code></td>
+									<td><code>break</code></td>
+								</tr>
+								<tr>
+									<td><code>continue</code></td>
+									<td><code>return</code></td>
+									<td><code>function</code></td>
+									<td><code>class</code></td>
+								</tr>
+								<tr>
+									<td><code>new</code></td>
+									<td><code>@var</code></td>
+									<td><code>@gvar</code></td>
+									<td></td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+					<p class="small mb-0">These words cannot be used for variable or function names.</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
 
-<p>
-  Lines starting with <strong>//</strong> or <strong>#</strong> are handled as comment lines and are ignored.<br />
-  Comments are <strong>not </strong>allowed to be on the same line as valid code.&nbsp;
-</p>
+<section id="data-types" class="mt-5">
+	<h3>Data Types and Variables</h3>
+	<p>MultiScript supports five primary data types with automatic type conversion capabilities and flexible variable declaration options for various programming scenarios.</p>
 
-<pre class="mscode">
-$len = StrLen($str); // Get string length (Comments and code on the same line are <strong>not </strong>allowed) &nbsp;
-</pre>
+	<div class="row">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header bg-primary text-white">
+					<h6 class="mb-0"><i class="bi bi-database me-2"></i>Supported Data Types</h6>
+				</div>
+				<div class="card-body">
+					<div class="table-responsive">
+						<table class="table table-bordered table-hover">
+							<thead class="table-light">
+								<tr>
+									<th style="width: 20%">Data Type</th>
+									<th style="width: 30%">Description</th>
+									<th style="width: 50%">Examples</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td><strong>String</strong></td>
+									<td>Text data with escape sequence support</td>
+									<td><code>"Hello World"</code>, <code>'File path'</code>, <code>"Line1\nLine2"</code></td>
+								</tr>
+								<tr>
+									<td><strong>Number</strong></td>
+									<td>Integer and floating-point values</td>
+									<td><code>42</code>, <code>3.14</code>, <code>-100</code></td>
+								</tr>
+								<tr>
+									<td><strong>Array</strong></td>
+									<td>Collection of multiple values</td>
+									<td><code>{"item1", "item2"}</code>, <code>{1, 2, 3}</code></td>
+								</tr>
+								<tr>
+									<td><strong>Object</strong></td>
+									<td>Class instances with properties and methods</td>
+									<td><code>new MyClass</code>, <code>$obj.property</code></td>
+								</tr>
+								<tr>
+									<td><strong>Handle</strong></td>
+									<td>References to system resources</td>
+									<td><code>FilterCreate()</code>, <code>$filter</code></td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
 
-<p>The script engine evaluates expressions from left to right, but parentheses are evaluated first. Because of this, parentheses <strong>must</strong> be used if multiple expressions are used within a line, to guarantee that they are evaluated in the correct order.</p>
+					<h6>Type Conversion Features</h6>
+					<ul class="small">
+						<li><strong>Automatic Conversion:</strong> String-to-number and number-to-string conversions happen automatically</li>
+						<li><strong>String Concatenation:</strong> Numbers can be concatenated directly to strings</li>
+						<li><strong>Type Checking Functions:</strong> <code>IsTypeString()</code>, <code>IsTypeNum()</code>, <code>IsTypeArray()</code>, <code>IsTypeHandle()</code></li>
+						<li><strong>Manual Conversion:</strong> <code>strtonum()</code> and <code>numtostr()</code> for explicit type conversion</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
 
-<pre class="mscode">
-@var $result;
+	<div class="row mt-3">
+		<div class="col-md-6">
+			<div class="card">
+				<div class="card-header bg-success text-white">
+					<h6 class="mb-0"><i class="bi bi-gear me-2"></i>Variable Declaration</h6>
+				</div>
+				<div class="card-body">
+					<h6>Variable Declaration Syntax</h6>
+					<pre class="mscode">// Single variable
+@var $v1;
 
-// INCORRECT
-$result = 10 + 5 * MyFunc_GetMultiplyFactor();
+// Multiple variables
+@var $v1, $v2, $v3;
 
-// CORRECT
-$result = 10 + (5 * MyFunc_GetMultiplyFactor());
-</pre>
-
-<p>Function parameters can be variables, constants or expressions. Function parameters are evaluated <em>before</em> they are sent to the function. Variables are always passed <em>by value</em>, meaning a copy of the variable is actually passed.</p>
-
-<pre class="mscode">
-@var $result;
-
-$result = CalculateResult( 4 + 5, "Parameter2" );
-
-$result = CalculateResult( MyFunc_GetValue("hight") + 2 );
-</pre>
-
-<h2><a name="Keywords">Reserved Keywords</a></h2>
-
-<p>The following words are <em>reserved</em> and cannot be used for variables or function names.</p>
-
-<table class="table table-bordered">
-  <tbody>
-    <tr>
-      <td><strong><a href="#if_condition">if</a></strong></td>
-      <td><strong><a href="#for_loop">for</a></strong></td>
-      <td><strong><a href="#while_loops">while</a></strong></td>
-      <td><strong>break</strong></td>
-    </tr>
-    <tr>
-      <td><strong>continue</strong></td>
-      <td><strong>return</strong></td>
-      <td><strong><a href="#functions">function</a></strong></td>
-      <td><strong><a href="#class">class</a></strong></td>
-    </tr>
-    <tr>
-      <td><strong><a href="#class">new</a></strong></td>
-      <td>&nbsp;<strong><a href="#Variables">@var</a></strong></td>
-      <td>&nbsp;<strong><a href="#Variables">@gvar</a></strong></td>
-      <td>
-        <br />
-        &nbsp;
-      </td>
-    </tr>
-  </tbody>
-</table>
-
-<h2><a name="DataTypes">Data Types</a></h2>
-
-<p>Variables and constants can be of different <em>data types</em>. Valid data types are <em>String</em>, <em>Number</em>,<em> Array</em>, <em>Object</em> and <em>Handle.</em></p>
-
-<p>Conversions from string to number and number to string are often done automatically, making it possible to concatenate a number variable or constant to a string.</p>
-
-<div class="doctextsection">
-  <h2><a name="Variables">Variables</a></h2>
-
-  <p><em>Variables</em> are declared with the special keyword <strong>@var</strong>. The variable name must start with a <strong>$</strong>, and can only have the characters a-z, A-Z and 0-9 in the name. Special characters are not allowed.</p>
-
-<pre class="mscode">
-@var $v1;</pre>
-</div>
-
-<div class="doctextsection">
-  <p>Multiple variables can be declared on the same line.</p>
-
-<pre class="mscode">
-@var $v1, $v2, $v3;</pre>
-
-  <p>Variables can also be assigned a value when declaring them, either from a constant value or from a function call.</p>
-
-<pre class="mscode">
-@var $v1 =&nbsp;0;
-@var $v2 =&nbsp;MyFunc();</pre>
-</div>
-
-<div class="doctextsection">
-  <p>Declaring a variable with a name that already exists is allowed as long as the variable exists in a different scope.</p>
-
-<pre class="mscode">
+// With initialization
 @var $v1 = 0;
-if( $v1 == 0 )
-{
-&nbsp;@var $v1;
+@var $v2 = "Hello";
+@var $v3 = MyFunc();
 
- // $v1 outside the if statement is not changed
- $v1 = 20;
-}
-</pre>
+// Global scope variable
+@gvar $globalVar;</pre>
 
-</div>
-
-<div class="doctextsection">
-  <p>You can force a variable to be declared in the global scope by using <strong>@gvar</strong> instead of @var.</p>
-
-  <pre class="mscode">
-@var $v1 = 0;
-if( $v1 == 0 )
-{
-&nbsp;@gvar $v2;
- 
-}
-
-$v2 = 20;
-</pre>
-  <p>Variable v2 is declared in the global scope. So it is available outside the if statement.</p>
-
-</div>
-
-
-<div class="doctextsection">
-  <p><em>Arrays</em> must be declared with a size, although you can manipulate the size later.</p>
-
-<pre class="mscode">
-@var $arr[2];</pre>
-
-  <p>Arrays can also be declared with values. In this case the size is implicit.</p>
-
-<pre class="mscode">
-@var $arrStr[] = {"String1", "String2", "String3"};
-@var $arrNum[] = {1, 2, 3};
-</pre>
-</div>
-
-<div class="doctextsection">
-  <h2><a name="Constants">Constants</a></h2>
-
-  <p>Variables can be declared using number and string constants. Functions can also return constant arrays.&nbsp;</p>
-
-<pre class="mscode">
-@var $v1 = <strong>2</strong>;
-@var $v2 = <strong>"string"</strong>;
-if($v2 == <strong>"string"</strong>)
-{&nbsp;
-...
-</pre>
-
-  <p>}</p>
-</div>
-
-<div class="doctextsection">
-  <h3><a name="escseq">Escape Sequences</a></h3>
-
-  <p>To be able to type constant strings containing special characters such as the <em>newline</em> character, <em>double quotation mark</em>, <em>tab</em>, etc., they need to be written in a special way, using an <em>escape sequence</em>.</p>
-
-  <p>An escape sequence consists of a backslash (<strong>\</strong>) followed by a letter. Each escape sequence is regarded as a single character.</p>
-
-  <table class="table table-bordered">
-    <tbody>
-      <tr>
-        <td>Escape Sequence</td>
-        <td>Represents</td>
-      </tr>
-      <tr>
-        <td>\n</td>
-        <td>Newline</td>
-      </tr>
-      <tr>
-        <td>\r</td>
-        <td>Carriage return</td>
-      </tr>
-      <tr>
-        <td>\t</td>
-        <td>Tab</td>
-      </tr>
-      <tr>
-        <td>\"</td>
-        <td>Double quote mark (<strong>"</strong>)</td>
-      </tr>
-      <tr>
-        <td>\\</td>
-        <td>Backslash (<strong>\</strong>)</td>
-      </tr>
-    </tbody>
-  </table>
-</div>
-
-<div class="doctextsection">
-  <p>If you want an actual backslash in your constant string you need to write "\\". This will translate into "\".</p>
-
-<pre class="mscode">
-$var = "C:\\Temp\\MyFolder\\File.txt";
-</pre>
-</div>
-
-<div class="doctextsection">
-  <p>Escape sequences are only translated inside string constants enclosed in double quotes. Using single quoted strings will not translate escape sequences. Using single quoted strings may make the code more readable, but some characters like newline and single (or double) quotes cannot be used inside these strings.</p>
-
-<pre class="mscode">
-$var = 'C:\Temp\MyFolder\File.txt';
-</pre>
-</div>
-
-<div class="doctextsection">
-  <h3><a name="Arrays">Arrays</a></h3>
-
-  <p><em>Arrays</em> can hold multiple values. The values can be Strings, Numbers, Handles or other arrays.</p>
-
-  <p>
-    The <em>inde</em><em>x</em> operator ( [ ] ) is used to access array items. It can be used to get or to set values.<br />
-    If using it to set a value you must be sure that you are not trying to set an item outside the bounds of the array.
-  </p>
-
-  <p>When accessing array items the index value is 0-based. Thus the first item is index 0, the second is index 1. and so forth.</p>
-
-  <p>&nbsp;</p>
-
-<pre class="mscode">
+					<h6>Variable Rules</h6>
+					<ul class="small">
+						<li><strong>Naming:</strong> Must start with <code>$</code>, contain only a-z, A-Z, 0-9</li>
+						<li><strong>Scope:</strong> Variables exist within their declaration scope</li>
+						<li><strong>Shadowing:</strong> Local variables can shadow outer scope variables</li>
+						<li><strong>Global Access:</strong> Use <code>@gvar</code> to declare in global scope</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-6">
+			<div class="card">
+				<div class="card-header bg-warning text-dark">
+					<h6 class="mb-0"><i class="bi bi-list me-2"></i>Arrays and Constants</h6>
+				</div>
+				<div class="card-body">
+					<h6>Array Declaration</h6>
+					<pre class="mscode">// Fixed size array
 @var $arr[3];
-$arr[0] = 2;
-$arr[1] = 6;
-$arr[2] = 8;
 
-//This will fail (out-of-bounds).
-$arr[4] = 10;
-</pre>
-</div>
+// Initialized arrays
+@var $strArr[] = {"A", "B", "C"};
+@var $numArr[] = {1, 2, 3};
 
-<div class="doctextsection">
-  <p>When assigning one array to another, a copy of each item in the original array is created.</p>
+// Mixed type array
+@var $mixed[] = {"text", 42, "more"};</pre>
 
-<pre class="mscode">
-@var $arr[3];
-$arr[0] = 2;
-$arr[1] = 6;
-$arr[2] = 8;
+					<h6>String Constants and Escape Sequences</h6>
+					<div class="table-responsive">
+						<table class="table table-sm table-bordered">
+							<tbody>
+								<tr><td><code>\n</code></td><td>Newline</td></tr>
+								<tr><td><code>\r</code></td><td>Carriage return</td></tr>
+								<tr><td><code>\t</code></td><td>Tab</td></tr>
+								<tr><td><code>\"</code></td><td>Double quote</td></tr>
+								<tr><td><code>\\</code></td><td>Backslash</td></tr>
+							</tbody>
+						</table>
+					</div>
+					<p class="small mb-0"><strong>Note:</strong> Use double quotes for escape sequences, single quotes for literal strings.</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
 
-@var $arr2;
-$arr2 = $arr;
+<section id="operators" class="mt-5">
+	<h3>Operators and Expressions</h3>
+	<p>MultiScript provides comprehensive operator support for arithmetic, comparison, assignment, and special operations including the unique path concatenation operator for file system operations.</p>
 
-</pre>
-</div>
+	<div class="row">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header bg-dark text-white">
+					<h6 class="mb-0"><i class="bi bi-calculator me-2"></i>Complete Operator Reference</h6>
+				</div>
+				<div class="card-body">
+					<div class="row">
+						<div class="col-md-6">
+							<h6>Arithmetic Operators</h6>
+							<div class="table-responsive">
+								<table class="table table-sm table-bordered">
+									<thead class="table-light">
+										<tr><th>Operator</th><th>Description</th><th>Example</th></tr>
+									</thead>
+									<tbody>
+										<tr><td><code>+</code></td><td>Addition / String concatenation</td><td><code>5 + 3</code>, <code>"A" + "B"</code></td></tr>
+										<tr><td><code>-</code></td><td>Subtraction</td><td><code>10 - 3</code></td></tr>
+										<tr><td><code>*</code></td><td>Multiplication</td><td><code>4 * 5</code></td></tr>
+										<tr><td><code>/</code></td><td>Division</td><td><code>20 / 4</code></td></tr>
+									</tbody>
+								</table>
+							</div>
 
-<div class="doctextsection">
-  <h3>Array Functions</h3>
+							<h6>Assignment Operators</h6>
+							<div class="table-responsive">
+								<table class="table table-sm table-bordered">
+									<thead class="table-light">
+										<tr><th>Operator</th><th>Description</th><th>Example</th></tr>
+									</thead>
+									<tbody>
+										<tr><td><code>=</code></td><td>Assignment</td><td><code>$x = 5</code></td></tr>
+										<tr><td><code>+=</code></td><td>Add and assign</td><td><code>$x += 3</code></td></tr>
+										<tr><td><code>-=</code></td><td>Subtract and assign</td><td><code>$x -= 2</code></td></tr>
+									</tbody>
+								</table>
+							</div>
+						</div>
+						<div class="col-md-6">
+							<h6>Comparison Operators</h6>
+							<div class="table-responsive">
+								<table class="table table-sm table-bordered">
+									<thead class="table-light">
+										<tr><th>Operator</th><th>Description</th><th>Example</th></tr>
+									</thead>
+									<tbody>
+										<tr><td><code>==</code></td><td>Equal to</td><td><code>$x == 5</code></td></tr>
+										<tr><td><code>&gt;</code></td><td>Greater than</td><td><code>$x &gt; 10</code></td></tr>
+										<tr><td><code>&lt;</code></td><td>Less than</td><td><code>$x &lt; 20</code></td></tr>
+										<tr><td><code>&gt;=</code></td><td>Greater or equal</td><td><code>$x &gt;= 5</code></td></tr>
+										<tr><td><code>&lt;=</code></td><td>Less or equal</td><td><code>$x &lt;= 15</code></td></tr>
+									</tbody>
+								</table>
+							</div>
 
-  <p>
-    There are several built-in array functions.<br />
-    <a href="#docs_multiscript/functions/array">Read more about array functions</a>
-  </p>
+							<h6>Special Operators</h6>
+							<div class="table-responsive">
+								<table class="table table-sm table-bordered">
+									<thead class="table-light">
+										<tr><th>Operator</th><th>Description</th><th>Example</th></tr>
+									</thead>
+									<tbody>
+										<tr><td><code>!</code></td><td>Logical negation</td><td><code>!$condition</code></td></tr>
+										<tr><td><code>^</code></td><td>Path concatenation</td><td><code>$path ^ "file.txt"</code></td></tr>
+										<tr><td><code>[ ]</code></td><td>Index operator</td><td><code>$arr[0]</code>, <code>$str[2]</code></td></tr>
+									</tbody>
+								</table>
+							</div>
+						</div>
+					</div>
 
-<pre class="mscode">
-@var $arr = $arr[2] = {"item0", "item1"};
-@var $count = arrayCount($arr);
-// $count is 2
+					<div class="alert alert-info p-2 mt-3">
+						<h6 class="small mb-1"><i class="bi bi-folder me-1"></i>Path Concatenation Operator</h6>
+						<p class="small mb-0">The <code>^</code> operator intelligently handles path separation: <code>"C:\Path" ^ "file.txt"</code> becomes <code>"C:\Path\file.txt"</code>, automatically adding backslashes when needed while removing duplicates.</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 
-// Replace item 0 and 1
-$arr[0] = "item1";
-$arr[1] = "item2";
+	<div class="row mt-3">
+		<div class="col-md-6">
+			<div class="card">
+				<div class="card-header bg-primary text-white">
+					<h6 class="mb-0"><i class="bi bi-code-square me-2"></i>Expression Examples</h6>
+				</div>
+				<div class="card-body">
+					<pre class="mscode">// Arithmetic with parentheses
+@var $result = 5 + (4 * 2); // = 13
 
-@var $str = $arr[1];
-// $str is now "item2";
+// String concatenation
+@var $msg = "Hello" + " " + "World";
 
-// Add and increase size of array
-arrayAdd($arr, "item3");
-$count = arrayCount($arr);
-// $count is now 3
+// Path operations
+@var $fullPath = $basePath ^ $fileName;
 
-@var $idx = arrayFind($arr, "item3");
-// $idx is 2
+// Comparison
+if( $value &gt;= 10 && $value &lt;= 20 )
+{
+  // Process value in range
+}</pre>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-6">
+			<div class="card">
+				<div class="card-header bg-success text-white">
+					<h6 class="mb-0"><i class="bi bi-list-check me-2"></i>Index Operator Usage</h6>
+				</div>
+				<div class="card-body">
+					<pre class="mscode">// Array indexing
+@var $arr[] = {"A", "B", "C"};
+@var $first = $arr[0];  // "A"
+$arr[1] = "Modified";   // Change element
 
-arrayRemove($arr, 0);
-$count = arrayCount($arr);
-// $count is now 2 and item "item1" has been removed
-</pre>
-</div>
+// String character access
+@var $str = "Hello";
+@var $firstChar = $str[0];  // "H"
+$str[0] = "J";             // "Jello"
 
-<div class="doctextsection">
-  <h2><a name="Operators">Operators</a></h2>
-
-  <p>The usual arithmetic operators (+, -, *, /) are supported.</p>
-
-<pre class="mscode">
-@var $v1, $v2;
-$v1 = 5 + 2;
-$v1 = $v1 - 1;
-$v2 = $v1 * 2;
-$v1 = $v2 / $v1;
-</pre>
-</div>
-
-<div class="doctextsection">
-  <p>Since the script engine does not do any operator prioritization, parentheses <strong>must</strong> be used if multiple operators are used on one line to guarantee that they are evaluated correctly. On number values, mathematical operations are used. The <strong>+</strong> operator for two strings will concatenate the right string with the left.</p>
-
-<pre class="mscode">
-@var $result;
-
-$result = 5 + 4 * 2;
-// $result is now 18
-
-$result = 5 + (4 * 2);
-// $result is now 13
-
-$result = "StringA" + " " + "String B";
-// $result "StringA StringB";
-
-</pre>
-</div>
-
-<div class="doctextsection">
-  <h2><a name="IndexOperator">Index Operators</a></h2>
-
-  <p>The <em>index operator</em> ( [ ] ) is supported for both Arrays and strings. On Arrays it is used to get/set an array item. On strings it is used to get/set a character in the string.</p>
-
-<pre class="mscode">
-@var $str = "MyString";
-$str[0] = "Z";
-// $str is now "ZyString";
-
-$str = "abcdef";
+// Character manipulation
 @var $str2 = "12345";
-$str[1] = $str2[3];
-// $str is now "a4cdef";
-</pre>
-</div>
+$str[1] = $str2[3];        // "H4llo"</pre>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
 
-<div class="doctextsection">
-  <h2><a name="AssignmentOperators">Assignment Operators</a></h2>
+<section id="control-structures" class="mt-5">
+	<h3>Control Structures</h3>
+	<p>MultiScript provides standard control structures for conditional execution and iteration, enabling complex program logic and automated processing workflows.</p>
 
-  <p>The <em>assignment operators</em> (=, +=, -=) are used to assign the left side from the result of the expression to the right side.</p>
-
-<pre class="mscode">
-@var $val = 1;
-$val = 5;
-
-// += is increment
-$val += 2;
-// $val is now 7
-
-// -= is decrement
-$val -= 2;
-// $val is now 5
-</pre>
-</div>
-
-<div class="doctextsection">
-  <h2><a name="CompareOperators">Comparison Operators</a></h2>
-
-  <p><em>Comparison operators</em> are used to compare two values. The result of a comparison operator is 0 for false or 1 for true. The following comparison operators are supported: == (equal), &gt; (greater than), &lt; (less than), &gt;= (greater than or equal), &lt;= (less than or equal)</p>
-
-<pre class="mscode">
-@var $val = 3;
-$val = $val &gt; 2;
-// $val is now 1
-$val = 4;
-if( $val &gt;= 4 )
+	<div class="row">
+		<div class="col-md-6">
+			<div class="card">
+				<div class="card-header bg-warning text-dark">
+					<h6 class="mb-0"><i class="bi bi-diagram-3 me-2"></i>Conditional Statements</h6>
+				</div>
+				<div class="card-body">
+					<h6>IF-ELSE Structure</h6>
+					<pre class="mscode">if( $condition )
 {
-&nbsp;...
+  // Execute if true
 }
-</pre>
-</div>
-
-<div class="doctextsection">
-  <h2><a name="NegationOperators">Negation Operators</a></h2>
-
-  <p>The<em> negation</em> operator (!) is used to negate a true/false value. The result of a negation is either 0 or 1.</p>
-
-<pre class="mscode">
-@var $val = 1;
-if( !$val )
+else if( $otherCondition )
 {
- // if $val is false
-&nbsp;...
-}
-</pre>
-</div>
-
-<div class="doctextsection">
-  <h2><a name="SpecialPathOperator">Special Path Operator</a></h2>
-
-  <p><strong>"^"</strong> is used as a special path operator. It will assume that both the left and right side are path items, and will insert a path separator (\) if needed.</p>
-
-<pre class="mscode">
-@var $path;
-$path = "C:\\Path";
-$path = $path + "MyFile.txt";
-// $Path is now "C:\PathMyFile.txt"
-
-$path = "C:\\Path";
-$path = $path ^ "MyFile.txt";
-// $Path is now "C:\Path\MyFile.txt"
-
-$path = "C:\\Path\\";
-$path = $path ^ "\\MyFile.txt";
-// $Path is now "C:\Path\MyFile.txt"
-</pre>
-</div>
-
-<div class="doctextsection">
-  <h2><a name="if_condition">IF - Condition</a></h2>
-
-  <p>The <em>IF condition</em> will evaluate its test expression. If the expression is greater than or equal to 1 (true) then it will execute the scope after the if statement. If it is less then 1 (false) it it will jump over the scope or go to the else statement if present.</p>
-
-  <p>
-    New variables created inside the IF scope will only exist within that scope. New scope variables can be named the same as variables in the outer scope (but this is not best practice).<br />
-    &nbsp;
-  </p>
-
-<pre class="mscode">
-@var $v = 2;
-@var $s = 1;
-if($v == 2)
-{
- // Local scope variable
- @var $s = 10; 
- $v = 1;
-}
-else if( $v &gt;= 3)
-{
- $v = 3;
+  // Execute if first false, this true
 }
 else
 {
- $v = 4;
-}
+  // Execute if all conditions false
+}</pre>
 
-if( MyFync($v) )
-{
- $v = 6;
-}
-</pre>
-</div>
-
-<div class="doctextsection">
-  <h2><a name="for_loop">FOR - Loops</a></h2>
-
-  <p>A <strong>FOR</strong> loop statement has 3 expressions that are evaluated.</p>
-
-<pre>
-for( &lt;init expression&gt;; &lt;condition expression&gt;; &lt;loop expression&gt;)
-{
-  &lt;statement&gt;
-}
-</pre>
-
-  <p>The<strong> Init Expression</strong> is evaluated once, before any other element of the <strong>for </strong>loop.</p>
-
-  <p>The<strong> condition expression</strong> is evaluated and tested each time it is about to enter the <strong>for </strong>scope.</p>
-
-  <p>The<strong> loop expression</strong> is evaluated each time it has ended a scope execution of the <strong>for </strong>loop.</p>
-
-  <p>The Initialization variable in the init-expression <strong>must </strong>be declared outside the <strong>for</strong> loop.</p>
-
-<pre class="mscode">
-// Valid for expression
-@var $n;
+					<h6>Conditional Logic Rules</h6>
+					<ul class="small">
+						<li><strong>Boolean Evaluation:</strong> Values ? 1 are true, &lt; 1 are false</li>
+						<li><strong>Scope Variables:</strong> Variables declared inside IF scope are local</li>
+						<li><strong>Variable Shadowing:</strong> Inner scope variables can shadow outer ones</li>
+						<li><strong>Nested Conditions:</strong> IF statements can be nested to any depth</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-6">
+			<div class="card">
+				<div class="card-header bg-info text-white">
+					<h6 class="mb-0"><i class="bi bi-arrow-repeat me-2"></i>Loop Structures</h6>
+				</div>
+				<div class="card-body">
+					<h6>FOR Loop</h6>
+					<pre class="mscode">@var $n;
 for( $n = 0; $n &lt; 5; $n++ )
 {
-  ...
-}
-
-// Invalid for expression
-for(<strong> @var $n = 0</strong>; $n &lt; 5; $n++ )
-{
- ...
-}
-</pre>
-</div>
-
-<div class="doctextsection">
-  <p>A <strong>for </strong>loop terminates when the condition expression evaluates to 0 (false), or a <strong>break </strong>or <strong>return</strong> statement is executed within the loop. A <strong>continue </strong>statement in a <strong>for </strong>loop terminates only the current iteration.</p>
-
-<pre class="mscode">
-@var $n;
-for( $n = 0; $n &lt; 5; $n++ )
-{
-  if($n == 2)
+  if( $n == 2 )
   {
-   continue;
+    continue; // Skip iteration
   }
-  
-  if($n == 4)
+  if( $n == 4 )
   {
-   // break out of the loop
-   break;
+    break;    // Exit loop
   }
-}
-</pre>
-</div>
+}</pre>
 
-<div class="doctextsection">
-  <h2><a name="while_loops">WHILE - Loops</a></h2>
-
-  <p>A <strong>While </strong>loop has 1 expression that is evaluated every time through the loop until it is 0 (false).</p>
-
-<pre>
-while( &lt;expression&gt; )
-{
-  &lt;statement&gt; 
-}
-</pre>
-</div>
-
-<div class="doctextsection">
-  <p>A <strong>while </strong>loop can terminate when a <strong>break</strong>, or <strong>return </strong>within the statement body is executed. Use <strong>continue </strong>to terminate the current iteration without exiting the <strong>while </strong>loop. <strong>Continue </strong>passes control to the next iteration of the <strong>while </strong>loop.</p>
-
-<pre class="mscode">
-@var $n = 10;
+					<h6>WHILE Loop</h6>
+					<pre class="mscode">@var $n = 10;
 while( $n &gt; 0 )
 {
   $n--;
+  // Process items
+}</pre>
+
+					<p class="small mb-0"><strong>Note:</strong> Loop variable must be declared outside the FOR statement.</p>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="row mt-3">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header bg-success text-white">
+					<h6 class="mb-0"><i class="bi bi-arrow-left-right me-2"></i>Loop Control and Flow</h6>
+				</div>
+				<div class="card-body">
+					<div class="row">
+						<div class="col-md-4">
+							<h6>Loop Control Keywords</h6>
+							<ul class="small">
+								<li><strong>break:</strong> Exit the loop immediately</li>
+								<li><strong>continue:</strong> Skip to next iteration</li>
+								<li><strong>return:</strong> Exit function and optionally return value</li>
+							</ul>
+						</div>
+						<div class="col-md-4">
+							<h6>FOR Loop Components</h6>
+							<ul class="small">
+								<li><strong>Init Expression:</strong> Executed once before loop starts</li>
+								<li><strong>Condition:</strong> Evaluated before each iteration</li>
+								<li><strong>Loop Expression:</strong> Executed after each iteration</li>
+							</ul>
+						</div>
+						<div class="col-md-4">
+							<h6>WHILE Loop Features</h6>
+							<ul class="small">
+								<li><strong>Condition Check:</strong> Evaluated before each iteration</li>
+								<li><strong>Variable Scope:</strong> Access to outer scope variables</li>
+								<li><strong>Infinite Loops:</strong> Use break or return to exit</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<section id="functions-classes" class="mt-5">
+	<h3>Functions and Classes</h3>
+	<p>MultiScript supports user-defined functions and basic object-oriented programming through classes, enabling code reuse, modular design, and organized script architecture.</p>
+
+	<div class="row">
+		<div class="col-md-6">
+			<div class="card">
+				<div class="card-header bg-primary text-white">
+					<h6 class="mb-0"><i class="bi bi-code me-2"></i>Function Definition</h6>
+				</div>
+				<div class="card-body">
+					<h6>Function Syntax</h6>
+					<pre class="mscode">function MyFunction( $param1, $param2 )
+{
+  @var $result = $param1 + $param2;
+  $result = $result * 2;
+  return $result;
 }
 
-@var $success = 1;
-while( $success )
+// Function call
+@var $value = MyFunction( 5, 10 );</pre>
+
+					<h6>Function Features</h6>
+					<ul class="small">
+						<li><strong>Declaration Order:</strong> Functions must be defined before they are called</li>
+						<li><strong>Parameter Passing:</strong> All parameters passed by value (copied)</li>
+						<li><strong>Return Values:</strong> Functions return 1 by default, use <code>return</code> for custom values</li>
+						<li><strong>Local Scope:</strong> Function variables are local to the function</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-6">
+			<div class="card">
+				<div class="card-header bg-warning text-dark">
+					<h6 class="mb-0"><i class="bi bi-diagram-2 me-2"></i>Class Definition</h6>
+				</div>
+				<div class="card-body">
+					<h6>Class Syntax</h6>
+					<pre class="mscode">class MyClass
 {
-  $success = MyFunc_DoWork();
-}
-</pre>
-</div>
-
-<div class="doctextsection">
-  <h2><a name="functions">Functions</a></h2>
-
-  <p>
-    With the <strong>function</strong> keyword it is possible to define a function that is called by the script.<br />
-    The function must be defined before it is called. Therefore it is recommended to define all the script functions first in the script.
-  </p>
-
-  <p>Functions support arguments. Parameters sent to a function will be passed <em>by value</em>, meaning they are passed as copies. If a variable passed as a parameter to a function is changed within the function, the original variable is <em>not</em> changed.</p>
-
-  <p>The function will return when it reaches the end of the function definition. It will by default always return 1 in this case. If some other return value from the function is wanted then a <strong>return </strong>statement must be used.</p>
-
-<pre class="mscode">
-function MyFunc( $a1, $a2 )
-{
- @var $result = $a1 + $a2;
- $result = $result * 2;
- return $result;
-}
-
-@var $n = 0;
-$n = MyFunc( 2, 6 );
-</pre>
-</div>
-
-<div class="doctextsection">
-  <p>The <strong>return </strong>statement can also be used to exit from the function <em>before</em> it reaches the end.</p>
-
-<pre class="mscode">
-function MyFunc( $a1, $a2 )
-{
- @var $result = $a1 + $a2;
- if( $result &gt; 10 )
- {
-   return $result;
- }
- $result = $result * 2
-
- return $result;
-}
-
-@var $n = 0;
-$n = MyFunc( 4, 8 );
-</pre>
-</div>
-
-<div class="doctextsection">
-  <h2><a name="class">Classes</a></h2>
-
-  <p>With the <strong>class</strong> keyword it is possible to define a <em>class</em>. A class is a group of variables and functions that are collected together within an <em>object</em>. Objects in MultiScript are very simple variations of the "object" you find in languages like C++, but without the support for public/private. Everything is public here.</p>
-
-  <p>A class is created from a definition using the <strong>new</strong> keyword. This will create a new instance of a class.</p>
-
-  <p>It is not possible to delete objects while running the script.</p>
-
-  <p>To access a function or variable in an object a dot ("<strong>.</strong>") is used to as separator between the object variable and the class variable name or function name.</p>
-
-  <p>When referring to a variable in an object variable the <strong>$</strong> of the class variable is not written.</p>
-
-<pre class="mscode">
-// INCORRECT
-@var $n = $obj.$a;
-
-// CORRECT
-@var $n = $obj.a;
-</pre>
-
-<pre class="mscode">
-class MyClass
-{
-  @var $a = 0;
-  @var $b = 1;
- 
-  function( $v1, $v2 )
+  @var $property1 = 0;
+  @var $property2 = "default";
+  
+  function MyMethod( $param )
   {
-    $b = $v1 + $v2;
-    return $b;
+    $property1 = $param;
+    return $property1 * 2;
   }
 }
 
+// Object creation and usage
 @var $obj = new MyClass;
-@var $result = $obj.MyFunc( 2, 5 );
-@var $n = $obj.a;
-</pre>
+@var $result = $obj.MyMethod( 10 );
+@var $value = $obj.property1;</pre>
+
+					<h6>Class Features</h6>
+					<ul class="small">
+						<li><strong>Object Creation:</strong> Use <code>new</code> keyword to create instances</li>
+						<li><strong>Property Access:</strong> Use dot notation without <code>$</code> prefix</li>
+						<li><strong>Method Calls:</strong> Standard function call syntax with dot notation</li>
+						<li><strong>Public Access:</strong> All properties and methods are public</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="row mt-3">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header bg-success text-white">
+					<h6 class="mb-0"><i class="bi bi-gear-wide-connected me-2"></i>Advanced Function and Class Concepts</h6>
+				</div>
+				<div class="card-body">
+					<div class="row">
+						<div class="col-md-6">
+							<h6>Function Best Practices</h6>
+							<ul class="small">
+								<li><strong>Early Definition:</strong> Define all functions at the beginning of scripts</li>
+								<li><strong>Meaningful Names:</strong> Use descriptive function names that indicate purpose</li>
+								<li><strong>Return Values:</strong> Always use explicit return statements for clarity</li>
+								<li><strong>Error Handling:</strong> Validate parameters and handle edge cases</li>
+								<li><strong>Documentation:</strong> Use comments to document function purpose and parameters</li>
+							</ul>
+
+							<h6>Parameter Passing Example</h6>
+							<pre class="mscode">function ModifyValue( $input )
+{
+  $input = $input * 2;  // Only modifies copy
+  return $input;
+}
+
+@var $original = 10;
+@var $modified = ModifyValue( $original );
+// $original is still 10, $modified is 20</pre>
+						</div>
+						<div class="col-md-6">
+							<h6>Class Usage Patterns</h6>
+							<ul class="small">
+								<li><strong>Object Lifetime:</strong> Objects exist until script completion</li>
+								<li><strong>No Destructors:</strong> Cannot explicitly delete objects</li>
+								<li><strong>Simple OOP:</strong> Basic object-oriented features without inheritance</li>
+								<li><strong>State Management:</strong> Use objects to maintain related data and methods</li>
+								<li><strong>Encapsulation:</strong> Group related functionality in logical units</li>
+							</ul>
+
+							<h6>Object Property Access</h6>
+							<pre class="mscode">// INCORRECT - Don't use $ in property access
+@var $value = $obj.$property;
+
+// CORRECT - Use dot notation without $
+@var $value = $obj.property;
+$obj.property = "new value";
+
+// Method calls
+@var $result = $obj.CalculateValue( $param );</pre>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<div class="alert alert-success mt-5">
+	<h6><i class="bi bi-lightbulb me-2"></i>MultiScript Syntax Mastery</h6>
+	<p class="mb-0">Master MultiScript by understanding line-by-line execution, using parentheses for expression control, and leveraging the powerful data types and operators. Remember that variables must start with <code>$</code>, functions must be defined before use, and the path concatenation operator <code>^</code> simplifies file system operations. Use proper scoping with <code>@var</code> for local and <code>@gvar</code> for global variables, and always validate expressions with parentheses when combining multiple operations for predictable results.</p>
+</div>
+
+<div class="alert alert-info mt-4">
+	<h6><i class="bi bi-info-circle me-2"></i>Related MultiScript Documentation</h6>
+	<p class="mb-0">Continue learning MultiScript with: <a href="/Docs/multiscript/corefunctions" class="text-decoration-none">Core Functions</a>, <a href="/Docs/multiscript/functions/string" class="text-decoration-none">String Functions</a>, <a href="/Docs/multiscript/functions/array" class="text-decoration-none">Array Functions</a>, <a href="/Docs/multiscript/functions/filesystem" class="text-decoration-none">File System Functions</a>, <a href="/Docs/multiscript/examples" class="text-decoration-none">Practical Examples</a>, <a href="/Docs/UDC_multiscript" class="text-decoration-none">User Defined Commands</a>, and <a href="/Docs/UDC_multiscript_debugger" class="text-decoration-none">MultiScript Debugger</a>.</p>
 </div>
 
 

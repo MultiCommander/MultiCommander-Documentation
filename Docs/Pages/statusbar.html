@@ -1,12 +1,241 @@
 <h2>Status Bar</h2>
-<p><img alt="" src="/Docs/Images/StatusBar.png" /></p>
 
-<p>At the very bottom of the Multi Commander window is an area where the application can show status information about background tasks like folder sizing, copy operations and more.</p>
+<p>The <strong>Status Bar</strong> provides essential real-time feedback and system status information through a comprehensive information display located at the bottom of the Multi Commander interface. This critical communication component delivers immediate visibility into ongoing operations, system state changes, and background processes, ensuring users maintain complete awareness of application activity and can respond appropriately to system conditions and operation progress.</p>
 
-<p>The progress status for copy/delete/move operation is shown to the right in the status bar area. If you double-click on the progressbar the progress dialog window for that operation will be brought to the foreground and shown.</p>
+<div class="alert alert-primary">
+	<h6><i class="bi bi-info-square me-2"></i>Real-Time System Communication</h6>
+	<p class="mb-0">Experience comprehensive system awareness through intelligent status reporting that keeps you informed of all Multi Commander activities. The Status Bar transforms complex background operations into clear, actionable information while providing direct interaction capabilities for enhanced operation control and monitoring.</p>
+</div>
 
-<p>When Administrator Mode is active you will see an indication of that in the status bar. Administrator Mode will turn itself off when it has been idle for a couple of minutes, but if you right-click on the status text for it a popup menu will be shown where you can turn off Administrator Mode without waiting.</p>
+<nav class="navbar navbar-expand-lg navbar-light bg-light mb-4">
+	<div class="container-fluid">
+		<span class="navbar-brand">Quick Navigation</span>
+		<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#statusBarNav">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="statusBarNav">
+			<ul class="navbar-nav">
+				<li class="nav-item"><a class="nav-link" href="#overview">Overview</a></li>
+				<li class="nav-item"><a class="nav-link" href="#operation-feedback">Operation Feedback</a></li>
+				<li class="nav-item"><a class="nav-link" href="#system-status">System Status</a></li>
+				<li class="nav-item"><a class="nav-link" href="#interactive-features">Interactive Features</a></li>
+			</ul>
+		</div>
+	</div>
+</nav>
 
-<p>&nbsp;</p>
+<section id="overview">
+	<h3>Status Bar Overview and Layout</h3>
+	<p>The Status Bar occupies the bottom edge of the Multi Commander window, serving as the primary communication interface between the application and user for real-time system feedback, operation progress monitoring, and critical status notifications that require immediate attention or awareness.</p>
+
+	<div class="row">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header bg-info text-white">
+					<h6 class="mb-0"><i class="bi bi-layout-sidebar-inset me-2"></i>Interface Position and Components</h6>
+				</div>
+				<div class="card-body">
+					<div class="text-center mt-3 mb-3">
+						<img src="/Docs/Images/StatusBar.png" alt="Status Bar Layout" class="img-fluid border rounded shadow-sm" />
+						<p class="text-muted small mt-2">Status Bar showing operation progress, system status indicators, and background task information</p>
+					</div>
+
+					<h6>Primary Functions</h6>
+					<ul class="small">
+						<li><strong>Operation Progress:</strong> Real-time progress indicators for file operations and background tasks</li>
+						<li><strong>System State Indicators:</strong> Administrative mode status and special operation modes</li>
+						<li><strong>Background Task Status:</strong> Folder sizing operations, network activities, and extension processes</li>
+						<li><strong>Interactive Controls:</strong> Direct access to operation details and system control options</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<section id="operation-feedback" class="mt-5">
+	<h3>Operation Progress and Feedback</h3>
+	<p>The Status Bar provides comprehensive progress monitoring for all major file operations, delivering real-time feedback through visual progress indicators and detailed status information that enables effective operation management and troubleshooting.</p>
+
+	<div class="row">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header bg-success text-white">
+					<h6 class="mb-0"><i class="bi bi-speedometer2 me-2"></i>File Operation Progress Monitoring</h6>
+				</div>
+				<div class="card-body">
+					<h6>Progress Display Features</h6>
+					<ul class="small">
+						<li><strong>Visual Progress Bars:</strong> Real-time graphical representation of operation completion</li>
+						<li><strong>Right-Side Positioning:</strong> Progress indicators positioned in the right area of the status bar</li>
+						<li><strong>Multiple Operation Support:</strong> Simultaneous monitoring of concurrent file operations</li>
+						<li><strong>Completion Notifications:</strong> Clear indication when operations finish successfully or encounter errors</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="row mt-3">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header bg-primary text-white">
+					<h6 class="mb-0"><i class="bi bi-activity me-2"></i>Background Task Monitoring</h6>
+				</div>
+				<div class="card-body">
+					<h6>Background Process Indicators</h6>
+					<ul class="small">
+						<li><strong>Folder Sizing:</strong> Progress indication for calculating directory sizes and file counts</li>
+						<li><strong>Network Operations:</strong> Status updates for remote file system activities</li>
+						<li><strong>Search Operations:</strong> Progress feedback for comprehensive file and content searches</li>
+						<li><strong>Extension Activities:</strong> Status information from active plugins and extensions</li>
+					</ul>
+
+					<h6>Status Information Types</h6>
+					<ul class="small">
+						<li><strong>Current Activity:</strong> Description of ongoing background processes</li>
+						<li><strong>Completion Estimates:</strong> Time remaining and progress percentage when available</li>
+						<li><strong>Resource Usage:</strong> Impact indicators for system-intensive operations</li>
+						<li><strong>Error Notifications:</strong> Immediate feedback for operation failures or conflicts</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<section id="system-status" class="mt-5">
+	<h3>System Status and Special Modes</h3>
+	<p>The Status Bar serves as the primary notification system for special Multi Commander operating modes and system state changes, providing critical awareness of security contexts and operational configurations that affect application behavior.</p>
+
+	<div class="row">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header bg-warning text-dark">
+					<h6 class="mb-0"><i class="bi bi-shield-check me-2"></i>Administrator Mode Indication</h6>
+				</div>
+				<div class="card-body">
+					<h6>Elevated Privileges Monitoring</h6>
+					<ul class="small">
+						<li><strong>Visual Indication:</strong> Clear status display when Administrator Mode is active</li>
+						<li><strong>Security Awareness:</strong> Immediate notification of elevated privilege operations</li>
+						<li><strong>Auto-Timeout Feature:</strong> Administrator Mode automatically deactivates after idle period</li>
+						<li><strong>Manual Control:</strong> Right-click access for immediate mode deactivation</li>
+					</ul>
+
+					<h6>Administrator Mode Management</h6>
+					<ul class="small">
+						<li><strong>Automatic Deactivation:</strong> Mode turns off after a few minutes of inactivity</li>
+						<li><strong>Right-Click Control:</strong> Context menu provides immediate deactivation option</li>
+						<li><strong>Security Best Practice:</strong> Prevents accidental elevated operations</li>
+						<li><strong>Visual Reminder:</strong> Constant awareness of current privilege level</li>
+					</ul>
+
+					<div class="alert alert-info p-2 mt-3">
+						<h6 class="small mb-1"><i class="bi bi-info-circle me-1"></i>Security Feature</h6>
+						<p class="small mb-0">Administrator Mode indication helps maintain security awareness by clearly showing when Multi Commander is operating with elevated privileges, preventing accidental administrative operations.</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="row mt-3">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header bg-info text-white">
+					<h6 class="mb-0"><i class="bi bi-gear me-2"></i>System State Indicators</h6>
+				</div>
+				<div class="card-body">
+					<h6>Operational State Information</h6>
+					<ul class="small">
+						<li><strong>Connection Status:</strong> Network and remote file system connection states</li>
+						<li><strong>Extension Status:</strong> Active plugin and extension operational information</li>
+						<li><strong>Performance Indicators:</strong> System resource usage and performance notifications</li>
+						<li><strong>Configuration Alerts:</strong> Important setting changes and configuration updates</li>
+					</ul>
+
+					<h6>Context-Sensitive Information</h6>
+					<ul class="small">
+						<li><strong>Selection Details:</strong> Information about currently selected files and folders</li>
+						<li><strong>Panel States:</strong> Active panel information and current location details</li>
+						<li><strong>Operation Results:</strong> Completion status and result summaries</li>
+						<li><strong>Error Reporting:</strong> Detailed error information and resolution guidance</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<section id="interactive-features" class="mt-5">
+	<h3>Interactive Features and Controls</h3>
+	<p>The Status Bar provides direct interaction capabilities that transform passive status display into active operation management, enabling users to control ongoing processes and access detailed operation information through intuitive interaction methods.</p>
+
+	<div class="row">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header bg-primary text-white">
+					<h6 class="mb-0"><i class="bi bi-mouse me-2"></i>Progress Bar Interaction</h6>
+				</div>
+				<div class="card-body">
+					<h6>Direct Operation Access</h6>
+					<ul class="small">
+						<li><strong>Double-Click Activation:</strong> Double-click progress bars to open detailed progress dialogs</li>
+						<li><strong>Foreground Access:</strong> Bring operation dialogs to front for detailed monitoring</li>
+						<li><strong>Operation Control:</strong> Access pause, resume, and cancel options through progress dialogs</li>
+						<li><strong>Detailed Information:</strong> View comprehensive operation statistics and timing information</li>
+					</ul>
+
+					<h6>Enhanced Operation Management</h6>
+					<ul class="small">
+						<li><strong>Real-Time Statistics:</strong> Detailed transfer speeds, file counts, and completion estimates</li>
+						<li><strong>Error Handling:</strong> Immediate access to conflict resolution and error management</li>
+						<li><strong>Multi-Operation Control:</strong> Manage multiple concurrent operations independently</li>
+						<li><strong>Priority Management:</strong> Adjust operation priorities and resource allocation</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="row mt-3">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header bg-success text-white">
+					<h6 class="mb-0"><i class="bi bi-menu-button me-2"></i>Context Menu Access</h6>
+				</div>
+				<div class="card-body">
+					<h6>Right-Click Functionality</h6>
+					<ul class="small">
+						<li><strong>Administrator Mode Control:</strong> Right-click Administrator Mode indicator for immediate deactivation</li>
+						<li><strong>Quick Actions:</strong> Access common operations without navigating through menus</li>
+						<li><strong>Status Details:</strong> Right-click status indicators for additional information</li>
+						<li><strong>Configuration Access:</strong> Quick access to related settings and configuration options</li>
+					</ul>
+
+					<h6>Contextual Operations</h6>
+					<ul class="small">
+						<li><strong>Background Task Control:</strong> Manage and control background operations</li>
+						<li><strong>System Management:</strong> Quick access to system-level controls and settings</li>
+						<li><strong>Information Display:</strong> Toggle detailed information display modes</li>
+						<li><strong>Troubleshooting Tools:</strong> Access diagnostic and troubleshooting options</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+
+<div class="alert alert-success mt-5">
+	<h6><i class="bi bi-lightbulb me-2"></i>Status Bar Mastery</h6>
+	<p class="mb-0">Master the Status Bar by understanding its dual role as both information display and interactive control interface: monitor operation progress through visual indicators, maintain security awareness through Administrator Mode notifications, utilize double-click access to detailed progress dialogs, and leverage right-click context menus for quick system control. Remember that the Status Bar transforms complex background operations into actionable information, making it an essential component for efficient Multi Commander operation management.</p>
+</div>
+
+<div class="alert alert-info mt-4">
+	<h6><i class="bi bi-info-circle me-2"></i>Related Interface Components</h6>
+	<p class="mb-0">Enhance your Multi Commander experience with related interface elements: <a href="/Docs/mainlayout" class="text-decoration-none">Main Application Layout</a>, <a href="/Docs/filecommandbar" class="text-decoration-none">File Commands Bar</a>, <a href="/Docs/commandlinebar" class="text-decoration-none">Command Line Bar</a>, and <a href="/Docs/buttonpanel" class="text-decoration-none">Button Panel</a>.</p>
+</div>
 
 

@@ -1,58 +1,621 @@
-<h2>User Defined Commands - External Commands</h2>
-<p><strong>External commands</strong> let you choose an external program to be launched when the command is called.</p>
+﻿<h2>User Defined Commands - External Commands</h2>
 
-<p><img alt="" src="/Docs/Images/UDC_external.png" /></p>
+<p>External Commands provide seamless integration between Multi Commander and any external application or system utility by launching programs with dynamically generated parameters. This powerful command type transforms Multi Commander into a comprehensive workflow hub that can pass file paths, selections, and contextual information to external tools, creating automated workflows that span multiple applications.</p>
 
-<p>&nbsp;</p>
+<div class="alert alert-primary">
+	<h6><i class="bi bi-box-arrow-up-right me-2"></i>External Application Integration</h6>
+	<p class="mb-0">Launch any Windows application or system utility with dynamic parameters using MultiTags that automatically inject file paths, selections, and contextual information. External Commands bridge Multi Commander with your complete toolchain, enabling sophisticated workflows that process files through external editors, converters, analyzers, and specialized utilities with a single command execution.</p>
+</div>
 
-<h2>MultiTags</h2>
+<nav class="navbar navbar-expand-lg navbar-light bg-light mb-4">
+	<div class="container-fluid">
+		<span class="navbar-brand">Quick Navigation</span>
+		<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#externalCommandsNav">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="externalCommandsNav">
+			<ul class="navbar-nav">
+				<li class="nav-item"><a class="nav-link" href="#overview">Overview</a></li>
+				<li class="nav-item"><a class="nav-link" href="#configuration">Configuration</a></li>
+				<li class="nav-item"><a class="nav-link" href="#multitags">MultiTags</a></li>
+				<li class="nav-item"><a class="nav-link" href="#options">Command Options</a></li>
+				<li class="nav-item"><a class="nav-link" href="#examples">Examples</a></li>
+			</ul>
+		</div>
+	</div>
+</nav>
 
-<p>MultiTags are specially formatted texts that will be replaced with dynamic information. For example, the MultiTag <strong>${focusfilepath}</strong> will be replaced by the full file path to the file currently in focus. The command is run through a process that will translate <strong>MultiTags</strong> before it is executed.</p>
+<section id="overview">
+	<h3>External Commands Overview</h3>
+	<p>External Commands serve as the bridge between Multi Commander and the broader Windows application ecosystem, enabling you to launch any program with contextual file information and custom parameters for integrated workflow automation.</p>
 
-<p>Paths are not quoted by default, so if you need quotes around the path you have to put them around the MultiTag, e.g. <strong>"${focuspath}"</strong></p>
+	<div class="row">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header bg-info text-white">
+					<h6 class="mb-0"><i class="bi bi-diagram-2 me-2"></i>How External Commands Work</h6>
+				</div>
+				<div class="card-body">
+					<h6>Command Execution Process</h6>
+					<div class="row">
+						<div class="col-md-6">
+							<ul class="small">
+								<li><strong>Program Selection:</strong> Specify the external application to launch</li>
+								<li><strong>Parameter Definition:</strong> Define command line arguments using MultiTags</li>
+								<li><strong>MultiTag Processing:</strong> Multi Commander replaces tags with dynamic values</li>
+								<li><strong>Command Execution:</strong> Launch application with processed parameters</li>
+							</ul>
+						</div>
+						<div class="col-md-6">
+							<ul class="small">
+								<li><strong>Context Awareness:</strong> Commands receive current file selections and paths</li>
+								<li><strong>Dynamic Values:</strong> Parameters adapt to current Multi Commander state</li>
+								<li><strong>Security Options:</strong> Run with elevated privileges when required</li>
+								<li><strong>User Confirmation:</strong> Optional confirmation dialogs for safety</li>
+							</ul>
+						</div>
+					</div>
 
-<p><a href="#docs_multitags">Read more about MultiTags</a></p>
+					<h6>Integration Capabilities</h6>
+					<ul class="small">
+						<li><strong>File Processing:</strong> Pass selected files to external editors, converters, or analyzers</li>
+						<li><strong>Development Tools:</strong> Launch IDEs, compilers, and development utilities with project files</li>
+						<li><strong>System Utilities:</strong> Execute system tools with specific files or directories</li>
+						<li><strong>Custom Applications:</strong> Integrate proprietary or specialized software into workflows</li>
+					</ul>
 
-<h2>Options</h2>
+					<div class="alert alert-info p-2 mt-3">
+						<h6 class="small mb-1"><i class="bi bi-lightbulb me-1"></i>Workflow Integration</h6>
+						<p class="small mb-0">External Commands transform Multi Commander into a central hub for file-based workflows, eliminating the need to manually switch between applications and copy file paths.</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 
-<p><img alt="" src="/Docs/Images/UDC_runoptions.png" /></p>
+	<div class="row mt-3">
+		<div class="col-md-6">
+			<div class="card">
+				<div class="card-header bg-success text-white">
+					<h6 class="mb-0"><i class="bi bi-check-circle me-2"></i>Key Benefits</h6>
+				</div>
+				<div class="card-body">
+					<h6>Workflow Efficiency</h6>
+					<ul class="small">
+						<li><strong>Seamless Integration:</strong> Launch any application directly from Multi Commander</li>
+						<li><strong>Context Preservation:</strong> External programs receive current file context automatically</li>
+						<li><strong>Parameter Automation:</strong> Eliminate manual parameter entry and file path copying</li>
+						<li><strong>Consistent Interface:</strong> Access external tools through familiar Multi Commander interface</li>
+					</ul>
 
-<p>When you press the <strong>Options</strong> button you will get a list of options you can assign to the command, as shown above.</p>
+					<h6>Flexibility</h6>
+					<ul class="small">
+						<li><strong>Any Application:</strong> Works with any Windows executable or system utility</li>
+						<li><strong>Dynamic Parameters:</strong> Command line arguments adapt to current selections</li>
+						<li><strong>Security Options:</strong> Run applications with appropriate privilege levels</li>
+						<li><strong>User Control:</strong> Optional confirmation dialogs for sensitive operations</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-6">
+			<div class="card">
+				<div class="card-header bg-warning text-dark">
+					<h6 class="mb-0"><i class="bi bi-target me-2"></i>Common Applications</h6>
+				</div>
+				<div class="card-body">
+					<h6>Development Workflows</h6>
+					<ul class="small">
+						<li><strong>Code Editors:</strong> Open files in Visual Studio Code, Notepad++, or other editors</li>
+						<li><strong>Version Control:</strong> Launch Git clients with repository paths</li>
+						<li><strong>Build Tools:</strong> Execute compilers or build systems with project files</li>
+						<li><strong>Development Utilities:</strong> Run linters, formatters, or analysis tools</li>
+					</ul>
 
-<h3>Run as Administrator</h3>
+					<h6>Content Processing</h6>
+					<ul class="small">
+						<li><strong>Image Processing:</strong> Open images in specialized editors or converters</li>
+						<li><strong>Document Tools:</strong> Launch document processors with specific files</li>
+						<li><strong>Media Applications:</strong> Open audio/video files in appropriate players or editors</li>
+						<li><strong>System Tools:</strong> Execute system utilities with targeted files or folders</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
 
-<p>When this option is checked the program will be run with Administrator privileges. If you are running as a normal user you will be presented with a UAC&nbsp;dialog asking for permission to run the program as Administrator. You might also need to enter an Administrator login and password, depending on your user account permissions.</p>
+<section id="configuration" class="mt-5">
+	<h3>Configuring External Commands</h3>
+	<p>Setting up External Commands involves specifying the target application and defining command line parameters using MultiTags that provide dynamic file and context information.</p>
 
-<p>If you run with UAC disabled then the system will launch the program as Administrator without showing you a UAC dialog.</p>
+	<div class="row">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header bg-primary text-white">
+					<h6 class="mb-0"><i class="bi bi-gear-wide me-2"></i>Configuration Interface</h6>
+				</div>
+				<div class="card-body">
+					<div class="text-center mt-3 mb-3">
+						<img src="/Docs/Images/UDC_external.png" alt="External Commands Configuration" class="img-fluid border rounded shadow-sm" />
+						<p class="text-muted small mt-2">The External Commands configuration interface showing program path and parameter fields</p>
+					</div>
 
-<p>(This option is not valid on Windows XP and Windows 2003.)</p>
+					<h6>Configuration Fields</h6>
+					<div class="row">
+						<div class="col-md-6">
+							<h6>Program Path</h6>
+							<ul class="small">
+								<li><strong>Executable Path:</strong> Full path to the external application</li>
+								<li><strong>System Programs:</strong> Use program names for system PATH applications</li>
+								<li><strong>Browse Button:</strong> Use file browser to locate applications</li>
+								<li><strong>Environment Variables:</strong> Use variables like <code>%PROGRAMFILES%</code></li>
+							</ul>
 
-<h3>Display Confirmation</h3>
+							<h6>Working Directory</h6>
+							<ul class="small">
+								<li><strong>Startup Location:</strong> Directory where application starts</li>
+								<li><strong>Dynamic Paths:</strong> Use MultiTags for context-based directories</li>
+								<li><strong>Default Behavior:</strong> Empty field uses application's default</li>
+							</ul>
+						</div>
+						<div class="col-md-6">
+							<h6>Command Parameters</h6>
+							<ul class="small">
+								<li><strong>Arguments:</strong> Command line parameters passed to application</li>
+								<li><strong>MultiTag Integration:</strong> Use tags for dynamic file and path information</li>
+								<li><strong>Static Parameters:</strong> Include fixed arguments and switches</li>
+								<li><strong>Parameter Order:</strong> Arrange arguments according to application requirements</li>
+							</ul>
 
-<p>This option will display a dialog asking the user to confirm that the command really should be run. This is recommended to be used if the program to be started could change anything on the computer, such as removing or modifying files. If the command is shown in the menu bar for example, it is very easy to accidentally call the command, and you might make changes to your system when you do not want to.</p>
+							<h6>Advanced Options</h6>
+							<ul class="small">
+								<li><strong>Security Settings:</strong> Run as administrator when required</li>
+								<li><strong>User Confirmation:</strong> Display confirmation dialogs</li>
+								<li><strong>File Drop Support:</strong> Accept files dropped onto command buttons</li>
+								<li><strong>Parameter Passing:</strong> Support command line and scripting parameter input</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 
-<h3>Use Dropped Files as Parameters</h3>
+	<div class="row mt-3">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header bg-success text-white">
+					<h6 class="mb-0"><i class="bi bi-list-ol me-2"></i>Setup Process</h6>
+				</div>
+				<div class="card-body">
+					<h6>Step-by-Step Configuration</h6>
+					<ol>
+						<li><strong>Select External Commands:</strong> Choose "External Commands" as the command type</li>
+						<li><strong>Specify Program:</strong> Enter the full path to the external application or use system program name</li>
+						<li><strong>Define Parameters:</strong> Create command line arguments using MultiTags and static values</li>
+						<li><strong>Set Working Directory:</strong> Optionally specify startup directory using paths or MultiTags</li>
+						<li><strong>Configure Options:</strong> Set security, confirmation, and advanced options as needed</li>
+						<li><strong>Test Command:</strong> Verify the command works with test files and selections</li>
+						<li><strong>Assign Access:</strong> Create buttons, hotkeys, or menu items for the command</li>
+					</ol>
 
-<p>This is a special option in case the command is assigned to a button on the Button Panel that accepts files dropped on to it. The dropped files will be transformed into parameters for the command, and are accessed with the multi-tag <strong>${param:&lt;num&gt;}</strong>.</p>
+					<div class="alert alert-warning p-2 mt-3">
+						<h6 class="small mb-1"><i class="bi bi-exclamation-triangle me-1"></i>Path Quoting</h6>
+						<p class="small mb-0">MultiTags don't include quotes by default. When file paths might contain spaces, wrap MultiTags in quotes: <code>"${focusfilepath}"</code></p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
 
-<p>&nbsp;</p>
+<section id="multitags" class="mt-5">
+	<h3>MultiTags for Dynamic Parameters</h3>
+	<p>MultiTags are specially formatted placeholders that Multi Commander replaces with dynamic information such as file paths, selections, and contextual data when executing External Commands.</p>
 
-<h2>Command Arguments</h2>
+	<div class="row">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header bg-dark text-white">
+					<h6 class="mb-0"><i class="bi bi-tags me-2"></i>Essential MultiTags Reference</h6>
+				</div>
+				<div class="card-body">
+					<div class="table-responsive">
+						<table class="table table-bordered table-hover">
+							<thead class="table-light">
+								<tr>
+									<th style="width: 30%">MultiTag</th>
+									<th style="width: 40%">Description</th>
+									<th style="width: 30%">Example Value</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td><code>${focusfilepath}</code></td>
+									<td>Full path to the file currently in focus</td>
+									<td><code>C:\Documents\report.txt</code></td>
+								</tr>
+								<tr>
+									<td><code>${focusfilename}</code></td>
+									<td>Name of the file currently in focus</td>
+									<td><code>report.txt</code></td>
+								</tr>
+								<tr>
+									<td><code>${sourcepath}</code></td>
+									<td>Path of the current source panel</td>
+									<td><code>C:\Documents\</code></td>
+								</tr>
+								<tr>
+									<td><code>${targetpath}</code></td>
+									<td>Path of the current target panel</td>
+									<td><code>D:\Backup\</code></td>
+								</tr>
+								<tr>
+									<td><code>${selectedfiles}</code></td>
+									<td>All selected files separated by spaces</td>
+									<td><code>file1.txt file2.txt file3.txt</code></td>
+								</tr>
+								<tr>
+									<td><code>${selectedfilepaths}</code></td>
+									<td>Full paths of all selected files</td>
+									<td><code>C:\Docs\file1.txt C:\Docs\file2.txt</code></td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
 
-<p>The dialog allows arguments (parameters) to be sent to the command. These are sent to it if the command is called from the Command line bar or if files are dropped on a button and the command has enabled the option "Use Dropped files as parameter", or if this command is called from a Custom Command or MultiScript command.</p>
+					<h6>MultiTag Usage Guidelines</h6>
+					<div class="row">
+						<div class="col-md-6">
+							<ul class="small">
+								<li><strong>Quoting:</strong> Wrap MultiTags in quotes when paths may contain spaces</li>
+								<li><strong>Multiple Files:</strong> Use appropriate tags for single vs. multiple file operations</li>
+								<li><strong>Path Consistency:</strong> Ensure target application expects the path format provided</li>
+								<li><strong>Empty Values:</strong> Consider what happens when tags resolve to empty values</li>
+							</ul>
+						</div>
+						<div class="col-md-6">
+							<ul class="small">
+								<li><strong>Parameter Order:</strong> Place MultiTags in command line according to application requirements</li>
+								<li><strong>Mixed Parameters:</strong> Combine MultiTags with static parameters as needed</li>
+								<li><strong>Testing:</strong> Verify MultiTag resolution with different file selections</li>
+								<li><strong>Documentation:</strong> Reference <a href="/Docs/multitags" class="text-decoration-none">complete MultiTags documentation</a> for all available tags</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 
-<p>The parameters are accessed by using the MultiTags <strong>${param:&lt;num&gt;}</strong> where &lt;num&gt; identifies which argument to use. <strong>${param:0}</strong> will be the first parameter,<strong> ${param:1}</strong> the second,<strong>&nbsp;${param:2}</strong> the third and so on.</p>
+	<div class="row mt-3">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header bg-info text-white">
+					<h6 class="mb-0"><i class="bi bi-code me-2"></i>Parameter Examples</h6>
+				</div>
+				<div class="card-body">
+					<h6>Single File Operations</h6>
+					<pre class="bg-light p-2 rounded small"><code>"${focusfilepath}"</code></pre>
+					<p class="small">Opens the focused file in the external application.</p>
 
-<p>&nbsp;</p>
+					<h6>Multiple File Processing</h6>
+					<pre class="bg-light p-2 rounded small"><code>"${selectedfilepaths}"</code></pre>
+					<p class="small">Passes all selected files as separate parameters.</p>
 
-<p>&nbsp;</p>
+					<h6>Directory Operations</h6>
+					<pre class="bg-light p-2 rounded small"><code>--input "${sourcepath}" --output "${targetpath}"</code></pre>
+					<p class="small">Uses source and target paths as named parameters.</p>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header bg-warning text-dark">
+					<h6 class="mb-0"><i class="bi bi-gear me-2"></i>Advanced Parameter Scenarios</h6>
+				</div>
+				<div class="card-body">
+					<h6>Application-Specific Parameters</h6>
+					<pre class="bg-light p-2 rounded small"><code>-f "${focusfilepath}" -o "${targetpath}output.txt"</code></pre>
+					<p class="small">Combines file input with specified output location.</p>
 
-<p>&nbsp;</p>
+					<h6>Command Line Parameter Support</h6>
+					<pre class="bg-light p-2 rounded small"><code>"${param:0}" "${selectedfilepaths}"</code></pre>
+					<p class="small">Uses parameter passed from command line or scripts.</p>
 
-<p>&nbsp;</p>
+					<h6>Complex Mixed Parameters</h6>
+					<pre class="bg-light p-2 rounded small"><code>--batch --input "${sourcepath}" --format jpg "${selectedfiles}"</code></pre>
+					<p class="small">Combines static options with dynamic file information.</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
 
-<p>&nbsp;</p>
+<section id="options" class="mt-5">
+	<h3>Command Options and Security</h3>
+	<p>External Commands provide advanced options for security, user interaction, and parameter handling to ensure safe and flexible integration with external applications.</p>
 
-<p>&nbsp;</p>
+	<div class="row">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header bg-warning text-dark">
+					<h6 class="mb-0"><i class="bi bi-shield-check me-2"></i>Security and Execution Options</h6>
+				</div>
+				<div class="card-body">
+					<div class="text-center mt-3 mb-3">
+						<img src="/Docs/Images/UDC_runoptions.png" alt="External Command Options" class="img-fluid border rounded shadow-sm" />
+						<p class="text-muted small mt-2">Available options for controlling External Command execution behavior</p>
+					</div>
+
+					<div class="row">
+						<div class="col-md-6">
+							<h6>Run as Administrator</h6>
+							<ul class="small">
+								<li><strong>Elevated Privileges:</strong> Launch application with administrator rights</li>
+								<li><strong>UAC Integration:</strong> Triggers User Account Control dialog when needed</li>
+								<li><strong>System Access:</strong> Required for applications that modify system files or settings</li>
+								<li><strong>Platform Support:</strong> Available on Windows Vista and later (not XP/2003)</li>
+							</ul>
+
+							<h6>Display Confirmation</h6>
+							<ul class="small">
+								<li><strong>Safety Check:</strong> Shows confirmation dialog before command execution</li>
+								<li><strong>Accidental Prevention:</strong> Prevents unintended command execution</li>
+								<li><strong>Command Review:</strong> Allows users to see what will be executed</li>
+								<li><strong>Recommended Use:</strong> For commands that modify files or system state</li>
+							</ul>
+						</div>
+						<div class="col-md-6">
+							<h6>Use Dropped Files as Parameters</h6>
+							<ul class="small">
+								<li><strong>Drag-and-Drop Support:</strong> Accept files dropped onto command buttons</li>
+								<li><strong>Dynamic Parameters:</strong> Dropped files become command parameters</li>
+								<li><strong>Parameter Access:</strong> Use <code>${param:&lt;num&gt;}</code> MultiTags for dropped files</li>
+								<li><strong>Interactive Workflows:</strong> Enable file processing through drag-and-drop operations</li>
+							</ul>
+
+							<h6>Command Arguments Support</h6>
+							<ul class="small">
+								<li><strong>Parameter Passing:</strong> Accept arguments from command line or scripts</li>
+								<li><strong>Flexible Input:</strong> Support both static and dynamic parameter sources</li>
+								<li><strong>Integration Ready:</strong> Work with Custom Commands and MultiScript</li>
+								<li><strong>Parameterized Access:</strong> Use numbered parameter tags for flexible input</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="row mt-3">
+		<div class="col-md-6">
+			<div class="card">
+				<div class="card-header bg-success text-white">
+					<h6 class="mb-0"><i class="bi bi-shield-lock me-2"></i>Security Considerations</h6>
+				</div>
+				<div class="card-body">
+					<h6>When to Use Administrator Mode</h6>
+					<ul class="small">
+						<li><strong>System File Access:</strong> Applications that modify system files or registry</li>
+						<li><strong>Service Management:</strong> Tools that start/stop Windows services</li>
+						<li><strong>Driver Installation:</strong> Software installation or hardware configuration</li>
+						<li><strong>Protected Locations:</strong> Access to protected system directories</li>
+					</ul>
+
+					<h6>Security Best Practices</h6>
+					<ul class="small">
+						<li><strong>Minimal Privileges:</strong> Only use administrator mode when absolutely necessary</li>
+						<li><strong>Confirmation Dialogs:</strong> Enable for potentially destructive operations</li>
+						<li><strong>Trusted Applications:</strong> Only configure commands for trusted external programs</li>
+						<li><strong>Parameter Validation:</strong> Ensure MultiTags resolve to expected values</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-6">
+			<div class="card">
+				<div class="card-header bg-info text-white">
+					<h6 class="mb-0"><i class="bi bi-mouse me-2"></i>Drag-and-Drop Integration</h6>
+				</div>
+				<div class="card-body">
+					<h6>Setting Up File Drop Support</h6>
+					<ol class="small">
+						<li><strong>Enable Option:</strong> Check "Use Dropped Files as Parameters"</li>
+						<li><strong>Configure Parameters:</strong> Use <code>${param:0}</code>, <code>${param:1}</code>, etc.</li>
+						<li><strong>Create Button:</strong> Assign command to a button panel button</li>
+						<li><strong>Test Drop:</strong> Drag files onto the button to verify functionality</li>
+					</ol>
+
+					<h6>Parameter Access Pattern</h6>
+					<ul class="small">
+						<li><strong><code>${param:0}</code>:</strong> First dropped file</li>
+						<li><strong><code>${param:1}</code>:</strong> Second dropped file</li>
+						<li><strong><code>${param:n}</code>:</strong> nth dropped file</li>
+						<li><strong>Combined Use:</strong> Mix dropped files with MultiTags and static parameters</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<section id="examples" class="mt-5">
+	<h3>Practical External Command Examples</h3>
+	<p>These real-world examples demonstrate how External Commands can integrate various applications and tools into your Multi Commander workflow for enhanced productivity.</p>
+
+	<div class="row">
+		<div class="col-md-6">
+			<div class="card">
+				<div class="card-header bg-primary text-white">
+					<h6 class="mb-0"><i class="bi bi-code-slash me-2"></i>Development Tools</h6>
+				</div>
+				<div class="card-body">
+					<h6>Visual Studio Code</h6>
+					<div class="alert alert-light p-2">
+						<strong>Program:</strong> <code>code</code><br>
+						<strong>Parameters:</strong> <code>"${focusfilepath}"</code><br>
+						<strong>Description:</strong> Open focused file in VS Code
+					</div>
+
+					<h6>Git Client (SourceTree)</h6>
+					<div class="alert alert-light p-2">
+						<strong>Program:</strong> <code>C:\Program Files\SourceTree\SourceTree.exe</code><br>
+						<strong>Parameters:</strong> <code>-f "${sourcepath}"</code><br>
+						<strong>Description:</strong> Open repository in SourceTree
+					</div>
+
+					<h6>Command Line Compiler</h6>
+					<div class="alert alert-light p-2">
+						<strong>Program:</strong> <code>gcc</code><br>
+						<strong>Parameters:</strong> <code>-o "${targetpath}output.exe" "${focusfilepath}"</code><br>
+						<strong>Description:</strong> Compile focused C file to target directory
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-6">
+			<div class="card">
+				<div class="card-header bg-success text-white">
+					<h6 class="mb-0"><i class="bi bi-image me-2"></i>Content Processing</h6>
+				</div>
+				<div class="card-body">
+					<h6>Image Editor (GIMP)</h6>
+					<div class="alert alert-light p-2">
+						<strong>Program:</strong> <code>C:\Program Files\GIMP 2\bin\gimp-2.10.exe</code><br>
+						<strong>Parameters:</strong> <code>"${selectedfilepaths}"</code><br>
+						<strong>Description:</strong> Open selected images in GIMP
+					</div>
+
+					<h6>PDF Viewer</h6>
+					<div class="alert alert-light p-2">
+						<strong>Program:</strong> <code>C:\Program Files\Adobe\Acrobat DC\Acrobat\Acrobat.exe</code><br>
+						<strong>Parameters:</strong> <code>/A "page=1" "${focusfilepath}"</code><br>
+						<strong>Description:</strong> Open PDF at first page
+					</div>
+
+					<h6>Media Player</h6>
+					<div class="alert alert-light p-2">
+						<strong>Program:</strong> <code>C:\Program Files\VideoLAN\VLC\vlc.exe</code><br>
+						<strong>Parameters:</strong> <code>--intf qt "${selectedfilepaths}"</code><br>
+						<strong>Description:</strong> Play selected media files in VLC
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="row mt-3">
+		<div class="col-md-6">
+			<div class="card">
+				<div class="card-header bg-warning text-dark">
+					<h6 class="mb-0"><i class="bi bi-tools me-2"></i>System Utilities</h6>
+				</div>
+				<div class="card-body">
+					<h6>Windows PowerShell</h6>
+					<div class="alert alert-light p-2">
+						<strong>Program:</strong> <code>powershell.exe</code><br>
+						<strong>Parameters:</strong> <code>-NoExit -Command "Set-Location '${sourcepath}'"</code><br>
+						<strong>Description:</strong> Open PowerShell in current directory
+					</div>
+
+					<h6>File Checksum Utility</h6>
+					<div class="alert alert-light p-2">
+						<strong>Program:</strong> <code>certutil</code><br>
+						<strong>Parameters:</strong> <code>-hashfile "${focusfilepath}" MD5</code><br>
+						<strong>Description:</strong> Calculate MD5 hash of focused file
+					</div>
+
+					<h6>System File Checker</h6>
+					<div class="alert alert-light p-2">
+						<strong>Program:</strong> <code>sfc</code><br>
+						<strong>Parameters:</strong> <code>/scannow</code><br>
+						<strong>Options:</strong> Run as Administrator ✓<br>
+						<strong>Description:</strong> Run system file checker
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-6">
+			<div class="card">
+				<div class="card-header bg-info text-white">
+					<h6 class="mb-0"><i class="bi bi-arrow-down-up me-2"></i>File Conversion</h6>
+				</div>
+				<div class="card-body">
+					<h6>Image Format Converter</h6>
+					<div class="alert alert-light p-2">
+						<strong>Program:</strong> <code>magick</code><br>
+						<strong>Parameters:</strong> <code>convert "${focusfilepath}" "${targetpath}${focusfilename}.jpg"</code><br>
+						<strong>Description:</strong> Convert image to JPG in target directory
+					</div>
+
+					<h6>Document Converter</h6>
+					<div class="alert alert-light p-2">
+						<strong>Program:</strong> <code>pandoc</code><br>
+						<strong>Parameters:</strong> <code>-f markdown -t html "${focusfilepath}" -o "${targetpath}output.html"</code><br>
+						<strong>Description:</strong> Convert Markdown to HTML
+					</div>
+
+					<h6>Archive Creation</h6>
+					<div class="alert alert-light p-2">
+						<strong>Program:</strong> <code>7z</code><br>
+						<strong>Parameters:</strong> <code>a "${targetpath}archive.7z" "${selectedfilepaths}"</code><br>
+						<strong>Description:</strong> Create 7z archive of selected files
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="row mt-3">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header bg-dark text-white">
+					<h6 class="mb-0"><i class="bi bi-mouse2 me-2"></i>Advanced: Drag-and-Drop Example</h6>
+				</div>
+				<div class="card-body">
+					<h6>Image Batch Processor with Drop Support</h6>
+					<div class="row">
+						<div class="col-md-6">
+							<h6>Configuration</h6>
+							<ul class="small">
+								<li><strong>Program:</strong> <code>C:\Tools\ImageProcessor.exe</code></li>
+								<li><strong>Parameters:</strong> <code>--batch --format png --output "${targetpath}" "${param:0}" "${param:1}" "${param:2}"</code></li>
+								<li><strong>Options:</strong> Use Dropped Files as Parameters ✓</li>
+								<li><strong>Assignment:</strong> Create button named "Convert to PNG"</li>
+							</ul>
+						</div>
+						<div class="col-md-6">
+							<h6>Usage</h6>
+							<ol class="small">
+								<li><strong>Set Target:</strong> Navigate target panel to output directory</li>
+								<li><strong>Drag Files:</strong> Drag image files onto the "Convert to PNG" button</li>
+								<li><strong>Automatic Processing:</strong> External tool processes files with target directory</li>
+								<li><strong>Result:</strong> Converted PNG files appear in target directory</li>
+							</ol>
+						</div>
+					</div>
+
+					<div class="alert alert-success p-2 mt-3">
+						<h6 class="small mb-1"><i class="bi bi-check-circle me-1"></i>Workflow Benefits</h6>
+						<p class="small mb-0">This approach eliminates the need to manually specify input and output paths, creating a streamlined drag-and-drop workflow for batch file processing.</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<div class="alert alert-success mt-5">
+	<h6><i class="bi bi-lightbulb me-2"></i>External Commands Mastery</h6>
+	<p class="mb-0">Master External Commands by understanding MultiTag capabilities for dynamic parameter generation, using appropriate security options for different applications, and creating logical button assignments for drag-and-drop workflows. Remember to quote MultiTags when file paths may contain spaces, use confirmation dialogs for potentially destructive operations, and test commands with various file selections to ensure reliable operation. External Commands transform Multi Commander into a powerful integration hub for your entire application ecosystem.</p>
+</div>
+
+<div class="alert alert-info mt-4">
+	<h6><i class="bi bi-info-circle me-2"></i>Related Documentation</h6>
+	<p class="mb-0">Enhance your External Commands knowledge with: <a href="/Docs/user-defined-commands" class="text-decoration-none">User Defined Commands Overview</a>, <a href="/Docs/multitags" class="text-decoration-none">Complete MultiTags Reference</a>, <a href="/Docs/UDC_internal" class="text-decoration-none">Internal Commands</a>, <a href="/Docs/UDC_custom" class="text-decoration-none">Custom Commands</a>, <a href="/Docs/UDC_batch" class="text-decoration-none">Batch Scripts</a>, <a href="/Docs/UDC_multiscript" class="text-decoration-none">MultiScript</a>, and <a href="/Docs/button-editor" class="text-decoration-none">Button Editor</a> for interface integration.</p>
+</div>
 
 

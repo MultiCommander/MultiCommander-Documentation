@@ -1,83 +1,341 @@
-<h2>File Commands</h2>
-<p><img alt="" src="/Docs/Images/ToolbarFileCommands.png" style="width: 574px; height: 70px;" /></p>
+﻿<h2>File Commands Bar</h2>
 
-<p>The <em>File Commands toolbar </em>contains tools related to working with files. Most of them only work if the active panel is an Explorer Panel. The toolbar is displayed whenever <strong>View-&gt;Toolbars-&gt;File Commands</strong> is checked. and it can also be disabled altogether in Explorer Panel settings. (See <a href="#docs_ExplorerPanelSettings">Explorer Panel Settings</a>).</p>
+<p>Multi Commander's <strong>File Commands Bar</strong> provides instant access to essential file management operations through a comprehensive toolbar designed for maximum efficiency and productivity. This powerful interface component offers one-click access to copy, move, delete, archive, view, edit, and selection operations, transforming the most common file management tasks into streamlined, accessible actions that integrate seamlessly with Explorer Panel workflows.</p>
 
-<h3>1. Copy</h3>
+<div class="alert alert-primary">
+	<h6><i class="bi bi-files me-2"></i>Essential File Operation Center</h6>
+	<p class="mb-0">Access the complete range of file management operations through an intuitive toolbar interface. The File Commands Bar eliminates menu navigation overhead by placing critical file operations at your fingertips, enabling rapid execution of copy, move, delete, archive, and selection operations with full Explorer Panel integration.</p>
+</div>
 
-<p>Displays a dialog for launching a <em>Copy </em>operation. (See <a href="#docs_copymove_operation">Copy/Move Operations</a>)</p>
+<nav class="navbar navbar-expand-lg navbar-light bg-light mb-4">
+	<div class="container-fluid">
+		<span class="navbar-brand">Quick Navigation</span>
+		<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#fileCommandsNav">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="fileCommandsNav">
+			<ul class="navbar-nav">
+				<li class="nav-item"><a class="nav-link" href="#overview">Overview</a></li>
+				<li class="nav-item"><a class="nav-link" href="#file-operations">File Operations</a></li>
+				<li class="nav-item"><a class="nav-link" href="#archive-operations">Archive Operations</a></li>
+				<li class="nav-item"><a class="nav-link" href="#view-edit-operations">View & Edit Operations</a></li>
+				<li class="nav-item"><a class="nav-link" href="#management-operations">Management Operations</a></li>
+				<li class="nav-item"><a class="nav-link" href="#selection-tools">Selection Tools</a></li>
+				<li class="nav-item"><a class="nav-link" href="#advanced-features">Advanced Features</a></li>
+			</ul>
+		</div>
+	</div>
+</nav>
 
-<h3>2. Move</h3>
+<section id="overview">
+	<h3>File Commands Bar Layout and Accessibility</h3>
+	<p>The File Commands Bar integrates seamlessly with Multi Commander's toolbar area, providing essential file management operations primarily designed for Explorer Panel interactions with comprehensive customization and visibility options.</p>
 
-<p>Displays a dialog for launching a <em>Move </em>operation. (See <a href="#docs_copymove_operation">Copy/Move Operations</a>)</p>
+	<div class="row">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header bg-primary text-white">
+					<h6 class="mb-0"><i class="bi bi-layout-text-sidebar me-2"></i>Toolbar Layout and Components</h6>
+				</div>
+				<div class="card-body">
+					<div class="text-center mt-3 mb-3">
+						<img src="/Docs/Images/ToolbarFileCommands.png" alt="File Commands Bar Layout" class="img-fluid border rounded shadow-sm" style="max-width: 574px;" />
+						<p class="text-muted small mt-2">File Commands Bar showing numbered operations from basic file management to advanced selection tools</p>
+					</div>
 
-<h3>3. Delete</h3>
+					<h6>Command Categories</h6>
+					<ul class="small">
+						<li><strong>1-3. Core File Operations:</strong> Copy, Move, and Delete commands for fundamental file management</li>
+						<li><strong>4-5. Archive Operations:</strong> Pack and Unpack commands for compression and extraction</li>
+						<li><strong>6-8. File Access:</strong> Create Folder, View File, and Edit File operations</li>
+						<li><strong>9-11. Management Tools:</strong> Find Files, Calculate Folder Size, and Rename operations</li>
+						<li><strong>12-13. Selection Controls:</strong> Expand and Shrink selection with filtering capabilities</li>
+						<li><strong>14-16. Advanced Tools:</strong> Copy PathName, visibility controls, and file coloring management</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
 
-<p>Launches a <em>Delete </em>operation. (See <a href="#docs_delete_operation">Delete Operations</a>)</p>
+	<div class="row mt-3">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header bg-info text-white">
+					<h6 class="mb-0"><i class="bi bi-gear me-2"></i>Visibility and Configuration</h6>
+				</div>
+				<div class="card-body">
+					<h6>Display Control</h6>
+					<ul class="small">
+						<li><strong>Toggle Access:</strong> View → Toolbars → File Commands</li>
+						<li><strong>Explorer Panel Dependency:</strong> Most commands require active Explorer Panel</li>
+						<li><strong>Panel Settings Integration:</strong> Can be disabled in <a href="/Docs/ExplorerPanelSettings" class="text-decoration-none">Explorer Panel settings</a></li>
+						<li><strong>Context Awareness:</strong> Commands enable/disable based on selection and panel state</li>
+					</ul>
+					<h6>Integration Features</h6>
+					<ul class="small">
+						<li><strong>Right-Click Menus:</strong> Many buttons provide additional options via right-click</li>
+						<li><strong>Customization Support:</strong> Several commands offer "Customize..." options</li>
+						<li><strong>Selection Awareness:</strong> Commands adapt to current file/folder selection</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
 
-<h3>4. Pack Selected Files</h3>
+<section id="file-operations" class="mt-5">
+	<h3>Core File Operations (1-3)</h3>
+	<p>The fundamental file management operations provide direct access to copy, move, and delete functions, serving as the foundation for all file manipulation tasks within Multi Commander's workflow-centric approach.</p>
 
-<p>Opens the <em>Pack Files </em>dialog. (See <a href="#docs_packfiles">Pack Files</a>.)</p>
+	<div class="row">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header bg-success text-white">
+					<h6 class="mb-0"><i class="bi bi-files me-2"></i>1. Copy</h6>
+				</div>
+				<div class="card-body">
+					<p class="small">Displays a dialog for launching a <em>Copy</em> operation. (See <a href="/Docs/copymove_operation" class="text-decoration-none">Copy/Move Operations</a>)</p>
+				</div>
+			</div>
+		</div>
+	</div>
 
-<h3>5. Unpack Selected Files</h3>
+	<div class="row mt-3">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header bg-primary text-white">
+					<h6 class="mb-0"><i class="bi bi-arrow-right me-2"></i>2. Move</h6>
+				</div>
+				<div class="card-body">
+					<p class="small">Displays a dialog for launching a <em>Move</em> operation. (See <a href="/Docs/copymove_operation" class="text-decoration-none">Copy/Move Operations</a>)</p>
+				</div>
+			</div>
+		</div>
+	</div>
 
-<p>Opens the <em>Unpack Archives </em>dialog. (See <a href="#docs_unpackfiles">Unpack Files</a>.)</p>
+	<div class="row mt-3">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header bg-danger text-white">
+					<h6 class="mb-0"><i class="bi bi-trash me-2"></i>3. Delete</h6>
+				</div>
+				<div class="card-body">
+					<p class="small">Launches a <em>Delete</em> operation. (See <a href="/Docs/delete_operation" class="text-decoration-none">Delete Operations</a>)</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
 
-<h3>6. Create Folder</h3>
+<section id="archive-operations" class="mt-5">
+	<h3>Archive Operations (4-5)</h3>
+	<p>Comprehensive archive management provides seamless integration with compression and extraction operations, supporting multiple archive formats through Multi Commander's advanced file system capabilities.</p>
 
-<p>Show the Create folder dialog.<br />
-Right click and a popup menu with a list of folders to create is shown. This list can be customized by selecting "Customize..."/p&gt;</p>
+	<div class="row">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header bg-warning text-dark">
+					<h6 class="mb-0"><i class="bi bi-archive me-2"></i>4. Pack Selected Files</h6>
+				</div>
+				<div class="card-body">
+					<p class="small">Opens the <em>Pack Files</em> dialog. (See <a href="/Docs/packfiles" class="text-decoration-none">Pack Files</a>)</p>
+				</div>
+			</div>
+		</div>
+	</div>
 
-<h3>7. View File</h3>
+	<div class="row mt-3">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header bg-success text-white">
+					<h6 class="mb-0"><i class="bi bi-file-zip me-2"></i>5. Unpack Selected Files</h6>
+				</div>
+				<div class="card-body">
+					<p class="small">Opens the <em>Unpack Archives</em> dialog. (See <a href="/Docs/unpackfiles" class="text-decoration-none">Unpack Files</a>)</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
 
-<p>Opens the current file to be <em>viewed </em>in the default viewer for that file type. (See <a href="#docs_filetypesetup">File Type Setup</a>)</p>
+<section id="view-edit-operations" class="mt-5">
+	<h3>File Access and Creation Operations (6-8)</h3>
+	<p>Direct file access operations provide seamless integration with file viewing, editing, and folder creation, leveraging Multi Commander's comprehensive file type association system.</p>
 
-<h3>8. Edit file</h3>
+	<div class="row">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header bg-info text-white">
+					<h6 class="mb-0"><i class="bi bi-folder-plus me-2"></i>6. Create Folder</h6>
+				</div>
+				<div class="card-body">
+					<p class="small">Show the Create folder dialog.</p>
+					<p class="small">Right click and a popup menu with a list of folders to create is shown. This list can be customized by selecting "Customize..."</p>
+				</div>
+			</div>
+		</div>
+	</div>
 
-<p>Opens the current file to be <em>edited </em>in the default editor for that file type. (See <a href="#docs_filetypesetup">File Type Setup</a>)</p>
+	<div class="row mt-3">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header bg-primary text-white">
+					<h6 class="mb-0"><i class="bi bi-eye me-2"></i>7. View File</h6>
+				</div>
+				<div class="card-body">
+					<p class="small">Opens the current file to be <em>viewed</em> in the default viewer for that file type. (See <a href="/Docs/filetypesetup" class="text-decoration-none">File Type Setup</a>)</p>
+				</div>
+			</div>
+		</div>
+	</div>
 
-<h3>9. Find Files</h3>
+	<div class="row mt-3">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header bg-success text-white">
+					<h6 class="mb-0"><i class="bi bi-pencil me-2"></i>8. Edit File</h6>
+				</div>
+				<div class="card-body">
+					<p class="small">Opens the current file to be <em>edited</em> in the default editor for that file type. (See <a href="/Docs/filetypesetup" class="text-decoration-none">File Type Setup</a>)</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
 
-<p>Find Files</p>
+<section id="management-operations" class="mt-5">
+	<h3>File Management Operations (9-11)</h3>
+	<p>Advanced file management tools provide essential functionality for file discovery, size analysis, and renaming operations, enhancing productivity through comprehensive file system management capabilities.</p>
 
-<h3>10. Calculate Folder Size</h3>
+	<div class="row">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header bg-warning text-dark">
+					<h6 class="mb-0"><i class="bi bi-search me-2"></i>9. Find Files</h6>
+				</div>
+				<div class="card-body">
+					<p class="small">Find Files</p>
+				</div>
+			</div>
+		</div>
+	</div>
 
-<p>Causes <em>folder sizes </em>to be calculated. (See <a href="#docs_CalculateFolderSize">Calculate Folder Size</a>)</p>
+	<div class="row mt-3">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header bg-info text-white">
+					<h6 class="mb-0"><i class="bi bi-calculator me-2"></i>10. Calculate Folder Size</h6>
+				</div>
+				<div class="card-body">
+					<p class="small">Causes <em>folder sizes</em> to be calculated. (See <a href="/Docs/CalculateFolderSize" class="text-decoration-none">Calculate Folder Size</a>)</p>
+				</div>
+			</div>
+		</div>
+	</div>
 
-<h3>11. Rename Current File/Folder</h3>
+	<div class="row mt-3">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header bg-primary text-white">
+					<h6 class="mb-0"><i class="bi bi-input-cursor-text me-2"></i>11. Rename Current File/Folder</h6>
+				</div>
+				<div class="card-body">
+					<p class="small">Renames the current file or folder using the operating system renaming protocol.</p>
+					<p class="small">Right click and a popup menu with Quick Rename options opens.</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
 
-<p>Renames the current file or folder using the operating system renaming protocol.<br />
-Right click and a popup menu with Quick Rename options opens.</p>
+<section id="selection-tools" class="mt-5">
+	<h3>Selection Management Tools (12-13)</h3>
+	<p>Advanced selection tools provide powerful filtering capabilities for complex file selection scenarios, enabling efficient bulk operations through intelligent pattern matching and dynamic selection management.</p>
 
-<h3>12. Expand selection</h3>
+	<div class="row">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header bg-success text-white">
+					<h6 class="mb-0"><i class="bi bi-plus-circle me-2"></i>12. Expand Selection</h6>
+				</div>
+				<div class="card-body">
+					<p class="small">Lets you specify a <em>filter</em> for selecting additional files/folders.</p>
+					<p class="small">Right click and a popup menu with some dynamic selection items opens (built from items shown in the current path). The entries of a pre-defined list of types are also shown in this list. They can be changed, or more can be added, by selecting "Customize..."</p>
+				</div>
+			</div>
+		</div>
+	</div>
 
-<p>Lets you specify a <em>filter </em>for selecting additional files/folders.</p>
+	<div class="row mt-3">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header bg-warning text-dark">
+					<h6 class="mb-0"><i class="bi bi-dash-circle me-2"></i>13. Shrink Selection</h6>
+				</div>
+				<div class="card-body">
+					<p class="small">Lets you specify a <em>filter</em> for de-selecting files/folders.</p>
+					<p class="small">Right click and a popup menu with some dynamic selection items opens (built from items shown in the current path). The entries of a pre-defined list of types are also shown in this list. They can be changed, or more can be added, by selecting "Customize..."</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
 
-<p>Right click and a popup menu with some dynamic selection items opens (built from items shown in the current path).<br />
-The entries of a pre-defined list of types are also shown in this list. They can be changed, or more can be added, by selecting "Customize..."</p>
+<section id="advanced-features" class="mt-5">
+	<h3>Advanced Tools and Display Management (14-16)</h3>
+	<p>Specialized tools provide advanced functionality for path management, visibility control, and visual organization, enhancing the file management experience through comprehensive customization and information access capabilities.</p>
 
-<h3>13. Shrink selection</h3>
+	<div class="row">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header bg-info text-white">
+					<h6 class="mb-0"><i class="bi bi-clipboard me-2"></i>14. Copy PathName</h6>
+				</div>
+				<div class="card-body">
+					<p class="small">Copies the file/folder <em>pathname</em> to the clipboard.</p>
+					<p class="small">Right click and a popup menu opens with commands for other copy path alternatives.</p>
+				</div>
+			</div>
+		</div>
+	</div>
 
-<p>Lets you specify a <em>filter </em>for de-selecting files/folders.</p>
+	<div class="row mt-3">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header bg-primary text-white">
+					<h6 class="mb-0"><i class="bi bi-eye-slash me-2"></i>15. Show/Hide Hidden and System Files</h6>
+				</div>
+				<div class="card-body">
+					<p class="small">Show or hide hidden and system files.</p>
+					<p class="small">Right click and a popup menu opens with options to only show/hide hidden files or show/hide system files.</p>
+				</div>
+			</div>
+		</div>
+	</div>
 
-<p>Right click and a popup menu with some dynamic selection items opens (built from items shown in the current path).<br />
-The entries of a pre-defined list of types are also shown in this list. They can be changed, or more can be added, by selecting "Customize..."</p>
+	<div class="row mt-3">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header bg-success text-white">
+					<h6 class="mb-0"><i class="bi bi-palette me-2"></i>16. File Coloring</h6>
+				</div>
+				<div class="card-body">
+					<p class="small">A popup menu opens where Rule-based file coloring can be configured.</p>
+					<p class="small">It is possible to enable/disable file coloring from the menu. A list of all the file coloring profiles is also shown so the file coloring profile to use can be easily changed.</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
 
-<h3>14. Copy PathName</h3>
+<div class="alert alert-success mt-5">
+	<h6><i class="bi bi-lightbulb me-2"></i>File Commands Bar Mastery</h6>
+	<p class="mb-0">Master the File Commands Bar by understanding the logical grouping of operations: use core file operations (1-3) for fundamental tasks, leverage archive operations (4-5) for compression workflows, utilize access operations (6-8) for viewing and editing, employ management tools (9-11) for organization, and harness selection tools (12-13) for complex bulk operations. Combined with advanced features (14-16) for customization and automation, this comprehensive toolbar transforms routine file management into efficient, streamlined workflows.</p>
+</div>
 
-<p>Copies the file/folder <em>pathname </em>to the clipboard.</p>
-
-<p>Right click and a popup menu opens with commands for other copy path alternatives.</p>
-
-<h3>15. Show/Hide Hidden and System files</h3>
-
-<p>Show or hide hidden and system files.</p>
-
-<p>Right click and a popup menu opens with options to only show/hide hidden files or show/hide system files.</p>
-
-<h3>16. File Coloring</h3>
-
-<p>A popup menu opens where Rule-based file coloring can be configured.<br />
-It is possible to enable/disable file coloring from the menu. A list of all the file coloring profiles is also shown so the file coloring profile to use can be easily changed.</p>
+<div class="alert alert-info mt-4">
+	<h6><i class="bi bi-info-circle me-2"></i>Related File Management Tools</h6>
+	<p class="mb-0">Enhance your file operations with related features: <a href="/Docs/copymove_operation" class="text-decoration-none">Copy/Move Operations</a>, <a href="/Docs/delete_operation" class="text-decoration-none">Delete Operations</a>, <a href="/Docs/packfiles" class="text-decoration-none">Pack Files</a>, <a href="/Docs/unpackfiles" class="text-decoration-none">Unpack Files</a>, <a href="/Docs/file-search" class="text-decoration-none">File Search</a>, and <a href="/Docs/ExplorerPanelSettings" class="text-decoration-none">Explorer Panel Settings</a>.</p>
+</div>
 
 

@@ -1,97 +1,500 @@
 <h2>Explorer Panel - Customize Column Layouts</h2>
-<p>A <strong>Column Layout</strong>&nbsp;is a saved set of a column layouts that can be selected&nbsp; from the column header menu. A Column layout can also be applied automatically if you go to a folder that was specified in the Column layout definition.</p>
 
-<p><img alt="" src="/Docs/Images/ColumnHeaderPopup2.png" style="width: 564px; height: 297px;" /></p>
+<p>The <strong>Explorer Panel Customize Column Layouts</strong> system provides comprehensive control over column configuration management through a sophisticated dialog interface that enables users to create, modify, and organize specialized column arrangements for different file types and workflow requirements. This advanced customization framework supports detailed column property configuration, intelligent auto-loading based on directory paths, and complete layout management capabilities that transform the Explorer Panel into a powerful information display system tailored to specific operational contexts and file management scenarios.</p>
 
-<p><span style="line-height: 1.6;">From the </span><b style="line-height: 1.6;">"Customize columns..."</b><span style="line-height: 1.6;"> option a dialog will open where you can create or modify and remove Column Layouts.</span></p>
+<div class="alert alert-primary">
+	<h6><i class="bi bi-layout-text-sidebar me-2"></i>Advanced Column Layout Management System</h6>
+	<p class="mb-0">Experience comprehensive column layout control through a sophisticated customization dialog that provides access to hundreds of file information columns, detailed property configuration, intelligent auto-loading capabilities, and complete layout management. The Customize Column Layouts system enables creation of specialized information displays that automatically adapt to different directories and file types while supporting rapid layout switching for optimal productivity across diverse file management workflows.</p>
+</div>
 
-<p><img alt="" src="/Docs/Images/CustomizeColumnLayouts.png" style="width: 654px; height: 596px;" /></p>
+<nav class="navbar navbar-expand-lg navbar-light bg-light mb-4">
+	<div class="container-fluid">
+		<span class="navbar-brand">Quick Navigation</span>
+		<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#customizeLayoutsNav">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="customizeLayoutsNav">
+			<ul class="navbar-nav">
+				<li class="nav-item"><a class="nav-link" href="#overview">Overview</a></li>
+				<li class="nav-item"><a class="nav-link" href="#layout-management">Layout Management (1-2)</a></li>
+				<li class="nav-item"><a class="nav-link" href="#column-operations">Column Operations (3-7)</a></li>
+				<li class="nav-item"><a class="nav-link" href="#advanced-features">Advanced Features (8-9)</a></li>
+				<li class="nav-item"><a class="nav-link" href="#automation-saving">Automation & Saving (10-11)</a></li>
+			</ul>
+		</div>
+	</div>
+</nav>
 
-<ol>
-	<li><a href="#columnlayouts">Column Layouts</a></li>
-	<li><a href="#columnname">Column Layout Name</a></li>
-	<li><a href="#availablecolumns">Available Columns</a></li>
-	<li><a href="#columnfilter">Column Filter</a></li>
-	<li><a href="#addcolumn">Add Column</a></li>
-	<li><a href="#columnlist">Columns List</a></li>
-	<li><a href="#modifycolumnorder">Modify Column Order</a></li>
-	<li><a href="#copylayoutfrom">Copy Column Layout from...</a></li>
-	<li><a href="#properties">Column Properties</a></li>
-	<li><a href="#autoload">Autoload on Path</a></li>
-	<li><a href="#savechanges">Save Changes</a></li>
-</ol>
+<section id="overview">
+	<h3>Column Layout Customization Overview</h3>
+	<p>The Customize Column Layouts dialog provides comprehensive access to advanced column management capabilities through a numbered interface that enables precise control over every aspect of column display, arrangement, and behavior within the Explorer Panel system.</p>
 
-<h2><a name="columnlayouts"></a>1. Column Layouts</h2>
+	<div class="row">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header bg-info text-white">
+					<h6 class="mb-0"><i class="bi bi-window me-2"></i>Customization Dialog Access</h6>
+				</div>
+				<div class="card-body">
+					<div class="text-center mt-3 mb-3">
+						<img src="/Docs/Images/ColumnHeaderPopup2.png" alt="Column Header Context Menu" class="img-fluid border rounded shadow-sm" style="max-width: 564px;" />
+						<p class="text-muted small mt-2">Column header context menu showing "Customize columns..." option for accessing advanced layout management</p>
+					</div>
 
-<p>All available columns layouts are listed in a dropdown list. After the list there are two button:&nbsp; "Create New" and "Delete". Use them to to create new layouts or to delete existing ones.</p>
+					<h6>Dialog Access Method</h6>
+					<ul class="small">
+						<li><strong>Context Menu Access:</strong> Right-click any column header and select "Customize columns..."</li>
+						<li><strong>Comprehensive Interface:</strong> Opens full customization dialog with complete column management capabilities</li>
+						<li><strong>Advanced Features:</strong> Access to features not available through quick context menu options</li>
+						<li><strong>Layout Creation:</strong> Create, modify, and organize custom column layouts</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
 
-<p><img alt="" src="/Docs/Images/CustomizeColumnLayouts_ColumnDropdown.png" style="width: 294px; height: 115px;" /></p>
+	<div class="row mt-3">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header bg-success text-white">
+					<h6 class="mb-0"><i class="bi bi-diagram-3 me-2"></i>Dialog Interface Structure</h6>
+				</div>
+				<div class="card-body">
+					<div class="text-center mt-3 mb-3">
+						<img src="/Docs/Images/CustomizeColumnLayouts.png" alt="Customize Column Layouts Dialog" class="img-fluid border rounded shadow-sm" style="max-width: 654px;" />
+						<p class="text-muted small mt-2">Complete Customize Column Layouts dialog showing numbered interface components for comprehensive layout management</p>
+					</div>
 
-<p>The first item in the column layout list named "<strong>[Current Column Layout]</strong>" is special.<br />
-It represents your current layout and modifying and saving it will only change the look for the current, active Explorer Panel. No others will be affected and changes are <em>not </em>saved between restarts.</p>
+					<h6>Numbered Interface Components</h6>
+					<div class="row">
+						<div class="col-md-6">
+							<ul class="small">
+								<li><strong>1. Column Layouts:</strong> Layout selection and management</li>
+								<li><strong>2. Column Layout Name:</strong> Custom layout naming</li>
+								<li><strong>3. Available Columns:</strong> Complete column library</li>
+								<li><strong>4. Column Filter:</strong> Search and filter columns</li>
+								<li><strong>5. Add Column:</strong> Column addition controls</li>
+								<li><strong>6. Columns List:</strong> Current layout columns</li>
+							</ul>
+						</div>
+						<div class="col-md-6">
+							<ul class="small">
+								<li><strong>7. Modify Column Order:</strong> Arrangement controls</li>
+								<li><strong>8. Copy Column Layout from:</strong> Template copying</li>
+								<li><strong>9. Column Properties:</strong> Detailed configuration</li>
+								<li><strong>10. Autoload on Path:</strong> Automatic application</li>
+								<li><strong>11. Save Changes:</strong> Configuration persistence</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
 
-<p>In order to change the Standard column layout (that all Explorer Panel tabs will use), the <strong>[Default]</strong> column layout needs to be modified. Changing and saving this layout will cause all Explorer Panel tabs' column layouts to be updated when closing the window.</p>
+<section id="layout-management" class="mt-5">
+	<h3>Layout Management and Naming (1-2)</h3>
+	<p>The layout management section provides fundamental controls for creating, selecting, and organizing column layouts through dropdown selection and custom naming capabilities that enable comprehensive layout organization and identification.</p>
 
-<h2><a name="columnname"></a>2. Column Layout Name</h2>
+	<div class="row">
+		<div class="col-md-6">
+			<div class="card">
+				<div class="card-header bg-warning text-dark">
+					<h6 class="mb-0"><i class="bi bi-list me-2"></i>1. Column Layouts</h6>
+				</div>
+				<div class="card-body">
+					<div class="text-center mt-3 mb-3">
+						<img src="/Docs/Images/CustomizeColumnLayouts_ColumnDropdown.png" alt="Column Layout Dropdown" class="img-fluid border rounded shadow-sm" style="max-width: 294px;" />
+						<p class="text-muted small mt-2">Column layout dropdown showing available layouts and management buttons</p>
+					</div>
 
-<p>When creating a new column layout enter the name by which you want to identify the column layout. This name will be listed in the Use Column Layout submenu when right clicking on the column header.</p>
+					<h6>Layout Selection and Management</h6>
+					<ul class="small">
+						<li><strong>Dropdown List:</strong> All available column layouts listed for selection</li>
+						<li><strong>Create New Button:</strong> Create new custom column layouts</li>
+						<li><strong>Delete Button:</strong> Remove existing layouts (except system layouts)</li>
+						<li><strong>Layout Switching:</strong> Select different layouts to modify or review</li>
+					</ul>
 
-<h2><a name="availablecolumns"></a>3. Available Columns</h2>
+					<h6>Special Layout Types</h6>
+					<ul class="small">
+						<li><strong>[Current Column Layout]:</strong> Temporary layout representing active panel state</li>
+						<li><strong>[Default] Layout:</strong> Standard layout applied to all new Explorer Panels</li>
+						<li><strong>Session Scope:</strong> Current layout changes not saved between restarts</li>
+						<li><strong>Global Impact:</strong> Default layout changes affect all Explorer Panel tabs</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-6">
+			<div class="card">
+				<div class="card-header bg-primary text-white">
+					<h6 class="mb-0"><i class="bi bi-tag me-2"></i>2. Column Layout Name</h6>
+				</div>
+				<div class="card-body">
+					<h6>Layout Identification</h6>
+					<ul class="small">
+						<li><strong>Custom Naming:</strong> Enter descriptive names for new column layouts</li>
+						<li><strong>Menu Integration:</strong> Layout names appear in "Use Column Layout" submenu</li>
+						<li><strong>Identification System:</strong> Clear naming for easy layout recognition</li>
+						<li><strong>Context Menu Display:</strong> Names shown when right-clicking column headers</li>
+					</ul>
 
-<p>This is the list of all the available columns which can appear in your layout. From the dropdown list above the list it is possible to limit which columns to list (by type).</p>
+					<h6>Naming Best Practices</h6>
+					<ul class="small">
+						<li><strong>Descriptive Names:</strong> Use names that clearly indicate layout purpose</li>
+						<li><strong>File Type Reference:</strong> Include file type or use case in name</li>
+						<li><strong>Project Context:</strong> Reference specific projects or workflows</li>
+						<li><strong>Functional Description:</strong> Indicate layout's specialized information display</li>
+					</ul>
 
-<h2><a name="columnfilter"></a>4. Column Filter</h2>
+					<h6>Example Layout Names</h6>
+					<ul class="small">
+						<li><strong>"Development Projects":</strong> For source code and development files</li>
+						<li><strong>"Media Management":</strong> For image and video file collections</li>
+						<li><strong>"Document Archive":</strong> For document organization and review</li>
+						<li><strong>"System Administration":</strong> For system file management tasks</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
 
-<p>There are a lot of columns and it can be hard to find the correct column to add. In the filter field it is possible to filter the list of available columns.<br />
-When you start typing, the available columns list will only show columns whose name includes what has been typed.</p>
+<section id="column-operations" class="mt-5">
+	<h3>Column Operations and Management (3-7)</h3>
+	<p>The column operations section provides comprehensive tools for discovering, adding, organizing, and configuring columns within layouts through filtering capabilities, addition controls, and detailed arrangement management that enables precise column customization.</p>
 
-<h2><a name="addcolumn"></a>5. Add Column</h2>
+	<div class="row">
+		<div class="col-md-6">
+			<div class="card">
+				<div class="card-header bg-success text-white">
+					<h6 class="mb-0"><i class="bi bi-collection me-2"></i>3. Available Columns</h6>
+				</div>
+				<div class="card-body">
+					<h6>Complete Column Library</h6>
+					<ul class="small">
+						<li><strong>Comprehensive List:</strong> All available columns displayed for selection</li>
+						<li><strong>Category Filtering:</strong> Dropdown list to limit columns by type</li>
+						<li><strong>Extensive Options:</strong> Hundreds of file information columns available</li>
+						<li><strong>Type Organization:</strong> Columns organized by file attributes and metadata</li>
+					</ul>
 
-<p>Press the Arrow button add the selected column to the list of columns for the currently-selected layout.</p>
+					<h6>Column Categories</h6>
+					<ul class="small">
+						<li><strong>Basic Information:</strong> Name, size, date, attributes</li>
+						<li><strong>File System:</strong> Path, drive, permissions, ownership</li>
+						<li><strong>Media Metadata:</strong> Image dimensions, audio properties, video information</li>
+						<li><strong>Document Properties:</strong> Author, creation software, document statistics</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-6">
+			<div class="card">
+				<div class="card-header bg-info text-white">
+					<h6 class="mb-0"><i class="bi bi-funnel me-2"></i>4. Column Filter</h6>
+				</div>
+				<div class="card-body">
+					<h6>Intelligent Column Discovery</h6>
+					<ul class="small">
+						<li><strong>Search Functionality:</strong> Filter available columns by name or description</li>
+						<li><strong>Real-Time Filtering:</strong> Available columns list updates as you type</li>
+						<li><strong>Partial Matching:</strong> Shows columns whose names contain typed text</li>
+						<li><strong>Efficient Discovery:</strong> Quickly locate specific columns in extensive library</li>
+					</ul>
 
-<h2><a name="columnlist"></a>6. Column List</h2>
+					<h6>Filter Usage Examples</h6>
+					<ul class="small">
+						<li><strong>"size":</strong> Shows all size-related columns (file size, folder size, etc.)</li>
+						<li><strong>"date":</strong> Displays all date-related columns (created, modified, accessed)</li>
+						<li><strong>"image":</strong> Reveals image-specific metadata columns</li>
+						<li><strong>"audio":</strong> Shows audio file property columns</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
 
-<p>This list shows all the columns that have been assign to the currently selected layout.<br />
-The order of the columns in the list is the order they will be shown in the Explorer Panel.</p>
+	<div class="row mt-3">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header bg-warning text-dark">
+					<h6 class="mb-0"><i class="bi bi-plus-circle me-2"></i>5. Add Column</h6>
+				</div>
+				<div class="card-body">
+					<h6>Column Addition Process</h6>
+					<ul class="small">
+						<li><strong>Arrow Button:</strong> Press to add selected column to current layout</li>
+						<li><strong>Selection Required:</strong> Must select column from available list first</li>
+						<li><strong>Immediate Addition:</strong> Column added to layout columns list instantly</li>
+						<li><strong>Order Placement:</strong> New columns added at end of current list</li>
+					</ul>
 
-<h2><a name="modifycolumnorder"></a>7. Modify Column Order</h2>
+					<h6>Addition Workflow</h6>
+					<ul class="small">
+						<li><strong>1. Select:</strong> Choose column from available list</li>
+						<li><strong>2. Add:</strong> Click arrow button to add to layout</li>
+						<li><strong>3. Configure:</strong> Adjust properties if needed</li>
+						<li><strong>4. Position:</strong> Use order controls to arrange</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header bg-primary text-white">
+					<h6 class="mb-0"><i class="bi bi-list-ol me-2"></i>6. Columns List</h6>
+				</div>
+				<div class="card-body">
+					<h6>Current Layout Columns</h6>
+					<ul class="small">
+						<li><strong>Layout Display:</strong> Shows all columns assigned to currently selected layout</li>
+						<li><strong>Order Representation:</strong> Column order in list matches Explorer Panel display order</li>
+						<li><strong>Visual Organization:</strong> Clear representation of layout structure</li>
+						<li><strong>Selection Support:</strong> Select columns for property modification or removal</li>
+					</ul>
 
-<p>The Up and Down arrows here allow column to be moved up and down the list. Select the column to move and then press the Up/Down button.</p>
+					<h6>List Management</h6>
+					<ul class="small">
+						<li><strong>Column Selection:</strong> Click columns to select for property editing</li>
+						<li><strong>Order Visualization:</strong> See exact display order for Explorer Panel</li>
+						<li><strong>Property Context:</strong> Selected column properties shown in properties section</li>
+						<li><strong>Removal Support:</strong> Selected columns can be removed from layout</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header bg-dark text-white">
+					<h6 class="mb-0"><i class="bi bi-arrows-move me-2"></i>7. Modify Column Order</h6>
+				</div>
+				<div class="card-body">
+					<h6>Column Arrangement Controls</h6>
+					<ul class="small">
+						<li><strong>Up Arrow:</strong> Move selected column up in display order</li>
+						<li><strong>Down Arrow:</strong> Move selected column down in display order</li>
+						<li><strong>X Button:</strong> Remove selected column from layout</li>
+						<li><strong>Precise Control:</strong> Fine-tune column positioning for optimal layout</li>
+					</ul>
 
-<p>Press the X button to remove a column from the list.</p>
+					<h6>Order Management Process</h6>
+					<ul class="small">
+						<li><strong>1. Select:</strong> Choose column to move in columns list</li>
+						<li><strong>2. Position:</strong> Use up/down arrows to adjust position</li>
+						<li><strong>3. Verify:</strong> Check order in columns list</li>
+						<li><strong>4. Remove:</strong> Use X button to delete unwanted columns</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
 
-<h2><a name="copylayoutfrom"></a>8. Copy Column Layout From...</h2>
+<section id="advanced-features" class="mt-5">
+	<h3>Advanced Configuration Features (8-9)</h3>
+	<p>The advanced configuration section provides sophisticated tools for layout templating and detailed column property management that enable precise control over display characteristics and layout inheritance for optimized information presentation.</p>
 
-<p>Often when creating a new column layout it is similar to another existing layout. This drodown list will list all available layouts, and the selected one will be copied into the layout being modified.</p>
+	<div class="row">
+		<div class="col-md-6">
+			<div class="card">
+				<div class="card-header bg-info text-white">
+					<h6 class="mb-0"><i class="bi bi-files me-2"></i>8. Copy Column Layout From...</h6>
+				</div>
+				<div class="card-body">
+					<h6>Layout Template System</h6>
+					<ul class="small">
+						<li><strong>Template Selection:</strong> Choose existing layout to copy as starting point</li>
+						<li><strong>All Layouts Available:</strong> Dropdown lists all available layouts for copying</li>
+						<li><strong>Efficient Creation:</strong> Start with similar layout instead of building from scratch</li>
+						<li><strong>Configuration Inheritance:</strong> Copies columns, properties, and arrangements</li>
+					</ul>
 
-<h2><a name="properties"></a>9. Column Properties</h2>
+					<h6>Template Usage Scenarios</h6>
+					<ul class="small">
+						<li><strong>Variation Creation:</strong> Create specialized versions of existing layouts</li>
+						<li><strong>Project Adaptation:</strong> Adapt general layouts for specific project requirements</li>
+						<li><strong>Incremental Development:</strong> Build complex layouts through iterative copying and modification</li>
+						<li><strong>Standardization:</strong> Create consistent layouts across different use cases</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-6">
+			<div class="card">
+				<div class="card-header bg-warning text-dark">
+					<h6 class="mb-0"><i class="bi bi-sliders me-2"></i>9. Column Properties</h6>
+				</div>
+				<div class="card-body">
+					<h6>Detailed Column Configuration</h6>
+					<ul class="small">
+						<li><strong>Display Name:</strong> Custom text shown in Explorer Panel column header</li>
+						<li><strong>Width:</strong> Default column width (subject to auto-fit settings)</li>
+						<li><strong>Margin Left/Right:</strong> Extra blank space around column content</li>
+						<li><strong>Column Alignment:</strong> Content alignment (left, right, center)</li>
+					</ul>
 
-<p>All column have some standard properties. These properties can be modified here.<br />
-'Display name' is the name that will be shown in the Explorer Panel column header.<br />
-'Width' is the default width of the column. However if autoresize columns settings is enabled this width might be ignored if needed.<br />
-'Margin left' and 'Right' allow you to add extra blank space to the column left/right sides (both to the header and the content).<br />
-'Column alignment' specifies how the content of the column will be displayed: right / left / center.<br />
-After any properties are changed be sure to press the "Update" button so that the properties are updated</p>
+					<h6>Property Configuration Process</h6>
+					<ul class="small">
+						<li><strong>Column Selection:</strong> Select column in columns list to edit properties</li>
+						<li><strong>Property Modification:</strong> Adjust display name, width, margins, alignment</li>
+						<li><strong>Update Button:</strong> Press "Update" to apply property changes</li>
+						<li><strong>Visual Preview:</strong> Properties affect Explorer Panel display immediately</li>
+					</ul>
 
-<h2><a name="autoload"></a>10. Autoload on Path</h2>
+					<div class="alert alert-warning p-2 mt-3">
+						<h6 class="small mb-1"><i class="bi bi-exclamation-triangle me-1"></i>Update Requirement</h6>
+						<p class="small mb-0">Always press the "Update" button after changing properties to ensure modifications are applied to the layout.</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
 
-<p>This allows a column layout to be automatically applied under path that you specify here</p>
+<section id="automation-saving" class="mt-5">
+	<h3>Automation and Persistence (10-11)</h3>
+	<p>The final configuration section provides intelligent automation capabilities and essential persistence controls that enable automatic layout application based on directory context and ensure configuration changes are permanently saved for future use.</p>
 
-<p><img alt="" src="/Docs/Images/CustomizeColumnLayouts_autoload_add.png" style="width: 340px; height: 211px;" /></p>
+	<div class="row">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header bg-success text-white">
+					<h6 class="mb-0"><i class="bi bi-magic me-2"></i>10. Autoload on Path</h6>
+				</div>
+				<div class="card-body">
+					<h6>Intelligent Layout Automation</h6>
+					<ul class="small">
+						<li><strong>Path-Based Application:</strong> Automatically apply layout when browsing specified directories</li>
+						<li><strong>Subpath Support:</strong> Option to apply layout to all subdirectories under specified path</li>
+						<li><strong>Workflow Automation:</strong> Eliminate manual layout switching for predictable contexts</li>
+						<li><strong>Context-Sensitive Display:</strong> Specialized layouts automatically applied where most useful</li>
+					</ul>
 
-<p>Enter the path for which the column layout should be autoloaded, Check the "<strong>Valid for subpaths under this path</strong>" if you want the Column layout to also apply for subpaths under this path. Press the "<strong>Add</strong>" button to keep your changes.<br />
-Paths in this list preceded with a <strong>*</strong> have the subpath option checked.</p>
+					<div class="row mt-3">
+						<div class="col-md-6">
+							<div class="text-center">
+								<img src="/Docs/Images/CustomizeColumnLayouts_autoload_add.png" alt="Add Autoload Path" class="img-fluid border rounded shadow-sm" style="max-width: 340px;" />
+								<p class="text-muted small mt-2">Add new autoload path with subpath option configuration</p>
+							</div>
+						</div>
+						<div class="col-md-6">
+							<div class="text-center">
+								<img src="/Docs/Images/CustomizeColumnLayouts_autoload.png" alt="Modify Autoload Path" class="img-fluid border rounded shadow-sm" style="max-width: 336px;" />
+								<p class="text-muted small mt-2">Modify existing autoload path settings and subpath configuration</p>
+							</div>
+						</div>
+					</div>
 
-<p>To modify any path in the list, simply double-click it.</p>
+					<h6>Autoload Configuration Process</h6>
+					<ul class="small">
+						<li><strong>Path Entry:</strong> Enter directory path where layout should automatically apply</li>
+						<li><strong>Subpath Option:</strong> Check "Valid for subpaths under this path" for recursive application</li>
+						<li><strong>Add Button:</strong> Press "Add" to save autoload configuration</li>
+						<li><strong>Asterisk Indicator:</strong> Paths with asterisk (*) prefix have subpath option enabled</li>
+					</ul>
 
-<p><img alt="" src="/Docs/Images/CustomizeColumnLayouts_autoload.png" style="width: 336px; height: 212px;" /></p>
+					<h6>Path Management</h6>
+					<ul class="small">
+						<li><strong>Modification:</strong> Double-click any path in list to modify settings</li>
+						<li><strong>Path Changes:</strong> Update path location or subpath settings as needed</li>
+						<li><strong>Change Button:</strong> Click "Change" to apply modifications</li>
+						<li><strong>Removal:</strong> Select path and press X button to remove autoload rule</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
 
-<p>Change the path, and/or subpath settings and then click "<strong>Change</strong>".</p>
+	<div class="row mt-3">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header bg-danger text-white">
+					<h6 class="mb-0"><i class="bi bi-save me-2"></i>11. Save Changes</h6>
+				</div>
+				<div class="card-body">
+					<h6>Configuration Persistence</h6>
+					<ul class="small">
+						<li><strong>Save Changes Button:</strong> Essential final step to preserve all layout modifications</li>
+						<li><strong>Complete Persistence:</strong> Saves all changes made to selected column layout</li>
+						<li><strong>Loss Prevention:</strong> Without saving, all changes will be lost when dialog closes</li>
+						<li><strong>Session Scope:</strong> Changes only take effect after successful saving</li>
+					</ul>
 
-<p>Select a path in the list and press the X button to remove it.</p>
+					<h6>What Gets Saved</h6>
+					<ul class="small">
+						<li><strong>Column Selection:</strong> All added and removed columns in layout</li>
+						<li><strong>Column Order:</strong> Arrangement and positioning of columns</li>
+						<li><strong>Column Properties:</strong> Display names, widths, margins, alignment settings</li>
+						<li><strong>Autoload Rules:</strong> Path-based automatic application settings</li>
+					</ul>
 
-<h2><a name="savechanges"></a>11. Save Changes</h2>
+					<div class="alert alert-danger p-2 mt-3">
+						<h6 class="small mb-1"><i class="bi bi-exclamation-triangle me-1"></i>Critical Save Requirement</h6>
+						<p class="small mb-0">You <strong>must</strong> press the "Save Changes" button to preserve modifications. All changes made in the dialog will be permanently lost if this button is not pressed before closing the dialog.</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
 
-<p>When all modification are complete for the selected column layout press the "<strong>Save Changes</strong>" button. If this button is not pressed <em>all changes made will be lost</em>.</p>
+<section id="workflow-examples" class="mt-5">
+	<h3>Practical Workflow Examples</h3>
+	<p>Understanding practical applications of column layout customization through real-world scenarios that demonstrate how the numbered interface components work together to create efficient, specialized file management configurations for various operational contexts.</p>
+
+	<div class="row">
+		<div class="col-md-6">
+			<div class="card">
+				<div class="card-header bg-primary text-white">
+					<h6 class="mb-0"><i class="bi bi-camera me-2"></i>Photo Management Layout</h6>
+				</div>
+				<div class="card-body">
+					<h6>Configuration Process</h6>
+					<ul class="small">
+						<li><strong>1-2:</strong> Create new layout named "Photo Management"</li>
+						<li><strong>3-4:</strong> Filter for "image" columns and select metadata columns</li>
+						<li><strong>5-6:</strong> Add dimensions, camera model, ISO, focal length columns</li>
+						<li><strong>7:</strong> Arrange columns with filename first, then technical details</li>
+						<li><strong>9:</strong> Set image dimension columns to center alignment</li>
+						<li><strong>10:</strong> Configure autoload for photo directories (e.g., "D:\Photos")</li>
+						<li><strong>11:</strong> Save changes to preserve configuration</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-6">
+			<div class="card">
+				<div class="card-header bg-success text-white">
+					<h6 class="mb-0"><i class="bi bi-code me-2"></i>Development Project Layout</h6>
+				</div>
+				<div class="card-body">
+					<h6>Configuration Process</h6>
+					<ul class="small">
+						<li><strong>1-2:</strong> Create new layout named "Development Files"</li>
+						<li><strong>8:</strong> Copy from "Default" layout as starting point</li>
+						<li><strong>3-5:</strong> Add file version, line count, and encoding columns</li>
+						<li><strong>6-7:</strong> Organize with filename, size, modified date, file type</li>
+						<li><strong>9:</strong> Configure narrow width for size column</li>
+						<li><strong>10:</strong> Set autoload for source code directories</li>
+						<li><strong>11:</strong> Save comprehensive development layout</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<div class="alert alert-success mt-5">
+	<h6><i class="bi bi-lightbulb me-2"></i>Column Layout Customization Mastery</h6>
+	<p class="mb-0">Master Explorer Panel column layout customization by understanding how the numbered interface components work together to create sophisticated information displays. Use layout management (1-2) for organization, column operations (3-7) for content selection and arrangement, advanced features (8-9) for templating and property configuration, and automation controls (10-11) for intelligent application and persistence. Remember that the filter functionality (4) is essential for discovering relevant columns in the extensive library, property configuration (9) requires pressing "Update" to apply changes, and saving (11) is critical to preserve all modifications. Create specialized layouts for different file types and workflows, then use autoload paths to automatically apply appropriate layouts for optimal information display.</p>
+</div>
+
+<div class="alert alert-info mt-4">
+	<h6><i class="bi bi-info-circle me-2"></i>Related Column Management Documentation</h6>
+	<p class="mb-0">Enhance your column customization expertise with related Explorer Panel features: <a href="/Docs/ExplorerPanel-CustomizeColumns" class="text-decoration-none">Customize Columns</a>, <a href="/Docs/ExplorerPanel-Layout" class="text-decoration-none">Explorer Panel Layout</a>, <a href="/Docs/ExplorerPanel" class="text-decoration-none">Explorer Panel Overview</a>, <a href="/Docs/ExplorerPanelSettings" class="text-decoration-none">Explorer Panel Settings</a>, and <a href="/Docs/ExplorerPanel-FileColoring" class="text-decoration-none">File Coloring</a>.</p>
+</div>
 
 

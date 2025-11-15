@@ -1,25 +1,352 @@
-<h2>Upgrading</h2>
-<h2>Update Tool</h2>
+﻿<h2>Upgrading Multi Commander</h2>
 
-<p>When Multi Commander starts it will check to see if a new version is available. If a new version is found, you will be asked if you want to upgrade. If you select that option then the update tool is started. You can also do a manual check by either: selecting <strong>Menu &gt; Help &gt; Check for Updates</strong> or by launching the update tool via<strong> Menu &gt; Help &gt; Launch MultiUpdate</strong>.</p>
+<p>Multi Commander offers multiple convenient ways to keep your installation up-to-date with the latest features, improvements, and security fixes. Whether you prefer automatic updates or manual control, there's an upgrade method that suits your needs.</p>
 
-<p>The Update tools can also be started manually by running <strong>MultiUpdate.exe</strong>, located in the installation folder of Multi Commander.</p>
+<h3>Update Methods Overview</h3>
 
-<p>The Update tool will download the correct update package and then replace all necessary files. The tool works for both the installed and portable versions.</p>
+<div class="row mt-4">
+	<div class="col-md-6">
+		<div class="card">
+			<div class="card-header bg-primary text-white">
+				<h5 class="mb-0"><i class="bi bi-arrow-clockwise me-2"></i>Automatic Update Tool</h5>
+			</div>
+			<div class="card-body">
+				<p><strong>Recommended for most users</strong></p>
+				<ul>
+					<li>Built-in update checking</li>
+					<li>One-click update process</li>
+					<li>Works for both installed and portable versions</li>
+					<li>Supports beta versions (optional)</li>
+					<li>Preserves all settings and configuration</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<div class="col-md-6">
+		<div class="card">
+			<div class="card-header bg-success text-white">
+				<h5 class="mb-0"><i class="bi bi-download me-2"></i>Manual Installer Update</h5>
+			</div>
+			<div class="card-body">
+				<p><strong>For advanced users or custom installations</strong></p>
+				<ul>
+					<li>Full control over the update process</li>
+					<li>Can change installation options</li>
+					<li>Useful for silent/automated deployments</li>
+					<li>Same installer parameters as fresh installation</li>
+					<li>Option to uninstall previous version</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>
 
-<p>When doing an upgrade be sure to close any running instances of Multi Commander before running the tool. The Update tool <strong>cannot </strong>replace files that are in use.<br />
-If you have configured Multi Commander to exit to the system tray as an icon, then Multi Commander is not actually closed if you just press the 'X' button. To fully close the program, right click on the tray icon and select <strong>Close Multi Commander</strong>.<br />
-<br />
-The update tool can (optionally) also download beta versions and has some advanced options that can be set if you have issues with it.<br />
-Check the document page for <a href="#docs_MultiUpdate">MultiUpdate</a> for more information about this tool.</p>
+<h3>Automatic Update Tool (MultiUpdate)</h3>
 
-<h2>Upgrade Using Installer</h2>
+<h4>How It Works</h4>
+<p>Multi Commander includes a sophisticated update system that makes keeping your installation current effortless:</p>
 
-<p>You can also upgrade using the installer package. If the installer detects that you already have Multi Commander installed you will be given two options:<br />
-<strong>Upgrade installation</strong> or <strong>Uninstall installation</strong>.</p>
+<ul>
+	<li><strong>Startup Check:</strong> When Multi Commander starts, it automatically checks for newer versions (if enabled)</li>
+	<li><strong>Smart Detection:</strong> The system knows your current version and edition (32-bit/64-bit, installed/portable)</li>
+	<li><strong>Secure Download:</strong> Updates are downloaded directly from official servers with integrity verification</li>
+	<li><strong>Seamless Replacement:</strong> Only changed files are updated, preserving your settings and configuration</li>
+</ul>
 
-<p><img alt="" src="/Docs/Images/UpgradeFromInstaller.png" style="width: 410px; height: 320px;" /></p>
+<h4>Accessing the Update Tool</h4>
+<p>There are several ways to check for and install updates:</p>
 
-<p>If you select Upgrade it will replace all necessary existing files with the new, updated versions.</p>
+<div class="row mt-3">
+	<div class="col-md-4">
+		<div class="card">
+			<div class="card-body text-center">
+				<h6 class="card-title"><i class="bi bi-play-circle me-2"></i>At Startup</h6>
+				<p class="card-text small">Multi Commander automatically checks for updates when it starts and prompts you if a new version is available.</p>
+			</div>
+		</div>
+	</div>
+	<div class="col-md-4">
+		<div class="card">
+			<div class="card-body text-center">
+				<h6 class="card-title"><i class="bi bi-menu-button-wide me-2"></i>From Menu</h6>
+				<p class="card-text small">Go to <strong>Help → Check for Updates</strong> to manually check for available updates.</p>
+			</div>
+		</div>
+	</div>
+	<div class="col-md-4">
+		<div class="card">
+			<div class="card-body text-center">
+				<h6 class="card-title"><i class="bi bi-gear me-2"></i>Launch Tool</h6>
+				<p class="card-text small">Use <strong>Help → Launch MultiUpdate</strong> to open the update tool directly for advanced options.</p>
+			</div>
+		</div>
+	</div>
+</div>
+
+<h4>Manual Update Tool Execution</h4>
+<p>You can also run the update tool independently by executing <code>MultiUpdate.exe</code> from your Multi Commander installation folder. This is useful for:</p>
+<ul>
+	<li>Updating when Multi Commander isn't running</li>
+	<li>Accessing advanced update options</li>
+	<li>Troubleshooting update issues</li>
+	<li>Batch/automated update scenarios</li>
+</ul>
+
+<h4>Important: Closing Multi Commander Before Updates</h4>
+<div class="alert alert-warning">
+	<h6><i class="bi bi-exclamation-triangle me-2"></i>Critical Step: Ensure Multi Commander is Fully Closed</h6>
+	<p>The update tool <strong>cannot replace files that are currently in use</strong>. Before running updates:</p>
+	<ul class="mb-0">
+		<li><strong>Close all Multi Commander windows</strong> - Don't just minimize them</li>
+		<li><strong>Check the system tray</strong> - If you've configured Multi Commander to minimize to the system tray, it may still be running even after closing windows</li>
+		<li><strong>Properly exit from tray:</strong> Right-click the tray icon and select <strong>"Close Multi Commander"</strong> to fully terminate the application</li>
+		<li><strong>Verify closure:</strong> Check Task Manager if you're unsure whether the process has ended</li>
+	</ul>
+</div>
+
+<h4>Beta Version Support</h4>
+<p>The update tool can optionally download and install beta versions, allowing you to:</p>
+<ul>
+	<li>Test new features before official release</li>
+	<li>Help with development by providing feedback</li>
+	<li>Access cutting-edge improvements</li>
+	<li>Easily revert to stable versions when needed</li>
+</ul>
+
+<div class="alert alert-info">
+	<h6><i class="bi bi-info-circle me-2"></i>Beta Version Considerations</h6>
+	<p>Beta versions may contain experimental features and could be less stable than official releases. Use them in non-critical environments and always back up important data before upgrading to beta versions.</p>
+</div>
+
+<h4>Advanced Update Options</h4>
+<p>The MultiUpdate tool includes several advanced configuration options:</p>
+<ul>
+	<li><strong>Proxy Support:</strong> Configure proxy settings for corporate environments</li>
+	<li><strong>Download Location:</strong> Specify alternative download sources</li>
+	<li><strong>Verification Settings:</strong> Control integrity checking and validation</li>
+	<li><strong>Retry Behavior:</strong> Configure timeout and retry settings for slow connections</li>
+	<li><strong>Notification Preferences:</strong> Control when and how update notifications appear</li>
+</ul>
+
+<p>For detailed information about these advanced features, see the <a href="/Docs/MultiUpdate" class="text-decoration-none">MultiUpdate documentation</a>.</p>
+
+<h3>Manual Installer Updates</h3>
+
+<h4>When to Use Manual Updates</h4>
+<p>Manual installer updates are ideal for:</p>
+<ul>
+	<li>Situations where the automatic update tool encounters issues</li>
+	<li>Changing installation options (user vs. all users, installation path)</li>
+	<li>Corporate deployments requiring specific control</li>
+	<li>Installing on systems without internet access (using pre-downloaded installers)</li>
+	<li>Performing clean installations while preserving settings</li>
+</ul>
+
+<h4>Update Process</h4>
+<p>When you run a newer installer on a system with Multi Commander already installed:</p>
+
+<ol>
+	<li><strong>Detection:</strong> The installer automatically detects the existing installation</li>
+	<li><strong>Options Presented:</strong> You'll see a dialog with two main choices</li>
+	<li><strong>Process Selection:</strong> Choose your preferred upgrade method</li>
+	<li><strong>Execution:</strong> The installer handles the rest automatically</li>
+</ol>
+
+<div class="text-center my-4">
+	<img src="/Docs/Images/UpgradeFromInstaller.png" alt="Installer Upgrade Options" class="img-fluid border rounded shadow-sm" style="max-width: 410px;" />
+</div>
+
+<h4>Upgrade Options Explained</h4>
+
+<div class="row mt-4">
+	<div class="col-md-6">
+		<div class="card">
+			<div class="card-header bg-success text-white">
+				<h6 class="mb-0"><i class="bi bi-arrow-up-circle me-2"></i>Upgrade Installation (Recommended)</h6>
+			</div>
+			<div class="card-body">
+				<ul class="mb-0">
+					<li>Replaces existing files with newer versions</li>
+					<li>Preserves all your settings and configuration</li>
+					<li>Maintains current installation location</li>
+					<li>Keeps user customizations intact</li>
+					<li>Fastest and safest upgrade method</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<div class="col-md-6">
+		<div class="card">
+			<div class="card-header bg-warning text-dark">
+				<h6 class="mb-0"><i class="bi bi-trash me-2"></i>Uninstall Installation</h6>
+			</div>
+			<div class="card-body">
+				<ul class="mb-0">
+					<li>Completely removes the existing installation</li>
+					<li>Performs a fresh installation afterward</li>
+					<li>May require reconfiguration</li>
+					<li>Useful for troubleshooting installation issues</li>
+					<li>Clean slate approach</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>
+
+<h4>Silent Updates</h4>
+<p>For automated environments, you can perform silent updates using the same command-line parameters as installation:</p>
+
+<pre class="bg-light p-3 rounded"><code># Silent upgrade keeping current settings
+MultiCommander_x64_(version).exe /S /PrevInstall=Upgrade /Kill=Auto
+
+# Silent upgrade with custom path
+MultiCommander_x64_(version).exe /S /D="C:\Tools\MultiCommander" /PrevInstall=Upgrade /InstallMode=All /Kill=Auto</code></pre>
+
+<h3>Portable Version Updates</h3>
+
+<h4>Simple Extraction Method</h4>
+<p>Updating portable versions is straightforward:</p>
+<ol>
+	<li><strong>Download</strong> the latest portable version</li>
+	<li><strong>Extract</strong> the new version over your existing installation</li>
+	<li><strong>Overwrite</strong> when prompted (your settings are stored separately)</li>
+	<li><strong>Start</strong> Multi Commander - your settings will be preserved</li>
+</ol>
+
+<h4>Settings Preservation</h4>
+<p>The portable version stores settings in a <code>Config</code> subfolder within the application directory. These settings are automatically preserved when you extract newer versions over the existing installation.</p>
+
+<div class="alert alert-success">
+	<h6><i class="bi bi-shield-check me-2"></i>Safe Update Process</h6>
+	<p>Both automatic and manual update methods are designed to be safe and preserve your configuration. However, it's always good practice to back up your settings before major updates, especially when using beta versions.</p>
+</div>
+
+<h3>Update Best Practices</h3>
+
+<h4>Before Updating</h4>
+<ul>
+	<li><strong>Close Multi Commander completely</strong> (including system tray)</li>
+	<li><strong>Backup important settings</strong> if using beta versions</li>
+	<li><strong>Save any ongoing work</strong> in connected applications</li>
+	<li><strong>Note your current version</strong> in case you need to rollback</li>
+</ul>
+
+<h4>After Updating</h4>
+<ul>
+	<li><strong>Restart Multi Commander</strong> to ensure all components load correctly</li>
+	<li><strong>Verify your settings</strong> are intact and functioning</li>
+	<li><strong>Test key features</strong> you rely on daily</li>
+	<li><strong>Check the changelog</strong> for new features and improvements</li>
+</ul>
+
+<h4>Corporate Environments</h4>
+<p>For enterprise deployments:</p>
+<ul>
+	<li>Test updates in a controlled environment first</li>
+	<li>Use silent installation parameters for automated deployment</li>
+	<li>Consider using manual updates for better control</li>
+	<li>Document and standardize your update procedures</li>
+	<li>Configure proxy settings if required</li>
+</ul>
+
+<h3>Troubleshooting Updates</h3>
+
+<div class="accordion" id="updateTroubleshootingAccordion">
+	<div class="accordion-item">
+		<h2 class="accordion-header" id="updateHeading1">
+			<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#updateCollapse1">
+				Update fails with "files in use" error
+			</button>
+		</h2>
+		<div id="updateCollapse1" class="accordion-collapse collapse" data-bs-parent="#updateTroubleshootingAccordion">
+			<div class="accordion-body">
+				<ul>
+					<li>Ensure Multi Commander is completely closed</li>
+					<li>Check system tray for running instances</li>
+					<li>Use Task Manager to verify no MultiCommander.exe processes are running</li>
+					<li>Restart your computer if processes won't terminate</li>
+					<li>Try using the installer with <code>/Kill=Auto</code> parameter</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<div class="accordion-item">
+		<h2 class="accordion-header" id="updateHeading2">
+			<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#updateCollapse2">
+				Update download fails or is very slow
+			</button>
+		</h2>
+		<div id="updateCollapse2" class="accordion-collapse collapse" data-bs-parent="#updateTroubleshootingAccordion">
+			<div class="accordion-body">
+				<ul>
+					<li>Check your internet connection</li>
+					<li>Configure proxy settings in MultiUpdate if behind a corporate firewall</li>
+					<li>Try updating at a different time (server may be busy)</li>
+					<li>Download the installer manually from the website</li>
+					<li>Check antivirus software isn't blocking the download</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<div class="accordion-item">
+		<h2 class="accordion-header" id="updateHeading3">
+			<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#updateCollapse3">
+				Settings lost after update
+			</button>
+		</h2>
+		<div id="updateCollapse3" class="accordion-collapse collapse" data-bs-parent="#updateTroubleshootingAccordion">
+			<div class="accordion-body">
+				<ul>
+					<li>Check if Multi Commander is looking in the correct configuration folder</li>
+					<li>Use <strong>:goconfig</strong> command to verify the configuration path</li>
+					<li>Look for backup configuration files in the config folder</li>
+					<li>Restore from a manual backup if available</li>
+					<li>Check if the update changed installation mode (User vs All Users)</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<div class="accordion-item">
+		<h2 class="accordion-header" id="updateHeading4">
+			<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#updateCollapse4">
+				Multi Commander won't start after update
+			</button>
+		</h2>
+		<div id="updateCollapse4" class="accordion-collapse collapse" data-bs-parent="#updateTroubleshootingAccordion">
+			<div class="accordion-body">
+				<ul>
+					<li>Try running as administrator</li>
+					<li>Check Windows Event Viewer for error details</li>
+					<li>Verify system requirements are still met</li>
+					<li>Try running in compatibility mode</li>
+					<li>Reinstall using the latest installer</li>
+					<li>Check antivirus quarantine for blocked files</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>
+
+<h3>Rollback Procedures</h3>
+
+<p>If you experience issues after an update:</p>
+
+<h4>For Installed Versions</h4>
+<ol>
+	<li>Download the previous version from the official website</li>
+	<li>Run the installer and choose "Upgrade Installation"</li>
+	<li>Your settings should be preserved during the rollback</li>
+</ol>
+
+<h4>For Portable Versions</h4>
+<ol>
+	<li>Replace the current files with a backup of the previous version</li>
+	<li>Your settings in the Config folder will remain intact</li>
+</ol>
+
+<div class="alert alert-info mt-4">
+	<h6><i class="bi bi-info-circle me-2"></i>Need Help?</h6>
+	<p class="mb-0">If you encounter persistent update issues, visit the <a href="https://multicommander.com/support" class="text-decoration-none">Multi Commander Support Forum</a> or <a href="https://multicommander.com/contact" class="text-decoration-none">contact support</a> for assistance. Include details about your system, current version, and the specific error messages you're seeing.</p>
+</div>
 
 

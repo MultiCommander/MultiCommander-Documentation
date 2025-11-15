@@ -1,88 +1,392 @@
 <h2>Main Application Layout</h2>
-<p><img alt="" src="/Docs/Images/MCOverview_with_bulletpoints.png" style="width: 750px; height: 474px;" /></p>
 
-<ol>
-	<li><a href="#title">Title Bar</a></li>
-	<li><a href="#menubar">Menu Bar</a></li>
-	<li><a href="#toolbar">Toolbar Area</a></li>
-	<li><a href="#cmdlinefield">Command Line Field</a></li>
-	<li><a href="#quickbar">Quick Launch Bar</a></li>
-	<li><a href="#presentationarea">Presentation Area</a></li>
-	<li><a href="#tabarea">Tab Area</a></li>
-	<li><a href="#buttonpanel">Button Panel / Log Panel</a></li>
-	<li><a href="#statusbar">Status Bar</a></li>
-</ol>
+<p>Multi Commander's <strong>Main Application Layout</strong> provides a comprehensive and intuitive interface design that maximizes productivity through strategic organization of essential components. This sophisticated layout system combines traditional file manager elements with modern interface design principles, offering users a powerful workspace that adapts to diverse workflow requirements while maintaining consistent access to critical functionality through nine distinct interface zones that work together seamlessly.</p>
 
-<p>&nbsp;</p>
-
-<h2><a name="title"></a>1. Title Bar</h2>
-
-<p>The topmost line of the MultiCommander window is the <strong>Title Bar</strong>; it shows the <em>version number</em> and <em>build number</em> of MultiCommander.</p>
-
-<p>You can also add custom text to be shown at the beginning of the title. This is done using the -T command line parameter when invoking MultiCommander.exe</p>
-
-<div class="dochints">
-<fieldset><legend>Hint</legend>
-
-<pre>
-MultiCommander.exe -T=DEV.</pre>
-
-<p><img alt="" src="/Docs/Images/TitleBarText.png" /></p>
-</fieldset>
+<div class="alert alert-primary">
+	<h6><i class="bi bi-layout-text-sidebar me-2"></i>Integrated Workspace Design</h6>
+	<p class="mb-0">Experience a thoughtfully designed interface that balances comprehensive functionality with intuitive organization. The Main Application Layout strategically positions all essential components within easy reach, enabling efficient file management workflows while providing the flexibility to customize the workspace according to individual preferences and task requirements.</p>
 </div>
 
-<h2><a name="menubar"></a>2. Menu Bar</h2>
+<nav class="navbar navbar-expand-lg navbar-light bg-light mb-4">
+	<div class="container-fluid">
+		<span class="navbar-brand">Quick Navigation</span>
+		<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#layoutNav">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="layoutNav">
+			<ul class="navbar-nav">
+				<li class="nav-item"><a class="nav-link" href="#overview">Overview</a></li>
+				<li class="nav-item"><a class="nav-link" href="#header-components">Header Components</a></li>
+				<li class="nav-item"><a class="nav-link" href="#toolbar-system">Toolbar System</a></li>
+				<li class="nav-item"><a class="nav-link" href="#workspace-area">Workspace Area</a></li>
+				<li class="nav-item"><a class="nav-link" href="#bottom-components">Bottom Components</a></li>
+			</ul>
+		</div>
+	</div>
+</nav>
 
-<p>The second line (when visible) shows the <strong>Menu Bar</strong>. The default entries are:<strong> File</strong>, <strong>Edit</strong>, <strong>View</strong>, <strong>Configuration</strong>, <strong>Extensions</strong>, <strong>Tools</strong> and <strong>Help</strong>. You can create and modify additional menus and entries for user-defined commands by following the procedures outlined in <a href="#docs_user-defined-commands">Create User Defined Commands</a>.<br />
-Clicking on any menu opens a list of submenus, <a href="#docs_menubar">as described in the Menu Bar detail section here.</a></p>
+<section id="overview">
+	<h3>Application Layout Overview</h3>
+	<p>The Multi Commander interface consists of nine strategically positioned components that work together to create an efficient and customizable file management environment, each serving specific functional roles while maintaining visual harmony and logical workflow progression.</p>
 
-<div class="dochints">
-<fieldset><legend>Hint</legend>
+	<div class="row">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header bg-primary text-white">
+					<h6 class="mb-0"><i class="bi bi-diagram-3 me-2"></i>Complete Interface Structure</h6>
+				</div>
+				<div class="card-body">
+					<div class="text-center mt-3 mb-3">
+						<img src="/Docs/Images/MCOverview_with_bulletpoints.png" alt="Multi Commander Main Application Layout" class="img-fluid border rounded shadow-sm" style="max-width: 750px;" />
+						<p class="text-muted small mt-2">Complete Multi Commander interface showing all nine numbered components from header to status information</p>
+					</div>
 
-<p>The display of the Menu Bar can be toggled by the shortcut key <strong>Ctrl+M</strong>.</p>
-</fieldset>
+					<h6>Interface Component Map</h6>
+					<ol class="small">
+						<li><a href="#title" class="text-decoration-none"><strong>Title Bar:</strong></a> Application identification and version information</li>
+						<li><a href="#menubar" class="text-decoration-none"><strong>Menu Bar:</strong></a> Comprehensive command access through traditional menu system</li>
+						<li><a href="#toolbar" class="text-decoration-none"><strong>Toolbar Area:</strong></a> Quick access buttons for frequently used operations</li>
+						<li><a href="#cmdlinefield" class="text-decoration-none"><strong>Command Line Field:</strong></a> Direct command input and execution interface</li>
+						<li><a href="#quickbar" class="text-decoration-none"><strong>Quick Launch Bar:</strong></a> Customizable shortcuts for instant application access</li>
+						<li><a href="#presentationarea" class="text-decoration-none"><strong>Presentation Area:</strong></a> Main workspace for file management and extension interfaces</li>
+						<li><a href="#tabarea" class="text-decoration-none"><strong>Tab Area:</strong></a> Multi-panel management with drag-and-drop organization</li>
+						<li><a href="#buttonpanel" class="text-decoration-none"><strong>Button Panel / Log Panel:</strong></a> Customizable action buttons and system logging</li>
+						<li><a href="#statusbar" class="text-decoration-none"><strong>Status Bar:</strong></a> Real-time operation feedback and system status information</li>
+					</ol>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<section id="header-components" class="mt-5">
+	<h3>Header Components (1-2)</h3>
+	<p>The header region establishes application identity and provides primary navigation through the title bar and menu system, creating a familiar foundation for user interaction and system identification.</p>
+
+	<div class="row">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header bg-info text-white">
+					<h6 class="mb-0"><i class="bi bi-window me-2"></i><a name="title"></a>1. Title Bar</h6>
+				</div>
+				<div class="card-body">
+					<h6>Application Identification</h6>
+					<ul class="small">
+						<li><strong>Version Display:</strong> Shows current Multi Commander version number and build information</li>
+						<li><strong>Custom Text Support:</strong> Add personalized text using <code>-T</code> command line parameter</li>
+						<li><strong>Window Management:</strong> Standard Windows title bar functionality for window control</li>
+						<li><strong>Instance Identification:</strong> Distinguish between multiple Multi Commander windows</li>
+					</ul>
+					
+					<h6>Customization Example</h6>
+					<pre class="bg-light p-3 rounded small"><code>MultiCommander.exe -T=DEV.</code></pre>
+					<div class="text-center mt-3">
+						<img src="/Docs/Images/TitleBarText.png" alt="Custom Title Bar Text Example" class="img-fluid border rounded shadow-sm" />
+						<p class="text-muted small mt-2">Title bar displaying custom text prefix for development environment identification</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="row mt-3">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header bg-success text-white">
+					<h6 class="mb-0"><i class="bi bi-menu-app me-2"></i><a name="menubar"></a>2. Menu Bar</h6>
+				</div>
+				<div class="card-body">
+					<h6>Comprehensive Command Access</h6>
+					<ul class="small">
+						<li><strong>Default Categories:</strong> File, Edit, View, Configuration, Extensions, Tools, and Help menus</li>
+						<li><strong>Toggle Visibility:</strong> <kbd>Ctrl</kbd>+<kbd>M</kbd> to show/hide menu bar for space optimization</li>
+						<li><strong>Custom Integration:</strong> Full support for <a href="/Docs/user-defined-commands" class="text-decoration-none">user-defined commands</a> and custom menus</li>
+						<li><strong>Complete Reference:</strong> Detailed coverage in <a href="/Docs/menubar" class="text-decoration-none">Menu Bar documentation</a></li>
+					</ul>
+					
+					<div class="alert alert-info p-2 mt-3">
+						<p class="small mb-0"><strong>Space Management:</strong> Hide the menu bar when not needed to maximize workspace area while maintaining keyboard access via <kbd>Alt</kbd> key.</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<section id="toolbar-system" class="mt-5">
+	<h3>Toolbar System (3-5)</h3>
+	<p>The comprehensive toolbar system provides immediate access to essential operations through multiple specialized bars, combining quick access buttons, command input capabilities, and customizable launch shortcuts for maximum efficiency.</p>
+
+	<div class="row">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header bg-warning text-dark">
+					<h6 class="mb-0"><i class="bi bi-tools me-2"></i><a name="toolbar"></a>3. Toolbar Area</h6>
+				</div>
+				<div class="card-body">
+					<h6>Integrated Toolbar Components</h6>
+					<ul class="small">
+						<li><strong>Command Buttons:</strong> Quick access to frequently used operations from menu system</li>
+						<li><strong>Drive Access:</strong> Direct buttons for available storage devices and network drives</li>
+						<li><strong>Multiple Toolbars:</strong> Houses Command Line Bar, Quick Launch Bar, and specialized tool sets</li>
+						<li><strong>Customizable Layout:</strong> Show/hide individual toolbars based on workflow requirements</li>
+					</ul>
+
+					<h6>Related Toolbar Components</h6>
+					<ul class="small">
+						<li><strong><a href="/Docs/commandlinebar" class="text-decoration-none">Command Line Bar:</a></strong> Direct command input and navigation history</li>
+						<li><strong><a href="/Docs/quicklaunchbar" class="text-decoration-none">Quick Launch Bar:</a></strong> Customizable application and script shortcuts</li>
+						<li><strong><a href="/Docs/drivebar" class="text-decoration-none">Drive Bar:</a></strong> Storage device access and navigation</li>
+						<li><strong><a href="/Docs/filecommandbar" class="text-decoration-none">File Commands Bar:</a></strong> Essential file operation controls</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="row mt-3">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header bg-primary text-white">
+					<h6 class="mb-0"><i class="bi bi-terminal me-2"></i><a name="cmdlinefield"></a>4. Command Line Field</h6>
+				</div>
+				<div class="card-body">
+					<h6>Direct Command Interface</h6>
+					<ul class="small">
+						<li><strong>Command Execution:</strong> Direct input for Multi Commander commands and system operations</li>
+						<li><strong>Navigation Support:</strong> Quick directory navigation through path input</li>
+						<li><strong>History Integration:</strong> Access to command history and recently used paths</li>
+						<li><strong>Script Integration:</strong> Execute custom scripts and batch operations</li>
+					</ul>
+
+					<h6>Advanced Capabilities</h6>
+					<ul class="small">
+						<li><strong>Auto-completion:</strong> Intelligent command and path completion</li>
+						<li><strong>Variable Support:</strong> Environment variables and Multi Commander variables</li>
+						<li><strong>Alias Integration:</strong> Custom command aliases for workflow optimization</li>
+						<li><strong>Keyboard Focus:</strong> Automatic focus forwarding for rapid command entry</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="row mt-3">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header bg-success text-white">
+					<h6 class="mb-0"><i class="bi bi-lightning me-2"></i><a name="quickbar"></a>5. Quick Launch Bar</h6>
+				</div>
+				<div class="card-body">
+					<h6>Rapid Application Access</h6>
+					<ul class="small">
+						<li><strong>Custom Shortcuts:</strong> Drag-and-drop addition of applications, files, and folders</li>
+						<li><strong>User-Defined Commands:</strong> Integration with custom command system for advanced operations</li>
+						<li><strong>Context Sensitivity:</strong> Intelligent behavior based on current selection and location</li>
+						<li><strong>Workflow Integration:</strong> Essential component for personalized productivity enhancement</li>
+					</ul>
+
+					<div class="alert alert-success p-2 mt-3">
+						<p class="small mb-0"><strong>Customization Tip:</strong> Right-click the Quick Launch Bar to insert user-defined commands and create sophisticated workflow automation.</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<section id="workspace-area" class="mt-5">
+	<h3>Core Workspace Area (6-7)</h3>
+	<p>The central workspace combines the main presentation area with sophisticated tab management, creating a flexible and powerful environment for file management, extension interfaces, and multi-panel operations.</p>
+
+	<div class="row">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header bg-info text-white">
+					<h6 class="mb-0"><i class="bi bi-window-desktop me-2"></i><a name="presentationarea"></a>6. Presentation Area</h6>
+				</div>
+				<div class="card-body">
+					<h6>Primary Workspace</h6>
+					<ul class="small">
+						<li><strong>Extension Hosting:</strong> Displays interfaces for Explorer Panels, File Search, and other extensions</li>
+						<li><strong>Multi-Panel Support:</strong> Simultaneous operation of multiple file management interfaces</li>
+						<li><strong>Plugin Integration:</strong> Seamless hosting of third-party extensions and specialized tools</li>
+						<li><strong>Adaptive Layout:</strong> Dynamic resizing and configuration based on active extensions</li>
+					</ul>
+
+					<h6>Core Functions</h6>
+					<ul class="small">
+						<li><strong>File Management:</strong> Primary interface for browsing, selecting, and manipulating files</li>
+						<li><strong>Extension Display:</strong> Hosts specialized tools like search results, comparison views</li>
+						<li><strong>Split View Support:</strong> Multiple simultaneous views with configurable layouts</li>
+						<li><strong>Context Integration:</strong> Responds to toolbar actions and menu commands</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="row mt-3">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header bg-primary text-white">
+					<h6 class="mb-0"><i class="bi bi-folder2-open me-2"></i><a name="tabarea"></a>7. Tab Area</h6>
+				</div>
+				<div class="card-body">
+					<h6>Advanced Tab Management</h6>
+					<ul class="small">
+						<li><strong>Drag-and-Drop Organization:</strong> Move tabs between left and right panels effortlessly</li>
+						<li><strong>Context Menu Operations:</strong> Right-click access to Close, Duplicate, Load/Save tab configurations</li>
+						<li><strong>Multi-Session Support:</strong> Save and restore complete tab layouts for different projects</li>
+						<li><strong>Cross-Panel Navigation:</strong> Seamless movement of tabs between interface sections</li>
+					</ul>
+
+					<h6>Tab Operations</h6>
+					<ul class="small">
+						<li><strong>Session Management:</strong> Complete tab layout saving and restoration</li>
+						<li><strong>Quick Duplication:</strong> Instant tab copying for parallel operations</li>
+						<li><strong>Flexible Organization:</strong> Arrange tabs according to workflow requirements</li>
+						<li><strong>Detailed Control:</strong> Full coverage in <a href="/Docs/paneltabs" class="text-decoration-none">Panel Tabs documentation</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<section id="bottom-components" class="mt-5">
+	<h3>Bottom Interface Components (8-9)</h3>
+	<p>The bottom region provides essential workspace enhancement through customizable button panels and comprehensive status information, supporting both productivity optimization and system monitoring.</p>
+
+	<div class="row">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header bg-warning text-dark">
+					<h6 class="mb-0"><i class="bi bi-grid-3x3-gap me-2"></i><a name="buttonpanel"></a>8. Button Panel / Log Panel</h6>
+				</div>
+				<div class="card-body">
+					<h6>Dual-Purpose Interface</h6>
+					<ul class="small">
+						<li><strong>Button Panel:</strong> Customizable grid of action buttons for frequently used operations</li>
+						<li><strong>Log Panel:</strong> System operation logging and debugging information display</li>
+						<li><strong>Toggle Control:</strong> <kbd>Ctrl</kbd>+<kbd>B</kbd> for Button Panel, <kbd>Ctrl</kbd>+<kbd>L</kbd> for Log Panel</li>
+						<li><strong>Space Management:</strong> Show/hide based on current task requirements</li>
+					</ul>
+
+					<h6>Button Panel Features</h6>
+					<ul class="small">
+						<li><strong>Custom Actions:</strong> User-defined buttons for specific operations and workflows</li>
+						<li><strong>Drag-and-Drop Setup:</strong> Easy button creation through file and folder dropping</li>
+						<li><strong>Wizard Mode:</strong> Simplified button configuration for rapid setup</li>
+						<li><strong>Comprehensive Guide:</strong> Full details in <a href="/Docs/buttonpanel" class="text-decoration-none">Button Panel documentation</a></li>
+					</ul>
+
+					<div class="alert alert-info p-2 mt-3">
+						<p class="small mb-0"><strong>Productivity Tip:</strong> Use the Button Panel for frequently accessed folders, applications, and custom operations while monitoring system activity through the Log Panel.</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="row mt-3">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header bg-success text-white">
+					<h6 class="mb-0"><i class="bi bi-info-square me-2"></i><a name="statusbar"></a>9. Status Bar</h6>
+				</div>
+				<div class="card-body">
+					<h6>Real-Time System Information</h6>
+					<ul class="small">
+						<li><strong>Operation Progress:</strong> Live progress indication for file operations, copies, moves, and deletions</li>
+						<li><strong>System Status:</strong> Current operation state and system resource information</li>
+						<li><strong>Context Information:</strong> Selection details, folder statistics, and active operation status</li>
+						<li><strong>Error Reporting:</strong> Immediate feedback for operation results and system issues</li>
+					</ul>
+
+					<h6>Information Display</h6>
+					<ul class="small">
+						<li><strong>File Operations:</strong> Progress bars and completion status for ongoing transfers</li>
+						<li><strong>Selection Data:</strong> Count and size information for selected files and folders</li>
+						<li><strong>Network Status:</strong> Connection state for network operations and remote file systems</li>
+						<li><strong>Extension Feedback:</strong> Status information from active extensions and plugins</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<section id="customization" class="mt-5">
+	<h3>Layout Customization and Optimization</h3>
+	<p>Multi Commander's layout system provides extensive customization options to optimize the interface for specific workflows, allowing users to create personalized environments that maximize productivity and efficiency.</p>
+
+	<div class="row">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header bg-dark text-white">
+					<h6 class="mb-0"><i class="bi bi-sliders me-2"></i>Interface Optimization Strategies</h6>
+				</div>
+				<div class="card-body">
+					<h6>Space Management</h6>
+					<ul class="small">
+						<li><strong>Component Toggling:</strong> Show/hide interface elements based on current needs</li>
+						<li><strong>Toolbar Customization:</strong> Enable only required toolbar components</li>
+						<li><strong>Panel Organization:</strong> Optimize split ratios and layout configurations</li>
+						<li><strong>Full-Screen Modes:</strong> Maximize workspace by hiding non-essential elements</li>
+					</ul>
+
+					<h6>Workflow Adaptation</h6>
+					<ul class="small">
+						<li><strong>Task-Specific Layouts:</strong> Configure interface for different types of work</li>
+						<li><strong>Quick Access Setup:</strong> Position frequently used tools for immediate access</li>
+						<li><strong>Multi-Monitor Support:</strong> Optimize layout for multiple display configurations</li>
+						<li><strong>Session Management:</strong> Save and restore complete interface configurations</li>
+					</ul>
+
+					<h6>Essential Keyboard Shortcuts</h6>
+					<div class="table-responsive mt-3">
+						<table class="table table-sm table-bordered">
+							<thead class="table-light">
+								<tr>
+									<th style="width: 40%">Component</th>
+									<th style="width: 30%">Shortcut</th>
+									<th style="width: 30%">Function</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>Menu Bar</td>
+									<td><kbd>Ctrl</kbd>+<kbd>M</kbd></td>
+									<td>Toggle visibility</td>
+								</tr>
+								<tr>
+									<td>Button Panel</td>
+									<td><kbd>Ctrl</kbd>+<kbd>B</kbd></td>
+									<td>Show/hide panel</td>
+								</tr>
+								<tr>
+									<td>Log Panel</td>
+									<td><kbd>Ctrl</kbd>+<kbd>L</kbd></td>
+									<td>Toggle logging display</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<div class="alert alert-success mt-5">
+	<h6><i class="bi bi-lightbulb me-2"></i>Layout Mastery</h6>
+	<p class="mb-0">Master Multi Commander's interface by understanding the logical flow from header identification (1-2) through comprehensive toolbars (3-5) to the core workspace (6-7) and essential status components (8-9). Use keyboard shortcuts to toggle interface elements based on task requirements, customize the Quick Launch Bar and Button Panel for your specific workflow, and leverage the tab system for efficient multi-location file management. Remember that each component can be shown or hidden to create the optimal workspace for your current needs.</p>
 </div>
 
-<h2><a name="toolbar"></a>3. Toolbar Area</h2>
-
-<p>The Toolbar Area contains buttons for some of the most-used commands that you find in the menu. It also contains Buttons for available drives to open in the Explorer Panel. The Command Line Bar and the Quick Launch Bar are also here.</p>
-
-<p><strong>Read more about</strong><br />
-<a href="#docs_commandlinebar">Command Line Bar</a><br />
-<a href="#docs_quicklaunchbar">Quick Launch Bar</a><br />
-<a href="#docs_drivebar">Drive Bar</a><br />
-<a href="#docs_filecommandbar">File Commands Bar</a></p>
-
-<h2><a name="cmdlinefield"></a>4. Command Line Field</h2>
-
-<h2><a name="quickbar"></a>5. Quick Launch Bar</h2>
-
-<h2><a name="presentationarea"></a>6. Presentation Area</h2>
-
-<p>The next part of the display is the <strong>presentation area.</strong> This displays one or more GUIs that are controlled by extensions and plug-ins, such as the Explorer Panel and File Search.</p>
-
-<h2><a name="tabarea"></a>7. Tab Area</h2>
-<p>
-  The tab can be drag and dropped to either side. And you can also right click on a tab for additional commands. like Close tab, Duplicate Tab, Load Tabs, Save tabs and more.<br />
-Read more about the <a href="#docs_paneltabs">Panel Tabs</a>.
-</p>
-<h2><a name="buttonpanel"></a>8. Button Panel / Log Panel</h2>
-
-<p>Under the main presentation area there is, by default, a button panel. This panel can be toggled on and off with Ctrl+B.<br />
-You can also have a Log Panel shown here. By default this is not visible, but it can be toggled by pressing Ctrl+L.</p>
-
-<p>Read more about the <a href="#docs_buttonpanel">Button Panel</a>.</p>
-
-<div class="dochints">
-<fieldset><legend>Hint</legend>
-
-<p>Toggle Button Panel on/off with <strong>Ctrl+B</strong>.<br />
-Toggle Log panel on/off with <strong>Ctrl+L</strong></p>
-</fieldset>
+<div class="alert alert-info mt-4">
+	<h6><i class="bi bi-info-circle me-2"></i>Related Interface Documentation</h6>
+	<p class="mb-0">Explore detailed documentation for specific interface components: <a href="/Docs/menubar" class="text-decoration-none">Menu Bar</a>, <a href="/Docs/commandlinebar" class="text-decoration-none">Command Line Bar</a>, <a href="/Docs/filecommandbar" class="text-decoration-none">File Commands Bar</a>, <a href="/Docs/buttonpanel" class="text-decoration-none">Button Panel</a>, <a href="/Docs/paneltabs" class="text-decoration-none">Panel Tabs</a>, and <a href="/Docs/user-defined-commands" class="text-decoration-none">User Defined Commands</a>.</p>
 </div>
-
-<h2><a name="statusbar"></a>9. Status Bar</h2>
-
-<p>The status bar shows various pieces of status information. For example, when copying files you will see the progress of the copy process here</p>
 
 

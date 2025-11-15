@@ -1,59 +1,440 @@
-<h2>FileSystem - Archives</h2>
-<p>There are virtual filesystem plug-ins to allow archive files like Zip, RAR, or 7Zip to be opened and handled by Multi Commander.</p>
+﻿<h2>Virtual Filesystem - Archive Support</h2>
 
-<p>Multi Commander sees the archive first as a normal file, but when opening it, will browse the content of the archive as if it were a folder.</p>
+<p>Multi Commander's virtual filesystem architecture provides comprehensive archive support through specialized plug-ins, enabling seamless interaction with compressed files and archives as if they were regular folders. This powerful system transforms archive management from a complex task into an intuitive file browsing experience.</p>
 
-<p><img alt="" height:="" src="/Docs/Images/BrowsArchive.png" width:="" /></p>
+<div class="alert alert-info">
+	<h6><i class="bi bi-info-circle me-2"></i>Transparent Archive Integration</h6>
+	<p class="mb-0">Archives appear as regular files in the file listing, but when opened, Multi Commander seamlessly transitions to browsing their internal structure, providing full filesystem-like operations within compressed containers.</p>
+</div>
 
-<p>Since archives are handled as folders it is possible to browse an archive and select files and then press copy (or drag them) and only the selected files will be unpacked and copied.<br />
-If the virtual filesystem supports writing, it is possible to copy files into the archive just as if the archive were a folder. The archive will then be updated with the new files.<br />
-Delete and Rename are also supported (if the plug-in for that archive format supports it). Not all archive plug-ins support write/modify operations.</p>
+<nav class="navbar navbar-expand-lg navbar-light bg-light mb-4">
+	<div class="container-fluid">
+		<span class="navbar-brand">Quick Navigation</span>
+		<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#archiveNav">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="archiveNav">
+			<ul class="navbar-nav">
+				<li class="nav-item"><a class="nav-link" href="#overview">Overview</a></li>
+				<li class="nav-item"><a class="nav-link" href="#browsing-archives">Browsing Archives</a></li>
+				<li class="nav-item"><a class="nav-link" href="#operations">Archive Operations</a></li>
+				<li class="nav-item"><a class="nav-link" href="#pack-unpack">Pack & Unpack</a></li>
+				<li class="nav-item"><a class="nav-link" href="#format-support">Format Support</a></li>
+			</ul>
+		</div>
+	</div>
+</nav>
 
-<p>Most operation that can be preformed on normal files can be performed on files inside an archive. The virtual filesystem will unpack the files to a temporary location if needed.<br />
-When viewing or editing a file inside an archive the virtual filesystem layer will automatically extract and update the archive as needed.</p>
+<section id="overview">
+	<h3>Virtual Filesystem Architecture</h3>
+	<p>Multi Commander's virtual filesystem layer abstracts archive handling, presenting compressed files as navigable folder structures with full support for file operations, drag-and-drop functionality, and real-time modification capabilities.</p>
 
-<p>In many places inside Multi Commander it is possible to reference a file that is located inside an archive. The virtual file system will then automatically open the file inside the archive.</p>
+	<div class="row">
+		<div class="col-md-6">
+			<div class="card">
+				<div class="card-header bg-primary text-white">
+					<h6 class="mb-0"><i class="bi bi-layers me-2"></i>Virtual Filesystem Benefits</h6>
+				</div>
+				<div class="card-body">
+					<ul class="small">
+						<li><strong>Transparent Access:</strong> Archives behave like regular folders</li>
+						<li><strong>Real-time Operations:</strong> Immediate file modifications and updates</li>
+						<li><strong>Nested Support:</strong> Browse archives within archives seamlessly</li>
+						<li><strong>Drag-and-Drop:</strong> Intuitive file transfer to and from archives</li>
+						<li><strong>Partial Extraction:</strong> Extract only selected files without full decompression</li>
+						<li><strong>Format Agnostic:</strong> Consistent interface across different archive types</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-6">
+			<div class="card">
+				<div class="card-header bg-success text-white">
+					<h6 class="mb-0"><i class="bi bi-gear me-2"></i>Supported Operations</h6>
+				</div>
+				<div class="card-body">
+					<ul class="small">
+						<li><strong>File Viewing:</strong> Open and view files directly from archives</li>
+						<li><strong>File Editing:</strong> Edit files with automatic archive updates</li>
+						<li><strong>Copy/Move:</strong> Transfer files between archives and filesystem</li>
+						<li><strong>Delete/Rename:</strong> Modify archive contents directly</li>
+						<li><strong>Search Operations:</strong> Search inside archives for files and content</li>
+						<li><strong>Property Access:</strong> View file properties and metadata</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
 
-<h2>Pack / Unpack</h2>
+</section>
 
-<p>With <a href="#docs_packfiles">Pack</a> and <a href="#docs_unpackfiles">Unpack</a> it is possible to quickly pack or unpack files within an archive file.<br />
-Unpacking can also be done by browsing the archive, selecting what to copy and then copying the content to a target location.</p>
+<section id="browsing-archives" class="mt-5">
+	<h3>Browsing Archive Contents</h3>
+	<p>Multi Commander provides seamless archive browsing that feels identical to navigating regular folders, with full support for nested structures and mixed content types.</p>
 
-<h2>Create New Archive Automatically</h2>
+	<div class="row">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header bg-primary text-white">
+					<h6 class="mb-0"><i class="bi bi-folder-open me-2"></i>Archive Navigation Experience</h6>
+				</div>
+				<div class="card-body">
+					<h6>Opening Archives</h6>
+					<p class="small">Archives appear as regular files in Multi Commander's file list. To browse an archive's contents:</p>
+					<ol class="small">
+						<li><strong>Double-click the archive:</strong> Opens the archive in the current panel</li>
+						<li><strong>Press Enter:</strong> Navigate into the archive like entering a folder</li>
+						<li><strong>Right-click options:</strong> Choose specific actions for the archive</li>
+						<li><strong>Drag and drop:</strong> Drop the archive onto the opposite panel to open</li>
+					</ol>
 
-<p>Because the virtual filesystem will automatically open or create archives it is possible to create a new archive by copying files to an archive that does <b>not</b> yet exist. If it does exist, however, the existing archive will be updated instead.</p>
+					<div class="text-center mt-3 mb-3">
+						<img src="/Docs/Images/BrowsArchive.png" alt="Browsing Archive Contents" class="img-fluid border rounded shadow-sm" />
+						<p class="text-muted small mt-2">Multi Commander displaying the internal structure of an archive as a navigable folder hierarchy</p>
+					</div>
 
-<p><img alt="" src="/Docs/Images/CopyIntoArchive.png" style="width: 750px; height: 211px;" /></p>
+					<h6>Navigation Features</h6>
+					<ul class="small">
+						<li><strong>Folder Structure:</strong> Complete directory tree navigation within archives</li>
+						<li><strong>Path Bar:</strong> Clear indication of current location within archive</li>
+						<li><strong>Back/Forward:</strong> Standard navigation controls work within archives</li>
+						<li><strong>Up Directory:</strong> Navigate to parent folders or exit archive</li>
+						<li><strong>Bookmarks:</strong> Save frequently accessed archive locations</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
 
-<p>In the image above the right panel has the folder <b>"Network"</b> and the files <b>"Network.hpp"</b> and <b>"mine.hpp"</b> selected.<br />
-A copy operation of the selected files and folders to the target panel to the left is then issued. In the "Copyfile to..." confirmation window an archive file name ( <b>NewZipArchive.zip</b>) is added to the target path.</p>
+</section>
 
-<p>The copy operation will now copy the selected file into the new zip archive named NewZipArchive.zip.</p>
+<section id="operations" class="mt-5">
+	<h3>Archive File Operations</h3>
+	<p>Multi Commander provides full file operation support within archives, treating compressed containers as fully functional filesystem locations with comprehensive manipulation capabilities.</p>
 
-<p><img alt="" src="/Docs/Images/CopyIntoArchiveDone.png" style="width: 750px; height: 134px;" /></p>
+	<div class="row">
+		<div class="col-md-6">
+			<div class="card">
+				<div class="card-header bg-primary text-white">
+					<h6 class="mb-0"><i class="bi bi-files me-2"></i>Standard File Operations</h6>
+				</div>
+				<div class="card-body">
+					<h6>Copy Operations</h6>
+					<ul class="small">
+						<li><strong>Selective Extraction:</strong> Copy specific files from archive to filesystem</li>
+						<li><strong>Archive to Archive:</strong> Direct transfer between different archives</li>
+						<li><strong>Drag and Drop:</strong> Intuitive file transfer with visual feedback</li>
+						<li><strong>Batch Operations:</strong> Copy multiple files simultaneously</li>
+					</ul>
+					<h6>Archive Modification</h6>
+					<ul class="small">
+						<li><strong>Add Files:</strong> Copy files into archives like regular folders</li>
+						<li><strong>Delete Files:</strong> Remove files directly from archive contents</li>
+						<li><strong>Rename Files:</strong> Modify filenames within archives</li>
+						<li><strong>Create Folders:</strong> Add directory structure to archives</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-6">
+			<div class="card">
+				<div class="card-header bg-success text-white">
+					<h6 class="mb-0"><i class="bi bi-gear me-2"></i>Advanced Operations</h6>
+				</div>
+				<div class="card-body">
+					<h6>File Access and Editing</h6>
+					<ul class="small">
+						<li><strong>Direct Viewing:</strong> Open files from archives in associated applications</li>
+						<li><strong>In-Place Editing:</strong> Edit files with automatic archive updates</li>
+						<li><strong>Temporary Extraction:</strong> Automatic temporary file management</li>
+						<li><strong>Change Detection:</strong> Monitor file modifications for archive updates</li>
+					</ul>
+					<h6>Search and Analysis</h6>
+					<ul class="small">
+						<li><strong>Archive Search:</strong> Search for files within archive contents</li>
+						<li><strong>Content Search:</strong> Search inside files within archives</li>
+						<li><strong>Property Analysis:</strong> Access file metadata and properties</li>
+						<li><strong>Size Calculation:</strong> Calculate uncompressed sizes and ratios</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
 
-<p>After the copy is completed there is now a new zip archive in the target location: <b>"NewZipArchive.zip"</b></p>
+</section>
 
-<p>The virtual Filesystem knows that the .zip extension is a virtual file system object. Therefore, when the target location is a path that ends in an archive, the virtual filesystem layer will create that archive file if it can. If the file already exists the existing file will be updated instead.</p>
+<section id="pack-unpack" class="mt-5">
+	<h3>Pack and Unpack Operations</h3>
+	<p>Multi Commander provides both traditional pack/unpack tools and innovative archive creation methods that leverage the virtual filesystem for intuitive archive management.</p>
 
-<p><i>Just as if the target archive file was actually a folder.</i></p>
+	<div class="row">
+		<div class="col-md-6">
+			<div class="card">
+				<div class="card-header bg-primary text-white">
+					<h6 class="mb-0"><i class="bi bi-box me-2"></i>Traditional Pack/Unpack Tools</h6>
+				</div>
+				<div class="card-body">
+					<h6>Pack Files Tool</h6>
+					<ul class="small">
+						<li><strong>Multiple Formats:</strong> Support for ZIP, 7Z, TAR, and other formats</li>
+						<li><strong>Compression Levels:</strong> Adjustable compression settings</li>
+						<li><strong>File Filtering:</strong> Include/exclude files based on patterns</li>
+						<li><strong>Password Protection:</strong> Encrypt archives with passwords</li>
+					</ul>
+					<h6>Unpack Files Tool</h6>
+					<ul class="small">
+						<li><strong>Selective Extraction:</strong> Choose specific files to extract</li>
+						<li><strong>Path Preservation:</strong> Maintain directory structure during extraction</li>
+						<li><strong>Overwrite Options:</strong> Control handling of existing files</li>
+						<li><strong>Password Support:</strong> Handle encrypted archives</li>
+					</ul>
+					<p class="small mt-2"><em>Access these tools via File Operations → <a href="/Docs/packfiles">Pack</a> and <a href="/Docs/unpackfiles">Unpack</a></em></p>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-6">
+			<div class="card">
+				<div class="card-header bg-success text-white">
+					<h6 class="mb-0"><i class="bi bi-magic me-2"></i>Automatic Archive Creation</h6>
+				</div>
+				<div class="card-body">
+					<h6>Virtual Filesystem Magic</h6>
+					<p class="small">Create archives simply by copying files to non-existent archive paths:</p>
+					<ol class="small">
+						<li><strong>Select Files:</strong> Choose files/folders to archive</li>
+						<li><strong>Start Copy Operation:</strong> Use Copy (F5) or drag-and-drop</li>
+						<li><strong>Specify Archive Path:</strong> Enter target path ending with archive extension</li>
+						<li><strong>Automatic Creation:</strong> Multi Commander creates the archive automatically</li>
+					</ol>
+					<h6>Supported Creation Scenarios</h6>
+					<ul class="small">
+						<li><strong>New Archive Creation:</strong> Non-existent files create new archives</li>
+						<li><strong>Archive Updates:</strong> Existing archives are updated with new files</li>
+						<li><strong>Format Detection:</strong> Archive format determined by file extension</li>
+						<li><strong>Nested Creation:</strong> Create archives within other archives</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
 
-<h2>FS-Zip</h2>
+	<div class="row mt-3">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header bg-warning text-dark">
+					<h6 class="mb-0"><i class="bi bi-diagram-2 me-2"></i>Archive Creation Workflow</h6>
+				</div>
+				<div class="card-body">
+					<h6>Step-by-Step Archive Creation Example</h6>
+					<div class="row">
+						<div class="col-md-6">
+							<div class="text-center">
+								<img src="/Docs/Images/CopyIntoArchive.png" alt="Copy into Archive Dialog" class="img-fluid border rounded shadow-sm" />
+								<p class="text-muted small mt-2">Copy dialog showing target path with archive name "NewZipArchive.zip"</p>
+							</div>
+							<h6>Setup Phase</h6>
+							<ul class="small">
+								<li><strong>Select Source Files:</strong> Choose "Network" folder and "Network.hpp", "mine.hpp" files</li>
+								<li><strong>Initiate Copy:</strong> Press F5 or use Edit → Copy</li>
+								<li><strong>Modify Target:</strong> Add "NewZipArchive.zip" to target path</li>
+								<li><strong>Confirm Operation:</strong> Proceed with copy operation</li>
+							</ul>
+						</div>
+						<div class="col-md-6">
+							<div class="text-center">
+								<img src="/Docs/Images/CopyIntoArchiveDone.png" alt="Archive Creation Complete" class="img-fluid border rounded shadow-sm" />
+								<p class="text-muted small mt-2">Result showing newly created "NewZipArchive.zip" in target location</p>
+							</div>
+							<h6>Result Phase</h6>
+							<ul class="small">
+								<li><strong>Archive Created:</strong> New ZIP file appears in target location</li>
+								<li><strong>Contents Added:</strong> Selected files/folders compressed and stored</li>
+								<li><strong>Structure Preserved:</strong> Directory hierarchy maintained within archive</li>
+								<li><strong>Ready for Use:</strong> Archive immediately available for browsing</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
 
-<p>This virtual filesystem plug-in adds support for opening and modifying and creating zip archives.<br />
-Zip is a very old format and because of that it does not handle well filenames that have characters that do not fit into the 7-Bit Ascii Table. The Zip standard has been updated to support UTF-8 encoded filenames, and FS-Zip does support that, but many other programs that create/read zip files to not support UTF-8 encoding. This can make the filenames look differently if zip archives are moved between computers with different language settings or capabilities.</p>
+<section id="format-support" class="mt-5">
+	<h3>Archive Format Support</h3>
+	<p>Multi Commander's modular plugin architecture provides extensive archive format support with varying levels of functionality depending on format capabilities and plugin implementations.</p>
 
-<p>In the settings for the Zip FileSystem plug-in it is possible to configure which codepage should use when opening zip archives (those that are not encoded using UTF-8).<br />
-The settings page is found under the Configuration menu.</p>
+	<div class="row">
+		<div class="col-md-6">
+			<div class="card">
+				<div class="card-header bg-primary text-white">
+					<h6 class="mb-0"><i class="bi bi-file-zip me-2"></i>FS-Zip Plugin</h6>
+				</div>
+				<div class="card-body">
+					<h6>Comprehensive ZIP Support</h6>
+					<ul class="small">
+						<li><strong>Full Read/Write:</strong> Complete creation, modification, and extraction</li>
+						<li><strong>UTF-8 Support:</strong> Modern Unicode filename encoding</li>
+						<li><strong>Legacy Compatibility:</strong> Support for older ZIP implementations</li>
+						<li><strong>Password Protection:</strong> Encrypted ZIP file support</li>
+						<li><strong>Large File Support:</strong> ZIP64 format for files over 4GB</li>
+					</ul>
+					<h6>Character Encoding Considerations</h6>
+					<p class="small">ZIP format's legacy 7-bit ASCII limitation requires careful encoding handling:</p>
+					<ul class="small">
+						<li><strong>UTF-8 Standard:</strong> Modern ZIP files use UTF-8 encoding</li>
+						<li><strong>Codepage Configuration:</strong> Adjustable for legacy archives</li>
+						<li><strong>Cross-Platform Compatibility:</strong> Consider target system requirements</li>
+						<li><strong>Filename Preservation:</strong> Maintain international characters correctly</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-6">
+			<div class="card">
+				<div class="card-header bg-success text-white">
+					<h6 class="mb-0"><i class="bi bi-file-zip-fill me-2"></i>FS-7Zip Plugin</h6>
+				</div>
+				<div class="card-body">
+					<h6>Advanced 7-Zip Support</h6>
+					<ul class="small">
+						<li><strong>Full Read/Write:</strong> Complete creation, modification, and extraction</li>
+						<li><strong>High Compression:</strong> Superior compression ratios compared to ZIP</li>
+						<li><strong>Multiple Algorithms:</strong> LZMA, LZMA2, and other compression methods</li>
+						<li><strong>Solid Archives:</strong> Enhanced compression for similar file types</li>
+						<li><strong>Multi-Threading:</strong> Faster compression on multi-core systems</li>
+						<li><strong>Large File Support:</strong> No practical size limitations</li>
+					</ul>
+					<h6>Performance Benefits</h6>
+					<ul class="small">
+						<li><strong>LZMA Algorithm:</strong> State-of-the-art compression technology</li>
+						<li><strong>Memory Efficiency:</strong> Optimized for both speed and compression ratio</li>
+						<li><strong>Cross-Platform:</strong> Excellent compatibility across different systems</li>
+						<li><strong>Open Standard:</strong> Public domain format with wide support</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
 
-<p><img alt="" src="/Docs/Images/MenuZipSettings.png" style="width: 584px; height: 354px;" /></p>
+	<div class="row mt-3">
+		<div class="col-md-6">
+			<div class="card">
+				<div class="card-header bg-warning text-dark">
+					<h6 class="mb-0"><i class="bi bi-file-earmark me-2"></i>FS-RAR Plugin</h6>
+				</div>
+				<div class="card-body">
+					<h6>Read-Only RAR Support</h6>
+					<ul class="small">
+						<li><strong>Browse Contents:</strong> Full navigation of RAR archive structure</li>
+						<li><strong>Extract Files:</strong> Copy files from RAR archives to filesystem</li>
+						<li><strong>Password Support:</strong> Handle encrypted RAR archives</li>
+						<li><strong>Multi-Volume Support:</strong> Work with split RAR archives</li>
+						<li><strong>Compression Information:</strong> View compression ratios and statistics</li>
+					</ul>
+					<h6>Limitations</h6>
+					<div class="alert alert-warning p-2 mt-2">
+						<p class="small mb-0"><strong>Read-Only:</strong> RAR format is proprietary, preventing file addition or modification. Only browsing and extraction are supported.</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-6">
+			<div class="card">
+				<div class="card-header bg-info text-white">
+					<h6 class="mb-0"><i class="bi bi-file-earmark-zip me-2"></i>FS_BZip2 Plugin</h6>
+				</div>
+				<div class="card-body">
+					<h6>BZip2 Compression Support</h6>
+					<ul class="small">
+						<li><strong>Full Read/Write:</strong> Complete creation, modification, and extraction</li>
+						<li><strong>High Compression:</strong> Excellent compression ratios for text and data files</li>
+						<li><strong>Block-Based:</strong> Efficient handling of large files</li>
+						<li><strong>Error Recovery:</strong> Built-in error detection and recovery</li>
+						<li><strong>Cross-Platform:</strong> Wide compatibility across Unix/Linux systems</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
 
-<p>Is is also possible to enable/disable whether a new zip archive should&nbsp; be created using UTF-8 encoding.</p>
+	<div class="row mt-3">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header bg-secondary text-white">
+					<h6 class="mb-0"><i class="bi bi-grid me-2"></i>Additional Format Support</h6>
+				</div>
+				<div class="card-body">
+					<h6>Supported Archive Formats by Plugin</h6>
+					<div class="row">
+						<div class="col-md-4">
+							<h6><i class="bi bi-file-zip me-1"></i> FS-Zip Formats</h6>
+							<ul class="small">
+								<li><strong>ZIP:</strong> Standard ZIP archives</li>
+								<li><strong>ZIP64:</strong> Large file support (>4GB)</li>
+								<li><strong>Encrypted ZIP:</strong> Password-protected archives</li>
+								<li><strong>DEFLATE:</strong> Standard compression method</li>
+							</ul>
+						</div>
+						<div class="col-md-4">
+							<h6><i class="bi bi-file-zip-fill me-1"></i> FS-7Zip Formats</h6>
+							<ul class="small">
+								<li><strong>7Z:</strong> Native 7-Zip format</li>
+								<li><strong>LZMA:</strong> Advanced compression algorithm</li>
+								<li><strong>LZMA2:</strong> Multi-threading support</li>
+								<li><strong>Solid Archives:</strong> Maximum compression</li>
+							</ul>
+						</div>
+						<div class="col-md-4">
+							<h6><i class="bi bi-archive me-1"></i> FS-TarGz Formats</h6>
+							<ul class="small">
+								<li><strong>TAR:</strong> Uncompressed tape archives</li>
+								<li><strong>TAR.GZ/TGZ:</strong> Gzip-compressed</li>
+								<li><strong>TAR.BZ2/TBZ:</strong> Bzip2-compressed</li>
+								<li><strong>TAR.XZ/TXZ:</strong> XZ-compressed</li>
+							</ul>
+						</div>
+						<div class="col-md-4">
+							<h6><i class="bi bi-file-earmark-zip me-1"></i> FS_BZip2 Formats</h6>
+							<ul class="small">
+								<li><strong>BZ2:</strong> Bzip2 single-file compression</li>
+								<li><strong>BZip2:</strong> Block-based compression</li>
+								<li><strong>TBZ:</strong> Tar + Bzip2 combination</li>
+								<li><strong>TAR.BZ2:</strong> Extended tar archives</li>
+							</ul>
+						</div>
+						<div class="col-md-4">
+							<h6><i class="bi bi-file-earmark me-1"></i> FS-RAR Formats</h6>
+							<ul class="small">
+								<li><strong>RAR:</strong> WinRAR archives (read-only)</li>
+								<li><strong>RAR4:</strong> Legacy RAR format</li>
+								<li><strong>RAR5:</strong> Modern RAR format</li>
+								<li><strong>Multi-Volume:</strong> Split RAR archives</li>
+							</ul>
+						</div>
+					</div>
+					<div class="alert alert-info mt-3">
+						<h6><i class="bi bi-info-circle me-2"></i>Plugin Capabilities</h6>
+						<p class="small mb-0">
+							<strong>Full Support:</strong> FS-Zip, FS-7Zip, FS-TarGz, FS_BZip2 provide complete read/write/create functionality<br>
+							<strong>Read-Only:</strong> FS-RAR supports browsing and extraction only due to proprietary format restrictions<br>
+							<strong>Format Detection:</strong> All plugins automatically detect supported formats based on file headers and extensions
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
 
-<p><img alt="" src="/Docs/Images/ZipSettings.png" style="width: 496px; height: 140px;" /></p>
+<div class="alert alert-success mt-5">
+	<h6><i class="bi bi-lightbulb me-2"></i>Efficient Archive Management</h6>
+	<p class="mb-0">Multi Commander's virtual filesystem transforms archive handling from a complex technical task into an intuitive extension of normal file management. The seamless integration allows you to work with compressed files as naturally as regular folders while maintaining the performance benefits of compression.</p>
+</div>
 
-<h2>FS-Rar</h2>
-
-<p>This virtual filesystem plug-in provides <b>read only</b> support for RAR files. It will allow browsing and unpacking rar archives, but files cannot be added.</p>
+<div class="alert alert-info mt-4">
+	<h6><i class="bi bi-info-circle me-2"></i>Related Filesystem Topics</h6>
+	<p class="mb-0">Explore other virtual filesystem capabilities: <a href="/Docs/filesystem/network" class="text-decoration-none">Network Filesystems</a>, <a href="/Docs/filesystem/favorites" class="text-decoration-none">Favorites Management</a>, and <a href="/Docs/filesystem" class="text-decoration-none">Virtual Filesystem Overview</a>.</p>
+</div>
 
 

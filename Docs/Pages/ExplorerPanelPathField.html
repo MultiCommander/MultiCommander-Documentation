@@ -1,32 +1,312 @@
 <h2>Path Field</h2>
-<p><img alt="" src="/Docs/Images/ExplorerPanel_pathbar.png" /></p>
 
-<p>The Path Field shows the current path displayed in the active Explorer Panel . Sub folders in the path that is shown are clickable. Clicking on a subpath causes the Explorer Panel to try to change to that path.</p>
+<p>The <strong>Path Field</strong> serves as an intelligent navigation interface within the Explorer Panel, providing comprehensive path display and interaction capabilities that enable efficient directory navigation through clickable path segments, advanced folder browsing features, and direct path editing functionality. This sophisticated component transforms traditional path navigation into an interactive tool that supports both mouse-based clicking and keyboard-driven path manipulation for optimal workflow efficiency.</p>
 
-<p><img alt="" src="/Docs/Images/ExplorerPanel_crumbbar.png" /></p>
-
-<p>If you hold down the <strong>CTRL </strong>key while clicking on a sub folder a list of all the sub-folders under that path will be shown. You can then select a sub-folder that you want to go to from that list.</p>
-
-<div class="dochints">
-<fieldset><legend>Special Feature</legend>
-
-<div class="specialfeature">
-<p>A special feature is that if you hold down both <strong>SHIFT</strong> and <strong>CTRL</strong> keys while clicking on a sub-folder in the path field, and then select a sub folder from the folder list, it will try to go to the same sub-path under that folder as the one in which you are currently located. Eg. if you are currently located in the path <strong>"D:\Projects\MyApp\Version_1.0.0\Source\Includes\"</strong> and you click on the <strong>"MyApp"</strong> sub path while holding down <strong>Shift+Ctrl</strong>, then in the folder list that is shown you Select <strong>"Version_2.0.0"</strong>, it will try to go to "D:\Projects\MyApp\<strong>Version_2.0.0</strong>\Source\Includes\". If that path does not exist it will go to the closest path that does exist.</p>
-</div>
-</fieldset>
+<div class="alert alert-primary">
+	<h6><i class="bi bi-signpost me-2"></i>Interactive Path Navigation System</h6>
+	<p class="mb-0">Experience advanced path navigation through intelligent clickable segments, sophisticated folder browsing with modifier key combinations, and seamless path editing capabilities. The Path Field provides both visual path representation and powerful navigation shortcuts that streamline directory access and enable rapid location switching within complex file system hierarchies.</p>
 </div>
 
-<h2><strong>Editing the Path Field</strong></h2>
+<nav class="navbar navbar-expand-lg navbar-light bg-light mb-4">
+	<div class="container-fluid">
+		<span class="navbar-brand">Quick Navigation</span>
+		<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#pathFieldNav">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="pathFieldNav">
+			<ul class="navbar-nav">
+				<li class="nav-item"><a class="nav-link" href="#overview">Overview</a></li>
+				<li class="nav-item"><a class="nav-link" href="#basic-navigation">Basic Navigation</a></li>
+				<li class="nav-item"><a class="nav-link" href="#advanced-features">Advanced Features</a></li>
+				<li class="nav-item"><a class="nav-link" href="#path-editing">Path Editing</a></li>
+				<li class="nav-item"><a class="nav-link" href="#keyboard-control">Keyboard Control</a></li>
+			</ul>
+		</div>
+	</div>
+</nav>
 
-<p><img alt="" src="/Docs/Images/ExplorerPanel_pathbar_edit.png" /></p>
+<section id="overview">
+	<h3>Path Field Overview and Interface</h3>
+	<p>The Path Field occupies a strategic position within the Explorer Panel layout (component 5) and provides essential navigation functionality through visual path representation and interactive navigation capabilities that enhance directory browsing efficiency.</p>
 
-<p>By double clicking on the empty space in the path field, it will become an editable path. If the path is changed the Explorer Panel will try to change to the new path.</p>
+	<div class="row">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header bg-info text-white">
+					<h6 class="mb-0"><i class="bi bi-map me-2"></i>Path Display and Navigation Interface</h6>
+				</div>
+				<div class="card-body">
+					<div class="text-center mt-3 mb-3">
+						<img src="/Docs/Images/ExplorerPanel_pathbar.png" alt="Path Field Standard Display" class="img-fluid border rounded shadow-sm" />
+						<p class="text-muted small mt-2">Path Field showing current location with clickable path segments for instant navigation</p>
+					</div>
 
-<div class="dochints">
-<fieldset><legend>Shortcuts</legend>
+					<h6>Core Functionality</h6>
+					<ul class="small">
+						<li><strong>Current Path Display:</strong> Shows the complete path of the active Explorer Panel location</li>
+						<li><strong>Clickable Segments:</strong> Each folder in the path is clickable for immediate navigation</li>
+						<li><strong>Visual Hierarchy:</strong> Clear visual representation of directory structure and depth</li>
+						<li><strong>Instant Navigation:</strong> Single-click access to any parent directory level</li>
+					</ul>
 
-<p><strong>Ctrl+E</strong> Will force the Path Field to be editable and input focus will be moved to it.</p>
-</fieldset>
+					<h6>Interface Integration</h6>
+					<ul class="small">
+						<li><strong>Explorer Panel Sync:</strong> Automatically updates to reflect current panel location</li>
+						<li><strong>Real-Time Updates:</strong> Immediate path changes as navigation occurs</li>
+						<li><strong>Visual Feedback:</strong> Clear indication of clickable elements and navigation state</li>
+						<li><strong>Responsive Design:</strong> Adapts to different path lengths and panel widths</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<section id="basic-navigation" class="mt-5">
+	<h3>Basic Path Navigation</h3>
+	<p>The Path Field provides intuitive navigation capabilities through clickable path segments that enable rapid movement through directory hierarchies without requiring complex navigation sequences or menu interactions.</p>
+
+	<div class="row">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header bg-success text-white">
+					<h6 class="mb-0"><i class="bi bi-cursor me-2"></i>Click-Based Navigation</h6>
+				</div>
+				<div class="card-body">
+					<h6>Simple Path Navigation</h6>
+					<ul class="small">
+						<li><strong>Direct Path Clicking:</strong> Click any subfolder name in the displayed path</li>
+						<li><strong>Immediate Navigation:</strong> Explorer Panel instantly changes to the selected path</li>
+						<li><strong>Parent Directory Access:</strong> Quick access to any parent directory level</li>
+						<li><strong>Visual Path Representation:</strong> Clear separation of path components for easy targeting</li>
+					</ul>
+
+					<h6>Navigation Benefits</h6>
+					<ul class="small">
+						<li><strong>Rapid Movement:</strong> Eliminate need for multiple "up" navigation clicks</li>
+						<li><strong>Visual Context:</strong> See complete path hierarchy while navigating</li>
+						<li><strong>Efficient Workflow:</strong> One-click access to any directory in current path</li>
+						<li><strong>Breadcrumb Navigation:</strong> Traditional breadcrumb-style path interaction</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<section id="advanced-features" class="mt-5">
+	<h3>Advanced Navigation Features</h3>
+	<p>The Path Field extends basic navigation through sophisticated modifier key combinations that provide advanced folder browsing capabilities and intelligent path navigation features for power users and complex directory structures.</p>
+
+	<div class="row">
+		<div class="col-md-6">
+			<div class="card">
+				<div class="card-header bg-warning text-dark">
+					<h6 class="mb-0"><i class="bi bi-list-nested me-2"></i>Folder List Navigation</h6>
+				</div>
+				<div class="card-body">
+					<div class="text-center mt-3 mb-3">
+						<img src="/Docs/Images/ExplorerPanel_crumbbar.png" alt="Folder List Dropdown" class="img-fluid border rounded shadow-sm" />
+						<p class="text-muted small mt-2">Folder list dropdown showing subfolders available for navigation</p>
+					</div>
+
+					<h6>Ctrl+Click Folder Browsing</h6>
+					<ul class="small">
+						<li><strong>Modifier Activation:</strong> Hold <kbd>Ctrl</kbd> while clicking any subfolder in path</li>
+						<li><strong>Subfolder List:</strong> Displays dropdown list of all subfolders under selected path</li>
+						<li><strong>Direct Selection:</strong> Choose any subfolder from list for immediate navigation</li>
+						<li><strong>Efficient Browsing:</strong> Quick access to sibling directories without navigation</li>
+					</ul>
+
+					<h6>Browsing Advantages</h6>
+					<ul class="small">
+						<li><strong>Explore Options:</strong> See available subfolders before navigating</li>
+						<li><strong>Skip Navigation:</strong> Jump directly to target folder without intermediate steps</li>
+						<li><strong>Context Awareness:</strong> Understand directory structure before movement</li>
+						<li><strong>Rapid Exploration:</strong> Efficient discovery of directory contents</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-6">
+			<div class="card">
+				<div class="card-header bg-primary text-white">
+					<h6 class="mb-0"><i class="bi bi-arrow-repeat me-2"></i>Intelligent Path Preservation</h6>
+				</div>
+				<div class="card-body">
+					<h6>Shift+Ctrl Advanced Navigation</h6>
+					<ul class="small">
+						<li><strong>Modifier Combination:</strong> Hold <kbd>Shift</kbd>+<kbd>Ctrl</kbd> while clicking subfolder in path</li>
+						<li><strong>Relative Path Preservation:</strong> Maintains current subdirectory structure</li>
+						<li><strong>Smart Navigation:</strong> Attempts to replicate current path in new location</li>
+						<li><strong>Fallback Behavior:</strong> Navigates to closest existing path if exact path unavailable</li>
+					</ul>
+
+					<div class="alert alert-info p-2 mt-3">
+						<h6 class="small mb-1"><i class="bi bi-lightbulb me-1"></i>Advanced Example</h6>
+						<p class="small mb-0">From <code>D:\Projects\MyApp\Version_1.0.0\Source\Includes\</code>, <kbd>Shift</kbd>+<kbd>Ctrl</kbd>+click "MyApp", then select "Version_2.0.0" to navigate to <code>D:\Projects\MyApp\Version_2.0.0\Source\Includes\</code></p>
+					</div>
+
+					<h6>Use Cases</h6>
+					<ul class="small">
+						<li><strong>Version Navigation:</strong> Switch between project versions while maintaining directory depth</li>
+						<li><strong>Parallel Structures:</strong> Navigate between similar directory structures</li>
+						<li><strong>Development Workflows:</strong> Move between branches or versions maintaining context</li>
+						<li><strong>Intelligent Fallback:</strong> Automatically finds closest existing path when exact match unavailable</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<section id="path-editing" class="mt-5">
+	<h3>Direct Path Editing</h3>
+	<p>The Path Field supports direct text editing capabilities that enable precise path specification, manual navigation to specific locations, and rapid path modification through keyboard input for maximum navigation flexibility.</p>
+
+	<div class="row">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header bg-success text-white">
+					<h6 class="mb-0"><i class="bi bi-pencil me-2"></i>Editable Path Interface</h6>
+				</div>
+				<div class="card-body">
+					<div class="text-center mt-3 mb-3">
+						<img src="/Docs/Images/ExplorerPanel_pathbar_edit.png" alt="Path Field Edit Mode" class="img-fluid border rounded shadow-sm" />
+						<p class="text-muted small mt-2">Path Field in edit mode showing text input for direct path modification</p>
+					</div>
+
+					<h6>Path Editing Activation</h6>
+					<ul class="small">
+						<li><strong>Double-Click Activation:</strong> Double-click empty space in path field to enter edit mode</li>
+						<li><strong>Keyboard Shortcut:</strong> <kbd>Ctrl</kbd>+<kbd>E</kbd> forces path field to become editable with focus</li>
+						<li><strong>Direct Text Input:</strong> Type complete or partial paths for navigation</li>
+						<li><strong>Path Validation:</strong> Explorer Panel attempts to navigate to entered path</li>
+					</ul>
+
+					<h6>Edit Mode Capabilities</h6>
+					<ul class="small">
+						<li><strong>Complete Path Entry:</strong> Enter full paths including drive letters and network locations</li>
+						<li><strong>Partial Path Modification:</strong> Edit existing path components for quick adjustments</li>
+						<li><strong>Environment Variables:</strong> Support for environment variable expansion in paths</li>
+						<li><strong>Auto-Completion:</strong> Intelligent path completion based on existing directories</li>
+					</ul>
+
+					<h6>Advanced Path Entry</h6>
+					<ul class="small">
+						<li><strong>Network Paths:</strong> Direct entry of UNC paths for network resource access</li>
+						<li><strong>Special Locations:</strong> Access to system folders and virtual locations</li>
+						<li><strong>Variable Expansion:</strong> Support for %VARIABLE% and other path variables</li>
+						<li><strong>History Integration:</strong> Access to recently visited locations</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<section id="keyboard-control" class="mt-5">
+	<h3>Keyboard Control and Shortcuts</h3>
+	<p>The Path Field provides comprehensive keyboard support for efficient navigation and path manipulation without requiring mouse interaction, enabling rapid directory navigation through dedicated keyboard shortcuts and editing capabilities.</p>
+
+	<div class="row">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header bg-dark text-white">
+					<h6 class="mb-0"><i class="bi bi-keyboard me-2"></i>Path Field Keyboard Shortcuts</h6>
+				</div>
+				<div class="card-body">
+					<div class="table-responsive">
+						<table class="table table-bordered table-hover">
+							<thead class="table-light">
+								<tr>
+									<th style="width: 30%">Shortcut</th>
+									<th style="width: 70%">Function</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td><kbd>Ctrl</kbd>+<kbd>E</kbd></td>
+									<td>Force Path Field to editable mode with input focus</td>
+								</tr>
+								<tr>
+									<td><kbd>Ctrl</kbd>+click</td>
+									<td>Show subfolder list for selected path segment</td>
+								</tr>
+								<tr>
+									<td><kbd>Shift</kbd>+<kbd>Ctrl</kbd>+click</td>
+									<td>Navigate with intelligent path preservation</td>
+								</tr>
+								<tr>
+									<td>Double-click empty space</td>
+									<td>Enter path editing mode</td>
+								</tr>
+								<tr>
+									<td><kbd>Enter</kbd> (in edit mode)</td>
+									<td>Confirm path change and navigate</td>
+								</tr>
+								<tr>
+									<td><kbd>Escape</kbd> (in edit mode)</td>
+									<td>Cancel path editing and restore original path</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+
+					<h6>Keyboard Navigation Benefits</h6>
+					<ul class="small">
+						<li><strong>Rapid Access:</strong> Instant path editing without mouse positioning</li>
+						<li><strong>Workflow Integration:</strong> Seamless integration with keyboard-centric navigation</li>
+						<li><strong>Efficiency Focus:</strong> Minimize hand movement between keyboard and mouse</li>
+						<li><strong>Power User Support:</strong> Advanced navigation features accessible via keyboard</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<section id="integration" class="mt-5">
+	<h3>Explorer Panel Integration</h3>
+	<p>The Path Field seamlessly integrates with other Explorer Panel components and Multi Commander features to provide a cohesive navigation experience that enhances overall file management efficiency through synchronized updates and cross-component interaction.</p>
+
+	<div class="row">
+		
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header bg-warning text-dark">
+					<h6 class="mb-0"><i class="bi bi-gear me-2"></i>Configuration and Customization</h6>
+				</div>
+				<div class="card-body">
+					<h6>Display Options</h6>
+					<ul class="small">
+						<li><strong>Explorer Panel Settings:</strong> Configure Path Field appearance and behavior</li>
+						<li><strong>Visual Customization:</strong> Adjust colors, fonts, and display characteristics</li>
+						<li><strong>Behavior Control:</strong> Configure click behavior and navigation responses</li>
+						<li><strong>Layout Integration:</strong> Position and sizing within Explorer Panel layout</li>
+					</ul>
+
+					<h6>Feature Configuration</h6>
+					<ul class="small">
+						<li><strong>Enable/Disable Features:</strong> Control availability of advanced navigation modes</li>
+						<li><strong>Keyboard Shortcut Customization:</strong> Modify default keyboard assignments</li>
+						<li><strong>Click Behavior:</strong> Configure single-click vs. double-click activation</li>
+						<li><strong>Edit Mode Settings:</strong> Control path editing behavior and validation</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<div class="alert alert-success mt-5">
+	<h6><i class="bi bi-lightbulb me-2"></i>Path Field Mastery</h6>
+	<p class="mb-0">Master the Path Field by utilizing clickable segments for rapid parent directory navigation, leveraging <kbd>Ctrl</kbd>+click for folder browsing without navigation, and employing <kbd>Shift</kbd>+<kbd>Ctrl</kbd>+click for intelligent path preservation across similar directory structures. Remember that <kbd>Ctrl</kbd>+<kbd>E</kbd> provides instant path editing access, double-clicking empty space enables manual path entry, and the Path Field automatically synchronizes with all navigation activities. Use advanced features for development workflows where maintaining directory depth across project versions or branches significantly enhances productivity.</p>
+</div>
+
+<div class="alert alert-info mt-4">
+	<h6><i class="bi bi-info-circle me-2"></i>Related Explorer Panel Features</h6>
+	<p class="mb-0">Enhance your navigation experience with related Explorer Panel components: <a href="/Docs/ExplorerPanel-Layout" class="text-decoration-none">Explorer Panel Layout</a>, <a href="/Docs/ExplorerPanel-FolderTree" class="text-decoration-none">Folder Tree</a>, <a href="/Docs/commandlinebar" class="text-decoration-none">Command Line Bar</a>, <a href="/Docs/paneltabs" class="text-decoration-none">Panel Tabs</a>, <a href="/Docs/drivebar" class="text-decoration-none">Drive Bar</a>, and <a href="/Docs/favorites" class="text-decoration-none">Favorites</a>.</p>
 </div>
 
 

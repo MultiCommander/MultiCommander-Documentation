@@ -1,32 +1,242 @@
-<h2>Convert Tools</h2>
-<p><img alt="" src="/Docs/Images/MenuToolsTextTools.png" style="width: 576px; height: 450px;" /></p>
+﻿<h2>Text Conversion Tools</h2>
 
-<h2>Convert Text Files</h2>
+<p>Multi Commander's <strong>Text Conversion Tools</strong> provide comprehensive text file manipulation capabilities, allowing you to standardize line endings, format structured data, and perform advanced text transformations across multiple files simultaneously. These tools are essential for developers, system administrators, and anyone working with text files across different platforms and formats.</p>
 
-<p>The contents of all selected files will be converted. The following options are available in the submenu:</p>
+<div class="text-center my-4">
+	<img src="/Docs/Images/MenuToolsTextTools.png" alt="Text Tools Menu" class="img-fluid border rounded shadow-sm" style="max-width: 576px;" />
+	<p class="text-muted small mt-2">Access text conversion tools through Tools → Text Tools menu</p>
+</div>
 
-<p><strong>Convert To Unix Format (LF)</strong><br />
-Convert text files to Unix format, making sure that newline is a single Linefeed (LF) character.</p>
+<h3>Overview of Text Conversion Tools</h3>
 
-<p><strong>Convert </strong><strong>To Windows Format (CRLF)</strong><br />
-Convert text files to Windows format, making sure that newline is a Carriage Return(CR) followed by a Linefeed (LF) character.</p>
+<p>The text conversion tools operate on all selected files in the active Explorer Panel, making it easy to process multiple files with consistent transformations. Each tool preserves file attributes and timestamps while modifying only the content as specified.</p>
 
-<p><strong>Convert </strong><strong>To MAC OS Format (CR)</strong><br />
-Convert text files to MAC OS format, making sure that newline is a single Carriage Return (CR) character.</p>
+<div class="alert alert-info">
+	<h6><i class="bi bi-info-circle me-2"></i>Batch Processing</h6>
+	<p>All text conversion tools work on selected files. If no files are selected, the tool will operate on the file currently in focus. For bulk operations, select multiple files before running the conversion tool.</p>
+</div>
 
-<p><strong>Convert </strong><strong>Tab to Space</strong><br />
-Replace all tab characters with a specified number of space characters.</p>
+<h3>Line Ending Conversion Tools</h3>
 
-<p><strong>Reformat XML to Structured</strong><br />
-Reformat xml files so they are more readable, by including indentation after the xml items.</p>
+<p>Different operating systems use different characters to represent line endings in text files. Multi Commander provides tools to convert between these formats seamlessly:</p>
 
-<p><strong>Reformat XML to Compact</strong><br />
-Reformat xml files so they are compact, by removing all unnecessary newlines and indentations.</p>
+<div class="row mt-4">
+	<div class="col-md-4">
+		<div class="card">
+			<div class="card-header bg-success text-white">
+				<h6 class="mb-0"><i class="bi bi-terminal me-2"></i>Unix Format (LF)</h6>
+			</div>
+			<div class="card-body">
+				<p class="small"><strong>Character:</strong> Line Feed (LF) - ASCII 10</p>
+				<p class="small"><strong>Platforms:</strong> Linux, macOS, Unix systems</p>
+				<p class="small"><strong>Use Case:</strong> Server scripts, configuration files, source code for Unix-like systems</p>
+			</div>
+		</div>
+	</div>
+	<div class="col-md-4">
+		<div class="card">
+			<div class="card-header bg-primary text-white">
+				<h6 class="mb-0"><i class="bi bi-windows me-2"></i>Windows Format (CRLF)</h6>
+			</div>
+			<div class="card-body">
+				<p class="small"><strong>Characters:</strong> Carriage Return + Line Feed (CRLF) - ASCII 13+10</p>
+				<p class="small"><strong>Platforms:</strong> Windows, DOS</p>
+				<p class="small"><strong>Use Case:</strong> Windows applications, batch files, Windows-specific configuration</p>
+			</div>
+		</div>
+	</div>
+	<div class="col-md-4">
+		<div class="card">
+			<div class="card-header bg-warning text-dark">
+				<h6 class="mb-0"><i class="bi bi-apple me-2"></i>Classic Mac Format (CR)</h6>
+			</div>
+			<div class="card-body">
+				<p class="small"><strong>Character:</strong> Carriage Return (CR) - ASCII 13</p>
+				<p class="small"><strong>Platforms:</strong> Classic Mac OS (pre-OS X)</p>
+				<p class="small"><strong>Use Case:</strong> Legacy Mac applications, compatibility with older systems</p>
+			</div>
+		</div>
+	</div>
+</div>
 
-<p><strong>Sort Lines..</strong><br />
-Sort lines in a file. Read more about this at <a href="#docs_SortLinesInFiles">Sort Lines</a>.</p>
+<h4>When to Use Line Ending Conversion</h4>
+<ul>
+	<li><strong>Cross-Platform Development:</strong> Ensure consistent line endings across development environments</li>
+	<li><strong>Version Control:</strong> Standardize files before committing to repositories</li>
+	<li><strong>Server Deployment:</strong> Convert Windows files for Unix/Linux server environments</li>
+	<li><strong>Legacy System Support:</strong> Adapt files for older systems with specific requirements</li>
+</ul>
 
-<p><strong>Find and Replace...</strong><br />
-Find and Replace text in files. Read more about this at <a href="#docs_FindAndReplaceInFiles">Find and Replace</a>.</p>
+<h3>Tab and Space Conversion</h3>
+
+<div class="row mt-4">
+	<div class="col-md-6">
+		<div class="card">
+			<div class="card-header bg-info text-white">
+				<h5 class="mb-0"><i class="bi bi-arrow-right me-2"></i>Convert Tab to Space</h5>
+			</div>
+			<div class="card-body">
+				<p><strong>Function:</strong> Replaces all tab characters with a specified number of space characters</p>
+				<p><strong>Benefits:</strong></p>
+				<ul class="small">
+					<li>Consistent indentation across different editors</li>
+					<li>Precise control over spacing</li>
+					<li>Better compatibility with systems that don't handle tabs well</li>
+					<li>Improved readability in plain text environments</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<div class="col-md-6">
+		<div class="card">
+			<div class="card-header bg-info text-white">
+				<h5 class="mb-0"><i class="bi bi-arrow-right me-2"></i>Common Tab-to-Space Conversions</h5>
+			</div>
+			<div class="card-body">
+				<ul class="small">
+					<li><strong>2 spaces:</strong> Compact indentation for web development</li>
+					<li><strong>4 spaces:</strong> Standard for many programming languages</li>
+					<li><strong>8 spaces:</strong> Traditional tab stop setting</li>
+					<li><strong>Custom:</strong> Any number of spaces as needed</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>
+
+<h3>XML Formatting Tools</h3>
+
+<p>Multi Commander provides sophisticated XML formatting capabilities to improve readability or optimize file size:</p>
+
+<div class="row mt-4">
+	<div class="col-md-6">
+		<div class="card">
+			<div class="card-header bg-success text-white">
+				<h5 class="mb-0"><i class="bi bi-code-slash me-2"></i>Structured XML Format</h5>
+			</div>
+			<div class="card-body">
+				<p><strong>Purpose:</strong> Makes XML files human-readable</p>
+				<p><strong>Features:</strong></p>
+				<ul class="small">
+					<li>Proper indentation for nested elements</li>
+					<li>Line breaks after each element</li>
+					<li>Consistent spacing and formatting</li>
+					<li>Preserved element order and attributes</li>
+				</ul>
+				<p class="small text-muted"><strong>Best for:</strong> Development, debugging, configuration files, documentation</p>
+			</div>
+		</div>
+	</div>
+	<div class="col-md-6">
+		<div class="card">
+			<div class="card-header bg-warning text-dark">
+				<h5 class="mb-0"><i class="bi bi-file-zip me-2"></i>Compact XML Format</h5>
+			</div>
+			<div class="card-body">
+				<p><strong>Purpose:</strong> Minimizes file size for transmission or storage</p>
+				<p><strong>Features:</strong></p>
+				<ul class="small">
+					<li>Removes unnecessary whitespace</li>
+					<li>Eliminates line breaks and indentation</li>
+					<li>Maintains XML validity and structure</li>
+					<li>Significantly reduces file size</li>
+				</ul>
+				<p class="small text-muted"><strong>Best for:</strong> Web services, data transmission, storage optimization</p>
+			</div>
+		</div>
+	</div>
+</div>
+
+<h4>XML Formatting Examples</h4>
+
+**Original XML:**
+<pre class="bg-light p-3 rounded"><code>&lt;config&gt;&lt;database&gt;&lt;host&gt;localhost&lt;/host&gt;
+	&lt;port&gt;3306&lt;/port&gt;&lt;/database&gt;
+	&lt;/config&gt;</code></pre>
+
+**Structured Format:**
+<pre class="bg-light p-3 rounded"><code>&lt;config&gt;
+  &lt;database&gt;
+    &lt;host&gt;localhost&lt;/host&gt;
+    &lt;port&gt;3306&lt;/port&gt;
+  &lt;/database&gt;
+&lt;/config&gt;</code></pre>
+
+**Compact Format:**
+<pre class="bg-light p-3 rounded"><code>&lt;config&gt;&lt;database&gt;&lt;host&gt;localhost&lt;/host&gt;&lt;port&gt;3306&lt;/port&gt;&lt;/database&gt;&lt;/config&gt;</code></pre>
+
+<h3>JSON Formatting Tools</h3>
+
+<p>Similar to XML formatting, Multi Commander provides JSON formatting tools for modern data exchange formats:</p>
+
+<div class="row mt-4">
+	<div class="col-md-6">
+		<div class="card">
+			<div class="card-header bg-success text-white">
+				<h5 class="mb-0"><i class="bi bi-braces me-2"></i>Structured JSON Format</h5>
+			</div>
+			<div class="card-body">
+				<p><strong>Purpose:</strong> Makes JSON files readable and maintainable</p>
+				<p><strong>Features:</strong></p>
+				<ul class="small">
+					<li>Proper indentation for nested objects</li>
+					<li>Line breaks for each property</li>
+					<li>Aligned brackets and braces</li>
+					<li>Consistent formatting standards</li>
+				</ul>
+				<p class="small text-muted"><strong>Best for:</strong> Configuration files, API responses, development work</p>
+			</div>
+		</div>
+	</div>
+	<div class="col-md-6">
+		<div class="card">
+			<div class="card-header bg-warning text-dark">
+				<h5 class="mb-0"><i class="bi bi-dash-square me-2"></i>Compact JSON Format</h5>
+			</div>
+			<div class="card-body">
+				<p><strong>Purpose:</strong> Optimizes JSON for transmission and storage</p>
+				<p><strong>Features:</strong></p>
+				<ul class="small">
+					<li>Removes all unnecessary whitespace</li>
+					<li>Single-line format</li>
+					<li>Maintains JSON validity</li>
+					<li>Minimal file size</li>
+				</ul>
+				<p class="small text-muted"><strong>Best for:</strong> API payloads, web applications, data storage</p>
+			</div>
+		</div>
+	</div>
+</div>
+
+<h3>Advanced Text Processing Tools</h3>
+
+<p>Multi Commander includes additional powerful text processing capabilities:</p>
+
+<div class="row mt-4">
+	<div class="col-md-6">
+		<div class="card">
+			<div class="card-body">
+				<h6 class="card-title"><i class="bi bi-sort-alpha-down me-2"></i>Sort Lines</h6>
+				<p class="card-text small">Advanced line sorting with multiple criteria including alphabetical, numerical, and date-based sorting with extensive customization options.</p>
+				<a href="/Docs/SortLinesInFiles" class="btn btn-sm btn-outline-primary">Learn More</a>
+			</div>
+		</div>
+	</div>
+	<div class="col-md-6">
+		<div class="card">
+			<div class="card-body">
+				<h6 class="card-title"><i class="bi bi-search me-2"></i>Find and Replace</h6>
+				<p class="card-text small">Comprehensive find and replace functionality with support for wildcards, regular expressions, multiline patterns, and batch processing.</p>
+				<a href="/Docs/FindAndReplaceInFiles" class="btn btn-sm btn-outline-primary">Learn More</a>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<div class="alert alert-info mt-4">
+	<h6><i class="bi bi-info-circle me-2"></i>Related Documentation</h6>
+	<p class="mb-0">For more information about Multi Commander's text processing capabilities, see <a href="TextTools" class="text-decoration-none">Text Tools Overview</a>,<br/> <a href="SortLinesInFiles" class="text-decoration-none">Sort Lines in Files</a>, and <a href="FindAndReplaceInFiles" class="text-decoration-none">Find and Replace in Files</a>.</p>
+</div>
 
 

@@ -1,250 +1,523 @@
-<h3>Introduction</h3>
+<style>
+  .selected {
+    font-weight: bold;
+    color: #d66a1a;
+    text-decoration: underline;
+  }
 
-<ul>
-	<li><a href="/Docs/WhatIsMultiCommander">What is Multi Commander</a></li>
-	<li><a href="/Docs/SystemRequirements">System Requirements</a></li>
-	<li><a href="/Docs/Installation">Download and Installation</a></li>
-	<li><a href="/Docs/Upgrading">Upgrading</a></li>
-	<li><a href="/Docs/License">License</a></li>
-</ul>
+  .accordion-header {
+    background-color: #f78b20; /* Set section background color */
+  }
 
-<h3>Overview / Layout</h3>
+  .accordion-button:not(.collapsed) {
+    font-weight: bold;
+    background-color: #f78b20; /* Set section background color */
+    color: #FFFFFF;
+  }
+    .accordion-button {
+        font-weight: normal;
+        background-color: #f78b20; /* Set section background color */
+        color: #FFFFFF;
+    }
 
-<ul>
-	<li><a href="/Docs/mainlayout">Main Application Layout</a>
+  .accordion-body ul {
+    padding-left: 20px;
+  }
 
-	<ul>
-		<li><a href="/Docs/menubar">Menu Bar</a></li>
-		<li><a href="/Docs/standarbar">Standard Command Bar</a></li>
-		<li><a href="/Docs/filecommandbar">File Commands</a></li>
-		<li><a href="/Docs/drivebar">Drive Bar</a></li>
-		<li><a href="/Docs/commandlinebar">Command line Bar</a></li>
-		<li><a href="/Docs/quicklaunchbar">Quick Launch Bar</a></li>
-		<li><a href="/Docs/statusbar">Status Bar</a></li>
-	</ul>
-	</li>
-	<li><a href="/Docs/extensions">Extensions and Plug-ins</a></li>
-	<li><a href="/Docs/favorites">Favorites</a></li>
-	<li><a href="/Docs/buttonpanel">Button Panel</a></li>
-	<li><a href="/Docs/paneltabs">Panel Tabs</a></li>
-</ul>
+    .accordion-body ul li {
+      margin-bottom: 5px;
+    }
 
-<h3>Panels</h3>
+      .accordion-body ul li a {
+        text-decoration: none;
+        color: #f78b20;
+      }
 
-<ul>
-	<li><a href="/Docs/ExplorerPanel">Explorer Panel</a>
+        .accordion-body ul li a:hover {
+          color: #d66a1a; /* Slightly darker shade for hover effect */
+          text-decoration: underline;
+        }
 
-	<ul>
-		<li><a href="/Docs/ExplorerPanel-Layout">Layout</a>
-
-		<ul>
-			<li><a href="/Docs/ExplorerPanelPathField">Path Field</a></li>
-		</ul>
-		</li>
-		<li><a href="/Docs/ExplorerPanel2">Navigation</a></li>
-		<li><a href="/Docs/ExplorerPanel-CustomizeColumns">Customize Columns</a></li>
-		<li><a href="/Docs/ExplorerPanel-CustomizeColumnLayouts">Customize Column Layouts</a></li>
-		<li><a href="/Docs/ExplorerPanel-FolderTree">Folder Tree</a></li>
-		<li><a href="/Docs/ExplorerPanel-FileColoring">File Coloring</a></li>
-		<li><a href="/Docs/ExplorerPanel-PasteFromClipboard">Pasting Clipboard Data into Explorer Panel</a></li>
-	</ul>
-	</li>
-	<li><a href="/Docs/file-search">File Search</a></li>
-</ul>
-
-<h3>FileSystem</h3>
-
-<ul>
-	<li><a href="/Docs/filesystem">Multi Commander's Virtual FileSystem</a></li>
-	<li><a href="/Docs/filesystem/archives">Archives (Zip, Rar, 7Zip)</a></li>
-	<li><a href="/Docs/filesystem/network">Network (NET:)</a></li>
-	<li><a href="/Docs/filesystem/portable">Portable (WPD:)</a></li>
-	<li><a href="/Docs/browse-registry">Registry (REG:)</a></li>
-	<li><a href="/Docs/browse-ftp">FTP (FTP:)</a></li>
-	<li><a href="/Docs/filesystem/favorites">Favorites (FAV:)</a></li>
-</ul>
-
-<h3>File Operations</h3>
-
-<ul>
-	<li><a href="/Docs/copymove_operation">Copy/Move Operations</a>
-
-	<ul>
-		<li><a href="/Docs/copymove-using-presets">Copy/Move using Presets</a></li>
-		<li><a href="/Docs/copymove-using-filters">Copy/Move using Filters</a></li>
-		<li><a href="/Docs/copymove_progress">Copy/Move Progress Window</a></li>
-	</ul>
-	</li>
-	<li><a href="/Docs/delete_operation">Delete Operations</a></li>
-	<li><a href="/Docs/packfiles">Pack Files</a>
-	<ul>
-		<li><a href="/Docs/PackerProfiles">Packer Profiles</a></li>
-		<li><a href="/Docs/ExternalPackers">External Packers</a></li>
-	</ul>
-	</li>
-	<li><a href="/Docs/unpackfiles">Unpack Files</a></li>
-</ul>
-
-<h3>Extensions</h3>
-
-<ul>
-	<li><a href="/Docs/MultiRename">MultiRename</a></li>
-	<li><a href="/Docs/FileCheckSum">File Checksum</a>
-	<ul>
-		<li><a href="/Docs/FileVerifier/Create">Create</a></li>
-		<li><a href="/Docs/FileVerifier/Verify">Verify</a></li>
-	</ul>
-	</li>
-	<li><a href="/Docs/fileviewer">MultiDataViewer - The File Viewer</a>&nbsp;</li>
-	<li><a href="/Docs/MCPictureViewer">Internal Picture Viewer</a></li>
-	<li><a href="/Docs/LanguageEditor">Language Editor</a></li>
-</ul>
-
-<h3>Tools</h3>
-
-<ul>
-	<li><a href="/Docs/selection">Select/Unselect files and folders</a></li>
-	<li><a href="/Docs/CalculateFolderSize">Calculate Folder Size</a></li>
-	<li><a href="/Docs/ChangeFileProperties">Change File Properties</a> (Attributes, Date/Time)</li>
-	<li><a href="/Docs/CreateFolders">Create Folders</a></li>
-	<li><a href="/Docs/correctfoldertime">Correct Folder Date/Time</a></li>
-	<li><a href="/Docs/find_opened_locked_files">Find Opened/Locked Files</a></li>
-	<li><a href="/Docs/SendToClipboard">Send to the Clipboard</a> (Path, Filename, ... )</li>
-	<li><a href="/Docs/RenameTools">Rename Tools</a></li>
-	<li><a href="/Docs/TextTools">Text Tools</a>
-	<ul>
-		<li><a href="/Docs/TextConvertTools">Text Conversion Tools</a></li>
-		<li><a href="/Docs/SortLinesInFiles">Sort Lines in Files</a></li>
-		<li><a href="/Docs/FindAndReplaceInFiles">Find and Replace in Files</a></li>
-	</ul>
-	</li>
-	<li><a href="/Docs/Base64EncodingDecoding">Base 64 Encoding/Decoding</a></li>
-	<li><a href="/Docs/filesecurity">File Security</a></li>
-	<li><a href="/Docs/filechecksumTools">File Checksum Tools</a></li>
-	<li><a href="/Docs/picturetools">Picture Tools</a></li>
-	<li><a href="/Docs/audiotools">Audio Tools</a></li>
-	<li><a href="/Docs/videotools">Video Tools</a></li>
-</ul>
-
-<h3>Customization and Configuration</h3>
-
-<ul>
-	<li><a href="/Docs/aliases">Managing Aliases (Alias Editor)</a></li>
-	<li><a href="/Docs/filetypesetup">File Type Setup</a></li>
-	<li><a href="/Docs/button-editor">Button Editor</a>
-	<ul>
-		<li><a href="/Docs/ButtonPanelWizardMode">Button Panel&nbsp;-&nbsp;Wizard&nbsp;Mode</a></li>
-	</ul>
-	</li>
-	<li><a href="/Docs/UserMenuEditor">User Menu Editor</a></li>
-	<li><a href="/Docs/keyboard-customization">Keyboard Customization (Shortcuts)</a>
-	<ul>
-		<li><a href="/Docs/keyboard-shortcuts/CommanderStyle">Default Keyboard Shortcuts (Commander Style)</a></li>
-		<li><a href="/Docs/keyboard-shortcuts/WindowsExplorerStyle">Default Keyboard Shortcuts (Windows Explorer Style)</a></li>
-	</ul>
-	</li>
-	<li><a href="/Docs/CustomContextMenu">Custom ContexMenu Editor</a></li>
-	<li><a href="/Docs/filters">Filters</a></li>
-</ul>
-
-<h3>Configuring the Layout</h3>
-
-<ul>
-	<li><a href="/Docs/CoreSettings">Core Settings</a></li>
-	<li><a href="/Docs/ExplorerPanelSettings">Explorer Panel Settings&nbsp;</a></li>
-	<li><a href="/Docs/windows-explorer-look-and-feel">Change Look and Feel to Windows Explorer Mode</a></li>
-</ul>
-
-<h3>User Commands and Scripting</h3>
-
-<ul>
-	<li><a href="/Docs/user-defined-commands">User Defined Commands</a>
-
-	<ul>
-		<li><a href="/Docs/UDC_internal">Internal Commands</a></li>
-		<li><a href="/Docs/UDC_external">External Commands</a></li>
-		<li><a href="/Docs/UDC_custom">Custom Commands</a>
-		<ul>
-			<li><a href="/Docs/customcommands_list">List of Custom Commands</a></li>
-			<li><a href="/Docs/customcommands_examples">Examples</a></li>
-		</ul>
-		</li>
-		<li><a href="/Docs/UDC_batch">Batch Script (.BAT)</a></li>
-		<!-- AJB 2016-06-13  Resume Editing Here  -->
-		<li><a href="/Docs/UDC_multiscript">MultiScript</a>
-		<ul>
-			<li><a href="/Docs/multiscript/languagesyntax">Language Syntax</a></li>
-			<li><strong>Script Functions</strong>
-			<ul>
-				<li><a href="/Docs/multiscript/corefunctions">Type checks and type converters</a></li>
-				<li><a href="/Docs/multiscript/functions/array">Array functions</a></li>
-				<li><a href="/Docs/multiscript/functions/string">String functions</a></li>
-				<li><a href="/Docs/multiscript/functions/rowlist">RowList functions</a></li>
-				<li><a href="/Docs/multiscript/functions/datetime">Date/Time functions</a></li>
-				<li><a href="/Docs/multiscript/functions/filesystem">File System functions</a></li>
-				<li><a href="/Docs/multiscript/functions/registry">Registry functions</a></li>
-				<li><a href="/Docs/multiscript/functions/getfilefromview">Panel Selections and Paths</a></li>
-				<li><a href="/Docs/multiscript/functions/tabpanel">Tab Panel</a></li>
-				<li><a href="/Docs/multiscript/functions/misc">Misc functions (Logging, Load/Save to file, Clipboard, MessageBox, ... )</a></li>
-			</ul>
-			</li>
-			<li><a href="/Docs/multiscript/extensions">Extension defined MultiScript functions</a>
-			<ul>
-				<li><a href="/Docs/multiscript/extensions/ftp">FTP functions</a></li>
-				<li><a href="/Docs/multiscript/extensions/checksum">Checksum functions</a></li>
-			</ul>
-			</li>
-			<li><a href="/Docs/UDC_multiscript_debugger">MultiScript Debugger</a></li>
-			<li><a href="/Docs/multiscript/examples">Examples</a></li>
-			<li><a href="/Docs/multiscript/scriptfilepropexample">Scriptable fileproperty</a></li>
-
-		</ul>
-		</li>
-		<li><a href="/Docs/multitags">MultiTags</a></li>
-	</ul>
-	</li>
-</ul>
-
-<h3>Other</h3>
-
-<ul>
-	<li><a href="/Docs/backup_restore_config">Backup and Restore Configuration</a></li>
-	<li><a href="/Docs/cleanup_userdata">Cleanup User Data</a></li>
-	<li><a href="/Docs/MultiUpdate">MultiUpdate</a></li>
-	<li><a href="/Docs/commandlineparameters">Command Line Parameters</a></li>
-	<li><a href="/Docs/customized-config-paths">Custom configuration paths, Additional script folders</a></li>
-	<li><a href="/Docs/credits">Credits and Acknowledgements</a></li>
-</ul>
-
-<h3>API</h3>
-
-<ul>
-	<li><a href="/Docs/MultiCommanderWindowsMessageAPI">Multi Commander Windows Message API</a></li>
-</ul>
-
-<h3>Troubleshooting</h3>
-
-<ul>
-	<li><a href="/Docs/troubleshooting-hang">Multi Commander Hangs and is Not Responding</a></li>
-	<li><a href="/Docs/troubleshooting-crash">Multi Commander Crashes</a></li>
-</ul>
-
-<h3>FAQ (pages to follow)</h3>
-
-<ul>
-	<li><a href="/Docs/faq/favorites">Favorites</a></li>
-	<li><a href="/Docs/faq/showhidden">Show Hidden files/folders</a></li>
-	<li><a href="/Docs/faq/customizecolors">Customize Colors</a></li>
-	<li><a href="/Docs/faq/singleclick">Enter folder on Single Click</a></li>
-	<li><a href="/Docs/faq/defaultcolumnsetup">Save and Resize Columns</a></li>
-</ul>
-
-<h3>Index</h3>
-
-<ul>
-	<li><a href="/Docs/Índex">Content Index</a></li>
-</ul>
+    .accordion-body ul ul {
+      margin-top: 5px;
+    }
+</style>
+<div class="search-container mb-3">
+  <button id="toggleAllButton" class="btn btn-primary mb-2">Collapse All</button>
+  <input type="text" id="menuSearch" class="form-control" placeholder="Search menu...">
+</div>
+<div id="menuContainer"></div>
 <script>
+
+  const menuData = {
+    "menu": [
+      {
+        "title": "Introduction",
+        "links": [
+          { "text": "What is Multi Commander", "url": "/Docs/WhatIsMultiCommander" },
+          { "text": "System Requirements", "url": "/Docs/SystemRequirements" },
+          { "text": "Download and Installation", "url": "/Docs/Installation" },
+          { "text": "Upgrading", "url": "/Docs/Upgrading" },
+          { "text": "License", "url": "/Docs/License" }
+        ]
+      },
+      {
+        "title": "Overview / Layout",
+        "links": [
+          {
+            "text": "Main Application Layout",
+            "url": "/Docs/mainlayout",
+            "subLinks": [
+              { "text": "Menu Bar", "url": "/Docs/menubar" },
+              { "text": "Standard Command Bar", "url": "/Docs/standarbar" },
+              { "text": "File Commands", "url": "/Docs/filecommandbar" },
+              { "text": "Drive Bar", "url": "/Docs/drivebar" },
+              { "text": "Command line Bar", "url": "/Docs/commandlinebar" },
+              { "text": "Quick Launch Bar", "url": "/Docs/quicklaunchbar" },
+              { "text": "Status Bar", "url": "/Docs/statusbar" }
+            ]
+          },
+          { "text": "Extensions and Plug-ins", "url": "/Docs/extensions" },
+          { "text": "Favorites", "url": "/Docs/favorites" },
+          { "text": "Button Panel", "url": "/Docs/buttonpanel" },
+          { "text": "Panel Tabs", "url": "/Docs/paneltabs" }
+        ]
+      },
+      {
+        "title": "Panels",
+        "links": [
+          {
+            "text": "Explorer Panel",
+            "url": "/Docs/ExplorerPanel",
+            "subLinks": [
+              {
+                "text": "Layout",
+                "url": "/Docs/ExplorerPanel-Layout",
+                "subLinks": [
+                  { "text": "Path Field", "url": "/Docs/ExplorerPanelPathField" }
+                ]
+              },
+              { "text": "Navigation", "url": "/Docs/ExplorerPanel2" },
+              { "text": "Customize Columns", "url": "/Docs/ExplorerPanel-CustomizeColumns" },
+              { "text": "Customize Column Layouts", "url": "/Docs/ExplorerPanel-CustomizeColumnLayouts" },
+              { "text": "Folder Tree", "url": "/Docs/ExplorerPanel-FolderTree" },
+              { "text": "File Coloring", "url": "/Docs/ExplorerPanel-FileColoring" },
+              { "text": "Pasting Clipboard Data into Explorer Panel", "url": "/Docs/ExplorerPanel-PasteFromClipboard" }
+            ]
+          },
+          { "text": "File Search", "url": "/Docs/file-search" }
+        ]
+      },
+      {
+        "title": "FileSystem",
+        "links": [
+          { "text": "Multi Commander's Virtual FileSystem", "url": "/Docs/filesystem" },
+          { "text": "Archives (Zip, Rar, 7Zip)", "url": "/Docs/filesystem/archives" },
+          { "text": "Network (NET:)", "url": "/Docs/filesystem/network" },
+          { "text": "Portable (WPD:)", "url": "/Docs/filesystem/portable" },
+          { "text": "Registry (REG:)", "url": "/Docs/browse-registry" },
+          { "text": "FTP (FTP:)", "url": "/Docs/browse-ftp" },
+          { "text": "SFTP (SFTP:)", "url": "/Docs/filesystem/SFTP" },
+          { "text": "Favorites (FAV:)", "url": "/Docs/filesystem/favorites" },
+          { "text": "Virtual Folder Group (VFG:)", "url": "/Docs/filesystem/vfg" }
+        ]
+      },
+      {
+        "title": "File Operations",
+        "links": [
+          {
+            "text": "Copy/Move Operations",
+            "url": "/Docs/copymove_operation",
+            "subLinks": [
+              { "text": "Copy/Move using Presets", "url": "/Docs/copymove-using-presets" },
+              { "text": "Copy/Move using Filters", "url": "/Docs/copymove-using-filters" },
+              { "text": "Copy/Move Progress Window", "url": "/Docs/copymove_progress" }
+            ]
+          },
+          { "text": "Delete Operations", "url": "/Docs/delete_operation" },
+          {
+            "text": "Pack Files",
+            "url": "/Docs/packfiles",
+            "subLinks": [
+              { "text": "Packer Profiles", "url": "/Docs/PackerProfiles" },
+              { "text": "External Packers", "url": "/Docs/ExternalPackers" }
+            ]
+          },
+          { "text": "Unpack Files", "url": "/Docs/unpackfiles" }
+        ]
+      },
+      {
+        "title": "Extensions",
+        "links": [
+          { "text": "MultiRename", "url": "/Docs/MultiRename" },
+          {
+            "text": "File Checksum",
+            "url": "/Docs/FileCheckSum",
+            "subLinks": [
+              { "text": "Create", "url": "/Docs/FileVerifier/Create" },
+              { "text": "Verify", "url": "/Docs/FileVerifier/Verify" }
+            ]
+          },
+          { "text": "MultiDataViewer - The File Viewer", "url": "/Docs/fileviewer" },
+          { "text": "Internal Picture Viewer", "url": "/Docs/MCPictureViewer" },
+          { "text": "Language Editor", "url": "/Docs/LanguageEditor" }
+        ]
+      },
+      {
+        "title": "Tools",
+        "links": [
+          { "text": "Select/Unselect files and folders", "url": "/Docs/selection" },
+          { "text": "Calculate Folder Size", "url": "/Docs/CalculateFolderSize" },
+          { "text": "Change File Properties", "url": "/Docs/ChangeFileProperties" },
+          { "text": "Create Folders", "url": "/Docs/CreateFolders" },
+          { "text": "Correct Folder Date/Time", "url": "/Docs/correctfoldertime" },
+          { "text": "Find Opened/Locked Files", "url": "/Docs/find_opened_locked_files" },
+          { "text": "Send to the Clipboard", "url": "/Docs/SendToClipboard" },
+          { "text": "Rename Tools", "url": "/Docs/RenameTools" },
+          {
+            "text": "Text Tools",
+            "url": "/Docs/TextTools",
+            "subLinks": [
+              { "text": "Text Conversion Tools", "url": "/Docs/TextConvertTools" },
+              { "text": "Sort Lines in Files", "url": "/Docs/SortLinesInFiles" },
+              { "text": "Find and Replace in Files", "url": "/Docs/FindAndReplaceInFiles" }
+            ]
+          },
+          { "text": "Base 64 Encoding/Decoding", "url": "/Docs/Base64EncodingDecoding" },
+          { "text": "File Security", "url": "/Docs/filesecurity" },
+          { "text": "File Checksum Tools", "url": "/Docs/filechecksumTools" },
+          { "text": "Picture Tools", "url": "/Docs/picturetools" },
+          { "text": "Audio Tools", "url": "/Docs/audiotools" },
+          { "text": "Video Tools", "url": "/Docs/videotools" }
+        ]
+      },
+      {
+        "title": "Customization and Configuration",
+        "links": [
+          { "text": "Managing Aliases (Alias Editor)", "url": "/Docs/aliases" },
+          { "text": "File Type Setup", "url": "/Docs/filetypesetup" },
+          {
+            "text": "Button Editor",
+            "url": "/Docs/button-editor",
+            "subLinks": [
+              { "text": "Button Panel - Wizard Mode", "url": "/Docs/ButtonPanelWizardMode" }
+            ]
+          },
+          { "text": "User Menu Editor", "url": "/Docs/UserMenuEditor" },
+          {
+            "text": "Keyboard Customization (Shortcuts)",
+            "url": "/Docs/keyboard-customization",
+            "subLinks": [
+              { "text": "Default Keyboard Shortcuts (Commander Style)", "url": "/Docs/keyboard-shortcuts/CommanderStyle" },
+              { "text": "Default Keyboard Shortcuts (Windows Explorer Style)", "url": "/Docs/keyboard-shortcuts/WindowsExplorerStyle" }
+            ]
+          },
+          { "text": "Custom Context Menu Editor", "url": "/Docs/CustomContextMenu" },
+          { "text": "Filters", "url": "/Docs/filters" }
+        ]
+      },
+      {
+        "title": "Configuring the Layout",
+        "links": [
+          { "text": "Core Settings", "url": "/Docs/CoreSettings" },
+          { "text": "Explorer Panel Settings", "url": "/Docs/ExplorerPanelSettings" },
+          { "text": "Change Look and Feel to Windows Explorer Mode", "url": "/Docs/windows-explorer-look-and-feel" }
+        ]
+      },
+      {
+        "title": "User Commands and Scripting",
+        "links": [
+          { "text": "User Defined Commands", "url": "/Docs/user-defined-commands" },
+          { "text": "Internal Commands", "url": "/Docs/UDC_internal" },
+          { "text": "External Commands", "url": "/Docs/UDC_external" },
+          {
+            "text": "Custom Commands",
+            "url": "/Docs/UDC_custom",
+            "subLinks": [
+              { "text": "List of Custom Commands", "url": "/Docs/customcommands_list" },
+              { "text": "Examples", "url": "/Docs/customcommands_examples" }
+            ]
+          },
+          { "text": "Batch Script (.BAT)", "url": "/Docs/UDC_batch" },
+          {
+            "text": "MultiScript",
+            "url": "/Docs/UDC_multiscript",
+            "subLinks": [
+              { "text": "Language Syntax", "url": "/Docs/multiscript/languagesyntax" },
+              {
+                "text": "Script Functions",
+                "subLinks": [
+                  { "text": "Type checks and type converters", "url": "/Docs/multiscript/corefunctions" },
+                  { "text": "Array functions", "url": "/Docs/multiscript/functions/array" },
+                  { "text": "String functions", "url": "/Docs/multiscript/functions/string" },
+                  { "text": "RowList functions", "url": "/Docs/multiscript/functions/rowlist" },
+                  { "text": "Date/Time functions", "url": "/Docs/multiscript/functions/datetime" },
+                  { "text": "File System functions", "url": "/Docs/multiscript/functions/filesystem" },
+                  { "text": "Registry functions", "url": "/Docs/multiscript/functions/registry" },
+                  { "text": "Panel Selections and Paths", "url": "/Docs/multiscript/functions/getfilefromview" },
+                  { "text": "Tab Panel", "url": "/Docs/multiscript/functions/tabpanel" },
+                  { "text": "Misc functions", "url": "/Docs/multiscript/functions/misc" }
+                ]
+              },
+              {
+                "text": "Extension defined MultiScript functions",
+                "subLinks": [
+                  { "text": "FTP functions", "url": "/Docs/multiscript/extensions/ftp" },
+                  { "text": "Checksum functions", "url": "/Docs/multiscript/extensions/checksum" }
+                ]
+              },
+              { "text": "MultiScript Debugger", "url": "/Docs/UDC_multiscript_debugger" },
+              { "text": "Examples", "url": "/Docs/multiscript/examples" }
+            ]
+          },
+          { "text": "MultiTags", "url": "/Docs/multitags" }
+        ]
+      },
+      {
+        "title": "Other",
+        "links": [
+          { "text": "Backup and Restore Configuration", "url": "/Docs/backup_restore_config" },
+          { "text": "Cleanup User Data", "url": "/Docs/cleanup_userdata" },
+          { "text": "MultiUpdate", "url": "/Docs/MultiUpdate" },
+          { "text": "Command Line Parameters", "url": "/Docs/commandlineparameters" },
+          { "text": "Custom configuration paths", "url": "/Docs/customized-config-paths" },
+          { "text": "Credits and Acknowledgements", "url": "/Docs/credits" }
+        ]
+      },
+      {
+        "title": "API",
+        "links": [
+          { "text": "Multi Commander Windows Message API", "url": "/Docs/MultiCommanderWindowsMessageAPI" }
+        ]
+      },
+      {
+        "title": "Troubleshooting",
+        "links": [
+          { "text": "Multi Commander Hangs and is Not Responding", "url": "/Docs/troubleshooting-hang" },
+          { "text": "Multi Commander Crashes", "url": "/Docs/troubleshooting-crash" }
+        ]
+      },
+      {
+        "title": "FAQ",
+        "links": [
+          { "text": "Favorites", "url": "/Docs/faq/favorites" },
+          { "text": "Show Hidden files/folders", "url": "/Docs/faq/showhidden" },
+          { "text": "Customize Colors", "url": "/Docs/faq/customizecolors" },
+          { "text": "Enter folder on Single Click", "url": "/Docs/faq/singleclick" },
+          { "text": "Save and Resize Columns", "url": "/Docs/faq/defaultcolumnsetup" }
+        ]
+      },
+      {
+        "title": "Index",
+        "links": [
+          { "text": "Content Index", "url": "/Docs/Índex" }
+        ]
+      }
+    ]
+  };
+
+  let allExpanded = true; // Tracks the current state of the sections
+
+  // Function to toggle all sections
+  function toggleAllSections() {
+    const accordionItems = document.querySelectorAll('.accordion-collapse');
+    accordionItems.forEach(item => {
+      if (allExpanded) {
+        item.classList.remove('show'); // Collapse all sections
+      } else {
+        item.classList.add('show'); // Expand all sections
+      }
+    });
+
+    // Update the button text
+    const toggleButton = document.getElementById('toggleAllButton');
+    toggleButton.textContent = allExpanded ? 'Expand All' : 'Collapse All';
+
+    // Toggle the state
+    allExpanded = !allExpanded;
+  }
+
+
+  function AddSubMenu(menuData, parent, indentLevel)
+  {
+    const subMenu = document.createElement("ul");
+    subMenu.className = "list-unstyled ms-" + '${indentLevel}'; // Indent for sublinks
+    menuData.forEach(link => {
+      const listItem = document.createElement("li");
+      const anchor = document.createElement("a");
+      anchor.href = link.url;
+      anchor.textContent = link.text;
+
+      listItem.appendChild(anchor);
+      subMenu.appendChild(listItem);
+
+      if (link.subLinks) {
+        AddSubMenu(link.subLinks, listItem, indentLevel+1);
+      }
+    });
+    parent.appendChild(subMenu);
+  }
+
+  // Function to build the menu
+  function buildMenu(menuData) {
+    const menuContainer = document.getElementById("menuContainer");
+
+    // Create the accordion container
+    const accordion = document.createElement("div");
+    accordion.className = "accordion";
+    accordion.id = "docsAccordion";
+
+    menuData.menu.forEach((section, index) => {
+      // Create accordion item
+      const accordionItem = document.createElement("div");
+      accordionItem.className = "accordion-item";
+
+      // Create accordion header
+      const headerId = `heading${index}`;
+      const collapseId = `collapse${index}`;
+      const accordionHeader = document.createElement("h2");
+      accordionHeader.className = "accordion-header";
+      accordionHeader.id = headerId;
+
+      const accordionButton = document.createElement("button");
+      accordionButton.className = "accordion-button";
+      accordionButton.type = "button";
+      accordionButton.setAttribute("data-bs-toggle", "collapse");
+      accordionButton.setAttribute("data-bs-target", `#${collapseId}`);
+      accordionButton.setAttribute("aria-expanded", "true");
+      accordionButton.setAttribute("aria-controls", collapseId);
+      accordionButton.textContent = section.title;
+
+      accordionHeader.appendChild(accordionButton);
+      accordionItem.appendChild(accordionHeader);
+
+      // Create accordion collapse
+      const accordionCollapse = document.createElement("div");
+      accordionCollapse.id = collapseId;
+      accordionCollapse.className = "accordion-collapse collapse show"; // Expanded by default
+      accordionCollapse.setAttribute("aria-labelledby", headerId);
+
+      const accordionBody = document.createElement("div");
+      accordionBody.className = "accordion-body";
+
+      // Create list for links
+      const linkList = document.createElement("ul");
+      linkList.className = "list-unstyled";
+
+      section.links.forEach(link => {
+        const listItem = document.createElement("li");
+        const anchor = document.createElement("a");
+        anchor.href = link.url;
+        anchor.textContent = link.text;
+
+        listItem.appendChild(anchor);
+
+        // Check for subLinks
+        if (link.subLinks) {
+          AddSubMenu(link.subLinks, listItem, 2);
+        }
+
+        linkList.appendChild(listItem);
+      });
+
+      accordionBody.appendChild(linkList);
+      accordionCollapse.appendChild(accordionBody);
+      accordionItem.appendChild(accordionCollapse);
+
+      accordion.appendChild(accordionItem);
+    });
+
+    menuContainer.appendChild(accordion);
+  }
+
+  function filterSubMenu(parent, searchText)
+  {
+    let anyMatchFound = false;
+    const items = parent.querySelectorAll("li");
+    items.forEach(menuItem => {
+
+      let matchFound = false;
+      const link = menuItem.querySelector("a");
+      const linkText = link.textContent.toLowerCase();
+
+      if (linkText.includes(searchText)) {
+        matchFound = true;
+      }
+
+      let subMatchFound = filterSubMenu(menuItem, searchText); // Recursively filter sublinks
+      if (subMatchFound) {
+        matchFound = true;
+      }
+      if (matchFound) {
+        anyMatchFound = true;
+        menuItem.style.display = ""; // Show matching link
+      }
+      else {
+        menuItem.style.display = "none"; // Hide non-matching link
+      }
+    });
+
+    return anyMatchFound;
+  }
+  
+  // Function to filter the menu
+  function filterMenu(searchText) {
+    const menuContainer = document.getElementById("menuContainer");
+    const items = menuContainer.querySelectorAll(".accordion-item");
+
+    items.forEach(item => {
+      const sectionTitle = item.querySelector(".accordion-button").textContent.toLowerCase();
+      //const links = item.querySelectorAll("a");
+      let matchFound = false;
+
+      // Check if the section title matches
+      if (sectionTitle.includes(searchText)) {
+        matchFound = true;
+      }
+
+      let submatchFound = filterSubMenu(item, searchText);
+      if (submatchFound) {
+        matchFound = true;
+      }
+
+      // Show or hide the entire section based on matches
+      if (matchFound) {
+        item.style.display = "";
+      } else {
+        item.style.display = "none";
+      }
+    });
+  }
+
+  // Build the menu on page load
+  document.addEventListener("DOMContentLoaded", () => {
+    const toggleButton = document.getElementById('toggleAllButton');
+    toggleButton.addEventListener('click', toggleAllSections);
+
+    buildMenu(menuData);
+
+    // Add the "selected" class to the current menu item
+    const currentPath = window.location.pathname;
+    const links = document.querySelectorAll("a");
+
+    for (const link of links) {
+      const linkPath = new URL(link.href, window.location.origin).pathname; // Extract the pathname
+
+      // Only check URLs that start with "/Docs/"
+      if (linkPath.startsWith("/Docs/") && linkPath === currentPath) {
+        link.classList.add("selected");
+        break; // Stop the loop once a match is found
+      }
+    }
+
+
+    // Add event listener for search input
+    const searchInput = document.getElementById("menuSearch");
+    searchInput.addEventListener("input", (e) => {
+      const searchText = e.target.value.toLowerCase();
+      filterMenu(searchText);
+    });
+  });
 
 
 </script>

@@ -1,115 +1,432 @@
-<h2>Command Line Parameters</h2>
-<p>Multi Commander can be started with some command line parameters.</p>
+<h2>Command Line Parameters Reference</h2>
 
-<pre>
--L=&lt;path&gt; - Path to show in the left panel
--R=&lt;path&gt; - Path to show in the right panel
--F=&lt;startup.ini&gt; - file that contains startup properties for the path to show
--T=&lt;Any Text&gt; - A Text that will be shown in the caption bar of the Multi Commander window
--AutoRun=&lt;User Defined Command to auto run when started&gt;
--NOUPDATECHECK - Disable the check for a new version
--TABSESSION=&lt;Name or ID&gt; - Name of ID of a saved TabSession that will be loaded at startup
--INSTANCE=&lt;Name&gt; - Name of instance, Use separate configuration for the same execution of MultiCommander.exe
--MINIMIZED=Start Minimized (there is also an option for that in settings)
+<p>Multi Commander provides comprehensive command line parameter support for flexible application startup, automated workflows, and integration with external applications. These parameters enable precise control over initial panel paths, tab configurations, logging levels, and application behavior.</p>
 
-(Overwrites log configuration in settings)
--ENABLE-APPLOG - Enable full logging for application log.
--ENABLE_FSLOG - Enable full logging for FileSystem log.
--ENABLE_FOLOG - Enable full file operations log.
--ENABLE_ALL_LOGS - Enable full logging for all logs.
-</pre>
+<div class="alert alert-info">
+	<h6><i class="bi bi-info-circle me-2"></i>Flexible Parameter Syntax</h6>
+	<p class="mb-0">Multi Commander supports both Windows-style (/) and Unix-style (-) parameter prefixes interchangeably. For example, both <code>/L=C:\Bin</code> and <code>-L=C:\Bin</code> are valid and equivalent.</p>
+</div>
 
-<p><em><small>Both - or / are supported for parameters. eg. /L=C:\Bin or -L=C:\Bin</small></em></p>
+<nav class="navbar navbar-expand-lg navbar-light bg-light mb-4">
+	<div class="container-fluid">
+		<span class="navbar-brand">Quick Navigation</span>
+		<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#cmdNav">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="cmdNav">
+			<ul class="navbar-nav">
+				<li class="nav-item"><a class="nav-link" href="#startup-parameters">Startup Parameters</a></li>
+				<li class="nav-item"><a class="nav-link" href="#instance-communication">Instance Communication</a></li>
+				<li class="nav-item"><a class="nav-link" href="#startup-file">Startup File Format</a></li>
+				<li class="nav-item"><a class="nav-link" href="#examples">Usage Examples</a></li>
+			</ul>
+		</div>
+	</div>
+</nav>
 
-<p>If you want an already-running instance of Multi Commander to go to a path you can use the /OPEN parameter.<br />
-This is useful when you have an external program that should tell Multi Commander to go to a specific path or when Multi Commander is running in <strong>Single Instance </strong>mode</p>
+<section id="startup-parameters">
+	<h3>Complete Startup Parameters Reference</h3>
+	<p>Comprehensive table of all available command line parameters for Multi Commander startup configuration and control.</p>
 
-<pre>
-/OPEN "&lt;path&gt;" - Open new tab for this path
-/OPEN "&lt;path&gt;" /NONEWTAB - Open path in currently active tab
-/OPEN "&lt;path&gt;" /PANEL=Left|Right|Active|Source|Target - On path in panel Left, Right, Active, Source or Target panel.. only use ONE of them
-/QUIT - Exit current instance
-</pre>
+	<div class="card">
+		<div class="card-header bg-primary text-white">
+			<h6 class="mb-0"><i class="bi bi-table me-2"></i>Command Line Parameters</h6>
+		</div>
+		<div class="card-body">
+			<div class="table-responsive">
+				<table class="table table-bordered table-hover">
+					<thead class="table-light">
+						<tr>
+							<th style="width: 25%">Parameter</th>
+							<th style="width: 50%">Description</th>
+							<th style="width: 25%">Example</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td><code>-L=&lt;path&gt;</code></td>
+							<td>Set initial path for left panel</td>
+							<td><code>-L="C:\Projects"</code></td>
+						</tr>
+						<tr>
+							<td><code>-R=&lt;path&gt;</code></td>
+							<td>Set initial path for right panel</td>
+							<td><code>-R="D:\Data"</code></td>
+						</tr>
+						<tr>
+							<td><code>&lt;path1&gt; &lt;path2&gt;</code></td>
+							<td>Direct path assignment without parameter flags (left panel, right panel)</td>
+							<td><code>"C:\Bin" "D:\"</code></td>
+						</tr>
+						<tr>
+							<td><code>-F=&lt;startup.ini&gt;</code></td>
+							<td>Load startup configuration from INI file containing detailed panel and tab settings</td>
+							<td><code>-F="WorkSetup.ini"</code></td>
+						</tr>
+						<tr>
+							<td><code>-T=&lt;text&gt;</code></td>
+							<td>Set custom window title text for application identification</td>
+							<td><code>-T="Development Environment"</code></td>
+						</tr>
+						<tr>
+							<td><code>-AutoRun=&lt;command&gt;</code></td>
+							<td>Execute specified User Defined Command automatically after startup</td>
+							<td><code>-AutoRun=ConnectToServers</code></td>
+						</tr>
+						<tr>
+							<td><code>-NOUPDATECHECK</code></td>
+							<td>Disable automatic update checking on startup</td>
+							<td><code>-NOUPDATECHECK</code></td>
+						</tr>
+						<tr>
+							<td><code>-TABSESSION=&lt;name&gt;</code></td>
+							<td>Load predefined tab session by name or ID for complex workspace restoration</td>
+							<td><code>-TABSESSION="Development"</code></td>
+						</tr>
+						<tr>
+							<td><code>-INSTANCE=&lt;name&gt;</code></td>
+							<td>Create isolated instance with separate configuration and settings</td>
+							<td><code>-INSTANCE="ServerMgmt"</code></td>
+						</tr>
+						<tr>
+							<td><code>-MINIMIZED</code></td>
+							<td>Start application minimized to system tray or taskbar</td>
+							<td><code>-MINIMIZED</code></td>
+						</tr>
+						<tr class="table-warning">
+							<td colspan="3"><strong>Logging Parameters</strong> <small>(Override log configuration settings)</small></td>
+						</tr>
+						<tr>
+							<td><code>-ENABLE-APPLOG</code></td>
+							<td>Enable comprehensive application-level logging for core functionality and user interface operations</td>
+							<td><code>-ENABLE-APPLOG</code></td>
+						</tr>
+						<tr>
+							<td><code>-ENABLE_FSLOG</code></td>
+							<td>Enable detailed filesystem operation logging including virtual filesystem and plugin activities</td>
+							<td><code>-ENABLE_FSLOG</code></td>
+						</tr>
+						<tr>
+							<td><code>-ENABLE_FOLOG</code></td>
+							<td>Enable verbose file operation logging covering copy, move, delete, and archive operations</td>
+							<td><code>-ENABLE_FOLOG</code></td>
+						</tr>
+						<tr>
+							<td><code>-ENABLE_ALL_LOGS</code></td>
+							<td>Enable maximum logging across all subsystems for comprehensive diagnostic information</td>
+							<td><code>-ENABLE_ALL_LOGS</code></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
 
-<h2>Startup definition file ( -F=&lt;filename.ini&gt; )</h2>
+			<div class="alert alert-warning mt-3">
+				<h6><i class="bi bi-exclamation-triangle me-2"></i>Path Format Support</h6>
+				<p class="small mb-2"><strong>Supported Path Types:</strong></p>
+				<ul class="small mb-0">
+					<li><strong>Local Drives:</strong> <code>C:\Projects</code>, <code>D:\Data</code></li>
+					<li><strong>Network Shares:</strong> <code>\\Server\Share</code>, <code>\\10.0.0.100\Backup</code></li>
+					<li><strong>Virtual Devices:</strong> <code>FTP:\site1</code>, <code>SFTP:\server</code></li>
+					<li><strong>Archive Paths:</strong> <code>C:\Archive.zip\folder</code>, <code>D:\Backup.7z</code></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</section>
 
-<p>The startup file specifies multiple folders to be shown when Multi Commander opens. Each path will be shown in a separate tab.</p>
+<section id="instance-communication" class="mt-5">
+	<h3>Instance Communication Parameters</h3>
+	<p>Parameters for controlling running instances and sending commands to existing Multi Commander processes for external application integration.</p>
 
-<pre>
-[PANEL_1]
-Path=D:\
+	<div class="card">
+		<div class="card-header bg-success text-white">
+			<h6 class="mb-0"><i class="bi bi-arrow-repeat me-2"></i>Instance Control Commands</h6>
+		</div>
+		<div class="card-body">
+			<div class="table-responsive">
+				<table class="table table-bordered table-hover">
+					<thead class="table-light">
+						<tr>
+							<th style="width: 30%">Parameter</th>
+							<th style="width: 50%">Description</th>
+							<th style="width: 20%">Example</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td><code>/OPEN "&lt;path&gt;"</code></td>
+							<td>Instruct running instance to open specified path in new tab</td>
+							<td><code>/OPEN "C:\Projects"</code></td>
+						</tr>
+						<tr>
+							<td><code>/OPEN "&lt;path&gt;" /NONEWTAB</code></td>
+							<td>Open path in currently active tab instead of creating new tab</td>
+							<td><code>/OPEN "D:\Logs" /NONEWTAB</code></td>
+						</tr>
+						<tr>
+							<td><code>/PANEL=&lt;target&gt;</code></td>
+							<td>Specify target panel for /OPEN command</td>
+							<td><code>/PANEL=Right</code></td>
+						</tr>
+						<tr>
+							<td><code>/QUIT</code></td>
+							<td>Request graceful shutdown of running Multi Commander instance</td>
+							<td><code>/QUIT</code></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+
+			<div class="row mt-3">
+				<div class="col-md-6">
+					<h6>Panel Target Options</h6>
+					<ul class="small">
+						<li><strong>Left:</strong> Left panel regardless of focus</li>
+						<li><strong>Right:</strong> Right panel regardless of focus</li>
+						<li><strong>Active:</strong> Currently focused panel</li>
+						<li><strong>Source:</strong> Panel designated as source for operations</li>
+						<li><strong>Target:</strong> Panel designated as target for operations</li>
+					</ul>
+				</div>
+				<div class="col-md-6">
+					<h6>Integration Scenarios</h6>
+					<ul class="small">
+						<li><strong>IDE Integration:</strong> Open project folders from development environments</li>
+						<li><strong>Shell Extensions:</strong> Context menu integration</li>
+						<li><strong>Automation Scripts:</strong> Batch file and PowerShell integration</li>
+						<li><strong>System Tools:</strong> External application navigation control</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<section id="startup-file" class="mt-5">
+	<h3>Startup File Configuration (-F Parameter)</h3>
+	<p>The startup definition file provides comprehensive control over Multi Commander's initial state through detailed INI-format configuration files for complex multi-tab setups.</p>
+
+	<div class="row">
+		<div class="col-md-6">
+			<div class="card">
+				<div class="card-header bg-primary text-white">
+					<h6 class="mb-0"><i class="bi bi-file-text me-2"></i>INI File Structure</h6>
+				</div>
+				<div class="card-body">
+					<h6>Basic Format</h6>
+					<pre class="bg-light p-3 rounded small"><code>[PANEL_1]
+Path=D:\Development
 Side=L
+Locked=1
 
 [PANEL_2]
-Path=D:\Bin
-Side=L
-
-[PANEL_3]
-Path=D:\Projects
-Side=L
-
-[PANEL_4]
-Path=C:\Projects\Jupiter
+Path=C:\Projects\WebApp
 Side=R
+ViewMode=1</code></pre>
 
-[PANEL_5]
-Path=E:\Projects\Pluto
-Side=R
-</pre>
+					<h6>Required Parameters</h6>
+					<ul class="small">
+						<li><strong>Path:</strong> Full path to display in panel</li>
+						<li><strong>Side:</strong> L (Left) or R (Right)</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-6">
+			<div class="card">
+				<div class="card-header bg-info text-white">
+					<h6 class="mb-0"><i class="bi bi-sliders me-2"></i>Optional Parameters</h6>
+				</div>
+				<div class="card-body">
+					<div class="table-responsive">
+						<table class="table table-sm">
+							<thead>
+								<tr>
+									<th>Parameter</th>
+									<th>Values</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td><code>Locked</code></td>
+									<td>1 (locked) / 0 (unlocked)</td>
+								</tr>
+								<tr>
+									<td><code>AllowSubPathChange</code></td>
+									<td>1 (allow) / 0 (restrict)</td>
+								</tr>
+								<tr>
+									<td><code>ShowTree</code></td>
+									<td>1 (show) / 0 (hide)</td>
+								</tr>
+								<tr>
+									<td><code>ViewMode</code></td>
+									<td>1-4 (Details, List, Thumbnails, Thumbnail Details)</td>
+								</tr>
+								<tr>
+									<td><code>SortCol</code></td>
+									<td>Column number (0, 1, 2, 3...)</td>
+								</tr>
+								<tr>
+									<td><code>SortAsc</code></td>
+									<td>1 (ascending) / 0 (descending)</td>
+								</tr>
+								<tr>
+									<td><code>TabColorText</code></td>
+									<td>Hex color (#000000, #FF0000)</td>
+								</tr>
+								<tr>
+									<td><code>TabColorBk</code></td>
+									<td>Hex background color</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
 
-<p><strong>Path </strong>and <strong>Side </strong>parameters <strong>must </strong>be specified in the file.</p>
+<section id="examples" class="mt-5">
+	<h3>Usage Examples</h3>
+	<p>Practical command line examples demonstrating various startup scenarios and automation integration patterns.</p>
 
-<p>The following parameters are optional:</p>
-
-<pre>
-Locked=1|0
-AllowSubPathChange=1|0
-ShowTree=1|0
-SortAsc=1|0
-SortCol=[column number]
-TabColorText=#000000
-TabColorBk=#000000
-TabColorHotWhenActive=1|0
-TabColorGradient=1|0
-ViewMode=1|2|3|4
-ViewModeListWidth=000
-ViewModeDetailWidth=000
-Side=L|R
-Path=[Full Path]
-</pre>
-
-<p>1|0 means 1 or 0, 1|2|3 means 1 or 2 or 3, and so on.</p>
-
-<h2>Examples</h2>
-
-<pre>
+	<div class="row">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header bg-primary text-white">
+					<h6 class="mb-0"><i class="bi bi-terminal me-2"></i>Basic Usage</h6>
+				</div>
+				<div class="card-body">
+					<pre class="bg-light p-2 rounded small"><code>// Simple path assignment
 MultiCommander.exe "C:\Bin" "D:\"
-</pre>
 
-<p>If no "-L" or "-R" parameter is specified, the first parameter is assumed to be a path to show in the left panel, and the second to be a path to show in the right panel.</p>
+// Explicit panel assignment
+MultiCommander.exe -L="C:\Projects" -R="\\Server\Share"
 
-<pre>
-MultiCommander.exe -L="C:\Bin" -R="D:\"
-</pre>
+// Custom window title
+MultiCommander.exe -T="Development" -L="C:\Code"
 
-<pre>
-MultiCommander.exe -F="AutoStart.ini"
-</pre>
+// Start minimized
+MultiCommander.exe -MINIMIZED -L="C:\Logs"
 
-<pre>
-MultiCommander.exe -TABSESSION="WorkWithPictures"
-</pre>
+// Disable update check
+MultiCommander.exe -NOUPDATECHECK</code></pre>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header bg-success text-white">
+					<h6 class="mb-0"><i class="bi bi-gear me-2"></i>Advanced Configuration</h6>
+				</div>
+				<div class="card-body">
+					<pre class="bg-light p-2 rounded small"><code>// Load configuration file
+MultiCommander.exe -F="ProjectSetup.ini"
 
-<pre>
-MultiCommander.exe -AutoRun=CmdRunStartup
-</pre>
+// Load tab session
+MultiCommander.exe -TABSESSION="Development"
 
-<pre>
-MultiCommander.exe /OPEN "D:\My Folder\SubFolder"
-</pre>
+// Execute startup command
+MultiCommander.exe -AutoRun=ConnectServers
 
-<pre>
-MultiCommander.exe -INSTANCE=WorkWithPictures 
-</pre>
+// Separate instance
+MultiCommander.exe -INSTANCE="ServerMgmt"
+
+// Enable comprehensive logging
+MultiCommander.exe -ENABLE_ALL_LOGS</code></pre>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="row mt-3">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header bg-warning text-dark">
+					<h6 class="mb-0"><i class="bi bi-arrow-repeat me-2"></i>Instance Communication</h6>
+				</div>
+				<div class="card-body">
+					<pre class="bg-light p-2 rounded small"><code>// Open path in running instance
+MultiCommander.exe /OPEN "C:\Projects\WebApp"
+
+// Open in specific panel
+MultiCommander.exe /OPEN "D:\Data" /PANEL=Right
+
+// Replace current tab
+MultiCommander.exe /OPEN "\\Server\Logs" /NONEWTAB
+
+// Shutdown running instance
+MultiCommander.exe /QUIT</code></pre>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header bg-info text-white">
+					<h6 class="mb-0"><i class="bi bi-building me-2"></i>Enterprise Scenarios</h6>
+				</div>
+				<div class="card-body">
+					<pre class="bg-light p-2 rounded small"><code>// Development environment
+MultiCommander.exe ^
+  -L="C:\Projects\WebApp" ^
+  -R="\\BuildServer\Artifacts" ^
+  -T="Development" ^
+  -INSTANCE="Dev"
+
+// Server administration
+MultiCommander.exe ^
+  -F="ServerConfig.ini" ^
+  -AutoRun=ConnectAllServers ^
+  -T="Server Management"</code></pre>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="row mt-3">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header bg-dark text-white">
+					<h6 class="mb-0"><i class="bi bi-code-slash me-2"></i>Automation Integration</h6>
+				</div>
+				<div class="card-body">
+					<h6>Batch File Integration</h6>
+					<pre class="bg-light p-2 rounded small"><code>@echo off
+echo Starting project environment...
+start "" "C:\Program Files\MultiCommander\MultiCommander.exe" ^
+  -F="ProjectWorkspace.ini" ^
+  -T="Project: %PROJECT_NAME%" ^
+  -INSTANCE="Project_%PROJECT_NAME%"</code></pre>
+
+					<h6>PowerShell Function</h6>
+					<pre class="bg-light p-2 rounded small"><code>function Start-MCProject {
+    param([string]$ProjectPath, [string]$ProjectName)
+    $arguments = @("-L=`"$ProjectPath`"", "-T=`"Project: $ProjectName`"", "-INSTANCE=`"$ProjectName`"")
+    Start-Process -FilePath "MultiCommander.exe" -ArgumentList $arguments
+}</code></pre>
+
+					<h6>External Tool Integration</h6>
+					<pre class="bg-light p-2 rounded small"><code>// From IDE or external application
+"C:\Program Files\MultiCommander\MultiCommander.exe" /OPEN "%SELECTED_FOLDER%"
+
+// Context menu integration
+MultiCommander.exe /OPEN "%1" /PANEL=Left</code></pre>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<div class="alert alert-success mt-5">
+	<h6><i class="bi bi-lightbulb me-2"></i>Command Line Integration Benefits</h6>
+	<p class="mb-0">Multi Commander's comprehensive command line support enables seamless integration with development workflows, system administration tasks, and automated processes. The combination of startup parameters, instance communication, and configuration files provides the flexibility needed for professional environments while maintaining simplicity for everyday use.</p>
+</div>
+
+<div class="alert alert-info mt-4">
+	<h6><i class="bi bi-info-circle me-2"></i>Related Configuration Topics</h6>
+	<p class="mb-0">Explore additional configuration options: <a href="/Docs/customized-config-paths" class="text-decoration-none">Custom Configuration Paths</a>, <a href="/Docs/backup_restore_config" class="text-decoration-none">Backup & Restore Configuration</a>, and <a href="/Docs/UserMenuEditor" class="text-decoration-none">User Menu Editor</a>.</p>
+</div>
 
 

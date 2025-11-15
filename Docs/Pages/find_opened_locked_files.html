@@ -1,9 +1,345 @@
 <h2>Find Opened/Locked Files</h2>
-<p>If you are unable to rename or delete a file or folder it is possible it is already in use by another program. A program that uses something in a sub-folder can also lock the parent folder, so that it cannot be renamed or deleted. Which program has a particular file open is often not obvious, and it can be hard to figure out which program you need to close to be able to rename or delete the file or folder.</p>
 
-<p><img alt="" src="/Docs/Images/FindOpenedFiles.png" style="width: 500px; height: 330px;" /><br />
-Under the Tools menu you can select "<strong>Find Opened/Locked Files</strong>" to find what program has a file/folder locked so that you can close or kill it. If you are running with standard user permission you will only be able to scan the system for processes that are running under your account: System &amp; Service processes will not be found.<br />
-<br />
-Running Multi Commander as an Administrator will allow you to also find Services and System processes that have files open or locked.</p>
+<p>Multi Commander's <strong>Find Opened/Locked Files</strong> tool provides powerful diagnostic capabilities to identify which processes are preventing file or folder operations. When you encounter "file in use" or "access denied" errors, this essential troubleshooting tool reveals exactly which applications or services have files locked, enabling you to resolve conflicts quickly and efficiently.</p>
+
+<div class="alert alert-primary">
+	<h6><i class="bi bi-search me-2"></i>Advanced Process Analysis</h6>
+	<p class="mb-0">Eliminate the guesswork when dealing with locked files. This tool performs deep system analysis to identify all processes with file handles, providing the information you need to unlock files for renaming, deletion, or modification operations.</p>
+</div>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light mb-4">
+	<div class="container-fluid">
+		<span class="navbar-brand">Quick Navigation</span>
+		<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#lockedFilesNav">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="lockedFilesNav">
+			<ul class="navbar-nav">
+				<li class="nav-item"><a class="nav-link" href="#overview">Overview</a></li>
+				<li class="nav-item"><a class="nav-link" href="#accessing">Accessing the Tool</a></li>
+				<li class="nav-item"><a class="nav-link" href="#using">Using the Scanner</a></li>
+				<li class="nav-item"><a class="nav-link" href="#permissions">Permission Levels</a></li>
+				<li class="nav-item"><a class="nav-link" href="#troubleshooting">Troubleshooting</a></li>
+			</ul>
+		</div>
+	</div>
+</nav>
+
+<section id="overview">
+	<h3>Understanding File Locking</h3>
+	<p>File locking is a fundamental aspect of Windows file system security and process management. When applications access files, they often acquire exclusive locks to prevent data corruption and ensure consistency.</p>
+
+	<div class="row">
+		<div class="col-md-6">
+			<div class="card">
+				<div class="card-header bg-primary text-white">
+					<h6 class="mb-0"><i class="bi bi-exclamation-triangle me-2"></i>Common Lock Scenarios</h6>
+				</div>
+				<div class="card-body">
+					<h6>File Operation Blocks</h6>
+					<ul class="small">
+						<li><strong>Cannot Delete:</strong> Files open in applications or referenced by running processes</li>
+						<li><strong>Cannot Rename:</strong> Parent folders locked by processes accessing child files</li>
+						<li><strong>Cannot Move:</strong> Destination conflicts or source file access issues</li>
+						<li><strong>Cannot Modify:</strong> Files marked read-only or exclusively locked by applications</li>
+					</ul>
+					<h6>Lock Sources</h6>
+					<ul class="small">
+						<li><strong>Applications:</strong> Document editors, media players, development tools</li>
+						<li><strong>System Services:</strong> Windows services, background processes, security software</li>
+						<li><strong>Explorer:</strong> Windows Explorer thumbnails, search indexing</li>
+						<li><strong>Network:</strong> Remote access, file sharing, synchronization tools</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-6">
+			<div class="card">
+				<div class="card-header bg-success text-white">
+					<h6 class="mb-0"><i class="bi bi-tools me-2"></i>Tool Benefits</h6>
+				</div>
+				<div class="card-body">
+					<h6>Diagnostic Capabilities</h6>
+					<ul class="small">
+						<li><strong>Process Identification:</strong> Discover which specific application has files locked</li>
+						<li><strong>Handle Analysis:</strong> View detailed file handle information</li>
+						<li><strong>System Scanning:</strong> Comprehensive process analysis across all user accounts</li>
+						<li><strong>Service Detection:</strong> Identify system services with file locks</li>
+					</ul>
+					<h6>Problem Resolution</h6>
+					<ul class="small">
+						<li><strong>Targeted Action:</strong> Close only the specific application causing the lock</li>
+						<li><strong>Safe Operations:</strong> Avoid unnecessary system restarts</li>
+						<li><strong>Workflow Continuity:</strong> Resolve conflicts without disrupting other work</li>
+						<li><strong>Time Efficiency:</strong> Quickly identify and resolve file access issues</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<section id="accessing" class="mt-5">
+	<h3>Accessing the Tool</h3>
+	<p>The Find Opened/Locked Files tool is available through Multi Commander's Tools menu, providing immediate access when you encounter file operation conflicts.</p>
+
+	<div class="row">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header bg-primary text-white">
+					<h6 class="mb-0"><i class="bi bi-menu-app me-2"></i>Tool Location</h6>
+				</div>
+				<div class="card-body">
+					<h6>Menu Access</h6>
+					<ol>
+						<li>Navigate to the <strong>Tools</strong> menu in Multi Commander</li>
+						<li>Select <strong>"Find Opened/Locked Files"</strong></li>
+						<li>The scanning dialog will open immediately</li>
+					</ol>
+
+					<div class="text-center mt-3 mb-3">
+						<img src="/Docs/Images/FindOpenedFiles.png" alt="Find Opened/Locked Files Dialog" class="img-fluid border rounded shadow-sm" style="max-width: 500px;" />
+						<p class="text-muted small mt-2">Find Opened/Locked Files scanning interface</p>
+					</div>
+
+					<h6>When to Use</h6>
+					<ul class="small">
+						<li><strong>Delete Failures:</strong> "Cannot delete: file is in use" errors</li>
+						<li><strong>Rename Issues:</strong> "Cannot rename: folder is in use" messages</li>
+						<li><strong>Move Problems:</strong> Files that cannot be moved to different locations</li>
+						<li><strong>Access Denied:</strong> Permission errors that may be lock-related</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		
+	</div>
+</section>
+
+<section id="using" class="mt-5">
+	<h3>Using the File Lock Scanner</h3>
+	<p>The tool provides comprehensive scanning capabilities with different permission levels, enabling thorough analysis of file locks across your system.</p>
+
+	<div class="card">
+		<div class="card-header bg-primary text-white">
+			<h6 class="mb-0"><i class="bi bi-gear me-2"></i>Scanner Operation</h6>
+		</div>
+		<div class="card-body">
+			<h6>Scanning Process</h6>
+			<ol>
+				<li><strong>Initiate Scan:</strong> Click "Scan" to begin the process analysis</li>
+				<li><strong>Progress Monitoring:</strong> Watch the progress indicator as the system is analyzed</li>
+				<li><strong>Result Review:</strong> Examine the list of processes with open file handles</li>
+				<li><strong>Process Selection:</strong> Identify the specific process causing the file lock</li>
+				<li><strong>Action Decision:</strong> Choose whether to close the application or end the process</li>
+			</ol>
+
+			<div class="row mt-3">
+				<div class="col-md-6">
+					<h6>Scan Results Information</h6>
+					<ul class="small">
+						<li><strong>Process Name:</strong> Application or service name</li>
+						<li><strong>Process ID (PID):</strong> Unique process identifier</li>
+						<li><strong>File Handles:</strong> List of locked files and their paths</li>
+						<li><strong>Process Type:</strong> User application, system service, or driver</li>
+						<li><strong>User Context:</strong> Account under which the process is running</li>
+					</ul>
+				</div>
+				<div class="col-md-6">
+					<h6>Resolution Actions</h6>
+					<ul class="small">
+						<li><strong>Close Application:</strong> Gracefully terminate the application</li>
+						<li><strong>End Process:</strong> Force termination (use cautiously)</li>
+						<li><strong>Release Handle:</strong> Advanced users can attempt handle release</li>
+						<li><strong>Wait and Retry:</strong> Monitor for automatic release</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<section id="permissions" class="mt-5">
+	<h3>Permission Levels and Capabilities</h3>
+	<p>The tool's effectiveness depends on the permission level under which Multi Commander is running, with different capabilities available for standard users versus administrators.</p>
+
+	<div class="row">
+		<div class="col-md-6">
+			<div class="card">
+				<div class="card-header bg-warning text-dark">
+					<h6 class="mb-0"><i class="bi bi-person me-2"></i>Standard User Mode</h6>
+				</div>
+				<div class="card-body">
+					<h6>Limited Scope Scanning</h6>
+					<p class="small">When running with standard user permissions, the tool can only scan processes running under your user account.</p>
+					
+					<h6>Visible Processes</h6>
+					<ul class="small">
+						<li><strong>User Applications:</strong> Programs you launched directly</li>
+						<li><strong>User Services:</strong> Services running under your account</li>
+						<li><strong>Child Processes:</strong> Applications spawned by your programs</li>
+					</ul>
+
+					<h6>Limitations</h6>
+					<ul class="small">
+						<li><strong>System Processes:</strong> Cannot detect Windows system processes</li>
+						<li><strong>Service Processes:</strong> Limited visibility into Windows services</li>
+						<li><strong>Other Users:</strong> Cannot see processes from other user accounts</li>
+						<li><strong>Administrative Tools:</strong> Some system-level locks remain hidden</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-6">
+			<div class="card">
+				<div class="card-header bg-success text-white">
+					<h6 class="mb-0"><i class="bi bi-shield-check me-2"></i>Administrator Mode</h6>
+				</div>
+				<div class="card-body">
+					<h6>Comprehensive System Scanning</h6>
+					<p class="small">Running Multi Commander as Administrator enables complete system-wide process analysis.</p>
+					
+					<h6>Full Visibility</h6>
+					<ul class="small">
+						<li><strong>All User Processes:</strong> Processes from all user accounts</li>
+						<li><strong>System Services:</strong> Windows services and system processes</li>
+						<li><strong>Kernel Objects:</strong> Low-level system file handles</li>
+						<li><strong>Service Dependencies:</strong> Complex service file relationships</li>
+					</ul>
+
+					<h6>Enhanced Capabilities</h6>
+					<ul class="small">
+						<li><strong>Complete Analysis:</strong> See all processes with file locks</li>
+						<li><strong>Service Control:</strong> Can stop services that lock files</li>
+						<li><strong>System Diagnostics:</strong> Identify complex locking scenarios</li>
+						<li><strong>Advanced Resolution:</strong> More options for resolving conflicts</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="alert alert-info mt-3">
+		<h6><i class="bi bi-info-circle me-2"></i>Administrator Mode Recommendation</h6>
+		<p class="mb-0">For comprehensive file lock analysis, especially when dealing with system files or persistent lock issues, running Multi Commander as Administrator provides the most complete diagnostic information. Right-click the Multi Commander executable and select "Run as administrator" for elevated privileges.</p>
+	</div>
+</section>
+
+<section id="troubleshooting" class="mt-5">
+	<h3>Troubleshooting and Common Scenarios</h3>
+	<p>Understanding common file locking scenarios and their resolutions helps you efficiently diagnose and resolve file access issues.</p>
+
+	<div class="row">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header bg-primary text-white">
+					<h6 class="mb-0"><i class="bi bi-tools me-2"></i>Common Lock Scenarios and Solutions</h6>
+				</div>
+				<div class="card-body">
+					<div class="row">
+						<div class="col-md-4">
+							<h6>Media Files</h6>
+							<p class="small"><strong>Scenario:</strong> Video or audio files locked by media players</p>
+							<ul class="small">
+								<li><strong>Common Culprits:</strong> VLC, Windows Media Player, streaming applications</li>
+								<li><strong>Solution:</strong> Close media player or stop playback</li>
+								<li><strong>Prevention:</strong> Configure players to release files after playback</li>
+							</ul>
+						</div>
+						<div class="col-md-4">
+							<h6>Document Files</h6>
+							<p class="small"><strong>Scenario:</strong> Office documents locked by applications</p>
+							<ul class="small">
+								<li><strong>Common Culprits:</strong> Microsoft Office, PDF readers, text editors</li>
+								<li><strong>Solution:</strong> Save and close documents in the application</li>
+								<li><strong>Prevention:</strong> Use "Save As" to create copies for editing</li>
+							</ul>
+						</div>
+						<div class="col-md-4">
+							<h6>Development Files</h6>
+							<p class="small"><strong>Scenario:</strong> Build outputs locked by IDEs or processes</p>
+							<ul class="small">
+								<li><strong>Common Culprits:</strong> Visual Studio, compiler processes, debug tools</li>
+								<li><strong>Solution:</strong> Stop debugging, close IDE, or terminate build processes</li>
+								<li><strong>Prevention:</strong> Use proper build cleanup and configuration</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="row mt-3">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header bg-warning text-dark">
+					<h6 class="mb-0"><i class="bi bi-exclamation-triangle me-2"></i>Advanced Troubleshooting</h6>
+				</div>
+				<div class="card-body">
+					<div class="row">
+						<div class="col-md-3">
+							<h6>Persistent Locks</h6>
+							<ul class="small">
+								<li>Restart the locking application</li>
+								<li>Check for background processes</li>
+								<li>Verify file permissions</li>
+								<li>Consider system services</li>
+							</ul>
+						</div>
+						<div class="col-md-3">
+							<h6>System Service Locks</h6>
+							<ul class="small">
+								<li>Identify the service in Administrator mode</li>
+								<li>Stop the service temporarily</li>
+								<li>Perform file operations</li>
+								<li>Restart the service if needed</li>
+							</ul>
+						</div>
+						<div class="col-md-3">
+							<h6>Network File Locks</h6>
+							<ul class="small">
+								<li>Check for remote desktop sessions</li>
+								<li>Verify network drive connections</li>
+								<li>Consider file sharing software</li>
+								<li>Review synchronization tools</li>
+							</ul>
+						</div>
+						<div class="col-md-3">
+							<h6>Multiple Process Locks</h6>
+							<ul class="small">
+								<li>Scan multiple times to identify all locks</li>
+								<li>Close processes in dependency order</li>
+								<li>Consider parent-child relationships</li>
+								<li>Monitor for automatic restart</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="alert alert-warning mt-3">
+		<h6><i class="bi bi-exclamation-triangle me-2"></i>Safety Considerations</h6>
+		<p class="small mb-2"><strong>Important Safety Guidelines:</strong></p>
+		<ul class="small mb-0">
+			<li><strong>Data Safety:</strong> Save work in applications before closing them to resolve locks</li>
+			<li><strong>System Stability:</strong> Avoid forcefully terminating critical system processes</li>
+			<li><strong>Service Impact:</strong> Understand the implications of stopping Windows services</li>
+			<li><strong>Process Dependencies:</strong> Be aware that some processes may restart automatically</li>
+		</ul>
+	</div>
+</section>
+
+<div class="alert alert-success mt-5">
+	<h6><i class="bi bi-lightbulb me-2"></i>Diagnostic Efficiency Tip</h6>
+	<p class="mb-0">The Find Opened/Locked Files tool is most effective when used proactively. Before performing bulk file operations, especially in development or system administration scenarios, run a quick scan to identify potential conflicts. This proactive approach saves time and prevents workflow interruptions.</p>
+</div>
+
+<div class="alert alert-info mt-4">
+	<h6><i class="bi bi-info-circle me-2"></i>Related System Tools</h6>
+	<p class="mb-0">Enhance your file management capabilities with related features: <a href="/Docs/ChangeFileProperties" class="text-decoration-none">Change File Properties</a>, <a href="/Docs/correctfoldertime" class="text-decoration-none">Correct Folder Date/Time</a>, and <a href="/Docs/troubleshooting-hang" class="text-decoration-none">Troubleshooting Application Hangs</a>.</p>
+</div>
 
 

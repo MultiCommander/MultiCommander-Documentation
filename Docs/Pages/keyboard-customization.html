@@ -1,40 +1,387 @@
-<h2>Customize Keyboard Shortcuts</h2>
-<p>To customize the keyboard shortcuts in Multi Commader, open <strong>Keyboard Customization</strong> under the <strong>Configuration</strong> menu.</p>
+﻿<h2>Customize Keyboard Shortcuts</h2>
 
-<p><img alt="MenuCommand" src="/Docs/Images/KeybCust_menu.png" style="width: 351px; height: 189px;" /></p>
+<p>Multi Commander's <strong>Keyboard Customization</strong> system provides complete control over keyboard shortcuts, allowing you to create a personalized interface that matches your workflow. Whether you prefer Commander-style shortcuts, Windows Explorer familiarity, or a completely custom layout, Multi Commander adapts to your preferences.</p>
 
-<p>Most of the shortcut keys in Multi Commander can be changed. The shortcuts are split up into different sections:&nbsp; each module/extension has its own list of commands, split between global and module-specific commands.</p>
-
-<p>Global commands can be called from any module. These are generally menu commands, and are available in all modules and extensions that support them. Since the commands are global within Multi Commander, shortcut keys must be unique across extensions.</p>
-
-<p>Module-specific commands are only available when that extension is currently in focus. Multiple extensions can have the same shortcut assigned.</p>
-
-<h2>Change Shortcut key</h2>
-
-<p><img alt="MenuCommand" src="/Docs/Images/KeybCust_dlg.png" style="width: 520px; height: 559px;" /></p>
-
-<p>To find the command you want to change, first select the Module it belongs to, and then choose the Category (global or module-specific).</p>
-
-<p>When you have found the command you wish to change, click to select it and then click on the Shortcut key field below the list. Press the key combination that you want to assign to the command, then press "<strong>Assign</strong>" to set the shortcut.<br />
-If the command you have chosen is already assigned the Conflicts field informs you about the conflict and which command already uses that shortcut. You need to resolve the conflict before you can assign your key combination.</p>
-
-<p>To remove a shortcut, select the command and then press the "<strong>Remove</strong>" button. Alternatively, choose a new key combination.</p>
-
-<p>"<strong>Command code</strong>" is the internal name of the command. It is used if a command should be executed from the custom command <a href="#docs_customcommands_list#mc.runcmd"><strong>MC.RunCmd</strong></a></p>
-
-<div class="dochints">
-<fieldset><legend>Tips</legend>
-
-<p>To get a list of all the shortcuts, you can export them to a text file by pressing the "Export to file" button.<br />
-If you hold <strong>SHIFT </strong>while clicking on the "Export to file" button, the exported list will also contain the internal command codes.</p>
-</fieldset>
+<div class="alert alert-primary">
+	<h6><i class="bi bi-keyboard me-2"></i>Powerful Customization</h6>
+	<p class="mb-0">Every keyboard shortcut in Multi Commander can be customized. Create your ideal workflow by assigning shortcuts that make sense to you, or choose from predefined layouts that match your experience level.</p>
 </div>
 
-<h2>References</h2>
+<nav class="navbar navbar-expand-lg navbar-light bg-light mb-4">
+	<div class="container-fluid">
+		<span class="navbar-brand">Quick Navigation</span>
+		<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#customizationNav">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="customizationNav">
+			<ul class="navbar-nav">
+				<li class="nav-item"><a class="nav-link" href="#accessing">Accessing</a></li>
+				<li class="nav-item"><a class="nav-link" href="#understanding">Understanding</a></li>
+				<li class="nav-item"><a class="nav-link" href="#customizing">Customizing</a></li>
+				<li class="nav-item"><a class="nav-link" href="#advanced">Advanced</a></li>
+				<li class="nav-item"><a class="nav-link" href="#management">Management</a></li>
+			</ul>
+		</div>
+	</div>
+</nav>
 
-<ul>
-	<li><a href="#docs_keyboard-shortcuts/CommanderStyle">Default keyboard shortcut (Commander styled setup)</a></li>
-	<li><a href="#docs_keyboard-shortcuts/WindowsExplorerStyle">Default keyboard shortcut,(Windows Explorer styled setup)</a></li>
-</ul>
+<section id="accessing">
+	<h3>Accessing Keyboard Customization</h3>
+	<p>The Keyboard Customization interface is available through Multi Commander's Configuration menu, providing centralized access to all shortcut management features.</p>
+
+	<div class="row">
+		<div class="col-md-8">
+			<div class="card">
+				<div class="card-header bg-primary text-white">
+					<h6 class="mb-0"><i class="bi bi-gear me-2"></i>Opening Keyboard Customization</h6>
+				</div>
+				<div class="card-body">
+					<ol>
+						<li>Open the <strong>Configuration</strong> menu</li>
+						<li>Select <strong>Keyboard Customization</strong></li>
+						<li>The customization dialog will open</li>
+					</ol>
+					<div class="text-center mt-3">
+						<img src="/Docs/Images/KeybCust_menu.png" alt="Keyboard Customization Menu" class="img-fluid border rounded shadow-sm" style="max-width: 351px;" />
+						<p class="text-muted small mt-2">Accessing Keyboard Customization through the Configuration menu</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-4">
+			<div class="card">
+				<div class="card-header bg-success text-white">
+					<h6 class="mb-0"><i class="bi bi-lightning me-2"></i>Quick Access</h6>
+				</div>
+				<div class="card-body">
+					<p class="small">For quick layout changes, also consider:</p>
+					<ul class="small">
+						<li><strong>Quick Look'n'Feel Setup</strong> for preset layouts</li>
+						<li><strong>Configuration → Quick Setup</strong> for common changes</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<section id="understanding" class="mt-5">
+	<h3>Understanding the Customization Interface</h3>
+	<p>The Keyboard Customization dialog organizes shortcuts by modules and categories, making it easy to find and modify specific commands.</p>
+
+	<div class="text-center my-4">
+		<img src="/Docs/Images/KeybCust_dlg.png" alt="Keyboard Customization Dialog" class="img-fluid border rounded shadow-sm" style="max-width: 520px;" />
+		<p class="text-muted small mt-2">The Keyboard Customization interface showing modules, categories, and command organization</p>
+	</div>
+
+	<div class="row">
+		<div class="col-md-6">
+			<div class="card">
+				<div class="card-header bg-primary text-white">
+					<h6 class="mb-0"><i class="bi bi-layers me-2"></i>Command Organization</h6>
+				</div>
+				<div class="card-body">
+					<h6>Module Structure</h6>
+					<ul class="small">
+						<li><strong>Core:</strong> Universal Multi Commander functions</li>
+						<li><strong>Explorer Panel:</strong> File management operations</li>
+						<li><strong>File Search:</strong> Search-specific commands</li>
+						<li><strong>Extensions:</strong> Additional functionality modules</li>
+					</ul>
+					<h6 class="mt-3">Category Types</h6>
+					<ul class="small">
+						<li><strong>Global:</strong> Work from any module</li>
+						<li><strong>Module-Specific:</strong> Only when module has focus</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-6">
+			<div class="card">
+				<div class="card-header bg-info text-white">
+					<h6 class="mb-0"><i class="bi bi-info-circle me-2"></i>Command Types Explained</h6>
+				</div>
+				<div class="card-body">
+					<h6>Global Commands</h6>
+					<p class="small">Available from any extension or module. Must have unique shortcuts across all modules to avoid conflicts.</p>
+					<h6>Module-Specific Commands</h6>
+					<p class="small">Only active when the specific module has focus. Multiple modules can use the same shortcuts for different commands.</p>
+					<div class="alert alert-warning p-2 mt-3">
+						<p class="small mb-0"><strong>Note:</strong> Global commands take priority over module-specific ones when conflicts occur.</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<section id="customizing" class="mt-5">
+	<h3>Customizing Shortcuts</h3>
+	<p>Modifying keyboard shortcuts is straightforward, with built-in conflict detection and resolution to ensure a smooth customization experience.</p>
+
+	<div class="row">
+		<div class="col-md-6">
+			<div class="card">
+				<div class="card-header bg-success text-white">
+					<h6 class="mb-0"><i class="bi bi-plus-circle me-2"></i>Assigning New Shortcuts</h6>
+				</div>
+				<div class="card-body">
+					<ol class="small">
+						<li><strong>Select Module:</strong> Choose the appropriate module from the dropdown</li>
+						<li><strong>Choose Category:</strong> Select Global or Module-specific</li>
+						<li><strong>Find Command:</strong> Locate the command you want to modify</li>
+						<li><strong>Click Shortcut Field:</strong> Click in the shortcut key field below the list</li>
+						<li><strong>Press Keys:</strong> Press your desired key combination</li>
+						<li><strong>Assign:</strong> Click the "Assign" button to set the shortcut</li>
+					</ol>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-6">
+			<div class="card">
+				<div class="card-header bg-warning text-dark">
+					<h6 class="mb-0"><i class="bi bi-exclamation-triangle me-2"></i>Conflict Resolution</h6>
+				</div>
+				<div class="card-body">
+					<h6>Handling Conflicts</h6>
+					<ul class="small">
+						<li>The <strong>Conflicts</strong> field shows existing assignments</li>
+						<li>Resolve conflicts before assigning new shortcuts</li>
+						<li>Consider whether the conflict is problematic</li>
+						<li>Reassign conflicting shortcuts if necessary</li>
+					</ul>
+					<div class="alert alert-info p-2 mt-3">
+						<p class="small mb-0"><strong>Tip:</strong> Module-specific conflicts are often acceptable if modules aren't used simultaneously.</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="row mt-3">
+		<div class="col-md-6">
+			<div class="card">
+				<div class="card-header bg-danger text-white">
+					<h6 class="mb-0"><i class="bi bi-trash me-2"></i>Removing Shortcuts</h6>
+				</div>
+				<div class="card-body">
+					<h6>Removal Methods</h6>
+					<ul class="small">
+						<li><strong>Remove Button:</strong> Select command and click "Remove"</li>
+						<li><strong>Reassign:</strong> Assign a new shortcut to replace the old one</li>
+						<li><strong>Clear Field:</strong> Clear the shortcut field and assign empty</li>
+					</ul>
+					<p class="small mt-3"><strong>Note:</strong> Commands without shortcuts can still be accessed through menus or custom commands.</p>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-6">
+			<div class="card">
+				<div class="card-header bg-info text-white">
+					<h6 class="mb-0"><i class="bi bi-code me-2"></i>Command Codes</h6>
+				</div>
+				<div class="card-body">
+					<h6>Internal Command Names</h6>
+					<p class="small">Each command has an internal <strong>Command Code</strong> used for:</p>
+					<ul class="small">
+						<li>Custom command scripting</li>
+						<li>Button panel configuration</li>
+						<li>Automation through <code>MC.RunCmd</code></li>
+						<li>Extension development</li>
+					</ul>
+					<p class="small mt-3"><strong>Example:</strong> <code>MC.Explorer.CopyFiles</code></p>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<section id="advanced" class="mt-5">
+	<h3>Advanced Customization Features</h3>
+	<p>Multi Commander provides advanced tools for power users who need sophisticated keyboard management capabilities.</p>
+
+	<div class="row">
+		<div class="col-md-6">
+			<div class="card">
+				<div class="card-header bg-primary text-white">
+					<h6 class="mb-0"><i class="bi bi-download me-2"></i>Export Functionality</h6>
+				</div>
+				<div class="card-body">
+					<h6>Export Options</h6>
+					<ul class="small">
+						<li><strong>Standard Export:</strong> Click "Export to file" for shortcut list</li>
+						<li><strong>Extended Export:</strong> Hold <kbd>Shift</kbd> + Click for command codes</li>
+						<li><strong>Documentation:</strong> Create reference materials</li>
+						<li><strong>Backup:</strong> Save your customizations</li>
+					</ul>
+					<div class="alert alert-success p-2 mt-3">
+						<p class="small mb-0"><strong>Pro Tip:</strong> Export before major changes to create a backup of your current configuration.</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-6">
+			<div class="card">
+				<div class="card-header bg-success text-white">
+					<h6 class="mb-0"><i class="bi bi-share me-2"></i>Configuration Sharing</h6>
+				</div>
+				<div class="card-body">
+					<h6>Sharing Setups</h6>
+					<ul class="small">
+						<li><strong>Team Consistency:</strong> Share configurations across teams</li>
+						<li><strong>Multiple Machines:</strong> Sync settings between computers</li>
+						<li><strong>Backup Strategy:</strong> Save configurations to cloud storage</li>
+						<li><strong>Version Control:</strong> Track changes to your setup</li>
+					</ul>
+					<p class="small mt-3"><strong>Note:</strong> Exported files are plain text and can be version controlled.</p>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="row mt-3">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header bg-dark text-white">
+					<h6 class="mb-0"><i class="bi bi-cpu me-2"></i>Automation Integration</h6>
+				</div>
+				<div class="card-body">
+					<div class="row">
+						<div class="col-md-4">
+							<h6>MC.RunCmd Integration</h6>
+							<p class="small">Use command codes with the <code>MC.RunCmd</code> custom command:</p>
+							<pre class="bg-light p-2 rounded small"><code>MC.RunCmd CMD="MC.Explorer.CopyFiles"</code></pre>
+						</div>
+						<div class="col-md-4">
+							<h6>Button Panel Setup</h6>
+							<p class="small">Create custom buttons using command codes:</p>
+							<ul class="small">
+								<li>Right-click button to edit</li>
+								<li>Enter command code</li>
+								<li>Assign custom icons</li>
+							</ul>
+						</div>
+						<div class="col-md-4">
+							<h6>Scripting Support</h6>
+							<p class="small">MultiScript can execute commands:</p>
+							<ul class="small">
+								<li>Call any internal command</li>
+								<li>Create complex workflows</li>
+								<li>Automate repetitive tasks</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<section class="mt-5">
+	<h3>Predefined Keyboard Layouts</h3>
+	<p>Multi Commander includes several predefined layouts to suit different user preferences and experience levels.</p>
+
+	<div class="row">
+		<div class="col-md-4">
+			<div class="card">
+				<div class="card-header bg-primary text-white">
+					<h6 class="mb-0"><i class="bi bi-folder me-2"></i>Commander-Style</h6>
+				</div>
+				<div class="card-body">
+					<ul class="small">
+						<li><strong>Target Users:</strong> Classic file manager users</li>
+						<li><strong>Inspiration:</strong> Norton Commander layout</li>
+						<li><strong>Key Features:</strong> Function key driven</li>
+						<li><strong>Best For:</strong> Power users and keyboard enthusiasts</li>
+					</ul>
+					<a href="/Docs/keyboard-shortcuts/CommanderStyle" class="btn btn-sm btn-outline-primary">View Layout</a>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-4">
+			<div class="card">
+				<div class="card-header bg-success text-white">
+					<h6 class="mb-0"><i class="bi bi-windows me-2"></i>Windows Explorer-Style</h6>
+				</div>
+				<div class="card-body">
+					<ul class="small">
+						<li><strong>Target Users:</strong> Windows Explorer users</li>
+						<li><strong>Inspiration:</strong> Windows conventions</li>
+						<li><strong>Key Features:</strong> Familiar shortcuts</li>
+						<li><strong>Best For:</strong> Easy transition to Multi Commander</li>
+					</ul>
+					<a href="/Docs/keyboard-shortcuts/WindowsExplorerStyle" class="btn btn-sm btn-outline-success">View Layout</a>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-4">
+			<div class="card">
+				<div class="card-header bg-info text-white">
+					<h6 class="mb-0"><i class="bi bi-person me-2"></i>Custom Layout</h6>
+				</div>
+				<div class="card-body">
+					<ul class="small">
+						<li><strong>Target Users:</strong> Specific workflow needs</li>
+						<li><strong>Inspiration:</strong> Your preferences</li>
+						<li><strong>Key Features:</strong> Fully customizable</li>
+						<li><strong>Best For:</strong> Unique requirements</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<section class="mt-5">
+	<h3>Quick Reference</h3>
+	<p>Essential information for effective keyboard customization workflow.</p>
+
+	<div class="row">
+		<div class="col-md-6">
+			<div class="card">
+				<div class="card-header bg-dark text-white">
+					<h6 class="mb-0"><i class="bi bi-keyboard me-2"></i>Key Notation</h6>
+				</div>
+				<div class="card-body">
+					<table class="table table-sm">
+						<tbody>
+							<tr>
+								<td><kbd>Ctrl</kbd></td>
+								<td>Control key</td>
+							</tr>
+							<tr>
+								<td><kbd>Alt</kbd></td>
+								<td>Alternate key</td>
+							</tr>
+							<tr>
+								<td><kbd>Shift</kbd></td>
+								<td>Shift key</td>
+							</tr>
+							<tr>
+								<td><kbd>F1</kbd>-<kbd>F12</kbd></td>
+								<td>Function keys</td>
+							</tr>
+							<tr>
+								<td><kbd>Num</kbd></td>
+								<td>Numeric keypad</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+
+	</div>
+</section>
+
+<div class="alert alert-success mt-5">
+	<h6><i class="bi bi-lightbulb me-2"></i>Customization Tip</h6>
+	<p class="mb-0">Start with a predefined layout that's close to your preference, then make small modifications. This approach is more efficient than creating a completely custom layout from scratch.</p>
+</div>
+
+<div class="alert alert-info mt-4">
+	<h6><i class="bi bi-info-circle me-2"></i>Related Documentation</h6>
+	<p class="mb-0">For specific shortcut references and layout comparisons, see <a href="/Docs/keyboard-shortcuts/CommanderStyle" class="text-decoration-none">Commander-Style Shortcuts</a> and <a href="/Docs/keyboard-shortcuts/WindowsExplorerStyle" class="text-decoration-none">Windows Explorer-Style Shortcuts</a>.</p>
+</div>
 
 

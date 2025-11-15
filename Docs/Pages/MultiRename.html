@@ -1,185 +1,624 @@
-<h2>MultiRename</h2>
-<p>&nbsp;</p>
+﻿<h2>MultiRename - Advanced Batch File Renaming Extension</h2>
 
-<p><img alt="" src="/Docs/Images/MultiRename2.png" /></p>
+<p>The <strong>MultiRename Extension</strong> provides sophisticated batch renaming capabilities through a powerful rule-based system that enables users to rename multiple files and folders simultaneously using complex rename patterns, metadata extraction, and intelligent text manipulation. This advanced renaming tool supports dynamic content insertion from file properties, sequential numbering, date/time stamps, and comprehensive search-and-replace operations that transform basic filename modifications into sophisticated file organization workflows for enhanced productivity and systematic file management.</p>
 
-<h3>Overview</h3>
+<div class="alert alert-primary">
+	<h6><i class="bi bi-files me-2"></i>Advanced Batch Renaming System</h6>
+	<p class="mb-0">Experience powerful batch renaming through intelligent rule creation that combines filename manipulation, metadata extraction, sequential numbering, and date/time insertion. The MultiRename extension transforms complex renaming requirements into simple rule-based operations that support undo functionality, rule templates, and comprehensive file property integration for sophisticated file organization and management workflows.</p>
+</div>
 
-<p>With MultiRename you can rename multiple files or folders by creating a <em>rename rule</em>.</p>
+<nav class="navbar navbar-expand-lg navbar-light bg-light mb-4">
+	<div class="container-fluid">
+		<span class="navbar-brand">Quick Navigation</span>
+		<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#multiRenameNav">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="multiRenameNav">
+			<ul class="navbar-nav">
+				<li class="nav-item"><a class="nav-link" href="#overview">Overview</a></li>
+				<li class="nav-item"><a class="nav-link" href="#tag-reference">Complete Tag Reference</a></li>
+				<li class="nav-item"><a class="nav-link" href="#tag-parameters">Tag Parameters</a></li>
+				<li class="nav-item"><a class="nav-link" href="#practical-examples">Practical Examples</a></li>
+				<li class="nav-item"><a class="nav-link" href="#workflow-integration">Workflow Integration</a></li>
+			</ul>
+		</div>
+	</div>
+</nav>
 
-<p>You can easily select part of the existing file name, add text, replace characters or words, insert file property data in the file name, (eg. Date, Exif information for photos and much more )</p>
+<section id="overview">
+	<h3>MultiRename Extension Overview</h3>
+	<p>MultiRename provides comprehensive batch renaming functionality through an intuitive rule-based interface that enables complex filename transformations, metadata integration, and systematic file organization through powerful pattern matching and content insertion capabilities.</p>
 
-<p><em>Undo</em> information is also saved so that if you rename files incorrectly or rename too many files by mistake, you can easily load a previously-renamed session and undo it.</p>
+	<div class="row">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header bg-info text-white">
+					<h6 class="mb-0"><i class="bi bi-window me-2"></i>MultiRename Interface</h6>
+				</div>
+				<div class="card-body">
+					<div class="text-center mt-3 mb-3">
+						<img src="/Docs/Images/MultiRename2.png" alt="MultiRename Extension Interface" class="img-fluid border rounded shadow-sm" />
+						<p class="text-muted small mt-2">MultiRename extension showing rule creation interface with tag insertion and preview capabilities</p>
+					</div>
 
-<p>If you are perform the same MultiRename many times you can save the rules and then load them when you need them again.</p>
+					<h6>Core Functionality</h6>
+					<ul class="small">
+						<li><strong>Rule-Based Renaming:</strong> Create complex rename patterns using tag-based rule system</li>
+						<li><strong>Batch Processing:</strong> Rename multiple files and folders simultaneously</li>
+						<li><strong>Metadata Integration:</strong> Extract and insert file properties, EXIF data, and system information</li>
+						<li><strong>Undo Support:</strong> Complete undo functionality for safe batch operations</li>
+					</ul>
 
-<h3>Rename Rules</h3>
+					<h6>Advanced Features</h6>
+					<ul class="small">
+						<li><strong>Dynamic Content:</strong> Insert file properties, dates, counters, and calculated values</li>
+						<li><strong>Text Manipulation:</strong> Substring extraction, character replacement, and pattern matching</li>
+						<li><strong>Rule Templates:</strong> Save and load commonly used rename rules</li>
+						<li><strong>Preview Functionality:</strong> Preview results before applying changes</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
 
-<p>By inserting different tags you will insert different text parts into the name.<br />
-Pressing the [&lt;] button next to the filename and file extension field will show a list of the most common tags you can use. If you press "Plugin and more..." you will see a list of all the extended tags you can add.</p>
+	<div class="row mt-3">
+		<div class="col-md-6">
+			<div class="card">
+				<div class="card-header bg-success text-white">
+					<h6 class="mb-0"><i class="bi bi-shield-check me-2"></i>Safety and Reliability</h6>
+				</div>
+				<div class="card-body">
+					<h6>Undo Protection</h6>
+					<ul class="small">
+						<li><strong>Complete Undo Information:</strong> Detailed session tracking for all rename operations</li>
+						<li><strong>Session Recovery:</strong> Load and undo previously completed rename sessions</li>
+						<li><strong>Mistake Protection:</strong> Easily reverse incorrect or excessive rename operations</li>
+						<li><strong>Safe Operation:</strong> Confidence in performing large-scale batch operations</li>
+					</ul>
 
-<p>You also can specify parameters in the tag. The parameters determine which part of the tag text will be inserted.</p>
+					<h6>Preview and Validation</h6>
+					<ul class="small">
+						<li><strong>Result Preview:</strong> See rename results before applying changes</li>
+						<li><strong>Rule Validation:</strong> Verify rule syntax and expected outcomes</li>
+						<li><strong>Conflict Detection:</strong> Identify potential naming conflicts before processing</li>
+						<li><strong>Error Prevention:</strong> Reduce mistakes through comprehensive preview functionality</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-6">
+			<div class="card">
+				<div class="card-header bg-warning text-dark">
+					<h6 class="mb-0"><i class="bi bi-arrow-repeat me-2"></i>Rule Templates and Reusability</h6>
+				</div>
+				<div class="card-body">
+					<h6>Template Management</h6>
+					<ul class="small">
+						<li><strong>Rule Saving:</strong> Save frequently used rename patterns as templates</li>
+						<li><strong>Rule Loading:</strong> Quickly apply saved rules to new file sets</li>
+						<li><strong>Workflow Automation:</strong> Streamline repetitive renaming tasks</li>
+						<li><strong>Pattern Library:</strong> Build collection of specialized rename patterns</li>
+					</ul>
 
-<table class="table">
-	<tbody>
-		<tr>
-			<td>[&lt;tag&gt;]</td>
-			<td>Insert the complete text from the tag</td>
-		</tr>
-		<tr>
-			<td>[&lt;tag&gt;&lt;num&gt;]</td>
-			<td>Insert the first specified number of characters from the tag.<br />
-			Example [N4] will insert the first 4 letters of the filename</td>
-		</tr>
-		<tr>
-			<td>[&lt;tag&gt;,&lt;num&gt;]</td>
-			<td>(same as above)<br />
-			Insert the first specified number of characters from the tag.<br />
-			Example [N4] will insert the first 4 letters of the filename.</td>
-		</tr>
-		<tr>
-			<td>&lt;tag&gt;,&lt;FromPos&gt; ,&lt;Length&gt;]</td>
-			<td>Insert the text from position "FromPos" of the tag data. But with a max length of &lt;Length&gt;&nbsp; Example [N,3,4] - If filename is "MyFile" then it will insert "File"</td>
-		</tr>
-	</tbody>
-</table>
+					<h6>Efficiency Benefits</h6>
+					<ul class="small">
+						<li><strong>Repeated Operations:</strong> Eliminate rule recreation for common tasks</li>
+						<li><strong>Consistency:</strong> Maintain naming conventions across projects</li>
+						<li><strong>Time Savings:</strong> Rapid application of complex rename rules</li>
+						<li><strong>Standardization:</strong> Ensure consistent file naming across teams</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
 
-<hr />
-<h3>Special tag - Counter [C]</h3>
+<section id="tag-reference" class="mt-5">
+	<h3>Complete Tag Reference</h3>
+	<p>The MultiRename tag system provides comprehensive access to file properties, system information, and dynamic content through a unified tag-based approach. All tags are accessed through button controls or can be typed directly into rename rules.</p>
 
-<p>There are some special tags that works a bit differently. The counter tag [C] is one of them. By default it is controlled by the counter option specified in Multi-Rename window. But you can override that by using tag parameters.</p>
+	<div class="row">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header bg-primary text-white">
+					<h6 class="mb-0"><i class="bi bi-list-ul me-2"></i>Tag Access Methods</h6>
+				</div>
+				<div class="card-body">
+					<h6>Tag Insertion System</h6>
+					<ul class="small">
+						<li><strong>Button Access:</strong> Press [&lt;] button next to filename field for common tag list</li>
+						<li><strong>Extended Tags:</strong> "Plugin and more..." option provides access to complete tag library</li>
+						<li><strong>Direct Entry:</strong> Type tags directly using proper syntax and parameters</li>
+						<li><strong>Parameter Support:</strong> All tags accept parameters for content extraction and formatting</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
 
-<table class="table">
-	<tbody>
-		<tr>
-			<td>[C]</td>
-			<td>Insert a default counter tag</td>
-		</tr>
-		<tr>
-			<td>[C,&lt;startnum&gt;,&lt;inc&gt;]</td>
-			<td>Insert a default counter tag that will start counting at &lt;startnum&gt; and increment the value by &lt;inc&gt; for every file<br />
-			Example [C,10,2] - will start at 10 and increment the value with 2 so you will get 10,12,14,16</td>
-		</tr>
-		<tr>
-			<td>[C,&lt;startnum&gt;,&lt;inc&gt;,&lt;digits&gt;]</td>
-			<td>the two first parameters work as above, &lt;digits&gt; let you specify how many digits you want to have as a minimum<br />
-			Example[C,10,2,3] - will start with 10, but since digits are 3 you will get 010 , 012, 014</td>
-		</tr>
-	</tbody>
-</table>
+	<div class="row mt-3">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header bg-dark text-white">
+					<h6 class="mb-0"><i class="bi bi-tags me-2"></i>Complete Tag Library</h6>
+				</div>
+				<div class="card-body">
+					<div class="table-responsive">
+						<table class="table table-bordered table-hover">
+							<thead class="table-light">
+								<tr>
+									<th style="width: 25%">Tag Category</th>
+									<th style="width: 25%">Tag</th>
+									<th style="width: 50%">Description</th>
+								</tr>
+							</thead>
+							<tbody>
+								<!-- Basic File Tags -->
+								<tr class="table-info">
+									<td rowspan="4"><strong>Basic File Tags</strong></td>
+									<td><code>[N]</code></td>
+									<td>Original filename (without extension)</td>
+								</tr>
+								<tr>
+									<td><code>[E]</code></td>
+									<td>File extension</td>
+								</tr>
+								<tr>
+									<td><code>[P]</code></td>
+									<td>Full file path</td>
+								</tr>
+								<tr>
+									<td><code>[F]</code></td>
+									<td>Complete filename with extension</td>
+								</tr>
+								
+								<!-- Special Function Tags -->
+								<tr class="table-warning">
+									<td rowspan="1"><strong>Counter Tag</strong></td>
+									<td><code>[C]</code></td>
+									<td>Sequential counter with customizable start, increment, and digits<br />
+									<small class="text-muted">Supports parameters: [C,start,increment,digits]</small></td>
+								</tr>
+								
+								<!-- Current Date/Time Tags -->
+								<tr class="table-success">
+									<td rowspan="6"><strong>Current Date/Time</strong></td>
+									<td><code>[Y]</code></td>
+									<td>Current year (4-digit: 2024, or 2-digit with [Y,2]: 24)</td>
+								</tr>
+								<tr>
+									<td><code>[M]</code></td>
+									<td>Current month (1-12, or zero-padded with [M,2]: 01-12)</td>
+								</tr>
+								<tr>
+									<td><code>[D]</code></td>
+									<td>Current day (1-31, or zero-padded with [D,2]: 01-31)</td>
+								</tr>
+								<tr>
+									<td><code>[h]</code></td>
+									<td>Current hour (0-23, or zero-padded with [h,2]: 00-23)</td>
+								</tr>
+								<tr>
+									<td><code>[m]</code></td>
+									<td>Current minutes (0-59, or zero-padded with [m,2]: 00-59)</td>
+								</tr>
+								<tr>
+									<td><code>[s]</code></td>
+									<td>Current seconds (0-59, or zero-padded with [s,2]: 00-59)</td>
+								</tr>
+								
+								<!-- File Property Tags (Plugin-based) -->
+								<tr class="table-light">
+									<td rowspan="10"><strong>File Properties<br />(Plugin Tags)</strong><br /><small class="text-muted">All start with ?</small></td>
+									<td><code>[?ExtendedProp.datecreate]</code></td>
+									<td>File creation date/time<br />
+									<small class="text-muted">Supports custom formatting: [?ExtendedProp.datecreate-{yyyy-MM-dd|HHmmss}]</small></td>
+								</tr>
+								<tr>
+									<td><code>[?ExtendedProp.datemodify]</code></td>
+									<td>File modification date/time<br />
+									<small class="text-muted">Supports custom formatting like datecreate</small></td>
+								</tr>
+								<tr>
+									<td><code>[?ExtendedProp.dateaccess]</code></td>
+									<td>File last access date/time<br />
+									<small class="text-muted">Supports custom formatting like datecreate</small></td>
+								</tr>
+								<tr>
+									<td><code>[?ExtendedProp.size]</code></td>
+									<td>File size in bytes</td>
+								</tr>
+								<tr>
+									<td><code>[?ExtendedProp.attributes]</code></td>
+									<td>File attributes (Hidden, ReadOnly, etc.)</td>
+								</tr>
+								<tr>
+									<td><code>[?PictureProp.width]</code></td>
+									<td>Image width in pixels</td>
+								</tr>
+								<tr>
+									<td><code>[?PictureProp.height]</code></td>
+									<td>Image height in pixels</td>
+								</tr>
+								<tr>
+									<td><code>[?PictureProp.exifdate]</code></td>
+									<td>EXIF date from image metadata<br />
+									<small class="text-muted">Camera capture date</small></td>
+								</tr>
+								<tr>
+									<td><code>[?PictureProp.camera]</code></td>
+									<td>Camera make and model from EXIF</td>
+								</tr>
+								<tr>
+									<td><code>[?PictureProp.gps]</code></td>
+									<td>GPS coordinates from EXIF data</td>
+								</tr>
+								
+								<!-- Audio Property Tags -->
+								<tr class="table-secondary">
+									<td rowspan="6"><strong>Audio Properties<br />(Plugin Tags)</strong></td>
+									<td><code>[?MCAudioProp.artist]</code></td>
+									<td>Audio file artist name</td>
+								</tr>
+								<tr>
+									<td><code>[?MCAudioProp.album]</code></td>
+									<td>Audio file album name</td>
+								</tr>
+								<tr>
+									<td><code>[?MCAudioProp.title]</code></td>
+									<td>Audio file track title</td>
+								</tr>
+								<tr>
+									<td><code>[?MCAudioProp.genre]</code></td>
+									<td>Audio file genre</td>
+								</tr>
+								<tr>
+									<td><code>[?MCAudioProp.year]</code></td>
+									<td>Audio file year</td>
+								</tr>
+								<tr>
+									<td><code>[?MCAudioProp.duration]</code></td>
+									<td>Audio file duration/length</td>
+								</tr>
+								
+								<!-- Document Property Tags -->
+								<tr class="table-info">
+									<td rowspan="4"><strong>Document Properties<br />(Plugin Tags)</strong></td>
+									<td><code>[?DocumentProp.author]</code></td>
+									<td>Document author</td>
+								</tr>
+								<tr>
+									<td><code>[?DocumentProp.title]</code></td>
+									<td>Document title</td>
+								</tr>
+								<tr>
+									<td><code>[?DocumentProp.subject]</code></td>
+									<td>Document subject</td>
+								</tr>
+								<tr>
+									<td><code>[?DocumentProp.keywords]</code></td>
+									<td>Document keywords/tags</td>
+								</tr>
+								
+								<!-- Video Property Tags -->
+								<tr class="table-warning">
+									<td rowspan="4"><strong>Video Properties<br />(Plugin Tags)</strong></td>
+									<td><code>[?VideoProp.width]</code></td>
+									<td>Video width in pixels</td>
+								</tr>
+								<tr>
+									<td><code>[?VideoProp.height]</code></td>
+									<td>Video height in pixels</td>
+								</tr>
+								<tr>
+									<td><code>[?VideoProp.duration]</code></td>
+									<td>Video duration/length</td>
+								</tr>
+								<tr>
+									<td><code>[?VideoProp.framerate]</code></td>
+									<td>Video frame rate (FPS)</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
 
-<hr />
-<h3>Special tag - Current Date/Time [Y],[M],...</h3>
+					<div class="alert alert-warning p-2 mt-3">
+						<h6 class="small mb-1"><i class="bi bi-exclamation-triangle me-1"></i>Plugin Tag Important Notes</h6>
+						<ul class="small mb-0">
+							<li><strong>Prefix Requirement:</strong> All plugin tags must start with <code>?</code> prefix</li>
+							<li><strong>Character Safety:</strong> Date/time plugin tags may return invalid filename characters (like :) - use Search/Replace section</li>
+							<li><strong>Custom Formatting:</strong> Date/time tags support custom formatting: <code>-{dateformat|timeformat}</code></li>
+							<li><strong>Availability:</strong> Plugin tags only work when corresponding plugins are installed and enabled</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
 
-<p>Another special tag is the date/time tags. They will give you the date/time elements of the current time.</p>
+<section id="tag-parameters" class="mt-5">
+	<h3>Tag Parameters and Advanced Formatting</h3>
+	<p>All tags support parameters for precise content extraction, substring manipulation, and custom formatting that enable sophisticated filename construction and content control.</p>
 
-<table class="table">
-	<tbody>
-		<tr>
-			<td>[Y]</td>
-			<td>Insert current year as 4 digits, eg. 2016</td>
-		</tr>
-		<tr>
-			<td>[Y,2]</td>
-			<td>Insert current year as 2 digits, eg. 16</td>
-		</tr>
-		<tr>
-			<td>[M]<br />
-			[D]<br />
-			[h]<br />
-			[m]<br />
-			[s]</td>
-			<td>Inserts Day, Month, hour, minutes, second of the current time.<br />
-			Month and days will be inserted as digits. If the month is April it will insert 4</td>
-		</tr>
-		<tr>
-			<td>[M,&lt;digits&gt;]<br />
-			[D,&lt;digits&gt;]<br />
-			[h,&lt;digits&gt;]<br />
-			[m,&lt;digits&gt;]<br />
-			[s,&lt;digits&gt;]</td>
-			<td>Inserts Day, Month, hour, minutes, second of current time.<br />
-			It will insert a minimum of specified digits. If month is 4 it and &lt;digits&gt; is set to 2 it will be inserted as 04</td>
-		</tr>
-	</tbody>
-</table>
+	<div class="row">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header bg-primary text-white">
+					<h6 class="mb-0"><i class="bi bi-gear me-2"></i>Universal Tag Parameter System</h6>
+				</div>
+				<div class="card-body">
+					<div class="table-responsive">
+						<table class="table table-bordered table-hover">
+							<thead class="table-light">
+								<tr>
+									<th style="width: 35%">Parameter Format</th>
+									<th style="width: 65%">Description and Examples</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td><code>[&lt;tag&gt;]</code></td>
+									<td>Insert the complete text from the tag<br />
+									<small class="text-muted">Example: <code>[N]</code> inserts full filename</small></td>
+								</tr>
+								<tr>
+									<td><code>[&lt;tag&gt;&lt;num&gt;]</code></td>
+									<td>Insert the first specified number of characters from the tag<br />
+									<small class="text-muted">Example: <code>[N4]</code> inserts first 4 letters of filename</small></td>
+								</tr>
+								<tr>
+									<td><code>[&lt;tag&gt;,&lt;num&gt;]</code></td>
+									<td>Alternative syntax for first N characters<br />
+									<small class="text-muted">Example: <code>[N,4]</code> same as [N4]</small></td>
+								</tr>
+								<tr>
+									<td><code>[&lt;tag&gt;,&lt;FromPos&gt;,&lt;Length&gt;]</code></td>
+									<td>Insert text from specific position with maximum length<br />
+									<small class="text-muted">Example: <code>[N,3,4]</code> from "MyFile" returns "File"</small></td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 
-<hr />
-<h3>Special tag - Date/Time property from Plugin.</h3>
+	<div class="row mt-3">
+		<div class="col-md-6">
+			<div class="card">
+				<div class="card-header bg-warning text-dark">
+					<h6 class="mb-0"><i class="bi bi-123 me-2"></i>Counter Tag Special Parameters</h6>
+				</div>
+				<div class="card-body">
+					<div class="table-responsive">
+						<table class="table table-sm table-bordered">
+							<thead class="table-light">
+								<tr>
+									<th>Counter Format</th>
+									<th>Result</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td><code>[C]</code></td>
+									<td>Default counter settings</td>
+								</tr>
+								<tr>
+									<td><code>[C,10,2]</code></td>
+									<td>Start: 10, Increment: 2<br />
+									<small class="text-muted">10, 12, 14, 16...</small></td>
+								</tr>
+								<tr>
+									<td><code>[C,10,2,3]</code></td>
+									<td>Start: 10, Increment: 2, 3 digits<br />
+									<small class="text-muted">010, 012, 014, 016...</small></td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
 
-<p>If you want the file date/time then you need to select a tag from the plug-in list, for example the [?ExtendedProp.datecreate] tag.<br />
-(Note that all plug-in tags starts with a ?)</p>
+					<h6>Counter Applications</h6>
+					<ul class="small">
+						<li><strong>Sequential Files:</strong> Number file series systematically</li>
+						<li><strong>Batch Processing:</strong> Track processing order</li>
+						<li><strong>Archive Organization:</strong> Version and backup numbering</li>
+						<li><strong>Zero Padding:</strong> Maintain consistent filename lengths</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-6">
+			<div class="card">
+				<div class="card-header bg-info text-white">
+					<h6 class="mb-0"><i class="bi bi-calendar-date me-2"></i>Date/Time Custom Formatting</h6>
+				</div>
+				<div class="card-body">
+					<h6>Plugin Date/Time Custom Formatting</h6>
+					<div class="table-responsive">
+						<table class="table table-sm table-bordered">
+							<thead class="table-light">
+								<tr>
+									<th>Format</th>
+									<th>Example</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td><code>[?ExtendedProp.datecreate-{yyyy-MM-dd}]</code></td>
+									<td>2024-03-15</td>
+								</tr>
+								<tr>
+									<td><code>[?ExtendedProp.datecreate-{|HHmmss}]</code></td>
+									<td>143022</td>
+								</tr>
+								<tr>
+									<td><code>[?ExtendedProp.datecreate-{yyyyMMdd|HHmmss}]</code></td>
+									<td>20240315 143022</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
 
-<p>All file properties from plugi-ns that return a date/time will return the date/time formatted using system settings.<br />
-This can be a problem since if time is returned as <b>12:22:22</b> the rename will fail since ":" is an invalid character for filenames.<br />
-You then need to replace the : with some other character (or blank) in the <b>Search and Replace</b> section in the MultiRename windows.</p>
+					<h6>Format Pattern References</h6>
+					<ul class="small">
+						<li><strong>Date Patterns:</strong> yyyy, yy, MM, dd, MMM, MMMM</li>
+						<li><strong>Time Patterns:</strong> HH, hh, mm, ss, tt</li>
+						<li><strong>External References:</strong> 
+							<a href="http://msdn.microsoft.com/en-us/library/windows/desktop/dd317787(v=vs.85).aspx" class="text-decoration-none" target="_blank">Date Formatting</a>, 
+							<a href="http://msdn.microsoft.com/en-us/library/windows/desktop/dd318148(v=vs.85).aspx" class="text-decoration-none" target="_blank">Time Formatting</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
 
-<p>You can also specify a custom date and time formatting for the tag.</p>
+<section id="practical-examples" class="mt-5">
+	<h3>Practical Examples and Use Cases</h3>
+	<p>Real-world examples demonstrate how MultiRename rules combine multiple tags, parameters, and formatting options to achieve sophisticated filename transformations for various file organization and management scenarios.</p>
 
-<table class="table">
-	<tbody>
-		<tr>
-			<td width="350">[?ExtendedProp.datecreate]</td>
-			<td>Insert current date/time from this date/time file property. <bt>The date/time is formated using current system settings, so it might return 2013-03-03 08:23:23 (see warning above)<br />
-			Make sure you replace invalid characters in "Search and Replace" or you might get rename problems.</bt></td>
-		</tr>
-		<tr>
-			<td width="350">[?ExtendedProp.datecreate-{dateformat|timeformat}]</td>
-			<td>Insert current date/time from this date/time file property using a custom date/time formatting<br />
-			Example: [?ExtendedProp.datecreate-{yyyy-MM-dd|HHmmss}]</td>
-		</tr>
-		<tr>
-			<td width="350">[?ExtendedProp.datecreate-{dateformat}]</td>
-			<td>Insert only the date part using custom date formatting<br />
-			Example: [?ExtendedProp.datecreate-{yyyy-MM-dd}]</td>
-		</tr>
-		<tr>
-			<td width="350">[?ExtendedProp.datecreate-{|timeformat}]</td>
-			<td>Insert only the time part using custom time formatting<br />
-			Example: [?ExtendedProp.datecreate-{|HHmmss}]<br />
-			(Do not forget the | before the time format.)</td>
-		</tr>
-		<tr>
-			<td width="350">[?Ex...datecreate-{dateformat|timeformat},&lt;FromPos&gt;,&lt;Length&gt;]</td>
-			<td>You can still use the FromPos and Length parameters<br />
-			Example: [?ExtendedProp.datecreate-{yyyy-MM-dd|HHmmss},1,5]</td>
-		</tr>
-	</tbody>
-</table>
+	<div class="row">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header bg-dark text-white">
+					<h6 class="mb-0"><i class="bi bi-code-square me-2"></i>Comprehensive Rename Examples</h6>
+				</div>
+				<div class="card-body">
+					<div class="table-responsive">
+						<table class="table table-bordered table-hover">
+							<thead class="table-light">
+								<tr>
+									<th style="width: 25%">Rename Rules</th>
+									<th style="width: 35%">Original Filenames</th>
+									<th style="width: 40%">Renamed Results</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td><strong>File:</strong> <code>Pre-[N,2,4]-[C,1,2,3]-X</code><br />
+									<strong>Ext:</strong> <code>[E]</code></td>
+									<td><code>Done.txt</code><br />
+									<code>MyFile.txt</code><br />
+									<code>Todo.txt</code></td>
+									<td><code>Pre-one-001-X.txt</code><br />
+									<code>Pre-yFil-003-X.txt</code><br />
+									<code>Pre-odo-005-X.txt</code></td>
+								</tr>
+								<tr>
+									<td><strong>File:</strong> <code>[C] - [N] - [?MCAudioProp.genre]</code><br />
+									<strong>Ext:</strong> <code>[E]</code></td>
+									<td><code>Song A.mp3</code><br />
+									<code>Song B.mp3</code><br />
+									<code>Song C.mp3</code></td>
+									<td><code>01 - Song A - Trance.mp3</code><br />
+									<code>02 - Song B - Pop.mp3</code><br />
+									<code>03 - Song C - House.mp3</code></td>
+								</tr>
+								<tr>
+									<td><strong>File:</strong> <code>[?ExtendedProp.datecreate-{yyyyMMdd}]_[C,1,1,3]_[?PictureProp.width]x[?PictureProp.height]</code><br />
+									<strong>Ext:</strong> <code>[E]</code></td>
+									<td><code>IMG_1234.jpg</code><br />
+									<code>DSC_5678.jpg</code></td>
+									<td><code>20240315_001_1920x1080.jpg</code><br />
+									<code>20240315_002_3840x2160.jpg</code></td>
+								</tr>
+								<tr>
+									<td><strong>File:</strong> <code>[Y][M,2][D,2]_[h,2][m,2]_[N,1,20]_processed</code><br />
+									<strong>Ext:</strong> <code>[E]</code></td>
+									<td><code>invoice.pdf</code><br />
+									<code>contract.docx</code></td>
+									<td><code>20240315_1430_invoice_processed.pdf</code><br />
+									<code>20240315_1431_contract_processed.docx</code></td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
 
-<p>How the date and time format works <a href="http://msdn.microsoft.com/en-us/library/windows/desktop/dd317787(v=vs.85).aspx">Date Formatting</a> - <a href="http://msdn.microsoft.com/en-us/library/windows/desktop/dd318148(v=vs.85).aspx">Time Formatting</a></p>
+					<h6>Example Analysis</h6>
+					<div class="row">
+						<div class="col-md-6">
+							<h6 class="small">Text Manipulation Example:</h6>
+							<ul class="small">
+								<li><code>[N,2,4]</code> - Extract 4 characters starting from position 2</li>
+								<li><code>[C,1,2,3]</code> - Counter: start 1, increment 2, 3 digits</li>
+								<li>Fixed text "Pre-" and "-X" for consistent formatting</li>
+							</ul>
+						</div>
+						<div class="col-md-6">
+							<h6 class="small">Metadata Integration Example:</h6>
+							<ul class="small">
+								<li><code>[C]</code> - Default counter with zero-padding</li>
+								<li><code>[N]</code> - Complete original filename</li>
+								<li><code>[?MCAudioProp.genre]</code> - Audio file genre metadata</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 
-<hr />
-<h3>Examples</h3>
+	<div class="row mt-3">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header bg-primary text-white">
+					<h6 class="mb-0"><i class="bi bi-camera me-2"></i>Advanced Photo Organization</h6>
+				</div>
+				<div class="card-body">
+					<h6>EXIF-Based Photo Naming with GPS</h6>
+					<div class="alert alert-light p-2 mb-3">
+						<h6 class="small mb-1">Complex Rule Example:</h6>
+						<pre class="small mb-0">File: [?PictureProp.exifdate-{yyyyMMdd_HHmmss}]_[?PictureProp.camera,1,10]_[?PictureProp.width]x[?PictureProp.height]_[C,1,1,3]
+Ext: [E]</pre>
+					</div>
 
-<table class="table">
-	<tbody>
-		<tr>
-			<td>Tags</td>
-			<td>Original filenames</td>
-			<td>New Filenames</td>
-		</tr>
-		<tr>
-			<td width="200">File: Pre-[N,2,4]-[C,1,2,3]-X<br />
-			Ext: [E]</td>
-			<td width="200">Done.txt<br />
-			MyFile.txt<br />
-			Todo.txt</td>
-			<td width="200">Pre-one-001-X.txt<br />
-			Pre-yFil-003-X.txt<br />
-			Pre-odo-005-X.txt</td>
-		</tr>
-		<tr>
-			<td width="200">File: [C] - [N] - [?MCAudioProp.genre]<br />
-			Ext: [E]</td>
-			<td width="200">Song A.mp3<br />
-			Song B.mp3<br />
-			Song C.mp3</td>
-			<td width="200">01 - Song A - Trance.mp3<br />
-			02 - Song B - Pop.mp3<br />
-			03 - Song C - House.mp3</td>
-		</tr>
-	</tbody>
-</table>
+					<h6>Benefits:</h6>
+					<ul class="small">
+						<li><strong>EXIF Date:</strong> Actual photo capture time from camera</li>
+						<li><strong>Camera Info:</strong> Camera model identification</li>
+						<li><strong>Resolution:</strong> Image dimensions for organization</li>
+						<li><strong>Sequence Number:</strong> Unique identifier for burst photos</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header bg-success text-white">
+					<h6 class="mb-0"><i class="bi bi-music-note me-2"></i>Professional Music Library</h6>
+				</div>
+				<div class="card-body">
+					<h6>Complete Music Metadata Integration</h6>
+					<div class="alert alert-light p-2 mb-3">
+						<h6 class="small mb-1">Professional Rule Example:</h6>
+						<pre class="small mb-0">File: [?MCAudioProp.artist,1,20] - [?MCAudioProp.year] - [?MCAudioProp.album,1,25] - [C,1,1,2] - [?MCAudioProp.title,1,40]
+Ext: [E]</pre>
+					</div>
+
+					<h6>Professional Features:</h6>
+					<ul class="small">
+						<li><strong>Artist Name:</strong> Limited to 20 characters</li>
+						<li><strong>Release Year:</strong> For chronological organization</li>
+						<li><strong>Album Title:</strong> Limited to 25 characters</li>
+						<li><strong>Track Number:</strong> Sequential album organization</li>
+						<li><strong>Song Title:</strong> Limited to 40 characters</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<div class="alert alert-success mt-5">
+	<h6><i class="bi bi-lightbulb me-2"></i>MultiRename Mastery</h6>
+	<p class="mb-0">Master MultiRename by understanding the comprehensive tag system that includes basic file tags [N], [E], [P], special function tags like counter [C] and current date/time [Y], [M], [D], [h], [m], [s], and extensive plugin tags for file properties, audio metadata, image EXIF data, and document information. Remember that all tags support parameter-based content extraction [tag,position,length], plugin date/time tags require custom formatting for filename safety, and the preview functionality prevents mistakes in complex batch operations. Utilize the complete tag reference for building sophisticated rename rules that combine multiple metadata sources for professional file organization and naming consistency.</p>
+</div>
+
+<div class="alert alert-info mt-4">
+	<h6><i class="bi bi-info-circle me-2"></i>Related File Management Documentation</h6>
+	<p class="mb-0">Enhance your file organization capabilities with related Multi Commander features: <a href="/Docs/RenameTools" class="text-decoration-none">Rename Tools</a>, <a href="/Docs/selection" class="text-decoration-none">File Selection</a>, <a href="/Docs/ChangeFileProperties" class="text-decoration-none">Change File Properties</a>, <a href="/Docs/extensions" class="text-decoration-none">Extensions</a>, <a href="/Docs/UDC_custom" class="text-decoration-none">Custom Commands</a>, and <a href="/Docs/multitags" class="text-decoration-none">MultiTags</a>.</p>
+</div>
 
 

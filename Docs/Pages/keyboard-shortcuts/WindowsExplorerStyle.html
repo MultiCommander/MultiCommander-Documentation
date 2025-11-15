@@ -1,313 +1,691 @@
-<h2>Default Keyboard Shortcuts (Windows Explorer-Style)</h2>
-<div style="line-height: normal; font-variant: normal; font-style: normal; font-size: 85%; font-weight: normal">
-<h2>Multi Commander Core shortcuts</h2>
+﻿<h2>Default Keyboard Shortcuts (Windows Explorer-Style)</h2>
 
-<p>These are global shortcuts that work the same way no matter what extension you are in.</p>
+<p>Multi Commander's <strong>Windows Explorer-Style</strong> keyboard layout provides familiar shortcuts for users transitioning from Windows Explorer. This layout maintains Multi Commander's powerful functionality while using keyboard combinations that Windows users already know.</p>
 
-<table class="table table-bordered">
-	<tbody>
-		<tr>
-			<th>Command</th>
-			<th>Shortcut</th>
-		</tr>
-		<tr>
-			<td>Go Back</td>
-			<td>Alt + Left</td>
-		</tr>
-		<tr>
-			<td>Go Forward</td>
-			<td>Alt + Right</td>
-		</tr>
-		<tr>
-			<td>Show History</td>
-			<td>Alt + Down</td>
-		</tr>
-		<tr>
-			<td>Tab - Close Tab</td>
-			<td>Ctrl + W</td>
-		</tr>
-		<tr>
-			<td>Tab - Duplicate Tab</td>
-			<td>Ctrl + T</td>
-		</tr>
-		<tr>
-			<td>File - View File</td>
-			<td>F1</td>
-		</tr>
-		<tr>
-			<td>File - Edit File</td>
-			<td>F9</td>
-		</tr>
-		<tr>
-			<td>File - Copy</td>
-			<td>F4</td>
-		</tr>
-		<tr>
-			<td>File - Copy Quick</td>
-			<td>Shift + F5</td>
-		</tr>
-		<tr>
-			<td>File - Move</td>
-			<td>F6</td>
-		</tr>
-		<tr>
-			<td>File - Delete</td>
-			<td>F8, Delete</td>
-		</tr>
-		<tr>
-			<td>File - Pack Files</td>
-			<td>Alt + F5</td>
-		</tr>
-		<tr>
-			<td>File - Unpack Files</td>
-			<td>Alt + F6</td>
-		</tr>
-		<tr>
-			<td>Edit - Cut</td>
-			<td>Ctrl + X</td>
-		</tr>
-		<tr>
-			<td>Edit&nbsp;- Copy</td>
-			<td>Ctrl + C</td>
-		</tr>
-		<tr>
-			<td>Edit - Paste</td>
-			<td>Ctrl + V</td>
-		</tr>
-		<tr>
-			<td>View - Full width</td>
-			<td>Ctrl + F11</td>
-		</tr>
-		<tr>
-			<td>View - Log Panel</td>
-			<td>Ctrl + L</td>
-		</tr>
-		<tr>
-			<td>View - Button Panel</td>
-			<td>Ctrl + B</td>
-		</tr>
-		<tr>
-			<td>View - Refresh</td>
-			<td>F5</td>
-		</tr>
-	</tbody>
-</table>
+<div class="alert alert-success">
+	<h6><i class="bi bi-windows me-2"></i>Windows Explorer Compatibility</h6>
+	<p class="mb-0">This layout is designed for users who prefer Windows Explorer-style shortcuts. You can switch between layouts using <strong>Configuration → Quick Look'n'Feel Setup</strong> or fully customize shortcuts through <strong>Configuration → Keyboard Customization</strong>.</p>
+</div>
 
-<h2>File Manager</h2>
+<div class="row mb-4">
+	<div class="col-md-6">
+		<div class="alert alert-info">
+			<h6><i class="bi bi-info-circle me-2"></i>Key Differences from Commander-Style</h6>
+			<ul class="small mb-0">
+				<li><strong>F2:</strong> Rename (instead of Shift+F6)</li>
+				<li><strong>F5:</strong> Refresh (instead of F2)</li>
+				<li><strong>F1:</strong> View File (instead of F3)</li>
+				<li><strong>F4:</strong> Copy (instead of F5)</li>
+				<li><strong>F9:</strong> Edit File (instead of F4)</li>
+			</ul>
+		</div>
+	</div>
+	<div class="col-md-6">
+		<div class="alert alert-warning">
+			<h6><i class="bi bi-lightbulb me-2"></i>Transition Tip</h6>
+			<p class="small mb-0">If you're used to Windows Explorer, this layout will feel natural. The function keys follow Windows conventions, making the learning curve minimal while providing Multi Commander's advanced features.</p>
+		</div>
+	</div>
+</div>
 
-<p><strong>Global </strong>file manager hotkeys are also valid when focus is in another extension, if the extension supports them.</p>
+<nav class="navbar navbar-expand-lg navbar-light bg-light mb-4">
+	<div class="container-fluid">
+		<span class="navbar-brand">Quick Navigation</span>
+		<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#explorerShortcutNav">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="explorerShortcutNav">
+			<ul class="navbar-nav">
+				<li class="nav-item"><a class="nav-link" href="#core-shortcuts">Core</a></li>
+				<li class="nav-item"><a class="nav-link" href="#file-manager-global">Explorer Panel</a></li>
+				<li class="nav-item"><a class="nav-link" href="#file-manager-specific">Navigation</a></li>
+				<li class="nav-item"><a class="nav-link" href="#file-search">Search</a></li>
+				<li class="nav-item"><a class="nav-link" href="#differences">Differences</a></li>
+			</ul>
+		</div>
+	</div>
+</nav>
 
-<table class="table table-bordered">
-	<tbody>
-		<tr>
-			<th>Command</th>
-			<th>Shortcut</th>
-		</tr>
-		<tr>
-			<td>File Tools - Calculate folder size</td>
-			<td>Shift + Alt + Return</td>
-		</tr>
-		<tr>
-			<td>File Tools - Create Folder</td>
-			<td>F7</td>
-		</tr>
-		<tr>
-			<td>File Tools - Rename</td>
-			<td>F2</td>
-		</tr>
-		<tr>
-			<td>Send to clipboard - File/Folder path and name</td>
-			<td>Ctrl + P</td>
-		</tr>
-		<tr>
-			<td>Send to clipboard - File/Folder name</td>
-			<td>Ctrl + Shift + P</td>
-		</tr>
-		<tr>
-			<td>Send to clipboard - File/Folder path</td>
-			<td>Shift + Alt + P</td>
-		</tr>
-		<tr>
-			<td>Select using filter</td>
-			<td>Num +</td>
-		</tr>
-		<tr>
-			<td>Unselect using filter</td>
-			<td>Num -</td>
-		</tr>
-		<tr>
-			<td>Select All</td>
-			<td>Ctrl + A</td>
-		</tr>
-		<tr>
-			<td>Unselect All</td>
-			<td>Ctrl + D</td>
-		</tr>
-		<tr>
-			<td>Invert Selection</td>
-			<td>Num *</td>
-		</tr>
-		<tr>
-			<td>Select all with same file extension</td>
-			<td>Ctrl + Num+</td>
-		</tr>
-		<tr>
-			<td>Unselect all with same file extension</td>
-			<td>Ctrl + Num-</td>
-		</tr>
-		<tr>
-			<td>Select all with same name</td>
-			<td>Alt + Num+</td>
-		</tr>
-		<tr>
-			<td>Unselect all with same name</td>
-			<td>Alt + Num-</td>
-		</tr>
-		<tr>
-			<td>Compare Source and Target, Select Missing/Newest</td>
-			<td>Ctrl + F10</td>
-		</tr>
-	</tbody>
-</table>
+<section id="core-shortcuts">
+	<h3>Multi Commander Core Shortcuts</h3>
+	<p>These global shortcuts work consistently across all extensions and panels, providing universal navigation and file management capabilities using Windows Explorer-familiar keys.</p>
 
-<p>&nbsp;<strong>File Manager-specific </strong>hotkeys are only available when focus is in the file manager view.</p>
+	<div class="row">
+		<div class="col-md-6">
+			<div class="card">
+				<div class="card-header bg-primary text-white">
+					<h6 class="mb-0"><i class="bi bi-arrow-left-right me-2"></i>Navigation</h6>
+				</div>
+				<div class="card-body">
+					<table class="table table-sm table-hover">
+						<tbody>
+							<tr>
+								<td><kbd>Alt</kbd> + <kbd>←</kbd></td>
+								<td>Go Back</td>
+							</tr>
+							<tr>
+								<td><kbd>Alt</kbd> + <kbd>→</kbd></td>
+								<td>Go Forward</td>
+							</tr>
+							<tr>
+								<td><kbd>Alt</kbd> + <kbd>↓</kbd></td>
+								<td>Show History</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-6">
+			<div class="card">
+				<div class="card-header bg-success text-white">
+					<h6 class="mb-0"><i class="bi bi-folder me-2"></i>Tab Management</h6>
+				</div>
+				<div class="card-body">
+					<table class="table table-sm table-hover">
+						<tbody>
+							<tr>
+								<td><kbd>Ctrl</kbd> + <kbd>W</kbd></td>
+								<td>Close Tab</td>
+							</tr>
+							<tr>
+								<td><kbd>Ctrl</kbd> + <kbd>T</kbd></td>
+								<td>Duplicate Tab</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
 
-<table class="table table-bordered">
-	<tbody>
-		<tr>
-			<th>Command</th>
-			<th>Shortcut</th>
-		</tr>
-		<tr>
-			<td>Show drive selection box (Left side)</td>
-			<td>Alt + F1</td>
-		</tr>
-		<tr>
-			<td>Show drive selection box (Right side)</td>
-			<td>Alt + F2</td>
-		</tr>
-		<tr>
-			<td>Set View filter</td>
-			<td>Ctrl + F</td>
-		</tr>
-		<tr>
-			<td>Start a Search from current path</td>
-			<td>Alt + F7</td>
-		</tr>
-		<tr>
-			<td>Edit path</td>
-			<td>Ctrl + E</td>
-		</tr>
-		<tr>
-			<td>Go to Quick Path #1</td>
-			<td>Ctrl&nbsp;+ 1</td>
-		</tr>
-		<tr>
-			<td>Go to Quick Path #2</td>
-			<td>Ctrl&nbsp;+ 2</td>
-		</tr>
-		<tr>
-			<td>Go to Quick Path #3</td>
-			<td>Ctrl&nbsp;+ 3</td>
-		</tr>
-		<tr>
-			<td>Go to Quick Path #4</td>
-			<td>Ctrl&nbsp;+ 4</td>
-		</tr>
-		<tr>
-			<td>Go to Quick Path #5</td>
-			<td>Ctrl&nbsp;+ 5</td>
-		</tr>
-		<tr>
-			<td>Go to Quick Path #6</td>
-			<td>Ctrl&nbsp;+ 6</td>
-		</tr>
-		<tr>
-			<td>Go to Quick Path #7</td>
-			<td>Ctrl&nbsp;+ 7</td>
-		</tr>
-		<tr>
-			<td>Go to Quick Path #8</td>
-			<td>Ctrl&nbsp;+ 8</td>
-		</tr>
-		<tr>
-			<td>Go to Quick Path #9</td>
-			<td>Ctrl&nbsp;+ 9</td>
-		</tr>
-		<tr>
-			<td>Go to Quick Path #10</td>
-			<td>Ctrl&nbsp;+ 10</td>
-		</tr>
-		<tr>
-			<td>Sync path to the Left</td>
-			<td>Ctrl + Left</td>
-		</tr>
-		<tr>
-			<td>Sync path to the Right</td>
-			<td>Ctrl + Right</td>
-		</tr>
-		<tr>
-			<td>Force Refresh (and flush cache)</td>
-			<td>Shift + F5</td>
-		</tr>
-		<tr>
-			<td>Go to parent folder (Go up)</td>
-			<td>Back</td>
-		</tr>
-		<tr>
-			<td>Go to the root of the device</td>
-			<td>Ctrl + Back</td>
-		</tr>
-		<tr>
-			<td>Go to same path as target view</td>
-			<td>Ctrl + .</td>
-		</tr>
-		<tr>
-			<td>Show file properties</td>
-			<td>Alt + Return</td>
-		</tr>
-	</tbody>
-</table>
+	<div class="row mt-3">
+		<div class="col-md-6">
+			<div class="card">
+				<div class="card-header bg-warning text-dark">
+					<h6 class="mb-0"><i class="bi bi-file-earmark me-2"></i>File Operations (Explorer-Style)</h6>
+				</div>
+				<div class="card-body">
+					<table class="table table-sm table-hover">
+						<tbody>
+							<tr class="table-info">
+								<td><kbd>F1</kbd></td>
+								<td>View File <span class="badge bg-info">Explorer Style</span></td>
+							</tr>
+							<tr class="table-info">
+								<td><kbd>F9</kbd></td>
+								<td>Edit File <span class="badge bg-info">Explorer Style</span></td>
+							</tr>
+							<tr class="table-info">
+								<td><kbd>F4</kbd></td>
+								<td>Copy Files <span class="badge bg-info">Explorer Style</span></td>
+							</tr>
+							<tr>
+								<td><kbd>Shift</kbd> + <kbd>F5</kbd></td>
+								<td>Copy (Quick - Same Location)</td>
+							</tr>
+							<tr>
+								<td><kbd>F6</kbd></td>
+								<td>Move Files</td>
+							</tr>
+							<tr>
+								<td><kbd>F8</kbd> / <kbd>Delete</kbd></td>
+								<td>Delete Files</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-6">
+			<div class="card">
+				<div class="card-header bg-info text-white">
+					<h6 class="mb-0"><i class="bi bi-archive me-2"></i>Archive Operations</h6>
+				</div>
+				<div class="card-body">
+					<table class="table table-sm table-hover">
+						<tbody>
+							<tr>
+								<td><kbd>Alt</kbd> + <kbd>F5</kbd></td>
+								<td>Pack Files</td>
+							</tr>
+							<tr>
+								<td><kbd>Alt</kbd> + <kbd>F6</kbd></td>
+								<td>Unpack Files</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
 
-<h2>File Search</h2>
+	<div class="row mt-3">
+		<div class="col-md-6">
+			<div class="card">
+				<div class="card-header bg-secondary text-white">
+					<h6 class="mb-0"><i class="bi bi-clipboard me-2"></i>Clipboard Operations</h6>
+				</div>
+				<div class="card-body">
+					<table class="table table-sm table-hover">
+						<tbody>
+							<tr>
+								<td><kbd>Ctrl</kbd> + <kbd>X</kbd></td>
+								<td>Cut</td>
+							</tr>
+							<tr>
+								<td><kbd>Ctrl</kbd> + <kbd>C</kbd></td>
+								<td>Copy</td>
+							</tr>
+							<tr>
+								<td><kbd>Ctrl</kbd> + <kbd>V</kbd></td>
+								<td>Paste</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-6">
+			<div class="card">
+				<div class="card-header bg-dark text-white">
+					<h6 class="mb-0"><i class="bi bi-eye me-2"></i>View Control</h6>
+				</div>
+				<div class="card-body">
+					<table class="table table-sm table-hover">
+						<tbody>
+							<tr class="table-info">
+								<td><kbd>F5</kbd></td>
+								<td>Refresh <span class="badge bg-info">Explorer Style</span></td>
+							</tr>
+							<tr>
+								<td><kbd>Ctrl</kbd> + <kbd>F11</kbd></td>
+								<td>Full Width</td>
+							</tr>
+							<tr>
+								<td><kbd>Ctrl</kbd> + <kbd>L</kbd></td>
+								<td>Log Panel</td>
+							</tr>
+							<tr>
+								<td><kbd>Ctrl</kbd> + <kbd>B</kbd></td>
+								<td>Button Panel</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
 
-<table class="table table-bordered">
-	<tbody>
-		<tr>
-			<th>Command</th>
-			<th>Shortcut</th>
-		</tr>
-		<tr>
-			<td>Show / Hide Search window</td>
-			<td>Ctrl + F</td>
-		</tr>
-		<tr>
-			<td>Save a search</td>
-			<td>Ctrl + S</td>
-		</tr>
-		<tr>
-			<td>Load a Search</td>
-			<td>Ctrl + O</td>
-		</tr>
-		<tr>
-			<td>Start a Search</td>
-			<td>Ctrl + Return</td>
-		</tr>
-		<tr>
-			<td>Pause a Search</td>
-			<td>Ctrl + P</td>
-		</tr>
-	</tbody>
-</table>
+<section id="file-manager-global" class="mt-5">
+	<h3>Explorer Panel - Global Shortcuts</h3>
+	<p>These Explorer Panel shortcuts work globally and remain active even when focus is in another extension, providing familiar Windows Explorer functionality.</p>
 
-<h2>Customize your own keys</h2>
+	<div class="row">
+		<div class="col-md-6">
+			<div class="card">
+				<div class="card-header bg-primary text-white">
+					<h6 class="mb-0"><i class="bi bi-tools me-2"></i>File Tools (Explorer-Style)</h6>
+				</div>
+				<div class="card-body">
+					<table class="table table-sm table-hover">
+						<tbody>
+							<tr>
+								<td><kbd>F7</kbd></td>
+								<td>Create Folder</td>
+							</tr>
+							<tr class="table-info">
+								<td><kbd>F2</kbd></td>
+								<td>Rename <span class="badge bg-info">Explorer Style</span></td>
+							</tr>
+							<tr>
+								<td><kbd>Shift</kbd> + <kbd>Alt</kbd> + <kbd>Enter</kbd></td>
+								<td>Calculate Folder Sizes</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-6">
+			<div class="card">
+				<div class="card-header bg-success text-white">
+					<h6 class="mb-0"><i class="bi bi-clipboard me-2"></i>Send to Clipboard</h6>
+				</div>
+				<div class="card-body">
+					<table class="table table-sm table-hover">
+						<tbody>
+							<tr>
+								<td><kbd>Ctrl</kbd> + <kbd>P</kbd></td>
+								<td>File/Folder Path and Name</td>
+							</tr>
+							<tr>
+								<td><kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>P</kbd></td>
+								<td>File/Folder Name Only</td>
+							</tr>
+							<tr>
+								<td><kbd>Shift</kbd> + <kbd>Alt</kbd> + <kbd>P</kbd></td>
+								<td>File/Folder Path Only</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
 
-<p>You can easily customize your own hotkeys by using the Keyboard Customization selection in the Configuration menu.<br />
-There you can also export all your hotkeys to a text file.</p>
+	<div class="row mt-3">
+		<div class="col-md-6">
+			<div class="card">
+				<div class="card-header bg-warning text-dark">
+					<h6 class="mb-0"><i class="bi bi-check-square me-2"></i>Selection Operations</h6>
+				</div>
+				<div class="card-body">
+					<table class="table table-sm table-hover">
+						<tbody>
+							<tr>
+								<td><kbd>Num</kbd> <kbd>+</kbd></td>
+								<td>Select Using Filter</td>
+							</tr>
+							<tr>
+								<td><kbd>Num</kbd> <kbd>-</kbd></td>
+								<td>Unselect Using Filter</td>
+							</tr>
+							<tr>
+								<td><kbd>Ctrl</kbd> + <kbd>A</kbd></td>
+								<td>Select All</td>
+							</tr>
+							<tr>
+								<td><kbd>Ctrl</kbd> + <kbd>D</kbd></td>
+								<td>Unselect All</td>
+							</tr>
+							<tr>
+								<td><kbd>Num</kbd> <kbd>*</kbd></td>
+								<td>Invert Selection</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-6">
+			<div class="card">
+				<div class="card-header bg-info text-white">
+					<h6 class="mb-0"><i class="bi bi-filter me-2"></i>Advanced Selection</h6>
+				</div>
+				<div class="card-body">
+					<table class="table table-sm table-hover">
+						<tbody>
+							<tr>
+								<td><kbd>Ctrl</kbd> + <kbd>Num</kbd> <kbd>+</kbd></td>
+								<td>Select Same Extension</td>
+							</tr>
+							<tr>
+								<td><kbd>Ctrl</kbd> + <kbd>Num</kbd> <kbd>-</kbd></td>
+								<td>Unselect Same Extension</td>
+							</tr>
+							<tr>
+								<td><kbd>Alt</kbd> + <kbd>Num</kbd> <kbd>+</kbd></td>
+								<td>Select Same Name</td>
+							</tr>
+							<tr>
+								<td><kbd>Alt</kbd> + <kbd>Num</kbd> <kbd>-</kbd></td>
+								<td>Unselect Same Name</td>
+							</tr>
+							<tr>
+								<td><kbd>Ctrl</kbd> + <kbd>F10</kbd></td>
+								<td>Compare & Select Missing/Newest</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
 
-<ul>
-	<li><a href="#docs_keyboard-customization">How Do I ... Customize keyboard shortcuts</a></li>
-</ul>
+<section id="file-manager-specific" class="mt-5">
+	<h3>Explorer Panel - Specific Shortcuts</h3>
+	<p>These shortcuts are available only when focus is in the Explorer Panel view, providing specialized navigation and management capabilities with Windows Explorer-familiar behavior.</p>
+
+	<div class="row">
+		<div class="col-md-6">
+			<div class="card">
+				<div class="card-header bg-primary text-white">
+					<h6 class="mb-0"><i class="bi bi-hdd me-2"></i>Drive and Path Management</h6>
+				</div>
+				<div class="card-body">
+					<table class="table table-sm table-hover">
+						<tbody>
+							<tr>
+								<td><kbd>Alt</kbd> + <kbd>F1</kbd></td>
+								<td>Drive Selection (Left)</td>
+							</tr>
+							<tr>
+								<td><kbd>Alt</kbd> + <kbd>F2</kbd></td>
+								<td>Drive Selection (Right)</td>
+							</tr>
+							<tr>
+								<td><kbd>Ctrl</kbd> + <kbd>E</kbd></td>
+								<td>Edit Path</td>
+							</tr>
+							<tr>
+								<td><kbd>Ctrl</kbd> + <kbd>F</kbd></td>
+								<td>Set View Filter</td>
+							</tr>
+							<tr>
+								<td><kbd>Alt</kbd> + <kbd>F7</kbd></td>
+								<td>Start Search from Current Path</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-6">
+			<div class="card">
+				<div class="card-header bg-success text-white">
+					<h6 class="mb-0"><i class="bi bi-signpost me-2"></i>Quick Path Navigation</h6>
+				</div>
+				<div class="card-body">
+					<table class="table table-sm table-hover">
+						<tbody>
+							<tr>
+								<td><kbd>Ctrl</kbd> + <kbd>1</kbd></td>
+								<td>Quick Path #1</td>
+							</tr>
+							<tr>
+								<td><kbd>Ctrl</kbd> + <kbd>2</kbd></td>
+								<td>Quick Path #2</td>
+							</tr>
+							<tr>
+								<td><kbd>Ctrl</kbd> + <kbd>3</kbd></td>
+								<td>Quick Path #3</td>
+							</tr>
+							<tr>
+								<td><kbd>Ctrl</kbd> + <kbd>4</kbd></td>
+								<td>Quick Path #4</td>
+							</tr>
+							<tr>
+								<td><kbd>Ctrl</kbd> + <kbd>5</kbd></td>
+								<td>Quick Path #5</td>
+							</tr>
+							<tr>
+								<td><kbd>Ctrl</kbd> + <kbd>6</kbd></td>
+								<td>Quick Path #6</td>
+							</tr>
+							<tr>
+								<td><kbd>Ctrl</kbd> + <kbd>7</kbd></td>
+								<td>Quick Path #7</td>
+							</tr>
+							<tr>
+								<td><kbd>Ctrl</kbd> + <kbd>8</kbd></td>
+								<td>Quick Path #8</td>
+							</tr>
+							<tr>
+								<td><kbd>Ctrl</kbd> + <kbd>9</kbd></td>
+								<td>Quick Path #9</td>
+							</tr>
+							<tr>
+								<td><kbd>Ctrl</kbd> + <kbd>0</kbd></td>
+								<td>Quick Path #10</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="row mt-3">
+		<div class="col-md-6">
+			<div class="card">
+				<div class="card-header bg-warning text-dark">
+					<h6 class="mb-0"><i class="bi bi-arrow-left-right me-2"></i>Panel Synchronization</h6>
+				</div>
+				<div class="card-body">
+					<table class="table table-sm table-hover">
+						<tbody>
+							<tr>
+								<td><kbd>Ctrl</kbd> + <kbd>←</kbd></td>
+								<td>Sync Path to Left</td>
+							</tr>
+							<tr>
+								<td><kbd>Ctrl</kbd> + <kbd>→</kbd></td>
+								<td>Sync Path to Right</td>
+							</tr>
+							<tr>
+								<td><kbd>Ctrl</kbd> + <kbd>.</kbd></td>
+								<td>Go to Same Path as Target</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-6">
+			<div class="card">
+				<div class="card-header bg-info text-white">
+					<h6 class="mb-0"><i class="bi bi-arrow-up me-2"></i>Directory Navigation</h6>
+				</div>
+				<div class="card-body">
+					<table class="table table-sm table-hover">
+						<tbody>
+							<tr>
+								<td><kbd>Backspace</kbd></td>
+								<td>Go to Parent Folder</td>
+							</tr>
+							<tr>
+								<td><kbd>Ctrl</kbd> + <kbd>Backspace</kbd></td>
+								<td>Go to Root of Device</td>
+							</tr>
+							<tr class="table-info">
+								<td><kbd>Shift</kbd> + <kbd>F5</kbd></td>
+								<td>Force Refresh (Flush Cache) <span class="badge bg-info">Explorer Style</span></td>
+							</tr>
+							<tr>
+								<td><kbd>Alt</kbd> + <kbd>Enter</kbd></td>
+								<td>Show File Properties</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<section id="file-search" class="mt-5">
+	<h3>File Search Shortcuts</h3>
+	<p>Dedicated shortcuts for Multi Commander's powerful file search functionality, maintaining Windows Explorer familiarity.</p>
+
+	<div class="row">
+		<div class="col-md-8 mx-auto">
+			<div class="card">
+				<div class="card-header bg-dark text-white">
+					<h6 class="mb-0"><i class="bi bi-search me-2"></i>Search Operations</h6>
+				</div>
+				<div class="card-body">
+					<table class="table table-hover">
+						<tbody>
+							<tr>
+								<td><kbd>Ctrl</kbd> + <kbd>F</kbd></td>
+								<td>Show/Hide Search Window</td>
+							</tr>
+							<tr>
+								<td><kbd>Ctrl</kbd> + <kbd>S</kbd></td>
+								<td>Save a Search</td>
+							</tr>
+							<tr>
+								<td><kbd>Ctrl</kbd> + <kbd>O</kbd></td>
+								<td>Load a Search</td>
+							</tr>
+							<tr>
+								<td><kbd>Ctrl</kbd> + <kbd>Enter</kbd></td>
+								<td>Start a Search</td>
+							</tr>
+							<tr>
+								<td><kbd>Ctrl</kbd> + <kbd>P</kbd></td>
+								<td>Pause a Search</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<section id="differences" class="mt-5">
+	<h3>Key Differences from Commander-Style</h3>
+	<p>Understanding the main differences between Windows Explorer-Style and Commander-Style layouts helps with the transition.</p>
+
+	<div class="row">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header bg-success text-white">
+					<h6 class="mb-0"><i class="bi bi-arrow-left-right me-2"></i>Layout Comparison</h6>
+				</div>
+				<div class="card-body">
+					<div class="table-responsive">
+						<table class="table table-hover">
+							<thead>
+								<tr>
+									<th>Function</th>
+									<th>Windows Explorer-Style</th>
+									<th>Commander-Style</th>
+									<th>Notes</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr class="table-info">
+									<td><strong>Rename</strong></td>
+									<td><kbd>F2</kbd></td>
+									<td><kbd>Shift</kbd> + <kbd>F6</kbd></td>
+									<td>Explorer users expect F2 for rename</td>
+								</tr>
+								<tr class="table-info">
+									<td><strong>Refresh</strong></td>
+									<td><kbd>F5</kbd></td>
+									<td><kbd>F2</kbd></td>
+									<td>F5 is standard Windows refresh key</td>
+								</tr>
+								<tr class="table-info">
+									<td><strong>View File</strong></td>
+									<td><kbd>F1</kbd></td>
+									<td><kbd>F3</kbd></td>
+									<td>Explorer users often press F1 to view</td>
+								</tr>
+								<tr class="table-info">
+									<td><strong>Copy</strong></td>
+									<td><kbd>F4</kbd></td>
+									<td><kbd>F5</kbd></td>
+									<td>Avoids conflict with F5 refresh</td>
+								</tr>
+								<tr class="table-info">
+									<td><strong>Edit File</strong></td>
+									<td><kbd>F9</kbd></td>
+									<td><kbd>F4</kbd></td>
+									<td>Moved to avoid copy conflict</td>
+								</tr>
+								<tr>
+									<td><strong>Force Refresh</strong></td>
+									<td><kbd>Shift</kbd> + <kbd>F5</kbd></td>
+									<td><kbd>Shift</kbd> + <kbd>F2</kbd></td>
+									<td>Follows main refresh key pattern</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="row mt-3">
+		<div class="col-md-6">
+			<div class="card">
+				<div class="card-header bg-primary text-white">
+					<h6 class="mb-0"><i class="bi bi-check-circle me-2"></i>Explorer-Style Benefits</h6>
+				</div>
+				<div class="card-body">
+					<ul class="small mb-0">
+						<li><strong>Familiar:</strong> Uses keys Windows users already know</li>
+						<li><strong>Intuitive:</strong> F2 for rename, F5 for refresh</li>
+						<li><strong>Easy Transition:</strong> Minimal learning curve</li>
+						<li><strong>Consistent:</strong> Matches Windows conventions</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-6">
+			<div class="card">
+				<div class="card-header bg-warning text-dark">
+					<h6 class="mb-0"><i class="bi bi-gear me-2"></i>Switching Layouts</h6>
+				</div>
+				<div class="card-body">
+					<ol class="small mb-0">
+						<li>Open <strong>Configuration</strong> menu</li>
+						<li>Select <strong>Quick Look'n'Feel Setup</strong></li>
+						<li>Choose <strong>Windows Explorer Compatibility</strong></li>
+						<li>Apply changes and restart if needed</li>
+					</ol>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<section class="mt-5">
+	<h3>Customization Options</h3>
+	<p>Multi Commander offers extensive keyboard customization to perfectly match your preferences.</p>
+
+	<div class="row">
+		<div class="col-md-6">
+			<div class="card">
+				<div class="card-header bg-success text-white">
+					<h6 class="mb-0"><i class="bi bi-gear me-2"></i>Customization Features</h6>
+				</div>
+				<div class="card-body">
+					<ul class="list-unstyled">
+						<li><i class="bi bi-check-circle text-success me-2"></i>Individual key remapping</li>
+						<li><i class="bi bi-check-circle text-success me-2"></i>Custom key combinations</li>
+						<li><i class="bi bi-check-circle text-success me-2"></i>Export/import configurations</li>
+						<li><i class="bi bi-check-circle text-success me-2"></i>Quick preset switching</li>
+						<li><i class="bi bi-check-circle text-success me-2"></i>Context-sensitive bindings</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-6">
+			<div class="card">
+				<div class="card-header bg-primary text-white">
+					<h6 class="mb-0"><i class="bi bi-lightning me-2"></i>Quick Setup Presets</h6>
+				</div>
+				<div class="card-body">
+					<ul class="list-unstyled">
+						<li><i class="bi bi-windows text-primary me-2"></i><strong>Explorer-Style:</strong> Windows familiar (current)</li>
+						<li><i class="bi bi-folder text-primary me-2"></i><strong>Commander-Style:</strong> Classic Commander style</li>
+						<li><i class="bi bi-person text-primary me-2"></i><strong>Custom:</strong> Personalized layout</li>
+					</ul>
+					<p class="mt-3">
+						<strong>Access:</strong> Configuration → Quick Look'n'Feel Setup
+					</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<div class="alert alert-success mt-4">
+	<h6><i class="bi bi-lightbulb me-2"></i>Windows Explorer Users</h6>
+	<p class="mb-0">This layout is specifically designed for your comfort. All the keyboard shortcuts you're used to work as expected, while giving you access to Multi Commander's powerful dual-panel interface and advanced file management features.</p>
+</div>
+
+<div class="alert alert-info mt-4">
+	<h6><i class="bi bi-info-circle me-2"></i>Related Documentation</h6>
+	<p class="mb-0">For more information about keyboard customization and layout switching, see <a href="/Docs/keyboard-customization" class="text-decoration-none">Keyboard Customization</a> and <a href="/Docs/windows-explorer-look-and-feel" class="text-decoration-none">Windows Explorer Look and Feel</a> in the documentation.</p>
 </div>
 
 

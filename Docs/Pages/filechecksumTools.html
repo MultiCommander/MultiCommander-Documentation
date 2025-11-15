@@ -1,29 +1,323 @@
-<h2>File Checksum Tools</h2>
-<p>The File Checksum tools under the Tools menu are quick commands for the <a href="#docs_FileCheckSum">File CheckSum Extension</a></p>
+﻿<h2>File Checksum Tools</h2>
 
-<p><img alt="" src="/Docs/Images/FileChecksumToolsMenu.png" /></p>
+<p>Multi Commander's <strong>File Checksum Tools</strong> provide instant access to comprehensive file integrity verification and checksum management capabilities. These powerful quick-access commands streamline the creation, verification, and comparison of checksums through direct integration with the advanced File Checksum Extension, enabling efficient batch processing and automated integrity workflows.</p>
 
-<h3>Verify .sfv/.md5 Checksum files (Scans Selected Folders)</h3>
+<div class="alert alert-primary">
+	<h6><i class="bi bi-shield-check me-2"></i>Integrated File Integrity Management</h6>
+	<p class="mb-0">Bridge the gap between quick file verification needs and comprehensive checksum management. These tools provide immediate access to the File Checksum Extension's capabilities while automating common integrity verification workflows for both individual files and entire directory structures.</p>
+</div>
 
-<p>This will scan all selected folder recursively for .sfv/.md5 checksum files. It will then start the File Checksum Extension in the opposite panel and add to it all the .sfv/.md5 files that are found. It will then automatically start a verify process of the added checksum files.</p>
+<nav class="navbar navbar-expand-lg navbar-light bg-light mb-4">
+	<div class="container-fluid">
+		<span class="navbar-brand">Quick Navigation</span>
+		<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#checksumToolsNav">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="checksumToolsNav">
+			<ul class="navbar-nav">
+				<li class="nav-item"><a class="nav-link" href="#overview">Overview</a></li>
+				<li class="nav-item"><a class="nav-link" href="#accessing">Accessing Tools</a></li>
+				<li class="nav-item"><a class="nav-link" href="#verification-tools">Verification Tools</a></li>
+				<li class="nav-item"><a class="nav-link" href="#creation-tools">Creation Tools</a></li>
+				<li class="nav-item"><a class="nav-link" href="#comparison-tools">Comparison Tools</a></li>
+				<li class="nav-item"><a class="nav-link" href="#advanced-features">Advanced Features</a></li>
+			</ul>
+		</div>
+	</div>
+</nav>
 
-<h3>Create .sfv checksums file</h3>
+<section id="overview">
+	<h3>File Integrity and Checksum Management</h3>
+	<p>File checksums provide mathematical verification of file integrity, ensuring data hasn't been corrupted, modified, or tampered with during storage, transmission, or processing. Multi Commander's checksum tools offer comprehensive support for industry-standard checksum formats.</p>
 
-<p>This will start the File Checksum Extension in the opposite panel and automatically add all the selected files to a new file checksum of .SFV (CRC32) type.</p>
+	<div class="row">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header bg-primary text-white">
+					<h6 class="mb-0"><i class="bi bi-shield-check me-2"></i>Supported Checksum Types</h6>
+				</div>
+				<div class="card-body">
+					<h6>Hash Algorithms</h6>
+					<ul class="small">
+						<li><strong>CRC32:</strong> Fast cyclic redundancy check for basic integrity verification</li>
+						<li><strong>MD5:</strong> 128-bit cryptographic hash for file fingerprinting</li>
+						<li><strong>SHA1:</strong> 160-bit secure hash algorithm for enhanced security</li>
+						<li><strong>SHA256:</strong> 256-bit SHA-2 algorithm for high-security applications</li>
+						<li><strong>SHA512:</strong> 512-bit SHA-2 algorithm for maximum security</li>
+					</ul>
+					<h6>File Format Support</h6>
+					<ul class="small">
+						<li><strong>.sfv Files:</strong> Simple File Verification format with CRC32 checksums</li>
+						<li><strong>.md5 Files:</strong> MD5 checksum collections</li>
+						<li><strong>.sha Files:</strong> SHA1 checksum files</li>
+						<li><strong>.sha1 Files:</strong> SHA1 verification files</li>
+						<li><strong>.sha256 Files:</strong> SHA-256 checksum collections</li>
+						<li><strong>.sha512 Files:</strong> SHA-512 verification files</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
 
-<h3>Create .md5 checksums file</h3>
+<section id="accessing" class="mt-5">
+	<h3>Accessing the Tools</h3>
+	<p>File Checksum Tools are conveniently located in Multi Commander's Tools menu, providing quick access to common checksum operations without the need to manually configure the File Checksum Extension.</p>
 
-<p>This will start the FileChecksum extension in the opposite panel and automatically add all the selected files to a new file checksum of MD5 type.</p>
+	<div class="row">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header bg-primary text-white">
+					<h6 class="mb-0"><i class="bi bi-menu-app me-2"></i>Tools Menu Location</h6>
+				</div>
+				<div class="card-body">
+					<h6>Navigation Path</h6>
+					<p class="small">Navigate to <strong>Tools → File Checksum Tools</strong> to access the complete suite of checksum utilities.</p>
 
-<h3>Compare content of two files</h3>
+					<div class="text-center mt-3 mb-3">
+						<img src="/Docs/Images/FileChecksumToolsMenu.png" alt="File Checksum Tools Menu" class="img-fluid border rounded shadow-sm" />
+						<p class="text-muted small mt-2">Tools menu showing File Checksum Tools submenu with all available operations</p>
+					</div>
 
-<p>This will compare the content of two files by by calculating checksum values. It will take the first selected from the source panel and the first selected file from the target panel and compare them.</p>
+					<h6>Available Operations</h6>
+					<ul class="small">
+						<li><strong>Verify checksum files:</strong> Automated verification of .sfv/.md5/.sha/.sha1/.sha256/.sha512 files</li>
+						<li><strong>Create .sfv checksums file:</strong> Generate CRC32-based verification files</li>
+						<li><strong>Create .md5 checksums file:</strong> Generate MD5 hash verification files</li>
+						<li><strong>Compare content of two files:</strong> Direct file-to-file integrity comparison</li>
+						<li><strong>Calculate checksum value from file:</strong> Generate all supported checksum types for individual files</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
 
-<h3>Calculate checksum value from file</h3>
+<section id="verification-tools" class="mt-5">
+	<h3>Checksum Verification Tools</h3>
+	<p>Verification tools automatically scan for existing checksum files and validate the integrity of associated files, providing comprehensive verification reporting and error detection across all supported checksum formats.</p>
 
-<p>This will calculate all supported checksum values for the selected file.<br />
-It will calculate CRC32, MD5 and SHA1 values. If you enter a checksum value in the input field it will compare that value aginst the calcuated values and if a match is found the appropriate field will turn green.</p>
+	<div class="row">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header bg-success text-white">
+					<h6 class="mb-0"><i class="bi bi-check-circle me-2"></i>Verify Checksum Files</h6>
+				</div>
+				<div class="card-body">
+					<h6>Automated Verification Process</h6>
+					<p class="small">This tool performs comprehensive scanning and verification of checksum files within selected directories:</p>
+					<ol class="small">
+						<li><strong>Recursive Scanning:</strong> Scans all selected folders and subfolders for supported checksum files</li>
+						<li><strong>Extension Launch:</strong> Automatically opens File Checksum Extension in opposite panel</li>
+						<li><strong>Batch Loading:</strong> Adds all discovered checksum files to the verification queue</li>
+						<li><strong>Automatic Verification:</strong> Immediately starts verification process for all loaded files</li>
+					</ol>
 
-<p><img alt="" src="/Docs/Images/FileChecksum_CalcChecksumFromFile.png" /></p>
+					<h6>Supported File Formats</h6>
+					<ul class="small">
+						<li><strong>.sfv (CRC32):</strong> Simple File Verification format</li>
+						<li><strong>.md5 (MD5):</strong> MD5 hash verification files</li>
+						<li><strong>.sha (SHA1):</strong> SHA1 checksum files</li>
+						<li><strong>.sha1 (SHA1):</strong> Alternative SHA1 format</li>
+						<li><strong>.sha256 (SHA-256):</strong> High-security SHA-2 checksums</li>
+						<li><strong>.sha512 (SHA-512):</strong> Maximum-security SHA-2 checksums</li>
+					</ul>
+
+					<h6>Practical Applications</h6>
+					<ul class="small">
+						<li><strong>Archive Validation:</strong> Verify integrity of backup archives and downloaded content</li>
+						<li><strong>System Maintenance:</strong> Regular integrity checks during maintenance cycles</li>
+						<li><strong>Distribution Verification:</strong> Validate software downloads and file transfers</li>
+						<li><strong>Data Migration:</strong> Confirm file integrity after large-scale data movements</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<section id="creation-tools" class="mt-5">
+	<h3>Checksum Creation Tools</h3>
+	<p>Creation tools generate checksum files for selected files, enabling integrity verification and distribution validation for file collections and archives using various security levels.</p>
+
+	<div class="row">
+		<div class="col-md-6">
+			<div class="card">
+				<div class="card-header bg-primary text-white">
+					<h6 class="mb-0"><i class="bi bi-file-plus me-2"></i>Create .sfv Checksums File</h6>
+				</div>
+				<div class="card-body">
+					<h6>SFV File Generation</h6>
+					<p class="small">Creates Simple File Verification (SFV) files containing CRC32 checksums for all selected files:</p>
+					<ul class="small">
+						<li><strong>Format:</strong> Industry-standard .sfv format with CRC32 checksums</li>
+						<li><strong>Extension Launch:</strong> Automatically opens File Checksum Extension</li>
+						<li><strong>Batch Addition:</strong> All selected files added to new checksum file</li>
+						<li><strong>Automatic Processing:</strong> Ready for immediate checksum calculation</li>
+					</ul>
+					<h6>SFV Format Benefits</h6>
+					<ul class="small">
+						<li><strong>Fast Processing:</strong> CRC32 algorithm provides rapid checksum generation</li>
+						<li><strong>Wide Compatibility:</strong> Supported by numerous verification tools</li>
+						<li><strong>Compact Format:</strong> Minimal file size overhead</li>
+						<li><strong>Standard Compliance:</strong> Compatible with scene release standards</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-6">
+			<div class="card">
+				<div class="card-header bg-success text-white">
+					<h6 class="mb-0"><i class="bi bi-shield-lock me-2"></i>Create .md5 Checksums File</h6>
+				</div>
+				<div class="card-body">
+					<h6>MD5 File Generation</h6>
+					<p class="small">Creates MD5 checksum files with cryptographic hash values for enhanced security verification:</p>
+					<ul class="small">
+						<li><strong>Format:</strong> Standard .md5 format with 128-bit MD5 hashes</li>
+						<li><strong>Security Level:</strong> Cryptographic hash for tamper detection</li>
+						<li><strong>Extension Integration:</strong> Seamless File Checksum Extension operation</li>
+						<li><strong>Selected Files:</strong> Processes all currently selected files</li>
+					</ul>
+					<h6>MD5 Format Advantages</h6>
+					<ul class="small">
+						<li><strong>Cryptographic Security:</strong> Detects intentional file modifications</li>
+						<li><strong>High Reliability:</strong> Extremely low probability of collision</li>
+						<li><strong>Universal Support:</strong> Widely supported across platforms</li>
+						<li><strong>Verification Strength:</strong> More robust than simple CRC checksums</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<section id="comparison-tools" class="mt-5">
+	<h3>File Comparison and Analysis Tools</h3>
+	<p>Direct comparison tools provide immediate file integrity verification and checksum analysis without the need for separate checksum files, supporting all available hash algorithms.</p>
+
+	<div class="row">
+		<div class="col-md-6">
+			<div class="card">
+				<div class="card-header bg-primary text-white">
+					<h6 class="mb-0"><i class="bi bi-arrow-left-right me-2"></i>Compare Content of Two Files</h6>
+				</div>
+				<div class="card-body">
+					<h6>Direct File Comparison</h6>
+					<p class="small">Performs mathematical comparison of two files using checksum algorithms:</p>
+					<ul class="small">
+						<li><strong>Source Selection:</strong> Uses first selected file from source panel</li>
+						<li><strong>Target Selection:</strong> Uses first selected file from target panel</li>
+						<li><strong>Checksum Calculation:</strong> Computes checksums for both files</li>
+						<li><strong>Instant Comparison:</strong> Immediate match/mismatch results</li>
+					</ul>
+					<h6>Comparison Applications</h6>
+					<ul class="small">
+						<li><strong>File Verification:</strong> Confirm copy operations succeeded</li>
+						<li><strong>Version Control:</strong> Detect file changes between versions</li>
+						<li><strong>Duplicate Detection:</strong> Identify identical files with different names</li>
+						<li><strong>Transfer Validation:</strong> Verify network transfer integrity</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-6">
+			<div class="card">
+				<div class="card-header bg-info text-white">
+					<h6 class="mb-0"><i class="bi bi-calculator me-2"></i>Calculate Checksum Value from File</h6>
+				</div>
+				<div class="card-body">
+					<h6>Comprehensive Checksum Analysis</h6>
+					<p class="small">Generates all supported checksum types for detailed file analysis:</p>
+					<ul class="small">
+						<li><strong>Multiple Algorithms:</strong> Calculates CRC32, MD5, SHA1, SHA256, and SHA512 simultaneously</li>
+						<li><strong>Verification Mode:</strong> Compare against known checksum values</li>
+						<li><strong>Visual Feedback:</strong> Green highlighting for matching checksums</li>
+						<li><strong>Format Flexibility:</strong> Accepts checksums in various formats</li>
+					</ul>
+
+					<div class="text-center mt-3 mb-3">
+						<img src="/Docs/Images/FileChecksum_CalcChecksumFromFile.png" alt="Calculate Checksum Dialog" class="img-fluid border rounded shadow-sm" />
+						<p class="text-muted small mt-2">Checksum calculation dialog showing multiple hash values and verification capability</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<section id="advanced-features" class="mt-5">
+	<h3>Advanced Features and Custom Commands</h3>
+	<p>Beyond the quick-access tools, Multi Commander provides extensive checksum automation through custom commands and scripting capabilities for sophisticated integrity management workflows.</p>
+
+	<div class="row">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header bg-dark text-white">
+					<h6 class="mb-0"><i class="bi bi-code me-2"></i>Custom Command Integration</h6>
+				</div>
+				<div class="card-body">
+					<h6>Automation Commands</h6>
+					<p class="small">Integrate checksum operations into custom commands for automated workflows:</p>
+
+					<pre class="bg-light p-3 rounded small"><code>// Verify all checksum files in selected folders
+MC.CheckSum.Verify ALLSELECTED
+
+// Create SFV checksum for selected files
+MC.CheckSum.Create ALLSELECTED CHECKSUM="CRC32" AUTOSTART
+
+// Create MD5 checksum with custom filename
+MC.CheckSum.Create ALLSELECTED CHECKSUM="MD5" FILENAME="integrity.md5"
+
+// Create SHA256 checksum for high-security verification
+MC.CheckSum.Create ALLSELECTED CHECKSUM="SHA256" FILENAME="verification.sha256"
+
+// Script-based checksum calculation (0=CRC32, 1=MD5, 2=SHA1)
+ChkSum_Calculate("${focusfilepath}", 1) // MD5 calculation</code></pre>
+
+					<h6>Workflow Integration Scenarios</h6>
+					<ul class="small">
+						<li><strong>Automated Verification:</strong> Schedule integrity checks for critical file collections</li>
+						<li><strong>Build Pipeline Integration:</strong> Verify build outputs and distribution packages</li>
+						<li><strong>Backup Validation:</strong> Automatically verify backup integrity after completion</li>
+						<li><strong>Content Distribution:</strong> Generate checksums for software releases</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header bg-warning text-dark">
+					<h6 class="mb-0"><i class="bi bi-gear me-2"></i>Configuration Options</h6>
+				</div>
+				<div class="card-body">
+					<h6>Checksum Creation Settings</h6>
+					<ul class="small">
+						<li><strong>Algorithm Selection:</strong> Choose between CRC32, MD5, SHA1, SHA256, SHA512</li>
+						<li><strong>File Encoding:</strong> ASCII, UTF-8, or Unicode format options</li>
+						<li><strong>Automatic Processing:</strong> Enable auto-start for batch operations</li>
+						<li><strong>Filename Control:</strong> Custom naming or auto-generation</li>
+					</ul>
+					<h6>Verification Settings</h6>
+					<ul class="small">
+						<li><strong>Recursive Scanning:</strong> Deep directory tree analysis</li>
+						<li><strong>Error Handling:</strong> Continue processing on individual failures</li>
+						<li><strong>Result Reporting:</strong> Detailed verification status output</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<div class="alert alert-success mt-5">
+	<h6><i class="bi bi-lightbulb me-2"></i>Integrity Management Strategy</h6>
+	<p class="mb-0">Master file integrity management by combining Multi Commander's checksum tools strategically: use quick verification tools for routine checks, create comprehensive checksum files for distribution and archival, and integrate verification into automated workflows through custom commands. Choose the appropriate algorithm based on security requirements - CRC32 for speed, SHA256/SHA512 for maximum security. This layered approach ensures data integrity while streamlining quality assurance processes across your file management operations.</p>
+</div>
+
+<div class="alert alert-info mt-4">
+	<h6><i class="bi bi-info-circle me-2"></i>Related File Security Tools</h6>
+	<p class="mb-0">Enhance your file integrity workflows with related features: <a href="/Docs/FileCheckSum" class="text-decoration-none">File Checksum Extension</a>, <a href="/Docs/FileVerifier/Create" class="text-decoration-none">Checksum Creation Guide</a>, <a href="/Docs/FileVerifier/Verify" class="text-decoration-none">Checksum Verification Guide</a>, and <a href="/Docs/customcommands_list" class="text-decoration-none">Custom Commands Reference</a>.</p>
+</div>
 
 

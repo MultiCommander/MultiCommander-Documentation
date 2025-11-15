@@ -1,12 +1,300 @@
-<h2>Base 64 - Encoding and Decoding</h2>
-<p>The Encoding and Decoding commands are found under the Tools menu.<br />
-There are commands to encode or decode all the selected files into/from BASE64 format.</p>
+﻿<h2>Base64 Encoding and Decoding</h2>
 
-<p><img alt="" src="/Docs/Images/MenuToolsEndDec.png" style="width: 662px; height: 442px;" /></p>
+<p>Multi Commander's <strong>Base64 Encoding and Decoding</strong> tools provide seamless conversion between binary files and text-safe Base64 format, enabling secure file transmission, email attachments, and data integration workflows. These powerful utilities handle batch processing of multiple files while maintaining data integrity and providing comprehensive conversion management.</p>
 
-<p>Encoding a file into base64 format is done if you want to convert a binary file into a format that is text-friendly. Base64 encoded files grow about 25-50% in size compared to their binary format.<br />
-Decoding a base64 file will turn the file back into its original form.</p>
+<div class="alert alert-primary">
+	<h6><i class="bi bi-arrow-repeat me-2"></i>Universal Data Conversion</h6>
+	<p class="mb-0">Transform binary files into text-safe Base64 format for secure transmission, email compatibility, and system integration. Whether you need to encode executable files for safe transport or decode received Base64 data back to its original form, Multi Commander handles the conversion process efficiently.</p>
+</div>
 
-<p>Read more about base64 at wikipedia <a href="http://en.wikipedia.org/wiki/Base64">here</a>.</p>
+<nav class="navbar navbar-expand-lg navbar-light bg-light mb-4">
+	<div class="container-fluid">
+		<span class="navbar-brand">Quick Navigation</span>
+		<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#base64Nav">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="base64Nav">
+			<ul class="navbar-nav">
+				<li class="nav-item"><a class="nav-link" href="#overview">Overview</a></li>
+				<li class="nav-item"><a class="nav-link" href="#accessing">Accessing the Tools</a></li>
+				<li class="nav-item"><a class="nav-link" href="#encoding">Encoding Process</a></li>
+				<li class="nav-item"><a class="nav-link" href="#decoding">Decoding Process</a></li>
+				<li class="nav-item"><a class="nav-link" href="#advanced-features">Advanced Features</a></li>
+			</ul>
+		</div>
+	</div>
+</nav>
+
+<section id="overview">
+	<h3>Understanding Base64 Format</h3>
+	<p>Base64 is a binary-to-text encoding scheme that represents binary data using only ASCII characters, making it safe for transmission through text-based systems and protocols that don't handle binary data reliably.</p>
+
+	<div class="row">
+		<div class="col-md-6">
+			<div class="card">
+				<div class="card-header bg-primary text-white">
+					<h6 class="mb-0"><i class="bi bi-diagram-3 me-2"></i>Encoding Benefits</h6>
+				</div>
+				<div class="card-body">
+					<h6>Text-Safe Transmission</h6>
+					<ul class="small">
+						<li><strong>Email Compatibility:</strong> Send binary files through email systems safely</li>
+						<li><strong>Protocol Support:</strong> Transmit binary data through text-only protocols</li>
+						<li><strong>System Integration:</strong> Embed binary data in XML, JSON, or configuration files</li>
+						<li><strong>Legacy Compatibility:</strong> Work with systems that don't support binary transfer</li>
+					</ul>
+					<h6>Data Integrity</h6>
+					<ul class="small">
+						<li><strong>Corruption Prevention:</strong> Avoid data loss during text-based transmission</li>
+						<li><strong>Character Set Safety:</strong> Use only safe ASCII characters (A-Z, a-z, 0-9, +, /)</li>
+						<li><strong>Reversible Process:</strong> Perfectly reconstruct original binary data</li>
+						<li><strong>Error Detection:</strong> Invalid Base64 data is easily identifiable</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-6">
+			<div class="card">
+				<div class="card-header bg-info text-white">
+					<h6 class="mb-0"><i class="bi bi-info-circle me-2"></i>Format Characteristics</h6>
+				</div>
+				<div class="card-body">
+					<h6>Size Impact</h6>
+					<ul class="small">
+						<li><strong>Size Increase:</strong> Encoded files are approximately 33% larger than originals</li>
+						<li><strong>Padding Characters:</strong> Uses '=' characters for proper alignment</li>
+						<li><strong>Line Breaking:</strong> May include line breaks for better readability</li>
+						<li><strong>Efficiency Trade-off:</strong> Larger size in exchange for compatibility</li>
+					</ul>
+					<h6>Technical Details</h6>
+					<ul class="small">
+						<li><strong>Character Set:</strong> 64-character alphabet (A-Za-z0-9+/)</li>
+						<li><strong>Encoding Ratio:</strong> Every 3 bytes become 4 characters</li>
+						<li><strong>Padding:</strong> '=' characters ensure proper block alignment</li>
+						<li><strong>Standards Compliance:</strong> RFC 4648 compliant implementation</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<section id="accessing" class="mt-5">
+	<h3>Accessing the Tools</h3>
+	<p>Base64 encoding and decoding tools are conveniently located in Multi Commander's Tools menu, providing quick access for both single-file and batch conversion operations.</p>
+
+	<div class="row">
+		<div class="col-md-8">
+			<div class="card">
+				<div class="card-header bg-primary text-white">
+					<h6 class="mb-0"><i class="bi bi-menu-app me-2"></i>Tools Menu Access</h6>
+				</div>
+				<div class="card-body">
+					<h6>Navigation Path</h6>
+					<ol>
+						<li>Navigate to <strong>Tools → Encoding/Decoding</strong></li>
+						<li>Select either <strong>Base64 Encode</strong> or <strong>Base64 Decode</strong></li>
+						<li>The operation will process all currently selected files</li>
+					</ol>
+
+					<div class="text-center mt-3 mb-3">
+						<img src="/Docs/Images/MenuToolsEndDec.png" alt="Tools Menu Encoding/Decoding" class="img-fluid border rounded shadow-sm" style="max-width: 662px;" />
+						<p class="text-muted small mt-2">Tools menu showing Base64 encoding and decoding options</p>
+					</div>
+
+					<h6>Operation Scope</h6>
+					<ul class="small">
+						<li><strong>Selected Files:</strong> All selected files will be processed in batch</li>
+						<li><strong>Mixed Types:</strong> Can process different file types simultaneously</li>
+						<li><strong>Large Files:</strong> Handles files of any size efficiently</li>
+						<li><strong>Batch Processing:</strong> Process hundreds of files in single operation</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-4">
+			<div class="card">
+				<div class="card-header bg-success text-white">
+					<h6 class="mb-0"><i class="bi bi-lightning me-2"></i>Quick Operation Tips</h6>
+				</div>
+				<div class="card-body">
+					<h6>Preparation Steps</h6>
+					<ul class="small">
+						<li><strong>File Selection:</strong> Select all files to be converted</li>
+						<li><strong>Destination Space:</strong> Ensure adequate disk space for output</li>
+						<li><strong>Backup Consideration:</strong> Keep originals safe during conversion</li>
+						<li><strong>File Organization:</strong> Group related files for batch processing</li>
+					</ul>
+					<h6>Efficiency Tips</h6>
+					<ul class="small">
+						<li><strong>Batch Operations:</strong> Process multiple files simultaneously</li>
+						<li><strong>Organized Workflow:</strong> Handle encoding and decoding separately</li>
+						<li><strong>File Naming:</strong> Use consistent naming conventions</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<section id="encoding" class="mt-5">
+	<h3>Base64 Encoding Process</h3>
+	<p>The encoding process converts binary files into Base64 text format, making them safe for transmission through text-based systems while preserving all original data integrity.</p>
+
+	<div class="row">
+		<div class="col-md-6">
+			<div class="card">
+				<div class="card-header bg-primary text-white">
+					<h6 class="mb-0"><i class="bi bi-arrow-up me-2"></i>Encoding Operation</h6>
+				</div>
+				<div class="card-body">
+					<h6>Process Overview</h6>
+					<ul class="small">
+						<li><strong>Input:</strong> Any binary file (executables, images, documents, archives)</li>
+						<li><strong>Conversion:</strong> Binary data transformed to Base64 text representation</li>
+						<li><strong>Output:</strong> Text file containing Base64-encoded data</li>
+						<li><strong>Integrity:</strong> Original data perfectly preserved in encoded format</li>
+					</ul>
+					<h6>File Handling</h6>
+					<ul class="small">
+						<li><strong>Extension Addition:</strong> Typically adds .b64 or .base64 extension</li>
+						<li><strong>Original Preservation:</strong> Original files remain unchanged</li>
+						<li><strong>Size Calculation:</strong> Output approximately 133% of original size</li>
+						<li><strong>Progress Monitoring:</strong> Real-time conversion progress display</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-6">
+			<div class="card">
+				<div class="card-header bg-success text-white">
+					<h6 class="mb-0"><i class="bi bi-check-circle me-2"></i>Encoding Applications</h6>
+				</div>
+				<div class="card-body">
+					<h6>Common Scenarios</h6>
+					<ul class="small">
+						<li><strong>Email Attachments:</strong> Send executable files safely through email</li>
+						<li><strong>Web Integration:</strong> Embed binary data in web applications</li>
+						<li><strong>Configuration Files:</strong> Include binary data in XML/JSON configurations</li>
+						<li><strong>Legacy Systems:</strong> Transfer files to systems with text-only protocols</li>
+					</ul>
+					<h6>Professional Applications</h6>
+					<ul class="small">
+						<li><strong>Software Distribution:</strong> Package executables for safe transmission</li>
+						<li><strong>Data Migration:</strong> Move binary data through text-based migration tools</li>
+						<li><strong>API Integration:</strong> Send binary data through REST APIs</li>
+						<li><strong>Backup Systems:</strong> Store binary data in text-based backup formats</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<section id="decoding" class="mt-5">
+	<h3>Base64 Decoding Process</h3>
+	<p>The decoding process converts Base64 text files back to their original binary format, perfectly reconstructing the original data from the encoded text representation.</p>
+
+	<div class="row">
+		<div class="col-md-6">
+			<div class="card">
+				<div class="card-header bg-primary text-white">
+					<h6 class="mb-0"><i class="bi bi-arrow-down me-2"></i>Decoding Operation</h6>
+				</div>
+				<div class="card-body">
+					<h6>Process Overview</h6>
+					<ul class="small">
+						<li><strong>Input:</strong> Base64-encoded text files</li>
+						<li><strong>Validation:</strong> Automatic verification of Base64 format validity</li>
+						<li><strong>Conversion:</strong> Text data transformed back to original binary format</li>
+						<li><strong>Output:</strong> Exact reconstruction of original binary file</li>
+					</ul>
+					<h6>Quality Assurance</h6>
+					<ul class="small">
+						<li><strong>Format Validation:</strong> Ensures input is valid Base64 data</li>
+						<li><strong>Error Detection:</strong> Identifies corrupted or invalid encoded data</li>
+						<li><strong>Integrity Verification:</strong> Confirms successful conversion completion</li>
+						<li><strong>Original Restoration:</strong> Perfectly reconstructs original file</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-6">
+			<div class="card">
+				<div class="card-header bg-info text-white">
+					<h6 class="mb-0"><i class="bi bi-shield-check me-2"></i>Decoding Validation</h6>
+				</div>
+				<div class="card-body">
+					<h6>Automatic Checks</h6>
+					<ul class="small">
+						<li><strong>Character Validation:</strong> Ensures only valid Base64 characters present</li>
+						<li><strong>Padding Verification:</strong> Confirms proper '=' padding alignment</li>
+						<li><strong>Length Validation:</strong> Verifies correct block structure</li>
+						<li><strong>Integrity Confirmation:</strong> Validates successful data reconstruction</li>
+					</ul>
+					<h6>Error Handling</h6>
+					<ul class="small">
+						<li><strong>Invalid Data Detection:</strong> Identifies non-Base64 content</li>
+						<li><strong>Corruption Alerts:</strong> Warns about damaged encoded data</li>
+						<li><strong>Partial Recovery:</strong> Attempts to salvage recoverable portions</li>
+						<li><strong>Error Reporting:</strong> Detailed information about conversion issues</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<section id="advanced-features" class="mt-5">
+	<h3>Advanced Features and Custom Commands</h3>
+	<p>Beyond the standard Tools menu access, Multi Commander's Base64 functionality can be integrated into custom commands and automated workflows for sophisticated data processing scenarios.</p>
+
+	<div class="row">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header bg-dark text-white">
+					<h6 class="mb-0"><i class="bi bi-code me-2"></i>Custom Command Integration</h6>
+				</div>
+				<div class="card-body">
+					<h6>Automation Examples</h6>
+					<p class="small">Integrate Base64 operations into custom commands for automated workflows:</p>
+
+					<pre class="bg-light p-3 rounded small"><code>// Encode selected files to Base64 format
+MC.Utils.Base64Encode FILES="${selectedfiles}" OUTPUTDIR="${targetpath}"
+
+// Decode Base64 files back to binary format  
+MC.Utils.Base64Decode FILES="${selectedfiles}" OUTPUTDIR="${targetpath}"
+
+// Batch processing with verification
+MC.Utils.Base64Encode FILES="*.exe *.dll" VERIFY=1 PRESERVE=1</code></pre>
+
+					<h6>Workflow Integration Scenarios</h6>
+					<ul class="small">
+						<li><strong>Automated Packaging:</strong> Encode executables before email distribution</li>
+						<li><strong>Build Pipeline:</strong> Integrate encoding into software deployment processes</li>
+						<li><strong>Data Migration:</strong> Automate conversion for legacy system integration</li>
+						<li><strong>Backup Processes:</strong> Encode sensitive files for secure storage</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+	<div class="alert alert-info mt-3">
+		<h6><i class="bi bi-info-circle me-2"></i>Technical Reference</h6>
+		<p class="small mb-0">Base64 is defined in RFC 4648 and provides a standard method for encoding binary data using only ASCII characters. For more detailed information about the Base64 standard, visit the <a href="https://en.wikipedia.org/wiki/Base64" target="_blank" class="text-decoration-none">Wikipedia Base64 article</a>.</p>
+	</div>
+</section>
+
+<div class="alert alert-success mt-5">
+	<h6><i class="bi bi-lightbulb me-2"></i>Conversion Strategy Tip</h6>
+	<p class="mb-0">Master Base64 conversion by understanding the trade-offs: use encoding when you need text-safe transmission or storage compatibility, and always verify successful decoding by comparing file sizes and testing functionality. For automated workflows, integrate Base64 operations into custom commands to create repeatable conversion processes that maintain data integrity while streamlining file handling operations.</p>
+</div>
+
+<div class="alert alert-info mt-4">
+	<h6><i class="bi bi-info-circle me-2"></i>Related Text Processing Tools</h6>
+	<p class="mb-0">Enhance your data conversion workflows with related features: <a href="/Docs/TextConvertTools" class="text-decoration-none">Text Conversion Tools</a>, <a href="/Docs/customcommands_list" class="text-decoration-none">Custom Commands Reference</a>, and <a href="/Docs/TextTools" class="text-decoration-none">Text Tools Overview</a>.</p>
+</div>
 
 

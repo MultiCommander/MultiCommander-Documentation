@@ -1,48 +1,355 @@
-<h2>Create User Defined Commands</h2>
-<p>Multi Commander allows you to create your own <strong>commands</strong>, which can then be run from the <em>menubar</em>, <em>button panel</em>, a <em>hotkey </em>or the <em>command line</em>.</p>
+﻿<h2>User Defined Commands</h2>
 
-<p><img alt="" src="/Docs/Images/UDC_menu.png" style="width: 352px; height: 160px;" /></p>
+<p>User Defined Commands enable you to create custom automation commands that integrate seamlessly into Multi Commander's interface through menu bars, button panels, keyboard shortcuts, and command line access. This powerful feature transforms Multi Commander into a personalized file management environment that automates repetitive tasks, launches external applications, and executes complex operations with a single action.</p>
 
-<p>Open the User Defined Commands dialog by selecting "<strong>User Defined Commands</strong>"&nbsp;from the <strong>Configuration </strong>menu.</p>
+<div class="alert alert-primary">
+	<h6><i class="bi bi-plus-circle me-2"></i>Command Automation System</h6>
+	<p class="mb-0">Create sophisticated automation commands using five distinct command types - from simple internal commands to advanced MultiScript programs. These custom commands integrate into Multi Commander's interface exactly like built-in features, providing unlimited extensibility for your specific workflow requirements and file management tasks.</p>
+</div>
 
-<p>&nbsp;</p>
+<nav class="navbar navbar-expand-lg navbar-light bg-light mb-4">
+	<div class="container-fluid">
+		<span class="navbar-brand">Quick Navigation</span>
+		<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#udcNav">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="udcNav">
+			<ul class="navbar-nav">
+				<li class="nav-item"><a class="nav-link" href="#overview">Overview</a></li>
+				<li class="nav-item"><a class="nav-link" href="#getting-started">Getting Started</a></li>
+				<li class="nav-item"><a class="nav-link" href="#command-types">Command Types</a></li>
+				<li class="nav-item"><a class="nav-link" href="#assignment">Assignment Methods</a></li>
+			</ul>
+		</div>
+	</div>
+</nav>
 
-<p><img alt="" src="/Docs/Images/UDC_dialog.png" style="width: 550px; height: 405px;" /></p>
+<section id="overview">
+	<h3>User Defined Commands Overview</h3>
+	<p>User Defined Commands extend Multi Commander's functionality by allowing you to create custom commands that automate complex operations, integrate external applications, and streamline repetitive tasks through a unified command system.</p>
 
-<h2>Create Command</h2>
+	<div class="row">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header bg-info text-white">
+					<h6 class="mb-0"><i class="bi bi-menu-app me-2"></i>Access and Integration</h6>
+				</div>
+				<div class="card-body">
+					<div class="text-center mt-3 mb-3">
+						<img src="/Docs/Images/UDC_menu.png" alt="User Defined Commands in Menu" class="img-fluid border rounded shadow-sm" />
+						<p class="text-muted small mt-2">User Defined Commands appear seamlessly in Multi Commander's menu system alongside built-in features</p>
+					</div>
 
-<p>Follow these instructions to create a command:</p>
+					<h6>Command Integration Points</h6>
+					<div class="row">
+						<div class="col-md-6">
+							<ul class="small">
+								<li><strong>Menu Bar:</strong> Add commands to any menu in the main menu bar</li>
+								<li><strong>Button Panel:</strong> Assign commands to toolbar buttons for one-click access</li>
+								<li><strong>Keyboard Shortcuts:</strong> Create custom hotkey combinations for instant command execution</li>
+								<li><strong>Command Line:</strong> Execute commands directly from the command line bar</li>
+							</ul>
+						</div>
+						<div class="col-md-6">
+							<ul class="small">
+								<li><strong>Context Menus:</strong> Add commands to right-click context menus</li>
+								<li><strong>User Menus:</strong> Create custom menu categories for organized command access</li>
+								<li><strong>Quick Launch:</strong> Access through the quick launch bar system</li>
+								<li><strong>Alias System:</strong> Create memorable aliases for complex command IDs</li>
+							</ul>
+						</div>
+					</div>
 
-<ol>
-	<li>Click on the new button and enter the name you want to give your command. (The name can be changed later by editing the name property and re-saving the command.)</li>
-	<li>Fill in the tooltip / description for the command. This text will be shown as a tooltip when you hover over a command (if the command is assigned to a button on the button panel) or as a menu entry or description when needed.</li>
-	<li>Next select which type of command you want to create. There are five types of command available:
-	<ol>
-		<li><a href="#docs_UDC_internal">Internal Commands</a></li>
-		<li><a href="#docs_UDC_external">External </a><a href="#docs_UDC_internal">Commands</a></li>
-		<li><a href="#docs_UDC_custom">Custom Commands</a></li>
-		<li><a href="#docs_UDC_batch">Batch Script (.BAT)</a></li>
-		<li><a href="#docs_UDC_multiscript">MultiScript</a></li>
-	</ol>
-	</li>
-	<li>When you are done, press the <strong>Save</strong> button to save the command.</li>
-	<li>You now need to assign the command to a button, hotkey, menu item or alias so you will have a way to access the command.
-	<p>From the <a href="#docs_button-editor">Button Editor</a> you can configure a button to use a "User Defined Command" and then choose which of your commands to assign to it.</p>
+					<h6>Command Capabilities</h6>
+					<ul class="small">
+						<li><strong>File Operations:</strong> Automate copying, moving, renaming, and organizing files</li>
+						<li><strong>External Applications:</strong> Launch programs with specific parameters and file inputs</li>
+						<li><strong>System Integration:</strong> Execute batch scripts and system commands</li>
+						<li><strong>Advanced Scripting:</strong> Create sophisticated automation using MultiScript language</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
 
-	<p>From the Menu button you can add your command to a <em>menu item</em> that will be shown on the menu bar. The HotKey button will open the <a href="#docs_keyboard-customization">Keyboard customization</a> window with your command pre-selected so that you can assign a hotkey to it.</p>
+	<div class="row mt-3">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header bg-success text-white">
+					<h6 class="mb-0"><i class="bi bi-gear me-2"></i>Command Configuration</h6>
+				</div>
+				<div class="card-body">
+					<h6>Access the User Defined Commands Editor</h6>
+					<p class="small">Navigate to <strong>Configuration</strong> → <strong>User Defined Commands</strong> to open the command management interface.</p>
 
-	<p>The unique ID that is shown in the Unique ID field at the top right of the screen (generated when the command was saved) allows you to access this command from the <em>command line</em> bar. The easiest way to do that is to create an <em>alias </em>for that id with a name you can more easily remember, using the&nbsp;<a href="#docs_aliases">Alias Editor</a> (found under the <strong>Configuration </strong>menu).&nbsp;</p>
-	</li>
-</ol>
+					<h6>Basic Command Properties</h6>
+					<ul class="small">
+						<li><strong>Command Name:</strong> Descriptive name for identification and menu display</li>
+						<li><strong>Tooltip/Description:</strong> Detailed description shown in tooltips and help</li>
+						<li><strong>Command Type:</strong> Select from five available command types</li>
+						<li><strong>Unique ID:</strong> Auto-generated identifier for command line access</li>
+					</ul>
 
-<p>&nbsp;</p>
+					<h6>Command Organization</h6>
+					<ul class="small">
+						<li><strong>Categories:</strong> Group related commands for better organization</li>
+						<li><strong>Naming Conventions:</strong> Use descriptive names that indicate function</li>
+						<li><strong>Version Control:</strong> Export and import commands for backup and sharing</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
 
-<p>&nbsp;</p>
+<section id="getting-started" class="mt-5">
+	<h3>Getting Started with User Defined Commands</h3>
+	<p>Creating your first User Defined Command involves a straightforward process of defining the command properties, selecting the appropriate command type, and assigning it to an interface element for easy access.</p>
 
-<p>&nbsp;</p>
+	<div class="row">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header bg-primary text-white">
+					<h6 class="mb-0"><i class="bi bi-list-ol me-2"></i>Step-by-Step Command Creation</h6>
+				</div>
+				<div class="card-body">
+					<div class="text-center mt-3 mb-3">
+						<img src="/Docs/Images/UDC_dialog.png" alt="User Defined Commands Dialog" class="img-fluid border rounded shadow-sm" style="max-width: 520px;" />
+						<p class="text-muted small mt-2">The User Defined Commands dialog provides a comprehensive interface for creating and managing custom commands</p>
+					</div>
 
-<p>&nbsp;</p>
+					<h6>Command Creation Process</h6>
+					<ol>
+						<li><strong>Open the Editor:</strong> Access <strong>Configuration</strong> → <strong>User Defined Commands</strong> from the menu bar</li>
+						<li><strong>Create New Command:</strong> Click the <strong>New</strong> button and enter a descriptive command name</li>
+						<li><strong>Add Description:</strong> Fill in the tooltip/description field for user guidance and menu display</li>
+						<li><strong>Select Command Type:</strong> Choose from the five available command types based on your requirements</li>
+						<li><strong>Configure Command:</strong> Set up the specific parameters and options for your chosen command type</li>
+						<li><strong>Save Command:</strong> Press the <strong>Save</strong> button to store your command configuration</li>
+						<li><strong>Assign Access Method:</strong> Configure buttons, hotkeys, menu items, or aliases for command access</li>
+					</ol>
 
-<p>&nbsp;</p>
+					<div class="alert alert-info p-2 mt-3">
+						<h6 class="small mb-1"><i class="bi bi-lightbulb me-1"></i>Command Naming Best Practice</h6>
+						<p class="small mb-0">Use clear, descriptive names that indicate the command's function. Good examples: "Backup Documents to USB", "Open Current Folder in VS Code", "Convert Images to JPEG".</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<section id="command-types" class="mt-5">
+	<h3>Command Type Reference</h3>
+	<p>Multi Commander provides five distinct command types, each designed for specific automation scenarios and offering different levels of complexity and functionality.</p>
+
+	<div class="row">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header bg-dark text-white">
+					<h6 class="mb-0"><i class="bi bi-layers me-2"></i>Complete Command Type Overview</h6>
+				</div>
+				<div class="card-body">
+					<div class="table-responsive">
+						<table class="table table-bordered table-hover">
+							<thead class="table-light">
+								<tr>
+									<th style="width: 25%">Command Type</th>
+									<th style="width: 35%">Description</th>
+									<th style="width: 40%">Best Used For</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td><strong><a href="/Docs/UDC_internal" class="text-decoration-none">Internal Commands</a></strong></td>
+									<td>Execute existing Multi Commander functions and extension commands</td>
+									<td>Quick access to built-in features, menu shortcuts, extension functions</td>
+								</tr>
+								<tr>
+									<td><strong><a href="/Docs/UDC_external" class="text-decoration-none">External Commands</a></strong></td>
+									<td>Launch external applications and system programs</td>
+									<td>Opening files with specific applications, launching utilities, system tools</td>
+								</tr>
+								<tr>
+									<td><strong><a href="/Docs/UDC_batch" class="text-decoration-none">Batch Script (.BAT)</a></strong></td>
+									<td>Execute Windows batch scripts with dynamic tag support</td>
+									<td>System administration, file processing, multi-step operations</td>
+								</tr>
+								<tr>
+									<td><strong><a href="/Docs/UDC_custom" class="text-decoration-none">Custom Commands</a></strong></td>
+									<td>Simple command syntax for Multi Commander operations</td>
+									<td>File operations, view changes, panel manipulation, basic automation</td>
+								</tr>
+								<tr>
+									<td><strong><a href="/Docs/UDC_multiscript" class="text-decoration-none">MultiScript</a></strong></td>
+									<td>Advanced scripting language with full programming capabilities</td>
+									<td>Complex automation, conditional logic, advanced file processing</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="row mt-3">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header bg-success text-white">
+					<h6 class="mb-0"><i class="bi bi-arrow-up-circle me-2"></i>Simple Command Types</h6>
+				</div>
+				<div class="card-body">
+					<h6>Internal Commands</h6>
+					<ul class="small">
+						<li><strong>Purpose:</strong> Access existing Multi Commander functions</li>
+						<li><strong>Setup:</strong> Select module and specific command from dropdowns</li>
+						<li><strong>Benefits:</strong> No scripting required, immediate access to all features</li>
+						<li><strong>Examples:</strong> View file, copy files, change panel view</li>
+					</ul>
+
+					<h6>External Commands</h6>
+					<ul class="small">
+						<li><strong>Purpose:</strong> Launch external programs and applications</li>
+						<li><strong>Setup:</strong> Specify program path and command line parameters</li>
+						<li><strong>Benefits:</strong> Integrate any Windows application with Multi Commander</li>
+						<li><strong>Examples:</strong> Open with Notepad++, launch Git client, run system utilities</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header bg-warning text-dark">
+					<h6 class="mb-0"><i class="bi bi-arrow-up me-2"></i>Advanced Command Types</h6>
+				</div>
+				<div class="card-body">
+					<h6>Custom Commands</h6>
+					<ul class="small">
+						<li><strong>Purpose:</strong> Simple syntax for Multi Commander operations</li>
+						<li><strong>Setup:</strong> Use helper functions and parameter lists</li>
+						<li><strong>Benefits:</strong> Easy to learn, powerful file management capabilities</li>
+						<li><strong>Examples:</strong> Select files by pattern, change view filters, navigate paths</li>
+					</ul>
+
+					<h6>Batch Scripts or MultiScript</h6>
+					<ul class="small">
+						<li><strong>Purpose:</strong> Advanced automation and complex operations</li>
+						<li><strong>Setup:</strong> Write scripts with variables, conditions, and loops</li>
+						<li><strong>Benefits:</strong> Unlimited flexibility, sophisticated automation</li>
+						<li><strong>Examples:</strong> Batch file processing, conditional operations, system integration</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<section id="assignment" class="mt-5">
+	<h3>Command Assignment Methods</h3>
+	<p>Once created, User Defined Commands must be assigned to interface elements to provide easy access. Multi Commander offers multiple assignment methods to integrate commands into your preferred workflow.</p>
+
+	<div class="row">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header bg-primary text-white">
+					<h6 class="mb-0"><i class="bi bi-menu-button-wide me-2"></i>Interface Integration</h6>
+				</div>
+				<div class="card-body">
+					<h6>Button Panel Assignment</h6>
+					<ul class="small">
+						<li><strong>Access:</strong> Use the <a href="/Docs/button-editor" class="text-decoration-none">Button Editor</a> to configure toolbar buttons</li>
+						<li><strong>Setup:</strong> Select "User Defined Command" type and choose your command</li>
+						<li><strong>Benefits:</strong> One-click access, visual command representation</li>
+						<li><strong>Features:</strong> Tooltip display, icon customization, button grouping</li>
+					</ul>
+
+					<h6>Menu Integration</h6>
+					<ul class="small">
+						<li><strong>Access:</strong> Use the Menu button in the command editor</li>
+						<li><strong>Setup:</strong> Add commands to existing or custom menu categories</li>
+						<li><strong>Benefits:</strong> Organized command access, hierarchical structure</li>
+						<li><strong>Features:</strong> Sub-menus, separators, keyboard accelerators</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header bg-success text-white">
+					<h6 class="mb-0"><i class="bi bi-keyboard me-2"></i>Direct Access Methods</h6>
+				</div>
+				<div class="card-body">
+					<h6>Keyboard Shortcuts</h6>
+					<ul class="small">
+						<li><strong>Access:</strong> Use the HotKey button to open <a href="/Docs/keyboard-customization" class="text-decoration-none">Keyboard Customization</a></li>
+						<li><strong>Setup:</strong> Assign key combinations to commands</li>
+						<li><strong>Benefits:</strong> Fastest access method, muscle memory development</li>
+						<li><strong>Features:</strong> Modifier keys (Ctrl, Alt, Shift), function keys, custom combinations</li>
+					</ul>
+
+					<h6>Command Line Access</h6>
+					<ul class="small">
+						<li><strong>Access:</strong> Use the unique command ID in the command line bar</li>
+						<li><strong>Setup:</strong> Create aliases using the <a href="/Docs/aliases" class="text-decoration-none">Alias Editor</a></li>
+						<li><strong>Benefits:</strong> Scriptable access, memorable command names</li>
+						<li><strong>Features:</strong> Parameter passing, command chaining, automation integration</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="row mt-3">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header bg-info text-white">
+					<h6 class="mb-0"><i class="bi bi-diagram-3 me-2"></i>Assignment Workflow Guide</h6>
+				</div>
+				<div class="card-body">
+					<h6>Recommended Assignment Process</h6>
+					<ol>
+						<li><strong>Determine Usage Frequency:</strong> Assign frequently used commands to buttons or hotkeys</li>
+						<li><strong>Consider Command Context:</strong> Place file-specific commands in context menus</li>
+						<li><strong>Group Related Commands:</strong> Organize similar commands in custom menus or button groups</li>
+						<li><strong>Create Memorable Aliases:</strong> Use descriptive aliases for command line access</li>
+						<li><strong>Test Integration:</strong> Verify command access works as expected in your workflow</li>
+					</ol>
+
+					<h6>Best Practices for Command Access</h6>
+					<div class="row">
+						<div class="col-md-6">
+							<ul class="small">
+								<li><strong>Consistent Placement:</strong> Keep related commands in predictable locations</li>
+								<li><strong>Logical Grouping:</strong> Group commands by function or file type</li>
+								<li><strong>Clear Naming:</strong> Use descriptive names that indicate command purpose</li>
+								<li><strong>Avoid Conflicts:</strong> Check for existing hotkey assignments before creating new ones</li>
+							</ul>
+						</div>
+						<div class="col-md-6">
+							<ul class="small">
+								<li><strong>Document Commands:</strong> Maintain notes about complex command configurations</li>
+								<li><strong>Regular Review:</strong> Periodically review and optimize command assignments</li>
+								<li><strong>Backup Configuration:</strong> Export command definitions for backup and sharing</li>
+								<li><strong>User Training:</strong> Document custom commands for team environments</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+
+<div class="alert alert-success mt-5">
+	<h6><i class="bi bi-lightbulb me-2"></i>User Defined Commands Mastery</h6>
+	<p class="mb-0">Master User Defined Commands by starting with simple Internal and External commands before progressing to Custom Commands and advanced scripting. Remember that effective command organization through clear naming, detailed descriptions, and logical assignment methods creates a powerful automation environment. Use the unique command ID system with aliases for command line access, leverage the Button Editor and Menu Editor for interface integration, and maintain your command library through regular testing, documentation, and cleanup for sustained productivity improvements.</p>
+</div>
+
+<div class="alert alert-info mt-4">
+	<h6><i class="bi bi-info-circle me-2"></i>Related Command Documentation</h6>
+	<p class="mb-0">Explore specific command types and integration methods: <a href="/Docs/UDC_internal" class="text-decoration-none">Internal Commands</a>, <a href="/Docs/UDC_external" class="text-decoration-none">External Commands</a>, <a href="/Docs/UDC_custom" class="text-decoration-none">Custom Commands</a>, <a href="/Docs/UDC_batch" class="text-decoration-none">Batch Scripts</a>, <a href="/Docs/UDC_multiscript" class="text-decoration-none">MultiScript</a>, <a href="/Docs/button-editor" class="text-decoration-none">Button Editor</a>, <a href="/Docs/keyboard-customization" class="text-decoration-none">Keyboard Customization</a>, and <a href="/Docs/aliases" class="text-decoration-none">Alias Editor</a>.</p>
+</div>
 
 

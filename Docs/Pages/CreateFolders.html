@@ -1,26 +1,438 @@
-<h2>Create Folders</h2>
-<p>Using the <strong>Create Folder</strong> command found under the Tools menu, you can create new folders at the current path in an Explorer Panel.</p>
+﻿<html>
 
-<p><img alt="" src="/Docs/Images/CreateFolder1.png" /></p>
+<head>
+    <title>Create Folders - Multi Commander</title>
+    <link rel="stylesheet" href="/path/to/bootstrap.css">
+    <link rel="stylesheet" href="/path/to/icons.css">
+    <script src="/path/to/bootstrap.bundle.js"></script>
+</head>
 
-<p>The folder specified can be a complete folder path. Intermediate sub-folders will be created as needed.</p>
+<body>
+  <div class="container my-5">
+    <h2>Create Folders</h2>
 
-<p><img alt="" src="/Docs/Images/CreateFolder2.png" /></p>
+    <p>
+      Multi Commander's <strong>Create Folder</strong> functionality provides efficient and flexible folder creation
+      capabilities with advanced features for power users. Whether creating single directories or complex folder
+      structures, the tool offers multiple access methods and intelligent automation features to streamline folder
+      management workflows.
+    </p>
 
-<p>You can also create multiple folders at once as long as you separate the folder names with ";".</p>
+    <div class="text-center my-4">
+      <img src="/Docs/Images/CreateFolder1.png" alt="Create Folder Dialog"
+           class="img-fluid border rounded shadow-sm" />
+      <p class="text-muted small mt-2">
+        The Create Folder dialog provides flexible options for creating single or
+        multiple directories
+      </p>
+    </div>
 
-<div class="dochints">
-<fieldset><legend>Shortcuts</legend>
+    <h3>Accessing Create Folder</h3>
 
-<p>The default shortcut key for Create Folder is F7.<br />
-Shift+F7 will insert the text from the clipboard into the folder name field when the dialog is shown.</p>
+    <p>Multi Commander provides several convenient ways to access the folder creation functionality:</p>
 
-<p>When the Create Folder Dialog is shown there are some optional actions that can be performed:<br />
-F5 - Insert the text from the clipboard into the folder name field<br />
-F8 - Remove all dots in the text name field<br />
-F9 - Insert todays date as YYYY-MM-DD in the folder name field<br />
-Shift+F9 - Append today's date as YYYY-MM-DD in the folder name field</p>
-</fieldset>
-</div>
+    <div class="row mt-4">
+      <div class="col-md-4">
+        <div class="card">
+          <div class="card-header bg-primary text-white">
+            <h6 class="mb-0"><i class="bi bi-keyboard me-2"></i>Keyboard Shortcut</h6>
+          </div>
+          <div class="card-body">
+            <p class="text-center mb-3"><kbd class="fs-5">F7</kbd></p>
+            <p class="small">
+              The default and fastest way to create folders. Press F7 from any Explorer Panel to
+              open the Create Folder dialog.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card">
+          <div class="card-header bg-success text-white">
+            <h6 class="mb-0"><i class="bi bi-list me-2"></i>Tools Menu</h6>
+          </div>
+          <div class="card-body">
+            <p class="small mb-3"><strong>Tools → Create Folder</strong></p>
+            <p class="small">
+              Access through the main menu for users who prefer mouse navigation or need to
+              discover the feature.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card">
+          <div class="card-header bg-info text-white">
+            <h6 class="mb-0"><i class="bi bi-tools me-2"></i>Toolbar Icon</h6>
+          </div>
+          <div class="card-body">
+            <p class="small mb-3">Click the folder creation icon in the toolbar</p>
+            <p class="small">
+              Visual access with additional right-click options for quick folder creation using
+              predefined patterns.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <h3>Basic Folder Creation</h3>
+
+    <h4>Simple Folder Creation</h4>
+    <p>Creating a basic folder is straightforward:</p>
+    <ol>
+      <li>Navigate to the desired location in an Explorer Panel</li>
+      <li>Press <kbd>F7</kbd> or use Tools → Create Folder</li>
+      <li>Enter the folder name in the dialog</li>
+      <li>Press <kbd>Enter</kbd> or click OK</li>
+    </ol>
+
+    <div class="alert alert-info">
+      <h6><i class="bi bi-info-circle me-2"></i>Current Location</h6>
+      <p class="mb-0">
+        New folders are created at the current path displayed in the active Explorer Panel. Make
+        sure you're in the correct directory before creating folders.
+      </p>
+    </div>
+
+    <h4>Complex Path Creation</h4>
+    <p>Multi Commander supports creating entire directory structures in a single operation:</p>
+
+    <div class="text-center my-4">
+      <img src="/Docs/Images/CreateFolder1.png" alt="Complex Path Creation"
+           class="img-fluid border rounded shadow-sm" />
+      <p class="text-muted small mt-2">
+        Creating nested folder structures with automatic intermediate directory
+        creation
+      </p>
+    </div>
+
+    <div class="card">
+      <div class="card-body">
+        <h6 class="card-title">Nested Directory Creation</h6>
+        <p class="card-text">
+          Specify complete folder paths with subdirectories. Multi Commander automatically
+          creates all intermediate folders as needed.
+        </p>
+        <p class="card-text"><strong>Examples:</strong></p>
+        <ul>
+          <li><code>Projects\WebApp\Source</code> - Creates three nested folders</li>
+          <li><code>Documents\2024\Reports\Monthly</code> - Creates four-level structure</li>
+          <li><code>Backup\Database\Archive\2024-01</code> - Creates organized backup structure</li>
+        </ul>
+      </div>
+    </div>
+
+    <h3>Multiple Folder Creation</h3>
+    <div class="text-center my-4">
+      <img src="/Docs/Images/CreateFolder1.png" alt="Complex Path Creation"
+           class="img-fluid border rounded shadow-sm" />
+      <p class="text-muted small mt-2">
+        Creating multiple folder simultaneously in the current location
+      </p>
+    </div>
+
+    <p>Create multiple folders simultaneously at the same location by separating folder names with semicolons:</p>
+
+    <div class="card">
+      <div class="card-body">
+        <h6 class="card-title">Batch Folder Creation</h6>
+        <p class="card-text">Enter multiple folder names separated by semicolons (;) to create several folders at the same level in the current location.</p>
+        <p class="card-text"><strong>Examples:</strong></p>
+        <ul>
+          <li><code>Inbox;In Progress;Completed;Archive</code> - Creates four workflow folders at current level</li>
+          <li><code>Images;Documents;Videos;Audio</code> - Creates four media organization folders at current level</li>
+          <li><code>Source;Build;Deploy;Test</code> - Creates four development environment folders at current level</li>
+        </ul>
+      </div>
+    </div>
+
+    <h3>Advanced Keyboard Shortcuts</h3>
+
+    <p>The Create Folder dialog includes powerful keyboard shortcuts for enhanced productivity:</p>
+
+    <div class="row mt-4">
+      <div class="col-md-6">
+        <div class="card">
+          <div class="card-header bg-warning text-dark">
+            <h6 class="mb-0"><i class="bi bi-clipboard me-2"></i>Clipboard Integration</h6>
+          </div>
+          <div class="card-body">
+            <p class="small"><strong>Shift+F7:</strong> Opens dialog with clipboard text pre-filled</p>
+            <p class="small">
+              <strong>F5:</strong> Inserts clipboard text into the name field (when dialog is
+              open)
+            </p>
+            <p class="small">
+              <strong>Benefit:</strong> Quickly create folders using text copied from other
+              applications, such as email subjects, document titles, or web content.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="card">
+          <div class="card-header bg-success text-white">
+            <h6 class="mb-0"><i class="bi bi-calendar me-2"></i>Date Integration</h6>
+          </div>
+          <div class="card-body">
+            <p class="small"><strong>F9:</strong> Inserts today's date as YYYY-MM-DD</p>
+            <p class="small"><strong>Shift+F9:</strong> Appends today's date to existing text</p>
+            <p class="small">
+              <strong>Benefit:</strong> Perfect for creating date-organized folders like "Reports
+              2024-01-15" or "Backup 2024-01-15".
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row mt-3">
+      <div class="col-md-6">
+        <div class="card">
+          <div class="card-header bg-info text-white">
+            <h6 class="mb-0"><i class="bi bi-type me-2"></i>Text Processing</h6>
+          </div>
+          <div class="card-body">
+            <p class="small"><strong>F8:</strong> Removes all dots (periods) from the name field</p>
+            <p class="small">
+              <strong>Benefit:</strong> Useful when creating folders from filenames or text that
+              contains dots, ensuring clean folder names.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="card">
+          <div class="card-body">
+            <h6 class="card-title">Shortcut Reference</h6>
+            <div class="table-responsive">
+              <table class="table table-sm">
+                <tbody>
+                  <tr>
+                    <td><kbd>F7</kbd></td>
+                    <td>Open Create Folder dialog</td>
+                  </tr>
+                  <tr>
+                    <td><kbd>Shift+F7</kbd></td>
+                    <td>Open with clipboard text</td>
+                  </tr>
+                  <tr>
+                    <td><kbd>F5</kbd></td>
+                    <td>Insert clipboard text</td>
+                  </tr>
+                  <tr>
+                    <td><kbd>F8</kbd></td>
+                    <td>Remove dots from text</td>
+                  </tr>
+                  <tr>
+                    <td><kbd>F9</kbd></td>
+                    <td>Insert today's date</td>
+                  </tr>
+                  <tr>
+                    <td><kbd>Shift+F9</kbd></td>
+                    <td>Append today's date</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <h3>Quick Create Patterns</h3>
+
+    <p>The toolbar's Create Folder icon offers additional functionality through right-click access:</p>
+
+    <div class="card">
+      <div class="card-body">
+        <h6 class="card-title"><i class="bi bi-lightning me-2"></i>Predefined Date Patterns</h6>
+        <p class="card-text">
+          Right-click the Create Folder toolbar icon to access quick creation patterns with
+          various date formats:
+        </p>
+        <ul>
+          <li><strong>YYYY-MM-DD:</strong> ISO standard date format (2024-01-15)</li>
+          <li><strong>YYYY-MM:</strong> Monthly organization (2024-01)</li>
+          <li><strong>DD-MM-YYYY:</strong> European date format (15-01-2024)</li>
+          <li><strong>MM-DD-YYYY:</strong> US date format (01-15-2024)</li>
+          <li><strong>Custom Patterns:</strong> Additional user-defined patterns for specific workflows</li>
+        </ul>
+        <p class="card-text small text-muted">
+          These patterns are perfect for creating date-organized folder
+          structures for backups, reports, archives, and project management.
+        </p>
+      </div>
+    </div>
+
+    <h3>Command Line Field Integration</h3>
+
+    <p>Multi Commander also supports folder creation through the command line field:</p>
+
+    <div class="card">
+      <div class="card-body">
+        <h6 class="card-title"><i class="bi bi-terminal me-2"></i>Command Line Support</h6>
+        <p class="card-text">Use the <code>mkdir</code> command in Multi Commander's command line field:</p>
+        <ul>
+          <li><code>mkdir FolderName</code> - Creates a single folder</li>
+          <li><code>mkdir "Folder With Spaces"</code> - Creates folder with spaces in name</li>
+          <li><code>mkdir Path\To\New\Folder</code> - Creates nested directory structure</li>
+        </ul>
+        <p class="card-text small">
+          This method integrates with command line workflows and can be useful for users
+          familiar with command prompt operations.
+        </p>
+      </div>
+    </div>
+
+    <h3>Automation and Scripting</h3>
+
+    <p>For advanced users, Multi Commander supports automated folder creation through various methods:</p>
+
+    <h4>Custom Commands</h4>
+    <p>The <code>MC.Filesystem.Makedir</code> command provides programmatic folder creation:</p>
+
+    <div class="table-responsive">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Parameter</th>
+            <th>Description</th>
+            <th>Example</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>PATH</code></td>
+            <td>Full path to the folder to create</td>
+            <td>"C:\Projects\NewProject"</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h4>MultiScript Integration</h4>
+    <p>The <code>MakeDir</code> function allows folder creation in MultiScript automation:</p>
+
+    <pre class="bg-light p-3 rounded"><code>// Create single folder
+MakeDir("C:\\Projects\\NewProject");
+
+// Create nested structure
+MakeDir("C:\\Archive\\2024\\January\\Reports");</code></pre>
+
+    <h3>Troubleshooting Common Issues</h3>
+
+    <div class="accordion" id="createFolderAccordion">
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="folderHeading1">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                  data-bs-target="#folderCollapse1">
+            Cannot create folder - permission denied
+          </button>
+        </h2>
+        <div id="folderCollapse1" class="accordion-collapse collapse" data-bs-parent="#createFolderAccordion">
+          <div class="accordion-body">
+            <ul>
+              <li>Check if you have write permissions to the target directory</li>
+              <li>Try running Multi Commander as Administrator if needed</li>
+              <li>Verify the path is not on a read-only drive or network location</li>
+              <li>Ensure the parent directory exists and is accessible</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="folderHeading2">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                  data-bs-target="#folderCollapse2">
+            Folder name contains invalid characters
+          </button>
+        </h2>
+        <div id="folderCollapse2" class="accordion-collapse collapse" data-bs-parent="#createFolderAccordion">
+          <div class="accordion-body">
+            <ul>
+              <li>Remove or replace invalid characters: \ / : * ? " < > |</li>
+              <li>Use F8 shortcut to remove dots from the name</li>
+              <li>Avoid trailing spaces or periods in folder names</li>
+              <li>Check for reserved system names (CON, PRN, etc.)</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="folderHeading3">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                  data-bs-target="#folderCollapse3">
+            Nested folder creation fails
+          </button>
+        </h2>
+        <div id="folderCollapse3" class="accordion-collapse collapse" data-bs-parent="#createFolderAccordion">
+          <div class="accordion-body">
+            <ul>
+              <li>Verify the entire path length doesn't exceed system limits</li>
+              <li>Check each part of the path for invalid characters</li>
+              <li>Ensure you have permissions for all parent directories</li>
+              <li>Try creating the structure step by step to identify the problem point</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="folderHeading4">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                  data-bs-target="#folderCollapse4">
+            Keyboard shortcuts not working
+          </button>
+        </h2>
+        <div id="folderCollapse4" class="accordion-collapse collapse" data-bs-parent="#createFolderAccordion">
+          <div class="accordion-body">
+            <ul>
+              <li>Ensure an Explorer Panel has focus when pressing F7</li>
+              <li>Check if the shortcut has been reassigned in keyboard settings</li>
+              <li>Try using the Tools menu as an alternative</li>
+              <li>Verify Multi Commander has focus and isn't in a special mode</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <h3>Related Features</h3>
+
+    <p>Multi Commander's folder creation works seamlessly with other file management features:</p>
+
+    <ul>
+      <li><strong>File Operations:</strong> Integrate folder creation with copy, move, and organize operations</li>
+      <li><strong>Favorites:</strong> Add frequently created folder structures to favorites for quick access</li>
+      <li><strong>Bookmarks:</strong> Navigate quickly to newly created folders</li>
+      <li><strong>Custom Commands:</strong> Automate complex folder creation workflows</li>
+      <li><strong>MultiScript:</strong> Create sophisticated folder management scripts</li>
+    </ul>
+
+    <div class="alert alert-success mt-4">
+      <h6><i class="bi bi-lightbulb me-2"></i>Pro Tip</h6>
+      <p class="mb-0">
+        Use Shift+F7 to quickly create folders using text from your clipboard. This is especially
+        useful when creating folders based on email subjects, document titles, or project names you've copied
+        from other applications.
+      </p>
+    </div>
+
+    <div class="alert alert-info mt-4">
+      <h6><i class="bi bi-info-circle me-2"></i>Related Documentation</h6>
+      <p class="mb-0">
+        For more information about Multi Commander's file management capabilities, see the File
+        Operations, Custom Commands, and MultiScript documentation sections.
+      </p>
+    </div>
+  </div>
+
+    <script>
+        // JavaScript code for any interactive behaviors (if needed)
+    </script>
+</body>
+
+</html>
 
 

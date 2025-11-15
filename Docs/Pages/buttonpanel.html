@@ -1,41 +1,427 @@
-<h2>Button Panel</h2>
-<p><img alt="" src="/Docs/Images/ButtonPanel_Normal.png" style="width: 750px; height: 102px;" /></p>
+﻿<h2>Button Panel</h2>
 
-<p>The button panel is shown at the bottom of the main program screen. All of these buttons can be customized in the <a href="#docs_button-editor">Button Editor</a></p>
+<p>The <strong>Button Panel</strong> provides a comprehensive customizable interface for instant access to frequently used commands, applications, and operations through a flexible grid of action buttons positioned at the bottom of the Multi Commander interface. This powerful productivity tool transforms routine file management tasks into single-click operations by supporting up to 128 customizable button commands, alternative button modes, and seamless integration with Multi Commander's extensive command system.</p>
 
-<p>A button can be configured to change the location that an Explorer panel is showing or to call an internal or external command or script.<br />
-Since the button panel can run any of the built-in scripts, buttons customization can be a very powerful tool.</p>
-
-<p>By default there are 4 rows of button and 8 button per row, every button can have 4 actions assigned to it giving you up to 128 commands for easy access.<br />
-The number of rows can also be change from 1 to 6 and the entire Button Panel can also be disabled.</p>
-
-<p>When holding Ctrl, Shift or Ctrl+Shift (or having the Right or Middle mouse button pressed) the button panel is switched to its alternative buttons. This allows easy access to the alternative button functions.</p>
-
-<p>If alternative buttons are not used they can be disabled in settings.</p>
-
-<div class="dochints">
-<fieldset><legend>Shortcuts</legend>
-
-<p>Ctrl+B - Toggle the button panel on/off</p>
-</fieldset>
+<div class="alert alert-primary">
+	<h6><i class="bi bi-grid-3x3-gap me-2"></i>Powerful Button Customization System</h6>
+	<p class="mb-0">Experience the ultimate in workflow automation through intelligent button configuration that supports internal commands, external applications, custom scripts, and user-defined operations. The Button Panel eliminates repetitive navigation and command selection by providing immediate access to your most essential tools while adapting to different workflow contexts through alternative button modes.</p>
 </div>
 
-<h3><strong>Button Panels Settings</strong></h3>
+<nav class="navbar navbar-expand-lg navbar-light bg-light mb-4">
+	<div class="container-fluid">
+		<span class="navbar-brand">Quick Navigation</span>
+		<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#buttonPanelNav">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="buttonPanelNav">
+			<ul class="navbar-nav">
+				<li class="nav-item"><a class="nav-link" href="#overview">Overview</a></li>
+				<li class="nav-item"><a class="nav-link" href="#layout-structure">Layout Structure</a></li>
+				<li class="nav-item"><a class="nav-link" href="#alternative-modes">Alternative Modes</a></li>
+				<li class="nav-item"><a class="nav-link" href="#configuration">Configuration</a></li>
+				<li class="nav-item"><a class="nav-link" href="#customization">Customization</a></li>
+				<li class="nav-item"><a class="nav-link" href="#button-types">Button Types</a></li>
+			</ul>
+		</div>
+	</div>
+</nav>
 
-<p>The settings for the button panel are found under the Core Settings. ( Menu &gt; Configuration &gt; Core Settings).</p>
+<section id="overview">
+	<h3>Button Panel Overview and Interface</h3>
+	<p>The Button Panel occupies the bottom region of the Multi Commander interface, serving as component 8 in the main application layout. This strategically positioned toolbar provides immediate access to customized operations while maintaining clear visual separation from the core file management workspace.</p>
 
-<p><img alt="" src="/Docs/Images/ButtonPanel_Settings.png" style="width: 413px; height: 213px;" /></p>
+	<div class="row">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header bg-info text-white">
+					<h6 class="mb-0"><i class="bi bi-window-desktop me-2"></i>Interface Position and Visibility</h6>
+				</div>
+				<div class="card-body">
+					<div class="text-center mt-3 mb-3">
+						<img src="/Docs/Images/ButtonPanel_Normal.png" alt="Button Panel Interface" class="img-fluid border rounded shadow-sm" style="max-width: 750px;" />
+						<p class="text-muted small mt-2">Button Panel displaying the default button grid with customizable action buttons at bottom of interface</p>
+					</div>
 
-<p><strong>Option - Alternative Button</strong><br />
-The first two button panel options enable/disable the switching of the button panel to show the alternative button actions.<br />
-NB: If both if these options are disabled there is no way to access the alternative button actions.</p>
+					<h6>Core Features</h6>
+					<ul class="small">
+						<li><strong>Strategic Position:</strong> Located at bottom of main interface for easy access without interfering with file operations</li>
+						<li><strong>Toggle Control:</strong> <kbd>Ctrl</kbd>+<kbd>B</kbd> to show/hide the Button Panel for space management</li>
+						<li><strong>Custom Actions:</strong> Each button can be configured for location navigation, command execution, or script running</li>
+						<li><strong>Powerful Integration:</strong> Full access to Multi Commander's built-in script system and external commands</li>
+					</ul>
 
-<p><strong>Option - Transparent/Flat</strong><br />
-The Transparent option will remove the button background and make the button transparent, giving a "flat" look.</p>
+					<h6>Visibility and Control</h6>
+					<ul class="small">
+						<li><strong>Space Optimization:</strong> Show/hide based on current workflow requirements</li>
+						<li><strong>Consistent Access:</strong> Always available when enabled, regardless of active panel or extension</li>
+						<li><strong>Visual Integration:</strong> Seamlessly integrated with overall Multi Commander interface design</li>
+						<li><strong>Keyboard Accessibility:</strong> Full keyboard navigation support for all button operations</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
 
-<p><img alt="" src="/Docs/Images/ButtonPanel_Transparent.png" style="width: 750px; height: 99px;" /></p>
+<section id="layout-structure" class="mt-5">
+	<h3>Layout Structure and Capacity</h3>
+	<p>The Button Panel provides extensive customization options for grid layout, supporting multiple rows and columns of buttons with sophisticated alternative mode capabilities that multiply the available command capacity for advanced workflow automation.</p>
 
-<p><strong>More</strong><br />
-Read more about how to customize buttons with the <a href="#docs_button-editor">Button Editor</a> and how the <a href="#docs_ButtonPanelWizardMode">button wizard</a> works.</p>
+	<div class="row">
+		<div class="col-md-6">
+			<div class="card">
+				<div class="card-header bg-success text-white">
+					<h6 class="mb-0"><i class="bi bi-grid me-2"></i>Grid Configuration</h6>
+				</div>
+				<div class="card-body">
+					<h6>Default Layout</h6>
+					<ul class="small">
+						<li><strong>Standard Grid:</strong> 4 rows of buttons with 8 buttons per row</li>
+						<li><strong>Multiple Actions:</strong> Each button supports 4 different actions through alternative modes</li>
+						<li><strong>Total Capacity:</strong> Up to 128 commands available (32 buttons × 4 actions each)</li>
+						<li><strong>Flexible Rows:</strong> Configurable from 1 to 6 rows based on screen space and needs</li>
+					</ul>
+
+					<h6>Layout Advantages</h6>
+					<ul class="small">
+						<li><strong>Visual Organization:</strong> Clear grid structure enables logical button grouping</li>
+						<li><strong>Efficient Access:</strong> Consistent positioning for muscle memory development</li>
+						<li><strong>Scalable Design:</strong> Adapt button count to available screen real estate</li>
+						<li><strong>Complete Customization:</strong> Full control over panel presence and configuration</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-6">
+			<div class="card">
+				<div class="card-header bg-primary text-white">
+					<h6 class="mb-0"><i class="bi bi-layers me-2"></i>Command Capacity</h6>
+				</div>
+				<div class="card-body">
+					<h6>Maximum Potential</h6>
+					<ul class="small">
+						<li><strong>Base Configuration:</strong> 32 buttons in standard 4×8 grid layout</li>
+						<li><strong>Alternative Actions:</strong> 4 actions per button through modifier key combinations</li>
+						<li><strong>Extended Layout:</strong> Up to 48 buttons possible with 6-row configuration</li>
+						<li><strong>Total Commands:</strong> Maximum 192 commands with full 6×8 grid and all alternatives</li>
+					</ul>
+
+					<h6>Practical Optimization</h6>
+					<ul class="small">
+						<li><strong>Workflow Focus:</strong> Configure only needed rows to avoid interface clutter</li>
+						<li><strong>Logical Grouping:</strong> Organize related commands within rows or columns</li>
+						<li><strong>Progressive Enhancement:</strong> Start simple and add complexity as workflows develop</li>
+						<li><strong>Space Management:</strong> Balance button access with workspace visibility</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<section id="alternative-modes" class="mt-5">
+	<h3>Alternative Button Modes</h3>
+	<p>The Button Panel's alternative mode system multiplies functionality by providing four distinct button configurations accessible through keyboard modifiers and mouse button combinations, enabling sophisticated command organization without interface complexity.</p>
+
+	<div class="row">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header bg-warning text-dark">
+					<h6 class="mb-0"><i class="bi bi-shift me-2"></i>Alternative Mode Access</h6>
+				</div>
+				<div class="card-body">
+					<h6>Activation Methods</h6>
+					<ul class="small">
+						<li><strong>Keyboard Modifiers:</strong> Hold <kbd>Ctrl</kbd>, <kbd>Shift</kbd>, or <kbd>Ctrl</kbd>+<kbd>Shift</kbd> to access alternative button configurations</li>
+						<li><strong>Mouse Buttons:</strong> Use Right or Middle mouse buttons while clicking buttons to access alternatives</li>
+						<li><strong>Visual Feedback:</strong> Button Panel appearance changes to indicate active alternative mode</li>
+						<li><strong>Instant Switching:</strong> Real-time mode switching without delay or interface lag</li>
+					</ul>
+
+					<h6>Mode Organization</h6>
+					<ul class="small">
+						<li><strong>Default Mode:</strong> Standard button actions for most common operations</li>
+						<li><strong>Ctrl Mode:</strong> Alternative actions typically for related but different operations</li>
+						<li><strong>Shift Mode:</strong> Secondary command set for specialized functions</li>
+						<li><strong>Ctrl+Shift Mode:</strong> Advanced or rarely used commands for power user workflows</li>
+					</ul>
+
+					<h6>Configuration Options</h6>
+					<ul class="small">
+						<li><strong>Enable/Disable:</strong> Alternative button functionality can be completely disabled if not needed</li>
+						<li><strong>Access Control:</strong> Individual control over keyboard and mouse access methods</li>
+						<li><strong>Visual Distinction:</strong> Alternative buttons can display different icons or text</li>
+						<li><strong>Context Sensitivity:</strong> Alternative actions can be contextually appropriate for current selection</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="alert alert-warning mt-3">
+		<h6><i class="bi bi-exclamation-triangle me-2"></i>Important Configuration Note</h6>
+		<p class="mb-0">If both keyboard and mouse alternative button options are disabled in settings, there will be no way to access the alternative button actions. Ensure at least one access method remains enabled if you plan to use alternative commands.</p>
+	</div>
+</section>
+
+<section id="configuration" class="mt-5">
+	<h3>Button Panel Settings and Configuration</h3>
+	<p>Comprehensive configuration options enable precise control over Button Panel behavior, appearance, and functionality through the Core Settings interface, providing essential customization for different workflow requirements and visual preferences.</p>
+
+	<div class="row">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header bg-primary text-white">
+					<h6 class="mb-0"><i class="bi bi-gear me-2"></i>Core Settings Configuration</h6>
+				</div>
+				<div class="card-body">
+					<h6>Settings Access</h6>
+					<p class="small">Button Panel settings are located in <strong>Menu → Configuration → Core Settings</strong>, providing centralized control over all button panel functionality and appearance options.</p>
+
+					<div class="text-center mt-3 mb-3">
+						<img src="/Docs/Images/ButtonPanel_Settings.png" alt="Button Panel Settings" class="img-fluid border rounded shadow-sm" style="max-width: 413px;" />
+						<p class="text-muted small mt-2">Core Settings dialog showing Button Panel configuration options</p>
+					</div>
+
+					<h6>Alternative Button Options</h6>
+					<ul class="small">
+						<li><strong>Keyboard Access:</strong> Enable/disable alternative button switching using Ctrl and Shift modifiers</li>
+						<li><strong>Mouse Access:</strong> Control whether right and middle mouse buttons activate alternative modes</li>
+						<li><strong>Access Requirement:</strong> At least one access method must remain enabled for alternative functionality</li>
+						<li><strong>User Preference:</strong> Disable unused access methods to prevent accidental activation</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="row mt-3">
+		<div class="col-md-6">
+			<div class="card">
+				<div class="card-header bg-info text-white">
+					<h6 class="mb-0"><i class="bi bi-eye me-2"></i>Visual Appearance Options</h6>
+				</div>
+				<div class="card-body">
+					<h6>Transparent/Flat Style</h6>
+					<ul class="small">
+						<li><strong>Standard Appearance:</strong> Default button style with background and borders</li>
+						<li><strong>Transparent Option:</strong> Remove button backgrounds for minimalist flat appearance</li>
+						<li><strong>Space Efficiency:</strong> Flat style reduces visual clutter while maintaining functionality</li>
+						<li><strong>Modern Design:</strong> Clean, contemporary look that integrates well with minimal interfaces</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-6">
+			<div class="card">
+				<div class="card-header bg-success text-white">
+					<h6 class="mb-0"><i class="bi bi-layout-wtf me-2"></i>Layout Control</h6>
+				</div>
+				<div class="card-body">
+					<h6>Row Configuration</h6>
+					<ul class="small">
+						<li><strong>Variable Rows:</strong> Configure between 1 and 6 rows of buttons</li>
+						<li><strong>Screen Optimization:</strong> Adjust row count based on available screen height</li>
+						<li><strong>Complete Disable:</strong> Option to completely disable Button Panel when not needed</li>
+						<li><strong>Dynamic Adjustment:</strong> Change configuration without restarting Multi Commander</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="row mt-3">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header bg-dark text-white">
+					<h6 class="mb-0"><i class="bi bi-palette me-2"></i>Visual Style Comparison</h6>
+				</div>
+				<div class="card-body">
+					<div class="text-center mt-3 mb-3">
+						<img src="/Docs/Images/ButtonPanel_Transparent.png" alt="Transparent Button Panel" class="img-fluid border rounded shadow-sm" style="max-width: 750px;" />
+						<p class="text-muted small mt-2">Button Panel with transparent/flat styling showing minimalist appearance</p>
+					</div>
+
+					<h6>Style Benefits</h6>
+					<ul class="small">
+						<li><strong>Standard Style:</strong> Clear button definition with traditional appearance for easy identification</li>
+						<li><strong>Transparent Style:</strong> Reduced visual weight with modern flat design aesthetic</li>
+						<li><strong>Functionality Preserved:</strong> All button operations remain identical regardless of visual style</li>
+						<li><strong>Personal Preference:</strong> Choose style based on individual aesthetic and workflow preferences</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<section id="customization" class="mt-5">
+	<h3>Button Customization and Management</h3>
+	<p>The Button Panel integrates seamlessly with Multi Commander's comprehensive customization system through the Button Editor, providing sophisticated button configuration capabilities that support all command types and advanced scripting options.</p>
+
+	<div class="row">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header bg-success text-white">
+					<h6 class="mb-0"><i class="bi bi-wrench me-2"></i>Button Editor Integration</h6>
+				</div>
+				<div class="card-body">
+					<h6>Customization Access</h6>
+					<p class="small">All Button Panel buttons are fully customizable through the comprehensive <a href="/Docs/button-editor" class="text-decoration-none">Button Editor</a>, accessible via <strong>Configuration → Button Editor</strong> in the main menu system.</p>
+
+					<h6>Button Editor Features</h6>
+					<ul class="small">
+						<li><strong>Visual Configuration:</strong> Click buttons directly in edit mode to configure actions</li>
+						<li><strong>Alternative Mode Editing:</strong> Use modifier keys during editing to access alternative button configurations</li>
+						<li><strong>Immediate Preview:</strong> Changes are immediately visible in the Button Panel interface</li>
+						<li><strong>Complete Control:</strong> Configure icons, text, tooltips, and action behaviors for each button</li>
+					</ul>
+
+					<h6>Advanced Configuration</h6>
+					<ul class="small">
+						<li><strong>Drag-and-Drop Support:</strong> Create buttons by dropping files, folders, or applications</li>
+						<li><strong>Template System:</strong> Use <a href="/Docs/ButtonPanelWizardMode" class="text-decoration-none">Button Wizard</a> for rapid button creation</li>
+						<li><strong>Import/Export:</strong> Share button configurations between Multi Commander installations</li>
+						<li><strong>Backup/Restore:</strong> Preserve button configurations during system migrations</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<section id="button-types" class="mt-5">
+	<h3>Supported Button Types and Commands</h3>
+	<p>The Button Panel supports the complete range of Multi Commander's command system, providing access to internal operations, external applications, custom scripts, and user-defined commands for comprehensive workflow automation capabilities.</p>
+
+	<div class="row">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header bg-primary text-white">
+					<h6 class="mb-0"><i class="bi bi-code me-2"></i>Command Type Integration</h6>
+				</div>
+				<div class="card-body">
+					<h6>Available Command Types</h6>
+					<p class="small">Button Panel buttons support the same six command types available in the User Defined Commands system, providing complete integration with Multi Commander's command architecture:</p>
+
+					<div class="row">
+						<div class="col-md-6">
+							<ul class="small">
+								<li><strong><a href="/Docs/user-defined-commands" class="text-decoration-none">User Defined Commands:</a></strong> Pre-created custom command sequences</li>
+								<li><strong><a href="/Docs/UDC_internal" class="text-decoration-none">Internal Commands:</a></strong> Multi Commander's built-in operations and menu functions</li>
+								<li><strong><a href="/Docs/UDC_external" class="text-decoration-none">External Commands:</a></strong> Launch external applications and system programs</li>
+							</ul>
+						</div>
+						<div class="col-md-6">
+							<ul class="small">
+								<li><strong><a href="/Docs/UDC_custom" class="text-decoration-none">Custom Commands:</a></strong> Advanced scripting with variables and conditions</li>
+								<li><strong><a href="/Docs/UDC_batch" class="text-decoration-none">Batch Scripts:</a></strong> Windows batch file execution and automation</li>
+								<li><strong><a href="/Docs/UDC_multiscript" class="text-decoration-none">MultiScript:</a></strong> Multi Commander's powerful scripting language</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="row mt-3">
+		<div class="col-md-6">
+			<div class="card">
+				<div class="card-header bg-info text-white">
+					<h6 class="mb-0"><i class="bi bi-folder me-2"></i>Location Navigation</h6>
+				</div>
+				<div class="card-body">
+					<h6>Panel Navigation Commands</h6>
+					<ul class="small">
+						<li><strong>Folder Shortcuts:</strong> Configure buttons to navigate Explorer panels to specific directories</li>
+						<li><strong>Dynamic Paths:</strong> Support for environment variables and relative path specifications</li>
+						<li><strong>Panel Targeting:</strong> Direct navigation to left, right, or active panel as specified</li>
+						<li><strong>Tab Management:</strong> Create new tabs or navigate within existing tab structures</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-6">
+			<div class="card">
+				<div class="card-header bg-warning text-dark">
+					<h6 class="mb-0"><i class="bi bi-lightning me-2"></i>Script Integration</h6>
+				</div>
+				<div class="card-body">
+					<h6>Advanced Automation</h6>
+					<ul class="small">
+						<li><strong>Built-in Scripts:</strong> Access to Multi Commander's extensive script library</li>
+						<li><strong>Custom Scripting:</strong> Execute user-created MultiScript and batch operations</li>
+						<li><strong>Powerful Automation:</strong> Complex workflows through script-based button commands</li>
+						<li><strong>Context Awareness:</strong> Scripts can access current selection, panel state, and system information</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<section id="keyboard-shortcuts" class="mt-5">
+	<h3>Keyboard Shortcuts and Access</h3>
+	<p>The Button Panel provides comprehensive keyboard control for both panel management and individual button operation, ensuring efficient workflow automation regardless of input preference or accessibility requirements.</p>
+
+	<div class="row">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header bg-dark text-white">
+					<h6 class="mb-0"><i class="bi bi-keyboard me-2"></i>Essential Keyboard Controls</h6>
+				</div>
+				<div class="card-body">
+					<div class="table-responsive">
+						<table class="table table-bordered table-hover">
+							<thead class="table-light">
+								<tr>
+									<th style="width: 30%">Shortcut</th>
+									<th style="width: 70%">Function</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td><kbd>Ctrl</kbd>+<kbd>B</kbd></td>
+									<td>Toggle Button Panel visibility on/off</td>
+								</tr>
+								<tr>
+									<td><kbd>Ctrl</kbd> + click</td>
+									<td>Activate Ctrl alternative button action</td>
+								</tr>
+								<tr>
+									<td><kbd>Shift</kbd> + click</td>
+									<td>Activate Shift alternative button action</td>
+								</tr>
+								<tr>
+									<td><kbd>Ctrl</kbd>+<kbd>Shift</kbd> + click</td>
+									<td>Activate Ctrl+Shift alternative button action</td>
+								</tr>
+								<tr>
+									<td>Right mouse button + click</td>
+									<td>Access alternative button mode (configurable)</td>
+								</tr>
+								<tr>
+									<td>Middle mouse button + click</td>
+									<td>Access alternative button mode (configurable)</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<div class="alert alert-success mt-5">
+	<h6><i class="bi bi-lightbulb me-2"></i>Button Panel Mastery</h6>
+	<p class="mb-0">Master the Button Panel by strategically organizing your most frequently used commands in the default mode, utilizing alternative button modes for related operations, and leveraging the Button Editor for sophisticated customization. Remember that each button can host four different actions, creating up to 128 available commands in the standard configuration. Use the transparent style for a modern appearance, configure only the number of rows you need to avoid interface clutter, and integrate your buttons with Multi Commander's powerful scripting system for advanced workflow automation.</p>
+</div>
+
+<div class="alert alert-info mt-4">
+	<h6><i class="bi bi-info-circle me-2"></i>Related Customization Tools</h6>
+	<p class="mb-0">Enhance your Button Panel workflow with related Multi Commander customization features: <a href="/Docs/button-editor" class="text-decoration-none">Button Editor</a>, <a href="/Docs/ButtonPanelWizardMode" class="text-decoration-none">Button Wizard</a>, <a href="/Docs/user-defined-commands" class="text-decoration-none">User Defined Commands</a>, <a href="/Docs/quicklaunchbar" class="text-decoration-none">Quick Launch Bar</a>, and <a href="/Docs/keyboard-customization" class="text-decoration-none">Keyboard Customization</a>.</p>
+</div>
 
 

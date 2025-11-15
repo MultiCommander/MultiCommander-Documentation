@@ -1,23 +1,190 @@
-<h2>Send to Clipboard</h2>
-<p>Selecting <strong>To Clipboard</strong> under the Tools menu opens a submenu that allows you to select and copy various file properties directly to the clipboard. You then can paste that information wherever you wish.</p>
+﻿<h2>Send to Clipboard</h2>
 
-<p><img alt="" src="/Docs/Images/ToClipboard_menu.png" style="width: 500px; height: 418px;" /></p>
+<p>Multi Commander's <strong>Send to Clipboard</strong> feature provides instant access to file and folder information, enabling efficient workflow integration with external applications. Copy file paths, names, and other properties directly to the clipboard for use in documents, scripts, email, or any application that accepts text input.</p>
 
-<p>Properties for all selected files/folders will be sent to the clipboard. If no files/folders are selected the file/folder in focus will be used.</p>
-
-<p>Which properties to send depends on which command you select. The most commonly-used are the full path including filename or just the filename of the selected files or folders.</p>
-
-<div class="dochints">
-<fieldset><legend>Shortcuts</legend>
-
-<p>The default keyboard shortcut for copying the complete path is <strong>Ctrl+P</strong><br />
-For copying only the file/folder name it is <strong>Shift+Ctrl+P</strong></p>
-</fieldset>
+<div class="alert alert-primary">
+	<h6><i class="bi bi-clipboard me-2"></i>Seamless Information Transfer</h6>
+	<p class="mb-0">Transform file management data into usable information instantly. Whether you need full paths for scripts, filenames for documentation, or file properties for reports, Send to Clipboard bridges the gap between Multi Commander and your workflow.</p>
 </div>
 
-<p>Send to Clipboard is also available on the toolbar and when clicked, the complete paths of selected files/folders are copied to the clipboard.<br />
-If the right mouse button is pressed on the toolbar button a popup menu with the other options is shown.</p>
+<nav class="navbar navbar-expand-lg navbar-light bg-light mb-4">
+	<div class="container-fluid">
+		<span class="navbar-brand">Quick Navigation</span>
+		<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#clipboardNav">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="clipboardNav">
+			<ul class="navbar-nav">
+				<li class="nav-item"><a class="nav-link" href="#accessing">Accessing</a></li>
+				<li class="nav-item"><a class="nav-link" href="#clipboard-options">Clipboard Options</a></li>
+				<li class="nav-item"><a class="nav-link" href="#keyboard-shortcuts">Keyboard Shortcuts</a></li>
+				<li class="nav-item"><a class="nav-link" href="#toolbar-integration">Toolbar Integration</a></li>
+			</ul>
+		</div>
+	</div>
+</nav>
 
-<p><img alt="" src="/Docs/Images/ToClipboard_toolbarPopup.png" style="width: 385px; height: 256px;" /></p>
+<section id="accessing">
+	<h3>Accessing Send to Clipboard</h3>
+	<p>The Send to Clipboard feature is available through multiple access points in Multi Commander, providing convenient access regardless of your preferred workflow.</p>
+
+	<div class="row">
+		<div class="col-md-8">
+			<div class="card">
+				<div class="card-header bg-primary text-white">
+					<h6 class="mb-0"><i class="bi bi-menu-app me-2"></i>Tools Menu Access</h6>
+				</div>
+				<div class="card-body">
+					<p>Navigate to <strong>Tools → To Clipboard</strong> to access the complete submenu of clipboard options.</p>
+					
+					<div class="text-center mt-3 mb-3">
+						<img src="/Docs/Images/ToClipboard_menu.png" alt="Send to Clipboard Menu" class="img-fluid border rounded shadow-sm" style="max-width: 500px;" />
+						<p class="text-muted small mt-2">Complete Send to Clipboard submenu showing all available options</p>
+					</div>
+
+					<h6>File Selection Behavior</h6>
+					<ul class="small">
+						<li><strong>Multiple Selection:</strong> Properties for all selected files and folders will be copied</li>
+						<li><strong>No Selection:</strong> The file or folder currently in focus will be used</li>
+						<li><strong>Mixed Selection:</strong> Both files and folders can be processed simultaneously</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-4">
+			<div class="card">
+				<div class="card-header bg-success text-white">
+					<h6 class="mb-0"><i class="bi bi-lightning me-2"></i>Quick Access Methods</h6>
+				</div>
+				<div class="card-body">
+					<h6>Primary Access Points</h6>
+					<ul class="small">
+						<li><strong>Tools Menu:</strong> Complete options submenu</li>
+						<li><strong>Toolbar Button:</strong> One-click path copying</li>
+						<li><strong>Keyboard Shortcuts:</strong> Instant access to common operations</li>
+						<li><strong>Right-Click Toolbar:</strong> Context menu with all options</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+
+<section id="keyboard-shortcuts" class="mt-5">
+	<h3>Keyboard Shortcuts</h3>
+	<p>Streamline your workflow with keyboard shortcuts for the most commonly used clipboard operations, enabling instant information capture without menu navigation.</p>
+
+	<div class="row">
+		<div class="col-md-6">
+			<div class="card">
+				<div class="card-header bg-success text-white">
+					<h6 class="mb-0"><i class="bi bi-keyboard me-2"></i>Primary Shortcuts</h6>
+				</div>
+				<div class="card-body">
+					<div class="table-responsive">
+						<table class="table table-sm">
+							<tbody>
+								<tr>
+									<td><kbd>Ctrl</kbd>+<kbd>P</kbd></td>
+									<td>Copy complete file paths</td>
+								</tr>
+								<tr>
+									<td><kbd>Shift</kbd>+<kbd>Ctrl</kbd>+<kbd>P</kbd></td>
+									<td>Copy filenames only</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+					<div class="alert alert-warning p-2 mt-3">
+						<p class="small mb-0"><strong>Note:</strong> These are the default keyboard shortcuts. Shortcuts can be customized through Multi Commander's keyboard customization system.</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-6">
+			<div class="card">
+				<div class="card-header bg-info text-white">
+					<h6 class="mb-0"><i class="bi bi-speedometer2 me-2"></i>Workflow Benefits</h6>
+				</div>
+				<div class="card-body">
+					<h6>Efficiency Gains</h6>
+					<ul class="small">
+						<li><strong>Instant Access:</strong> No menu navigation required</li>
+						<li><strong>Muscle Memory:</strong> Consistent shortcuts across all file operations</li>
+						<li><strong>Batch Processing:</strong> Quickly copy information for multiple files</li>
+						<li><strong>Script Integration:</strong> Perfect for creating file lists for automation</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<section id="toolbar-integration" class="mt-5">
+	<h3>Toolbar Integration</h3>
+	<p>The Send to Clipboard toolbar button provides both quick access to the most common operation and a convenient context menu for accessing all clipboard options.</p>
+
+	<div class="row">
+		<div class="col-md-8">
+			<div class="card">
+				<div class="card-header bg-primary text-white">
+					<h6 class="mb-0"><i class="bi bi-tools me-2"></i>Toolbar Button Functionality</h6>
+				</div>
+				<div class="card-body">
+					<h6>Default Click Behavior</h6>
+					<p class="small">A standard left-click on the toolbar button immediately copies the complete paths of selected files and folders to the clipboard - the most commonly used operation.</p>
+
+					<h6>Right-Click Context Menu</h6>
+					<p class="small">Right-clicking the toolbar button reveals a popup menu with all available clipboard options, providing quick access without navigating through the main menu system.</p>
+
+					<div class="text-center mt-3 mb-3">
+						<img src="/Docs/Images/ToClipboard_toolbarPopup.png" alt="Toolbar Context Menu" class="img-fluid border rounded shadow-sm" style="max-width: 385px;" />
+						<p class="text-muted small mt-2">Right-click toolbar popup menu showing all clipboard options</p>
+					</div>
+
+					<h6>Toolbar Customization</h6>
+					<ul class="small">
+						<li><strong>Button Visibility:</strong> Can be enabled/disabled in toolbar customization</li>
+						<li><strong>Position:</strong> Can be moved to different positions on the toolbar</li>
+						<li><strong>Icon Style:</strong> Adapts to selected toolbar icon theme</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-4">
+			<div class="card">
+				<div class="card-header bg-success text-white">
+					<h6 class="mb-0"><i class="bi bi-mouse me-2"></i>Mouse Interaction</h6>
+				</div>
+				<div class="card-body">
+					<h6>Click Actions</h6>
+					<ul class="small">
+						<li><strong>Left Click:</strong> Copy full paths immediately</li>
+						<li><strong>Right Click:</strong> Show complete options menu</li>
+						<li><strong>Visual Feedback:</strong> Button highlight indicates successful copy</li>
+					</ul>
+					<h6>Integration Benefits</h6>
+					<ul class="small">
+						<li><strong>One-Click Access:</strong> Instant path copying</li>
+						<li><strong>Context Awareness:</strong> Works with current selection</li>
+						<li><strong>Visual Convenience:</strong> No keyboard required</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+
+<div class="alert alert-success mt-5">
+	<h6><i class="bi bi-lightbulb me-2"></i>Workflow Integration Tip</h6>
+	<p class="mb-0">Send to Clipboard becomes even more powerful when combined with Multi Commander's other features. Use it with the file search results to copy found file paths, or with the multi-rename tool to create lists of renamed files. The clipboard integration bridges Multi Commander with your entire workflow ecosystem.</p>
+</div>
+
+<div class="alert alert-info mt-4">
+	<h6><i class="bi bi-info-circle me-2"></i>Related Productivity Features</h6>
+	<p class="mb-0">Enhance your workflow with related features: <a href="/Docs/keyboard-customization" class="text-decoration-none">Keyboard Customization</a>, <a href="/Docs/CreateFolders" class="text-decoration-none">Create Folders</a>, and <a href="/Docs/MultiRename" class="text-decoration-none">Multi-Rename Tool</a>.</p>
+</div>
 
 

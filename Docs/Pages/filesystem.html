@@ -1,73 +1,367 @@
-<h2>Virtual FileSystem</h2>
-<p>Multi Commander uses a virtual filesystem layer.<br />
-The virtual filesystem has different plug-ins that extend the elements of the filesystem that Multi Command can show. An example of a plug-in is FS-Zip that will allow zip archives to be part of the virtual filesystem, so that they can be browsed and handled just like a folder. Other plug-include the FS-REG plug-in that will add a new filesystem prefix, REG:, that allows the Windows Registry to be browsed and handled as if it were a filesystem (even though it is not).</p>
+﻿<h2>Multi Commander's Virtual FileSystem</h2>
 
-<p>Not all filesystem plug-in support all filesystem functions. This depends on what each plug-in can support.</p>
+<p>Multi Commander's power and versatility stem from its innovative <strong>Virtual FileSystem (VFS)</strong> architecture. This sophisticated layer abstracts various data sources and presents them through a unified interface, allowing you to navigate, browse, and manipulate diverse content types using familiar file management operations.</p>
 
-<p><img alt="" src="/Docs/Images/VirtualFileSystem_chart.png" style="width: 228px; height: 366px;" /></p>
+<h3>Architecture Overview</h3>
 
-<p>There are two types of filesystem plug-in: Devices and Containers.</p>
+<p>The Virtual FileSystem serves as an abstraction layer between Multi Commander's user interface and the actual data sources. This design enables seamless integration of:</p>
 
-<p>The devices filesystem plug-ins will add new device prefixes to the virtual filesystem, eg. FTP: , REG: , NET:<br />
-This will present things that are not normally part of a filesystem as if they were, like the Windows Registry, for example.</p>
+<ul>
+	<li><strong>Traditional Filesystems:</strong> Local drives, network shares, and removable media</li>
+	<li><strong>Archive Formats:</strong> Zip, RAR, 7-Zip, Tar, and other compressed files</li>
+	<li><strong>Network Protocols:</strong> FTP, SFTP, and other remote access methods</li>
+	<li><strong>System Resources:</strong> Windows Registry, device interfaces, and virtual constructs</li>
+	<li><strong>Custom Data Sources:</strong> Specialized plug-ins for unique data types</li>
+</ul>
 
-<p>Containers are files that contain filesystem objects that have structures that can be represented as if they were a filesystem.<br />
-Typical examples are archives like Zip, RAR or 7-Zip. The plug-ins for them will handle the archive files as they were folders opened in Multi Commander. Handling archives as if they were folders allow files to be inserted into the archive by simply copying file into the virtual folder. When viewing a file inside a archive that file will automatically first be copied to a temporary location before opening.</p>
+<div class="text-center my-4">
+	<img src="/Docs/Images/VirtualFileSystem_chart.png" alt="Virtual FileSystem Architecture Diagram" class="img-fluid border rounded shadow-sm" style="max-width: 228px;" />
+	<p class="text-muted small mt-2">The Virtual FileSystem layer provides unified access to diverse data sources</p>
+</div>
 
-<h2>FS-Local</h2>
+<h3>Plug-in Categories</h3>
 
-<p>The built-in filesystem plug-in <b>FS-Local</b> is special. It is handled in a special way within Multi Commander.<br />
-FS-Local handles all the normal filesystem objects on the machine, like single-letter devices (A-Z), such as C:,D:,E:, and so on, and network file paths likes \\Server\share.It is also the only filesystem plug-in that cannot be disabled.</p>
+<p>The Virtual FileSystem is powered by specialized plug-ins that fall into two main categories:</p>
 
-<h2>Container/Archive Plug-ins</h2>
+<div class="row mt-4">
+	<div class="col-md-6">
+		<div class="card">
+			<div class="card-header bg-primary text-white">
+				<h5 class="mb-0"><i class="bi bi-hdd me-2"></i>Device Plug-ins</h5>
+			</div>
+			<div class="card-body">
+				<p><strong>Purpose:</strong> Add new device prefixes to the virtual filesystem</p>
+				<p><strong>Function:</strong> Present non-filesystem data as browsable locations</p>
+				<p><strong>Examples:</strong></p>
+				<ul class="mb-0">
+					<li><strong>REG:</strong> Windows Registry</li>
+					<li><strong>FTP:</strong> FTP servers</li>
+					<li><strong>SFTP:</strong> SSH file transfer</li>
+					<li><strong>WPD:</strong> Portable devices</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<div class="col-md-6">
+		<div class="card">
+			<div class="card-header bg-success text-white">
+				<h5 class="mb-0"><i class="bi bi-archive me-2"></i>Container Plug-ins</h5>
+			</div>
+			<div class="card-body">
+				<p><strong>Purpose:</strong> Handle files containing filesystem-like structures</p>
+				<p><strong>Function:</strong> Present archive contents as navigable folders</p>
+				<p><strong>Examples:</strong></p>
+				<ul class="mb-0">
+					<li><strong>ZIP:</strong> Zip archives</li>
+					<li><strong>RAR:</strong> RAR archives</li>
+					<li><strong>7Z:</strong> 7-Zip archives</li>
+					<li><strong>TAR:</strong> Tar archives</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>
 
-<p>Included with Multi Commander is a couple of archive filesystem plug-in that will handle different archives.<br />
-<b>FS-Zip</b> for Zip archive. Zip archives can be read/modify/write/create.<br />
-<b>FS-RAR</b> for rar archives, Only Read mode is supported. RAR archives can't be modified or created.&nbsp;<br />
-<b>FS-7Zip</b> handles the 7Zip archives. Read/Write/Create is supported.<br />
-<b>FS-TarGZ</b> handled both Tar and GZ archives.Read/Write/Create is supported.<br />
-<b>FS-BZip2</b> handles BZip2 archives. Read/Write/Create is supported.</p>
+<h3>FS-Local: The Foundation</h3>
 
-<p>See more about <a href="#docs_filesystem/archives">archive plug-ins</a></p>
+<p>At the core of Multi Commander's filesystem support is <strong>FS-Local</strong>, a special built-in plug-in that handles traditional filesystem access:</p>
 
-<h2>Device Plug-ins</h2>
+<div class="alert alert-info">
+	<h6><i class="bi bi-info-circle me-2"></i>FS-Local Characteristics</h6>
+	<ul class="mb-0">
+		<li><strong>Scope:</strong> Manages all standard filesystem objects (drives A-Z, network paths like \\Server\share)</li>
+		<li><strong>Special Status:</strong> Handled internally within Multi Commander for optimal performance</li>
+		<li><strong>Permanence:</strong> Cannot be disabled - it's essential for basic file management operations</li>
+		<li><strong>Foundation:</strong> Provides the base layer upon which other filesystem plug-ins operate</li>
+	</ul>
+</div>
 
-<p>Included with Multi Commander is a couple of device plug-in<br />
-<b>FS-Favorites (FAV:)</b> Allows the favorites in Multi Commander to be browsed like a filesystem.<br />
-<b>FS-Portable (WPD:)</b> exposes the Windows Portable Device interface that gives access to portable devices connected to the machine.<br />
-<b>FS-Registry (REG:)</b> make it possible to access the Windows Registry<br />
-<b>FS-FTP (FTP:)&nbsp;</b> adds FTP support</p>
+<h3>Container/Archive Plug-ins</h3>
 
-<h2>Configuration</h2>
+<p>Multi Commander includes comprehensive support for various archive formats through dedicated plug-ins:</p>
 
-<p>The way that the plug-in is connected into the virtual filesystem is configured in "Manage Plug-ins and Extensions".<br />
-There you can enable/disable plug-ins and configure the file extension and/or byte markers and device prefix that a filesystem plug-in should be associated with.</p>
+<div class="row mt-4">
+	<div class="col-md-6">
+		<div class="card mb-3">
+			<div class="card-body">
+				<h6 class="card-title"><i class="bi bi-file-zip me-2"></i>FS-Zip</h6>
+				<p class="card-text small"><strong>Format:</strong> ZIP archives</p>
+				<p class="card-text small"><strong>Capabilities:</strong> Full read/write/modify/create support</p>
+				<p class="card-text small"><strong>Use Case:</strong> Most common archive format with complete functionality</p>
+			</div>
+		</div>
+	</div>
+	<div class="col-md-6">
+		<div class="card mb-3">
+			<div class="card-body">
+				<h6 class="card-title"><i class="bi bi-file-earmark me-2"></i>FS-RAR</h6>
+				<p class="card-text small"><strong>Format:</strong> RAR archives</p>
+				<p class="card-text small"><strong>Capabilities:</strong> Read-only support</p>
+				<p class="card-text small"><strong>Limitation:</strong> Cannot modify or create RAR archives due to proprietary format</p>
+			</div>
+		</div>
+	</div>
+</div>
 
-<p>Changing how plug-in are connected into the virtual filesystem is for <b>experts only</b>. You are able to configure the plug-ins in a such way that will Multi Commander my not act the way you want or expect.<br />
-Pressing the "Rebuild Config" button will reset all extension/plug-in setups to their defaults.</p>
+<div class="row">
+	<div class="col-md-6">
+		<div class="card mb-3">
+			<div class="card-body">
+				<h6 class="card-title"><i class="bi bi-file-earmark me-2"></i>FS-7Zip</h6>
+				<p class="card-text small"><strong>Format:</strong> 7-Zip archives</p>
+				<p class="card-text small"><strong>Capabilities:</strong> Full read/write/create support</p>
+				<p class="card-text small"><strong>Advantage:</strong> Excellent compression ratios and modern format</p>
+			</div>
+		</div>
+	</div>
+	<div class="col-md-6">
+		<div class="card mb-3">
+			<div class="card-body">
+				<h6 class="card-title"><i class="bi bi-file-earmark me-2"></i>FS-TarGZ</h6>
+				<p class="card-text small"><strong>Format:</strong> Tar and GZ archives</p>
+				<p class="card-text small"><strong>Capabilities:</strong> Full read/write/create support</p>
+				<p class="card-text small"><strong>Use Case:</strong> Unix/Linux archive formats</p>
+			</div>
+		</div>
+	</div>
+</div>
 
-<p>The "Manage Plug-ins and Extensions" window is found under Menu -&gt; Configuration.&nbsp; Select "FileSystem Plug-ins" in the 'Extension Type' dropdown list.</p>
+<div class="row">
+	<div class="col-md-6">
+		<div class="card mb-3">
+			<div class="card-body">
+				<h6 class="card-title"><i class="bi bi-file-earmark me-2"></i>FS-BZip2</h6>
+				<p class="card-text small"><strong>Format:</strong> BZip2 archives</p>
+				<p class="card-text small"><strong>Capabilities:</strong> Full read/write/create support</p>
+				<p class="card-text small"><strong>Feature:</strong> High compression efficiency</p>
+			</div>
+		</div>
+	</div>
+</div>
 
-<p><img alt="" src="/Docs/Images/FileSystemExtensions.png" style="width: 649px; height: 421px;" /></p>
+<div class="alert alert-success">
+	<h6><i class="bi bi-magic me-2"></i>Archive Integration Benefits</h6>
+	<p>Container plug-ins allow you to:</p>
+	<ul class="mb-0">
+		<li><strong>Browse archives like folders:</strong> Navigate internal structure naturally</li>
+		<li><strong>Drag and drop files:</strong> Add files by simply copying them into the archive</li>
+		<li><strong>Extract seamlessly:</strong> View files automatically extracted to temporary locations</li>
+		<li><strong>Modify content:</strong> Edit archive contents using standard file operations</li>
+	</ul>
+</div>
 
-<p>Set or clear the checkboxes to the left to enable/disable a plug-in.&nbsp; To configure how it connects with the virtual filesystem press the <b>Options</b> button.</p>
+<p>For detailed information about archive-specific features and capabilities, see the <a href="/Docs/filesystem/archives" class="text-decoration-none">archive plug-ins documentation</a>.</p>
 
-<p><img alt="" src="/Docs/Images/FileSystemExtensions_Options.png" style="width: 648px; height: 421px;" /></p>
+<h3>Device Plug-ins</h3>
 
-<p>In the image above FS-Zip was select and it is associated with file extensions zip and jar.<br />
-To remove an association with a file extension select the extension to remove and press the Remove button.<br />
-Adding a new file extension is done by adding the file extension (<em>without the dot</em>) to the input field above the Add button. Press the Add button to add it.</p>
+<p>Device plug-ins extend Multi Commander's reach beyond traditional filesystems by providing access to various data sources and services:</p>
 
-<p>&nbsp;</p>
+<div class="row mt-4">
+	<div class="col-md-6">
+		<div class="card mb-3">
+			<div class="card-body">
+				<h6 class="card-title"><i class="bi bi-star me-2"></i>FS-Favorites (FAV:)</h6>
+				<p class="card-text small">Browse your saved favorites as a filesystem, enabling quick access and management of frequently used locations.</p>
+			</div>
+		</div>
+	</div>
+	<div class="col-md-6">
+		<div class="card mb-3">
+			<div class="card-body">
+				<h6 class="card-title"><i class="bi bi-phone me-2"></i>FS-Portable (WPD:)</h6>
+				<p class="card-text small">Access portable devices (smartphones, tablets, cameras) through the Windows Portable Device interface.</p>
+			</div>
+		</div>
+	</div>
+</div>
 
-<p><img alt="" src="/Docs/Images/FileSystemExtensions_OptionsDlgs650.png" style="width: 650px; height: 202px;" /></p>
+<div class="row">
+	<div class="col-md-6">
+		<div class="card mb-3">
+			<div class="card-body">
+				<h6 class="card-title"><i class="bi bi-windows me-2"></i>FS-Registry (REG:)</h6>
+				<p class="card-text small">Navigate and edit the Windows Registry using familiar file management operations, including copy operations between registry locations.</p>
+			</div>
+		</div>
+	</div>
+	<div class="col-md-6">
+		<div class="card mb-3">
+			<div class="card-body">
+				<h6 class="card-title"><i class="bi bi-cloud me-2"></i>FS-FTP (FTP:)</h6>
+				<p class="card-text small">Connect to FTP servers and manage remote files with the same ease as local files.</p>
+			</div>
+		</div>
+	</div>
+</div>
 
-<p>In the "File Identification" dropdown list you can also identify a file type by specifiying its byte marker. The byte marker is also used when trying to identify if a file should be opened by a container/archive plug-in.<br />
-The byte marker is special sequence of bytes that the file content always starts with. For example, PK are the two bytes that .zip archives always begin with.</p>
+<div class="row">
+	<div class="col-md-6">
+		<div class="card mb-3">
+			<div class="card-body">
+				<h6 class="card-title"><i class="bi bi-shield me-2"></i>FS-SFTP (SFTP:)</h6>
+				<p class="card-text small">Secure file transfer over SSH, providing encrypted access to remote servers with authentication support.</p>
+			</div>
+		</div>
+	</div>
+	<div class="col-md-6">
+		<div class="card mb-3">
+			<div class="card-body">
+				<h6 class="card-title"><i class="bi bi-collection me-2"></i>FS-VFG (VFG#:)</h6>
+				<p class="card-text small">Virtual File Groups that aggregate multiple folders into a single unified view for convenient management.</p>
+			</div>
+		</div>
+	</div>
+</div>
 
-<p>The byte marker can be entered as a hexadecimal value (see FS-RAR in the image above) or as ASCII text (see FS-Zip in image above).<br />
-Enter the byte marker in the input field and press the Add button. Select a byte marker in the list and press the Remove button to remove it.</p>
+<h3>Configuration and Management</h3>
 
-<p>Device prefixes for device plug-ins are configured under the "File Extensions". Add the prefix without the "<strong>:</strong>" (See "reg" device for FS-Registry in the image above).</p>
+<h4>Accessing Configuration</h4>
+<p>Virtual FileSystem plug-ins are configured through the comprehensive Extension Manager:</p>
+
+<ol>
+	<li>Navigate to <strong>Menu → Configuration → Manage Plug-ins and Extensions</strong></li>
+	<li>Select <strong>"FileSystem Plug-ins"</strong> from the Extension Type dropdown</li>
+	<li>Enable/disable plug-ins using the checkboxes</li>
+	<li>Click <strong>"Options"</strong> to configure specific plug-in settings</li>
+</ol>
+
+<div class="text-center my-4">
+	<img src="/Docs/Images/FileSystemExtensions.png" alt="FileSystem Extensions Configuration" class="img-fluid border rounded shadow-sm" style="max-width: 649px;" />
+	<p class="text-muted small mt-2">The Extension Manager provides centralized control over filesystem plug-ins</p>
+</div>
+
+<h4>File Association Configuration</h4>
+<p>Container plug-ins can be associated with specific file extensions and byte markers to enable automatic recognition:</p>
+
+<div class="text-center my-4">
+	<img src="/Docs/Images/FileSystemExtensions_Options.png" alt="Extension Options Dialog" class="img-fluid border rounded shadow-sm" style="max-width: 648px;" />
+	<p class="text-muted small mt-2">Configure file extensions and identification methods for each plug-in</p>
+</div>
+
+<h4>File Extension Management</h4>
+<p>You can customize which file extensions trigger specific plug-ins:</p>
+
+<ul>
+	<li><strong>Adding Extensions:</strong> Enter the extension (without the dot) and click "Add"</li>
+	<li><strong>Removing Extensions:</strong> Select the extension from the list and click "Remove"</li>
+	<li><strong>Multiple Extensions:</strong> A single plug-in can handle multiple file types</li>
+</ul>
+
+<div class="alert alert-warning">
+	<h6><i class="bi bi-exclamation-triangle me-2"></i>Example Configuration</h6>
+	<p>FS-Zip is typically associated with both "zip" and "jar" extensions, allowing it to handle Java archives as well as standard zip files.</p>
+</div>
+
+<h4>Byte Marker Identification</h4>
+<p>For more robust file type detection, plug-ins can use byte markers (file signatures):</p>
+
+<div class="text-center my-4">
+	<img src="/Docs/Images/FileSystemExtensions_OptionsDlgs650.png" alt="Byte Marker Configuration" class="img-fluid border rounded shadow-sm" style="max-width: 650px;" />
+	<p class="text-muted small mt-2">Configure byte markers for automatic file type detection</p>
+</div>
+
+<div class="row mt-4">
+	<div class="col-md-6">
+		<div class="card">
+			<div class="card-header bg-info text-white">
+				<h6 class="mb-0">Hexadecimal Format</h6>
+			</div>
+			<div class="card-body">
+				<p class="card-text small">Enter byte sequences as hexadecimal values</p>
+				<p class="card-text small"><strong>Example:</strong> RAR files start with "HEX:526172211A" in hex</p>
+			</div>
+		</div>
+	</div>
+	<div class="col-md-6">
+		<div class="card">
+			<div class="card-header bg-success text-white">
+				<h6 class="mb-0">ASCII Format</h6>
+			</div>
+			<div class="card-body">
+				<p class="card-text small">Enter readable ASCII text sequences</p>
+				<p class="card-text small"><strong>Example:</strong> ZIP files start with "PK" characters</p>
+			</div>
+		</div>
+	</div>
+</div>
+
+<h4>Device Prefix Configuration</h4>
+<p>Device plug-ins use special prefixes to identify their namespaces:</p>
+
+<ul>
+	<li><strong>Format:</strong> Enter the prefix without the colon (:)</li>
+	<li><strong>Example:</strong> "reg" for FS-Registry creates the "REG:" device</li>
+	<li><strong>Usage:</strong> Type "REG:" in the address bar to access the Windows Registry</li>
+	<li><strong>Custom Prefixes:</strong> You can define custom prefixes for specialized use cases</li>
+</ul>
+
+<h3>Advanced Configuration</h3>
+
+<h4>Expert-Level Customization</h4>
+<div class="alert alert-danger">
+	<h6><i class="bi bi-exclamation-triangle me-2"></i>Expert Warning</h6>
+	<p>Modifying plug-in connections requires deep understanding of the virtual filesystem architecture. Incorrect configuration can cause Multi Commander to behave unexpectedly or fail to access certain data sources.</p>
+</div>
+
+<p>Advanced users can:</p>
+<ul>
+	<li><strong>Override Default Associations:</strong> Change which plug-in handles specific file types</li>
+	<li><strong>Create Custom Mappings:</strong> Associate proprietary formats with existing plug-ins</li>
+	<li><strong>Configure Priority:</strong> Determine which plug-in takes precedence for ambiguous files</li>
+	<li><strong>Set Performance Parameters:</strong> Adjust caching and buffer settings for optimal performance</li>
+</ul>
+
+<h4>Configuration Reset</h4>
+<p>If configuration changes cause issues:</p>
+<ol>
+	<li>Open the Extension Manager</li>
+	<li>Click the <strong>"Rebuild Config"</strong> button</li>
+	<li>This resets all extension/plug-in setups to their factory defaults</li>
+	<li>Restart Multi Commander to ensure changes take effect</li>
+</ol>
+
+
+<h4>Troubleshooting</h4>
+<div class="accordion" id="vfsAccordion">
+	<div class="accordion-item">
+		<h2 class="accordion-header" id="vfsHeading1">
+			<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#vfsCollapse1">
+				Archive won't open or shows as regular file
+			</button>
+		</h2>
+		<div id="vfsCollapse1" class="accordion-collapse collapse" data-bs-parent="#vfsAccordion">
+			<div class="accordion-body">
+				<ul>
+					<li>Check if the appropriate plug-in is enabled in Extension Manager</li>
+					<li>Verify file extension associations are configured correctly</li>
+					<li>Test with byte marker identification if extension fails</li>
+					<li>Ensure the archive file isn't corrupted</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<div class="accordion-item">
+		<h2 class="accordion-header" id="vfsHeading2">
+			<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#vfsCollapse2">
+				Network connection fails or is slow
+			</button>
+		</h2>
+		<div id="vfsCollapse2" class="accordion-collapse collapse" data-bs-parent="#vfsAccordion">
+			<div class="accordion-body">
+				<ul>
+					<li>Check network connectivity and server availability</li>
+					<li>Verify authentication credentials are correct</li>
+					<li>Adjust connection timeout settings in plug-in options</li>
+					<li>Test with different connection parameters</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="alert alert-info mt-4">
+	<h6><i class="bi bi-lightbulb me-2"></i>Pro Tip</h6>
+	<p class="mb-0">The Virtual FileSystem's true power emerges when combining different plug-ins. For example, you can copy files from an FTP server directly into a ZIP archive, or extract registry data and save it to a network share - all using the same familiar file management interface.</p>
+</div>
 
 

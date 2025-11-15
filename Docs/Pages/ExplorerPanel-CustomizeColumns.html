@@ -1,51 +1,440 @@
 <h2>Explorer Panel - Customize Columns</h2>
-<p>Which columns that should be shown can be customized. It is possible to remove existing columns or add new ones. There are many columns that will show a lot of extra information to choose from.</p>
 
-<p>It is also possible to create new column layouts, save them and have Explorer Panels switch to that layout automatically when browsing to a certain locations. Or you can switch the entire layout when pressing a hotkey or selecting a layout manually.</p>
+<p>The <strong>Explorer Panel Column Customization</strong> system provides comprehensive control over file information display through flexible column management, predefined layout templates, and intelligent auto-sizing capabilities. This sophisticated customization framework enables users to create specialized information displays tailored to specific file types and workflow requirements while supporting both quick column adjustments and advanced layout management through saved configurations that can be automatically applied based on directory locations or manually selected through keyboard shortcuts.</p>
 
-<h2>Customize Columns</h2>
+<div class="alert alert-primary">
+	<h6><i class="bi bi-table me-2"></i>Advanced Column Management System</h6>
+	<p class="mb-0">Experience comprehensive file information display control through flexible column customization, specialized layout templates for different file types, and intelligent auto-loading capabilities. The column customization system transforms basic file listings into information-rich displays that adapt to your workflow needs while providing both simple adjustments and sophisticated layout management for optimal productivity.</p>
+</div>
 
-<p>Right click on the column header to show the context menu from which you can customize the columns.</p>
+<nav class="navbar navbar-expand-lg navbar-light bg-light mb-4">
+	<div class="container-fluid">
+		<span class="navbar-brand">Quick Navigation</span>
+		<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#customizeColumnsNav">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="customizeColumnsNav">
+			<ul class="navbar-nav">
+				<li class="nav-item"><a class="nav-link" href="#overview">Overview</a></li>
+				<li class="nav-item"><a class="nav-link" href="#basic-customization">Basic Customization</a></li>
+				<li class="nav-item"><a class="nav-link" href="#layout-management">Layout Management</a></li>
+				<li class="nav-item"><a class="nav-link" href="#column-operations">Column Operations</a></li>
+				<li class="nav-item"><a class="nav-link" href="#auto-sizing">Auto-Sizing</a></li>
+			</ul>
+		</div>
+	</div>
+</nav>
 
-<p><img alt="" src="/Docs/Images/ColumnHeaderPopup.png" style="width: 564px; height: 289px;" /></p>
+<section id="overview">
+	<h3>Column Customization Overview</h3>
+	<p>The Explorer Panel column system provides extensive customization capabilities that enable users to display relevant file information through configurable column layouts, specialized templates for different file types, and intelligent sizing options that optimize information presentation for various workflow requirements.</p>
 
-<p>All existing column are shown in the popup menu first. To remove any of the existing (ticked) columns just click on that item in the context menu and it will be removed.</p>
+	<div class="row">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header bg-info text-white">
+					<h6 class="mb-0"><i class="bi bi-columns me-2"></i>Column Customization Capabilities</h6>
+				</div>
+				<div class="card-body">
+					<h6>Core Customization Features</h6>
+					<ul class="small">
+						<li><strong>Column Management:</strong> Add, remove, and rearrange columns to display relevant file information</li>
+						<li><strong>Layout Templates:</strong> Predefined layouts optimized for different file types and use cases</li>
+						<li><strong>Auto-Loading:</strong> Automatic layout switching based on directory location</li>
+						<li><strong>Persistent Configurations:</strong> Save and restore custom column arrangements</li>
+					</ul>
 
-<h3><b>Add Columns</b></h3>
+					<h6>Advanced Capabilities</h6>
+					<ul class="small">
+						<li><strong>Extensive Column Library:</strong> Choose from hundreds of available file information columns</li>
+						<li><strong>Specialized Layouts:</strong> Picture and Music layouts with extended metadata information</li>
+						<li><strong>Keyboard Shortcuts:</strong> Quick layout switching through hotkey assignments</li>
+						<li><strong>Auto-Sizing Options:</strong> Intelligent column width management and optimization</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
 
-<p>Add columns by selecting which column to add from the list of columns under "<b>Add columns</b>". This list shows the most commonly used columns, but there are many more columns available. To access them select the "<strong>More...</strong>" item at the bottom of the column list. Then the "<strong>Customize Columns..</strong>" dialog will be shown. From this dialog all columns are available.</p>
+<section id="basic-customization" class="mt-5">
+	<h3>Basic Column Customization</h3>
+	<p>The column customization interface provides intuitive access to column management through right-click context menus that enable immediate column adjustments, quick layout changes, and access to advanced customization features without interrupting workflow continuity.</p>
 
-<h3><b>Use Layout</b></h3>
+	<div class="row">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header bg-success text-white">
+					<h6 class="mb-0"><i class="bi bi-cursor me-2"></i>Column Header Context Menu</h6>
+				</div>
+				<div class="card-body">
+					<div class="text-center mt-3 mb-3">
+						<img src="/Docs/Images/ColumnHeaderPopup.png" alt="Column Header Context Menu" class="img-fluid border rounded shadow-sm" style="max-width: 564px;" />
+						<p class="text-muted small mt-2">Column header context menu showing comprehensive column management options</p>
+					</div>
 
-<p>If you have created multiple column layouts they are listed here. Select one and it will replace the current layout.</p>
+					<h6>Context Menu Access</h6>
+					<ul class="small">
+						<li><strong>Right-Click Access:</strong> Right-click any column header to show customization menu</li>
+						<li><strong>Current Columns:</strong> All existing columns shown with checkmarks for easy removal</li>
+						<li><strong>Toggle Visibility:</strong> Click checked columns to remove them from display</li>
+						<li><strong>Immediate Updates:</strong> Changes applied instantly without dialog confirmation</li>
+					</ul>
 
-<p>By default there are three "standard" layouts available: "<strong>Default</strong>", "<strong>Picture</strong>" and "<strong>Music</strong>".<br />
-The "<b>Default</b>" layout is the standard layout that is used of no other is selected. If you want to modify the standard column layout it is the "<strong>Default</strong>" layout that should be changed.<br />
-The "<b>Picture</b>" and "<b>Music</b>" layout are alternative layouts that will show extended file information for picture and music files.</p>
+					<h6>Quick Column Management</h6>
+					<ul class="small">
+						<li><strong>Visible Columns:</strong> Checkmarked items represent currently displayed columns</li>
+						<li><strong>One-Click Removal:</strong> Click any checked column to remove it from display</li>
+						<li><strong>Visual Feedback:</strong> Menu updates immediately to reflect current column state</li>
+						<li><strong>Non-Destructive:</strong> Removed columns can be easily re-added later</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
 
-<h3><b>Save Current Layout as Default</b></h3>
+<section id="layout-management" class="mt-5">
+	<h3>Layout Management and Templates</h3>
+	<p>The Explorer Panel provides sophisticated layout management through predefined templates and custom layout creation capabilities that enable specialized information displays optimized for different file types and operational requirements.</p>
 
-<p>This will save the current column layout and setting to the "<b>Default</b>" layout.<br />
-Select this option if columns are modified and the current layout (columns and size) should be used as the default layout for all Explorer Panels.</p>
+	<div class="row">
+		<div class="col-md-6">
+			<div class="card">
+				<div class="card-header bg-warning text-dark">
+					<h6 class="mb-0"><i class="bi bi-plus-circle me-2"></i>Adding Columns</h6>
+				</div>
+				<div class="card-body">
+					<h6>Column Addition Methods</h6>
+					<ul class="small">
+						<li><strong>Add Columns Submenu:</strong> Select from commonly used columns under "Add columns"</li>
+						<li><strong>Common Columns:</strong> Most frequently needed columns readily available</li>
+						<li><strong>More Options:</strong> Click "More..." to access complete column library</li>
+						<li><strong>Full Dialog Access:</strong> "Customize Columns..." opens comprehensive management dialog</li>
+					</ul>
 
-<h3><b>Restore Columns</b></h3>
+					<h6>Column Selection Process</h6>
+					<ul class="small">
+						<li><strong>Progressive Disclosure:</strong> Common columns shown first for easy access</li>
+						<li><strong>Extended Library:</strong> Hundreds of additional columns available through dialog</li>
+						<li><strong>Category Organization:</strong> Columns organized by type and function</li>
+						<li><strong>Search Functionality:</strong> Filter available columns by name or category</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-6">
+			<div class="card">
+				<div class="card-header bg-primary text-white">
+					<h6 class="mb-0"><i class="bi bi-layout-wtf me-2"></i>Layout Templates</h6>
+				</div>
+				<div class="card-body">
+					<h6>Predefined Layout Options</h6>
+					<ul class="small">
+						<li><strong>Use Layout Submenu:</strong> Quick access to saved column layouts</li>
+						<li><strong>Layout Selection:</strong> Choose layout to replace current column configuration</li>
+						<li><strong>Instant Application:</strong> Selected layout applied immediately</li>
+						<li><strong>Custom Layouts:</strong> User-created layouts appear in selection menu</li>
+					</ul>
 
-<p>This restores all columns to the saved state of the current column layout.<br />
-If "<b>Default</b>" layout is selected and columns are then modified, selecting "<strong>Restore Columns</strong>" will revert to the saved state of the "<strong>Default</strong>" layout.<br />
-If "<strong>Picture</strong>" layout is used and columns are manually changed, selecting "<strong>Restore Columns</strong>" will revert to the saved state of the "<strong>Picture</strong>" layout.</p>
+					<h6>Standard Layout Templates</h6>
+					<ul class="small">
+						<li><strong>Default Layout:</strong> Standard column configuration for general file management</li>
+						<li><strong>Picture Layout:</strong> Extended metadata columns optimized for image files</li>
+						<li><strong>Music Layout:</strong> Audio file metadata including artist, album, duration</li>
+						<li><strong>Layout Modification:</strong> All layouts can be customized to match specific needs</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
 
-<h3><b>Autosize Columns</b></h3>
+	<div class="row mt-3">
+		<div class="col-md-6">
+			<div class="card">
+				<div class="card-header bg-success text-white">
+					<h6 class="mb-0"><i class="bi bi-save me-2"></i>Save Current Layout as Default</h6>
+				</div>
+				<div class="card-body">
+					<h6>Default Layout Management</h6>
+					<ul class="small">
+						<li><strong>Current State Saving:</strong> Save current column configuration as default layout</li>
+						<li><strong>Global Application:</strong> Default layout applies to all new Explorer Panels</li>
+						<li><strong>Complete Configuration:</strong> Saves both column selection and sizing information</li>
+						<li><strong>Persistent Settings:</strong> Default layout maintained across Multi Commander sessions</li>
+					</ul>
 
-<p>If the Explorer Panel setting "<strong>Autosize Columns</strong>" option is checked this option will <strong>not</strong> be available.</p>
+					<h6>When to Use Default Saving</h6>
+					<ul class="small">
+						<li><strong>Standard Workflow:</strong> When current configuration should be standard for all panels</li>
+						<li><strong>Column Customization:</strong> After modifying columns to preferred arrangement</li>
+						<li><strong>Size Optimization:</strong> When column widths are optimized for typical content</li>
+						<li><strong>Workspace Standardization:</strong> Establishing consistent information display</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-6">
+			<div class="card">
+				<div class="card-header bg-info text-white">
+					<h6 class="mb-0"><i class="bi bi-arrow-clockwise me-2"></i>Restore Columns</h6>
+				</div>
+				<div class="card-body">
+					<h6>Layout Restoration</h6>
+					<ul class="small">
+						<li><strong>Saved State Recovery:</strong> Restore columns to saved state of current layout</li>
+						<li><strong>Context-Sensitive:</strong> Restoration applies to currently active layout</li>
+						<li><strong>Modification Reversal:</strong> Undo manual changes to return to saved configuration</li>
+						<li><strong>Layout Integrity:</strong> Maintain original layout design and proportions</li>
+					</ul>
 
-<p><img alt="" src="/Docs/Images/AutoResizeColumns.png" style="width: 431px; height: 130px;" /></p>
+					<h6>Restoration Examples</h6>
+					<ul class="small">
+						<li><strong>Default Layout:</strong> Restores to saved Default layout configuration</li>
+						<li><strong>Picture Layout:</strong> Reverts Picture layout to original design</li>
+						<li><strong>Music Layout:</strong> Returns Music layout to intended metadata columns</li>
+						<li><strong>Custom Layouts:</strong> Restores any user-created layout to saved state</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
 
-<p>If the option in the picture above in not enabled (checked) then you can use the "<b>Autosize Columns</b>" option in the column header menu to manually resize all columns to their optimum width.</p>
+<section id="column-operations" class="mt-5">
+	<h3>Advanced Column Operations</h3>
+	<p>The column customization system provides advanced operations for comprehensive layout management including access to the complete column library, detailed layout creation, and sophisticated auto-loading capabilities for location-specific configurations.</p>
 
-<h3><b>Customize Columns</b></h3>
+	<div class="row">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header bg-dark text-white">
+					<h6 class="mb-0"><i class="bi bi-gear me-2"></i>Advanced Customization Access</h6>
+				</div>
+				<div class="card-body">
+					<h6>Customize Columns Dialog</h6>
+					<ul class="small">
+						<li><strong>Comprehensive Interface:</strong> "Customize Columns" option opens full customization dialog</li>
+						<li><strong>Complete Column Library:</strong> Access to all available columns beyond quick-add menu</li>
+						<li><strong>Layout Creation:</strong> Create new column layouts with custom names and configurations</li>
+						<li><strong>Advanced Properties:</strong> Configure column properties, widths, and behaviors</li>
+					</ul>
 
-<p>This option will open the Customize Column Layouts window.<br />
-There new layout can be created and existing ones can be modified. It is also here that all the columns that do not fit in the Add Columns list are available.<br />
-See <a href="#docs_ExplorerPanel-CustomizeColumnLayouts">Customize Column Layouts</a> for more information.</p>
+					<h6>Extended Functionality</h6>
+					<ul class="small">
+						<li><strong>Column Filtering:</strong> Search and filter available columns by name or category</li>
+						<li><strong>Property Configuration:</strong> Set column widths, alignment, and display properties</li>
+						<li><strong>Auto-Loading Setup:</strong> Configure layouts to automatically apply based on directory paths</li>
+						<li><strong>Layout Management:</strong> Create, modify, delete, and organize custom layouts</li>
+					</ul>
+
+					<div class="alert alert-info p-2 mt-3">
+						<h6 class="small mb-1"><i class="bi bi-info-circle me-1"></i>Comprehensive Documentation</h6>
+						<p class="small mb-0">See <a href="/Docs/ExplorerPanel-CustomizeColumnLayouts" class="text-decoration-none">Customize Column Layouts</a> for complete advanced customization details.</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<section id="auto-sizing" class="mt-5">
+	<h3>Auto-Fit Columns and Width Management</h3>
+	<p>The Explorer Panel provides intelligent column width management through auto-fit capabilities that automatically optimize column layouts to fill the available view width while eliminating horizontal scrollbars. This sophisticated system dynamically adjusts stretchable columns to ensure optimal space utilization and consistent visual presentation regardless of panel size or content variations.</p>
+
+	<div class="row">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header bg-warning text-dark">
+					<h6 class="mb-0"><i class="bi bi-arrows-expand me-2"></i>Auto-Fit Columns to View Width</h6>
+				</div>
+				<div class="card-body">
+					<div class="text-center mt-3 mb-3">
+						<img src="/Docs/Images/AutoResizeColumns.png" alt="Auto-Fit Columns Setting" class="img-fluid border rounded shadow-sm" style="max-width: 431px;" />
+						<p class="text-muted small mt-2">Explorer Panel Settings showing Auto-fit columns to view width configuration option</p>
+					</div>
+
+					<h6>Auto-Fit Configuration</h6>
+					<ul class="small">
+						<li><strong>Global Setting:</strong> "Auto-fit columns to view width" option in Explorer Panel Settings</li>
+						<li><strong>View Width Optimization:</strong> Columns automatically adjust to fill the complete available view width</li>
+						<li><strong>Horizontal Scrollbar Prevention:</strong> Eliminates horizontal scrollbars by ensuring columns fit within view</li>
+						<li><strong>Dynamic Layout Management:</strong> Continuous adjustment as panel size or content changes</li>
+					</ul>
+
+					<h6>Stretchable Column System</h6>
+					<ul class="small">
+						<li><strong>Stretchable Columns:</strong> Only columns marked as "stretchable" participate in auto-fit adjustments</li>
+						<li><strong>Flexible Sizing:</strong> Stretchable columns can expand or shrink as needed to fill view width</li>
+						<li><strong>Fixed Column Preservation:</strong> Non-stretchable columns maintain their defined widths</li>
+						<li><strong>Proportional Adjustment:</strong> Multiple stretchable columns share available space proportionally</li>
+					</ul>
+
+					<h6>Auto-Fit Behavior</h6>
+					<ul class="small">
+						<li><strong>Expand to Fill:</strong> Columns expand when excess space is available in the view</li>
+						<li><strong>Shrink to Fit:</strong> Columns shrink when content would exceed view width</li>
+						<li><strong>Panel Resize Response:</strong> Immediate adjustment when Explorer Panel is resized</li>
+						<li><strong>Content Adaptation:</strong> Dynamic response to changes in file listings and directory content</li>
+					</ul>
+
+					<div class="alert alert-info p-2 mt-3">
+						<h6 class="small mb-1"><i class="bi bi-info-circle me-1"></i>Stretchable Column Configuration</h6>
+						<p class="small mb-0">Column stretchable properties are configured in the advanced <a href="/Docs/ExplorerPanel-CustomizeColumnLayouts" class="text-decoration-none">Customize Column Layouts</a> dialog where individual columns can be marked as stretchable or fixed-width.</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="row mt-3">
+		<div class="col-md-6">
+			<div class="card">
+				<div class="card-header bg-success text-white">
+					<h6 class="mb-0"><i class="bi bi-arrows-angle-expand me-2"></i>Manual Auto-Sizing Options</h6>
+				</div>
+				<div class="card-body">
+					<h6>Context Menu Auto-Sizing</h6>
+					<ul class="small">
+						<li><strong>Menu Option Availability:</strong> "Autosize Columns" menu option available when auto-fit is disabled</li>
+						<li><strong>Content-Based Optimization:</strong> Manual trigger for optimal width based on current content</li>
+						<li><strong>One-Time Operation:</strong> Single execution without continuous auto-fit behavior</li>
+						<li><strong>Immediate Results:</strong> Instant column width optimization for current directory content</li>
+					</ul>
+
+					<h6>Manual vs Auto-Fit Differences</h6>
+					<ul class="small">
+						<li><strong>Manual Autosize:</strong> Optimizes for content width without view width constraints</li>
+						<li><strong>Auto-Fit:</strong> Optimizes for view width filling with stretchable column system</li>
+						<li><strong>Scrollbar Behavior:</strong> Manual may create scrollbars; auto-fit prevents them</li>
+						<li><strong>Column Expansion:</strong> Auto-fit can expand columns beyond content width to fill view</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-6">
+			<div class="card">
+				<div class="card-header bg-primary text-white">
+					<h6 class="mb-0"><i class="bi bi-layout-three-columns me-2"></i>Width Management Benefits</h6>
+				</div>
+				<div class="card-body">
+					<h6>Optimal Display Advantages</h6>
+					<ul class="small">
+						<li><strong>Complete View Utilization:</strong> Makes full use of available Explorer Panel width</li>
+						<li><strong>Consistent Interface:</strong> Eliminates horizontal scrolling for better user experience</li>
+						<li><strong>Responsive Design:</strong> Adapts automatically to different panel sizes and configurations</li>
+						<li><strong>Professional Appearance:</strong> Clean, organized layout without wasted space</li>
+					</ul>
+
+					<h6>Workflow Enhancement</h6>
+					<ul class="small">
+						<li><strong>No Manual Adjustment:</strong> Eliminates need for manual column width management</li>
+						<li><strong>Multi-Resolution Support:</strong> Works optimally across different screen resolutions</li>
+						<li><strong>Panel Configuration Adaptation:</strong> Adjusts automatically when changing panel layouts</li>
+						<li><strong>Information Density:</strong> Maximizes visible information within available space</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="row mt-3">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header bg-info text-white">
+					<h6 class="mb-0"><i class="bi bi-gear-wide-connected me-2"></i>Setting Interaction and Configuration</h6>
+				</div>
+				<div class="card-body">
+					<h6>Auto-Fit vs Manual Control</h6>
+					<ul class="small">
+						<li><strong>Exclusive Options:</strong> Auto-fit columns and manual autosize are mutually exclusive features</li>
+						<li><strong>Menu Availability:</strong> Manual "Autosize Columns" option only appears when auto-fit is disabled</li>
+						<li><strong>Setting Priority:</strong> Auto-fit setting takes precedence over manual width adjustments</li>
+						<li><strong>Configuration Choice:</strong> Choose between automatic view-width fitting or content-based sizing</li>
+					</ul>
+
+					<h6>Best Practice Guidelines</h6>
+					<ul class="small">
+						<li><strong>Enable Auto-Fit:</strong> Recommended for most users to eliminate scrolling and maximize space usage</li>
+						<li><strong>Configure Stretchable Columns:</strong> Mark appropriate columns as stretchable for optimal auto-fit behavior</li>
+						<li><strong>Content-Heavy Columns:</strong> Make filename and path columns stretchable for better space utilization</li>
+						<li><strong>Fixed-Width Columns:</strong> Keep size, date, and numeric columns fixed for consistent information display</li>
+					</ul>
+
+					<div class="alert alert-warning p-2 mt-3">
+						<h6 class="small mb-1"><i class="bi bi-exclamation-triangle me-1"></i>Setting Interaction</h6>
+						<p class="small mb-0">When "Auto-fit columns to view width" is enabled in Explorer Panel Settings, the manual "Autosize Columns" menu option is not available since automatic view-width fitting is already active.</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<section id="workflow-integration" class="mt-5">
+	<h3>Workflow Integration and Best Practices</h3>
+	<p>Column customization integrates seamlessly with Multi Commander's overall workflow through keyboard shortcuts, automatic layout switching, and intelligent defaults that enhance productivity while maintaining consistency across different file management scenarios.</p>
+
+	<div class="row">
+		<div class="col-md-6">
+			<div class="card">
+				<div class="card-header bg-primary text-white">
+					<h6 class="mb-0"><i class="bi bi-keyboard me-2"></i>Keyboard Integration</h6>
+				</div>
+				<div class="card-body">
+					<h6>Layout Switching Shortcuts</h6>
+					<ul class="small">
+						<li><strong>Hotkey Assignment:</strong> Assign keyboard shortcuts to specific column layouts</li>
+						<li><strong>Rapid Switching:</strong> Instant layout changes without menu navigation</li>
+						<li><strong>Workflow Optimization:</strong> Quick adaptation to different file types and tasks</li>
+						<li><strong>Custom Configuration:</strong> User-defined shortcuts for frequently used layouts</li>
+					</ul>
+
+					<h6>Context-Sensitive Usage</h6>
+					<ul class="small">
+						<li><strong>File Type Adaptation:</strong> Switch to Picture layout when browsing image directories</li>
+						<li><strong>Task-Specific Layouts:</strong> Different column sets for different operational contexts</li>
+						<li><strong>Project Organization:</strong> Custom layouts for specific project types</li>
+						<li><strong>Efficiency Enhancement:</strong> Reduce information overload through targeted displays</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-6">
+			<div class="card">
+				<div class="card-header bg-success text-white">
+					<h6 class="mb-0"><i class="bi bi-magic me-2"></i>Automatic Layout Application</h6>
+				</div>
+				<div class="card-body">
+					<h6>Location-Based Auto-Loading</h6>
+					<ul class="small">
+						<li><strong>Path-Specific Layouts:</strong> Automatically apply layouts when browsing specific directories</li>
+						<li><strong>Subpath Support:</strong> Extend layout application to subdirectories</li>
+						<li><strong>Intelligent Switching:</strong> Seamless layout changes based on location context</li>
+						<li><strong>Workflow Automation:</strong> Eliminate manual layout switching for predictable contexts</li>
+					</ul>
+
+					<h6>Best Practice Guidelines</h6>
+					<ul class="small">
+						<li><strong>Default Layout:</strong> Optimize default layout for most common file management tasks</li>
+						<li><strong>Specialized Layouts:</strong> Create specific layouts for media, development, documents</li>
+						<li><strong>Auto-Loading Strategy:</strong> Configure auto-loading for frequently accessed specialized directories</li>
+						<li><strong>Performance Consideration:</strong> Balance information richness with display performance</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<div class="alert alert-success mt-5">
+	<h6><i class="bi bi-lightbulb me-2"></i>Column Customization Mastery</h6>
+	<p class="mb-0">Master Explorer Panel column customization by utilizing the right-click context menu for quick column adjustments, leveraging predefined layouts like Picture and Music for specialized file types, and configuring auto-sizing options based on your workflow preferences. Remember that column layouts can be automatically applied based on directory location, keyboard shortcuts enable rapid layout switching, and the comprehensive customization dialog provides access to hundreds of additional file information columns. Create specialized layouts for different project types and use auto-loading to automatically apply appropriate column configurations for optimal information display.</p>
+</div>
+
+<div class="alert alert-info mt-4">
+	<h6><i class="bi bi-info-circle me-2"></i>Related Column Management Documentation</h6>
+	<p class="mb-0">Enhance your column customization expertise with related Explorer Panel features: <a href="/Docs/ExplorerPanel-CustomizeColumnLayouts" class="text-decoration-none">Customize Column Layouts</a>, <a href="/Docs/ExplorerPanel-Layout" class="text-decoration-none">Explorer Panel Layout</a>, <a href="/Docs/ExplorerPanel" class="text-decoration-none">Explorer Panel Overview</a>, <a href="/Docs/ExplorerPanelSettings" class="text-decoration-none">Explorer Panel Settings</a>, and <a href="/Docs/ExplorerPanel-FileColoring" class="text-decoration-none">File Coloring</a>.</p>
+</div>
 
 

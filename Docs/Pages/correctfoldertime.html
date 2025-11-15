@@ -1,28 +1,320 @@
-<h2>Correct Folder Date/Time</h2>
-<p>The date/time of a folder is changed whenever you copy a file into it, delete a file from it, or change a file in it. In some situations this may not be what you want.</p>
+﻿<h2>Correct Folder Date/Time</h2>
 
-<p>For example, you might list and sort those folder by date, and you want the date/time of the folder to show the date/time of the most recent file in that folder rather than when something was last changed in the folder.</p>
+<p>Multi Commander's <strong>Correct Folder Date/Time</strong> tool provides sophisticated timestamp management for folder hierarchies. This utility addresses a common issue where folder timestamps become misleading due to file operations, allowing you to restore meaningful chronological organization based on actual content dates.</p>
 
-<p>This tool will scan the selected folder and subfolders and set the date/time of the folders to that of the most recent file it finds.</p>
+<div class="text-center my-4">
+	<img src="/Docs/Images/CorrectFolderDateTime.png" alt="Folder Date Time Correction" class="img-fluid border rounded shadow-sm" style="max-width: 500px;" />
+	<p class="text-muted small mt-2">Folder timestamps before and after correction showing improved chronological accuracy</p>
+</div>
 
-<p><img alt="" src="/Docs/Images/CorrectFolderDateTime.png" style="width: 500px; height: 188px;" /></p>
+<h3>Overview and Purpose</h3>
 
-<p>&nbsp;Select the folder you want to change then select "Correct folder date/time" from the Tools menu.<br />
-&nbsp;</p>
+<p>Folder timestamps automatically change whenever file operations occur within them - copying files, deleting content, or modifying existing files all update the folder's modification time. This behavior can make folder-based chronological sorting ineffective, as the timestamps reflect the last operation rather than the actual content dates.</p>
 
-<p><img alt="" src="/Docs/Images/CorrectFolderDateTimeDlg.png" style="width: 342px; height: 317px;" /></p>
+<div class="alert alert-info">
+	<h6><i class="bi bi-info-circle me-2"></i>The Problem</h6>
+	<p class="mb-0">When you copy files into folders or perform maintenance operations, folder timestamps update to reflect the operation time, not the content dates. This makes it difficult to organize folders chronologically based on their actual content.</p>
+</div>
 
-<p>You can specify two kind of filters for the scanning: Ignore and Include filters.</p>
+<div class="row mt-4">
+	<div class="col-md-6">
+		<div class="card">
+			<div class="card-header bg-primary text-white">
+				<h6 class="mb-0"><i class="bi bi-folder me-2"></i>Before Correction</h6>
+			</div>
+			<div class="card-body">
+				<ul class="small mb-0">
+					<li>Folder timestamps show operation dates</li>
+					<li>Chronological sorting is misleading</li>
+					<li>Content dates are hidden</li>
+					<li>Organization becomes difficult</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<div class="col-md-6">
+		<div class="card">
+			<div class="card-header bg-success text-white">
+				<h6 class="mb-0"><i class="bi bi-check-circle me-2"></i>After Correction</h6>
+			</div>
+			<div class="card-body">
+				<ul class="small mb-0">
+					<li>Folder timestamps reflect content dates</li>
+					<li>Accurate chronological sorting</li>
+					<li>Most recent file dates visible</li>
+					<li>Meaningful organization restored</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>
 
-<h2>Ignore Filter</h2>
+<h3>How It Works</h3>
 
-<p>The first filter is the <em>ignore</em> filter. It specifies the files and folders that you want to ignore when finding the most recent date/time.<br />
-If you enter *.txt here. It will ignore all *.txt files, even if they have a date/time that is more recent than other files.</p>
+<p>The Correct Folder Date/Time tool performs a comprehensive scan of selected folders and their subfolders, analyzing file timestamps to determine the most recent content date. It then updates each folder's timestamp to match the newest file it contains, creating a meaningful chronological hierarchy.</p>
 
-<h2>Include Filter</h2>
+<div class="card">
+	<div class="card-body">
+		<h6 class="card-title"><i class="bi bi-gear me-2"></i>Processing Algorithm</h6>
+		<ol>
+			<li><strong>Folder Selection:</strong> Scans the selected folder and all subdirectories</li>
+			<li><strong>File Analysis:</strong> Examines all files within each folder (subject to filters)</li>
+			<li><strong>Date Comparison:</strong> Identifies the most recent file timestamp</li>
+			<li><strong>Timestamp Update:</strong> Sets the folder's modification time to match the newest content</li>
+			<li><strong>Recursive Processing:</strong> Applies the same logic to all subdirectories</li>
+		</ol>
+	</div>
+</div>
 
-<p>If you specify an <em>include</em> filter then only files matching this filter will be checked. Eg. if you enter *.jpg here it will only check the date/time on *.jpg files.</p>
+<h3>Accessing the Tool</h3>
 
-<p>&nbsp;</p>
+<p>To use the Correct Folder Date/Time functionality:</p>
+
+<ol>
+	<li>Select the folder you want to process in an Explorer Panel</li>
+	<li>Navigate to <strong>Tools</strong> → <strong>Correct folder date/time</strong></li>
+	<li>Configure filtering options as needed</li>
+	<li>Execute the correction process</li>
+</ol>
+
+<div class="text-center my-4">
+	<img src="/Docs/Images/CorrectFolderDateTimeDlg.png" alt="Correct Folder Date Time Dialog" class="img-fluid border rounded shadow-sm" style="max-width: 342px;" />
+	<p class="text-muted small mt-2">The Correct Folder Date/Time dialog with filtering options for precise control</p>
+</div>
+
+<h3>Filter Configuration</h3>
+
+<p>The tool provides sophisticated filtering capabilities to ensure accurate timestamp correction based on relevant files:</p>
+
+<h4>Ignore Filter</h4>
+<div class="card">
+	<div class="card-body">
+		<h6 class="card-title"><i class="bi bi-x-circle me-2"></i>Excluding Unwanted Files</h6>
+		<p class="card-text">The ignore filter specifies files and folders to exclude from timestamp analysis. Files matching this filter are completely disregarded when determining the most recent date.</p>
+		
+		<p class="card-text"><strong>Common Ignore Patterns:</strong></p>
+		<ul>
+			<li><code>*.tmp</code> - Ignore temporary files</li>
+			<li><code>*.log</code> - Ignore log files that update frequently</li>
+			<li><code>*.bak</code> - Ignore backup files</li>
+			<li><code>Thumbs.db</code> - Ignore system thumbnail cache files</li>
+			<li><code>*.ini</code> - Ignore configuration files</li>
+		</ul>
+		
+		<p class="card-text"><strong>Example:</strong> If you enter <code>*.txt</code> in the ignore filter, all text files will be excluded from consideration, even if they have the most recent timestamps in the folder.</p>
+	</div>
+</div>
+
+<h4>Include Filter</h4>
+<div class="card">
+	<div class="card-body">
+		<h6 class="card-title"><i class="bi bi-check-circle me-2"></i>Focusing on Specific Files</h6>
+		<p class="card-text">The include filter restricts analysis to only files matching specific patterns. When specified, only files matching this filter are considered for timestamp determination.</p>
+		
+		<p class="card-text"><strong>Common Include Patterns:</strong></p>
+		<ul>
+			<li><code>*.jpg;*.png;*.gif</code> - Only consider image files</li>
+			<li><code>*.doc;*.docx;*.pdf</code> - Only consider document files</li>
+			<li><code>*.mp4;*.avi;*.mkv</code> - Only consider video files</li>
+			<li><code>*.cpp;*.h;*.cs</code> - Only consider source code files</li>
+		</ul>
+		
+		<p class="card-text"><strong>Example:</strong> If you enter <code>*.jpg</code> in the include filter, only JPEG image files will be analyzed for timestamps, regardless of other file types present in the folder.</p>
+	</div>
+</div>
+
+<h4>Filter Interaction</h4>
+<div class="row mt-4">
+	<div class="col-md-6">
+		<div class="card">
+			<div class="card-body">
+				<h6 class="card-title">Filter Priority</h6>
+				<p class="small">When both filters are specified:</p>
+				<ol class="small">
+					<li>Include filter is applied first</li>
+					<li>Ignore filter is applied to included files</li>
+					<li>Remaining files are analyzed</li>
+				</ol>
+			</div>
+		</div>
+	</div>
+	<div class="col-md-6">
+		<div class="card">
+			<div class="card-body">
+				<h6 class="card-title">Filter Syntax</h6>
+				<ul class="small">
+					<li><strong>Wildcards:</strong> Use * and ? for pattern matching</li>
+					<li><strong>Multiple Patterns:</strong> Separate with semicolons (;)</li>
+					<li><strong>Case Insensitive:</strong> Patterns match regardless of case</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>
+
+<h3>Advanced Configuration Examples</h3>
+
+<h4>Photo Archive Organization</h4>
+<pre class="bg-light p-3 rounded"><code>Include Filter: *.jpg;*.jpeg;*.png;*.raw;*.tiff
+Ignore Filter: *.xmp;*.thm
+
+Purpose: Set folder dates based on actual photos, 
+ignoring metadata and thumbnail files</code></pre>
+
+<h4>Document Archive Management</h4>
+<pre class="bg-light p-3 rounded"><code>Include Filter: *.doc;*.docx;*.pdf;*.txt
+Ignore Filter: *.tmp;*.bak;~*.*
+
+Purpose: Base folder dates on document content, 
+ignoring temporary and backup files</code></pre>
+
+<h4>Development Project Timestamps</h4>
+<pre class="bg-light p-3 rounded"><code>Include Filter: *.cpp;*.h;*.cs;*.java;*.py
+Ignore Filter: *.obj;*.exe;*.dll;*.pdb
+
+Purpose: Set dates based on source code files, 
+ignoring compiled artifacts</code></pre>
+
+<h4>Media Collection Organization</h4>
+<pre class="bg-light p-3 rounded"><code>Include Filter: *.mp4;*.avi;*.mkv;*.mov;*.mp3;*.flac
+Ignore Filter: *.nfo;*.srt;*.idx
+
+Purpose: Base dates on actual media files, 
+ignoring subtitle and metadata files</code></pre>
+
+<h3>Processing Scope and Behavior</h3>
+
+<div class="row mt-4">
+	<div class="col-md-6">
+		<div class="card">
+			<div class="card-header bg-info text-white">
+				<h6 class="mb-0"><i class="bi bi-folder-plus me-2"></i>Recursive Processing</h6>
+			</div>
+			<div class="card-body">
+				<p class="small">The tool processes:</p>
+				<ul class="small">
+					<li>The selected root folder</li>
+					<li>All subdirectories recursively</li>
+					<li>Files at all directory levels</li>
+					<li>Nested folder structures completely</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<div class="col-md-6">
+		<div class="card">
+			<div class="card-header bg-warning text-dark">
+				<h6 class="mb-0"><i class="bi bi-clock me-2"></i>Timestamp Selection</h6>
+			</div>
+			<div class="card-body">
+				<p class="small">For each folder, the tool:</p>
+				<ul class="small">
+					<li>Analyzes all qualifying files</li>
+					<li>Identifies the most recent timestamp</li>
+					<li>Updates the folder's modification time</li>
+					<li>Preserves original file timestamps</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>
+
+<h3>Troubleshooting Common Issues</h3>
+
+<div class="accordion" id="folderTimeAccordion">
+	<div class="accordion-item">
+		<h2 class="accordion-header" id="timeHeading1">
+			<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#timeCollapse1">
+				No changes observed after processing
+			</button>
+		</h2>
+		<div id="timeCollapse1" class="accordion-collapse collapse" data-bs-parent="#folderTimeAccordion">
+			<div class="accordion-body">
+				<ul>
+					<li>Verify that filters are not excluding all files</li>
+					<li>Check if the most recent file already matches the folder date</li>
+					<li>Ensure you have write permissions to the folder</li>
+					<li>Confirm the folder contains files matching your criteria</li>
+					<li>Try clearing filters to process all files</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<div class="accordion-item">
+		<h2 class="accordion-header" id="timeHeading2">
+			<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#timeCollapse2">
+				Process takes too long on large directories
+			</button>
+		</h2>
+		<div id="timeCollapse2" class="accordion-collapse collapse" data-bs-parent="#folderTimeAccordion">
+			<div class="accordion-body">
+				<ul>
+					<li>Use more specific include filters to reduce file analysis</li>
+					<li>Process smaller directory sections individually</li>
+					<li>Ensure the target drive is not heavily loaded</li>
+					<li>Consider processing during off-peak hours</li>
+					<li>Close other applications to free system resources</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<div class="accordion-item">
+		<h2 class="accordion-header" id="timeHeading3">
+			<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#timeCollapse3">
+				Incorrect dates applied to folders
+			</button>
+		</h2>
+		<div id="timeCollapse3" class="accordion-collapse collapse" data-bs-parent="#folderTimeAccordion">
+			<div class="accordion-body">
+				<ul>
+					<li>Review ignore filter to ensure relevant files aren't excluded</li>
+					<li>Check include filter to verify it captures intended files</li>
+					<li>Verify file timestamps are accurate before processing</li>
+					<li>Consider if system files are affecting results</li>
+					<li>Test with a small sample folder first</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<div class="accordion-item">
+		<h2 class="accordion-header" id="timeHeading4">
+			<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#timeCollapse4">
+				Permission errors during processing
+			</button>
+		</h2>
+		<div id="timeCollapse4" class="accordion-collapse collapse" data-bs-parent="#folderTimeAccordion">
+			<div class="accordion-body">
+				<ul>
+					<li>Ensure you have write permissions to target folders</li>
+					<li>Try running Multi Commander as Administrator</li>
+					<li>Check if folders are locked by other applications</li>
+					<li>Verify network folder access permissions</li>
+					<li>Confirm folders are not marked as read-only</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>
+
+<h3>Integration with File Management</h3>
+
+<p>The Correct Folder Date/Time tool integrates seamlessly with Multi Commander's other file management features:</p>
+
+<ul>
+	<li><strong>Sorting Options:</strong> Use corrected timestamps for accurate chronological sorting</li>
+	<li><strong>Archive Management:</strong> Organize backup folders by actual content dates</li>
+	<li><strong>Search and Filter:</strong> Find folders based on meaningful timestamp ranges</li>
+	<li><strong>Batch Operations:</strong> Combine with other tools for comprehensive file organization</li>
+</ul>
+
+<div class="alert alert-success mt-4">
+	<h6><i class="bi bi-lightbulb me-2"></i>Pro Tip</h6>
+	<p class="mb-0">Use specific include filters when working with mixed content folders. For photo archives, include only image formats to avoid having metadata files affect the chronological organization of your photo collections.</p>
+</div>
+
+<div class="alert alert-info mt-4">
+	<h6><i class="bi bi-info-circle me-2"></i>Related Documentation</h6>
+	<p class="mb-0">For more information about Multi Commander's file management capabilities, see the File Operations documentation, Filtering Options, and Timestamp Management sections.</p>
+</div>
 
 

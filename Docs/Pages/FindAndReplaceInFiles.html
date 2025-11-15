@@ -1,84 +1,621 @@
-<h2>Find and Replace in Files</h2>
-<p><img alt="" src="/Docs/Images/FindReplace1.png" style="width: 574px; height: 431px;" /></p>
+﻿<h2>Find and Replace in Files</h2>
 
-<p>Find and Replace will find one or many substrings in files and replace them with one or many new substrings.</p>
+<p>Multi Commander's <strong>Find and Replace</strong> tool is a sophisticated text processing utility designed for batch text manipulation across multiple files. With advanced pattern matching capabilities, multiple operation modes, and robust encoding support, it provides enterprise-grade text processing for developers, system administrators, and content managers.</p>
 
-<p>Find and Replace will search and replace in all selected files. The number of files selected is shown in the dialog.</p>
-
-<p>It will automatically identify file formats. Files encoded in ASCII/Unicode/UTF8 are supported.</p>
-
-<p>Files identified as binary <em>will be ignored</em>, however, the identification of binary files can never be 100% accurate so be careful and do not select any binary files.</p>
-
-<p>The newline character that each processed file uses will be kept. When doing Multiline find/replace the newline inserted will be the same as the file already has.</p>
-
-<p>In the Filename field you will see what the name of the processed file will be. Files will always be saved in the same folder: only Filename can be changed</p>
-
-<p>If multiple files are select you will see a "*" in the Filename field. The "*" represents the original file name plus file extension.<br />
-If two files are selected named "MyFile1.txt" and "MyFile2.txt" and the Filename field contains "*_replaced.*" the new Filenames will be "MyFile1_replaced.txt" and "MyFile2_replaced.txt".</p>
-
-<p>In the Save as... dropdown list you can select if the new file should be saved with a different name; or it should keep the original name but as a backup by renaming (adding .bak to it); or if the original file should be deleted.</p>
-
-<h2><b>Text to find</b></h2>
-
-<p>In the field the text part(s) to be replaced is entered.<br />
-Exactly how the find will work depends on which find and replace mode is selected (see below).</p>
-
-<h2><b>Text to replace with</b></h2>
-
-<p>This fields contains the text(s) that the identified text part(s) will be replaced with.<br />
-Exactly how the replace will work depends on what find and replace mode is selected (see below).</p>
-
-<h2><b>Find and Replace Modes</b></h2>
-
-<div class="docs-indent">
-<p>There are a 4 possible Find and Replace modes:</p>
-
-<h3>Find one, Replace with one</h3>
-
-<p>Only first line from the Find and Replace fields is used.<br />
-It will replace all instances found that match the first line in the 'Text to find' field with the first line in the 'Text to replace with' field.</p>
-
-<h3>Find many , Replace with many</h3>
-
-<p>Every line in the 'Text to find' field will replace the matching line in the 'Text to replace with' field when doing Find and Replace.<br />
-Example: Line 3 in the 'Text to find' field will be replaced with line 3 in the 'Text to replace with' field.</p>
-
-<h3>Find Many, Replace with same</h3>
-
-<p>If many lines exist in the 'Text to find' field, all of them will be replaced with the <em>first line </em>in the 'Text to replace with' field.</p>
-
-<h3>Find and Replace Multiline text</h3>
-
-<p>Only 1 find and replace match can be entered, but texts entered in the find and replace fields support Multiline text (ie., can contain newline characters).<br />
-You can enter text in the 'Text to find' field that spans multiple lines and if a match is found the entire multiline text entered in the 'Text to replace with' field is inserted.<br />
-The newline character the file has when entering a find match is unimportant: the replace text will be inserted using the same newline character that the file already uses.</p>
+<div class="text-center my-4">
+	<img src="/Docs/Images/FindReplace1.png" alt="Find and Replace Dialog" class="img-fluid border rounded shadow-sm" style="max-width: 574px;" />
+	<p class="text-muted small mt-2">The Find and Replace dialog provides comprehensive text processing options for batch operations</p>
 </div>
 
-<h2><b>Options</b></h2>
+<h3>Overview and Capabilities</h3>
 
-<div class="docs-indent">
-<h3><b>Find match using RegExp</b></h3>
+<p>The Find and Replace tool operates on all selected text files in the Explorer Panel, making it ideal for large-scale text processing operations. The tool automatically detects and preserves file encoding (ASCII, Unicode, UTF-8) while maintaining original line ending formats throughout the process.</p>
 
-<p>Finding text using regular expressions is not yet enabled.</p>
+<div class="alert alert-info">
+	<h6><i class="bi bi-info-circle me-2"></i>File Processing</h6>
+	<p>Find and Replace processes all selected text files. The dialog displays the number of files selected for processing. Binary files are automatically detected and excluded to prevent corruption, though users should exercise caution with file selection.</p>
+</div>
 
-<h3><b>Find match using Wildcard</b></h3>
+<div class="row mt-4">
+	<div class="col-md-6">
+		<div class="card">
+			<div class="card-header bg-success text-white">
+				<h6 class="mb-0"><i class="bi bi-check-circle me-2"></i>Advanced Features</h6>
+			</div>
+			<div class="card-body">
+				<ul class="small mb-0">
+					<li>Multiple file batch processing</li>
+					<li>Automatic encoding detection and preservation</li>
+					<li>Four distinct operation modes</li>
+					<li>Wildcard pattern matching</li>
+					<li>Case-sensitive and case-insensitive operations</li>
+					<li>Multiline text support</li>
+					<li>Line ending preservation</li>
+					<li>Flexible output file management</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<div class="col-md-6">
+		<div class="card">
+			<div class="card-header bg-primary text-white">
+				<h6 class="mb-0"><i class="bi bi-gear me-2"></i>Enterprise Options</h6>
+			</div>
+			<div class="card-body">
+				<ul class="small mb-0">
+					<li>Silent mode for automated operations</li>
+					<li>UTF-8 encoding enforcement</li>
+					<li>Backup file creation</li>
+					<li>Original file replacement options</li>
+					<li>Command-line automation support</li>
+					<li>Error logging and reporting</li>
+					<li>Progress tracking for large operations</li>
+					<li>Future regular expression support</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>
 
-<p>Enable wildcard matching in the find field. * and ? can be used to match text.<br />
-<small>Using * at the beginning and end of the find expression can give match that you did not expect so make sure you test so it is correct before overwriting original file.</small></p>
+<h3>File Output Management</h3>
 
-<h3><b>Ignore case</b></h3>
+<h4>Filename Configuration</h4>
+<p>The filename field controls how processed files are named and saved, with support for both single and batch operations:</p>
 
-<p>Ignore case when finding matches</p>
+<div class="row mt-4">
+	<div class="col-md-6">
+		<div class="card">
+			<div class="card-body">
+				<h6 class="card-title">Single File Processing</h6>
+				<p class="card-text small">Specify a custom filename for the output. The original file extension is automatically preserved unless explicitly changed.</p>
+				<p class="card-text small"><strong>Example:</strong> "document.txt" → "document_updated.txt"</p>
+			</div>
+		</div>
+	</div>
+	<div class="col-md-6">
+		<div class="card">
+			<div class="card-body">
+				<h6 class="card-title">Batch File Processing</h6>
+				<p class="card-text small">Use "*" as a placeholder for the original filename. The wildcard represents both filename and extension.</p>
+				<p class="card-text small"><strong>Example:</strong> Pattern "*_replaced.*" transforms "file1.txt" → "file1_replaced.txt"</p>
+			</div>
+		</div>
+	</div>
+</div>
 
-<h3><b>Force UTF8 for ASCII text files</b></h3>
+<h4>Save Options</h4>
+<p>The "Save as..." dropdown provides comprehensive output management strategies:</p>
 
-<p>Enable this if you want to use UTF8 encoding for all files identified as ASCII.<br />
-File encoding is auto-detected but sometimes it is not possible to accurately detect whether a file is ASCII or UTF8. This options will force the usage of UTF8.</p>
+<div class="table-responsive">
+	<table class="table table-striped">
+		<thead>
+			<tr>
+				<th>Option</th>
+				<th>Behavior</th>
+				<th>Use Case</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td><strong>New Name</strong></td>
+				<td>Create new file with specified name pattern</td>
+				<td>Preserve originals while creating processed versions</td>
+			</tr>
+			<tr>
+				<td><strong>Keep Original (.bak)</strong></td>
+				<td>Replace original file, rename old file to .bak extension</td>
+				<td>Update files while maintaining automatic backup</td>
+			</tr>
+			<tr>
+				<td><strong>Delete Original</strong></td>
+				<td>Replace original file completely</td>
+				<td>Direct replacement without backup (use with caution)</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
 
-<h3><b>Silent - Show no dialogs</b></h3>
+<h3>Text Input Fields</h3>
 
-<p>When enabled there will be no confirmation dialogs shown for any match found. "Replace All" is assumed and no error dialog will be shown.<br />
-Errors will still be logged to the application log.</p>
+<h4>Text to Find</h4>
+<p>The search field accepts the text patterns to be located and replaced. The behavior varies significantly based on the selected operation mode:</p>
+
+<div class="card">
+	<div class="card-body">
+		<ul>
+			<li><strong>Single Line Mode:</strong> Enter one search pattern</li>
+			<li><strong>Multiple Line Mode:</strong> Enter multiple search patterns (one per line)</li>
+			<li><strong>Multiline Text Mode:</strong> Enter text spanning multiple lines with embedded newlines</li>
+			<li><strong>Wildcard Support:</strong> Use * and ? for pattern matching when enabled</li>
+		</ul>
+	</div>
+</div>
+
+<h4>Text to Replace With</h4>
+<p>The replacement field defines what text will replace the found patterns. The interpretation depends on the selected operation mode:</p>
+
+<div class="card">
+	<div class="card-body">
+		<ul>
+			<li><strong>Single Replacement:</strong> One replacement text for all matches</li>
+			<li><strong>Paired Replacement:</strong> Each search pattern paired with corresponding replacement</li>
+			<li><strong>Common Replacement:</strong> Multiple search patterns replaced with single text</li>
+			<li><strong>Multiline Replacement:</strong> Text spanning multiple lines with preserved formatting</li>
+		</ul>
+	</div>
+</div>
+
+<h3>Find and Replace Operation Modes</h3>
+
+<p>Multi Commander provides four sophisticated operation modes to handle different text processing scenarios:</p>
+
+<h4>1. Find One, Replace with One</h4>
+<div class="card">
+	<div class="card-body">
+		<p><strong>Function:</strong> Simple one-to-one replacement using only the first line of each field</p>
+		<p><strong>Behavior:</strong> Replaces all instances of the search text with the replacement text</p>
+		<p><strong>Best For:</strong></p>
+		<ul>
+			<li>Simple text substitutions</li>
+			<li>Variable name changes in code</li>
+			<li>URL updates in documentation</li>
+			<li>Company name changes</li>
+		</ul>
+		<p><strong>Example:</strong> Replace "oldfunction()" with "newfunction()" throughout codebase</p>
+	</div>
+</div>
+
+<h4>2. Find Many, Replace with Many</h4>
+<div class="card">
+	<div class="card-body">
+		<p><strong>Function:</strong> Line-by-line paired replacement using corresponding lines from each field</p>
+		<p><strong>Behavior:</strong> Line 1 in find field → Line 1 in replace field, Line 2 → Line 2, etc.</p>
+		<p><strong>Best For:</strong></p>
+		<ul>
+			<li>Multiple simultaneous substitutions</li>
+			<li>Configuration file updates</li>
+			<li>Translation file modifications</li>
+			<li>Batch variable renaming</li>
+		</ul>
+		<p><strong>Example Configuration:**</strong></p>
+		<div class="row">
+			<div class="col-md-6">
+				<p><strong>Find:</strong></p>
+				<pre class="small">server1.old.com
+server2.old.com
+server3.old.com</pre>
+			</div>
+			<div class="col-md-6">
+				<p><strong>Replace with:</strong></p>
+				<pre class="small">server1.new.com
+server2.new.com
+server3.new.com</pre>
+			</div>
+		</div>
+	</div>
+</div>
+
+<h4>3. Find Many, Replace with Same</h4>
+<div class="card">
+	<div class="card-body">
+		<p><strong>Function:</strong> Multiple search patterns replaced with single replacement text</p>
+		<p><strong>Behavior:</strong> All patterns in find field replaced with first line of replace field</p>
+		<p><strong>Best For:</strong></p>
+		<ul>
+			<li>Consolidating variations</li>
+			<li>Standardizing terminology</li>
+			<li>Removing deprecated alternatives</li>
+			<li>Data cleanup operations</li>
+		</ul>
+		<p><strong>Example Configuration:**</strong></p>
+		<div class="row">
+			<div class="col-md-6">
+				<p><strong>Find:</strong></p>
+				<pre class="small">colour
+Color
+COLOR</pre>
+			</div>
+			<div class="col-md-6">
+				<p><strong>Replace with:</strong></p>
+				<pre class="small">color</pre>
+			</div>
+		</div>
+	</div>
+</div>
+
+<h4>4. Find and Replace Multiline Text</h4>
+<div class="card">
+	<div class="card-body">
+		<p><strong>Function:</strong> Advanced multiline text processing with preserved formatting</p>
+		<p><strong>Behavior:</strong> Handles text blocks spanning multiple lines with embedded newlines</p>
+		<p><strong>Key Features:</strong></p>
+		<ul>
+			<li>Preserves original file's line ending format</li>
+			<li>Handles complex text structures</li>
+			<li>Maintains spacing and indentation</li>
+			<li>Supports code block replacement</li>
+		</ul>
+		<p><strong>Best For:</strong></p>
+		<ul>
+			<li>Code refactoring</li>
+			<li>Template modifications</li>
+			<li>Documentation updates</li>
+			<li>Configuration block replacement</li>
+		</ul>
+		<p><strong>Example - Replace function definition:**</strong></p>
+		<div class="row">
+			<div class="col-md-6">
+				<p><strong>Find:</strong></p>
+				<pre class="small">function oldFunction() {
+    return "old";
+}</pre>
+			</div>
+			<div class="col-md-6">
+				<p><strong>Replace with:</strong></p>
+				<pre class="small">function newFunction() {
+    return "new";
+}</pre>
+			</div>
+		</div>
+	</div>
+</div>
+
+<h3>Advanced Options and Settings</h3>
+
+<h4>Pattern Matching Options</h4>
+<div class="row mt-4">
+	<div class="col-md-6">
+		<div class="card">
+			<div class="card-header bg-warning text-dark">
+				<h6 class="mb-0"><i class="bi bi-asterisk me-2"></i>Wildcard Matching</h6>
+			</div>
+			<div class="card-body">
+				<p class="small"><strong>Status:</strong> Currently Available</p>
+				<p class="small"><strong>Supported Wildcards:</strong></p>
+				<ul class="small">
+					<li><strong>* (asterisk):</strong> Matches any sequence of characters</li>
+					<li><strong>? (question mark):</strong> Matches any single character</li>
+				</ul>
+				<p class="small"><strong>Examples:</strong></p>
+				<ul class="small">
+					<li><code>file*.txt</code> matches "file1.txt", "fileABC.txt"</li>
+					<li><code>test?.log</code> matches "test1.log", "testA.log"</li>
+				</ul>
+				<div class="alert alert-warning mt-2 mb-0">
+					<p class="small mb-0"><strong>Caution:</strong> Using * at the beginning and end of expressions can produce unexpected results. Test thoroughly before processing originals.</p>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="col-md-6">
+		<div class="card">
+			<div class="card-header bg-info text-white">
+				<h6 class="mb-0"><i class="bi bi-regex me-2"></i>Regular Expression Matching</h6>
+			</div>
+			<div class="card-body">
+				<p class="small"><strong>Status:</strong> <em>Coming Soon</em></p>
+				<p class="small">Regular expression support is planned for future versions, which will provide:</p>
+				<ul class="small">
+					<li>Complex pattern matching</li>
+					<li>Capture groups and backreferences</li>
+					<li>Advanced text transformation</li>
+					<li>Professional-grade text processing</li>
+				</ul>
+				<p class="small text-muted">Use wildcard matching for current pattern needs.</p>
+			</div>
+		</div>
+	</div>
+</div>
+
+<h4>Text Processing Options</h4>
+<div class="row mt-4">
+	<div class="col-md-6">
+		<div class="card">
+			<div class="card-body">
+				<h6 class="card-title"><i class="bi bi-type me-2"></i>Ignore Case</h6>
+				<p class="card-text small">Performs case-insensitive matching, treating "A" and "a" as equivalent.</p>
+				<p class="card-text small"><strong>Benefits:</strong></p>
+				<ul class="small">
+					<li>Handles inconsistent capitalization</li>
+					<li>Useful for user-generated content</li>
+					<li>Simplifies text standardization</li>
+				</ul>
+				<p class="card-text small"><strong>Example:</strong> "Hello", "HELLO", and "hello" all match "hello"</p>
+			</div>
+		</div>
+	</div>
+	<div class="col-md-6">
+		<div class="card">
+			<div class="card-body">
+				<h6 class="card-title"><i class="bi bi-file-earmark-text me-2"></i>Force UTF-8 for ASCII</h6>
+				<p class="card-text small">Enforces UTF-8 encoding for files detected as ASCII, ensuring proper character handling.</p>
+				<p class="card-text small"><strong>Use Cases:</strong></p>
+				<ul class="small">
+					<li>Files with special characters</li>
+					<li>International text content</li>
+					<li>When encoding detection is uncertain</li>
+				</ul>
+				<p class="card-text small"><strong>Note:</strong> Resolves ambiguity between ASCII and UTF-8 detection</p>
+			</div>
+		</div>
+	</div>
+</div>
+
+<h4>Automation and Silent Operation</h4>
+<div class="card">
+	<div class="card-body">
+		<h6 class="card-title"><i class="bi bi-robot me-2"></i>Silent Mode - Show No Dialogs</h6>
+		<p class="card-text">Enables fully automated operation without user interaction prompts.</p>
+		<p class="card-text"><strong>Behavior in Silent Mode:</strong></p>
+		<ul>
+			<li>No confirmation dialogs shown for matches</li>
+			<li>"Replace All" is automatically assumed</li>
+			<li>No error dialogs displayed to user</li>
+			<li>Errors logged to application log for later review</li>
+		</ul>
+		<p class="card-text"><strong>Ideal For:</strong></p>
+		<ul>
+			<li>Automated build processes</li>
+			<li>Batch processing scripts</li>
+			<li>Scheduled maintenance tasks</li>
+			<li>Command-line automation</li>
+		</ul>
+	</div>
+</div>
+
+
+<h3>Advanced Configuration Examples</h3>
+
+<h4>Multi-Pattern URL Update</h4>
+<p><strong>Scenario:</strong> Update multiple old domain references to new domain</p>
+<p><strong>Mode:</strong> Find Many, Replace with Same</p>
+<pre class="bg-light p-3 rounded"><code>Find:
+http://old-site.com
+https://old-site.com
+www.old-site.com
+
+Replace with:
+https://new-site.com</code></pre>
+
+<h4>Configuration Block Replacement</h4>
+<p><strong>Scenario:</strong> Replace entire configuration sections</p>
+<p><strong>Mode:</strong> Find and Replace Multiline Text</p>
+<pre class="bg-light p-3 rounded"><code>Find:
+&lt;database&gt;
+    &lt;host&gt;old-server&lt;/host&gt;
+    &lt;port&gt;3306&lt;/port&gt;
+&lt;/database&gt;
+
+Replace with:
+&lt;database&gt;
+    &lt;host&gt;new-server&lt;/host&gt;
+    &lt;port&gt;5432&lt;/port&gt;
+    &lt;ssl&gt;true&lt;/ssl&gt;
+&lt;/database&gt;</code></pre>
+
+<h4>Variable Renaming with Wildcards</h4>
+<p><strong>Scenario:</strong> Update variable naming convention</p>
+<p><strong>Mode:</strong> Find One, Replace with One (with wildcards)</p>
+<pre class="bg-light p-3 rounded"><code>Find (with wildcards enabled):
+old_variable_*
+
+Replace with:
+newVariable*</code></pre>
+
+<h3>Command-Line Integration and Automation</h3>
+
+<h4>Automation Parameters</h4>
+<p>Find and Replace functionality is available through Multi Commander's custom command system for automation:</p>
+
+<div class="table-responsive">
+	<table class="table table-striped">
+		<thead>
+			<tr>
+				<th>Parameter</th>
+				<th>Description</th>
+				<th>Example Value</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td><code>FILE</code></td>
+				<td>Specific file to process</td>
+				<td>"C:\config\app.ini"</td>
+			</tr>
+			<tr>
+				<td><code>FIND</code></td>
+				<td>Text to find</td>
+				<td>"old-server"</td>
+			</tr>
+			<tr>
+				<td><code>REPLACEWITH</code></td>
+				<td>Replacement text</td>
+				<td>"new-server"</td>
+			</tr>
+			<tr>
+				<td><code>MODE</code></td>
+				<td>Operation mode</td>
+				<td>"One", "Many", "ManySame", "Multiline"</td>
+			</tr>
+			<tr>
+				<td><code>IGNORECASE</code></td>
+				<td>Case sensitivity</td>
+				<td>1 (ignore) or 0 (sensitive)</td>
+			</tr>
+			<tr>
+				<td><code>WILDCARD</code></td>
+				<td>Enable wildcard matching</td>
+				<td>1 (enabled) or 0 (disabled)</td>
+			</tr>
+			<tr>
+				<td><code>SILENT</code></td>
+				<td>Silent operation</td>
+				<td>1 (silent) or 0 (interactive)</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+
+<h4>Example Automation Script</h4>
+<pre class="bg-light p-3 rounded"><code># Update configuration files in deployment
+MC.Utils.FindAndReplace FILE="config.ini" FIND="server=old" REPLACEWITH="server=new" MODE="One" SILENT=1
+
+# Multi-pattern replacement
+MC.Utils.FindAndReplace FILE="*.txt" MODE="Many" FIND="pattern1\npattern2" REPLACEWITH="new1\nnew2" SILENT=1</code></pre>
+
+<h3>File Encoding and Preservation</h3>
+
+<h4>Encoding Detection and Handling</h4>
+<p>Find and Replace includes sophisticated encoding management:</p>
+
+<div class="row mt-4">
+	<div class="col-md-6">
+		<div class="card">
+			<div class="card-body">
+				<h6 class="card-title">Supported Encodings</h6>
+				<ul class="small">
+					<li><strong>ASCII:</strong> Standard 7-bit character encoding</li>
+					<li><strong>UTF-8:</strong> Unicode Transformation Format 8-bit</li>
+					<li><strong>Unicode:</strong> UTF-16 with BOM detection</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<div class="col-md-6">
+		<div class="card">
+			<div class="card-body">
+				<h6 class="card-title">Preservation Features</h6>
+				<ul class="small">
+					<li><strong>Line Endings:</strong> Maintains original line ending format</li>
+					<li><strong>BOM Handling:</strong> Preserves Byte Order Marks</li>
+					<li><strong>Character Integrity:</strong> No data loss during processing</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>
+
+<h4>Line Ending Preservation</h4>
+<p>The system intelligently handles different line ending formats:</p>
+<ul>
+	<li><strong>Windows (CRLF):</strong> Preserves \r\n sequences</li>
+	<li><strong>Unix/Linux (LF):</strong> Maintains \n characters</li>
+	<li><strong>Classic Mac (CR):</strong> Preserves \r characters</li>
+	<li><strong>Mixed Formats:</strong> Handles files with inconsistent line endings</li>
+</ul>
+
+<h3>Error Handling and Safety</h3>
+
+<h4>Binary File Protection</h4>
+<div class="alert alert-warning">
+	<h6><i class="bi bi-shield-exclamation me-2"></i>Automatic Binary Detection</h6>
+	<p>Find and Replace automatically identifies and skips binary files to prevent corruption. However, detection is not 100% accurate, so users should carefully select only text files for processing.</p>
+</div>
+
+<h4>Error Logging and Recovery</h4>
+<ul>
+	<li><strong>Application Logs:</strong> All errors logged to Multi Commander's application log</li>
+	<li><strong>Operation Tracking:</strong> Progress and results tracked for large operations</li>
+	<li><strong>Backup Options:</strong> Built-in backup creation for safe processing</li>
+	<li><strong>Rollback Support:</strong> .bak files enable manual rollback if needed</li>
+</ul>
+
+<h3>Troubleshooting Common Issues</h3>
+
+<div class="accordion" id="findReplaceAccordion">
+	<div class="accordion-item">
+		<h2 class="accordion-header" id="findReplaceHeading1">
+			<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#findReplaceCollapse1">
+				Replacements not working as expected
+			</button>
+		</h2>
+		<div id="findReplaceCollapse1" class="accordion-collapse collapse" data-bs-parent="#findReplaceAccordion">
+			<div class="accordion-body">
+				<ul>
+					<li>Verify the correct operation mode is selected for your use case</li>
+					<li>Check case sensitivity settings if matches aren't found</li>
+					<li>Test wildcard patterns carefully before processing all files</li>
+					<li>Ensure line-by-line pairing is correct in Many-to-Many mode</li>
+					<li>Verify multiline text includes proper line breaks</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<div class="accordion-item">
+		<h2 class="accordion-header" id="findReplaceHeading2">
+			<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#findReplaceCollapse2">
+				Files appear corrupted after processing
+			</button>
+		</h2>
+		<div id="findReplaceCollapse2" class="accordion-collapse collapse" data-bs-parent="#findReplaceAccordion">
+			<div class="accordion-body">
+				<ul>
+					<li>Check if binary files were accidentally processed</li>
+					<li>Verify character encoding is appropriate for file content</li>
+					<li>Enable UTF-8 forcing for international character files</li>
+					<li>Restore from .bak files if available</li>
+					<li>Test encoding settings with a single file first</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<div class="accordion-item">
+		<h2 class="accordion-header" id="findReplaceHeading3">
+			<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#findReplaceCollapse3">
+				Wildcard patterns produce unexpected results
+			</button>
+		</h2>
+		<div id="findReplaceCollapse3" class="accordion-collapse collapse" data-bs-parent="#findReplaceAccordion">
+			<div class="accordion-body">
+				<ul>
+					<li>Be cautious with * at the beginning and end of patterns</li>
+					<li>Test patterns with small sample files first</li>
+					<li>Remember that * matches zero or more characters</li>
+					<li>Use ? for single character matching when appropriate</li>
+					<li>Consider using exact matching if wildcards are problematic</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<div class="accordion-item">
+		<h2 class="accordion-header" id="findReplaceHeading4">
+			<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#findReplaceCollapse4">
+				Performance issues with large operations
+			</button>
+		</h2>
+		<div id="findReplaceCollapse4" class="accordion-collapse collapse" data-bs-parent="#findReplaceAccordion">
+			<div class="accordion-body">
+				<ul>
+					<li>Process files in smaller batches for better control</li>
+					<li>Close other applications to free system resources</li>
+					<li>Use Silent mode to reduce UI overhead for large operations</li>
+					<li>Consider processing during off-peak hours</li>
+					<li>Monitor system resources and adjust batch sizes accordingly</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>
+
+<h3>Related Tools and Integration</h3>
+
+<p>Find and Replace works seamlessly with other Multi Commander text processing tools:</p>
+
+<ul>
+	<li><strong>Sort Lines:</strong> Organize text before or after replacement operations</li>
+	<li><strong>Text Conversion Tools:</strong> Standardize line endings and encoding before processing</li>
+	<li><strong>File Search:</strong> Locate files containing specific patterns for processing</li>
+	<li><strong>MultiScript:</strong> Create complex automated workflows combining multiple text operations</li>
+</ul>
+
+<div class="alert alert-success mt-4">
+	<h6><i class="bi bi-lightbulb me-2"></i>Pro Tip</h6>
+	<p class="mb-0">Always test your find and replace operations on a small set of backup files first. Use the "New Name" save option to create processed versions alongside originals, allowing you to compare results before committing to replace the original files.</p>
+</div>
+
+<div class="alert alert-info mt-4">
+	<h6><i class="bi bi-info-circle me-2"></i>Related Documentation</h6>
+	<p class="mb-0">For more information about Multi Commander's text processing capabilities, see <a href="/Docs/TextConvertTools" class="text-decoration-none">Text Conversion Tools</a>,<br/> <a href="/Docs/SortLinesInFiles" class="text-decoration-none">Sort Lines in Files</a>, and <a href="/Docs/TextTools" class="text-decoration-none">Text Tools Overview</a>.</p>
 </div>
 
 

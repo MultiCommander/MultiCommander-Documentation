@@ -1,34 +1,375 @@
-<h2>Extensions and Plug-ins</h2>
-<p>Multi Commander is built around <strong>extensions</strong> and <strong>plug-ins</strong>.<br />
-Some of the extension are built directly into Multi Commander and some of them are located as external DLL&nbsp;files.</p>
+﻿<h2>Extensions and Plug-ins</h2>
 
-<p>This allows for Multi Commander to grow with new features in an easy way and for other developers to create plugins to extend Multi Commander.</p>
+<p>Multi Commander's power and flexibility stem from its sophisticated <strong>extension and plug-in architecture</strong>. This modular design allows Multi Commander to be lightweight yet incredibly capable, enabling users to customize their experience and developers to extend functionality without modifying the core application.</p>
 
-<p>With the <strong>Manage Plugins and Extensions</strong> selection in the <em>Configuration</em> menu you can enable and disable extensions and plugins.</p>
+<h3>Architecture Overview</h3>
 
-<p><img alt="" src="/Docs/Images/ExtensionManager.png" style="width: 649px; height: 421px;" /></p>
+<p>The extension system is built around a clean separation of concerns:</p>
+<ul>
+	<li><strong>Core Application:</strong> Provides the main framework and user interface</li>
+	<li><strong>Built-in Extensions:</strong> Essential functionality integrated directly into Multi Commander</li>
+	<li><strong>External Plug-ins:</strong> Additional functionality provided as separate DLL files</li>
+	<li><strong>Third-party Extensions:</strong> Community and commercial extensions that extend capabilities</li>
+</ul>
 
-<p>There are 4 types of extensions and plug-ins:</p>
+<p>This architecture enables Multi Commander to grow with new features easily while maintaining stability and performance. It also allows other developers to create specialized plug-ins to extend Multi Commander's capabilities for specific use cases.</p>
 
-<h3>Application Extensions</h3>
+<h3>Managing Extensions</h3>
 
-<p>These are extensions that have GUIs and create new tabs with functions in Multi Commander. Examples of Application Extensions are the Explorer Panel and File Search.</p>
+<div class="alert alert-info">
+	<h6><i class="bi bi-gear me-2"></i>Extension Manager</h6>
+	<p>Access the Extension Manager through <strong>Configuration → Manage Plug-ins and Extensions</strong> to enable, disable, and configure all extensions and plug-ins.</p>
+</div>
 
-<h3>FileSystem Plug-ins</h3>
+<div class="text-center my-4">
+	<img src="/Docs/Images/ExtensionManager.png" alt="Extension Manager Interface" class="img-fluid border rounded shadow-sm" style="max-width: 649px;" />
+	<p class="text-muted small mt-2">The Extension Manager allows you to control which extensions are active and configure their settings</p>
+</div>
 
-<p>All filesystems and archives that Multi Commander supports are handled by plug-ins. There are plug-ins for Zip, 7-Zip, RAR, FTP and the Registry.</p>
+<p>The Extension Manager provides a centralized interface to:</p>
+<ul>
+	<li><strong>Enable/Disable Extensions:</strong> Turn functionality on or off as needed</li>
+	<li><strong>Configure Settings:</strong> Adjust extension-specific parameters</li>
+	<li><strong>View Dependencies:</strong> Understand relationships between extensions</li>
+	<li><strong>Monitor Performance:</strong> See resource usage and impact</li>
+	<li><strong>Install New Extensions:</strong> Add third-party or custom extensions</li>
+</ul>
 
-<h3>File Operations Plug-ins</h3>
+<h3>Types of Extensions and Plug-ins</h3>
 
-<p>These are plug-ins that are used when copying and moving files. These plug-ins can change how and where files are read and written.</p>
+<p>Multi Commander supports four distinct types of extensions, each serving specific purposes:</p>
 
-<h3>FileProperties Plug-ins</h3>
+<div class="row mt-4">
+	<div class="col-md-6">
+		<div class="card">
+			<div class="card-header bg-primary text-white">
+				<h5 class="mb-0"><i class="bi bi-app-indicator me-2"></i>Application Extensions</h5>
+			</div>
+			<div class="card-body">
+				<p><strong>Purpose:</strong> Create new user interface components and functionality</p>
+				<p><strong>Capabilities:</strong></p>
+				<ul>
+					<li>Create new tabs with custom GUI interfaces</li>
+					<li>Add menu items and toolbar buttons</li>
+					<li>Define custom commands and hotkeys</li>
+					<li>Interact with the core application</li>
+					<li>Integrate with other extensions</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<div class="col-md-6">
+		<div class="card">
+			<div class="card-header bg-success text-white">
+				<h5 class="mb-0"><i class="bi bi-folder me-2"></i>FileSystem Plug-ins</h5>
+			</div>
+			<div class="card-body">
+				<p><strong>Purpose:</strong> Provide access to different types of data sources as filesystems</p>
+				<p><strong>Capabilities:</strong></p>
+				<ul>
+					<li>Browse archives as if they were folders</li>
+					<li>Access network resources (FTP, SFTP)</li>
+					<li>Navigate non-file data (Windows Registry)</li>
+					<li>Support portable devices</li>
+					<li>Create virtual filesystem views</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>
 
-<p>These plug-ins allow for more data to be shown about files in new columns in the Explorer Panel. For Example the filesystem plug-in FS-Registry also has a FileProperties Extension allowing you to see the special registry information in the Explorer Panel.</p>
+<div class="row mt-4">
+	<div class="col-md-6">
+		<div class="card">
+			<div class="card-header bg-warning text-dark">
+				<h5 class="mb-0"><i class="bi bi-arrow-left-right me-2"></i>File Operations Plug-ins</h5>
+			</div>
+			<div class="card-body">
+				<p><strong>Purpose:</strong> Enhance and modify file copy/move operations</p>
+				<p><strong>Capabilities:</strong></p>
+				<ul>
+					<li>Modify file destinations during operations</li>
+					<li>Transform data during transfer</li>
+					<li>Add post-operation processing</li>
+					<li>Implement custom file handling logic</li>
+					<li>Integrate with external tools</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<div class="col-md-6">
+		<div class="card">
+			<div class="card-header bg-info text-white">
+				<h5 class="mb-0"><i class="bi bi-card-list me-2"></i>FileProperties Plug-ins</h5>
+			</div>
+			<div class="card-body">
+				<p><strong>Purpose:</strong> Extract and display additional file information in columns</p>
+				<p><strong>Capabilities:</strong></p>
+				<ul>
+					<li>Add custom columns to the Explorer Panel</li>
+					<li>Extract metadata from various file types</li>
+					<li>Display specialized information</li>
+					<li>Support sorting and filtering</li>
+					<li>Integrate with other data sources</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>
 
-<h3>Configuration of Virtual FileSystem Plug-ins</h3>
+<h3>Built-in Application Extensions</h3>
 
-<p>Configuration of which file extension a file system plug-in uses are configured here.<br />
-Read more about that under the <a href="#docs_filesystem">Virtual FileSystem</a> pages</p>
+<p>Multi Commander includes several powerful built-in extensions that showcase the system's capabilities:</p>
+
+<div class="row mt-4">
+	<div class="col-md-4">
+		<div class="card mb-3">
+			<div class="card-body">
+				<h6 class="card-title"><i class="bi bi-file-text me-2"></i>MultiFileViewer</h6>
+				<p class="card-text small">Advanced file viewer with syntax highlighting, clickable links, and support for large files with minimal memory usage.</p>
+			</div>
+		</div>
+	</div>
+	<div class="col-md-4">
+		<div class="card mb-3">
+			<div class="card-body">
+				<h6 class="card-title"><i class="bi bi-search me-2"></i>File Search</h6>
+				<p class="card-text small">Comprehensive search functionality with caching, virtual folders, and advanced filtering capabilities.</p>
+			</div>
+		</div>
+	</div>
+	<div class="col-md-4">
+		<div class="card mb-3">
+			<div class="card-body">
+				<h6 class="card-title"><i class="bi bi-tools me-2"></i>MultiTools</h6>
+				<p class="card-text small">Collection of utilities including ChkSum for creating and verifying MD5/SFV checksums and other file tools.</p>
+			</div>
+		</div>
+	</div>
+</div>
+
+<h3>FileSystem Plug-in Examples</h3>
+
+<p>Multi Commander's filesystem support demonstrates the power of the plug-in architecture:</p>
+
+<div class="row mt-4">
+	<div class="col-md-6">
+		<div class="card mb-3">
+			<div class="card-body">
+				<h6 class="card-title"><i class="bi bi-archive me-2"></i>Archive Support</h6>
+				<ul class="small mb-0">
+					<li><strong>Zip:</strong> Full read/write support</li>
+					<li><strong>7-Zip:</strong> Advanced compression formats</li>
+					<li><strong>RAR:</strong> Read-only support</li>
+					<li><strong>Tar/Gz:</strong> Unix archive formats</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<div class="col-md-6">
+		<div class="card mb-3">
+			<div class="card-body">
+				<h6 class="card-title"><i class="bi bi-cloud me-2"></i>Network Protocols</h6>
+				<ul class="small mb-0">
+					<li><strong>FTP:</strong> Traditional file transfer</li>
+					<li><strong>SFTP:</strong> Secure file transfer over SSH</li>
+					<li><strong>WPD:</strong> Portable devices (phones, tablets)</li>
+					<li><strong>Network Shares:</strong> SMB/CIFS support</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="row">
+	<div class="col-md-6">
+		<div class="card mb-3">
+			<div class="card-body">
+				<h6 class="card-title"><i class="bi bi-windows me-2"></i>FS-Registry</h6>
+				<p class="card-text small">Browse and edit the Windows Registry as if it were a filesystem, enabling operations like copying registry keys between locations.</p>
+			</div>
+		</div>
+	</div>
+	<div class="col-md-6">
+		<div class="card mb-3">
+			<div class="card-body">
+				<h6 class="card-title"><i class="bi bi-star me-2"></i>Favorites</h6>
+				<p class="card-text small">Virtual filesystem for quick access to frequently used locations and resources.</p>
+			</div>
+		</div>
+	</div>
+</div>
+
+<h3>File Operations Plug-in Examples</h3>
+
+<p>These plug-ins enhance standard file operations with intelligent automation:</p>
+
+<div class="row mt-4">
+	<div class="col-md-4">
+		<div class="card mb-3">
+			<div class="card-body">
+				<h6 class="card-title"><i class="bi bi-sort-alpha-down me-2"></i>AutoSort</h6>
+				<p class="card-text small">Automatically sorts copied files into A-Z folders at the destination, perfect for organizing large file collections.</p>
+			</div>
+		</div>
+	</div>
+	<div class="col-md-4">
+		<div class="card mb-3">
+			<div class="card-body">
+				<h6 class="card-title"><i class="bi bi-box-arrow-in-down me-2"></i>Auto Unpack</h6>
+				<p class="card-text small">Automatically extracts contents of archives during copy operations instead of copying the archive file itself.</p>
+			</div>
+		</div>
+	</div>
+	<div class="col-md-4">
+		<div class="card mb-3">
+			<div class="card-body">
+				<h6 class="card-title"><i class="bi bi-folder-symlink me-2"></i>Content Copy</h6>
+				<p class="card-text small">Copies the contents of selected folders without creating the folder structure, useful for merging multiple folders.</p>
+			</div>
+		</div>
+	</div>
+</div>
+
+<h3>FileProperties Plug-in Examples</h3>
+
+<p>These plug-ins add specialized columns to display additional file information:</p>
+
+<div class="row mt-4">
+	<div class="col-md-6">
+		<div class="card mb-3">
+			<div class="card-body">
+				<h6 class="card-title"><i class="bi bi-image me-2"></i>Picture Properties</h6>
+				<p class="card-text small">Displays image dimensions, EXIF metadata, GPS coordinates, camera settings, and creation dates for photo files.</p>
+			</div>
+		</div>
+	</div>
+	<div class="col-md-6">
+		<div class="card mb-3">
+			<div class="card-body">
+				<h6 class="card-title"><i class="bi bi-registry me-2"></i>Registry Data</h6>
+				<p class="card-text small">When browsing the Windows Registry, adds a 'Data' column showing the actual values stored in registry entries.</p>
+			</div>
+		</div>
+	</div>
+</div>
+
+<h3>Configuration and Virtual FileSystem Setup</h3>
+
+<h4>File Extension Mapping</h4>
+<p>Virtual FileSystem plug-ins can be configured to handle specific file extensions automatically. This configuration determines which plug-in is used when you navigate into a file:</p>
+
+<ul>
+	<li><strong>.zip files</strong> → Zip FileSystem plug-in</li>
+	<li><strong>.rar files</strong> → RAR FileSystem plug-in</li>
+	<li><strong>.7z files</strong> → 7-Zip FileSystem plug-in</li>
+	<li><strong>Custom extensions</strong> → User-defined plug-ins</li>
+</ul>
+
+<p>These mappings can be customized in the Extension Manager to suit your specific needs. For detailed information about virtual filesystem configuration, see the <a href="/Docs/filesystem" class="text-decoration-none">Virtual FileSystem documentation</a>.</p>
+
+<h3>Third-Party Extension Development</h3>
+
+<h4>SDK Availability</h4>
+<p>Multi Commander provides a comprehensive Software Development Kit (SDK) for creating custom extensions:</p>
+
+<ul>
+	<li><strong>Complete Documentation:</strong> Detailed guides and API reference</li>
+	<li><strong>Sample Code:</strong> Working examples for all extension types</li>
+	<li><strong>Development Tools:</strong> Headers, libraries, and debugging support</li>
+	<li><strong>Community Support:</strong> Active developer forums and assistance</li>
+</ul>
+
+<div class="alert alert-success">
+	<h6><i class="bi bi-download me-2"></i>Getting the SDK</h6>
+	<p>The Multi Commander SDK is available for download from:</p>
+	<ul class="mb-0">
+		<li><a href="https://github.com/MultiCommander/MultiCommander-SDK" class="text-decoration-none" target="_blank">GitHub Repository</a> - Latest version with examples</li>
+		<li><a href="http://forum.multicommander.com/forum/index.php/topic,965.0.html" class="text-decoration-none" target="_blank">Multi Commander Forum</a> - Discussion and support</li>
+	</ul>
+</div>
+
+<h4>Extension Development Benefits</h4>
+<ul>
+	<li><strong>No Core Modification:</strong> Extensions run in isolation without affecting core stability</li>
+	<li><strong>Full API Access:</strong> Interact with all Multi Commander subsystems</li>
+	<li><strong>Event System:</strong> Respond to user actions and system events</li>
+	<li><strong>Resource Management:</strong> Automatic memory and resource cleanup</li>
+	<li><strong>Configuration Integration:</strong> Extensions can have their own settings panels</li>
+</ul>
+
+<h3>Best Practices for Extension Management</h3>
+
+<h4>Security Considerations</h4>
+<ul>
+	<li><strong>Trust Sources:</strong> Only install extensions from trusted developers and official sources</li>
+	<li><strong>Review Permissions:</strong> Understand what system access extensions require</li>
+	<li><strong>Backup Settings:</strong> Save your configuration before installing new extensions</li>
+	<li><strong>Isolate Testing:</strong> Use portable installations for testing untrusted extensions</li>
+</ul>
+
+<h3>Troubleshooting Extensions</h3>
+
+<div class="accordion" id="extensionTroubleshootingAccordion">
+	<div class="accordion-item">
+		<h2 class="accordion-header" id="extHeading1">
+			<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#extCollapse1">
+				Extension won't load or crashes on startup
+			</button>
+		</h2>
+		<div id="extCollapse1" class="accordion-collapse collapse" data-bs-parent="#extensionTroubleshootingAccordion">
+			<div class="accordion-body">
+				<ul>
+					<li>Check extension compatibility with your Multi Commander version</li>
+					<li>Verify all required dependencies are installed</li>
+					<li>Try disabling other extensions to identify conflicts</li>
+					<li>Check the log window for detailed error messages</li>
+					<li>Reinstall the extension from a clean source</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<div class="accordion-item">
+		<h2 class="accordion-header" id="extHeading2">
+			<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#extCollapse2">
+				Extension settings are not saved
+			</button>
+		</h2>
+		<div id="extCollapse2" class="accordion-collapse collapse" data-bs-parent="#extensionTroubleshootingAccordion">
+			<div class="accordion-body">
+				<ul>
+					<li>Ensure Multi Commander has write permissions to the configuration folder</li>
+					<li>Check if the extension is properly registered in the Extension Manager</li>
+					<li>Try running Multi Commander as administrator temporarily</li>
+					<li>Verify the configuration folder is not read-only</li>
+					<li>Reset extension settings to defaults and reconfigure</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<div class="accordion-item">
+		<h2 class="accordion-header" id="extHeading3">
+			<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#extCollapse3">
+				Poor performance after installing extensions
+			</button>
+		</h2>
+		<div id="extCollapse3" class="accordion-collapse collapse" data-bs-parent="#extensionTroubleshootingAccordion">
+			<div class="accordion-body">
+				<ul>
+					<li>Use the Extension Manager to identify resource-heavy extensions</li>
+					<li>Disable extensions you don't actively use</li>
+					<li>Check for extension updates that may include performance improvements</li>
+					<li>Consider alternative extensions that provide similar functionality</li>
+					<li>Monitor system resources during heavy file operations</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="alert alert-info mt-4">
+	<h6><i class="bi bi-info-circle me-2"></i>Need Help?</h6>
+	<p class="mb-0">For extension development questions or troubleshooting, visit the <a href="http://forum.multicommander.com" class="text-decoration-none" target="_blank">Multi Commander Forum</a> where the community and developers can provide assistance. Include details about your system, Multi Commander version, and specific extensions when reporting issues.</p>
+</div>
 
 

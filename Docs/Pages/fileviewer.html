@@ -1,30 +1,534 @@
-<h2>MultiDataViewer - The File Viewer</h2>
-<p>To view the content of a file, select "<strong>View File</strong>" from the File menu, or press the keyboard shortcut key <strong>F3</strong> (the default if using the Commander-style setup).<br />
-<br />
-The Default File Viewer in Multi Commander is MultiDataViewer. It is a file viewer that has some unique features.<br />
-&nbsp;</p>
+<h2>MultiDataViewer - Advanced File Viewer Extension</h2>
 
-<p><img alt="" src="/Docs/Images/FileViewer1.png" /></p>
+<p>The <strong>MultiDataViewer Extension</strong> provides sophisticated file viewing capabilities for files of any size with minimal memory usage, offering comprehensive text and binary file visualization through multiple encoding formats, syntax highlighting, and advanced customization options. This powerful file viewer supports unlimited file sizes, extensive customization profiles, clickable hyperlinks, word highlighting, and live file monitoring that transforms basic file viewing into a professional text analysis and monitoring tool for development, debugging, and file management workflows.</p>
 
-<h2>MultiDataViewer Features</h2>
+<div class="alert alert-primary">
+	<h6><i class="bi bi-file-text me-2"></i>Advanced File Viewing System</h6>
+	<p class="mb-0">Experience powerful file viewing through intelligent content processing that handles files of any size with minimal memory usage, supports multiple text encodings and binary formats, provides extensive syntax highlighting, and offers real-time file monitoring capabilities. The MultiDataViewer extension transforms file viewing into sophisticated text analysis with customizable profiles, clickable links, and advanced search functionality for professional development and system administration workflows.</p>
+</div>
 
-<p>MultiDataViewer can:</p>
+<nav class="navbar navbar-expand-lg navbar-light bg-light mb-4">
+	<div class="container-fluid">
+		<span class="navbar-brand">Quick Navigation</span>
+		<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#multiDataViewerNav">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="multiDataViewerNav">
+			<ul class="navbar-nav">
+				<li class="nav-item"><a class="nav-link" href="#overview">Overview</a></li>
+				<li class="nav-item"><a class="nav-link" href="#core-features">Core Features</a></li>
+				<li class="nav-item"><a class="nav-link" href="#viewing-modes">Viewing Modes</a></li>
+				<li class="nav-item"><a class="nav-link" href="#advanced-features">Advanced Features</a></li>
+				<li class="nav-item"><a class="nav-link" href="#configuration">Configuration</a></li>
+			</ul>
+		</div>
+	</div>
+</nav>
 
-<ul>
-	<li><strong>View files of any size</strong>, even if the file is several <strong>gigabytes,</strong> using very little memory</li>
-	<li>View files as <strong>ASCII</strong> / <strong>Unicode</strong> / <strong>UTF8</strong> / <strong>Binary</strong> and <strong>Hex</strong></li>
-	<li>Be extensively <strong>customized</strong>. <strong>Font</strong> / <strong>Color</strong> / <strong>Background</strong> / <strong>Gridlines / Strip and more</strong> can be changed using different profiles that are loaded for different files based on format or file type</li>
-	<li>Support <strong>syntax coloring</strong></li>
-	<li>Support <strong>links</strong>. Links in the text are <strong>clickable</strong>, so you can click on the link and a browser will be opened for that location</li>
-	<li><strong>H</strong><strong>ighlight</strong> all the words in different colors</li>
-	<li><strong>AutoSelect</strong> an entire word when double clicking on it (It is possible to customize what special characters are allowed in a word)</li>
-	<li>Copy selections to the <strong>clipboard</strong> or save selections to a file</li>
-	<li><strong>Support Drag &amp; Drop.</strong> Drop a file on MultiDataViewer to view it</li>
-	<li>Provide<strong> MouseWheel Zoom:</strong> hold <strong>CTRL</strong> down when using the <strong>mouse wheel</strong> and it will <strong>increase / decrease</strong> font size</li>
-	<li><strong>Queue files to view</strong> and Go to next/previous file with <strong>CTRL+ PAGEUP / PAGEDOWN</strong></li>
-	<li><strong>Auto-reload</strong> files if changed (very useful when viewing a live log file)</li>
-</ul>
+<section id="overview">
+	<h3>MultiDataViewer Extension Overview</h3>
+	<p>MultiDataViewer serves as Multi Commander's default file viewer, providing comprehensive file content visualization with unique memory-efficient processing, extensive customization capabilities, and professional-grade features for text analysis, binary inspection, and real-time file monitoring.</p>
 
-<p>&nbsp;</p>
+	<div class="row">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header bg-info text-white">
+					<h6 class="mb-0"><i class="bi bi-window me-2"></i>MultiDataViewer Interface</h6>
+				</div>
+				<div class="card-body">
+					<div class="text-center mt-3 mb-3">
+						<img src="/Docs/Images/FileViewer1.png" alt="MultiDataViewer Interface" class="img-fluid border rounded shadow-sm" />
+						<p class="text-muted small mt-2">MultiDataViewer showing text file with syntax highlighting and toolbar options</p>
+					</div>
 
+					<h6>Access Methods</h6>
+					<ul class="small">
+						<li><strong>File Menu:</strong> Select "View File" from the File menu</li>
+						<li><strong>Keyboard Shortcut:</strong> Press <kbd>F3</kbd> (default in Commander-style setup)</li>
+						<li><strong>Drag and Drop:</strong> Drop files directly onto MultiDataViewer window</li>
+						<li><strong>File Queue:</strong> Queue multiple files for sequential viewing</li>
+					</ul>
 
+					<h6>Core Capabilities</h6>
+					<ul class="small">
+						<li><strong>Universal File Support:</strong> View files of any size with minimal memory usage</li>
+						<li><strong>Multiple Encoding:</strong> ASCII, Unicode, UTF-8, Binary, and Hex viewing modes</li>
+						<li><strong>Syntax Highlighting:</strong> Support for numerous programming languages and formats</li>
+						<li><strong>Real-Time Monitoring:</strong> Auto-reload files when changed (ideal for log monitoring)</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="row mt-3">
+		<div class="col-md-6">
+			<div class="card">
+				<div class="card-header bg-success text-white">
+					<h6 class="mb-0"><i class="bi bi-memory me-2"></i>Memory Efficiency</h6>
+				</div>
+				<div class="card-body">
+					<h6>Large File Handling</h6>
+					<ul class="small">
+						<li><strong>Chunked Reading:</strong> Files read in segments to minimize memory usage</li>
+						<li><strong>Gigabyte Support:</strong> Handle files several gigabytes in size efficiently</li>
+						<li><strong>Minimal Memory Footprint:</strong> View large files using very little system memory</li>
+						<li><strong>Optional Full Loading:</strong> Force entire file into memory for advanced features</li>
+					</ul>
+
+					<h6>Performance Optimization</h6>
+					<ul class="small">
+						<li><strong>Intelligent Loading:</strong> Only load visible content portions</li>
+						<li><strong>Fast Navigation:</strong> Quick movement through large files</li>
+						<li><strong>Resource Management:</strong> Efficient system resource utilization</li>
+						<li><strong>Responsive Interface:</strong> Maintain UI responsiveness with large files</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-6">
+			<div class="card">
+				<div class="card-header bg-warning text-dark">
+					<h6 class="mb-0"><i class="bi bi-gear me-2"></i>Extensive Customization</h6>
+				</div>
+				<div class="card-body">
+					<h6>Profile-Based Configuration</h6>
+					<ul class="small">
+						<li><strong>Custom Profiles:</strong> Different configurations for different file types</li>
+						<li><strong>Font Customization:</strong> Configure fonts, sizes, and styles</li>
+						<li><strong>Color Schemes:</strong> Customize foreground, background, and highlight colors</li>
+						<li><strong>Visual Options:</strong> Gridlines, strips, and display preferences</li>
+					</ul>
+
+					<h6>Adaptive Configuration</h6>
+					<ul class="small">
+						<li><strong>File Type Matching:</strong> Automatic profile selection based on file type</li>
+						<li><strong>Format Recognition:</strong> Intelligent format detection and appropriate handling</li>
+						<li><strong>Theme Support:</strong> Dark mode and multiple color theme variants</li>
+						<li><strong>User Customization:</strong> Complete user control over appearance and behavior</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<section id="core-features" class="mt-5">
+	<h3>Core Features and Capabilities</h3>
+	<p>MultiDataViewer provides a comprehensive suite of viewing and interaction features that support professional text analysis, development workflows, and system administration tasks through advanced text processing and visualization capabilities.</p>
+
+	<div class="row">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header bg-primary text-white">
+					<h6 class="mb-0"><i class="bi bi-list-check me-2"></i>Comprehensive Feature Set</h6>
+				</div>
+				<div class="card-body">
+					<div class="row">
+						<div class="col-md-6">
+							<h6>Text Processing Features</h6>
+							<ul class="small">
+								<li><strong>Unlimited File Size:</strong> View files of any size, even gigabytes, using minimal memory</li>
+								<li><strong>Multiple Encodings:</strong> ASCII, Unicode, UTF-8, Binary, and Hex viewing modes</li>
+								<li><strong>Syntax Highlighting:</strong> Built-in syntax coloring for numerous programming languages</li>
+								<li><strong>Clickable Hyperlinks:</strong> Links in text are clickable and open in browser</li>
+								<li><strong>Word Highlighting:</strong> Highlight multiple words in different colors</li>
+								<li><strong>AutoSelect Words:</strong> Double-click to select entire words automatically</li>
+							</ul>
+						</div>
+						<div class="col-md-6">
+							<h6>Interactive Features</h6>
+							<ul class="small">
+								<li><strong>Clipboard Integration:</strong> Copy selections to clipboard or save to files</li>
+								<li><strong>Drag and Drop:</strong> Drop files onto viewer to open them</li>
+								<li><strong>MouseWheel Zoom:</strong> Hold <kbd>Ctrl</kbd> + mouse wheel to adjust font size</li>
+								<li><strong>File Queue:</strong> Queue multiple files and navigate with <kbd>Ctrl</kbd>+<kbd>Page Up/Down</kbd></li>
+								<li><strong>Auto-Reload:</strong> Monitor files and auto-reload when changed</li>
+								<li><strong>Search Functionality:</strong> Find text within viewed files</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="row mt-3">
+		<div class="col-md-6">
+			<div class="card">
+				<div class="card-header bg-success text-white">
+					<h6 class="mb-0"><i class="bi bi-search me-2"></i>Search and Highlighting</h6>
+				</div>
+				<div class="card-body">
+					<h6>Text Search Capabilities</h6>
+					<ul class="small">
+						<li><strong>Find in Files:</strong> Search for text within the currently viewed file</li>
+						<li><strong>Highlight Words:</strong> Enter words in toolbar to highlight throughout text</li>
+						<li><strong>Multiple Colors:</strong> Highlight different words in different colors</li>
+						<li><strong>Case Sensitivity:</strong> Control case-sensitive search options</li>
+					</ul>
+
+					<h6>Visual Enhancement</h6>
+					<ul class="small">
+						<li><strong>Line Numbers:</strong> Display line numbers for reference</li>
+						<li><strong>Show Whitespace:</strong> Visualize spaces, tabs, and line endings</li>
+						<li><strong>Word Wrap:</strong> Enable/disable word wrapping for long lines</li>
+						<li><strong>Strip Display:</strong> Alternate row colors for better readability</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-6">
+			<div class="card">
+				<div class="card-header bg-info text-white">
+					<h6 class="mb-0"><i class="bi bi-arrow-repeat me-2"></i>Real-Time Monitoring</h6>
+				</div>
+				<div class="card-body">
+					<h6>Live File Monitoring</h6>
+					<ul class="small">
+						<li><strong>Auto-Reload:</strong> Automatically reload files when they change</li>
+						<li><strong>Log File Monitoring:</strong> Perfect for viewing live log files</li>
+						<li><strong>Bottom Scrolling:</strong> Automatically scroll to bottom when new content added</li>
+						<li><strong>Change Detection:</strong> Intelligent file change monitoring</li>
+					</ul>
+
+					<h6>Navigation Features</h6>
+					<ul class="small">
+						<li><strong>Keyboard Navigation:</strong> Enable caret for keyboard-based text navigation</li>
+						<li><strong>Selection Support:</strong> Select text using keyboard instead of mouse</li>
+						<li><strong>File Queue Navigation:</strong> Move between queued files easily</li>
+						<li><strong>Position Memory:</strong> Remember scroll positions in viewed files</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<section id="viewing-modes" class="mt-5">
+	<h3>Viewing Modes and Encoding Support</h3>
+	<p>MultiDataViewer supports multiple viewing modes and text encodings to accommodate various file types and content formats, providing appropriate visualization for text files, binary data, and specialized formats through intelligent format detection and user-selectable options.</p>
+
+	<div class="row">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header bg-dark text-white">
+					<h6 class="mb-0"><i class="bi bi-code-square me-2"></i>Supported Viewing Modes</h6>
+				</div>
+				<div class="card-body">
+					<div class="table-responsive">
+						<table class="table table-bordered table-hover">
+							<thead class="table-light">
+								<tr>
+									<th style="width: 20%">Viewing Mode</th>
+									<th style="width: 30%">Description</th>
+									<th style="width: 50%">Best Used For</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td><strong>ASCII</strong></td>
+									<td>Standard ASCII text encoding</td>
+									<td>Basic text files, configuration files, simple programming code</td>
+								</tr>
+								<tr>
+									<td><strong>Unicode</strong></td>
+									<td>Unicode text encoding (UTF-16)</td>
+									<td>International text, files with special characters, multilingual content</td>
+								</tr>
+								<tr>
+									<td><strong>UTF-8</strong></td>
+									<td>UTF-8 encoding for universal text support</td>
+									<td>Modern text files, web content, programming source code</td>
+								</tr>
+								<tr>
+									<td><strong>Binary</strong></td>
+									<td>Raw binary data display</td>
+									<td>Executable files, compiled binaries, data files</td>
+								</tr>
+								<tr>
+									<td><strong>Hex</strong></td>
+									<td>Hexadecimal representation of file content</td>
+									<td>Binary analysis, debugging, data forensics, low-level file inspection</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+
+					<h6>Mode Selection</h6>
+					<ul class="small">
+						<li><strong>Automatic Detection:</strong> MultiDataViewer automatically selects appropriate mode based on file content</li>
+						<li><strong>Manual Override:</strong> Switch between viewing modes using toolbar controls</li>
+						<li><strong>Profile-Based:</strong> Configure default modes for specific file types in profiles</li>
+						<li><strong>Real-Time Switching:</strong> Change modes without reloading the file</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="row mt-3">
+		<div class="col-md-6">
+			<div class="card">
+				<div class="card-header bg-primary text-white">
+					<h6 class="mb-0"><i class="bi bi-file-text me-2"></i>Text Mode Features</h6>
+				</div>
+				<div class="card-body">
+					<h6>Text Display Options</h6>
+					<ul class="small">
+						<li><strong>Line Numbers:</strong> Display line numbers for text reference</li>
+						<li><strong>Show Whitespace:</strong> Visualize spaces, tabs, and line endings</li>
+						<li><strong>Word Wrap:</strong> Enable/disable word wrapping for long lines</li>
+						<li><strong>Syntax Highlighting:</strong> Color coding for programming languages</li>
+					</ul>
+
+					<h6>Encoding Handling</h6>
+					<ul class="small">
+						<li><strong>Automatic Detection:</strong> Intelligent encoding detection</li>
+						<li><strong>Manual Selection:</strong> Override encoding when needed</li>
+						<li><strong>Character Preservation:</strong> Maintain special characters and symbols</li>
+						<li><strong>International Support:</strong> Full Unicode and UTF-8 support</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-6">
+			<div class="card">
+				<div class="card-header bg-warning text-dark">
+					<h6 class="mb-0"><i class="bi bi-code me-2"></i>Binary and Hex Modes</h6>
+				</div>
+				<div class="card-body">
+					<h6>Binary Data Visualization</h6>
+					<ul class="small">
+						<li><strong>Raw Binary Display:</strong> Show binary data in readable format</li>
+						<li><strong>Hex Representation:</strong> Hexadecimal view with ASCII sidebar</li>
+						<li><strong>Address Display:</strong> Show memory addresses for binary content</li>
+						<li><strong>Data Analysis:</strong> Inspect file structure and content</li>
+					</ul>
+
+					<h6>Professional Applications</h6>
+					<ul class="small">
+						<li><strong>File Forensics:</strong> Analyze file structure and hidden content</li>
+						<li><strong>Debugging:</strong> Inspect binary files and executables</li>
+						<li><strong>Data Recovery:</strong> Examine corrupted or damaged files</li>
+						<li><strong>Reverse Engineering:</strong> Analyze file formats and protocols</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<section id="advanced-features" class="mt-5">
+	<h3>Advanced Features and Tools</h3>
+	<p>MultiDataViewer includes sophisticated tools for professional text analysis, file monitoring, and content processing that extend beyond basic viewing to provide comprehensive file inspection and analysis capabilities for development and system administration workflows.</p>
+
+	<div class="row">
+		<div class="col-md-6">
+			<div class="card">
+				<div class="card-header bg-success text-white">
+					<h6 class="mb-0"><i class="bi bi-filter me-2"></i>Line Filtering Tool</h6>
+				</div>
+				<div class="card-body">
+					<h6>Advanced Line Filtering (Like Linux Grep)</h6>
+					<ul class="small">
+						<li><strong>Pattern Matching:</strong> Filter lines based on Regex or Wildcard patterns</li>
+						<li><strong>Show/Hide Matching:</strong> Display only matching lines or hide them</li>
+						<li><strong>Case Sensitivity:</strong> Control case-sensitive pattern matching</li>
+						<li><strong>Memory Optimization:</strong> Works best when entire file is loaded into memory</li>
+					</ul>
+
+					<h6>Professional Use Cases</h6>
+					<ul class="small">
+						<li><strong>Log Analysis:</strong> Filter log entries by error level or timestamp</li>
+						<li><strong>Code Analysis:</strong> Find specific functions or patterns in source code</li>
+						<li><strong>Data Processing:</strong> Extract specific data patterns from large files</li>
+						<li><strong>Debugging:</strong> Isolate relevant information from verbose output</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-6">
+			<div class="card">
+				<div class="card-header bg-info text-white">
+					<h6 class="mb-0"><i class="bi bi-paint-bucket me-2"></i>Syntax Highlighting</h6>
+				</div>
+				<div class="card-body">
+					<h6>Comprehensive Language Support</h6>
+					<ul class="small">
+						<li><strong>Programming Languages:</strong> C++, C#, Java, Python, JavaScript, PHP</li>
+						<li><strong>Markup Languages:</strong> XML, HTML, CSS, JSON, YAML</li>
+						<li><strong>Configuration Files:</strong> INI, CONFIG, LOG files</li>
+						<li><strong>Custom Schemes:</strong> User-configurable syntax highlighting</li>
+					</ul>
+
+					<h6>Visual Enhancement</h6>
+					<ul class="small">
+						<li><strong>Color Coding:</strong> Keywords, strings, comments highlighted differently</li>
+						<li><strong>Customizable Colors:</strong> User-defined color schemes</li>
+						<li><strong>Automatic Detection:</strong> Format recognition based on file extension</li>
+						<li><strong>Theme Integration:</strong> Syntax colors adapt to selected themes</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="row mt-3">
+		<div class="col-md-6">
+			<div class="card">
+				<div class="card-header bg-warning text-dark">
+					<h6 class="mb-0"><i class="bi bi-link me-2"></i>Interactive Elements</h6>
+				</div>
+				<div class="card-body">
+					<h6>Clickable Hyperlinks</h6>
+					<ul class="small">
+						<li><strong>URL Recognition:</strong> Automatically detect HTTP/HTTPS links in text</li>
+						<li><strong>Browser Integration:</strong> Click links to open in default browser</li>
+						<li><strong>Email Links:</strong> Support for mailto: links</li>
+						<li><strong>File Links:</strong> Local file path recognition and opening</li>
+					</ul>
+
+					<h6>Text Selection Features</h6>
+					<ul class="small">
+						<li><strong>Word AutoSelect:</strong> Double-click to select entire words</li>
+						<li><strong>Custom Word Characters:</strong> Configure what characters constitute a word</li>
+						<li><strong>Keyboard Selection:</strong> Enable caret for keyboard-based selection</li>
+						<li><strong>Copy to Clipboard:</strong> Copy selected text to system clipboard</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-6">
+			<div class="card">
+				<div class="card-header bg-primary text-white">
+					<h6 class="mb-0"><i class="bi bi-stack me-2"></i>File Queue Management</h6>
+				</div>
+				<div class="card-body">
+					<h6>Multi-File Viewing</h6>
+					<ul class="small">
+						<li><strong>File Queue:</strong> Queue multiple files for sequential viewing</li>
+						<li><strong>Navigation Shortcuts:</strong> <kbd>Ctrl</kbd>+<kbd>Page Up/Down</kbd> to move between files</li>
+						<li><strong>Queue Management:</strong> Add, remove, and reorder files in queue</li>
+						<li><strong>Session Persistence:</strong> Maintain file queue across viewer sessions</li>
+					</ul>
+
+					<h6>Workflow Benefits</h6>
+					<ul class="small">
+						<li><strong>Batch Review:</strong> Efficiently review multiple related files</li>
+						<li><strong>Comparison Tasks:</strong> Quick switching between files for comparison</li>
+						<li><strong>Documentation Review:</strong> Navigate through documentation sets</li>
+						<li><strong>Code Analysis:</strong> Review multiple source files in sequence</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<section id="configuration" class="mt-5">
+	<h3>Configuration and Customization</h3>
+	<p>MultiDataViewer provides extensive customization options through profile-based configuration, theme support, and detailed appearance settings that enable users to optimize the viewing experience for different file types, workflows, and personal preferences.</p>
+
+	<div class="row">
+		<div class="col-md-6">
+			<div class="card">
+				<div class="card-header bg-primary text-white">
+					<h6 class="mb-0"><i class="bi bi-person-gear me-2"></i>Profile-Based Configuration</h6>
+				</div>
+				<div class="card-body">
+					<h6>Custom Profiles</h6>
+					<ul class="small">
+						<li><strong>File Type Matching:</strong> Configure different profiles for different file types</li>
+						<li><strong>Automatic Loading:</strong> Profiles automatically loaded based on file format</li>
+						<li><strong>Custom Rules:</strong> Create rules for profile selection based on file properties</li>
+						<li><strong>Profile Management:</strong> Save, load, and share profile configurations</li>
+					</ul>
+
+					<h6>Configurable Elements</h6>
+					<ul class="small">
+						<li><strong>Font Settings:</strong> Font family, size, and style customization</li>
+						<li><strong>Color Schemes:</strong> Foreground, background, and accent colors</li>
+						<li><strong>Display Options:</strong> Gridlines, strips, spacing, and layout</li>
+						<li><strong>Behavior Settings:</strong> Auto-reload, word wrap, line numbers</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-6">
+			<div class="card">
+				<div class="card-header bg-success text-white">
+					<h6 class="mb-0"><i class="bi bi-palette me-2"></i>Themes and Visual Customization</h6>
+				</div>
+				<div class="card-body">
+					<h6>Color Themes</h6>
+					<ul class="small">
+						<li><strong>Dark Mode Support:</strong> Built-in dark theme for comfortable viewing</li>
+						<li><strong>Multiple Variants:</strong> Several pre-configured color schemes</li>
+						<li><strong>User Customization:</strong> Complete user control over color themes</li>
+						<li><strong>High Contrast Options:</strong> Accessibility-focused color schemes</li>
+					</ul>
+
+					<h6>Visual Enhancement Options</h6>
+					<ul class="small">
+						<li><strong>Strip Display:</strong> Alternate row colors for better line distinction</li>
+						<li><strong>Gridlines:</strong> Optional gridlines for structured data viewing</li>
+						<li><strong>Background Patterns:</strong> Customizable background options</li>
+						<li><strong>Font Rendering:</strong> Anti-aliasing and rendering quality settings</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="row mt-3">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header bg-warning text-dark">
+					<h6 class="mb-0"><i class="bi bi-sliders me-2"></i>Advanced Configuration Options</h6>
+				</div>
+				<div class="card-body">
+					<h6>Memory and Performance Settings</h6>
+					<div class="row">
+						<div class="col-md-6">
+							<ul class="small">
+								<li><strong>Chunked Reading:</strong> Control how large files are processed in segments</li>
+								<li><strong>Read Entire File:</strong> Force complete file loading for advanced features</li>
+								<li><strong>Memory Thresholds:</strong> Configure memory usage limits</li>
+								<li><strong>Performance Tuning:</strong> Optimize for speed vs. memory usage</li>
+							</ul>
+						</div>
+						<div class="col-md-6">
+							<ul class="small">
+								<li><strong>Auto-Reload Settings:</strong> Configure file monitoring sensitivity</li>
+								<li><strong>Cache Management:</strong> Control caching of viewed content</li>
+								<li><strong>UI Responsiveness:</strong> Balance features with interface performance</li>
+								<li><strong>Resource Limits:</strong> Set maximum file size and memory usage</li>
+							</ul>
+						</div>
+					</div>
+
+					<div class="alert alert-info p-2 mt-3">
+						<h6 class="small mb-1"><i class="bi bi-info-circle me-1"></i>Configuration Tips</h6>
+						<ul class="small mb-0">
+							<li><strong>Large Files:</strong> Use chunked reading for files over 100MB</li>
+							<li><strong>Live Logs:</strong> Enable auto-reload and bottom scrolling for log monitoring</li>
+							<li><strong>Code Review:</strong> Enable syntax highlighting and line numbers</li>
+							<li><strong>Data Analysis:</strong> Use hex mode and line filtering for binary analysis</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<div class="alert alert-success mt-5">
+	<h6><i class="bi bi-lightbulb me-2"></i>MultiDataViewer Mastery</h6>
+	<p class="mb-0">Master MultiDataViewer by utilizing <kbd>F3</kbd> for quick file viewing, understanding the multiple encoding modes (ASCII, Unicode, UTF-8, Binary, Hex) for different file types, and leveraging the memory-efficient chunked reading for large files. Remember that syntax highlighting supports numerous programming languages, clickable hyperlinks enable direct browser navigation, auto-reload functionality is perfect for live log monitoring, and the line filtering tool provides grep-like functionality for text analysis. Configure custom profiles for different file types, use <kbd>Ctrl</kbd>+mouse wheel for font size adjustment, and utilize the file queue feature with <kbd>Ctrl</kbd>+<kbd>Page Up/Down</kbd> for efficient multi-file review workflows.</p>
+</div>
+
+<div class="alert alert-info mt-4">
+	<h6><i class="bi bi-info-circle me-2"></i>Related File Management Documentation</h6>
+	<p class="mb-0">Enhance your file viewing and analysis capabilities with related Multi Commander features: <a href="/Docs/filetypesetup" class="text-decoration-none">File Type Setup</a>, <a href="/Docs/extensions" class="text-decoration-none">Extensions</a>, <a href="/Docs/TextTools" class="text-decoration-none">Text Tools</a>, <a href="/Docs/FindAndReplaceInFiles" class="text-decoration-none">Find and Replace in Files</a>, <a href="/Docs/MCPictureViewer" class="text-decoration-none">Internal Picture Viewer</a>, and <a href="/Docs/selection" class="text-decoration-none">File Selection</a>.</p>
+</div>

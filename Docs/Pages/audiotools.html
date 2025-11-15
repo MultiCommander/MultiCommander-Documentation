@@ -1,17 +1,528 @@
-<h2>Audio Tools</h2>
-<p><em>Multi Commander Audio Tools</em> is a default extension included with Multi Commander.<br />
-This extension will add audio properties like ID3 tags as columns for file browsing.</p>
+﻿<h2>Audio Tools</h2>
 
-<p><span style="margin-left: 1em; margin-right: 1em;"><img alt="" border="0" height="112" src="/Docs/Images/AudioColumns.png" width="550" /></span></p>
+<p>Multi Commander's <strong>Audio Tools</strong> extension provides comprehensive audio file management capabilities that enable efficient metadata manipulation, ID3/APE tag management, playlist creation, and MP3 file joining for digital music collections. This powerful extension transforms Multi Commander into a sophisticated audio file manager, offering professional-grade metadata editing, batch tag operations, comprehensive audio property viewing, flexible playlist generation, and seamless MP3 file concatenation while maintaining seamless integration with the familiar file management interface.</p>
 
-<p>It also provides several audio-related tools, for example removing all ID3/APE tags from an MP3 file, and exporting all meta data like ID3 or APE tags and audio properties from an audio file into a text file.</p>
+<div class="alert alert-primary">
+	<h6><i class="bi bi-music-note-beamed me-2"></i>Professional Audio File Management Suite</h6>
+	<p class="mb-0">Experience comprehensive audio file management capabilities that combine advanced metadata editing with intelligent playlist creation, detailed audio property analysis, and MP3 file joining functionality. Audio Tools integrate seamlessly with Multi Commander's file management interface to provide professional audio workflows that handle multiple formats, preserve audio quality through non-destructive metadata operations, and offer complete control over tag management, playlist generation, and audio file concatenation for music enthusiasts, DJs, podcast creators, and digital music archivists.</p>
+</div>
 
-<p><img alt="" src="/Docs/Images/AudioToolsMenu.png" /></p>
+<nav class="navbar navbar-expand-lg navbar-light bg-light mb-4">
+	<div class="container-fluid">
+		<span class="navbar-brand">Quick Navigation</span>
+		<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#audioToolsNav">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="audioToolsNav">
+			<ul class="navbar-nav">
+				<li class="nav-item"><a class="nav-link" href="#overview">Overview</a></li>
+				<li class="nav-item"><a class="nav-link" href="#audio-columns">Audio Columns</a></li>
+				<li class="nav-item"><a class="nav-link" href="#metadata-management">Metadata Management</a></li>
+				<li class="nav-item"><a class="nav-link" href="#playlist-creation">Playlist Creation</a></li>
+				<li class="nav-item"><a class="nav-link" href="#join-mp3-files">Join MP3 Files</a></li>
+				<li class="nav-item"><a class="nav-link" href="#audio-information">Audio Information</a></li>
+			</ul>
+		</div>
+	</div>
+</nav>
 
-<p>&nbsp;</p>
+<section id="overview">
+	<h3>Audio Tools Overview</h3>
+	<p>Audio Tools provide professional audio file management capabilities directly within Multi Commander's Explorer Panel interface, enabling efficient metadata operations, comprehensive tag management, sophisticated playlist creation functionality, and MP3 file joining that streamlines digital music collection workflows.</p>
 
-<p>MP3 file information will be shown in a Window where the ID3 tags can be viewed and edited.&nbsp;</p>
+	<div class="row">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header bg-info text-white">
+					<h6 class="mb-0"><i class="bi bi-menu-app me-2"></i>Audio Tools Access and Features</h6>
+				</div>
+				<div class="card-body">
+					<div class="text-center mt-3 mb-3">
+						<img src="/Docs/Images/AudioToolsMenu.png" alt="Audio Tools Menu" class="img-fluid border rounded shadow-sm" />
+						<p class="text-muted small mt-2">Audio Tools submenu accessed through Tools → Audio Tools</p>
+					</div>
 
-<div class="separator" style="clear: both; text-align: left;"><span style="margin-left: 1em; margin-right: 1em;"><img alt="" border="0" height="573" src="/Docs/Images/AudioInfo.png" width="600" /></span></div>
+					<h6>Available Audio Processing Operations</h6>
+					<div class="row">
+						<div class="col-md-6">
+							<ul class="small">
+								<li><strong>ID3/APE Tag Management:</strong> Remove all metadata tags from audio files</li>
+								<li><strong>Metadata Export:</strong> Export all audio metadata to text files for analysis</li>
+								<li><strong>Audio Information Viewer:</strong> Display and edit comprehensive audio metadata</li>
+								<li><strong>Playlist Creation:</strong> Generate M3U and PLS playlists with advanced filtering</li>
+								<li><strong>Join MP3 Files:</strong> Combine multiple MP3 files into a single audio file</li>
+							</ul>
+						</div>
+						<div class="col-md-6">
+							<ul class="small">
+								<li><strong>Column Integration:</strong> Display audio properties as browseable columns</li>
+								<li><strong>Batch Operations:</strong> Process multiple audio files simultaneously</li>
+								<li><strong>Format Support:</strong> Compatible with MP3, FLAC, OGG, and other common formats</li>
+								<li><strong>Metadata Preservation:</strong> Non-destructive operations where possible</li>
+								<li><strong>Custom Ordering:</strong> Reorder files before joining or playlist creation</li>
+							</ul>
+						</div>
+					</div>
 
+					<h6>Supported Audio Formats and Metadata Types</h6>
+					<ul class="small">
+						<li><strong>Audio Formats:</strong> MP3, FLAC, OGG Vorbis, APE, WMA, and other common audio formats</li>
+						<li><strong>Metadata Types:</strong> ID3v1, ID3v2, APE tags, Vorbis comments, and format-specific metadata</li>
+						<li><strong>Audio Properties:</strong> Bitrate, sample rate, duration, channels, codec information</li>
+						<li><strong>Extended Metadata:</strong> Album art, lyrics, custom fields, and advanced audio properties</li>
+					</ul>
 
+					<div class="alert alert-success p-2 mt-3">
+						<h6 class="small mb-1"><i class="bi bi-headphones me-1"></i>Professional Audio Management</h6>
+						<p class="small mb-0">Audio Tools bring professional music library management capabilities to file management, enabling DJs, music enthusiasts, podcast creators, and digital archivists to perform sophisticated metadata operations and audio file concatenation without leaving the familiar Multi Commander interface.</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<section id="audio-columns" class="mt-5">
+	<h3>Audio Properties Columns</h3>
+	<p>The Audio Tools extension enhances Explorer Panel with comprehensive audio property columns that display essential metadata information directly in the file listing, enabling efficient browsing and sorting of music collections based on audio characteristics and tag information.</p>
+
+	<div class="row">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header bg-success text-white">
+					<h6 class="mb-0"><i class="bi bi-list-columns me-2"></i>Audio Columns Integration</h6>
+				</div>
+				<div class="card-body">
+					<div class="text-center mt-3 mb-3">
+						<img src="/Docs/Images/AudioColumns.png" alt="Audio Columns in Explorer Panel" class="img-fluid border rounded shadow-sm" />
+						<p class="text-muted small mt-2">Explorer Panel displaying audio metadata columns for efficient music library browsing</p>
+					</div>
+
+					<h6>Available Audio Property Columns</h6>
+					<div class="row">
+						<div class="col-md-6">
+							<h6>Basic Audio Properties</h6>
+							<ul class="small">
+								<li><strong>Duration:</strong> Track length in minutes and seconds</li>
+								<li><strong>Bitrate:</strong> Audio quality in kbps (kilobits per second)</li>
+								<li><strong>Sample Rate:</strong> Audio sampling frequency in Hz</li>
+								<li><strong>Channels:</strong> Audio channel configuration (Mono, Stereo, Surround)</li>
+							</ul>
+
+							<h6>ID3 Tag Information</h6>
+							<ul class="small">
+								<li><strong>Title:</strong> Song or track title</li>
+								<li><strong>Artist:</strong> Performing artist or band name</li>
+								<li><strong>Album:</strong> Album or collection name</li>
+								<li><strong>Year:</strong> Release year or recording date</li>
+							</ul>
+						</div>
+						<div class="col-md-6">
+							<h6>Extended Metadata</h6>
+							<ul class="small">
+								<li><strong>Genre:</strong> Musical genre classification</li>
+								<li><strong>Track Number:</strong> Position within album or collection</li>
+								<li><strong>Album Artist:</strong> Primary album artist (different from track artist)</li>
+								<li><strong>Comment:</strong> Additional notes or information</li>
+							</ul>
+
+							<h6>Technical Information</h6>
+							<ul class="small">
+								<li><strong>Codec:</strong> Audio compression format used</li>
+								<li><strong>File Size:</strong> Audio file size on disk</li>
+								<li><strong>Encoding Quality:</strong> Compression settings and quality indicators</li>
+								<li><strong>Version:</strong> Tag version and format information</li>
+							</ul>
+						</div>
+					</div>
+
+					<h6>Column Configuration and Usage</h6>
+					<ul class="small">
+						<li><strong>Column Selection:</strong> Choose which audio properties to display using standard column customization</li>
+						<li><strong>Sorting Capabilities:</strong> Sort music files by any audio property for organized browsing</li>
+						<li><strong>Filtering Integration:</strong> Use view filters to show files matching specific audio criteria</li>
+						<li><strong>Batch Analysis:</strong> Quick overview of audio properties across multiple files</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<section id="metadata-management" class="mt-5">
+	<h3>Metadata and Tag Management</h3>
+	<p>Audio Tools provide comprehensive metadata management capabilities with options to remove, export, and edit audio tags, enabling complete control over music library organization and privacy while preserving or enhancing audio file metadata as needed.</p>
+
+	<div class="row">
+		<div class="col-md-6">
+			<div class="card">
+				<div class="card-header bg-danger text-white">
+					<h6 class="mb-0"><i class="bi bi-trash me-2"></i>Remove ID3/APE Tags</h6>
+				</div>
+				<div class="card-body">
+					<h6>Complete Tag Removal</h6>
+					<ul class="small">
+						<li><strong>Comprehensive Cleaning:</strong> Removes all ID3v1, ID3v2, and APE tags from audio files</li>
+						<li><strong>Privacy Protection:</strong> Eliminates personal information and listening history</li>
+						<li><strong>File Size Reduction:</strong> Reduces file size by removing metadata overhead</li>
+						<li><strong>Batch Processing:</strong> Clean metadata from multiple files simultaneously</li>
+					</ul>
+
+					<h6>Tag Removal Applications</h6>
+					<ul class="small">
+						<li><strong>Privacy Concerns:</strong> Remove personal tags before sharing or selling music</li>
+						<li><strong>Fresh Start:</strong> Clear existing tags before re-tagging with new metadata</li>
+						<li><strong>Problematic Tags:</strong> Remove corrupted or incorrectly formatted metadata</li>
+						<li><strong>Streaming Preparation:</strong> Clean files for online streaming services</li>
+					</ul>
+
+					<h6>Supported Tag Types for Removal</h6>
+					<ul class="small">
+						<li><strong>ID3v1 Tags:</strong> Legacy 128-byte tags with basic information</li>
+						<li><strong>ID3v2 Tags:</strong> Extended tags with comprehensive metadata support</li>
+						<li><strong>APE Tags:</strong> Advanced audio metadata format with Unicode support</li>
+						<li><strong>Format-Specific:</strong> Native metadata formats for various audio types</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-6">
+			<div class="card">
+				<div class="card-header bg-info text-white">
+					<h6 class="mb-0"><i class="bi bi-download me-2"></i>Export Audio Metadata</h6>
+				</div>
+				<div class="card-body">
+					<h6>Comprehensive Metadata Export</h6>
+					<ul class="small">
+						<li><strong>Text File Creation:</strong> Exports all audio metadata to human-readable text files</li>
+						<li><strong>Complete Information:</strong> Includes all available tags, properties, and technical data</li>
+						<li><strong>Batch Export:</strong> Process multiple audio files with single operation</li>
+						<li><strong>Documentation:</strong> Create permanent records of audio file metadata</li>
+					</ul>
+
+					<h6>Exported Information Categories</h6>
+					<ul class="small">
+						<li><strong>Tag Data:</strong> All ID3, APE, and format-specific metadata fields</li>
+						<li><strong>Audio Properties:</strong> Technical specifications, quality settings, encoding details</li>
+						<li><strong>File Information:</strong> File size, creation date, format version information</li>
+						<li><strong>Extended Data:</strong> Album art references, lyrics, custom fields</li>
+					</ul>
+
+					<h6>Export Use Cases</h6>
+					<ul class="small">
+						<li><strong>Music Database:</strong> Create searchable text database of music collection</li>
+						<li><strong>Backup Documentation:</strong> Preserve metadata information separately from audio files</li>
+						<li><strong>Analysis and Research:</strong> Study tag patterns and collection characteristics</li>
+						<li><strong>Migration Planning:</strong> Document existing metadata before format conversions</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<section id="playlist-creation" class="mt-5">
+	<h3>Advanced Playlist Creation</h3>
+	<p>The playlist creation system offers sophisticated music list generation with intelligent filtering capabilities, multiple format support, and flexible reference options that enable creation of customized playlists based on metadata criteria and file organization preferences.</p>
+
+	<div class="text-center mt-3 mb-3">
+		<img src="/Docs/Images/AudioTools_CreatePlaylist.png" alt="Audio Tools Create PLayList Window" class="img-fluid border rounded shadow-sm" />
+		<p class="text-muted small mt-2">Audio Tools Create Playlist. Submenu accessed through Tools → Audio Tools</p>
+	</div>
+
+	<div class="row">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header bg-primary text-white">
+					<h6 class="mb-0"><i class="bi bi-list-ul me-2"></i>Playlist Generation System</h6>
+				</div>
+				<div class="card-body">
+					<h6>Playlist Creation Methods</h6>
+					<div class="row">
+						<div class="col-md-6">
+							<h6>File Selection Based</h6>
+							<ul class="small">
+								<li><strong>Selected Files:</strong> Include all currently selected audio files in playlist</li>
+								<li><strong>Manual Curation:</strong> Hand-pick specific tracks for custom playlists</li>
+								<li><strong>Order Preservation:</strong> Maintain file selection order in generated playlist</li>
+								<li><strong>Mixed Formats:</strong> Support multiple audio formats in single playlist</li>
+							</ul>
+
+							<h6>Folder-Based Generation</h6>
+							<ul class="small">
+								<li><strong>Path Scanning:</strong> Automatically discover audio files from specified directories</li>
+								<li><strong>Recursive Search:</strong> Include files from subdirectories and nested folders</li>
+								<li><strong>Format Filtering:</strong> Limit to specific audio file types during scanning</li>
+								<li><strong>Automatic Organization:</strong> Create comprehensive playlists from folder structures</li>
+							</ul>
+						</div>
+						<div class="col-md-6">
+							<h6>Advanced Filtering System</h6>
+							<ul class="small">
+								<li><strong>Metadata Criteria:</strong> Filter based on ID3 tag information and audio properties</li>
+								<li><strong>Genre Filtering:</strong> Include or exclude specific musical genres</li>
+								<li><strong>Year Range:</strong> Select tracks from specific time periods (e.g., 2007-2008)</li>
+								<li><strong>Custom Criteria:</strong> Complex filtering based on multiple metadata fields</li>
+							</ul>
+
+							<h6>Filter Logic Options</h6>
+							<ul class="small">
+								<li><strong>Inclusive Filtering:</strong> Include only files matching specified criteria</li>
+								<li><strong>Exclusive Filtering:</strong> Include everything except files matching criteria</li>
+								<li><strong>Combined Logic:</strong> Complex AND/OR combinations for sophisticated filtering</li>
+								<li><strong>Dynamic Updates:</strong> Filters applied in real-time during playlist generation</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="row mt-3">
+		<div class="col-md-6">
+			<div class="card">
+				<div class="card-header bg-success text-white">
+					<h6 class="mb-0"><i class="bi bi-file-music me-2"></i>Supported Playlist Formats</h6>
+				</div>
+				<div class="card-body">
+					<h6>Standard Playlist Formats</h6>
+					<ul class="small">
+						<li><strong>PLS Format:</strong> Shoutcast/Winamp playlist format with metadata support</li>
+						<li><strong>M3U Format:</strong> Simple text-based playlist format for basic compatibility</li>
+						<li><strong>M3U Extended:</strong> Enhanced M3U with track information and metadata</li>
+						<li><strong>M3U (UTF8):</strong> Unicode-enabled M3U for international character support</li>
+						<li><strong>M3U Extended (UTF8):</strong> Full-featured Unicode playlist with metadata</li>
+					</ul>
+
+					<h6>Format Selection Guidelines</h6>
+					<ul class="small">
+						<li><strong>PLS:</strong> Best for advanced media players with metadata display capabilities</li>
+						<li><strong>M3U Extended:</strong> Recommended for most modern audio applications</li>
+						<li><strong>M3U (UTF8):</strong> Required for international music collections with special characters</li>
+						<li><strong>Simple M3U:</strong> Maximum compatibility with legacy and simple players</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-6">
+			<div class="card">
+				<div class="card-header bg-warning text-dark">
+					<h6 class="mb-0"><i class="bi bi-signpost me-2"></i>Playlist Reference Options</h6>
+				</div>
+				<div class="card-body">
+					<h6>File Path Reference Types</h6>
+					<ul class="small">
+						<li><strong>Relative Paths:</strong> File references relative to playlist location</li>
+						<li><strong>Absolute Paths:</strong> Complete file paths from drive root</li>
+						<li><strong>Portable References:</strong> Relative paths for moveable music collections</li>
+						<li><strong>Network Paths:</strong> UNC paths for shared music libraries</li>
+					</ul>
+
+					<h6>Reference Selection Considerations</h6>
+					<ul class="small">
+						<li><strong>Relative Paths:</strong> Best for portable collections and CD/USB distributions</li>
+						<li><strong>Absolute Paths:</strong> Ideal for fixed local collections with stable directory structure</li>
+						<li><strong>Portability:</strong> Relative paths maintain functionality when moving collections</li>
+						<li><strong>Sharing:</strong> Consider path type when sharing playlists with others</li>
+					</ul>
+
+					<h6>Path Management Best Practices</h6>
+					<ul class="small">
+						<li><strong>Collection Organization:</strong> Maintain consistent folder structure for relative paths</li>
+						<li><strong>Backup Compatibility:</strong> Choose reference type that works with backup strategies</li>
+						<li><strong>Player Compatibility:</strong> Verify path type support in target media players</li>
+						<li><strong>Network Considerations:</strong> Account for network access when using absolute paths</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<section id="join-mp3-files" class="mt-5">
+	<h3>Join MP3 Files</h3>
+	<p>The Join MP3 Files feature provides seamless MP3 file concatenation capabilities, allowing you to combine multiple MP3 files into a single continuous audio file with precise control over the ordering sequence. This powerful tool is ideal for creating podcasts, audiobooks, DJ mixes, or consolidating music tracks while preserving audio quality.</p>
+
+	<div class="row">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header bg-secondary text-white">
+					<h6 class="mb-0"><i class="bi bi-collection me-2"></i>MP3 File Joining Process</h6>
+				</div>
+				<div class="card-body">
+					<h6>File Selection and Ordering</h6>
+					<div class="row">
+						<div class="col-md-6">
+							<h6>Initial File Selection</h6>
+							<ul class="small">
+								<li><strong>Multiple Selection:</strong> Select all MP3 files you want to join in Explorer Panel</li>
+								<li><strong>Format Validation:</strong> Only MP3 files are accepted for the joining process</li>
+								<li><strong>Size Consideration:</strong> Consider total file size for the resulting joined file</li>
+								<li><strong>Quality Compatibility:</strong> Works with MP3 files of different bitrates and sample rates</li>
+							</ul>
+
+							<h6>Interactive Ordering Dialog</h6>
+							<ul class="small">
+								<li><strong>Visual File List:</strong> All selected MP3 files displayed in current order</li>
+								<li><strong>Drag and Drop:</strong> Reorder files by dragging them to desired positions</li>
+								<li><strong>Move Up/Down:</strong> Use arrow buttons to adjust individual file positions</li>
+								<li><strong>File Information:</strong> View basic file details including duration and size</li>
+							</ul>
+						</div>
+						<div class="col-md-6">
+							<h6>Join Process Features</h6>
+							<ul class="small">
+								<li><strong>Seamless Concatenation:</strong> Files joined without gaps or silence between tracks</li>
+								<li><strong>Quality Preservation:</strong> Original audio quality maintained during joining process</li>
+								<li><strong>Metadata Handling:</strong> Option to preserve or modify metadata in resulting file</li>
+								<li><strong>Progress Monitoring:</strong> Real-time progress indicator during join operation</li>
+							</ul>
+
+							<h6>Output Configuration</h6>
+							<ul class="small">
+								<li><strong>Custom Filename:</strong> Specify name for the resulting joined MP3 file</li>
+								<li><strong>Output Location:</strong> Choose destination folder for the joined file</li>
+								<li><strong>Overwrite Protection:</strong> Confirmation prompts for existing files</li>
+								<li><strong>Source Preservation:</strong> Original files remain unchanged after joining</li>
+							</ul>
+						</div>
+					</div>
+
+					<div class="alert alert-info p-2 mt-3">
+						<h6 class="small mb-1"><i class="bi bi-info-circle me-1"></i>Ordering Flexibility</h6>
+						<p class="small mb-0">The intuitive reordering interface allows you to arrange files in any desired sequence. Simply drag files up or down in the list, or use the Move Up/Move Down buttons to achieve the perfect playback order for your joined MP3 file.</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="alert alert-success p-2 mt-3">
+		<h6 class="small mb-1"><i class="bi bi-lightbulb me-1"></i>Workflow Tip</h6>
+		<p class="small mb-0">For optimal results, select MP3 files with similar audio characteristics (bitrate, sample rate) and arrange them in the desired playback order in Explorer Panel before launching the Join MP3 Files tool. This pre-organization can save time in the reordering dialog.</p>
+	</div>
+</section>
+
+<section id="audio-information" class="mt-5">
+	<h3>Audio Information Viewer and Editor</h3>
+	<p>The comprehensive Audio Information interface provides detailed metadata viewing and editing capabilities with professional-grade tag management, enabling precise control over audio file metadata while preserving audio quality and file integrity.</p>
+
+	<div class="row">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header bg-dark text-white">
+					<h6 class="mb-0"><i class="bi bi-info-circle me-2"></i>Comprehensive Audio Information Interface</h6>
+				</div>
+				<div class="card-body">
+					<div class="text-center mt-3 mb-3">
+						<img src="/Docs/Images/AudioInfo.png" alt="Audio Information Dialog" class="img-fluid border rounded shadow-sm" style="max-width: 600px;" />
+						<p class="text-muted small mt-2">Audio Information window showing comprehensive metadata viewing and editing interface</p>
+					</div>
+
+					<h6>Information Display Categories</h6>
+					<div class="row">
+						<div class="col-md-6">
+							<h6>Basic Track Information</h6>
+							<ul class="small">
+								<li><strong>Title:</strong> Song or track name with editing capability</li>
+								<li><strong>Artist:</strong> Performing artist or band name</li>
+								<li><strong>Album:</strong> Album or collection title</li>
+								<li><strong>Year:</strong> Release year or recording date</li>
+								<li><strong>Genre:</strong> Musical genre classification with dropdown selection</li>
+								<li><strong>Track Number:</strong> Position within album or collection</li>
+							</ul>
+
+							<h6>Extended Metadata</h6>
+							<ul class="small">
+								<li><strong>Album Artist:</strong> Primary album artist (may differ from track artist)</li>
+								<li><strong>Composer:</strong> Song composer or songwriter information</li>
+								<li><strong>Comment:</strong> Additional notes or custom information</li>
+								<li><strong>Copyright:</strong> Copyright and licensing information</li>
+							</ul>
+						</div>
+						<div class="col-md-6">
+							<h6>Technical Audio Properties</h6>
+							<ul class="small">
+								<li><strong>Duration:</strong> Track length in minutes and seconds</li>
+								<li><strong>Bitrate:</strong> Audio quality in kbps with encoding type</li>
+								<li><strong>Sample Rate:</strong> Audio sampling frequency</li>
+								<li><strong>Channels:</strong> Audio channel configuration</li>
+								<li><strong>File Size:</strong> Audio file size on disk</li>
+								<li><strong>Format:</strong> Audio codec and container format</li>
+							</ul>
+
+							<h6>Advanced Properties</h6>
+							<ul class="small">
+								<li><strong>Encoding Details:</strong> Compression settings and quality parameters</li>
+								<li><strong>Tag Versions:</strong> ID3 version information and compatibility</li>
+								<li><strong>Custom Fields:</strong> User-defined metadata fields</li>
+								<li><strong>Album Art:</strong> Embedded artwork information and preview</li>
+							</ul>
+						</div>
+					</div>
+
+					<div class="alert alert-warning p-2 mt-3">
+						<h6 class="small mb-1"><i class="bi bi-keyboard me-1"></i>Quick Access</h6>
+						<p class="small mb-0">Access the Audio Information dialog quickly using <kbd>Ctrl</kbd>+<kbd>Y</kbd> keyboard shortcut while an audio file is selected in Explorer Panel.</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<section id="workflow-integration" class="mt-5">
+	<h3>Integration</h3>
+	<p>Audio Tools integrate seamlessly with Multi Commander's broader ecosystem and professional workflows, enabling comprehensive music library management through automation, batch processing, and integration with external audio applications.</p>
+
+	<div class="row">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header bg-success text-white">
+					<h6 class="mb-0"><i class="bi bi-gear me-2"></i>Custom Commands Integration</h6>
+				</div>
+				<div class="card-body">
+					<h6>Audio Automation through Custom Commands</h6>
+					<div class="alert alert-light p-2">
+						<h6 class="small mb-1">Example: Play Audio File</h6>
+						<pre class="small mb-0"><code>MC.PlayAudio FILEINFOCUS VOLUME=75 SPEED=1.0</code></pre>
+					</div>
+
+					<div class="alert alert-light p-2">
+						<h6 class="small mb-1">Example: Stop Audio Playback</h6>
+						<pre class="small mb-0"><code>MC.StopAudio</code></pre>
+					</div>
+
+					<div class="alert alert-light p-2">
+						<h6 class="small mb-1">Example: Batch Tag Removal</h6>
+						<pre class="small mb-0"><code>MC.AudioTools.RemoveTags SELECTED=true TYPES=ID3,APE</code></pre>
+					</div>
+
+					<div class="alert alert-light p-2">
+						<h6 class="small mb-1">Example: Join Selected MP3 Files</h6>
+						<pre class="small mb-0"><code>MC.AudioTools.JoinMP3 SELECTED=true OUTPUT="JoinedAudio.mp3"</code></pre>
+					</div>
+
+					<h6>Automation Benefits</h6>
+					<ul class="small">
+						<li><strong>Workflow Automation:</strong> Create custom audio processing workflows</li>
+						<li><strong>Batch Processing:</strong> Automate tag operations and file joining across large collections</li>
+						<li><strong>Hotkey Assignment:</strong> Quick access to frequently used audio operations</li>
+						<li><strong>Script Integration:</strong> Combine with batch scripts for complex operations</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<div class="alert alert-success mt-5">
+	<h6><i class="bi bi-lightbulb me-2"></i>Audio Tools Mastery</h6>
+	<p class="mb-0">Master Audio Tools by utilizing the comprehensive column display for efficient music browsing, leveraging metadata filtering for sophisticated playlist creation, employing batch tag operations for large-scale collection management, and using the Join MP3 Files feature for seamless audio concatenation. Remember that relative playlist paths ensure portability across different systems, while extended M3U formats provide the best balance of compatibility and metadata support. Use the Audio Information dialog (Ctrl+Y) for detailed metadata editing, and integrate Audio Tools operations with Custom Commands for automated workflows that streamline music library management and audio production tasks while preserving audio quality and metadata integrity.</p>
+</div>
+
+<div class="alert alert-info mt-4">
+	<h6><i class="bi bi-info-circle me-2"></i>Related Audio and File Management Documentation</h6>
+	<p class="mb-0">Enhance your audio file management workflows with related Multi Commander features: <a href="/Docs/ExplorerPanel" class="text-decoration-none">Explorer Panel</a>, <a href="/Docs/ExplorerPanel-CustomizeColumns" class="text-decoration-none">Column Customization</a>, <a href="/Docs/selection" class="text-decoration-none">File Selection</a>, <a href="/Docs/user-defined-commands" class="text-decoration-none">User Defined Commands</a>, <a href="/Docs/UDC_custom" class="text-decoration-none">Custom Commands</a>, <a href="/Docs/buttonpanel" class="text-decoration-none">Button Panel</a>, and <a href="/Docs/keyboard-customization" class="text-decoration-none">Keyboard Customization</a>.</p>
+</div>

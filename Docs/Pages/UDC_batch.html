@@ -1,34 +1,607 @@
-<h2>User Defined Commands - Batch Script (.BAT)</h2>
-<p>This command will generate a batch script (.bat) and run it.</p>
+﻿<h2>User Defined Commands - Batch Script (.BAT)</h2>
 
-<p>Batch Scripts are based on the executable script system in Windows that goes back to the old DOS days. It is still used and is quite useful, especially if you want to run a lot of external programs one after the other. In addition, you can send the output of one program to be used as input to another.</p>
+<p>Batch Script Commands leverage the power of Windows batch scripting to create sophisticated automation workflows that combine Multi Commander's dynamic context information with traditional DOS/Windows command-line operations. This command type generates and executes .BAT files on-demand, enabling complex multi-step operations, external tool integration, and system-level automation that bridges file management with comprehensive system administration tasks.</p>
 
-<p>&nbsp;</p>
+<div class="alert alert-primary">
+	<h6><i class="bi bi-terminal me-2"></i>Windows Batch Integration</h6>
+	<p class="mb-0">Transform Multi Commander into a powerful scripting environment by generating dynamic batch files that combine traditional Windows batch commands with real-time file context information. Batch Script Commands provide unlimited flexibility for system automation, external tool orchestration, and complex file processing workflows while maintaining the familiar and reliable Windows batch scripting environment.</p>
+</div>
 
-<p><img alt="" src="/Docs/Images/UDC_batch.png" /></p>
+<nav class="navbar navbar-expand-lg navbar-light bg-light mb-4">
+	<div class="container-fluid">
+		<span class="navbar-brand">Quick Navigation</span>
+		<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#batchNav">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="batchNav">
+			<ul class="navbar-nav">
+				<li class="nav-item"><a class="nav-link" href="#overview">Overview</a></li>
+				<li class="nav-item"><a class="nav-link" href="#operation">How It Works</a></li>
+				<li class="nav-item"><a class="nav-link" href="#multitags">MultiTags</a></li>
+				<li class="nav-item"><a class="nav-link" href="#parameters">Parameters</a></li>
+				<li class="nav-item"><a class="nav-link" href="#examples">Examples</a></li>
+			</ul>
+		</div>
+	</div>
+</nav>
 
-<p>When a Batch Script command is run a .bat file is generated from this command; the script is then run with its working folder set to the current source path.</p>
+<section id="overview">
+	<h3>Batch Script Commands Overview</h3>
+	<p>Batch Script Commands provide access to the full power of Windows batch scripting while integrating seamlessly with Multi Commander's file management context, creating dynamic automation solutions that span from simple file operations to complex system administration tasks.</p>
 
-<h2>MultiTags</h2>
+	<div class="row">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header bg-info text-white">
+					<h6 class="mb-0"><i class="bi bi-file-earmark-code me-2"></i>Batch Scripting Heritage</h6>
+				</div>
+				<div class="card-body">
+					<h6>Windows Batch Foundation</h6>
+					<div class="row">
+						<div class="col-md-6">
+							<ul class="small">
+								<li><strong>DOS Legacy:</strong> Built on the time-tested Windows batch system dating back to DOS</li>
+								<li><strong>Universal Compatibility:</strong> Works on all Windows versions with standard command interpreter</li>
+								<li><strong>Familiar Syntax:</strong> Uses well-known batch scripting commands and structures</li>
+								<li><strong>System Integration:</strong> Direct access to Windows command-line tools and utilities</li>
+							</ul>
+						</div>
+						<div class="col-md-6">
+							<ul class="small">
+								<li><strong>File Processing:</strong> Excellent for batch file operations and transformations</li>
+								<li><strong>Tool Chaining:</strong> Connect multiple command-line tools in sequence</li>
+								<li><strong>Output Redirection:</strong> Pipe output between commands for complex workflows</li>
+								<li><strong>Error Handling:</strong> Built-in error codes and conditional execution</li>
+							</ul>
+						</div>
+					</div>
 
-<p><em>MultiTags</em> are specially formatted texts that will be replaced with dynamic information. For example, the MultiTag <strong>${focusfilepath}</strong> will be replaced by the full file path to the file currently in focus. The command is run through a process that will translate <em>MultiTags</em> before it is executed.</p>
+					<h6>Multi Commander Enhancement</h6>
+					<ul class="small">
+						<li><strong>Dynamic Context:</strong> MultiTags inject current file paths, selections, and panel information</li>
+						<li><strong>On-Demand Generation:</strong> Scripts created in real-time with current context values</li>
+						<li><strong>Working Directory:</strong> Automatic working folder set to current source panel path</li>
+						<li><strong>Parameter Support:</strong> Command-line arguments passed through MultiTags</li>
+					</ul>
 
-<p>Paths are not quoted by default, so if you need quotes around the path you have to put them around the MultiTag, e.g. <strong>"${focuspath}"</strong>.</p>
+					<div class="alert alert-success p-2 mt-3">
+						<h6 class="small mb-1"><i class="bi bi-lightning me-1"></i>Power and Simplicity</h6>
+						<p class="small mb-0">Batch Script Commands combine the unlimited flexibility of Windows batch scripting with Multi Commander's dynamic file context, creating powerful automation without requiring advanced programming knowledge.</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 
-<p>&nbsp;</p>
+	<div class="row mt-3">
+		<div class="col-md-6">
+			<div class="card">
+				<div class="card-header bg-success text-white">
+					<h6 class="mb-0"><i class="bi bi-check-circle me-2"></i>Key Advantages</h6>
+				</div>
+				<div class="card-body">
+					<h6>Flexibility and Power</h6>
+					<ul class="small">
+						<li><strong>Unlimited Operations:</strong> Any operation possible in Windows batch scripting</li>
+						<li><strong>Tool Integration:</strong> Seamlessly integrate any command-line tool or utility</li>
+						<li><strong>Complex Workflows:</strong> Multi-step operations with conditional logic</li>
+						<li><strong>File Processing:</strong> Sophisticated batch file manipulation and transformation</li>
+					</ul>
 
-<p><a href="#docs_multitags">Read more about MultiTags</a></p>
+					<h6>System Integration</h6>
+					<ul class="small">
+						<li><strong>Native Windows:</strong> Uses standard Windows command interpreter</li>
+						<li><strong>No Dependencies:</strong> Requires no additional software or frameworks</li>
+						<li><strong>Administrative Tasks:</strong> Full access to system administration commands</li>
+						<li><strong>Legacy Support:</strong> Works with older Windows systems and tools</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-6">
+			<div class="card">
+				<div class="card-header bg-warning text-dark">
+					<h6 class="mb-0"><i class="bi bi-target me-2"></i>Primary Applications</h6>
+				</div>
+				<div class="card-body">
+					<h6>System Administration</h6>
+					<ul class="small">
+						<li><strong>File Operations:</strong> Complex copy, move, and synchronization tasks</li>
+						<li><strong>Backup Scripts:</strong> Automated backup with compression and versioning</li>
+						<li><strong>Log Processing:</strong> Parse and analyze log files with text processing tools</li>
+						<li><strong>System Maintenance:</strong> Cleanup, optimization, and monitoring tasks</li>
+					</ul>
 
-<h2>Options</h2>
+					<h6>Development Workflows</h6>
+					<ul class="small">
+						<li><strong>Build Automation:</strong> Compile and deploy applications</li>
+						<li><strong>Code Processing:</strong> Format, analyze, and transform source code</li>
+						<li><strong>Version Control:</strong> Git operations and repository management</li>
+						<li><strong>Testing Automation:</strong> Run test suites and generate reports</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
 
-<p>When you press the Option button you will get a list of options you can assign to the command.</p>
+<section id="operation" class="mt-5">
+	<h3>How Batch Script Commands Work</h3>
+	<p>Understanding the execution process of Batch Script Commands helps you create effective automation solutions that leverage both Windows batch capabilities and Multi Commander's dynamic context information.</p>
 
-<p style="color:#FF0000">(This list of options for Batch Script is not finalized yet)</p>
+	<div class="row">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header bg-primary text-white">
+					<h6 class="mb-0"><i class="bi bi-gear-wide me-2"></i>Execution Process</h6>
+				</div>
+				<div class="card-body">
+					<div class="text-center mt-3 mb-3">
+						<img src="/Docs/Images/UDC_batch.png" alt="Batch Script Command Configuration" class="img-fluid border rounded shadow-sm" />
+						<p class="text-muted small mt-2">Batch Script Command configuration interface showing script content with MultiTags</p>
+					</div>
 
-<h2>Command Arguments</h2>
+					<h6>Step-by-Step Execution</h6>
+					<div class="row">
+						<div class="col-md-6">
+							<ol class="small">
+								<li><strong>Command Triggered:</strong> User executes the batch script command</li>
+								<li><strong>Context Capture:</strong> Multi Commander captures current panel states and file selections</li>
+								<li><strong>MultiTag Processing:</strong> Dynamic tags replaced with actual values</li>
+								<li><strong>Script Generation:</strong> Complete .BAT file created with processed content</li>
+							</ol>
+						</div>
+						<div class="col-md-6">
+							<ol start="5" class="small">
+								<li><strong>Working Directory Set:</strong> Batch file working folder set to source panel path</li>
+								<li><strong>Script Execution:</strong> Windows command interpreter runs the generated script</li>
+								<li><strong>Output Display:</strong> Command results displayed in appropriate interface</li>
+								<li><strong>Cleanup:</strong> Temporary files cleaned up after execution</li>
+							</ol>
+						</div>
+					</div>
 
-<p>The dialog supports arguments to be sent to the command. These are sent to it if the command is called from the Command line bar or if files are dropped on a button and the command has enabled the option "Use Dropped files as parameter", or if this command is called from a Custom Command or MultiScript command.</p>
+					<h6>Working Directory Behavior</h6>
+					<ul class="small">
+						<li><strong>Automatic Setting:</strong> Working folder automatically set to current source panel path</li>
+						<li><strong>Relative Paths:</strong> File operations use source panel as base directory</li>
+						<li><strong>Context Awareness:</strong> Commands operate within current file management context</li>
+						<li><strong>Path Consistency:</strong> Ensures script operations align with user's current location</li>
+					</ul>
 
-<p>The parameters are accessed by using the MultiTags <strong>${param:&lt;num&gt;}</strong> where &lt;num&gt; identifies which argument to use. <strong>${param:0}</strong> will be the first parameter,<strong> ${param:1}</strong> the second,<strong>&nbsp;${param:2}</strong> the third and so on.</p>
+					<div class="alert alert-info p-2 mt-3">
+						<h6 class="small mb-1"><i class="bi bi-info-circle me-1"></i>Dynamic Generation</h6>
+						<p class="small mb-0">Each execution creates a fresh batch file with current context values, ensuring scripts always operate with up-to-date information from Multi Commander's current state.</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<section id="multitags" class="mt-5">
+	<h3>MultiTags in Batch Scripts</h3>
+	<p>MultiTags provide the essential bridge between Multi Commander's dynamic file management context and static batch script syntax, enabling scripts to adapt automatically to current files, paths, and selections.</p>
+
+	<div class="row">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header bg-dark text-white">
+					<h6 class="mb-0"><i class="bi bi-tags me-2"></i>Essential MultiTags for Batch Scripts</h6>
+				</div>
+				<div class="card-body">
+					<div class="table-responsive">
+						<table class="table table-bordered table-hover">
+							<thead class="table-light">
+								<tr>
+									<th style="width: 30%">MultiTag</th>
+									<th style="width: 40%">Description</th>
+									<th style="width: 30%">Batch Script Usage</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td><code>${sourcepath}</code></td>
+									<td>Current source panel path</td>
+									<td>Working directory, file operations base</td>
+								</tr>
+								<tr>
+									<td><code>${targetpath}</code></td>
+									<td>Current target panel path</td>
+									<td>Destination for copy/move operations</td>
+								</tr>
+								<tr>
+									<td><code>${focusfilepath}</code></td>
+									<td>Full path to focused file</td>
+									<td>Single file processing operations</td>
+								</tr>
+								<tr>
+									<td><code>${selectedfiles}</code></td>
+									<td>Names of all selected files</td>
+									<td>Batch operations on multiple files</td>
+								</tr>
+								<tr>
+									<td><code>${selectedfilepaths}</code></td>
+									<td>Full paths to all selected files</td>
+									<td>Operations requiring complete file paths</td>
+								</tr>
+								<tr>
+									<td><code>${currentfilepath}</code></td>
+									<td>Current file in per-file processing</td>
+									<td>Used with "Run Separately" option</td>
+								</tr>
+								<tr>
+									<td><code>${param:n}</code></td>
+									<td>Command line parameter (n = number)</td>
+									<td>Flexible script parameters</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+
+					<h6>Important Path Quoting Considerations</h6>
+					<div class="alert alert-warning p-2">
+						<h6 class="small mb-1"><i class="bi bi-exclamation-triangle me-1"></i>Path Quoting Required</h6>
+						<p class="small mb-0">MultiTags are not automatically quoted. Always enclose path-based MultiTags in quotes to handle spaces and special characters: <code>"${sourcepath}"</code>, <code>"${focusfilepath}"</code></p>
+					</div>
+
+					<h6>Practical MultiTag Examples</h6>
+					<div class="row">
+						<div class="col-md-6">
+							<h6 class="small">Basic File Operations</h6>
+							<pre class="bg-light p-2 rounded small"><code>copy "${focusfilepath}" "${targetpath}"
+xcopy "${sourcepath}\*.txt" "${targetpath}" /s</code></pre>
+
+							<h6 class="small">Batch Processing</h6>
+							<pre class="bg-light p-2 rounded small"><code>for %%f in (${selectedfiles}) do (
+    echo Processing %%f
+    convert "%%f" "%%~nf.jpg"
+)</code></pre>
+						</div>
+						<div class="col-md-6">
+							<h6 class="small">Parameter Usage</h6>
+							<pre class="bg-light p-2 rounded small"><code>7z a "${targetpath}\${param:0}.zip" "${sourcepath}\*"
+echo Archived to ${param:0}.zip</code></pre>
+
+							<h6 class="small">Tool Integration</h6>
+							<pre class="bg-light p-2 rounded small"><code>git add "${focusfilepath}"
+git commit -m "${param:0}"
+git push origin main</code></pre>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="row mt-3">
+		<div class="col-md-6">
+			<div class="card">
+				<div class="card-header bg-info text-white">
+					<h6 class="mb-0"><i class="bi bi-gear me-2"></i>MultiTag Best Practices</h6>
+				</div>
+				<div class="card-body">
+					<h6>Safe Path Handling</h6>
+					<ul class="small">
+						<li><strong>Always Quote Paths:</strong> Use quotes around all path-based MultiTags</li>
+						<li><strong>Test with Spaces:</strong> Verify scripts work with files containing spaces</li>
+						<li><strong>Special Characters:</strong> Consider files with ampersands, parentheses, etc.</li>
+						<li><strong>Long Paths:</strong> Handle paths exceeding 260 characters appropriately</li>
+					</ul>
+
+					<h6>Error Prevention</h6>
+					<ul class="small">
+						<li><strong>Existence Checks:</strong> Use <code>if exist</code> before file operations</li>
+						<li><strong>Error Codes:</strong> Check <code>%ERRORLEVEL%</code> after critical operations</li>
+						<li><strong>Backup Strategy:</strong> Create backups before destructive operations</li>
+						<li><strong>Logging:</strong> Echo operations for troubleshooting</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-6">
+			<div class="card">
+				<div class="card-header bg-warning text-dark">
+					<h6 class="mb-0"><i class="bi bi-link me-2"></i>MultiTags Reference</h6>
+				</div>
+				<div class="card-body">
+					<h6>Complete Documentation</h6>
+					<p class="small">Batch Script Commands support the full MultiTags system for maximum flexibility in accessing Multi Commander's context information.</p>
+					
+					<div class="alert alert-light p-2">
+						<strong>📖 <a href="/Docs/multitags" class="text-decoration-none">Complete MultiTags Documentation</a></strong><br>
+						<span class="small">Comprehensive reference for all available MultiTags including date/time formatting, advanced path manipulation, and conditional tags</span>
+					</div>
+
+					<h6>Testing MultiTags</h6>
+					<ul class="small">
+						<li><strong>Echo Commands:</strong> Use <code>echo</code> to verify MultiTag resolution</li>
+						<li><strong>Different Contexts:</strong> Test with various file selections and panel states</li>
+						<li><strong>Edge Cases:</strong> Test with empty selections and special file names</li>
+						<li><strong>Path Validation:</strong> Ensure paths resolve correctly in all scenarios</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<section id="parameters" class="mt-5">
+	<h3>Command Parameters and Options</h3>
+	<p>Batch Script Commands support flexible parameter passing and execution options to create adaptable automation solutions that can be customized at runtime through command-line arguments.</p>
+
+	<div class="row">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header bg-success text-white">
+					<h6 class="mb-0"><i class="bi bi-sliders me-2"></i>Parameter System</h6>
+				</div>
+				<div class="card-body">
+					<h6>Parameter Access Methods</h6>
+					<div class="row">
+						<div class="col-md-6">
+							<h6>Command Line Bar</h6>
+							<ul class="small">
+								<li><strong>Direct Execution:</strong> Type command name followed by parameters</li>
+								<li><strong>Space Separated:</strong> Parameters separated by spaces</li>
+								<li><strong>Quoted Arguments:</strong> Use quotes for parameters containing spaces</li>
+								<li><strong>Immediate Access:</strong> Parameters available as <code>${param:0}</code>, <code>${param:1}</code>, etc.</li>
+							</ul>
+
+							<h6>Button Integration</h6>
+							<ul class="small">
+								<li><strong>Dropped Files:</strong> Enable "Use Dropped files as parameter" option</li>
+								<li><strong>File Paths:</strong> Dropped file paths become command parameters</li>
+								<li><strong>Drag and Drop:</strong> Drag files onto button to pass as parameters</li>
+								<li><strong>Multiple Files:</strong> Multiple dropped files create multiple parameters</li>
+							</ul>
+						</div>
+						<div class="col-md-6">
+							<h6>Script Integration</h6>
+							<ul class="small">
+								<li><strong>Custom Commands:</strong> Called from Custom Commands with parameters</li>
+								<li><strong>MultiScript:</strong> Invoked from MultiScript with dynamic parameters</li>
+								<li><strong>Automation:</strong> Parameters passed from other automation systems</li>
+								<li><strong>Workflow Chaining:</strong> Output from one command becomes input to another</li>
+							</ul>
+
+							<h6>Parameter Examples</h6>
+							<ul class="small">
+								<li><code>${param:0}</code> - First parameter</li>
+								<li><code>${param:1}</code> - Second parameter</li>
+								<li><code>${param:2}</code> - Third parameter</li>
+								<li>And so on for additional parameters</li>
+							</ul>
+						</div>
+					</div>
+
+					<h6>Parameter Usage in Batch Scripts</h6>
+					<div class="alert alert-light p-3">
+						<h6 class="small mb-2">Flexible Archive Creation</h6>
+						<pre class="bg-dark text-light p-2 rounded mb-2"><code>@echo off
+set ARCHIVE_NAME=${param:0}
+if "%ARCHIVE_NAME%"=="" set ARCHIVE_NAME=backup
+7z a "${targetpath}\%ARCHIVE_NAME%.zip" "${selectedfilepaths}"
+echo Created %ARCHIVE_NAME%.zip in target directory</code></pre>
+						<p class="small mb-3"><strong>Usage:</strong> "mycommand ProjectBackup" creates ProjectBackup.zip</p>
+
+						<h6 class="small mb-2">Parameterized File Processing</h6>
+						<pre class="bg-dark text-light p-2 rounded mb-2"><code>@echo off
+set OPERATION=${param:0}
+set TARGET_EXT=${param:1}
+for %%f in (${selectedfiles}) do (
+    %OPERATION% "%%f" "%%~nf.%TARGET_EXT%"
+)</code></pre>
+						<p class="small mb-0"><strong>Usage:</strong> "convert jpg png" converts selected files from JPG to PNG</p>
+					</div>
+
+					<div class="alert alert-info p-2 mt-3">
+						<h6 class="small mb-1"><i class="bi bi-info-circle me-1"></i>Execution Options</h6>
+						<p class="small mb-0"><strong>Current Limitation:</strong> Batch Script Commands currently do not support additional execution options like "Display Confirmation" or "Run Separately" that are available in other command types. Parameter passing provides the primary customization mechanism.</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<section id="examples" class="mt-5">
+	<h3>Practical Batch Script Examples</h3>
+	<p>These comprehensive examples demonstrate real-world applications of Batch Script Commands across different automation scenarios, from simple file operations to complex system administration tasks.</p>
+
+	<div class="row">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header bg-primary text-white">
+					<h6 class="mb-0"><i class="bi bi-file-earmark-arrow-up me-2"></i>File Operations</h6>
+				</div>
+				<div class="card-body">
+					<h6>Smart Backup Script</h6>
+					<div class="alert alert-light p-2">
+						<pre class="small mb-2"><code>@echo off
+set BACKUP_DIR=${param:0}
+if "%BACKUP_DIR%"=="" set BACKUP_DIR=Backup
+mkdir "${targetpath}\%BACKUP_DIR%" 2>nul
+xcopy "${sourcepath}\*" "${targetpath}\%BACKUP_DIR%\" /s /e /h /y
+echo Backup completed to %BACKUP_DIR%</code></pre>
+						<p class="small mb-0"><strong>Usage:</strong> Creates organized backups with optional custom directory name</p>
+					</div>
+
+					<h6>File Synchronization</h6>
+					<div class="alert alert-light p-2">
+						<pre class="small mb-2"><code>@echo off
+robocopy "${sourcepath}" "${targetpath}" /mir /xd .git /xf *.tmp
+if %ERRORLEVEL% leq 1 (
+    echo Synchronization completed successfully
+) else (
+    echo Synchronization completed with warnings
+)</code></pre>
+						<p class="small mb-0"><strong>Usage:</strong> Mirror source to target, excluding git and temporary files</p>
+					</div>
+
+					<h6>File Organization</h6>
+					<div class="alert alert-light p-2">
+						<pre class="small mb-2"><code>@echo off
+for %%f in (${selectedfiles}) do (
+    for /f "tokens=1 delims=." %%e in ("%%~xf") do (
+        mkdir "${targetpath}\%%e" 2>nul
+        move "%%f" "${targetpath}\%%e\"
+    )
+)
+echo Files organized by extension</code></pre>
+						<p class="small mb-0"><strong>Usage:</strong> Organize selected files into folders by file extension</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header bg-success text-white">
+					<h6 class="mb-0"><i class="bi bi-gear me-2"></i>Development Tools</h6>
+				</div>
+				<div class="card-body">
+					<h6>Git Operations</h6>
+					<div class="alert alert-light p-2">
+						<pre class="small mb-2"><code>@echo off
+cd /d "${sourcepath}"
+git add .
+git commit -m "${param:0}"
+git push origin main
+echo Changes committed and pushed: ${param:0}</code></pre>
+						<p class="small mb-0"><strong>Usage:</strong> "gitcommit Added new feature" commits with custom message</p>
+					</div>
+
+					<h6>Build Automation</h6>
+					<div class="alert alert-light p-2">
+						<pre class="small mb-2"><code>@echo off
+cd /d "${sourcepath}"
+echo Building project...
+dotnet build --configuration Release
+if %ERRORLEVEL%==0 (
+    echo Build successful
+    dotnet publish -o "${targetpath}\publish"
+) else (
+    echo Build failed
+)</code></pre>
+						<p class="small mb-0"><strong>Usage:</strong> Build .NET project and publish to target directory</p>
+					</div>
+
+					<h6>Code Analysis</h6>
+					<div class="alert alert-light p-2">
+						<pre class="small mb-2"><code>@echo off
+set REPORT_FILE=${targetpath}\analysis_report.txt
+echo Code Analysis Report > "%REPORT_FILE%"
+echo ==================== >> "%REPORT_FILE%"
+dir "${sourcepath}\*.cs" /s /b | find /c ":" >> "%REPORT_FILE%"
+echo Total C# files found >> "%REPORT_FILE%"
+notepad "%REPORT_FILE%"</code></pre>
+						<p class="small mb-0"><strong>Usage:</strong> Generate and display code analysis report</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="row mt-3">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header bg-warning text-dark">
+					<h6 class="mb-0"><i class="bi bi-shield-check me-2"></i>System Administration</h6>
+				</div>
+				<div class="card-body">
+					<h6>Log Analysis</h6>
+					<div class="alert alert-light p-2">
+						<pre class="small mb-2"><code>@echo off
+set LOG_FILE=${focusfilepath}
+set REPORT=${targetpath}\log_analysis.txt
+echo Analyzing %LOG_FILE% > "%REPORT%"
+find /c "ERROR" "%LOG_FILE%" >> "%REPORT%"
+find /c "WARNING" "%LOG_FILE%" >> "%REPORT%"
+echo Analysis complete - check %REPORT%</code></pre>
+						<p class="small mb-0"><strong>Usage:</strong> Analyze log file and create summary report</p>
+					</div>
+
+					<h6>System Cleanup</h6>
+					<div class="alert alert-light p-2">
+						<pre class="small mb-2"><code>@echo off
+echo Cleaning temporary files in ${sourcepath}
+del /q /s "${sourcepath}\*.tmp" 2>nul
+del /q /s "${sourcepath}\*.log" 2>nul
+for /d %%d in ("${sourcepath}\temp*") do rd /s /q "%%d" 2>nul
+echo Cleanup completed</code></pre>
+						<p class="small mb-0"><strong>Usage:</strong> Clean temporary files and directories</p>
+					</div>
+
+					<h6>Security Audit</h6>
+					<div class="alert alert-light p-2">
+						<pre class="small mb-2"><code>@echo off
+set AUDIT_FILE=${targetpath}\security_audit.txt
+echo Security Audit - %DATE% %TIME% > "%AUDIT_FILE%"
+icacls "${sourcepath}" /T >> "%AUDIT_FILE%"
+echo Audit saved to %AUDIT_FILE%
+start notepad "%AUDIT_FILE%"</code></pre>
+						<p class="small mb-0"><strong>Usage:</strong> Generate security permissions audit report</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header bg-info text-white">
+					<h6 class="mb-0"><i class="bi bi-image me-2"></i>Media Processing</h6>
+				</div>
+				<div class="card-body">
+					<h6>Image Batch Conversion</h6>
+					<div class="alert alert-light p-2">
+						<pre class="small mb-2"><code>@echo off
+set FORMAT=${param:0}
+if "%FORMAT%"=="" set FORMAT=jpg
+for %%f in (${selectedfiles}) do (
+    echo Converting %%f to %FORMAT%
+    magick "%%f" "%%~nf.%FORMAT%"
+)
+echo Conversion to %FORMAT% completed</code></pre>
+						<p class="small mb-0"><strong>Usage:</strong> "convert png" converts selected images to PNG format</p>
+					</div>
+
+					<h6>Video Processing</h6>
+					<div class="alert alert-light p-2">
+						<pre class="small mb-2"><code>@echo off
+set OUTPUT_DIR=${targetpath}\processed
+mkdir "%OUTPUT_DIR%" 2>nul
+for %%f in (${selectedfiles}) do (
+    echo Processing %%f
+    ffmpeg -i "%%f" -vcodec libx264 "%OUTPUT_DIR%\%%~nf_processed.mp4"
+)
+echo Video processing completed</code></pre>
+						<p class="small mb-0"><strong>Usage:</strong> Process selected videos with FFmpeg encoding</p>
+					</div>
+
+					<h6>Audio Extraction</h6>
+					<div class="alert alert-light p-2">
+						<pre class="small mb-2"><code>@echo off
+for %%f in (${selectedfiles}) do (
+    echo Extracting audio from %%f
+    ffmpeg -i "%%f" -vn -acodec mp3 "${targetpath}\%%~nf.mp3"
+)
+echo Audio extraction completed</code></pre>
+						<p class="small mb-0"><strong>Usage:</strong> Extract audio tracks from selected video files</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+</section>
+
+<div class="alert alert-success mt-5">
+	<h6><i class="bi bi-lightbulb me-2"></i>Batch Script Commands Mastery</h6>
+	<p class="mb-0">Master Batch Script Commands by leveraging the familiar Windows batch scripting environment enhanced with Multi Commander's dynamic context through MultiTags. Remember to always quote path-based MultiTags to handle spaces and special characters, use parameter passing for flexible script customization, and implement proper error handling with existence checks and error level validation. Start with simple file operations before progressing to complex multi-tool workflows, and take advantage of the automatic working directory setting to simplify relative path operations. These commands provide unlimited automation potential while maintaining compatibility with existing Windows tools and administrative procedures.</p>
+</div>
+
+<div class="alert alert-info mt-4">
+	<h6><i class="bi bi-info-circle me-2"></i>Related Documentation</h6>
+	<p class="mb-0">Enhance your Batch Script Commands knowledge with: <a href="/Docs/user-defined-commands" class="text-decoration-none">User Defined Commands Overview</a>, <a href="/Docs/multitags" class="text-decoration-none">MultiTags Reference</a>, <a href="/Docs/UDC_external" class="text-decoration-none">External Commands</a>, <a href="/Docs/UDC_multiscript" class="text-decoration-none">MultiScript</a>, and other command types: <a href="/Docs/UDC_internal" class="text-decoration-none">Internal Commands</a>, <a href="/Docs/UDC_custom" class="text-decoration-none">Custom Commands</a>.</p>
+</div>
 
 

@@ -1,16 +1,312 @@
 <h2>FileSystem - Favorites (FAV:)</h2>
-<p>The virtual filesystem device extension <b>Favorites (FAV:)</b> allows favorites in Multi Commander to be browsed like a filesystem.</p>
 
-<p><img alt="" src="/Docs/Images/Favorites_FS.png" style="width: 500px; height: 293px;" /></p>
+<p>The <strong>Favorites FileSystem (FAV:)</strong> is a powerful virtual filesystem extension that transforms Multi Commander's favorites system into a browsable, manageable file-like interface. This innovative approach allows you to interact with your saved locations using familiar file management operations, creating an intuitive bridge between bookmarks and filesystem navigation.</p>
 
-<p>Accessing the favorites from the filesystem you can you drag and drop to add new favorites or to copy files to another target as a favorite.</p>
+<h3>What is the Favorites FileSystem?</h3>
 
-<p>Drag a file/folder and drop it on an empty space or on another section to place a favorite there.</p>
+<p>The FAV: filesystem presents your Multi Commander favorites as a virtual directory structure, where each favorite appears as a navigable item within the virtual filesystem. This integration enables:</p>
 
-<p>Drag a file/folder and drop it on an existing favorite and a copy operation of the dragged files to that favorites target location will be started</p>
+<ul>
+	<li><strong>Unified Interface:</strong> Manage favorites using the same operations you use for files and folders</li>
+	<li><strong>Drag and Drop Support:</strong> Add, organize, and utilize favorites through intuitive drag-and-drop actions</li>
+	<li><strong>Contextual Operations:</strong> Right-click menus and standard file operations work seamlessly with favorites</li>
+	<li><strong>Visual Organization:</strong> See your favorites structure in the familiar dual-panel layout</li>
+</ul>
 
-<p>Right-clicking a favorites item will allow you to edit or remove favorites. Normal file operations like rename/delete will also work on favorites.</p>
+<h3>Accessing the Favorites FileSystem</h3>
 
-<p><a href="#docs_favorites">Read more about Favorites here</a></p>
+<p>There are several ways to access your favorites through the virtual filesystem:</p>
 
-<p>&nbsp;</p>
+<div class="row mt-4">
+	<div class="col-md-4">
+		<div class="card">
+			<div class="card-body text-center">
+				<h6 class="card-title"><i class="bi bi-keyboard me-2"></i>Address Bar</h6>
+				<p class="card-text small">Type <strong>FAV:</strong> in the address bar to navigate directly to the favorites filesystem</p>
+			</div>
+		</div>
+	</div>
+	<div class="col-md-4">
+		<div class="card">
+			<div class="card-body text-center">
+				<h6 class="card-title"><i class="bi bi-list me-2"></i>Device Dropdown</h6>
+				<p class="card-text small">Select <strong>FAV:</strong> from the device dropdown in the drive bar</p>
+			</div>
+		</div>
+	</div>
+	<div class="col-md-4">
+		<div class="card">
+			<div class="card-body text-center">
+				<h6 class="card-title"><i class="bi bi-tree me-2"></i>Folder Tree</h6>
+				<p class="card-text small">Navigate to the FAV: device through the folder tree panel</p>
+			</div>
+		</div>
+	</div>
+</div>
+
+<h3>Visual Interface</h3>
+
+<div class="text-center my-4">
+	<img src="/Docs/Images/Favorites_FS.png" alt="Favorites FileSystem Interface" class="img-fluid border rounded shadow-sm" style="max-width: 500px;" />
+	<p class="text-muted small mt-2">The Favorites FileSystem presents your saved locations in a familiar file manager interface</p>
+</div>
+
+<p>The Favorites FileSystem interface displays:</p>
+<ul>
+	<li><strong>Sections:</strong> Organized groups of favorites, appearing as folders</li>
+	<li><strong>Individual Favorites:</strong> Saved locations, displayed as navigable items</li>
+	<li><strong>Subsections:</strong> Hierarchical organization within sections</li>
+	<li><strong>Metadata:</strong> Target paths and descriptions for each favorite</li>
+</ul>
+
+<h3>Drag and Drop Operations</h3>
+
+<p>The Favorites FileSystem supports intuitive drag-and-drop operations that make managing your favorites effortless:</p>
+
+<h4>Adding New Favorites</h4>
+<div class="row mt-4">
+	<div class="col-md-6">
+		<div class="card">
+			<div class="card-header bg-success text-white">
+				<h6 class="mb-0"><i class="bi bi-plus-circle me-2"></i>To Empty Space</h6>
+			</div>
+			<div class="card-body">
+				<p class="card-text small">Drag a file or folder and drop it on an empty area or section to create a new favorite pointing to that location.</p>
+			</div>
+		</div>
+	</div>
+	<div class="col-md-6">
+		<div class="card">
+			<div class="card-header bg-info text-white">
+				<h6 class="mb-0"><i class="bi bi-folder me-2"></i>To Existing Section</h6>
+			</div>
+			<div class="card-body">
+				<p class="card-text small">Drop files or folders onto an existing section to organize related favorites together in that section.</p>
+			</div>
+		</div>
+	</div>
+</div>
+
+<h4>Using Existing Favorites</h4>
+<div class="row mt-4">
+	<div class="col-md-6">
+		<div class="card">
+			<div class="card-header bg-primary text-white">
+				<h6 class="mb-0"><i class="bi bi-arrow-right-circle me-2"></i>Direct Navigation</h6>
+			</div>
+			<div class="card-body">
+				<p class="card-text small">Double-click a favorite to navigate directly to that location in the current panel.</p>
+			</div>
+		</div>
+	</div>
+	<div class="col-md-6">
+		<div class="card">
+			<div class="card-header bg-warning text-dark">
+				<h6 class="mb-0"><i class="bi bi-files me-2"></i>Copy Operations</h6>
+			</div>
+			<div class="card-body">
+				<p class="card-text small">Drag files or folders onto an existing favorite to initiate a copy operation to that favorite's target location.</p>
+			</div>
+		</div>
+	</div>
+</div>
+
+<h3>File Operations with Favorites</h3>
+
+<p>The Favorites FileSystem supports standard file operations, making favorite management intuitive and powerful:</p>
+
+<h4>Context Menu Operations</h4>
+<p>Right-clicking on favorites provides access to contextual operations:</p>
+
+<div class="row mt-4">
+	<div class="col-md-6">
+		<ul>
+			<li><strong>Edit Favorite:</strong> Modify the name, target path, or description</li>
+			<li><strong>Remove Favorite:</strong> Delete the favorite from the collection</li>
+			<li><strong>Properties:</strong> View detailed information about the favorite</li>
+			<li><strong>Copy/Cut:</strong> Prepare favorites for moving or duplicating</li>
+		</ul>
+	</div>
+	<div class="col-md-6">
+		<ul>
+			<li><strong>Paste:</strong> Add previously copied favorites to the current section</li>
+			<li><strong>New Section:</strong> Create organizational subsections</li>
+			<li><strong>Organize:</strong> Sort and arrange favorites within sections</li>
+			<li><strong>Refresh:</strong> Update the view to reflect recent changes</li>
+		</ul>
+	</div>
+</div>
+
+<h4>Keyboard Operations</h4>
+<p>Standard file management keyboard shortcuts work seamlessly with favorites:</p>
+
+<div class="row mt-4">
+	<div class="col-md-6">
+		<div class="card">
+			<div class="card-body">
+				<h6 class="card-title">Editing and Management</h6>
+				<ul class="small mb-0">
+					<li><strong>F2:</strong> Rename selected favorite</li>
+					<li><strong>Delete:</strong> Remove selected favorite</li>
+					<li><strong>Ctrl+C:</strong> Copy favorite</li>
+					<li><strong>Ctrl+V:</strong> Paste favorite</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<div class="col-md-6">
+		<div class="card">
+			<div class="card-body">
+				<h6 class="card-title">Navigation and Selection</h6>
+				<ul class="small mb-0">
+					<li><strong>Enter:</strong> Navigate to favorite location</li>
+					<li><strong>Ctrl+A:</strong> Select all favorites</li>
+					<li><strong>Space:</strong> Select/deselect favorite</li>
+					<li><strong>Arrow Keys:</strong> Navigate through favorites</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>
+
+<h3>Organizational Features</h3>
+
+<h4>Sections and Subsections</h4>
+<p>The Favorites FileSystem supports hierarchical organization:</p>
+
+<ul>
+	<li><strong>Main Sections:</strong> Primary categories for grouping related favorites</li>
+	<li><strong>Subsections:</strong> Nested categories within main sections for detailed organization</li>
+	<li><strong>Cross-Section Operations:</strong> Move favorites between sections using drag-and-drop</li>
+	<li><strong>Bulk Operations:</strong> Select multiple favorites for simultaneous operations</li>
+</ul>
+
+<h4>Visual Customization</h4>
+<p>Customize the appearance and behavior of the Favorites FileSystem:</p>
+
+<div class="row mt-4">
+	<div class="col-md-6">
+		<div class="card">
+			<div class="card-body">
+				<h6 class="card-title">Display Options</h6>
+				<ul class="small mb-0">
+					<li>Toggle between name and path display</li>
+					<li>Adjust icon sizes and column widths</li>
+					<li>Configure sorting preferences</li>
+					<li>Set default view modes</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<div class="col-md-6">
+		<div class="card">
+			<div class="card-body">
+				<h6 class="card-title">Behavioral Settings</h6>
+				<ul class="small mb-0">
+					<li>Configure double-click actions</li>
+					<li>Set drag-and-drop behaviors</li>
+					<li>Define context menu options</li>
+					<li>Customize keyboard shortcuts</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>
+
+<h3>Integration with Standard Favorites</h3>
+
+<p>The Favorites FileSystem seamlessly integrates with Multi Commander's standard favorites system:</p>
+
+<div class="alert alert-info">
+	<h6><i class="bi bi-info-circle me-2"></i>Bidirectional Synchronization</h6>
+	<p>Changes made through the Favorites FileSystem are immediately reflected in the standard favorites interface, and vice versa. This ensures consistency regardless of which method you use to manage your favorites.</p>
+</div>
+
+<ul>
+	<li><strong>Real-time Updates:</strong> Changes appear instantly across all interfaces</li>
+	<li><strong>Shared Configuration:</strong> Settings and organization apply to both systems</li>
+	<li><strong>Consistent Behavior:</strong> Operations work the same way in both interfaces</li>
+	<li><strong>Cross-Platform Compatibility:</strong> Favorites work across different Multi Commander instances</li>
+</ul>
+
+
+<h3>Best Practices</h3>
+
+<h4>Organization Strategies</h4>
+<ul>
+	<li><strong>Logical Grouping:</strong> Create sections based on project, purpose, or frequency of use</li>
+	<li><strong>Descriptive Names:</strong> Use clear, meaningful names for favorites and sections</li>
+	<li><strong>Regular Maintenance:</strong> Periodically review and clean up unused favorites</li>
+	<li><strong>Hierarchical Structure:</strong> Use subsections to avoid cluttered main sections</li>
+</ul>
+
+<h3>Troubleshooting</h3>
+
+<div class="accordion" id="favoritesAccordion">
+	<div class="accordion-item">
+		<h2 class="accordion-header" id="favHeading1">
+			<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#favCollapse1">
+				FAV: device doesn't appear or can't be accessed
+			</button>
+		</h2>
+		<div id="favCollapse1" class="accordion-collapse collapse" data-bs-parent="#favoritesAccordion">
+			<div class="accordion-body">
+				<ul>
+					<li>Check if the FS-Favorites plug-in is enabled in Extension Manager</li>
+					<li>Verify that FAV: is correctly configured as a device prefix</li>
+					<li>Restart Multi Commander to refresh the virtual filesystem</li>
+					<li>Check for conflicts with other filesystem plug-ins</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<div class="accordion-item">
+		<h2 class="accordion-header" id="favHeading2">
+			<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#favCollapse2">
+				Favorites appear empty or don't synchronize
+			</button>
+		</h2>
+		<div id="favCollapse2" class="accordion-collapse collapse" data-bs-parent="#favoritesAccordion">
+			<div class="accordion-body">
+				<ul>
+					<li>Verify that you have favorites configured in the standard favorites system</li>
+					<li>Check write permissions to the Multi Commander configuration directory</li>
+					<li>Try refreshing the view using F5 or the refresh button</li>
+					<li>Restart Multi Commander to force a configuration reload</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<div class="accordion-item">
+		<h2 class="accordion-header" id="favHeading3">
+			<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#favCollapse3">
+				Drag and drop operations don't work as expected
+			</button>
+		</h2>
+		<div id="favCollapse3" class="accordion-collapse collapse" data-bs-parent="#favoritesAccordion">
+			<div class="accordion-body">
+				<ul>
+					<li>Ensure you're dropping items in valid target areas</li>
+					<li>Check if drag-and-drop is enabled in Multi Commander settings</li>
+					<li>Verify that the source items are files or folders (not other types)</li>
+					<li>Try using keyboard shortcuts as an alternative method</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>
+
+<h3>Related Documentation</h3>
+
+<p>For comprehensive information about Multi Commander's favorites system, including the standard favorites interface and advanced configuration options, see:</p>
+
+<ul>
+	<li><a href="/Docs/favorites" class="text-decoration-none">Complete Favorites Documentation</a> - Detailed guide to all favorites features</li>
+	<li><a href="/Docs/filesystem" class="text-decoration-none">Virtual FileSystem Overview</a> - Understanding the underlying architecture</li>
+	<li><a href="/Docs/extensions" class="text-decoration-none">Extensions and Plug-ins</a> - Managing filesystem extensions</li>
+</ul>
+
+<div class="alert alert-success mt-4">
+	<h6><i class="bi bi-lightbulb me-2"></i>Pro Tip</h6>
+	<p class="mb-0">The Favorites FileSystem becomes even more powerful when combined with Multi Commander's dual-panel layout. Keep FAV: open in one panel while working with files in the other, enabling instant drag-and-drop operations to add new favorites or copy files to favorite locations.</p>
+</div>

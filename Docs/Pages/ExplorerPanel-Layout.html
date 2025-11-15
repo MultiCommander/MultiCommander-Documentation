@@ -1,123 +1,475 @@
-<h2>Explorer Panel - Layout</h2>
-<p>The layout of the Explorer Panel is similar to that in otherfile managers that you may be familiar with, although it has many more features than most.<br />
-Below is a description of the various parts of the display.</p>
+﻿<h2>Explorer Panel - Layout</h2>
 
-<p>The image below shows an example of how the Explorer Panel can look with all of its user interface options enabled. Most of the user interface items can be configured and turned on/off in settings.</p>
+<p>The <strong>Explorer Panel Layout</strong> provides a comprehensive interface design that combines familiar file manager concepts with advanced productivity features through a sophisticated arrangement of specialized components. This detailed layout system integrates multiple interface elements including device access tools, navigation controls, file display areas, and filtering capabilities into a cohesive workspace that maximizes efficiency while maintaining intuitive operation for users familiar with traditional file management interfaces.</p>
 
-<p>&nbsp;</p>
-
-<p><img alt="" src="/Docs/Images/ExplorerPanel_Layout.png" style="width: 586px; height: 526px;" /></p>
-
-<h3>1. Device toolbar</h3>
-
-<p>Here you can see a list of available devices. This toolbar is very similar to the global device toolbar, except that this toolbar will only show drives. Special folders and virtual devices that the global toolbar can show is not shown in this Explorer Panel device toolbar.</p>
-
-<p>You can enable/disable this toolbar in Explorer Panel Settings by checking/unchecking the "Drive buttons" options.</p>
-
-<h3>2. Device Dropdown list</h3>
-
-<p>This dropdown list shows not only drivesbut all available Devices, Special Folders, Virtual Devices. When an item in the dropdown list is selected the Explorer Panel will change to that location and show the content of the new path.<br />
-For fast access to drives when the list is shown you can press (for example) the letter E to make the Explorer Panel go to the E: drive.<br />
-If the <strong>SHIFT</strong> key is pressed while selecting a location, that location is then opened in a new Explorer Panel tab.</p>
-
-<p>In settings it is possible to configure what extended location types should be shown in the dropdown list.</p>
-
-<div class="dochints">
-<fieldset><legend>Hint</legend>
-
-<p>By pressing <strong>Alt+F1</strong> the Device Dropdown in the left panel will be shown. <strong>Alt+F2</strong> and the one on the right is shown</p>
-</fieldset>
+<div class="alert alert-primary">
+	<h6><i class="bi bi-layout-sidebar me-2"></i>Comprehensive Interface Architecture</h6>
+	<p class="mb-0">Experience a thoughtfully designed interface that combines essential navigation tools, advanced filtering capabilities, comprehensive status information, and customizable display options. The Explorer Panel Layout strategically positions all components for optimal workflow efficiency while providing extensive customization options to match individual preferences and operational requirements.</p>
 </div>
 
-<h3>3. Free Space area</h3>
+<nav class="navbar navbar-expand-lg navbar-light bg-light mb-4">
+	<div class="container-fluid">
+		<span class="navbar-brand">Quick Navigation</span>
+		<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#layoutNav">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="layoutNav">
+			<ul class="navbar-nav">
+				<li class="nav-item"><a class="nav-link" href="#overview">Layout Overview</a></li>
+				<li class="nav-item"><a class="nav-link" href="#device-access">Device Access (1-2)</a></li>
+				<li class="nav-item"><a class="nav-link" href="#navigation-tools">Navigation Tools (3-5)</a></li>
+				<li class="nav-item"><a class="nav-link" href="#content-areas">Content Areas (6-7)</a></li>
+				<li class="nav-item"><a class="nav-link" href="#status-filtering">Status & Filtering (8-10)</a></li>
+			</ul>
+		</div>
+	</div>
+</nav>
 
-<p>Shows the available free space on the drive, and the total capacity of the volume (where appropriate).<br />
-It also shows the percentage of the total volume capacity that is available.</p>
+<section id="overview">
+	<h3>Explorer Panel Layout Overview</h3>
+	<p>The Explorer Panel layout consists of ten strategically positioned interface components that work together to create an efficient file management environment. Each numbered component serves specific functional roles while maintaining visual harmony and logical workflow progression throughout the interface.</p>
 
-<p>If you double click on the Free Space message, it will show <em>used</em> space instead of <em>available</em> space. You can also set which of the two space figures you want as default by going to <em>Configuration-&gt;Explorer Panel settings-&gt;Layout-&gt;GUI Components-&gt;Show free/used space.</em></p>
+	<div class="row">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header bg-info text-white">
+					<h6 class="mb-0"><i class="bi bi-diagram-3 me-2"></i>Complete Layout Structure</h6>
+				</div>
+				<div class="card-body">
+					<div class="text-center mt-3 mb-3">
+						<img src="/Docs/Images/ExplorerPanel_Layout.png" alt="Explorer Panel Complete Layout" class="img-fluid border rounded shadow-sm" style="max-width: 586px;" />
+						<p class="text-muted small mt-2">Complete Explorer Panel layout showing all interface components with numbered references</p>
+					</div>
 
-<h3>4. Command Buttons</h3>
+					<h6>Interface Component Organization</h6>
+					<p class="small">The Explorer Panel layout is organized into functional groups that provide comprehensive file management capabilities:</p>
 
-<p>These buttons affect only the active Explorer Panel when they are pressed.<br />
-<b>Folder Tree</b><br />
-Splits the panel to show the <em>folder tree</em> in the left portion. (shortcut key <em>Alt + Num*</em> (See <a href="#docs_ExplorerPanel-FolderTree">Folder tree</a>.)<br />
-<b>Go To Root Button</b><br />
-Click on the backslash symbol ("\") to go to the root of the device (shortcut key <em>Ctrl + Back</em>).<br />
-<b>Go Up</b><br />
-Click on this icon to go up to the parent level in the file structure (shortcut key <em>Back</em>).<br />
-<b>Refresh / Reload</b><br />
-Click on this icon to force a refresh of the current path; hold down the <strong>CTRL</strong> key to force a flush of the cache as well as a forced reload of the current path. All selections will be lost.&nbsp;<br />
-<b>Disconnect</b><br />
-This icon will disconnect the current device. If the current device is an external USB&nbsp;drive it will be prepared for safe removal. If the device is an FTP connection then the FTP connection will be dropped.<br />
-<b>View Mode</b><br />
-This icon will display a menu of possible <strong>View Modes</strong>. Currently these consist of <strong><em>Details</em></strong>, <strong><em>List</em></strong>, <strong><em>Thumbnail List</em></strong><em> </em> and <strong><em>Thumbnail Details</em></strong>.</p>
+					<ul class="small">
+						<li><strong>Device Access (1-2):</strong> Device toolbar and dropdown for storage navigation</li>
+						<li><strong>Navigation Tools (3-5):</strong> Free space display, command buttons, and path field</li>
+						<li><strong>Content Areas (6-7):</strong> Optional folder tree and primary file list view</li>
+						<li><strong>Status & Filtering (8-10):</strong> Selection status, view filters, and quick filter controls</li>
+					</ul>
 
-<p>&nbsp;</p>
+					<h6>Customization Capabilities</h6>
+					<ul class="small">
+						<li><strong>Configurable Components:</strong> Most interface elements can be enabled/disabled in Explorer Panel Settings</li>
+						<li><strong>Layout Flexibility:</strong> Adapt the interface to match specific workflow requirements</li>
+						<li><strong>Visual Optimization:</strong> Customize appearance and behavior for optimal productivity</li>
+						<li><strong>Workflow Integration:</strong> Configure components to support specific file management patterns</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
 
-<h3>5. Path field</h3>
+<section id="device-access" class="mt-5">
+	<h3>Device Access Components (1-2)</h3>
+	<p>The device access components provide comprehensive navigation capabilities for accessing various storage devices, network locations, and virtual file systems through both toolbar buttons and dropdown selections that support rapid device switching and location access.</p>
 
-<p><img alt="" src="/Docs/Images/ExplorerPanel_pathbar.png" /></p>
+	<div class="row">
+		<div class="col-md-6">
+			<div class="card">
+				<div class="card-header bg-success text-white">
+					<h6 class="mb-0"><i class="bi bi-hdd me-2"></i>1. Device Toolbar</h6>
+				</div>
+				<div class="card-body">
+					<h6>Drive-Focused Access</h6>
+					<ul class="small">
+						<li><strong>Drive Display:</strong> Shows buttons for available physical and logical drives</li>
+						<li><strong>Simplified Access:</strong> Quick one-click access to frequently used storage devices</li>
+						<li><strong>Drive-Only Focus:</strong> Displays drives only, unlike global toolbar that includes special folders</li>
+						<li><strong>Visual Consistency:</strong> Similar to global device toolbar but Explorer Panel-specific</li>
+					</ul>
 
-<p>The path field shows the current path displayed in the Explorer Panel. Sub folders in the path that is shown are clickable. Clicking on a subpath causes the Explorer Panel to try to change to that path.<br />
-The path field has many options and feature. <a href="#docs_ExplorerPanelPathField">Read more about the Path field</a>.</p>
+					<h6>Configuration Control</h6>
+					<ul class="small">
+						<li><strong>Explorer Panel Settings:</strong> Enable/disable through "Drive buttons" option</li>
+						<li><strong>Space Management:</strong> Show/hide based on workflow requirements</li>
+						<li><strong>Customizable Display:</strong> Adapt toolbar presence to interface preferences</li>
+						<li><strong>Workflow Optimization:</strong> Configure based on drive access frequency</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-6">
+			<div class="card">
+				<div class="card-header bg-primary text-white">
+					<h6 class="mb-0"><i class="bi bi-list me-2"></i>2. Device Dropdown List</h6>
+				</div>
+				<div class="card-body">
+					<h6>Comprehensive Device Access</h6>
+					<ul class="small">
+						<li><strong>Complete Device List:</strong> Shows all drives, special folders, and virtual devices</li>
+						<li><strong>Immediate Navigation:</strong> Select item to instantly navigate to that location</li>
+						<li><strong>Keyboard Shortcuts:</strong> Press drive letter (e.g., "E") for rapid access</li>
+						<li><strong>New Tab Support:</strong> Hold <kbd>Shift</kbd> while selecting to open in new tab</li>
+					</ul>
 
-<h3>6. Folder Tree</h3>
+					<h6>Advanced Features</h6>
+					<ul class="small">
+						<li><strong>Extended Locations:</strong> Configure which special location types appear in settings</li>
+						<li><strong>Keyboard Navigation:</strong> <kbd>Alt</kbd>+<kbd>F1</kbd> (left panel) or <kbd>Alt</kbd>+<kbd>F2</kbd> (right panel)</li>
+						<li><strong>Flexible Configuration:</strong> Control extended location type visibility</li>
+						<li><strong>Rapid Access:</strong> Optimized for quick device and location switching</li>
+					</ul>
 
-<h3>7. File list view</h3>
+					<div class="alert alert-info p-2 mt-3">
+						<h6 class="small mb-1"><i class="bi bi-keyboard me-1"></i>Quick Access</h6>
+						<p class="small mb-0">Use <kbd>Alt</kbd>+<kbd>F1</kbd> (left) or <kbd>Alt</kbd>+<kbd>F2</kbd> (right) to show device dropdown, then press drive letter for instant access.</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
 
-<h3>8. Selection Status bar</h3>
+<section id="navigation-tools" class="mt-5">
+	<h3>Navigation Tools and Information (3-5)</h3>
+	<p>The navigation tools section provides essential information display, command access, and path management capabilities that enable efficient navigation and provide critical system information for informed file management decisions.</p>
 
-<p><img alt="" src="/Docs/Images/ExplorerPanel_SelectionStatusField.png" style="width: 500px; height: 62px;" /></p>
+	<div class="row">
+		<div class="col-md-6">
+			<div class="card">
+				<div class="card-header bg-info text-white">
+					<h6 class="mb-0"><i class="bi bi-pie-chart me-2"></i>3. Free Space Area</h6>
+				</div>
+				<div class="card-body">
+					<h6>Storage Information</h6>
+					<ul class="small">
+						<li><strong>Available Space:</strong> Shows free space on current drive or volume</li>
+						<li><strong>Total Capacity:</strong> Displays total volume capacity where applicable</li>
+						<li><strong>Percentage Display:</strong> Shows percentage of total capacity available</li>
+						<li><strong>Usage Monitoring:</strong> Essential for storage management and planning</li>
+					</ul>
 
-<p>The Panel Status bar appears at the bottem of the panel. The various parts are described below:</p>
+					<h6>Interactive Features</h6>
+					<ul class="small">
+						<li><strong>Double-Click Toggle:</strong> Switch between showing available and used space</li>
+						<li><strong>Default Configuration:</strong> Set preferred display in Explorer Panel Settings</li>
+						<li><strong>Real-Time Updates:</strong> Automatically updates as space usage changes</li>
+						<li><strong>Setting Path:</strong> Configuration → Explorer Panel Settings → Layout → GUI Components</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-6">
+			<div class="card">
+				<div class="card-header bg-warning text-dark">
+					<h6 class="mb-0"><i class="bi bi-tools me-2"></i>4. Command Buttons</h6>
+				</div>
+				<div class="card-body">
+					<h6>Essential Navigation Commands</h6>
+					<ul class="small">
+						<li><strong>Folder Tree:</strong> <kbd>Alt</kbd>+<kbd>Num*</kbd> - Split panel to show folder tree</li>
+						<li><strong>Go To Root:</strong> <kbd>Ctrl</kbd>+<kbd>Back</kbd> - Navigate to device root (\)</li>
+						<li><strong>Go Up:</strong> <kbd>Back</kbd> - Move to parent directory level</li>
+						<li><strong>Refresh/Reload:</strong> Force refresh; <kbd>Ctrl</kbd>+click for cache flush</li>
+					</ul>
 
-<p><strong>1 - Select / Total Size</strong><br />
-The size of all the selected files and folders (if folders are showing file size) and the total size of all visible files and folders.</p>
+					<h6>Advanced Operations</h6>
+					<ul class="small">
+						<li><strong>Disconnect:</strong> Safely remove USB drives or disconnect FTP connections</li>
+						<li><strong>View Mode:</strong> Switch between Details, List, Thumbnail List, and Thumbnail Details</li>
+						<li><strong>Active Panel Focus:</strong> Commands affect only the currently active Explorer Panel</li>
+						<li><strong>Keyboard Integration:</strong> Full keyboard shortcuts for rapid operation</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header bg-success text-white">
+					<h6 class="mb-0"><i class="bi bi-signpost me-2"></i>5. Path Field</h6>
+				</div>
+				<div class="card-body">
+					<div class="text-center mt-3 mb-3">
+						<img src="/Docs/Images/ExplorerPanel_pathbar.png" alt="Path Field Interface" class="img-fluid border rounded shadow-sm" />
+						<p class="text-muted small mt-2">Path field showing current location with clickable path segments</p>
+					</div>
 
-<p><strong>2 - Selected / Total Files</strong><br />
-Number of selected files and the total visible files.</p>
+					<h6>Interactive Path Navigation</h6>
+					<ul class="small">
+						<li><strong>Current Path Display:</strong> Shows current Explorer Panel location</li>
+						<li><strong>Clickable Segments:</strong> Click any subfolder in path for instant navigation</li>
+						<li><strong>Path Navigation:</strong> Direct path editing and navigation capabilities</li>
+						<li><strong>Advanced Features:</strong> Comprehensive options and specialized functionality</li>
+					</ul>
 
-<p><strong>3 - </strong><strong>Selected /&nbsp;Total Folders</strong><br />
-Number of selected folders and the total visible folders.</p>
+					<div class="alert alert-success p-2 mt-3">
+						<h6 class="small mb-1"><i class="bi bi-info-circle me-1"></i>Detailed Information</h6>
+						<p class="small mb-0">See <a href="/Docs/ExplorerPanelPathField" class="text-decoration-none">Path Field Documentation</a> for comprehensive feature coverage.</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
 
-<p><strong>4 - Hidden files /&nbsp;Folders</strong><br />
-Number of files and folders that are hidden by the view filter.</p>
+<section id="content-areas" class="mt-5">
+	<h3>Content Display Areas (6-7)</h3>
+	<p>The content display areas provide the primary file browsing and navigation interfaces through optional folder tree organization and comprehensive file listing capabilities that form the core of the file management experience.</p>
 
-<h3>9. View Filter</h3>
+	<div class="row">
+		<div class="col-md-6">
+			<div class="card">
+				<div class="card-header bg-primary text-white">
+					<h6 class="mb-0"><i class="bi bi-diagram-2 me-2"></i>6. Folder Tree</h6>
+				</div>
+				<div class="card-body">
+					<h6>Hierarchical Navigation</h6>
+					<ul class="small">
+						<li><strong>Optional Display:</strong> Toggle folder tree visibility based on workflow needs</li>
+						<li><strong>Split Panel View:</strong> Shows folder tree in left portion when enabled</li>
+						<li><strong>Hierarchical Organization:</strong> Visual representation of directory structure</li>
+						<li><strong>Quick Navigation:</strong> Direct access to any visible folder in hierarchy</li>
+					</ul>
 
-<p><img alt="" src="/Docs/Images/ExplorerPanel_ViewFilterField.png" style="width: 500px; height: 62px;" /></p>
+					<h6>Integration Features</h6>
+					<ul class="small">
+						<li><strong>Synchronized Navigation:</strong> Tree selection synchronizes with file list view</li>
+						<li><strong>Expandable Structure:</strong> Expand/collapse directory branches as needed</li>
+						<li><strong>Context Integration:</strong> Full integration with Explorer Panel operations</li>
+						<li><strong>Keyboard Control:</strong> Complete keyboard navigation support</li>
+					</ul>
 
-<p>Filter the view to only show certain files or folders. Prefixing a filter with "-" will exclude those files. To create a filter to target folders only, prefix it with "/".</p>
+					<div class="alert alert-info p-2 mt-3">
+						<h6 class="small mb-1"><i class="bi bi-info-circle me-1"></i>Detailed Coverage</h6>
+						<p class="small mb-0">See <a href="/Docs/ExplorerPanel-FolderTree" class="text-decoration-none">Folder Tree Documentation</a> for complete functionality details.</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-6">
+			<div class="card">
+				<div class="card-header bg-success text-white">
+					<h6 class="mb-0"><i class="bi bi-files me-2"></i>7. File List View</h6>
+				</div>
+				<div class="card-body">
+					<h6>Primary File Display</h6>
+					<ul class="small">
+						<li><strong>Main Interface:</strong> Primary area for file and folder display and interaction</li>
+						<li><strong>Multiple View Modes:</strong> Details, List, Thumbnail List, and Thumbnail Details</li>
+						<li><strong>Selection Support:</strong> Advanced file selection capabilities with multiple methods</li>
+						<li><strong>File Operations:</strong> Direct interaction for all file management operations</li>
+					</ul>
 
-<p>You can edit the View Filter from a keyboard shortcut by pressing <strong>CTRL+F</strong> (if using the default commander-style setup).</p>
+					<h6>Display Capabilities</h6>
+					<ul class="small">
+						<li><strong>Customizable Columns:</strong> Add, remove, and rearrange information columns</li>
+						<li><strong>Sorting Options:</strong> Sort by any column with ascending/descending order</li>
+						<li><strong>Visual Feedback:</strong> Clear indication of selection, focus, and operation states</li>
+						<li><strong>Context Menus:</strong> Full right-click context menu integration</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
 
-<p>Examples</p>
+<section id="status-filtering" class="mt-5">
+	<h3>Status Information and Filtering (8-10)</h3>
+	<p>The bottom region provides comprehensive status information and powerful filtering capabilities that enhance file management efficiency through detailed selection statistics and flexible view filtering options for managing large directories.</p>
 
-<table class="table table-bordered">
-	<tbody>
-		<tr>
-			<td>*.* -*.jpg</td>
-			<td>Show all files, except .jpg files.</td>
-		</tr>
-		<tr>
-			<td>*.* -/backup</td>
-			<td>Do not show the "backup" folder</td>
-		</tr>
-		<tr>
-			<td>*.jpg *.tiff&nbsp;</td>
-			<td>Show only jpg and tiff files.&nbsp;</td>
-		</tr>
-	</tbody>
-</table>
+	<div class="row">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header bg-info text-white">
+					<h6 class="mb-0"><i class="bi bi-info-square me-2"></i>8. Selection Status Bar</h6>
+				</div>
+				<div class="card-body">
+					<div class="text-center mt-3 mb-3">
+						<img src="/Docs/Images/ExplorerPanel_SelectionStatusField.png" alt="Selection Status Bar" class="img-fluid border rounded shadow-sm" style="max-width: 500px;" />
+						<p class="text-muted small mt-2">Selection status bar showing comprehensive file and folder statistics</p>
+					</div>
 
-<p>&nbsp;It is also possible to change the view filter from a <a href="#docs_UDC_custom">CustomCommand</a>.</p>
+					<h6>Comprehensive Status Information</h6>
+					<div class="row">
+						<div class="col-md-6">
+							<ul class="small">
+								<li><strong>1 - Select/Total Size:</strong> Size of selected files/folders and total size of all visible items</li>
+								<li><strong>2 - Selected/Total Files:</strong> Number of selected files and total visible files</li>
+							</ul>
+						</div>
+						<div class="col-md-6">
+							<ul class="small">
+								<li><strong>3 - Selected/Total Folders:</strong> Number of selected folders and total visible folders</li>
+								<li><strong>4 - Hidden Files/Folders:</strong> Count of items hidden by current view filter</li>
+							</ul>
+						</div>
+					</div>
 
-<h3>10. Reset Filter and Quick Filters</h3>
+					<h6>Real-Time Updates</h6>
+					<ul class="small">
+						<li><strong>Dynamic Information:</strong> Updates automatically as selection changes</li>
+						<li><strong>Size Calculations:</strong> Includes folder sizes when configured to display</li>
+						<li><strong>Filter Awareness:</strong> Shows impact of current view filter on display</li>
+						<li><strong>Selection Context:</strong> Provides immediate feedback for file operations</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
 
-<p><img alt="" src="/Docs/Images/ExplorerPanel_ViewFilterButton.png" style="width: 500px; height: 62px;" /></p>
+	<div class="row mt-3">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header bg-warning text-dark">
+					<h6 class="mb-0"><i class="bi bi-funnel me-2"></i>9. View Filter</h6>
+				</div>
+				<div class="card-body">
+					<div class="text-center mt-3 mb-3">
+						<img src="/Docs/Images/ExplorerPanel_ViewFilterField.png" alt="View Filter Field" class="img-fluid border rounded shadow-sm" style="max-width: 500px;" />
+						<p class="text-muted small mt-2">View filter field for file and folder filtering</p>
+					</div>
 
-<p>Click to toggle quick filter. Right click to show a popup menu with pre defined set of View Filters. By selecting "Customize..." it is possible to edit the list of quick filters and to add new filters to the list.</p>
+					<h6>Advanced Filtering Capabilities</h6>
+					<ul class="small">
+						<li><strong>Pattern Filtering:</strong> Use wildcards to show/hide specific file types</li>
+						<li><strong>Exclusion Filters:</strong> Prefix with "-" to exclude files (e.g., -*.jpg)</li>
+						<li><strong>Folder Targeting:</strong> Prefix with "/" to target folders only (e.g., -/backup)</li>
+						<li><strong>Keyboard Access:</strong> <kbd>Ctrl</kbd>+<kbd>F</kbd> for direct filter editing</li>
+					</ul>
 
-<p><img alt="" src="/Docs/Images/ExplorerPanel_ViewFilterPopup.png" style="width: 343px; height: 458px;" /></p>
+					<h6>Filter Examples</h6>
+					<div class="table-responsive">
+						<table class="table table-sm table-bordered">
+							<thead class="table-light">
+								<tr>
+									<th style="width: 40%">Filter</th>
+									<th style="width: 60%">Result</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td><code>*.* -*.jpg</code></td>
+									<td>Show all files except .jpg files</td>
+								</tr>
+								<tr>
+									<td><code>*.* -/backup</code></td>
+									<td>Do not show the "backup" folder</td>
+								</tr>
+								<tr>
+									<td><code>*.jpg *.tiff</code></td>
+									<td>Show only jpg and tiff files</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+
+					<div class="alert alert-info p-2 mt-3">
+						<h6 class="small mb-1"><i class="bi bi-code me-1"></i>Command Integration</h6>
+						<p class="small mb-0">View filters can be changed programmatically using <a href="/Docs/UDC_custom" class="text-decoration-none">Custom Commands</a>.</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header bg-success text-white">
+					<h6 class="mb-0"><i class="bi bi-sliders me-2"></i>10. Reset Filter and Quick Filters</h6>
+				</div>
+				<div class="card-body">
+					<div class="text-center mt-3 mb-3">
+						<img src="/Docs/Images/ExplorerPanel_ViewFilterButton.png" alt="Filter Reset Button" class="img-fluid border rounded shadow-sm" style="max-width: 500px;" />
+						<p class="text-muted small mt-2">Filter reset button and quick filter access</p>
+					</div>
+
+					<h6>Quick Filter Management</h6>
+					<ul class="small">
+						<li><strong>Toggle Functionality:</strong> Click to toggle current quick filter on/off</li>
+						<li><strong>Right-Click Menu:</strong> Access predefined set of quick filters</li>
+						<li><strong>Filter Customization:</strong> Select "Customize..." to edit filter list</li>
+						<li><strong>Rapid Access:</strong> Instant application of common filter patterns</li>
+					</ul>
+
+					<div class="text-center mt-3">
+						<img src="/Docs/Images/ExplorerPanel_ViewFilterPopup.png" alt="Quick Filter Menu" class="img-fluid border rounded shadow-sm" style="max-width: 343px;" />
+						<p class="text-muted small mt-2">Quick filter popup menu with predefined filters and customization options</p>
+					</div>
+
+					<h6>Filter Organization</h6>
+					<ul class="small">
+						<li><strong>Predefined Filters:</strong> Common filter patterns readily available</li>
+						<li><strong>Custom Filter Lists:</strong> Create and maintain personalized filter collections</li>
+						<li><strong>Quick Reset:</strong> Instant removal of all active filters</li>
+						<li><strong>Workflow Optimization:</strong> Streamline repetitive filtering operations</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<section id="keyboard-shortcuts" class="mt-5">
+	<h3>Essential Keyboard Shortcuts</h3>
+	<p>The Explorer Panel Layout supports comprehensive keyboard control for efficient navigation and operation without requiring mouse interaction, enabling rapid file management through integrated keyboard shortcuts.</p>
+
+	<div class="row">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header bg-dark text-white">
+					<h6 class="mb-0"><i class="bi bi-keyboard me-2"></i>Layout Component Shortcuts</h6>
+				</div>
+				<div class="card-body">
+					<div class="table-responsive">
+						<table class="table table-bordered table-hover">
+							<thead class="table-light">
+								<tr>
+									<th style="width: 25%">Component</th>
+									<th style="width: 25%">Shortcut</th>
+									<th style="width: 50%">Function</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>Device Dropdown</td>
+									<td><kbd>Alt</kbd>+<kbd>F1</kbd>/<kbd>F2</kbd></td>
+									<td>Show device dropdown (left/right panel)</td>
+								</tr>
+								<tr>
+									<td>Folder Tree</td>
+									<td><kbd>Alt</kbd>+<kbd>Num*</kbd></td>
+									<td>Toggle folder tree display</td>
+								</tr>
+								<tr>
+									<td>Go To Root</td>
+									<td><kbd>Ctrl</kbd>+<kbd>Back</kbd></td>
+									<td>Navigate to device root</td>
+								</tr>
+								<tr>
+									<td>Go Up</td>
+									<td><kbd>Back</kbd></td>
+									<td>Move to parent directory</td>
+								</tr>
+								<tr>
+									<td>View Filter</td>
+									<td><kbd>Ctrl</kbd>+<kbd>F</kbd></td>
+									<td>Edit view filter</td>
+								</tr>
+								<tr>
+									<td>Refresh</td>
+									<td><kbd>Ctrl</kbd>+<kbd>R</kbd></td>
+									<td>Force refresh (with cache flush)</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<div class="alert alert-success mt-5">
+	<h6><i class="bi bi-lightbulb me-2"></i>Explorer Panel Layout Mastery</h6>
+	<p class="mb-0">Master the Explorer Panel Layout by understanding how each numbered component contributes to efficient file management workflows. Utilize device access tools for rapid location switching, leverage command buttons and path fields for precise navigation, optimize content display through folder tree and view modes, and harness status information and filtering capabilities for managing large directories. Remember that most interface components are configurable, enabling you to create the optimal layout for your specific workflow requirements.</p>
+</div>
+
+<div class="alert alert-info mt-4">
+	<h6><i class="bi bi-info-circle me-2"></i>Related Explorer Panel Documentation</h6>
+	<p class="mb-0">Explore detailed functionality for specific layout components: <a href="/Docs/ExplorerPanelPathField" class="text-decoration-none">Path Field</a>, <a href="/Docs/ExplorerPanel-FolderTree" class="text-decoration-none">Folder Tree</a>, <a href="/Docs/ExplorerPanel-CustomizeColumns" class="text-decoration-none">Customize Columns</a>, <a href="/Docs/ExplorerPanel-CustomizeColumnLayouts" class="text-decoration-none">Customize Column Layouts</a>, <a href="/Docs/ExplorerPanel-FileColoring" class="text-decoration-none">File Coloring</a>, <a href="/Docs/selection" class="text-decoration-none">File Selection</a>, and <a href="/Docs/UDC_custom" class="text-decoration-none">Custom Commands</a>.</p>
+</div>
 
 

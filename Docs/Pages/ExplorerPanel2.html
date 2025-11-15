@@ -1,221 +1,834 @@
 <h2>Explorer Panel - Navigation</h2>
-<p>The <strong>Explorer Panel</strong> is the primary panel in Multi Commander. It is from here that you browse the filesystem and select files to copy, move, rename, delete or view.</p>
 
-<p><img alt="" src="/Docs/Images/ExplorerPanel_1_350.png" style="width: 350px; height: 362px;" /></p>
+<p>The <strong>Explorer Panel Navigation</strong> system provides comprehensive file system interaction capabilities through sophisticated keyboard and mouse controls, advanced file selection methods, intelligent sorting options, and powerful search functionality. This detailed navigation framework enables efficient file management through multiple interaction paradigms including traditional keyboard-centric operation modes and modern graphical interface patterns that accommodate diverse user preferences and workflow requirements while maintaining optimal productivity and accessibility.</p>
 
-<p><strong>All References to Keyboard and Mouse commands below assume that you are using the default Commander-Style setup, unless otherwise specified.</strong></p>
-
-<h2>Commander-Style-Setup vs WindowsExplorer-Style Setup</h2>
-
-<p>By default Multi Commander uses the <strong>Commander-Style</strong> setup, meaning that mouse and keyboard shortcuts are similar to the file manager named NortonCommander that existed before Windows on MS-DOS. This setup has become very popular and is used in many other file managers on many platforms. It is popular because it is optimized for keyboard use and provides the ability to do everything from the keyboard in a efficient way.</p>
-
-<p>If you are more comfortable with the way <strong>Windows Explorer</strong> operates, it is possible to configure Multi Commander to work like Explorer. You will, however, lose some of the efficiency that you get from the Commander-Style setup.</p>
-
-<p><a href="/tips/change-windows-explorer-look-and-feel">Read more about how to change Multi Commander to the Windows Explorer-Style Setup</a><br />
-&nbsp;</p>
-
-<h2>Navigate the FileSystem</h2>
-
-<p>You can use both the keyboard and mouse to navigate in the Explorer Panel.</p>
-
-<p>The files/folders that are currently in focus are highlighted by way of a border drawn around them. These are the files/folders that will be affected by your action if no other files/folders are selected. You can navigate up and down the list with the up and down arrow keys. The <em>HOME</em>&nbsp;and <em>END</em> keys will change the focus to the first or last item in the list.</p>
-
-<p>If there are more files and folders than will fit on the screen you can use the page up and page down keys to scroll up and down in steps.</p>
-
-<p>To choose a subfolder to browse either <strong>double-click</strong> it or,&nbsp;if the folder is already in focus, press the <strong>RETURN</strong> key. The Explorer Panel will then try to show you the content of that path. You are also able to browse archives if there are filesystem plugins installed that expose that archive format as a filesystem. For example .zip and .rar files can be browsed as if they were unpacked into normal folders.&nbsp;</p>
-
-<p>To go back to the parent folder you can either double-click on the ".." icon or press the <strong>BACKSPACE</strong> key. Holding down <strong>CTRL</strong> while pressing <strong>BACKSPACE</strong> will send you to the root of the current volume or device.</p>
-
-<p>Holding <strong>CTRL</strong> and pressing the <strong>LEFT</strong> or <strong>RIGHT</strong> arrow key can synchronize the current path or folder in focus to the panel on the left or right. For example if you are in the left panel and focus is on a folder and you press the <strong>CTRL+RIGHT&nbsp;ARROW</strong> key, the path for the folder in focus will be sent to the right panel, and if the right panel is an Explorer Panel it will now show that path location. If the <strong>CTRL+LEFT ARROW</strong> key is pressed when the active panel also is the left one, the Explorer Panel on the left will get the current path location of the right panel and show that location in the left panel.</p>
-
-<p>If you hold <strong>CTRL</strong> while pressing the <strong>PAGE DOWN</strong>&nbsp;or <strong>PAGE UP</strong> key you will go to the next or previous sibling folder of the current location. For example If you have some <strong>A to Z</strong> folders in <strong>C:\MyFolders\</strong> and you are currently located in <strong>C:\MyFolders\D</strong>, then when you press the <strong>CTRL+PAGE DOWN</strong> keys the Explorer Panel will now go to the <strong>C:\MyFolders\E</strong> folder. If instead <strong>CTRL+PAGE UP</strong> were pressed, it would have gone to the <strong>C:\MyFolders\C</strong> folder. This however requires that sorting in the Explorer Panel is set to the <em>name </em>column. It will go to whichever previous (or next) sibling folder that the current sorting determines.</p>
-
-<p>If you have an Explorer Panel both in the source and target panel and want to show the same location in the target as the source panel has, then press the keyboard shortcut key <strong>CTRL+.</strong> (dot) in the source panel. The target and source panel will then show the same location.</p>
-
-<div class="dochints">
-<fieldset><legend>Hint</legend>
-
-<p><strong>Go To Sibling</strong><br />
-A quick way to go to a sibling folder is by way of the shortcut keys</p>
-
-<ul>
-	<li><strong>Ctrl+Page Up</strong> goes to the <em>preceding</em> sibling folder (in sort order)</li>
-	<li><strong>Ctrl+Page Down</strong> goes to the <em>next</em> sibling folder.</li>
-</ul>
-</fieldset>
+<div class="alert alert-primary">
+	<h6><i class="bi bi-compass me-2"></i>Comprehensive Navigation and Interaction System</h6>
+	<p class="mb-0">Experience advanced file system navigation through flexible control schemes that support both Commander-Style keyboard-centric operation and Windows Explorer-Style graphical interaction. The Explorer Panel Navigation system provides sophisticated file selection capabilities, intelligent sorting options, powerful search functionality, and comprehensive clipboard integration for maximum productivity across all file management workflows.</p>
 </div>
 
-<h2>Sorting</h2>
+<nav class="navbar navbar-expand-lg navbar-light bg-light mb-4">
+	<div class="container-fluid">
+		<span class="navbar-brand">Quick Navigation</span>
+		<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navigationNav">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="navigationNav">
+			<ul class="navbar-nav">
+				<li class="nav-item"><a class="nav-link" href="#interface-modes">Interface Modes</a></li>
+				<li class="nav-item"><a class="nav-link" href="#filesystem-navigation">File System Navigation</a></li>
+				<li class="nav-item"><a class="nav-link" href="#sorting-organization">Sorting & Organization</a></li>
+				<li class="nav-item"><a class="nav-link" href="#file-selection">File Selection</a></li>
+				<li class="nav-item"><a class="nav-link" href="#search-features">Search Features</a></li>
+				<li class="nav-item"><a class="nav-link" href="#clipboard-operations">Clipboard Operations</a></li>
+			</ul>
+		</div>
+	</div>
+</nav>
 
-<p><img alt="" src="/Docs/Images/ExplorerPanel_sort.png" /></p>
+<section id="interface-modes">
+	<h3>Interface Operation Modes</h3>
+	<p>Multi Commander supports two distinct interface operation modes that provide different interaction paradigms to accommodate user preferences and workflow requirements, with each mode optimizing specific aspects of file management efficiency.</p>
 
-<p>To sort the files and folders shown, click on the header of the column that you want to sort the contents by. Clicking on it again will reverse the sort order. You will see an arrow in the header of the column that currently has sorting activated, indicating if sorting is <em>ascending</em> or <em>descending</em>.</p>
+	<div class="row">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header bg-info text-white">
+					<h6 class="mb-0"><i class="bi bi-window-desktop me-2"></i>Explorer Panel Interface Overview</h6>
+				</div>
+				<div class="card-body">
+					<div class="text-center mt-3 mb-3">
+						<img src="/Docs/Images/ExplorerPanel_1_350.png" alt="Explorer Panel Main Interface" class="img-fluid border rounded shadow-sm" style="max-width: 350px;" />
+						<p class="text-muted small mt-2">Explorer Panel showing file listing in detail mode with comprehensive navigation capabilities</p>
+					</div>
 
-<p>Sorting can also be changed using shortcut keys: <strong>CTRL+F1</strong> to sort by first column, <strong>CTRL+F2</strong> for second column and so on, up to <strong>CTRL+F5</strong>. Selecting the column that is already the sort column will reverse the sort order of that column.</p>
+					<div class="alert alert-warning p-2 mt-3">
+						<h6 class="small mb-1"><i class="bi bi-exclamation-triangle me-1"></i>Important Note</h6>
+						<p class="small mb-0">All keyboard and mouse commands referenced below assume the default <strong>Commander-Style</strong> setup unless otherwise specified.</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 
-<p>If the configuration option <strong>Sort Files Logical</strong> for the Explorer Panel is checked, files and folders will be sorted so that numeric subfields are treated as numbers. E.g. instead of files being shown as&nbsp;</p>
+	<div class="row mt-3">
+		<div class="col-md-6">
+			<div class="card">
+				<div class="card-header bg-success text-white">
+					<h6 class="mb-0"><i class="bi bi-keyboard me-2"></i>Commander-Style Setup</h6>
+				</div>
+				<div class="card-body">
+					<h6>Keyboard-Optimized Interface</h6>
+					<ul class="small">
+						<li><strong>Norton Commander Heritage:</strong> Based on classic DOS-era file manager paradigms</li>
+						<li><strong>Keyboard Efficiency:</strong> Complete file management functionality accessible via keyboard</li>
+						<li><strong>Platform Adoption:</strong> Widely adopted across file managers on multiple platforms</li>
+						<li><strong>Productivity Focus:</strong> Optimized for rapid operation without mouse dependency</li>
+					</ul>
 
-<pre>
-file_0011.txt
+					<h6>Key Characteristics</h6>
+					<ul class="small">
+						<li><strong>Right-Click Selection:</strong> Right mouse button toggles file/folder selection</li>
+						<li><strong>Keyboard Navigation:</strong> Comprehensive arrow key and shortcut navigation</li>
+						<li><strong>Command Integration:</strong> Direct keyboard access to all file operations</li>
+						<li><strong>Efficiency Priority:</strong> Minimizes hand movement between keyboard and mouse</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-6">
+			<div class="card">
+				<div class="card-header bg-primary text-white">
+					<h6 class="mb-0"><i class="bi bi-mouse me-2"></i>Windows Explorer-Style Setup</h6>
+				</div>
+				<div class="card-body">
+					<h6>Familiar Windows Interface</h6>
+					<ul class="small">
+						<li><strong>Windows Compatibility:</strong> Operates like standard Windows Explorer interface</li>
+						<li><strong>Left-Click Selection:</strong> Standard Windows file selection behavior</li>
+						<li><strong>Modifier Key Support:</strong> Ctrl and Shift for multi-selection operations</li>
+						<li><strong>Accessibility:</strong> Familiar to users transitioning from Windows Explorer</li>
+					</ul>
+
+					<h6>Trade-offs</h6>
+					<ul class="small">
+						<li><strong>Efficiency Loss:</strong> Reduced keyboard-centric operation efficiency</li>
+						<li><strong>Mouse Dependency:</strong> Increased reliance on mouse for file operations</li>
+						<li><strong>Feature Limitations:</strong> Some advanced productivity features may be disabled</li>
+						<li><strong>Configuration Option:</strong> Can be enabled in Multi Commander settings</li>
+					</ul>
+
+					<div class="alert alert-info p-2 mt-3">
+						<h6 class="small mb-1"><i class="bi bi-gear me-1"></i>Configuration</h6>
+						<p class="small mb-0">See <a href="/tips/change-windows-explorer-look-and-feel" class="text-decoration-none">Windows Explorer-Style Setup</a> for configuration details.</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<section id="filesystem-navigation" class="mt-5">
+	<h3>File System Navigation</h3>
+	<p>The Explorer Panel provides comprehensive navigation capabilities through both keyboard and mouse interaction methods, enabling efficient movement through directory hierarchies, archive contents, and network locations with sophisticated focusing and selection management.</p>
+
+	<div class="row">
+		<div class="col-md-6">
+			<div class="card">
+				<div class="card-header bg-warning text-dark">
+					<h6 class="mb-0"><i class="bi bi-arrows-move me-2"></i>Basic Navigation Controls</h6>
+				</div>
+				<div class="card-body">
+					<h6>Focus and Movement</h6>
+					<ul class="small">
+						<li><strong>Focus Highlighting:</strong> Border drawn around currently focused files/folders</li>
+						<li><strong>Arrow Key Navigation:</strong> Up/Down arrows move focus through file list</li>
+						<li><strong>Home/End Keys:</strong> Jump to first or last item in current directory</li>
+						<li><strong>Page Up/Down:</strong> Scroll through large directories in screen-sized steps</li>
+					</ul>
+
+					<h6>Directory Navigation</h6>
+					<ul class="small">
+						<li><strong>Enter Subdirectory:</strong> Double-click folder or press <kbd>Enter</kbd> when focused</li>
+						<li><strong>Archive Support:</strong> Browse .zip, .rar, and other archives as normal folders</li>
+						<li><strong>Parent Directory:</strong> Double-click ".." or press <kbd>Backspace</kbd></li>
+						<li><strong>Root Navigation:</strong> <kbd>Ctrl</kbd>+<kbd>Backspace</kbd> goes to volume root</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-6">
+			<div class="card">
+				<div class="card-header bg-info text-white">
+					<h6 class="mb-0"><i class="bi bi-arrow-left-right me-2"></i>Advanced Navigation Features</h6>
+				</div>
+				<div class="card-body">
+					<h6>Panel Synchronization</h6>
+					<ul class="small">
+						<li><strong>Cross-Panel Navigation:</strong> <kbd>Ctrl</kbd>+<kbd>Left/Right</kbd> arrows sync paths</li>
+						<li><strong>Focus-Based Sync:</strong> Send focused folder path to opposite panel</li>
+						<li><strong>Path Matching:</strong> <kbd>Ctrl</kbd>+<kbd>.</kbd> makes target panel match source path</li>
+						<li><strong>Dual-Panel Workflow:</strong> Coordinate navigation across both panels</li>
+					</ul>
+
+					<h6>Sibling Navigation</h6>
+					<ul class="small">
+						<li><strong>Next Sibling:</strong> <kbd>Ctrl</kbd>+<kbd>Page Down</kbd> - navigate to next sibling folder</li>
+						<li><strong>Previous Sibling:</strong> <kbd>Ctrl</kbd>+<kbd>Page Up</kbd> - navigate to previous sibling folder</li>
+						<li><strong>Sort-Order Based:</strong> Navigation follows current column sort order</li>
+						<li><strong>Alphabetical Example:</strong> From C:\MyFolders\D to C:\MyFolders\E or C:\MyFolders\C</li>
+					</ul>
+
+					<div class="alert alert-success p-2 mt-3">
+						<h6 class="small mb-1"><i class="bi bi-lightbulb me-1"></i>Sibling Navigation Tip</h6>
+						<p class="small mb-0">Use <kbd>Ctrl</kbd>+<kbd>Page Up/Down</kbd> to quickly move between folders at the same level - great for browsing project versions or organized directory structures.</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<section id="sorting-organization" class="mt-5">
+	<h3>Sorting and File Organization</h3>
+	<p>The Explorer Panel provides sophisticated sorting capabilities that enable efficient file organization through clickable column headers, keyboard shortcuts, and intelligent logical sorting options that handle numeric sequences naturally.</p>
+
+	<div class="row">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header bg-primary text-white">
+					<h6 class="mb-0"><i class="bi bi-sort-up me-2"></i>Column-Based Sorting System</h6>
+				</div>
+				<div class="card-body">
+					<div class="text-center mt-3 mb-3">
+						<img src="/Docs/Images/ExplorerPanel_sort.png" alt="Column Sorting Interface" class="img-fluid border rounded shadow-sm" />
+						<p class="text-muted small mt-2">Column header showing sort indicator arrow for ascending/descending order control</p>
+					</div>
+
+					<h6>Interactive Sorting Controls</h6>
+					<ul class="small">
+						<li><strong>Click Column Headers:</strong> Click any column header to sort by that attribute</li>
+						<li><strong>Sort Direction Toggle:</strong> Click again to reverse sort order (ascending/descending)</li>
+						<li><strong>Visual Indicators:</strong> Arrow in header shows current sort column and direction</li>
+						<li><strong>Multi-Column Support:</strong> Sort by name, size, date, type, or any displayed column</li>
+					</ul>
+
+					<h6>Keyboard Sorting Shortcuts</h6>
+					<div class="table-responsive">
+						<table class="table table-sm table-bordered">
+							<thead class="table-light">
+								<tr>
+									<th style="width: 30%">Shortcut</th>
+									<th style="width: 70%">Function</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td><kbd>Ctrl</kbd>+<kbd>F1</kbd></td>
+									<td>Sort by first column</td>
+								</tr>
+								<tr>
+									<td><kbd>Ctrl</kbd>+<kbd>F2</kbd></td>
+									<td>Sort by second column</td>
+								</tr>
+								<tr>
+									<td><kbd>Ctrl</kbd>+<kbd>F3</kbd></td>
+									<td>Sort by third column</td>
+								</tr>
+								<tr>
+									<td><kbd>Ctrl</kbd>+<kbd>F4</kbd></td>
+									<td>Sort by fourth column</td>
+								</tr>
+								<tr>
+									<td><kbd>Ctrl</kbd>+<kbd>F5</kbd></td>
+									<td>Sort by fifth column</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="row mt-3">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header bg-success text-white">
+					<h6 class="mb-0"><i class="bi bi-sort-numeric-up me-2"></i>Logical Sorting Enhancement</h6>
+				</div>
+				<div class="card-body">
+					<h6>Intelligent Numeric Sorting</h6>
+					<p class="small">When <strong>"Sort Files Logical"</strong> option is enabled in Explorer Panel settings, numeric subfields within filenames are treated as actual numbers rather than text, resulting in more intuitive sorting order.</p>
+
+					<div class="row">
+						<div class="col-md-6">
+							<h6 class="small">Standard Text Sorting:</h6>
+							<pre class="small">file_0011.txt
 file_1.txt
 file_10.txt
 file_2.txt</pre>
-
-<p>They will be sorted as</p>
-
-<pre>
-file_1.txt
+						</div>
+						<div class="col-md-6">
+							<h6 class="small">Logical Numeric Sorting:</h6>
+							<pre class="small">file_1.txt
 file_2.txt
 file_10.txt
 file_0011.txt</pre>
+						</div>
+					</div>
 
-<h2>Select files and folders</h2>
+					<h6>Logical Sorting Benefits</h6>
+					<ul class="small">
+						<li><strong>Natural Order:</strong> Files with numeric sequences sort in expected numerical order</li>
+						<li><strong>Version Management:</strong> Software versions (v1.2, v1.10, v1.3) sort correctly</li>
+						<li><strong>Sequential Files:</strong> Image sequences, document series maintain logical order</li>
+						<li><strong>User-Friendly:</strong> Matches human expectations for numeric file ordering</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
 
-<p><img alt="" src="/Docs/Images/ExplorerPanel_selection.png" /></p>
+<section id="file-selection" class="mt-5">
+	<h3>Advanced File Selection System</h3>
+	<p>The Explorer Panel provides comprehensive file selection capabilities through multiple interaction methods, pattern-based selection tools, and persistent selection memory that accommodates diverse workflow requirements and operational preferences.</p>
 
-<p>There are many ways to select files and folders in the Explorer Panel, and Multi Commander also remembers which files and folders you had selected if you return to a location you had previously opened since Multi Commander was last started. (If Multi Commander is closed this information is lost).</p>
+	<div class="row">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header bg-info text-white">
+					<h6 class="mb-0"><i class="bi bi-check-square me-2"></i>Selection Interface Overview</h6>
+				</div>
+				<div class="card-body">
+					<div class="text-center mt-3 mb-3">
+						<img src="/Docs/Images/ExplorerPanel_selection.png" alt="File Selection Interface" class="img-fluid border rounded shadow-sm" />
+						<p class="text-muted small mt-2">Explorer Panel showing multiple file selection with visual selection indicators</p>
+					</div>
 
-<div class="indent">
-<h3>Mouse (Commander-Style Setup)</h3>
+					<h6>Selection Persistence</h6>
+					<ul class="small">
+						<li><strong>Session Memory:</strong> Selected files remembered when returning to previously visited locations</li>
+						<li><strong>Navigation Persistence:</strong> Selections maintained during directory navigation within session</li>
+						<li><strong>Session Scope:</strong> Selection memory active until Multi Commander is closed</li>
+						<li><strong>Workflow Continuity:</strong> Enables complex multi-step file operations across locations</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
 
-<p>Right click on the file or folder that you want to select or deselect. You can also hold down the right mouse button and drag the mouse up and down to change the selection on multiple files and folders. When changing selections on multiple files or folders, the first selection&nbsp;performed determines whether it should select or deselect all the files/folders that are under the mouse cursor until the mouse button is released.</p>
+	<div class="row mt-3">
+		<div class="col-md-6">
+			<div class="card">
+				<div class="card-header bg-warning text-dark">
+					<h6 class="mb-0"><i class="bi bi-mouse2 me-2"></i>Mouse Selection (Commander-Style)</h6>
+				</div>
+				<div class="card-body">
+					<h6>Right-Click Selection</h6>
+					<ul class="small">
+						<li><strong>Toggle Selection:</strong> Right-click files/folders to select or deselect</li>
+						<li><strong>Drag Selection:</strong> Hold right button and drag to change selection on multiple items</li>
+						<li><strong>State Determination:</strong> First click determines whether to select or deselect during drag</li>
+						<li><strong>Continuous Operation:</strong> Drag across multiple items for rapid selection changes</li>
+					</ul>
 
-<h3>Mouse (Windows Explorer-Style Setup)</h3>
+					<h6>Selection Rectangle</h6>
+					<ul class="small">
+						<li><strong>Rectangle Selection:</strong> Drag rectangle in empty space to select multiple files</li>
+						<li><strong>Setting Requirement:</strong> Must enable "Selection Rectangle" in Explorer Panel Settings</li>
+						<li><strong>Outside Start:</strong> Must begin drag outside any file/folder name</li>
+						<li><strong>Area Selection:</strong> All items touched by rectangle become selected</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-6">
+			<div class="card">
+				<div class="card-header bg-primary text-white">
+					<h6 class="mb-0"><i class="bi bi-mouse3 me-2"></i>Mouse Selection (Windows Explorer-Style)</h6>
+				</div>
+				<div class="card-body">
+					<h6>Left-Click Selection</h6>
+					<ul class="small">
+						<li><strong>Standard Selection:</strong> Left-click to select files/folders</li>
+						<li><strong>Range Selection:</strong> Hold <kbd>Shift</kbd> and click to select ranges</li>
+						<li><strong>Toggle Selection:</strong> Hold <kbd>Ctrl</kbd> to toggle individual items</li>
+						<li><strong>Windows Compatibility:</strong> Familiar behavior for Windows Explorer users</li>
+					</ul>
 
-<p>Selection works as it does in Windows Explorer. You Select files/folders with the <em>left mouse button</em>, and to select multiple files and folders you hold down the <em>shift</em> key to select/unselect a range of items. Holding down <em>CTRL</em> will let you toggle the selection of items without deselecting already selected items.<br />
-&nbsp;</p>
+					<h6>Modifier Key Combinations</h6>
+					<ul class="small">
+						<li><strong><kbd>Shift</kbd>+Click:</strong> Select range from previous selection to clicked item</li>
+						<li><strong><kbd>Ctrl</kbd>+Click:</strong> Add/remove individual items without affecting other selections</li>
+						<li><strong>Multiple Ranges:</strong> Combine Shift and Ctrl for complex selection patterns</li>
+						<li><strong>Selection Preservation:</strong> Ctrl prevents clearing existing selections</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
 
-<h3>Mouse Selection Rectangle</h3>
+	<div class="row mt-3">
+		<div class="col-md-6">
+			<div class="card">
+				<div class="card-header bg-success text-white">
+					<h6 class="mb-0"><i class="bi bi-filter me-2"></i>Pattern-Based Selection</h6>
+				</div>
+				<div class="card-body">
+					<h6>Expand/Shrink Selection by Filter</h6>
+					<ul class="small">
+						<li><strong>Expand Selection:</strong> <kbd>Num+</kbd> or Edit Menu "Select" - add files matching pattern</li>
+						<li><strong>Shrink Selection:</strong> <kbd>Num-</kbd> or Edit Menu "Unselect" - remove files matching pattern</li>
+						<li><strong>Filter Patterns:</strong> Use wildcards and complex patterns for precise selection</li>
+						<li><strong>Additive Operation:</strong> Expand adds to existing selection without clearing</li>
+					</ul>
 
-<p>If the option <strong>Selection Rectangle</strong> is checked in Explorer Panel Settings, you can also drag out a rectangle on the display. All files and folder that are touched by the rectangle will be selected. To use the selection rectangle you must start a drag operation <em>outside</em> any file or folder name.&nbsp;</p>
+					<h6>Quick Selection Shortcuts</h6>
+					<ul class="small">
+						<li><strong>Same Extension:</strong> <kbd>Ctrl</kbd>+<kbd>Num+</kbd> selects files with same extension as focused file</li>
+						<li><strong>Same Name:</strong> <kbd>Alt</kbd>+<kbd>Num+</kbd> selects files with same name but different extensions</li>
+						<li><strong>Deselect Matching:</strong> <kbd>Ctrl</kbd>+<kbd>Num-</kbd> and <kbd>Alt</kbd>+<kbd>Num-</kbd> for deselection</li>
+						<li><strong>Context-Sensitive:</strong> Operations based on currently focused file attributes</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-6">
+			<div class="card">
+				<div class="card-header bg-dark text-white">
+					<h6 class="mb-0"><i class="bi bi-keyboard me-2"></i>Keyboard Selection Controls</h6>
+				</div>
+				<div class="card-body">
+					<h6>Global Selection Operations</h6>
+					<ul class="small">
+						<li><strong>Select All:</strong> <kbd>Ctrl</kbd>+<kbd>A</kbd> or Edit Menu "Select All"</li>
+						<li><strong>Unselect All:</strong> <kbd>Ctrl</kbd>+<kbd>D</kbd> or Edit Menu "Unselect All"</li>
+						<li><strong>Invert Selection:</strong> <kbd>Num*</kbd> or Edit Menu "Invert Selection"</li>
+						<li><strong>Complete Control:</strong> Comprehensive selection management via keyboard</li>
+					</ul>
 
-<h3>Expanding / Shrinking Selection by Filter</h3>
+					<h6>Interactive Selection Keys</h6>
+					<ul class="small">
+						<li><strong>Toggle and Move:</strong> <kbd>Insert</kbd> key toggles selection and moves to next item</li>
+						<li><strong>Space Bar Toggle:</strong> <kbd>Space</kbd> toggles selection of focused item</li>
+						<li><strong>Folder Size Calculation:</strong> Space bar on folders also triggers size calculation</li>
+						<li><strong>Navigation Integration:</strong> Combine selection with movement for efficient workflows</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
 
-<p>Using the shortcut key <strong>NUM+</strong> or "<strong>Select</strong>" from the Edit Menu, an "Expand Selection" dialog will be shown where you can insert a filter and all files and folders matching that filter will be <em>selected</em>.</p>
+<section id="search-features" class="mt-5">
+	<h3>Search and Navigation Features</h3>
+	<p>The Explorer Panel integrates powerful search capabilities including Quick Search for rapid file location, Forward Keys functionality for command line integration, and comprehensive context menu support that enhances navigation efficiency and operational flexibility.</p>
 
-<p>Using the shortcut key <strong>NUM-</strong> or "<strong>Unselect</strong>" from the Edit Menu, a "Shrink Selection" dialog will be shown where you can insert a filter and all files and folders matching that filter will be <em>deselected</em>.</p>
+	<div class="row">
+		<div class="col-md-6">
+			<div class="card">
+				<div class="card-header bg-info text-white">
+					<h6 class="mb-0"><i class="bi bi-search me-2"></i>Quick Search Functionality</h6>
+				</div>
+				<div class="card-body">
+					<h6>Instant File Location</h6>
+					<ul class="small">
+						<li><strong>Commander-Style:</strong> Hold <kbd>Alt</kbd>+<kbd>Ctrl</kbd> while typing filename</li>
+						<li><strong>Explorer-Style:</strong> Simply start typing without modifier keys</li>
+						<li><strong>Focus Movement:</strong> Automatically moves focus to matching files/folders</li>
+						<li><strong>Progressive Matching:</strong> Refines search as you continue typing</li>
+					</ul>
 
-<h3>Invert Selection</h3>
+					<h6>Search Navigation</h6>
+					<ul class="small">
+						<li><strong>Next Match:</strong> <kbd>Down Arrow</kbd> while Quick Search window is active</li>
+						<li><strong>Previous Match:</strong> <kbd>Up Arrow</kbd> while Quick Search window is active</li>
+						<li><strong>Multiple Matches:</strong> Navigate through all files matching current search</li>
+						<li><strong>Search Window:</strong> Visual feedback showing current search term</li>
+					</ul>
 
-<p>By pressing the shortcut key <strong>NUM*</strong> or selecting <strong>"Invert Selection</strong>" from the Edit Menu, the selection of all the files and folders at the current location will be <em>inverted</em>. (Selected files and folders will be deselected, and unselected ones will be selected.)</p>
+					<h6>Configuration Options</h6>
+					<ul class="small">
+						<li><strong>Activation Methods:</strong> Configure trigger keys in Explorer Panel settings</li>
+						<li><strong>Alt+Ctrl+Letter:</strong> Traditional commander-style activation</li>
+						<li><strong>Alt+Letter:</strong> Simplified activation method</li>
+						<li><strong>Any Letter:</strong> Direct typing activation (disables Forward Keys)</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-6">
+			<div class="card">
+				<div class="card-header bg-warning text-dark">
+					<h6 class="mb-0"><i class="bi bi-terminal me-2"></i>Forward Keys Integration</h6>
+				</div>
+				<div class="card-body">
+					<h6>Command Line Integration</h6>
+					<ul class="small">
+						<li><strong>Automatic Forwarding:</strong> Key presses forwarded to command line bar in Commander-Style</li>
+						<li><strong>Direct Command Entry:</strong> Start typing commands without changing focus manually</li>
+						<li><strong>Workflow Efficiency:</strong> Seamless transition from file browsing to command execution</li>
+						<li><strong>Focus Management:</strong> Eliminates need to manually activate command line</li>
+					</ul>
 
-<h3>Select All /&nbsp;Unselect All</h3>
+					<h6>Manual Focus Control</h6>
+					<ul class="small">
+						<li><strong>Force Focus:</strong> <kbd>§</kbd> key changes input focus to command line bar</li>
+						<li><strong>Keyboard Layout:</strong> Key position varies by language/layout (left of '1' key)</li>
+						<li><strong>Laptop Variations:</strong> May differ on laptop keyboards</li>
+						<li><strong>Customizable:</strong> Key assignment configurable in keyboard customization manager</li>
+					</ul>
 
-<p>Use the shortcut key<strong> CTRL+A</strong> or choose "<strong>Select All</strong>" from the Edit Menu to select <em>all</em> files and folders at the current location. Use <strong>CTRL+D</strong> or choose "<strong>Unselect All</strong>" from the Edit Menu to deselect all files and folders.&nbsp;</p>
+					<h6>Feature Interaction</h6>
+					<ul class="small">
+						<li><strong>Quick Search Conflict:</strong> Forward Keys disabled when Quick Search uses "any letter"</li>
+						<li><strong>Mode Selection:</strong> Choose between Quick Search and Forward Keys functionality</li>
+						<li><strong>Configuration Trade-off:</strong> Enable Quick Search or Forward Keys, not both</li>
+						<li><strong>Workflow Preference:</strong> Select based on primary usage pattern</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
 
-<h3>Quick Select Matching Extension or Filename</h3>
+	<div class="row mt-3">
+		<div class="col-md-6">
+			<div class="card">
+				<div class="card-header bg-primary text-white">
+					<h6 class="mb-0"><i class="bi bi-menu-button-wide me-2"></i>Context Menu System</h6>
+				</div>
+				<div class="card-body">
+					<h6>Adaptive Context Menus</h6>
+					<ul class="small">
+						<li><strong>Windows Integration:</strong> Standard Windows Explorer right-click context menu</li>
+						<li><strong>Multi Commander Extensions:</strong> Additional actions and Multi Commander-specific options</li>
+						<li><strong>Mode-Dependent Access:</strong> Different activation methods based on interface style</li>
+						<li><strong>Context Sensitivity:</strong> Menu contents adapt to selected files/folders</li>
+					</ul>
 
-<p>Using the shortcut key <strong>CTRL</strong> + <strong>NUM+</strong> or "Select same extension" from the Edit Menu, all files with the same file extension as the file currently in focus will be selected. <strong>Similarly, CTRL</strong> + <strong>NUM-</strong> deselects the files.</p>
+					<h6>Access Methods</h6>
+					<ul class="small">
+						<li><strong>Explorer-Style:</strong> Right mouse button immediately shows context menu</li>
+						<li><strong>Commander-Style:</strong> Hold right button for 2 seconds to show menu</li>
+						<li><strong>Double Right-Click:</strong> Double right-click also displays context menu</li>
+						<li><strong>Selection Conflict:</strong> Right-click primary function is selection in Commander-Style</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-6">
+			<div class="card">
+				<div class="card-header bg-success text-white">
+					<h6 class="mb-0"><i class="bi bi-arrows-move me-2"></i>Drag and Drop Operations</h6>
+				</div>
+				<div class="card-body">
+					<h6>File Transfer Operations</h6>
+					<ul class="small">
+						<li><strong>Left Mouse Button:</strong> Drag selected files using left mouse button</li>
+						<li><strong>Same Drive Default:</strong> Files dropped on same drive default to Move operation</li>
+						<li><strong>Cross Drive Default:</strong> Files dropped on different drives default to Copy operation</li>
+						<li><strong>Operation Override:</strong> Hold <kbd>Shift</kbd> while dropping to force specific operation</li>
+					</ul>
 
-<p>Using the shortcut key <strong>ALT</strong> + <strong>NUM+</strong> or "Select same name" from the Edit Menu causes all Files with the same name, except those having the same file extension as the file currently in focus, to be selected. <strong>ALT</strong> + <strong>NUM-</strong> similarly deselects matching files.</p>
+					<h6>Drag and Drop Behavior</h6>
+					<ul class="small">
+						<li><strong>Visual Feedback:</strong> Drag cursor indicates operation type (copy/move)</li>
+						<li><strong>Drop Target Highlighting:</strong> Valid drop zones highlighted during drag</li>
+						<li><strong>Modifier Keys:</strong> Control operation type through keyboard modifiers</li>
+						<li><strong>Cross-Panel Support:</strong> Drag between left and right Explorer Panels</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
 
-<h3>Toggle Selection from keyboard shortcuts</h3>
+<section id="clipboard-operations" class="mt-5">
+	<h3>Clipboard Operations and Integration</h3>
+	<p>The Explorer Panel provides comprehensive clipboard integration that extends standard Windows copy/paste functionality with specialized path copying features, intelligent content detection, and advanced paste capabilities for various data types including paths, images, and text content.</p>
 
-<p>You can toggle the selection of files and folder with the <strong>INSERT</strong> key; this key will toggle the selection of the current items in focus and then move down to the next item.</p>
+	<div class="row">
+		<div class="col-md-6">
+			<div class="card">
+				<div class="card-header bg-success text-white">
+					<h6 class="mb-0"><i class="bi bi-clipboard me-2"></i>Advanced Copy Operations</h6>
+				</div>
+				<div class="card-body">
+					<h6>Path Copying Shortcuts</h6>
+					<div class="table-responsive">
+						<table class="table table-sm table-bordered">
+							<thead class="table-light">
+								<tr>
+									<th style="width: 40%">Shortcut</th>
+									<th style="width: 60%">Function</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td><kbd>Ctrl</kbd>+<kbd>P</kbd></td>
+									<td>Copy complete path with filename</td>
+								</tr>
+								<tr>
+									<td><kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd></td>
+									<td>Copy only filename(s)</td>
+								</tr>
+								<tr>
+									<td><kbd>Shift</kbd>+<kbd>Alt</kbd>+<kbd>P</kbd></td>
+									<td>Copy only path without filename</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
 
-<p>Toggling the selecting files and folders can also be performed with the <strong>SPACE</strong> bar. If a selection is performed on a folder an action to calcuate the folder size is also issued.</p>
+					<h6>Copy Operation Benefits</h6>
+					<ul class="small">
+						<li><strong>External Integration:</strong> Paste paths into other applications and documents</li>
+						<li><strong>Flexible Options:</strong> Choose specific path components based on needs</li>
+						<li><strong>Multiple Files:</strong> Works with multiple selected files/folders</li>
+						<li><strong>Workflow Enhancement:</strong> Rapid path sharing between applications</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-6">
+			<div class="card">
+				<div class="card-header bg-primary text-white">
+					<h6 class="mb-0"><i class="bi bi-clipboard-plus me-2"></i>Intelligent Paste Operations</h6>
+				</div>
+				<div class="card-body">
+					<h6>Path Navigation</h6>
+					<ul class="small">
+						<li><strong>Path Paste:</strong> <kbd>Ctrl</kbd>+<kbd>V</kbd> with file/folder path in clipboard</li>
+						<li><strong>Automatic Navigation:</strong> Explorer Panel navigates to pasted path location</li>
+						<li><strong>Continued Browsing:</strong> Resume file management from pasted location</li>
+						<li><strong>Path Validation:</strong> Automatic verification of pasted path validity</li>
+					</ul>
+
+					<h6>Content Type Detection</h6>
+					<ul class="small">
+						<li><strong>Intelligent Detection:</strong> Multi Commander identifies clipboard data type</li>
+						<li><strong>Image Content:</strong> Screen captures and image data detected automatically</li>
+						<li><strong>Text Content:</strong> Text data identified for file creation</li>
+						<li><strong>Format Options:</strong> Choose appropriate file format for content type</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="row mt-3">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header bg-info text-white">
+					<h6 class="mb-0"><i class="bi bi-image me-2"></i>Advanced Content Handling</h6>
+				</div>
+				<div class="card-body">
+					<div class="text-center mt-3 mb-3">
+						<img src="/Docs/Images/saveclipboardasimg.png" alt="Save Clipboard as Image Dialog" class="img-fluid border rounded shadow-sm" />
+						<p class="text-muted small mt-2">Save Clipboard dialog showing image format options for screen captures and image content</p>
+					</div>
+
+					<h6>Image Content Handling</h6>
+					<ul class="small">
+						<li><strong>Image Detection:</strong> Automatic detection of image data (screen captures, copied images)</li>
+						<li><strong>Format Selection:</strong> Choose from BMP, JPG, or PNG output formats</li>
+						<li><strong>Save Dialog:</strong> Interactive dialog for filename and format selection</li>
+						<li><strong>Quality Control:</strong> Format-specific options for optimal image saving</li>
+					</ul>
+
+					<h6>Text Content Handling</h6>
+					<ul class="small">
+						<li><strong>Text Detection:</strong> Automatic identification of text content in clipboard</li>
+						<li><strong>Encoding Options:</strong> Save as ASCII or Unicode text files</li>
+						<li><strong>File Creation:</strong> Direct creation of text files from clipboard content</li>
+						<li><strong>Format Preservation:</strong> Maintain text formatting and encoding as appropriate</li>
+					</ul>
+
+					<h6>Workflow Integration</h6>
+					<ul class="small">
+						<li><strong>Screen Capture Workflow:</strong> Take screenshot, paste to save directly as image file</li>
+						<li><strong>Text Collection:</strong> Copy text from applications, save as files for processing</li>
+						<li><strong>Content Organization:</strong> Transform clipboard content into organized file system resources</li>
+						<li><strong>External Integration:</strong> Bridge between applications and file system organization</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<section id="favorites-bookmarks" class="mt-5">
+	<h3>Favorites and Bookmarks System</h3>
+	<p>Multi Commander provides multiple sophisticated bookmark and favorites systems that enable rapid access to frequently used locations through various interface components and customizable shortcut mechanisms tailored to different workflow preferences and operational patterns.</p>
+
+	<div class="row">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header bg-dark text-white">
+					<h6 class="mb-0"><i class="bi bi-star me-2"></i>Favorites Implementation Methods</h6>
+				</div>
+				<div class="card-body">
+					<h6>Available Bookmark Systems</h6>
+					<ul class="small">
+						<li><strong>User Defined Command in Button Panel:</strong> Visual buttons for frequently accessed locations</li>
+						<li><strong>Alias for Command Line Field:</strong> Text shortcuts for keyboard-centric navigation</li>
+						<li><strong>User Command in Menu Bar:</strong> Menu-integrated location shortcuts</li>
+						<li><strong>Quick Launch Bar:</strong> Drag-and-drop location shortcuts</li>
+						<li><strong>Favorites Window:</strong> Dedicated favorites management interface</li>
+						<li><strong>Quick Paths:</strong> Rapid path access system</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="row mt-3">
+		<div class="col-md-6">
+			<div class="card">
+				<div class="card-header bg-warning text-dark">
+					<h6 class="mb-0"><i class="bi bi-grid-3x3-gap me-2"></i>Button Panel Integration</h6>
+				</div>
+				<div class="card-body">
+					<h6>Visual Location Shortcuts</h6>
+					<ul class="small">
+						<li><strong>Wizard Mode Activation:</strong> Enable Wizard Mode for easy button creation</li>
+						<li><strong>Drag-and-Drop Setup:</strong> Drag folders to buttons for instant location shortcuts</li>
+						<li><strong>Visual Interface:</strong> Click buttons to navigate to stored locations</li>
+						<li><strong>Custom Configuration:</strong> Configure buttons through Button Panel Wizard dialog</li>
+					</ul>
+
+					<h6>Setup Process</h6>
+					<ul class="small">
+						<li><strong>Enable Wizard:</strong> Press "Wizard Mode (On/Off)" button or configuration menu</li>
+						<li><strong>Red Background:</strong> Wizard mode indicated by red background around buttons</li>
+						<li><strong>Drag Target:</strong> Drag file/folder to any button position</li>
+						<li><strong>Dialog Selection:</strong> Choose "Go to file / path in Multi Commander" option</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-6">
+			<div class="card">
+				<div class="card-header bg-success text-white">
+					<h6 class="mb-0"><i class="bi bi-terminal me-2"></i>Command Line Aliases</h6>
+				</div>
+				<div class="card-body">
+					<h6>Keyboard-Centric Shortcuts</h6>
+					<ul class="small">
+						<li><strong>Text Shortcuts:</strong> Type alias name in command line to navigate</li>
+						<li><strong>Manual Creation:</strong> Use Alias Editor under Configuration menu</li>
+						<li><strong>Quick Commands:</strong> "alias" and "alias2" commands for rapid creation</li>
+						<li><strong>Efficient Navigation:</strong> Ideal for keyboard-focused workflows</li>
+					</ul>
+
+					<h6>Alias Creation Examples</h6>
+					<pre class="small">alias mp3="d:\my music\mp3\"
+alias2 mp3</pre>
+
+					<h6>Creation Methods</h6>
+					<ul class="small">
+						<li><strong>Alias Command:</strong> <code>alias name="full path"</code> for explicit path definition</li>
+						<li><strong>Alias2 Command:</strong> <code>alias2 name</code> uses current panel path</li>
+						<li><strong>Path Quotes:</strong> Required only when paths contain spaces</li>
+						<li><strong>Instant Access:</strong> Type alias name and press Enter to navigate</li>
+					</ul>
+
+					<div class="alert alert-info p-2 mt-3">
+						<h6 class="small mb-1"><i class="bi bi-info-circle me-1"></i>Detailed Information</h6>
+						<p class="small mb-0">See <a href="/Docs/aliases" class="text-decoration-none">Aliases Documentation</a> for comprehensive alias management.</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="row mt-3">
+		<div class="col-md-6">
+			<div class="card">
+				<div class="card-header bg-primary text-white">
+					<h6 class="mb-0"><i class="bi bi-menu-button me-2"></i>Menu Bar Integration</h6>
+				</div>
+				<div class="card-body">
+					<h6>User Defined Commands</h6>
+					<ul class="small">
+						<li><strong>MC.Explorer.GoTo Command:</strong> Core command for location navigation</li>
+						<li><strong>Parameter Options:</strong> PATH, LEFT, RIGHT for specific panel targeting</li>
+						<li><strong>Menu Integration:</strong> Add commands to menu bar after creation</li>
+						<li><strong>Organized Access:</strong> Group location shortcuts in menu structure</li>
+					</ul>
+
+					<h6>Command Example</h6>
+					<pre class="small">MC.Explorer.GoTo PATH="D:\My Music\MP3"</pre>
+
+					<h6>Advanced Options</h6>
+					<ul class="small">
+						<li><strong>Panel Targeting:</strong> Use LEFT/RIGHT instead of PATH for specific panel control</li>
+						<li><strong>Menu Organization:</strong> Create hierarchical menu structures for location groups</li>
+						<li><strong>Command Saving:</strong> Save and access through Menu button</li>
+						<li><strong>Integration Benefits:</strong> Consistent with Multi Commander's command system</li>
+					</ul>
+
+					<div class="alert alert-info p-2 mt-3">
+						<h6 class="small mb-1"><i class="bi bi-info-circle me-1"></i>Detailed Coverage</h6>
+						<p class="small mb-0">See <a href="/Docs/user-defined-commands" class="text-decoration-none">User Defined Commands</a> for complete functionality.</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-6">
+			<div class="card">
+				<div class="card-header bg-info text-white">
+					<h6 class="mb-0"><i class="bi bi-lightning me-2"></i>Quick Launch Bar</h6>
+				</div>
+				<div class="card-body">
+					<h6>Drag-and-Drop Shortcuts</h6>
+					<ul class="small">
+						<li><strong>Direct Drag-and-Drop:</strong> Drag files and folders directly to Quick Launch Bar</li>
+						<li><strong>Folder Navigation:</strong> Click folders on Quick Launch Bar to navigate</li>
+						<li><strong>User Command Integration:</strong> Right-click to insert User Defined Commands</li>
+						<li><strong>Visual Access:</strong> Immediate visual access to favorite locations</li>
+					</ul>
+
+					<h6>Integration Benefits</h6>
+					<ul class="small">
+						<li><strong>Mixed Content:</strong> Combine folders, files, and commands on same bar</li>
+						<li><strong>Workflow Integration:</strong> Part of main interface for constant access</li>
+						<li><strong>Easy Setup:</strong> No configuration required for basic folder shortcuts</li>
+						<li><strong>Command Extension:</strong> Enhanced with User Defined Commands for advanced functionality</li>
+					</ul>
+
+					<div class="alert alert-info p-2 mt-3">
+						<h6 class="small mb-1"><i class="bi bi-info-circle me-1"></i>Comprehensive Guide</h6>
+						<p class="small mb-0">See <a href="/Docs/quicklaunchbar" class="text-decoration-none">Quick Launch Bar</a> for detailed configuration options.</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<section id="keyboard-reference" class="mt-5">
+	<h3>Complete Keyboard Shortcuts Reference</h3>
+	<p>The Explorer Panel supports extensive keyboard shortcuts for all navigation, selection, and file management operations, enabling complete functionality access through keyboard-only interaction for maximum efficiency and accessibility.</p>
+
+	<div class="row">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header bg-dark text-white">
+					<h6 class="mb-0"><i class="bi bi-keyboard me-2"></i>Comprehensive Keyboard Reference</h6>
+				</div>
+				<div class="card-body">
+					<h6>Complete Shortcut Documentation</h6>
+					<ul class="small">
+						<li><strong>Commander-Style Shortcuts:</strong> <a href="/Docs/keyboard-shortcuts/CommanderStyle" class="text-decoration-none">Default Keyboard Shortcuts (Commander style setup)</a></li>
+						<li><strong>Explorer-Style Shortcuts:</strong> <a href="/Docs/keyboard-shortcuts/WindowsExplorerStyle" class="text-decoration-none">Default Keyboard Shortcuts (Windows Explorer style setup)</a></li>
+						<li><strong>Context-Sensitive:</strong> Different shortcuts available based on selected interface style</li>
+						<li><strong>Customizable:</strong> All shortcuts can be modified through keyboard customization manager</li>
+					</ul>
+
+					<h6>Key Navigation Categories</h6>
+					<ul class="small">
+						<li><strong>File System Navigation:</strong> Directory movement, sibling navigation, panel synchronization</li>
+						<li><strong>Selection Operations:</strong> Pattern-based selection, range selection, inversion operations</li>
+						<li><strong>File Operations:</strong> Copy, move, delete, rename through keyboard shortcuts</li>
+						<li><strong>Interface Control:</strong> Panel management, view switching, component toggling</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<div class="alert alert-success mt-5">
+	<h6><i class="bi bi-lightbulb me-2"></i>Explorer Panel Navigation Mastery</h6>
+	<p class="mb-0">Master Explorer Panel Navigation by understanding the fundamental differences between Commander-Style and Windows Explorer-Style operation modes, utilizing advanced navigation features like sibling folder navigation and panel synchronization, leveraging comprehensive selection methods including pattern-based selection and keyboard shortcuts, and integrating Quick Search and clipboard operations for maximum efficiency. Remember that Multi Commander's navigation system scales from basic file browsing to sophisticated multi-panel workflows through consistent keyboard and mouse interaction paradigms that adapt to your preferred working style.</p>
 </div>
 
-<h2>Quick Search</h2>
-
-<p>Quick Search allows you to start typing a name and the focus will change to files or folders starting with that name. Using the default commander-style setup you need to hold down <strong>ALT</strong> and <strong>CTRL</strong> key while typing. This can be configured in the settings for the Explorer Panel.&nbsp;</p>
-
-<p>When the Quick Search window is active you can press the <strong>UP</strong> and <strong>DOWN&nbsp;ARROW</strong> keys to move to the previous or next file or folder that matches the current quick search.</p>
-
-<p>With Windows Explorer-Style Setup you can just start typing without holding any other key down. However, this setup will disable the feature that forwards all key-presses to the command line bar.</p>
-
-<p>In the settings for the Explorer Panel you can configure the Quick Search window to be activated with<strong> ALT+CTRL+&lt;any letter&gt;</strong> or<strong> ALT+&lt;any letter&gt;</strong> or simply <strong>&lt;any letter&gt;</strong>. If configured to be activated by any letter typed, then the <em>Forward Keys to the command line</em> feature will be disabled.</p>
-
-<h2>Forward Keys</h2>
-
-<p>With the default Commander-Style Setup, key-presses are forwarded to the command line bar. This make it possible for you to start typing a command without having to first manually change input focus to the command line bar.</p>
-
-<p>It is possible to change the input focus to the command line bar with the shortcut key <strong>§</strong>. (This key may have a different character depending on keyboard layout or language. It is the key to the left of the '1' key on a normal keyboard. Laptop keyboards can be different). This key can be reconfigured in the keyboard customization manager.</p>
-
-<h2>Context Menu</h2>
-
-<p>The <em>context menu</em> is the <em>right click menu</em> that you see in Windows Explorer. In MultiCommander this can be shown in different ways and additional actions can be shown in the menu. If MultiCommander is set to Window Explorer style the context menu is shown using the right mouse button. However, for the default commander-style setup the right mouse button toggles the selections of files and folder with. But if you hold the right button down for 2 seconds it will show the context menu. Double clicking with the right button will also bring up the context menu.</p>
-
-<h2>Drag and Drop</h2>
-
-<p>You can drag and drop selected files using the left mouse button. If files are dropped on the same drive the file operation will default to a <em>Move</em> Operation instead of a <em>Copy</em> Operation. To avoid&nbsp; this hold down the <strong>SHIFT</strong> key while dropping the files.</p>
-
-<h2>Copy / Paste</h2>
-
-<p>Copying and pasting of files and folders can be performed just as in Windows Explorer, but there is also a function to copy the path of a file to the clipboard so that you can paste that path or filename into another program.</p>
-
-<h3>Copy to the Clipboard</h3>
-
-<p><strong>CTRL+P</strong> will copy the complete path with the name of the selected file or folder to the clipboard.<br />
-<strong>CTRL+SHIFT+P</strong> will copy only the name of the selected files or folders to the clipboard.<br />
-<strong>SHIFT+ALT+P</strong> will copy only the path of the selected files or folders to the clipboard.</p>
-
-<h3>Paste from the Clipboard</h3>
-
-<p>If you have a path to a file or folder already in the clipboard you can paste that path into the Explorer Panel with <strong>CTRL+V</strong>. It will then show you that path so you can continue browsing that location.</p>
-
-<p><img alt="" src="/Docs/Images/saveclipboardasimg.png" /></p>
-
-<p>If the data in the clipboard is not a file path, MultiCommander will attempt to identify what type of data it is. If it is an image (e.g. a screen capture) then you will be presented with a dialog to save the content from the clipboard as an image and you can choose which image format you want to save it as <strong>(BMP/JPG/PNG)</strong>.&nbsp;</p>
-
-<p>If the data is identified as text you will be presented with a dialog to save the content from the clipboard as a text file and you can choose to save the text content as <strong>ASCII</strong> or <strong>Unicode.</strong><br />
-&nbsp;</p>
-
-<h2>Keyboard shortcuts</h2>
-
-<ul>
-	<li><a href="#docs_keyboard-shortcuts/CommanderStyle">Default Keyboard Shortcuts (Commander style setup)</a></li>
-	<li><a href="#docs_keyboard-shortcuts/WindowsExplorerStyle">Default Keyboard Shortcuts (Windows Explorer style setup)</a></li>
-</ul>
-
-<h2>Favorites/Bookmarks</h2>
-
-<p>There are several ways to have Favorites/Bookmarks in Multi Commander</p>
-
-<ul>
-	<li>User Defined Command in the Button Panel</li>
-	<li>Alias for the command line field</li>
-	<li>User Command in the Menu Bar</li>
-	<li>Quick Launch Bar</li>
-	<li>Favorites Window</li>
-	<li>Quick Paths</li>
-</ul>
-
-<div class="indent">
-<h3><span style="line-height: 1.2; font-size: 13px;">User Defined Command in the Button Panel</span></h3>
-
-<p>Using <strong>User Defined Commands</strong> you can easily create a <strong>Button Panel </strong>button to change the current path. First activate <em>Wizard mode</em> by pressing the <strong>Wizard Mode (On/Off)</strong> button. (It is the last button to the right on the bottom row) or from the <em>configuration menu</em> by selecting <strong>Toggle button panel wizard mode</strong></p>
-
-<p>When <em><strong>Wizard Mode</strong></em> is active the button panel will have a red background around the buttons. You can now <strong>drag and drop</strong> a file or folder to any button and the <em>Button Panel Wizard</em> dialog will be shown. Click on <strong>Go to file / path in Multi Commander</strong> in the dialog and then press <strong>OK</strong>. You now have a button that when pressed will take you to that file or location.</p>
-
-<h3>Alias for the Command Line Field</h3>
-
-<p>An <em>alias</em> is a shortcut you type into the Multi Commander command line field that will expand into one or more longer commands. If you enter a path location in the Multi Commander command line field and then press return, Multi Commander will go to that location. So by creating an <em>alias</em> for a <em>path</em> you can go to that path by just typing the alias you assigned it. For people who like to be able to go to different paths quickly using the keyboard this is very useful and efficient.</p>
-
-<p>You create an alias in the <strong>Alias Editor</strong> that you find under the <strong>Configuration</strong> menu. But there are also two quick commands, <em>Alias</em> and <em>Alias2</em>, that can create an alias directly from the command line field. For example,&nbsp; if you wish to create a command line shortcut that takes you to your folder "<em>D:\my music\mp3</em>\" you can type <strong>alias mp3="d:\my music\mp3\"</strong>. (The quotes are only needed if there are spaces in the the path). Now when you type <strong>mp3</strong> in the command line field and press return, Multi Commander will expand the "mp3" alias to the full path and execute that. Since it is a path it will go to that location.</p>
-
-<p>But there is an even easier way to create this alias, and that is to use the <em>alias2</em> command. This command only takes the alias name as a parameter and assumes that the current path in the Explorer Panel will be the target path for that name. So if the path<em> D:\my music\mp3\</em> is open and in the command line field you type <strong>alias2 mp3</strong>, you will create an alias named <strong>mp3</strong> that will take you to the path <strong>D:\my music\mp3\</strong>.</p>
-
-<p><a href="#docs_aliases">Read more about aliases</a></p>
-
-<h3>User Defined Commands in the Menu Bar</h3>
-
-<p>The custom command for changing the path is MC.Explorer.GoTo. If you want a command that takes you to the MP3 folder we used in the alias example above you write</p>
-
-<pre>
-MC.Explorer.GoTo PATH="D:\My Music\MP3"</pre>
-
-<p>You can also specify LEFT/RIGHT (instead of PATH) if you want to control in which panel side the path should be opened.</p>
-
-<p>After you have written your command and saved it, you can press the Menu button. From here you can add the newly created command to the menu bar.</p>
-
-<p><a href="#docs_user-defined-commands">Read more about User Defined Commands</a></p>
-
-<h3>Quick Launch Bar</h3>
-
-<p>You can Drag and Drop files and folders to the Quick Launch Bar. When a folder that is placed on the Quick Launch Bar is clicked, It will change the current panel to that path. You can also place a User Defined Command in the Quick Launch Bar by right-clicking on it and selecting <em>Insert User Defined Command</em>.</p>
-
-<p><a href="#docs_quicklaunchbar">Read more about Quick Launch Bar</a>.</p>
+<div class="alert alert-info mt-4">
+	<h6><i class="bi bi-info-circle me-2"></i>Related Navigation Documentation</h6>
+	<p class="mb-0">Enhance your navigation expertise with related Explorer Panel features: <a href="/Docs/ExplorerPanel" class="text-decoration-none">Explorer Panel Overview</a>, <a href="/Docs/ExplorerPanel-Layout" class="text-decoration-none">Explorer Panel Layout</a>, <a href="/Docs/ExplorerPanelPathField" class="text-decoration-none">Path Field</a>, <a href="/Docs/selection" class="text-decoration-none">File Selection</a>, <a href="/Docs/keyboard-customization" class="text-decoration-none">Keyboard Customization</a>, <a href="/Docs/aliases" class="text-decoration-none">Aliases</a>, <a href="/Docs/user-defined-commands" class="text-decoration-none">User Defined Commands</a>, and <a href="/Docs/favorites" class="text-decoration-none">Favorites</a>.</p>
 </div>
 
 

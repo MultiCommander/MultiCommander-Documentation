@@ -1,137 +1,560 @@
-<h2>Sort Lines in Files</h2>
-<p><img alt="" src="/Docs/Images/SortLinesDlg.png" style="width: 418px; height: 474px;" /></p>
+﻿<h2>Sort Lines in Files</h2>
 
-<p>Sort Lines has many options to control how the sorting should be done. It will sort lines in all selected text files. The number of files it will try to sort is shown in the dialog.</p>
+<p>Multi Commander's <strong>Sort Lines</strong> tool is a powerful text processing utility that provides advanced line sorting capabilities for text files. With comprehensive customization options, it can handle complex sorting scenarios including multi-field sorting, date-based sorting, numerical sorting, and sophisticated text processing requirements.</p>
 
-<p>Sort Lines will automatically identify file formats: files encoded in ASCII/Unicode/UTF8 are supported. Note that files identified as binary <strong>will be ignored</strong>.<br />
-The newline character(s) that the file currently has will be kept, So if a file has only CR (carriage return) as a newline character the new file will also have only CR.</p>
-
-<p>In the Filename field you set what the name of the sorted file will be. Sorted files will always be saved in the same folder as the original and only the Filename can be set: the original extension will be kept.</p>
-
-<p>If multiple files are select you will see a "*" in the Filename field. The * represents the original Filename and file extension.<br />
-If you have two files select named "MyFile1.txt" and "MyFile2.txt" and the Filename field has the value "*_sorted.*" the new Filenames will be "MyFile1_sorted.txt" and "MyFile2_sorted.txt".</p>
-
-<p>In the Save as... dropdown list you can select to save the new file with a different name. You can also choose to keep the original name (but rename the original files by adding .bak to its name), or it can delete the original file.</p>
-
-<h2><b>Lines and Position limits</b></h2>
-
-<div class="docs-indent">
-<h3>Keep lines at the top</h3>
-
-<p>This defines how many line at the top of each file that should not be sorted. For example, if you have a header in the text file that is 2 lines high you can set this to "2". The new, sorted file will then still have a 2-line header.</p>
-
-<h3>Keep lines at the bottom</h3>
-
-<p>This defines how many lines at the bottom of each file that should not be sorted. For example, if you have a 3-line footer text this option will ensure that those 3 lines are not moved by sorting.</p>
-
-<h3>Start at line position</h3>
-
-<p>Where on each line the sorting should begin. If lines should not be sorted beginning at character 1, you can control at which position it should begin. Changing this settings will change the position of the "*" character in the preview ruler at the bottom of the dialog. This shows clearly at what position sorting will begin.</p>
-
-<h3>Skip Leading spaces</h3>
-
-<p>By checking this option all leading white spaces will be ignored when comparing lines during search.</p>
+<div class="text-center my-4">
+	<img src="/Docs/Images/SortLinesDlg.png" alt="Sort Lines Dialog" class="img-fluid border rounded shadow-sm" style="max-width: 418px;" />
+	<p class="text-muted small mt-2">The Sort Lines dialog provides extensive configuration options for precise sorting control</p>
 </div>
 
-<hr />
-<h2><strong>Sort lines by</strong></h2>
+<h3>Overview and Capabilities</h3>
 
-<div class="docs-indent">
-<p>There are 3 different ways to sort lines: Entire line, Substring or by Line item (record)</p>
+<p>The Sort Lines tool operates on all selected text files in the Explorer Panel, making it ideal for batch processing. The tool automatically detects and preserves file encoding (ASCII, Unicode, UTF-8) and maintains original line ending formats.</p>
 
-<h3><b>Entire line</b></h3>
-
-<p>This will compare the entire line from the defined start position to the end.</p>
-
-<h3><b>Substring, Substring ends at</b></h3>
-
-<div class="docs-indent">
-<p>This can be used if sorting should be based on a specific substring in a text.<br />
-Use the option above "Start at line position" to set the beginning of the substring.<br />
-Then use any of the following settings to set where the end of the string is.</p>
-
-<h3>Fixed length</h3>
-
-<p>If the substring that the sorting is based on has a fixed length you can define it here.</p>
-
-<h3>End character</h3>
-
-<p>If the substring that the sorting is based on should end when it comes to a specific character.</p>
-
-<h3>Any white space character</h3>
-
-<p>If the substring that the sorting is based on ends when any white space character is found.</p>
+<div class="alert alert-info">
+	<h6><i class="bi bi-info-circle me-2"></i>File Processing</h6>
+	<p>Sort Lines processes all selected text files. The dialog shows the number of files to be processed. Binary files are automatically detected and ignored to prevent corruption.</p>
 </div>
 
-<h3><b>Line Item</b></h3>
-
-<div class="docs-indent">
-<p>If every line has items (records) that are separate by a special character you can defined which item/record it should be sorted by.</p>
-
-<h3>Item separator</h3>
-
-<p>Which character will separate the items (records) from each other. (Eg. for a comma-separated list, that would be comma "," ).</p>
-
-<h3>Item</h3>
-
-<p>Which item on the line the sorting should be based one First item is 1, second is 2, and so on.</p>
+<div class="row mt-4">
+	<div class="col-md-6">
+		<div class="card">
+			<div class="card-header bg-success text-white">
+				<h6 class="mb-0"><i class="bi bi-check-circle me-2"></i>Supported Features</h6>
+			</div>
+			<div class="card-body">
+				<ul class="small mb-0">
+					<li>Multiple file batch processing</li>
+					<li>Automatic encoding detection and preservation</li>
+					<li>Header and footer line preservation</li>
+					<li>Substring and field-based sorting</li>
+					<li>Date, number, and text sorting methods</li>
+					<li>Language-aware sorting with locale support</li>
+					<li>Natural number ordering</li>
+					<li>Flexible output file naming</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<div class="col-md-6">
+		<div class="card">
+			<div class="card-header bg-primary text-white">
+				<h6 class="mb-0"><i class="bi bi-gear me-2"></i>Advanced Options</h6>
+			</div>
+			<div class="card-body">
+				<ul class="small mb-0">
+					<li>Position-based sorting with character offsets</li>
+					<li>Item/record-based sorting with separators</li>
+					<li>Case-sensitive and case-insensitive modes</li>
+					<li>Reverse sorting capabilities</li>
+					<li>Leading whitespace handling</li>
+					<li>Blank line removal</li>
+					<li>Backup file creation</li>
+					<li>Preview with position ruler</li>
+				</ul>
+			</div>
+		</div>
+	</div>
 </div>
+
+<h3>File Output Options</h3>
+
+<h4>Filename Configuration</h4>
+<p>The filename field controls how sorted files are named and saved:</p>
+
+<div class="row mt-4">
+	<div class="col-md-6">
+		<div class="card">
+			<div class="card-body">
+				<h6 class="card-title">Single File Processing</h6>
+				<p class="card-text small">Enter a specific filename for the sorted output. The original extension is automatically preserved.</p>
+				<p class="card-text small"><strong>Example:</strong> Original file "data.txt" → Sorted file "data_sorted.txt"</p>
+			</div>
+		</div>
+	</div>
+	<div class="col-md-6">
+		<div class="card">
+			<div class="card-body">
+				<h6 class="card-title">Multiple File Processing</h6>
+				<p class="card-text small">Use "*" as a placeholder for the original filename. The wildcard represents both filename and extension.</p>
+				<p class="card-text small"><strong>Example:</strong> Pattern "*_sorted.*" transforms "file1.txt" → "file1_sorted.txt"</p>
+			</div>
+		</div>
+	</div>
 </div>
 
-<h2>Options</h2>
+<h4>Save Options</h4>
+<p>The "Save as..." dropdown provides flexible output strategies:</p>
 
-<div class="docs-indent">
-<h3><b>Sort Method</b></h3>
-
-<p>There are three methods to sort by: Text,Date and Number.</p>
-
-<div class="docs-indent">
-<h3>Text</h3>
-
-<p>The text to be compared for sorting is plain text.</p>
-
-<h3>Date</h3>
-
-<p><img alt="" src="/Docs/Images/SortLines_DateFormat.png" style="width: 240px; height: 89px;" /></p>
-
-<p>The text that will be compared for sorting is actually a date or time written as text.<br />
-To be able to compare date/time correctly the correct date/time formatting of the date/time must be provided. If the date/time matching format is not correct the sorting will not be correct.<br />
-Press the "&lt;" button under the dropdown list for examples of date/time matching formats to use.</p>
-
-<p><a href="http://msdn.microsoft.com/en-us/library/windows/desktop/dd317787(v=vs.85).aspx">Date Format</a> - <a href="http://msdn.microsoft.com/en-us/library/windows/desktop/dd318148(v=vs.85).aspx">Time Format</a></p>
-
-<h3>Number</h3>
-
-<p>The text that will be compare is actually numbers: the number will be compared as a digital value and <em>not as text</em>. Leading zeros (0) will be ignored: only digits will be used.</p>
+<div class="table-responsive">
+	<table class="table table-striped">
+		<thead>
+			<tr>
+				<th>Option</th>
+				<th>Behavior</th>
+				<th>Use Case</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td><strong>New Name</strong></td>
+				<td>Create new file with specified name</td>
+				<td>Keep original files unchanged</td>
+			</tr>
+			<tr>
+				<td><strong>Keep Original</strong></td>
+				<td>Replace original, rename old file to .bak</td>
+				<td>Update file while preserving backup</td>
+			</tr>
+			<tr>
+				<td><strong>Delete Original</strong></td>
+				<td>Replace original file completely</td>
+				<td>Direct replacement without backup</td>
+			</tr>
+		</tbody>
+	</table>
 </div>
 
-<h3><b>Language-based sort order</b></h3>
+<h3>Lines and Position Controls</h3>
 
-<p>Use the sorting rule that the current language uses. Different languages sort characters in different orders. Checking this option will cause the sort to be done using the current language settings. This sorting is slower and can affect performance for very large files.<br />
-This options will also disable the "Ignore case" option. Language-based sort order always ignores case.</p>
+<p>These settings provide precise control over which parts of files are sorted and how:</p>
 
-<h3><b>Ignore case</b></h3>
+<h4>Header and Footer Preservation</h4>
+<div class="row mt-4">
+	<div class="col-md-6">
+		<div class="card">
+			<div class="card-header bg-warning text-dark">
+				<h6 class="mb-0"><i class="bi bi-chevron-up me-2"></i>Keep Lines at Top</h6>
+			</div>
+			<div class="card-body">
+				<p class="small">Specifies the number of lines at the beginning of each file that should remain in their original position.</p>
+				<p class="small"><strong>Example:</strong> Set to "2" to preserve a 2-line header while sorting the rest of the content.</p>
+			</div>
+		</div>
+	</div>
+	<div class="col-md-6">
+		<div class="card">
+			<div class="card-header bg-info text-white">
+				<h6 class="mb-0"><i class="bi bi-chevron-down me-2"></i>Keep Lines at Bottom</h6>
+			</div>
+			<div class="card-body">
+				<p class="small">Specifies the number of lines at the end of each file that should remain in their original position.</p>
+				<p class="small"><strong>Example:</strong> Set to "3" to preserve a 3-line footer while sorting the main content.</p>
+			</div>
+		</div>
+	</div>
+</div>
 
-<p>Ignore case when sorting. "A" and "a" will be treated as the same character (but see 'Language-based sort order' above).</p>
+<h4>Position-Based Sorting</h4>
+<div class="row mt-4">
+	<div class="col-md-6">
+		<div class="card">
+			<div class="card-body">
+				<h6 class="card-title"><i class="bi bi-cursor-text me-2"></i>Start at Line Position</h6>
+				<p class="card-text small">Defines the character position where sorting comparison begins on each line.</p>
+				<p class="card-text small"><strong>Use Case:</strong> Sort data that has a fixed-width format where the sort key starts at a specific column.</p>
+				<p class="card-text small"><strong>Visual Aid:</strong> The preview ruler shows exactly where sorting will begin.</p>
+			</div>
+		</div>
+	</div>
+	<div class="col-md-6">
+		<div class="card">
+			<div class="card-body">
+				<h6 class="card-title"><i class="bi bi-space me-2"></i>Skip Leading Spaces</h6>
+				<p class="card-text small">Ignores leading whitespace characters when comparing lines during sorting.</p>
+				<p class="card-text small"><strong>Benefit:</strong> Ensures consistent sorting regardless of indentation or formatting differences.</p>
+			</div>
+		</div>
+	</div>
+</div>
 
-<h3><b>Natural number order</b></h3>
+<h3>Sorting Methods</h3>
 
-<p>Sort numbers in a natural order. This option also requires the option "Language-based sort order".<br />
-Instead of being sorted in the order "Text1","Text10","Text2" it will be "Text1", "Text2", "Text10".<br />
-(This option is is not used if sort method is Numbers).</p>
+<p>Sort Lines offers three sophisticated approaches to line comparison:</p>
 
-<h3><b>Reverse order</b></h3>
+<h4>1. Entire Line Sorting</h4>
+<p>The most straightforward method that compares complete lines from the specified start position to the end.</p>
 
-<p>Reverse the sort order. By default sorting will be A to Z and 0 to 9.<br />
-Enabling this will cause sort order to be Z to A, and 9 to 0</p>
+<div class="card">
+	<div class="card-body">
+		<h6 class="card-title">Best For:</h6>
+		<ul class="small">
+			<li>Simple alphabetical sorting of text lists</li>
+			<li>Sorting file lists or directory contents</li>
+			<li>General text organization tasks</li>
+		</ul>
+	</div>
+</div>
 
-<h3><b>Remove duplicate lines</b></h3>
+<h4>2. Substring Sorting</h4>
+<p>Sorts based on a specific portion of each line, with flexible endpoint definitions:</p>
 
-<p>This option is not yet enabled</p>
+<div class="row mt-4">
+	<div class="col-md-4">
+		<div class="card">
+			<div class="card-header bg-success text-white">
+				<h6 class="mb-0">Fixed Length</h6>
+			</div>
+			<div class="card-body">
+				<p class="small">Sort based on a substring of exact length</p>
+				<p class="small"><strong>Example:</strong> Characters 5-10 for sorting by product codes</p>
+			</div>
+		</div>
+	</div>
+	<div class="col-md-4">
+		<div class="card">
+			<div class="card-header bg-primary text-white">
+				<h6 class="mb-0">End Character</h6>
+			</div>
+			<div class="card-body">
+				<p class="small">Sort until a specific character is encountered</p>
+				<p class="small"><strong>Example:</strong> Sort until ":" for timestamp-based sorting</p>
+			</div>
+		</div>
+	</div>
+	<div class="col-md-4">
+		<div class="card">
+			<div class="card-header bg-warning text-dark">
+				<h6 class="mb-0">Whitespace</h6>
+			</div>
+			<div class="card-body">
+				<p class="small">Sort until any whitespace character</p>
+				<p class="small"><strong>Example:</strong> Sort by first word on each line</p>
+			</div>
+		</div>
+	</div>
+</div>
 
-<h3><b>Remove blank lines</b></h3>
+<h4>3. Line Item (Record) Sorting</h4>
+<p>Advanced sorting for structured data with delimited fields:</p>
 
-<p>After sorting the lines, remove all blank lines.</p>
+<div class="row mt-4">
+	<div class="col-md-6">
+		<div class="card">
+			<div class="card-body">
+				<h6 class="card-title">Item Separator</h6>
+				<p class="card-text small">Specify the character that separates fields/records on each line.</p>
+				<p class="card-text small"><strong>Common Separators:</strong></p>
+				<ul class="small">
+					<li><strong>Comma (,):</strong> CSV files and comma-separated data</li>
+					<li><strong>Tab (\t):</strong> Tab-separated values</li>
+					<li><strong>Pipe (|):</strong> Database export formats</li>
+					<li><strong>Semicolon (;):</strong> European CSV formats</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<div class="col-md-6">
+		<div class="card">
+			<div class="card-body">
+				<h6 class="card-title">Item Selection</h6>
+				<p class="card-text small">Choose which field to sort by (1 = first field, 2 = second field, etc.)</p>
+				<p class="card-text small"><strong>Example:</strong> For "John,Doe,Manager" separated by commas:</p>
+				<ul class="small">
+					<li><strong>Item 1:</strong> Sort by "John" (first name)</li>
+					<li><strong>Item 2:</strong> Sort by "Doe" (last name)</li>
+					<li><strong>Item 3:</strong> Sort by "Manager" (role)</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>
+
+<h3>Sort Methods and Data Types</h3>
+
+<p>Multi Commander provides three sophisticated sorting algorithms optimized for different data types:</p>
+
+<h4>Text Sorting</h4>
+<div class="card">
+	<div class="card-body">
+		<p><strong>Function:</strong> Standard alphabetical sorting with comprehensive character handling</p>
+		<p><strong>Features:</strong></p>
+		<ul>
+			<li>Unicode-aware character comparison</li>
+			<li>Configurable case sensitivity</li>
+			<li>Language-specific sorting rules</li>
+			<li>Natural number ordering support</li>
+		</ul>
+	</div>
+</div>
+
+<h4>Date Sorting</h4>
+<div class="card">
+	<div class="card-body">
+		<p><strong>Function:</strong> Chronological sorting based on date/time values in text format</p>
+		<div class="text-center my-3">
+			<img src="/Docs/Images/SortLines_DateFormat.png" alt="Date Format Configuration" class="img-fluid border rounded" style="max-width: 240px;" />
+		</div>
+		<p><strong>Configuration Requirements:</strong></p>
+		<ul>
+			<li>Specify exact date/time format pattern</li>
+			<li>Format must match the text representation exactly</li>
+			<li>Supports various date conventions (US, European, ISO, etc.)</li>
+			<li>Handles time components with high precision</li>
+		</ul>
+		<p><strong>Format Examples:</strong></p>
+		<ul>
+			<li><code>MM/dd/yyyy</code> for "12/31/2023"</li>
+			<li><code>dd-MM-yyyy HH:mm</code> for "31-12-2023 14:30"</li>
+			<li><code>yyyy-MM-dd'T'HH:mm:ss</code> for ISO format</li>
+		</ul>
+		<p class="small">
+			<strong>Reference:</strong> 
+			<a href="http://msdn.microsoft.com/en-us/library/windows/desktop/dd317787(v=vs.85).aspx" target="_blank">Date Format Documentation</a> | 
+			<a href="http://msdn.microsoft.com/en-us/library/windows/desktop/dd318148(v=vs.85).aspx" target="_blank">Time Format Documentation</a>
+		</p>
+	</div>
+</div>
+
+<h4>Number Sorting</h4>
+<div class="card">
+	<div class="card-body">
+		<p><strong>Function:</strong> Numerical value-based sorting treating text as actual numbers</p>
+		<p><strong>Behavior:</strong></p>
+		<ul>
+			<li>Compares numeric values, not text representation</li>
+			<li>Automatically ignores leading zeros</li>
+			<li>Handles negative numbers correctly</li>
+			<li>Supports decimal values and scientific notation</li>
+		</ul>
+		<p><strong>Example:</strong> "1", "10", "2", "20" sorts as 1, 2, 10, 20 (not 1, 10, 2, 20)</p>
+	</div>
+</div>
+
+<h3>Advanced Sorting Options</h3>
+
+<h4>Language and Localization</h4>
+<div class="row mt-4">
+	<div class="col-md-6">
+		<div class="card">
+			<div class="card-header bg-info text-white">
+				<h6 class="mb-0"><i class="bi bi-globe me-2"></i>Language-Based Sort Order</h6>
+			</div>
+			<div class="card-body">
+				<p class="small"><strong>Function:</strong> Uses system locale-specific sorting rules</p>
+				<p class="small"><strong>Benefits:</strong></p>
+				<ul class="small">
+					<li>Handles accented characters correctly</li>
+					<li>Respects language-specific alphabetical orders</li>
+					<li>Automatically handles case sensitivity</li>
+					<li>Ensures culturally appropriate sorting</li>
+				</ul>
+				<p class="small"><strong>Note:</strong> Slower performance with very large files</p>
+			</div>
+		</div>
+	</div>
+	<div class="col-md-6">
+		<div class="card">
+			<div class="card-header bg-primary text-white">
+				<h6 class="mb-0"><i class="bi bi-123 me-2"></i>Natural Number Order</h6>
+			</div>
+			<div class="card-body">
+				<p class="small"><strong>Function:</strong> Sorts embedded numbers in logical sequence</p>
+				<p class="small"><strong>Example Transformation:</strong></p>
+				<ul class="small">
+					<li><strong>Standard:</strong> "Text1", "Text10", "Text2"</li>
+					<li><strong>Natural:</strong> "Text1", "Text2", "Text10"</li>
+				</ul>
+				<p class="small"><strong>Requirement:</strong> Must enable Language-based sort order</p>
+				<p class="small"><strong>Use Case:</strong> File lists, version numbers, chapter headings</p>
+			</div>
+		</div>
+	</div>
+</div>
+
+<h4>Case and Order Control</h4>
+<div class="row mt-4">
+	<div class="col-md-6">
+		<div class="card">
+			<div class="card-body">
+				<h6 class="card-title"><i class="bi bi-type me-2"></i>Ignore Case</h6>
+				<p class="card-text small">Treats uppercase and lowercase letters as equivalent during sorting.</p>
+				<p class="card-text small"><strong>Result:</strong> "Apple", "banana", "Cherry" sorts consistently regardless of capitalization.</p>
+				<p class="card-text small"><strong>Note:</strong> Disabled when using language-based sorting (which always ignores case).</p>
+			</div>
+		</div>
+	</div>
+	<div class="col-md-6">
+		<div class="card">
+			<div class="card-body">
+				<h6 class="card-title"><i class="bi bi-arrow-down-up me-2"></i>Reverse Order</h6>
+				<p class="card-text small">Inverts the sort order for descending results.</p>
+				<p class="card-text small"><strong>Text:</strong> Z to A instead of A to Z</p>
+				<p class="card-text small"><strong>Numbers:</strong> 9 to 0 instead of 0 to 9</p>
+				<p class="card-text small"><strong>Dates:</strong> Newest to oldest instead of oldest to newest</p>
+			</div>
+		</div>
+	</div>
+</div>
+
+<h4>Content Filtering</h4>
+<div class="row mt-4">
+	<div class="col-md-6">
+		<div class="card">
+			<div class="card-body">
+				<h6 class="card-title"><i class="bi bi-x-square me-2"></i>Remove Blank Lines</h6>
+				<p class="card-text small">Automatically removes empty lines from the sorted output.</p>
+				<p class="card-text small"><strong>Benefit:</strong> Cleans up data files by eliminating unnecessary whitespace.</p>
+				<p class="card-text small"><strong>Process:</strong> Applied after sorting is complete.</p>
+			</div>
+		</div>
+	</div>
+	<div class="col-md-6">
+		<div class="card">
+			<div class="card-body">
+				<h6 class="card-title"><i class="bi bi-files me-2"></i>Remove Duplicate Lines</h6>
+				<p class="card-text small text-muted"><em>Feature currently in development</em></p>
+				<p class="card-text small">Will automatically remove duplicate lines from sorted output when implemented.</p>
+			</div>
+		</div>
+	</div>
+</div>
+
+<h3>Integration and Automation</h3>
+
+<h4>Command Line Integration</h4>
+<p>Sort Lines functionality is available through Multi Commander's custom command system:</p>
+
+<div class="table-responsive">
+	<table class="table table-striped">
+		<thead>
+			<tr>
+				<th>Parameter</th>
+				<th>Description</th>
+				<th>Example Value</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td><code>SORTAS</code></td>
+				<td>Sort method: Text, Number, or Date</td>
+				<td>Text</td>
+			</tr>
+			<tr>
+				<td><code>SORTBY</code></td>
+				<td>Sort by: Line, SubString, or Item</td>
+				<td>Item</td>
+			</tr>
+			<tr>
+				<td><code>ITEMSEP</code></td>
+				<td>Item separator character</td>
+				<td>,</td>
+			</tr>
+			<tr>
+				<td><code>ITEM</code></td>
+				<td>Item number to sort by</td>
+				<td>2</td>
+			</tr>
+			<tr>
+				<td><code>REVERSE</code></td>
+				<td>Reverse sort order</td>
+				<td>1</td>
+			</tr>
+			<tr>
+				<td><code>IGNORECASE</code></td>
+				<td>Ignore case differences</td>
+				<td>1</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+
+<h3>Troubleshooting Common Issues</h3>
+
+<div class="accordion" id="sortLinesAccordion">
+	<div class="accordion-item">
+		<h2 class="accordion-header" id="sortHeading1">
+			<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#sortCollapse1">
+				Date sorting produces incorrect results
+			</button>
+		</h2>
+		<div id="sortCollapse1" class="accordion-collapse collapse" data-bs-parent="#sortLinesAccordion">
+			<div class="accordion-body">
+				<ul>
+					<li>Verify the date format pattern exactly matches your data format</li>
+					<li>Check for inconsistent date formats within the same file</li>
+					<li>Ensure all dates follow the same format convention</li>
+					<li>Test with a small sample file first to verify format correctness</li>
+					<li>Consider using substring sorting if dates are at fixed positions</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<div class="accordion-item">
+		<h2 class="accordion-header" id="sortHeading2">
+			<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#sortCollapse2">
+				Numbers sort alphabetically instead of numerically
+			</button>
+		</h2>
+		<div id="sortCollapse2" class="accordion-collapse collapse" data-bs-parent="#sortLinesAccordion">
+			<div class="accordion-body">
+				<ul>
+					<li>Change Sort Method from "Text" to "Number"</li>
+					<li>Verify that the data contains only numeric values in the sort field</li>
+					<li>Check for non-numeric characters (spaces, letters) in the number field</li>
+					<li>Consider using Natural Number Order for mixed text/number content</li>
+					<li>Use substring or item sorting to isolate the numeric portion</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<div class="accordion-item">
+		<h2 class="accordion-header" id="sortHeading3">
+			<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#sortCollapse3">
+				Some files not processed or appear corrupted
+			</button>
+		</h2>
+		<div id="sortCollapse3" class="accordion-collapse collapse" data-bs-parent="#sortLinesAccordion">
+			<div class="accordion-body">
+				<ul>
+					<li>Check if files are actually text files (binary files are automatically skipped)</li>
+					<li>Verify file permissions allow reading and writing</li>
+					<li>Ensure files aren't locked by other applications</li>
+					<li>Check available disk space for output files</li>
+					<li>Verify character encoding compatibility</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<div class="accordion-item">
+		<h2 class="accordion-header" id="sortHeading4">
+			<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#sortCollapse4">
+				Item-based sorting doesn't work as expected
+			</button>
+		</h2>
+		<div id="sortCollapse4" class="accordion-collapse collapse" data-bs-parent="#sortLinesAccordion">
+			<div class="accordion-body">
+				<ul>
+					<li>Verify the item separator character is correct for your data</li>
+					<li>Check that all lines have the same number of fields</li>
+					<li>Ensure the item number exists in all lines (count starts from 1)</li>
+					<li>Look for inconsistent use of separators (mixing commas and semicolons)</li>
+					<li>Test with a simple example to verify separator and item settings</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>
+
+<h3>Related Tools and Features</h3>
+
+<p>Sort Lines integrates seamlessly with other Multi Commander text processing tools:</p>
+
+<ul>
+	<li><strong>Find and Replace:</strong> Clean and standardize data before sorting</li>
+	<li><strong>Text Conversion Tools:</strong> Standardize line endings and encoding</li>
+	<li><strong>File Search:</strong> Locate files that need sorting using content criteria</li>
+	<li><strong>MultiScript:</strong> Automate complex sorting workflows with scripting</li>
+</ul>
+
+<div class="alert alert-success mt-4">
+	<h6><i class="bi bi-lightbulb me-2"></i>Pro Tip</h6>
+	<p class="mb-0">Use the preview ruler in the dialog to visually verify your start position and substring settings before processing. The ruler shows exactly where sorting will begin, helping you avoid off-by-one errors in position-based sorting.</p>
+</div>
+
+<div class="alert alert-info mt-4">
+	<h6><i class="bi bi-info-circle me-2"></i>Related Documentation</h6>
+	<p class="mb-0">For more information about Multi Commander's text processing capabilities, see <a href="/Docs/TextConvertTools" class="text-decoration-none">Text Conversion Tools</a>, <a href="/Docs/FindAndReplaceInFiles" class="text-decoration-none">Find and Replace in Files</a>, and <a href="/Docs/TextTools" class="text-decoration-none">Text Tools Overview</a>.</p>
 </div>
 
 

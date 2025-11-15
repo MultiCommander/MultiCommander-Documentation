@@ -1,27 +1,267 @@
 <h2>Standard Command Bar</h2>
-<p>The <em>Standard Command</em> Toolbar is a subset of the toolbar that is shown if the corresponding checkbox in View-&gt;Toolbars is checked. It has a number of standard commands the extension can support. If the extension in the currently active panel supports any if these commands, the commands will be enabled; otherwise they are disabled.</p>
 
-<p><img alt="" src="/Docs/Images/ToolbarStandard.png" style="width: 264px; height: 73px;" /><br />
-&nbsp;</p>
+<p>Multi Commander's <strong>Standard Command Bar</strong> provides essential system operations through a streamlined toolbar interface designed for universal file management tasks. This fundamental toolbar delivers core functionality including refresh, clipboard operations, and panel management tools that work consistently across all Multi Commander extensions and panel types, ensuring reliable access to basic operations regardless of your current workflow context.</p>
 
-<h3>1. Refresh</h3>
+<div class="alert alert-primary">
+	<h6><i class="bi bi-tools me-2"></i>Universal System Operations</h6>
+	<p class="mb-0">Access essential system-level operations that function across all Multi Commander extensions and panel types. The Standard Command Bar provides the foundation of reliable, consistent operations that every user needs, from basic refresh and clipboard management to advanced panel layout control.</p>
+</div>
 
-<p>Button 1&nbsp;refreshes the content in the active panel.</p>
+<nav class="navbar navbar-expand-lg navbar-light bg-light mb-4">
+	<div class="container-fluid">
+		<span class="navbar-brand">Quick Navigation</span>
+		<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#standardNav">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="standardNav">
+			<ul class="navbar-nav">
+				<li class="nav-item"><a class="nav-link" href="#overview">Overview</a></li>
+				<li class="nav-item"><a class="nav-link" href="#system-operations">System Operations</a></li>
+				<li class="nav-item"><a class="nav-link" href="#clipboard-operations">Clipboard Operations</a></li>
+				<li class="nav-item"><a class="nav-link" href="#panel-management">Panel Management</a></li>
+			</ul>
+		</div>
+	</div>
+</nav>
 
-<h3>2. Cut</h3>
+<section id="overview">
+	<h3>Standard Command Bar Layout and Functionality</h3>
+	<p>The Standard Command Bar operates as a subset of Multi Commander's main toolbar, providing essential operations that maintain functionality across all extensions and panel types with intelligent context-aware enabling and disabling based on current extension capabilities.</p>
 
-<p>Button 2&nbsp;cuts the selected content to the clipboard.</p>
+	<div class="row">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header bg-primary text-white">
+					<h6 class="mb-0"><i class="bi bi-layout-text-sidebar me-2"></i>Toolbar Layout and Components</h6>
+				</div>
+				<div class="card-body">
+					<div class="text-center mt-3 mb-3">
+						<img src="/Docs/Images/ToolbarStandard.png" alt="Standard Command Bar Layout" class="img-fluid border rounded shadow-sm" style="max-width: 264px;" />
+						<p class="text-muted small mt-2">Standard Command Bar showing five essential operations from system refresh to panel management</p>
+					</div>
 
-<h3>3. Copy</h3>
+					<h6>Command Categories</h6>
+					<ul class="small">
+						<li><strong>1. System Operations:</strong> Refresh command for content updates and panel synchronization</li>
+						<li><strong>2-4. Clipboard Operations:</strong> Cut, Copy, and Paste commands for universal content management</li>
+						<li><strong>5. Panel Management:</strong> Resize Panel command for layout control and workspace optimization</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
 
-<p>Button 3&nbsp;copies the selected content to the clipboard.</p>
+	<div class="row mt-3">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header bg-info text-white">
+					<h6 class="mb-0"><i class="bi bi-gear me-2"></i>Extension Compatibility and Control</h6>
+				</div>
+				<div class="card-body">
+					<h6>Dynamic Command Enabling</h6>
+					<ul class="small">
+						<li><strong>Context Awareness:</strong> Commands enable/disable based on active extension capabilities</li>
+						<li><strong>Universal Support:</strong> Core operations work across all compatible extensions</li>
+						<li><strong>Visual Feedback:</strong> Disabled state indicates unsupported operations</li>
+						<li><strong>Intelligent Adaptation:</strong> Toolbar responds to panel type and content</li>
+					</ul>
+					<h6>Visibility and Access</h6>
+					<ul class="small">
+						<li><strong>Toggle Control:</strong> Available via View ? Toolbars ? Standard</li>
+						<li><strong>Toolbar Integration:</strong> Functions as subset of main toolbar system</li>
+						<li><strong>Extension Independence:</strong> Operates regardless of specific panel type</li>
+						<li><strong>Consistent Interface:</strong> Maintains functionality across all Multi Commander modes</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
 
-<h3>4. Paste</h3>
+<section id="system-operations" class="mt-5">
+	<h3>System Operations (1)</h3>
+	<p>Essential system-level operations provide fundamental control over panel content and display state, ensuring users can maintain current and accurate information in their workspace.</p>
 
-<p>Button 4&nbsp;pastes the clipboard into the active panel.</p>
+	<div class="row">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header bg-success text-white">
+					<h6 class="mb-0"><i class="bi bi-arrow-clockwise me-2"></i>1. Refresh</h6>
+				</div>
+				<div class="card-body">
+					<h6>Content Synchronization</h6>
+					<ul class="small">
+						<li><strong>Function:</strong> Refreshes the content in the active panel</li>
+						<li><strong>Scope:</strong> Updates current panel display to reflect file system changes</li>
+						<li><strong>Real-Time Updates:</strong> Ensures content accuracy after external modifications</li>
+						<li><strong>Extension Compatibility:</strong> Works with all panel types and extensions</li>
+					</ul>
+					<h6>Refresh Capabilities</h6>
+					<ul class="small">
+						<li><strong>File System Sync:</strong> Detects new, modified, or deleted files and folders</li>
+						<li><strong>Network Updates:</strong> Refreshes network location contents</li>
+						<li><strong>Archive Content:</strong> Updates archive file listings when supported</li>
+						<li><strong>Metadata Updates:</strong> Refreshes file properties and extended information</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
 
-<h3>5. Resize Panel</h3>
+<section id="clipboard-operations" class="mt-5">
+	<h3>Clipboard Operations (2-4)</h3>
+	<p>Universal clipboard management provides seamless integration with Windows clipboard system, enabling efficient content transfer between Multi Commander and external applications as well as within Multi Commander itself.</p>
 
-<p>Button 5&nbsp;provides a dropdown list from which you can select how you want to split the panel. Clicking on the icon itself reverts to a 50/50 split.</p>
+	<div class="row">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header bg-warning text-dark">
+					<h6 class="mb-0"><i class="bi bi-scissors me-2"></i>2. Cut</h6>
+				</div>
+				<div class="card-body">
+					<h6>Cut Operation</h6>
+					<ul class="small">
+						<li><strong>Function:</strong> Cuts the selected content to the clipboard</li>
+						<li><strong>Move Preparation:</strong> Prepares items for move operation via clipboard</li>
+						<li><strong>Content Types:</strong> Supports files, folders, text, and extension-specific content</li>
+						<li><strong>Visual Indication:</strong> Selected items show cut state until paste operation</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="row mt-3">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header bg-primary text-white">
+					<h6 class="mb-0"><i class="bi bi-files me-2"></i>3. Copy</h6>
+				</div>
+				<div class="card-body">
+					<h6>Copy Operation</h6>
+					<ul class="small">
+						<li><strong>Function:</strong> Copies the selected content to the clipboard</li>
+						<li><strong>Duplication Preparation:</strong> Prepares items for copy operation via clipboard</li>
+						<li><strong>Universal Compatibility:</strong> Works with Windows clipboard system</li>
+						<li><strong>Multi-Format Support:</strong> Handles various content types and formats</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="row mt-3">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header bg-success text-white">
+					<h6 class="mb-0"><i class="bi bi-clipboard me-2"></i>4. Paste</h6>
+				</div>
+				<div class="card-body">
+					<h6>Paste Operation</h6>
+					<ul class="small">
+						<li><strong>Function:</strong> Pastes the clipboard content into the active panel</li>
+						<li><strong>Operation Completion:</strong> Executes cut or copy operations from clipboard</li>
+						<li><strong>Context Sensitivity:</strong> Adapts paste behavior to current panel type</li>
+						<li><strong>Error Handling:</strong> Manages conflicts and invalid paste operations gracefully</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<section id="panel-management" class="mt-5">
+	<h3>Panel Management (5)</h3>
+	<p>Advanced panel layout control provides flexible workspace management through intelligent splitting and resizing capabilities that adapt to user workflow requirements and screen real estate optimization.</p>
+
+	<div class="row">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header bg-info text-white">
+					<h6 class="mb-0"><i class="bi bi-layout-split me-2"></i>5. Resize Panel</h6>
+				</div>
+				<div class="card-body">
+					<h6>Layout Control Functions</h6>
+					<ul class="small">
+						<li><strong>Primary Function:</strong> Click icon directly for instant 50/50 panel split</li>
+						<li><strong>Advanced Options:</strong> Dropdown menu provides multiple split ratio selections</li>
+						<li><strong>Workspace Optimization:</strong> Adapt panel sizes to current task requirements</li>
+						<li><strong>Visual Efficiency:</strong> Maximize use of available screen space</li>
+					</ul>
+					<h6>Split Configuration Options</h6>
+					<ul class="small">
+						<li><strong>Equal Split (50/50):</strong> Balanced view for dual-panel operations</li>
+						<li><strong>Left Focus (75/25):</strong> Emphasize left panel with right panel reference</li>
+						<li><strong>Right Focus (25/75):</strong> Emphasize right panel with left panel reference</li>
+						<li><strong>Single Panel Views:</strong> Full-width operation when needed</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<section id="keyboard-integration" class="mt-5">
+	<h3>Keyboard Integration and Shortcuts</h3>
+	<p>The Standard Command Bar integrates seamlessly with Multi Commander's keyboard shortcut system, providing alternative access methods for efficient operation.</p>
+
+	<div class="row">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header bg-dark text-white">
+					<h6 class="mb-0"><i class="bi bi-keyboard me-2"></i>Standard Keyboard Shortcuts</h6>
+				</div>
+				<div class="card-body">
+					<h6>Essential Shortcuts</h6>
+					<div class="table-responsive">
+						<table class="table table-bordered table-hover">
+							<thead class="table-light">
+								<tr>
+									<th style="width: 30%">Operation</th>
+									<th style="width: 35%">Commander Style</th>
+									<th style="width: 35%">Explorer Style</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td><strong>Refresh</strong></td>
+									<td><kbd>F2</kbd></td>
+									<td><kbd>F5</kbd></td>
+								</tr>
+								<tr>
+									<td><strong>Cut</strong></td>
+									<td><kbd>Ctrl</kbd>+<kbd>X</kbd></td>
+									<td><kbd>Ctrl</kbd>+<kbd>X</kbd></td>
+								</tr>
+								<tr>
+									<td><strong>Copy</strong></td>
+									<td><kbd>Ctrl</kbd>+<kbd>C</kbd></td>
+									<td><kbd>Ctrl</kbd>+<kbd>C</kbd></td>
+								</tr>
+								<tr>
+									<td><strong>Paste</strong></td>
+									<td><kbd>Ctrl</kbd>+<kbd>V</kbd></td>
+									<td><kbd>Ctrl</kbd>+<kbd>V</kbd></td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+					<p class="small mt-3"><strong>Note:</strong> Keyboard shortcuts provide the same functionality as toolbar buttons and often offer faster access for experienced users.</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<div class="alert alert-success mt-5">
+	<h6><i class="bi bi-lightbulb me-2"></i>Standard Command Bar Efficiency</h6>
+	<p class="mb-0">Maximize the Standard Command Bar's effectiveness by understanding its universal nature: use Refresh (1) to maintain current information, leverage clipboard operations (2-4) for seamless content transfer between applications and panels, and utilize Resize Panel (5) to optimize your workspace layout for specific tasks. This foundation of essential operations supports all advanced Multi Commander workflows while providing reliable functionality across every extension and panel type.</p>
+</div>
+
+<div class="alert alert-info mt-4">
+	<h6><i class="bi bi-info-circle me-2"></i>Related Interface Components</h6>
+	<p class="mb-0">Enhance your toolbar experience with related interface elements: <a href="#docs_filecommandbar" class="text-decoration-none">File Commands Bar</a>, <a href="#docs_commandlinebar" class="text-decoration-none">Command Line Bar</a>, <a href="#docs_quicklaunchbar" class="text-decoration-none">Quick Launch Bar</a>, and <a href="#docs_keyboard-customization" class="text-decoration-none">Keyboard Customization</a>.</p>
+</div>
 
 

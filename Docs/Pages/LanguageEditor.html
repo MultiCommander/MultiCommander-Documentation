@@ -1,177 +1,694 @@
-<h2>Language Editor</h2>
-<p><img alt="" src="/Docs/Images/MenuLanguageEditor.png" style="width: 365px; height: 156px;" /></p>
+﻿<h2>Language Editor and Translation System</h2>
 
-<p>The built-in language editor allows the creation of new language packs or the correction of language texts in an existing pack.</p>
+<p>Multi Commander's <strong>Language Editor</strong> provides a comprehensive translation and localization platform that enables the creation of new language packs and modification of existing translations with professional-grade editing capabilities. This sophisticated system supports complete internationalization workflows, offering intuitive interfaces for translators, automated language pack management, and seamless integration with Multi Commander's multilingual architecture for global accessibility.</p>
 
-<h2><b>How Language Files Are Used</b></h2>
-
-<p>Language packs are stored in the Languages folder where MultiCommander.exe is located. Each language pack is a zip archive; one per language. Each zip files contains all the language files for all the extension/plug-ins for that language.</p>
-
-<p>Multi Commander always reads the English language pack first and store all of the language texts in memory. Then the language that was configured is read and it will overwrite all of its translated texts. If any text item is not translated then the English text is used.</p>
-
-<p>Each language pack only contains language files for the built-in Core and any Extensions/Plug-ins that are delivered with Multi Commander. So an Extension/Plug-in created by a user in their own language will not be found here. If Multi Commander does not find a matching language file in the language pack, it will search for the language files in the folder where the extensionor plug-in is located</p>
-
-<p>Having the language files in a zip archive is not optimal when creating translations or modifying them. They are harder to test and verify. Also the built-in language editor needs to have them unpacked.<br />
-When started Multi Commander will first look for the unpacked language packs in the "<multicommander userdata=""><strong>Languages</strong>" folder and if a version match is found they will beused.&nbsp; If Multi Commander is newer than the unpacked language files, they will not be used.</multicommander></p>
-
-<div class="dochints">
-<fieldset><legend>Tip</legend> Type "<b>:gouserdata</b>" in the command line bar to take you to the Multi Commander UserData folder (eg. "C:\Users\Mathias\AppData\Roaming\MultiCommander\UserData\")</fieldset>
+<div class="alert alert-primary">
+	<h6><i class="bi bi-translate me-2"></i>Professional Translation and Localization Platform</h6>
+	<p class="mb-0">Experience comprehensive translation capabilities that combine intuitive editing interfaces with advanced language pack management and automated submission systems. The Language Editor integrates seamlessly with Multi Commander's internationalization framework to provide professional translation workflows that handle multiple languages, preserve formatting and special characters, and offer complete control over localization processes for translators, language coordinators, and international distribution teams.</p>
 </div>
 
-<p>When starting the Language Editor it will ask if it should unpack the language pack to the UserData folder.</p>
+<nav class="navbar navbar-expand-lg navbar-light bg-light mb-4">
+	<div class="container-fluid">
+		<span class="navbar-brand">Quick Navigation</span>
+		<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#languageEditorNav">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="languageEditorNav">
+			<ul class="navbar-nav">
+				<li class="nav-item"><a class="nav-link" href="#overview">Overview</a></li>
+				<li class="nav-item"><a class="nav-link" href="#language-system">Language System</a></li>
+				<li class="nav-item"><a class="nav-link" href="#editor-interface">Editor Interface</a></li>
+				<li class="nav-item"><a class="nav-link" href="#creating-languages">Creating Languages</a></li>
+				<li class="nav-item"><a class="nav-link" href="#translation-guidelines">Translation Guidelines</a></li>
+				<li class="nav-item"><a class="nav-link" href="#submission-export">Submission & Export</a></li>
+			</ul>
+		</div>
+	</div>
+</nav>
 
-<p>The next time that Multi Commander is started it will read the unpacked language files from the UserData folder, allowing modifications and additions to be verified</p>
+<section id="overview">
+	<h3>Language Editor Overview</h3>
+	<p>The Language Editor provides comprehensive translation management capabilities that enable creation of new language packs, modification of existing translations, and professional localization workflows with advanced editing features and automated submission systems.</p>
 
-<p>When the unpacked language files in the "UserData\Languages" folder are no longer needed or wanted they can be deleted. Multi Commander will then automatically revert to loading them from the zipped language packs again.</p>
+	<div class="row">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header bg-info text-white">
+					<h6 class="mb-0"><i class="bi bi-globe me-2"></i>Language Editor Access and Capabilities</h6>
+				</div>
+				<div class="card-body">
+					<div class="text-center mt-3 mb-3">
+						<img src="/Docs/Images/MenuLanguageEditor.png" alt="Language Editor Menu Access" class="img-fluid border rounded shadow-sm" />
+						<p class="text-muted small mt-2">Language Editor accessible through Configuration menu for comprehensive translation management</p>
+					</div>
 
-<h2><b>Language Editor Panel</b></h2>
+					<h6>Core Translation Features</h6>
+					<div class="row">
+						<div class="col-md-6">
+							<ul class="small">
+								<li><strong>Language Pack Creation:</strong> Create new language support from existing templates</li>
+								<li><strong>Translation Editing:</strong> Modify existing translations with professional editing interface</li>
+								<li><strong>Text Item Management:</strong> Complete control over individual text elements and descriptions</li>
+								<li><strong>Special Character Support:</strong> Proper handling of control characters and formatting</li>
+							</ul>
+						</div>
+						<div class="col-md-6">
+							<ul class="small">
+								<li><strong>Automated Submission:</strong> Direct submission to Multi Commander development team</li>
+								<li><strong>Export Functionality:</strong> Generate language packs for distribution and testing</li>
+								<li><strong>Version Management:</strong> Backup and restore previous translation versions</li>
+								<li><strong>External Editor Support:</strong> Work with favorite text editors for large-scale translation</li>
+							</ul>
+						</div>
+					</div>
 
-<p><img alt="" src="/Docs/Images/LanguageEditorPanel2.png" style="width: 678px; height: 235px;" /></p>
+					<h6>Professional Translation Support</h6>
+					<ul class="small">
+						<li><strong>Extension Integration:</strong> Complete translation support for all Multi Commander extensions and plugins</li>
+						<li><strong>Culture Code Management:</strong> Proper language identification and automatic selection systems</li>
+						<li><strong>Quality Assurance:</strong> Built-in validation for translation completeness and formatting</li>
+						<li><strong>Collaborative Workflows:</strong> Support for team-based translation projects and partial submissions</li>
+					</ul>
 
-<p>The language editor panel allow text items to be modified. It is also possible to add support for new language and to export a language pack.</p>
+					<div class="alert alert-success p-2 mt-3">
+						<h6 class="small mb-1"><i class="bi bi-people me-1"></i>Global Accessibility</h6>
+						<p class="small mb-0">The Language Editor empowers global communities to make Multi Commander accessible in their native languages, supporting international users and expanding the application's reach worldwide.</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
 
-<h3>Save Button</h3>
+<section id="language-system" class="mt-5">
+	<h3>Language File System Architecture</h3>
+	<p>Multi Commander's language system uses a sophisticated architecture that combines ZIP-based language packs with unpacked working directories, enabling efficient distribution while providing flexible development and testing capabilities for translators.</p>
 
-<p>The save button will save all the changes for the currenly selected language.</p>
+	<div class="row">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header bg-primary text-white">
+					<h6 class="mb-0"><i class="bi bi-archive me-2"></i>Language Pack Architecture and Loading Process</h6>
+				</div>
+				<div class="card-body">
+					<h6>Language File Loading Sequence</h6>
+					<div class="row">
+						<div class="col-md-4">
+							<h6>1. English Base Loading</h6>
+							<ul class="small">
+								<li><strong>Primary Foundation:</strong> English language pack loaded first as base template</li>
+								<li><strong>Complete Coverage:</strong> All text items stored in memory as fallback defaults</li>
+								<li><strong>Reference Standard:</strong> Provides complete text coverage for all features</li>
+								<li><strong>Compatibility Assurance:</strong> Ensures no missing text items regardless of translation completeness</li>
+							</ul>
+						</div>
+						<div class="col-md-4">
+							<h6>2. Target Language Override</h6>
+							<ul class="small">
+								<li><strong>Selective Replacement:</strong> Configured language overwrites translated text items</li>
+								<li><strong>Fallback Preservation:</strong> Untranslated items retain English defaults automatically</li>
+								<li><strong>Dynamic Loading:</strong> Language selection applied at runtime for immediate effect</li>
+								<li><strong>Quality Maintenance:</strong> Partial translations work seamlessly with English fallbacks</li>
+							</ul>
+						</div>
+						<div class="col-md-4">
+							<h6>3. Extension Integration</h6>
+							<ul class="small">
+								<li><strong>Core Integration:</strong> Built-in extensions included in main language packs</li>
+								<li><strong>Custom Extension Support:</strong> User extensions search for local language files</li>
+								<li><strong>Flexible Location:</strong> Language files found in extension directories when not in packs</li>
+								<li><strong>Development Support:</strong> Easy testing of custom extension translations</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 
-<h3>Language Properties Button</h3>
+	<div class="row mt-3">
+		<div class="col-md-6">
+			<div class="card">
+				<div class="card-header bg-warning text-dark">
+					<h6 class="mb-0"><i class="bi bi-folder-symlink me-2"></i>File System Organization</h6>
+				</div>
+				<div class="card-body">
+					<h6>Language Pack Locations</h6>
+					<ul class="small">
+						<li><strong>Installation Directory:</strong> <code>Languages\</code> folder contains ZIP-based language packs</li>
+						<li><strong>UserData Directory:</strong> <code>UserData\Languages\</code> for unpacked development files</li>
+						<li><strong>Extension Directories:</strong> Individual extension folders for custom translations</li>
+						<li><strong>Priority System:</strong> UserData unpacked files take precedence over ZIP archives</li>
+					</ul>
 
-<p>this opens a dialog showing properties for the selected language, for example the language name and language code it should use.</p>
+					<h6>Development Workflow</h6>
+					<ul class="small">
+						<li><strong>Pack Extraction:</strong> Language Editor unpacks ZIP files to UserData for editing</li>
+						<li><strong>Live Testing:</strong> Changes in UserData immediately affect application behavior</li>
+						<li><strong>Version Validation:</strong> System checks version compatibility before using unpacked files</li>
+						<li><strong>Cleanup Support:</strong> Remove UserData files to revert to ZIP-based packs</li>
+					</ul>
 
-<h3>Type Dropdown</h3>
+					<div class="alert alert-info p-2 mt-3">
+						<h6 class="small mb-1"><i class="bi bi-terminal me-1"></i>Quick Access</h6>
+						<p class="small mb-0">Type <code>:gouserdata</code> in the command line to navigate directly to the UserData folder for language file management.</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-6">
+			<div class="card">
+				<div class="card-header bg-success text-white">
+					<h6 class="mb-0"><i class="bi bi-gear me-2"></i>Language Pack Structure</h6>
+				</div>
+				<div class="card-body">
+					<h6>ZIP Archive Contents</h6>
+					<ul class="small">
+						<li><strong>Naming Convention:</strong> <code>MC_LangPack_[code].zip</code> format for each language</li>
+						<li><strong>XML Language Files:</strong> Individual files for each extension and component</li>
+						<li><strong>Culture Identification:</strong> Files named with culture codes (e.g., <code>*_en.xml</code>, <code>*_fr.xml</code>)</li>
+						<li><strong>Complete Coverage:</strong> All Multi Commander components included in single archive</li>
+					</ul>
 
-<p>This lists which extension/plug-in types existis in Multi Commander. Select one and the next dropdown will update with all the extension/plug-ins for that type.<br />
-Each extension/plug-in has its own language file.</p>
+					<h6>File Organization Benefits</h6>
+					<ul class="small">
+						<li><strong>Distribution Efficiency:</strong> Single file contains complete language support</li>
+						<li><strong>Version Consistency:</strong> All components synchronized in single package</li>
+						<li><strong>Installation Simplicity:</strong> Drop-in language pack installation</li>
+						<li><strong>Backup Convenience:</strong> Easy language pack backup and sharing</li>
+					</ul>
 
-<h3>Extension/Plug-in Dropdown</h3>
+					<h6>Development Considerations</h6>
+					<ul class="small">
+						<li><strong>Testing Flexibility:</strong> Unpacked files enable rapid testing and iteration</li>
+						<li><strong>Version Management:</strong> Automatic fallback when versions don't match</li>
+						<li><strong>Extension Support:</strong> Custom extensions work independently of main packs</li>
+						<li><strong>Quality Control:</strong> Staged development with production deployment</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
 
-<p>List all extensions/plug-ins for the selected type. Select an extension/plug-in here and all text items for it will be shown using the language that is set in the Language Dropdown</p>
+<section id="editor-interface" class="mt-5">
+	<h3>Language Editor Interface and Controls</h3>
+	<p>The Language Editor interface provides comprehensive translation management through an intuitive panel system that organizes extensions, languages, and text items with professional editing capabilities and advanced management features.</p>
 
-<h3>Language Dropdown</h3>
+	<div class="row">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header bg-dark text-white">
+					<h6 class="mb-0"><i class="bi bi-window me-2"></i>Language Editor Main Interface</h6>
+				</div>
+				<div class="card-body">
+					<div class="text-center mt-3 mb-3">
+						<img src="/Docs/Images/LanguageEditorPanel2.png" alt="Language Editor Interface" class="img-fluid border rounded shadow-sm" />
+						<p class="text-muted small mt-2">Language Editor main interface showing comprehensive translation management controls</p>
+					</div>
 
-<p>List all available languages and (at the bottom) there is an option to add a new language.<br />
-Change language here and the list will reload with the text item for the selected extension/plug-in for that language</p>
+					<h6>Control Panel Overview</h6>
+					<div class="table-responsive">
+						<table class="table table-bordered table-hover">
+							<thead class="table-light">
+								<tr>
+									<th style="width: 20%">Control</th>
+									<th style="width: 35%">Function</th>
+									<th style="width: 45%">Description</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td><strong>Save Button</strong></td>
+									<td>Save current language changes</td>
+									<td>Saves all modifications for the currently selected language with automatic backup</td>
+								</tr>
+								<tr>
+									<td><strong>Language Properties</strong></td>
+									<td>Configure language metadata</td>
+									<td>Set language name, culture code, and matching language configurations</td>
+								</tr>
+								<tr>
+									<td><strong>Type Dropdown</strong></td>
+									<td>Select extension category</td>
+									<td>Choose between Core, Extensions, and Plugin types for translation focus</td>
+								</tr>
+								<tr>
+									<td><strong>Extension Dropdown</strong></td>
+									<td>Select specific component</td>
+									<td>Lists all extensions/plugins for selected type with individual language files</td>
+								</tr>
+								<tr>
+									<td><strong>Language Dropdown</strong></td>
+									<td>Choose target language</td>
+									<td>Select active language for editing or add new language support</td>
+								</tr>
+								<tr>
+									<td><strong>Export/Send Button</strong></td>
+									<td>Generate language pack</td>
+									<td>Export completed translations or submit directly to development team</td>
+								</tr>
+								<tr>
+									<td><strong>Restore Button</strong></td>
+									<td>Revert to previous version</td>
+									<td>Restore from automatic backups or previous language pack versions</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 
-<h3>Export/Send Button</h3>
+	<div class="row mt-3">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header bg-info text-white">
+					<h6 class="mb-0"><i class="bi bi-list me-2"></i>Text Item Management System</h6>
+				</div>
+				<div class="card-body">
+					<h6>Text Item List Structure</h6>
+					<div class="row">
+						<div class="col-md-4">
+							<h6>ID Column</h6>
+							<ul class="small">
+								<li><strong>Format:</strong> Letter + Number combination (e.g., C-231, M-105)</li>
+								<li><strong>Categories:</strong> M (Menu), D (Dialog), E (Error), C (Command)</li>
+								<li><strong>Identification:</strong> Unique identifier for each translatable text element</li>
+								<li><strong>Organization:</strong> Logical grouping by functional category</li>
+							</ul>
+						</div>
+						<div class="col-md-4">
+							<h6>Text Column</h6>
+							<ul class="small">
+								<li><strong>Primary Content:</strong> Main text displayed to users</li>
+								<li><strong>Translation Target:</strong> The actual text requiring translation</li>
+								<li><strong>Format Preservation:</strong> Special characters and formatting maintained</li>
+								<li><strong>Context Sensitivity:</strong> Text appropriate for specific interface elements</li>
+							</ul>
+						</div>
+						<div class="col-md-4">
+							<h6>Secondary Column</h6>
+							<ul class="small">
+								<li><strong>Tooltip Text:</strong> Hover descriptions and help text</li>
+								<li><strong>Descriptive Content:</strong> Additional context and explanations</li>
+								<li><strong>Caption Support:</strong> Error message titles and dialog captions</li>
+								<li><strong>Extended Information:</strong> Detailed descriptions for script commands</li>
+							</ul>
+						</div>
+					</div>
 
-<p>The Export/Send button will allow a language pack to be exported (or to be sent to Multi Commander staff for inclusion into next release).</p>
+					<h6>Visual Translation Status Indicators</h6>
+					<ul class="small">
+						<li><strong><span style="color: red; font-style: italic;">Red Italic Text:</span></strong> Untranslated items showing English fallback text (not saved to language file)</li>
+						<li><strong>Bold Text:</strong> Modified items with unsaved changes requiring save operation</li>
+						<li><strong>Normal Text:</strong> Translated and saved items with complete localization</li>
+						<li><strong>Context Menu:</strong> Right-click to show only untranslated items for focused translation work</li>
+					</ul>
 
-<h3>Restore Button</h3>
+					<h6>Translation Workflow Features</h6>
+					<ul class="small">
+						<li><strong>Filtering Options:</strong> Show only untranslated items to focus translation efforts</li>
+						<li><strong>Real-Time Editing:</strong> Direct text modification with immediate visual feedback</li>
+						<li><strong>Progress Tracking:</strong> Visual indicators for translation completion status</li>
+						<li><strong>Quality Control:</strong> Automatic validation of special characters and formatting</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
 
-<p>The Restore button allows previous versions of language files to be restored. Each time you press Save it will backup the previous version and you can retore to a previously-exported language pack.</p>
+<section id="creating-languages" class="mt-5">
+	<h3>Creating New Language Packs</h3>
+	<p>The Language Editor provides comprehensive support for creating new language packs from scratch, including proper culture code configuration, language matching, and automated setup for efficient translation workflows.</p>
 
-<h3>Text Item List</h3>
+	<div class="row">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header bg-success text-white">
+					<h6 class="mb-0"><i class="bi bi-plus-circle me-2"></i>New Language Creation Process</h6>
+				</div>
+				<div class="card-body">
+					<div class="text-center mt-3 mb-3">
+						<img src="/Docs/Images/NewLanguage.png" alt="New Language Properties" class="img-fluid border rounded shadow-sm" />
+						<p class="text-muted small mt-2">New Language Properties dialog for comprehensive language configuration</p>
+					</div>
 
-<p>There are three columns in the text items list: ID , Text and Description/Tooltip/Caption/...</p>
+					<h6>Language Creation Steps</h6>
+					<div class="row">
+						<div class="col-md-6">
+							<h6>1. Language Properties Configuration</h6>
+							<ul class="small">
+								<li><strong>English Name:</strong> Language name in English for international reference</li>
+								<li><strong>Native Name:</strong> Language name in the target language for local users</li>
+								<li><strong>Culture Code:</strong> ISO language code (2 or 5 characters) for system identification</li>
+								<li><strong>Matching Languages:</strong> Additional culture codes for automatic language selection</li>
+							</ul>
 
-<p>The ID is the Text ID used to identify the text item. It consists of a letter + a number. The letter is a way to categorize different text IDs. Often <strong>M</strong> is used for text items for Menu Items, <strong>D</strong> for Dialog, <strong>E</strong> for Rrror Messages, <strong>C</strong> for Commands. The Text item in the picture above is under <strong>C</strong>, ie. 231 that is selected is actually C-231.</p>
+							<h6>2. Culture Code Guidelines</h6>
+							<ul class="small">
+								<li><strong>Two-Letter Codes:</strong> General language support (e.g., 'en', 'fr', 'de')</li>
+								<li><strong>Five-Letter Codes:</strong> Regional variants (e.g., 'en-US', 'en-GB', 'fr-CA')</li>
+								<li><strong>Conflict Avoidance:</strong> Use specific codes when multiple variants exist</li>
+								<li><strong>Standard Compliance:</strong> Follow ISO 639-1 and ISO 3166-1 standards</li>
+							</ul>
+						</div>
+						<div class="col-md-6">
+							<h6>3. Automatic Language Selection</h6>
+							<ul class="small">
+								<li><strong>Windows Integration:</strong> System detects user's Windows language setting</li>
+								<li><strong>Matching Logic:</strong> Compares against configured matching languages list</li>
+								<li><strong>First-Run Selection:</strong> Appropriate language automatically selected on initial startup</li>
+								<li><strong>User Override:</strong> Manual language selection always available in settings</li>
+							</ul>
 
-<p>The Text column is the main text that shown for that Text ID.</p>
+							<h6>4. Language Registration</h6>
+							<ul class="small">
+								<li><strong>SupportedLanguages.xml:</strong> Updated automatically with new language information</li>
+								<li><strong>System Integration:</strong> New language appears in Multi Commander language list</li>
+								<li><strong>Immediate Availability:</strong> Ready for translation work after creation</li>
+								<li><strong>Backup Creation:</strong> Original configuration preserved for rollback if needed</li>
+							</ul>
+						</div>
+					</div>
 
-<p>The Last Column is the secondary text item . Every Text ID can have two text items, one main and one secondary. The secondary is often used for the Tooltip ("hover" text), but can also be used for the descriptive text for script commands, or as a caption for an error message.</p>
+					<h6>Practical Example: Swedish Language Configuration</h6>
+					<div class="alert alert-light p-2">
+						<div class="row">
+							<div class="col-md-6">
+								<h6 class="small mb-1"><strong>Basic Configuration:</strong></h6>
+								<p class="small mb-1"><strong>English Name:</strong> Swedish</p>
+								<p class="small mb-1"><strong>Native Name:</strong> Svenska</p>
+								<p class="small mb-3"><strong>Culture Code:</strong> sv</p>
+							</div>
+							<div class="col-md-6">
+								<h6 class="small mb-1"><strong>Matching Languages:</strong></h6>
+								<p class="small mb-1">sv, sv-SE, sv-FI</p>
+								<p class="small mb-0"><strong>Result:</strong> Auto-selected for Swedish users in Sweden or Finland</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 
-<p>Text items in <span style="color: rgb(255, 0, 0);"><em>Red and Italic</em></span> are text items that are <strong>NOT</strong> translated; the core English text is shown instead. The red items are NOT saved to the localized language files. The localized language files should not contain any English texts. The English text for untranslated text is automatically picked up (since the English language file are always read first).</p>
+	<div class="row mt-3">
+		<div class="col-md-6">
+			<div class="card">
+				<div class="card-header bg-warning text-dark">
+					<h6 class="mb-0"><i class="bi bi-file-text me-2"></i>External Editor Workflow</h6>
+				</div>
+				<div class="card-body">
+					<h6>Manual Language File Setup</h6>
+					<ol class="small">
+						<li><strong>Extract English Pack:</strong> Manually unpack <code>MC_LangPack_en.zip</code></li>
+						<li><strong>Rename Files:</strong> Change <code>*_en.xml</code> to <code>*_[code].xml</code> for new language</li>
+						<li><strong>Create New Pack:</strong> ZIP renamed files as <code>MC_LangPack_[code].zip</code></li>
+						<li><strong>Clean UserData:</strong> Remove old unpacked files except <code>SupportedLanguages.xml</code></li>
+						<li><strong>Restart Editor:</strong> Language Editor will unpack all language packs</li>
+						<li><strong>External Editing:</strong> Edit XML files in preferred text editor</li>
+						<li><strong>Export Pack:</strong> Use Language Editor export function when complete</li>
+					</ol>
 
-<p>Items shown <strong>in BOLD</strong> are text items that are modified but not yet saved.</p>
+					<h6>External Editing Benefits</h6>
+					<ul class="small">
+						<li><strong>Familiar Tools:</strong> Use preferred text editors with advanced features</li>
+						<li><strong>Batch Operations:</strong> Search and replace across multiple files</li>
+						<li><strong>Version Control:</strong> Integrate with Git or other VCS systems</li>
+						<li><strong>Team Collaboration:</strong> Share files for collaborative translation projects</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-6">
+			<div class="card">
+				<div class="card-header bg-danger text-white">
+					<h6 class="mb-0"><i class="bi bi-exclamation-triangle me-2"></i>XML Editing Precautions</h6>
+				</div>
+				<div class="card-body">
+					<h6>Critical XML Considerations</h6>
+					<ul class="small">
+						<li><strong>UTF-8 Encoding:</strong> Maintain UTF-8 encoding for international character support</li>
+						<li><strong>XML Tag Preservation:</strong> Never remove or modify XML structural tags</li>
+						<li><strong>Special Character Encoding:</strong> Properly encode &amp;, &lt;, &gt;, and quote characters</li>
+						<li><strong>File Validation:</strong> Test XML files in web browser to check for errors</li>
+					</ul>
 
-<p>By clicking the right mouse button it is possible to opt to show only untranslated items: no translated items are shown and only red, untranslated items remain.</p>
+					<h6>Common XML Encoding Rules</h6>
+					<div class="alert alert-light p-2">
+						<h6 class="small mb-1">Character Replacements:</h6>
+						<p class="small mb-1"><code>&amp;</code> becomes <code>&amp;amp;</code></p>
+						<p class="small mb-1"><code>&lt;</code> becomes <code>&amp;lt;</code></p>
+						<p class="small mb-1"><code>&gt;</code> becomes <code>&amp;gt;</code></p>
+						<p class="small mb-0"><code>"</code> becomes <code>&amp;quot;</code></p>
+					</div>
 
-<h2><b>Create New Language Pack</b></h2>
+					<h6>Error Prevention and Recovery</h6>
+					<ul class="small">
+						<li><strong>Backup Strategy:</strong> Keep original files before making changes</li>
+						<li><strong>Incremental Testing:</strong> Test files frequently during translation process</li>
+						<li><strong>Browser Validation:</strong> Use web browser XML validation for error detection</li>
+						<li><strong>Error Location:</strong> Browser reports specific line numbers for XML errors</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
 
-<p>Start the language editor and from the language dropdown select the last option "-- Add New Language --".<br />
-The Language Properties window will open.</p>
+<section id="translation-guidelines" class="mt-5">
+	<h3>Translation Guidelines and Special Characters</h3>
+	<p>Professional translation requires understanding of special formatting characters, control sequences, and interface-specific considerations that ensure translated text functions correctly within Multi Commander's interface elements.</p>
 
-<p><img alt="" src="/Docs/Images/NewLanguage.png" style="width: 279px; height: 424px;" /></p>
+	<div class="row">
+		<div class="col-md-6">
+			<div class="card">
+				<div class="card-header bg-info text-white">
+					<h6 class="mb-0"><i class="bi bi-code me-2"></i>Control Characters and Formatting</h6>
+				</div>
+				<div class="card-body">
+					<h6>Essential Control Characters</h6>
+					<div class="alert alert-light p-2">
+						<h6 class="small mb-1"><strong>\n - Line Break:</strong></h6>
+						<p class="small mb-1">Correct: <code>"Line1\nLine2"</code></p>
+						<p class="small mb-3">Incorrect: <code>"Line1 \n Line2"</code> (extra spaces)</p>
+						<p class="small mb-0">Used in message boxes and multi-line text displays</p>
+					</div>
 
-<p>There are two language name fields. The first is the language name in English and the second is language name as spelt in the language that is being added.</p>
+					<h6>Variable Placeholders</h6>
+					<div class="alert alert-light p-2">
+						<h6 class="small mb-1"><strong>%s - String Variable:</strong></h6>
+						<p class="small mb-1">Example: <code>"Opening %s file"</code></p>
+						<h6 class="small mb-1"><strong>%d - Number Variable:</strong></h6>
+						<p class="small mb-1">Example: <code>"%d files selected"</code></p>
+						<p class="small mb-0">Variables replaced with actual values at runtime</p>
+					</div>
 
-<p>Under "Culture name code" enter the two or five letter code for that language. If several variations of the language exist, you should add using the five letter code, so there will be no conflicts.</p>
+					<h6>Complex Variable Example</h6>
+					<div class="alert alert-warning p-2">
+						<h6 class="small mb-1">Text ID L-31:</h6>
+						<p class="small mb-0"><code>%s/%s in %d/%d Files and %d/%d Folders selected</code></p>
+						<p class="small mt-1">All %s and %d placeholders must be preserved in translation</p>
+					</div>
 
-<p>In "Matching Languages" enter all the language codes that match this language's codes. This field will be used to auto-select the correct language. So a user running Windows set to any of the matching languages, that language will be auto-selected the first time Multi Commander is run for that user.</p>
+					<h6>Formatting Best Practices</h6>
+					<ul class="small">
+						<li><strong>Exact Preservation:</strong> Keep all control characters in exact positions</li>
+						<li><strong>Space Management:</strong> No extra spaces before or after control characters</li>
+						<li><strong>Testing Importance:</strong> Verify formatted text displays correctly</li>
+						<li><strong>Context Understanding:</strong> Consider how variables will be displayed</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-6">
+			<div class="card">
+				<div class="card-header bg-warning text-dark">
+					<h6 class="mb-0"><i class="bi bi-keyboard me-2"></i>Keyboard Shortcuts and Menu Accelerators</h6>
+				</div>
+				<div class="card-body">
+					<h6>Ampersand (&) Usage for Shortcuts</h6>
+					<div class="alert alert-light p-2">
+						<h6 class="small mb-1"><strong>Menu Shortcut Creation:</strong></h6>
+						<p class="small mb-1"><code>&amp;View</code> → <u>V</u>iew (Alt+V)</p>
+						<p class="small mb-1"><code>Vie&amp;w</code> → Vie<u>w</u> (Alt+W)</p>
+						<p class="small mb-0">Ampersand underlines following character for keyboard access</p>
+					</div>
 
-<p>As an example from the image above: if a user has Windows language set to "sv-FI" it will pick the language pack that is about to be created.<br />
-"Matching Languages" can be changed later by pressing the Language Properties button next to the Save button</p>
+					<h6>Shortcut Conflict Management</h6>
+					<ul class="small">
+						<li><strong>Unique Assignment:</strong> Each menu should have unique shortcut letters</li>
+						<li><strong>Conflict Resolution:</strong> Move ampersand to different character when conflicts occur</li>
+						<li><strong>Priority System:</strong> First occurrence takes precedence in case of duplicates</li>
+						<li><strong>User Experience:</strong> Choose intuitive letters for keyboard navigation</li>
+					</ul>
 
-<p>Press Save to create support for that language. The file UserData\Lanaguge\<span style="line-height: 20.7999992370605px;">SupportedLanguages.xml is then updated and Multi Commander will use this file next time it starts.</span></p>
+					<h6>Shortcut Selection Strategy</h6>
+					<ul class="small">
+						<li><strong>First Letter Priority:</strong> Use first letter when possible for intuitive access</li>
+						<li><strong>Memorable Characters:</strong> Select prominent or distinctive letters</li>
+						<li><strong>Language Adaptation:</strong> Adjust shortcuts for target language word patterns</li>
+						<li><strong>Consistency Maintenance:</strong> Keep similar shortcuts across related menu items</li>
+					</ul>
 
-<p>It is not possible to start translating using the language editor.</p>
+					<h6>Windows Standard Behavior</h6>
+					<ul class="small">
+						<li><strong>Alt Key Activation:</strong> Alt reveals underlined shortcut characters</li>
+						<li><strong>Hierarchical Navigation:</strong> Menu bar shortcuts lead to submenu shortcuts</li>
+						<li><strong>Visual Feedback:</strong> Underlined characters guide keyboard navigation</li>
+						<li><strong>Cross-Application Consistency:</strong> Standard Windows keyboard navigation patterns</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
 
-<h2><b>Special Characters</b></h2>
+<section id="submission-export" class="mt-5">
+	<h3>Language Pack Submission and Export</h3>
+	<p>The Language Editor provides multiple export and submission options for completed translations, including direct submission to the development team and public distribution formats for sharing with the community.</p>
 
-<p>Some text items can contain control characters and these must be retained.</p>
+	<div class="row">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header bg-primary text-white">
+					<h6 class="mb-0"><i class="bi bi-cloud-upload me-2"></i>Export and Submission Options</h6>
+				</div>
+				<div class="card-body">
+					<h6>Available Export Formats</h6>
+					<div class="table-responsive">
+						<table class="table table-bordered table-hover">
+							<thead class="table-light">
+								<tr>
+									<th style="width: 35%">Export Type</th>
+									<th style="width: 30%">Purpose</th>
+									<th style="width: 35%">Description</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td><strong>Internal Format (Email Submission)</strong></td>
+									<td>Development team submission</td>
+									<td>Creates internal format for email submission to Multi Commander developers</td>
+								</tr>
+								<tr>
+									<td><strong>Internal Format (HTTP Submission)</strong></td>
+									<td>Automated submission system</td>
+									<td>Direct web service submission with submit key for automatic inclusion</td>
+								</tr>
+								<tr>
+									<td><strong>Public Language Pack Format</strong></td>
+									<td>Community distribution</td>
+									<td>Standard format for sharing with other users and testing on different machines</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
 
-<p>The most common such character is&nbsp;<strong>\n</strong>, meaning "new line" and is most often used for text shown in text blocks or message boxes.&nbsp; Make sure there is no space after the control character.</p>
+					<h6>HTTP Submission System (Recommended)</h6>
+					<div class="row">
+						<div class="col-md-6">
+							<ul class="small">
+								<li><strong>Automated Process:</strong> Direct submission to Multi Commander web service</li>
+								<li><strong>Submit Key Required:</strong> Contact Multi Commander staff for submission credentials</li>
+								<li><strong>Quality Control:</strong> Prevents unauthorized or incorrect language pack submissions</li>
+								<li><strong>Automatic Integration:</strong> Approved translations automatically included in next release</li>
+							</ul>
+						</div>
+						<div class="col-md-6">
+							<ul class="small">
+								<li><strong>Frequent Updates:</strong> Submit changes as often as needed with valid key</li>
+								<li><strong>Version Control:</strong> System tracks submission history and versions</li>
+								<li><strong>Instant Feedback:</strong> Immediate confirmation of successful submission</li>
+								<li><strong>Professional Workflow:</strong> Streamlined process for serious translation contributors</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 
-<p>"Line1 \n Line2" = Wrong - "Line2" text would then have an extra space before the text "Line2" text.<br />
-"Line1\nLine2" = Correct - There is no extra space character before the "Line2" text</p>
+	<div class="row mt-3">
+		<div class="col-md-6">
+			<div class="card">
+				<div class="card-header bg-success text-white">
+					<h6 class="mb-0"><i class="bi bi-people me-2"></i>Collaborative Translation Support</h6>
+				</div>
+				<div class="card-body">
+					<h6>Partial Translation Submissions</h6>
+					<ul class="small">
+						<li><strong>Incremental Progress:</strong> Submit incomplete translations for community continuation</li>
+						<li><strong>Team Collaboration:</strong> Multiple translators can work on same language pack</li>
+						<li><strong>Quality Improvement:</strong> Partial translation better than no translation at all</li>
+						<li><strong>Community Building:</strong> Encourage collaborative translation projects</li>
+					</ul>
 
-<p>There are also <strong>%s</strong> and <strong>%d</strong>&nbsp;, meaning that strings or numbers will be inserted at these positions and so these control characters must also be kept</p>
+					<h6>Translation Project Management</h6>
+					<ul class="small">
+						<li><strong>Progress Tracking:</strong> Visual indicators show translation completion status</li>
+						<li><strong>Priority Focus:</strong> Filter untranslated items to focus effort efficiently</li>
+						<li><strong>Version Backup:</strong> Automatic backup system preserves translation progress</li>
+						<li><strong>Restoration Options:</strong> Restore previous versions if needed</li>
+					</ul>
 
-<p>For example, in an Explorer Panel there is a Text ID "<strong>L-31"</strong> that looks like: %s/%s in %d/%d Files and %d/%d Folders selected</p>
+					<h6>Community Contributions</h6>
+					<ul class="small">
+						<li><strong>Open Participation:</strong> Anyone can contribute to translation efforts</li>
+						<li><strong>Knowledge Sharing:</strong> Share language packs with community members</li>
+						<li><strong>Global Impact:</strong> Enable Multi Commander access for international users</li>
+						<li><strong>Cultural Adaptation:</strong> Ensure appropriate cultural context in translations</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-6">
+			<div class="card">
+				<div class="card-header bg-info text-white">
+					<h6 class="mb-0"><i class="bi bi-shield-check me-2"></i>Quality Assurance and Testing</h6>
+				</div>
+				<div class="card-body">
+					<h6>Pre-Submission Validation</h6>
+					<ul class="small">
+						<li><strong>Format Verification:</strong> Ensure all special characters and variables preserved</li>
+						<li><strong>XML Validation:</strong> Verify XML structure integrity before export</li>
+						<li><strong>Character Encoding:</strong> Confirm UTF-8 encoding maintains international characters</li>
+						<li><strong>Completeness Check:</strong> Review translation coverage and missing items</li>
+					</ul>
 
-<p>All the %s and %d control characters will be replaced with strings and numbers when the text item is used.</p>
+					<h6>Testing Methodology</h6>
+					<ul class="small">
+						<li><strong>Live Testing:</strong> Use unpacked files in UserData for real-time testing</li>
+						<li><strong>Interface Review:</strong> Verify translations display correctly in actual interface</li>
+						<li><strong>Shortcut Testing:</strong> Confirm keyboard shortcuts work without conflicts</li>
+						<li><strong>Context Validation:</strong> Ensure translations appropriate for interface context</li>
+					</ul>
 
-<p>Another common control character is the &amp; (ampersand) character. This control character is a text item used in menubar or popup menu items and is used to underline automatic Shortcut (hotkey or accelerator) characters.</p>
+					<h6>Distribution Preparation</h6>
+					<ul class="small">
+						<li><strong>Public Format Export:</strong> Generate standard language pack for community sharing</li>
+						<li><strong>Installation Testing:</strong> Verify language pack works on clean installations</li>
+						<li><strong>Documentation:</strong> Include translation notes and contributor information</li>
+						<li><strong>Version Compatibility:</strong> Ensure compatibility with target Multi Commander version</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
 
-<h2><b><a name="autosc"></a>Automatic Shortcuts</b></h2>
 
-<p>Menu items and popup menus can be activated using the keyboard. For example, if you press the Alt key, the "File" menu on the menu bar is highlighted.<br />
-Note that the File menu now has an underscore under the F and the Edit menu has the E underscored.<br />
-The menu bar options now read: <u>F</u>ile, <u>E</u>dit, <u>V</u>iew, and so on.</p>
+<div class="alert alert-success mt-5">
+	<h6><i class="bi bi-lightbulb me-2"></i>Language Editor Mastery</h6>
+	<p class="mb-0">Master the Language Editor by understanding the ZIP-based language pack architecture with UserData unpacking for development, utilizing the comprehensive interface for systematic translation with proper control character preservation, and leveraging automated submission systems for professional translation workflows. Remember that partial translations are valuable contributions to the community, special characters like \n, %s, %d, and & must be preserved exactly, and the HTTP submission system with submit keys provides the most efficient path for contributing translations to Multi Commander. Focus on creating consistent, culturally appropriate translations that maintain interface functionality while providing natural language experience for target users.</p>
+</div>
 
-<p>The underscore below V in the View menu means that you can now press V to drop that menu. The menu that opens can also have underscores for many of its menu items such that they, too, can be accessed them quickly using the keyboard.</p>
-
-<p>The decision on which letter is used as a shortcut (accelerator) is decided by the menu item text. Any &amp; characters in a menu item text will underscore the followin character and it will be used as a shortcut (accelerator) automatically. For Example, "&amp;View" will be shown as "<u>V</u>iew", and "Vie&amp;w" would be shown as "Vie<u>w.</u></p>
-
-<p>This is not unique to Multi Commander, but is a long-standing Windows behaviour. For every menu that is shown there should be no duplicated shortcuts. For items within a menu there should not be more than two (where possible) items that have the same underscored letter. The shortcut will activate the first one.<br />
-To avoid this situation the &amp; character may need to be moved to precede another character in the translated text.</p>
-
-<h2><b>Edit Language Files With External Editor</b></h2>
-
-<p>Some people find it easier to translating with their favourite text editor. To do that you first need to follow the same steps as above when creating a new language.</p>
-
-<p>Since language files do not contain untranslated text you need copy the English files to the new languages which you are creating. This requires a bit of manual work.</p>
-
-<ul>
-	<li>Unpack the english language pack file manually MC_LangPack_en.zip</li>
-	<li>Rename all of the files to match your new language.&nbsp; If your new language culture code is "se" (as in the example image above) you should rename then *_en.xml part of all the language files to *_se.xml</li>
-	<li>Then zip them all together again to a file called MC_LangPack_se.zip and place that archive in the standard language pack folder</li>
-	<li>Go to UserData\Languages\ folder and delete everything EXCEPT "<b>SupportedLanguages.xml</b>". Do not delete that file since this file will be updated with your new language</li>
-	<li>Start the Internal Language Editor again and it will unpack all language packs again to UserData\Languages\</li>
-	<li>Start editing the new language files located in UserData\Languages\ in your favourite editor</li>
-	<li>When done, start the Internal Language Editor and select Export/Send to export or send the language pack</li>
-</ul>
-
-<p>Editing new language files in the UserData\Lanauges location is going to make the export function work without any problems. So then you can create a language pack for sending to be included into the next version of Multi Commander.</p>
-
-<h3>Be aware...</h3>
-
-<p>When editing the language files with an external editor the files are in a format called xml and they are encoded using UTF8. Be careful not to remove xml tags. If xml tags are destroyed the entire xml file will be unreadable. Also special characters like <strong>&amp;</strong> and <strong>" </strong>might need special encoding.</p>
-
-<p>If a language files is not readable by Multi Commander try to open the xml file in a webbrowser. If some xml tags have been lost the browser can often report that it found an xml error on line xx and you can locate and correct the error.</p>
-
-<h2><b>Submit Language Pack</b></h2>
-
-<p>After modifying an existing language or created a new one, a new language pack for that language may be required; so that it can be moved to another machine easily or sent to the developer of Multi Commander to be included in the next release. To create an updated language pack, first make sure that the Language dropdown is set to the language you want to create a language pack for. Then press the "Export/Send" button.</p>
-
-<p>A window will open that has a dropdown with three options. This is to select which type of language pack you want to create.</p>
-
-<ul>
-	<li><strong>Internal format (Submit to developer using e-mail)</strong><br />
-	This will create a Language pack in the internal format. This is used if you are sending the Language pack to the developers of Multi Commander via email.</li>
-	<li><strong>Internal format (Submit to developer using HTTP) <em>(this is the recommended option)</em></strong><br />
-	This will create a Language pack in the internal format and this will then be sent to the MultiCommander web service and there is no need for email.<br />
-	However, using this method you need a Submit key that you can get by contacting Multi Commander staff.<br />
-	A key is needed so that not just anybody can submit incorrect changes that could destroy a language pack.<br />
-	This process is entirely automatic and language packs received this way will automatically be included in the next version. If you have a Submit key you can submit language changes as often at you like.</li>
-	<li><strong>Export to Public Language Pack Format</strong><br />
-	This will export the language pack in the public format. this is the same format as the language files found in the install folder. This format is used if the language pack created should be shared with somebody else or if you want to test it on another machine.</li>
-</ul>
-
-<h2><b>Incomplete Translation Work</b></h2>
-
-<p>Multi Commander contains many text items and translating them can be a very long, intensive process.<br />
-So if you start a translation but give up because it is too much work, then submit what you have. Somebody else might continue with where you left off.<br />
-A partial translations is better than none at all!</p>
+<div class="alert alert-info mt-4">
+	<h6><i class="bi bi-info-circle me-2"></i>Related Internationalization and Configuration Documentation</h6>
+	<p class="mb-0">Enhance your translation and localization workflows with related Multi Commander features: <a href="/Docs/Configuration" class="text-decoration-none">Configuration Management</a>, <a href="/Docs/customized-config-paths" class="text-decoration-none">Custom Configuration Paths</a>, <a href="/Docs/backup_restore_config" class="text-decoration-none">Backup and Restore Configuration</a>, <a href="/Docs/extensions" class="text-decoration-none">Extensions and Plugins</a>, and <a href="/Docs/user-defined-commands" class="text-decoration-none">User Defined Commands</a>.</p>
+</div>
 
 

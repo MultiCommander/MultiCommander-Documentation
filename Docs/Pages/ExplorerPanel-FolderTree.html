@@ -1,23 +1,363 @@
-<h2>Folder Tree</h2>
-<p><img alt="" src="/Docs/Images/ExplorerPanel_FolderTree.png" style="width: 420px; height: 390px;" /></p>
+<h2>Explorer Panel - Folder Tree</h2>
 
-<p>The first of the buttons on the <em>Explorer Panel</em> Embedded Toolbar is the <strong>Toggle Folder Tree</strong> command, This button will show/hide the Folder Tree.</p>
+<p>The <strong>Explorer Panel Folder Tree</strong> provides hierarchical directory navigation through an optional split-panel interface that displays directory structures in an expandable tree format alongside the primary file listing. This sophisticated navigation component enables efficient browsing of complex directory hierarchies through visual tree representations, synchronized navigation between tree and file views, and comprehensive keyboard and mouse interaction capabilities that enhance file management productivity through intuitive directory exploration and rapid location switching.</p>
 
-<div class="dochints">
-<fieldset><legend>Shortcuts</legend>
-
-<p>ALT+Num* - Show/Hide the Folder Tree panel<br />
-ALT+Num/ - Change the input focus between the Folder Tree panel and the file list view</p>
-</fieldset>
+<div class="alert alert-primary">
+	<h6><i class="bi bi-diagram-2 me-2"></i>Hierarchical Navigation Interface</h6>
+	<p class="mb-0">Experience advanced directory navigation through an optional folder tree that provides visual hierarchy representation, synchronized navigation with the file list view, and comprehensive interaction capabilities. The Folder Tree transforms complex directory structures into intuitive visual navigation while supporting drag-and-drop operations, independent scrolling, and keyboard-driven tree manipulation for optimal file management efficiency.</p>
 </div>
 
-<p>The Folder Tree can be scrolled independently of the Explorer Panel, and clicking on any node of the Folder Tree will change the Explorer Panel to display that subfolder. The nodes of the Tree are shown with "+" or "-" symbols to show whether the subtree is expanded or collapsed.<br />
-You can also drop files on a folder in the Folder Tree and then a copy operation will begin. The copy operation will use the folder on to which the file was dropped as the suggested target folder.<br />
-<br />
-<span style="line-height: 1.6;">Pressing the refresh shortcut command (F2/F5 depending on setup) while a folder in the Folder Tree is in focus will refresh that Tree node .</span></p>
+<nav class="navbar navbar-expand-lg navbar-light bg-light mb-4">
+	<div class="container-fluid">
+		<span class="navbar-brand">Quick Navigation</span>
+		<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#folderTreeNav">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="folderTreeNav">
+			<ul class="navbar-nav">
+				<li class="nav-item"><a class="nav-link" href="#overview">Overview</a></li>
+				<li class="nav-item"><a class="nav-link" href="#activation-control">Activation & Control</a></li>
+				<li class="nav-item"><a class="nav-link" href="#navigation-features">Navigation Features</a></li>
+				<li class="nav-item"><a class="nav-link" href="#file-operations">File Operations</a></li>
+				<li class="nav-item"><a class="nav-link" href="#configuration">Configuration</a></li>
+			</ul>
+		</div>
+	</div>
+</nav>
 
-<div class="dochints">
-<fieldset><legend>NOTE</legend> <em>If you have "<strong>Autosize columns</strong>" set, the Folder Tree will obscure part of the file listing in the Explorer Panel. To turn this setting off, click on <strong>Configuration &gt; Explorer Panel Settings</strong>, scroll down to "<strong>Sorting and Columns</strong>", and click on&nbsp;<em>"<strong>Autosize columns</strong>" to clear the checkbox.</em></em></fieldset>
+<section id="overview">
+	<h3>Folder Tree Overview and Interface</h3>
+	<p>The Folder Tree provides an optional hierarchical view of directory structures that complements the standard file listing through a split-panel interface that enables visual navigation and directory structure understanding while maintaining full synchronization with the primary Explorer Panel view.</p>
+
+	<div class="row">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header bg-info text-white">
+					<h6 class="mb-0"><i class="bi bi-tree me-2"></i>Hierarchical Directory Display</h6>
+				</div>
+				<div class="card-body">
+					<div class="text-center mt-3 mb-3">
+						<img src="/Docs/Images/ExplorerPanel_FolderTree.png" alt="Explorer Panel with Folder Tree" class="img-fluid border rounded shadow-sm" style="max-width: 420px;" />
+						<p class="text-muted small mt-2">Explorer Panel displaying folder tree in split-panel mode with hierarchical directory navigation</p>
+					</div>
+
+					<h6>Split-Panel Interface</h6>
+					<ul class="small">
+						<li><strong>Optional Display:</strong> Folder tree can be shown or hidden based on workflow requirements</li>
+						<li><strong>Left Panel Integration:</strong> Tree appears in left portion of Explorer Panel when activated</li>
+						<li><strong>Synchronized Views:</strong> Tree selection automatically updates file list view</li>
+						<li><strong>Independent Operation:</strong> Tree and file list can be scrolled and navigated independently</li>
+					</ul>
+
+					<h6>Visual Hierarchy Representation</h6>
+					<ul class="small">
+						<li><strong>Expandable Nodes:</strong> Directory tree nodes show "+" and "-" symbols for expansion state</li>
+						<li><strong>Visual Structure:</strong> Clear representation of directory hierarchy and relationships</li>
+						<li><strong>Context Awareness:</strong> Tree reflects actual file system structure and permissions</li>
+						<li><strong>Dynamic Updates:</strong> Tree structure updates as file system changes occur</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<section id="activation-control" class="mt-5">
+	<h3>Activation and Control Methods</h3>
+	<p>The Folder Tree can be activated and controlled through multiple methods including toolbar buttons, keyboard shortcuts, and focus management that provide flexible access to hierarchical navigation capabilities based on user preferences and workflow requirements.</p>
+
+	<div class="row">
+		<div class="col-md-6">
+			<div class="card">
+				<div class="card-header bg-success text-white">
+					<h6 class="mb-0"><i class="bi bi-toggle-on me-2"></i>Toggle Folder Tree Command</h6>
+				</div>
+				<div class="card-body">
+					<h6>Activation Methods</h6>
+					<ul class="small">
+						<li><strong>Toolbar Button:</strong> First button on Explorer Panel Embedded Toolbar</li>
+						<li><strong>Toggle Functionality:</strong> Single button click shows or hides the folder tree</li>
+						<li><strong>Visual Feedback:</strong> Button state indicates current folder tree visibility</li>
+						<li><strong>Instant Response:</strong> Immediate tree display or hiding without dialog confirmation</li>
+					</ul>
+
+					<h6>Toolbar Integration</h6>
+					<ul class="small">
+						<li><strong>Primary Position:</strong> First button ensures easy access to tree functionality</li>
+						<li><strong>Embedded Toolbar:</strong> Part of Explorer Panel's integrated toolbar system</li>
+						<li><strong>Context Sensitivity:</strong> Button availability based on Explorer Panel configuration</li>
+						<li><strong>Visual Consistency:</strong> Matches other Explorer Panel toolbar button styling</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-6">
+			<div class="card">
+				<div class="card-header bg-primary text-white">
+					<h6 class="mb-0"><i class="bi bi-keyboard me-2"></i>Keyboard Shortcuts</h6>
+				</div>
+				<div class="card-body">
+					<div class="alert alert-info p-2 mb-3">
+						<h6 class="small mb-1"><i class="bi bi-keyboard me-1"></i>Essential Shortcuts</h6>
+						<ul class="small mb-0">
+							<li><kbd>Alt</kbd>+<kbd>Num*</kbd> - Show/Hide the Folder Tree panel</li>
+							<li><kbd>Alt</kbd>+<kbd>Num/</kbd> - Change input focus between Folder Tree and file list view</li>
+						</ul>
+					</div>
+
+					<h6>Keyboard Navigation Benefits</h6>
+					<ul class="small">
+						<li><strong>Rapid Access:</strong> Instant tree toggle without mouse interaction</li>
+						<li><strong>Focus Management:</strong> Quick switching between tree and file list focus</li>
+						<li><strong>Workflow Integration:</strong> Seamless keyboard-driven navigation workflow</li>
+						<li><strong>Efficiency Enhancement:</strong> Minimize hand movement between keyboard and mouse</li>
+					</ul>
+
+					<h6>Focus Control</h6>
+					<ul class="small">
+						<li><strong>Independent Focus:</strong> Tree and file list maintain separate input focus</li>
+						<li><strong>Focus Switching:</strong> <kbd>Alt</kbd>+<kbd>Num/</kbd> toggles focus between panels</li>
+						<li><strong>Keyboard Navigation:</strong> Full keyboard control when tree has focus</li>
+						<li><strong>Visual Indication:</strong> Clear focus indication shows active panel</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<section id="navigation-features" class="mt-5">
+	<h3>Navigation Features and Interaction</h3>
+	<p>The Folder Tree provides comprehensive navigation capabilities through click-based selection, tree expansion/collapse operations, and synchronized view updates that enable efficient directory browsing and location selection within complex file system hierarchies.</p>
+
+	<div class="row">
+		<div class="col-md-6">
+			<div class="card">
+				<div class="card-header bg-warning text-dark">
+					<h6 class="mb-0"><i class="bi bi-mouse me-2"></i>Click Navigation</h6>
+				</div>
+				<div class="card-body">
+					<h6>Direct Tree Navigation</h6>
+					<ul class="small">
+						<li><strong>Node Clicking:</strong> Click any folder node to navigate to that directory</li>
+						<li><strong>Explorer Panel Update:</strong> File list view automatically updates to show selected directory contents</li>
+						<li><strong>Synchronized Navigation:</strong> Tree selection and Explorer Panel location remain synchronized</li>
+						<li><strong>Instant Response:</strong> Immediate navigation without additional confirmation</li>
+					</ul>
+
+					<h6>Tree Expansion Control</h6>
+					<ul class="small">
+						<li><strong>Expansion Symbols:</strong> "+" symbols indicate collapsed nodes with subdirectories</li>
+						<li><strong>Collapse Symbols:</strong> "-" symbols show expanded nodes that can be collapsed</li>
+						<li><strong>Visual Feedback:</strong> Clear indication of tree structure and expansion state</li>
+						<li><strong>Hierarchical Control:</strong> Expand or collapse any level of the directory hierarchy</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-6">
+			<div class="card">
+				<div class="card-header bg-info text-white">
+					<h6 class="mb-0"><i class="bi bi-arrows-move me-2"></i>Independent Scrolling</h6>
+				</div>
+				<div class="card-body">
+					<h6>Flexible View Management</h6>
+					<ul class="small">
+						<li><strong>Independent Scrolling:</strong> Folder tree scrolls separately from Explorer Panel file list</li>
+						<li><strong>Large Hierarchy Support:</strong> Navigate extensive directory structures without file list interference</li>
+						<li><strong>View Optimization:</strong> Maintain optimal viewing position in both tree and file list</li>
+						<li><strong>Workflow Efficiency:</strong> Focus on different areas of interface simultaneously</li>
+					</ul>
+
+					<h6>Navigation Advantages</h6>
+					<ul class="small">
+						<li><strong>Multi-Level Browsing:</strong> Explore directory structure while maintaining file list context</li>
+						<li><strong>Context Preservation:</strong> Tree position maintained during file list navigation</li>
+						<li><strong>Visual Reference:</strong> Keep directory structure visible while working with files</li>
+						<li><strong>Efficient Workflow:</strong> Rapid switching between structure view and file operations</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<section id="file-operations" class="mt-5">
+	<h3>File Operations and Drag-and-Drop</h3>
+	<p>The Folder Tree supports comprehensive file operations including drag-and-drop functionality for file copying, refresh operations for tree node updates, and integrated file management capabilities that extend beyond simple navigation to full operational support.</p>
+
+	<div class="row">
+		<div class="col-md-6">
+			<div class="card">
+				<div class="card-header bg-success text-white">
+					<h6 class="mb-0"><i class="bi bi-arrow-down-circle me-2"></i>Drag-and-Drop Operations</h6>
+				</div>
+				<div class="card-body">
+					<h6>File Transfer Capabilities</h6>
+					<ul class="small">
+						<li><strong>Drop Target Support:</strong> Any folder in the tree can serve as a drop target for files</li>
+						<li><strong>Copy Operation Initiation:</strong> Dropping files on tree folders initiates copy operation</li>
+						<li><strong>Target Folder Suggestion:</strong> Dropped-on folder becomes suggested target for copy operation</li>
+						<li><strong>Visual Feedback:</strong> Clear indication of valid drop targets during drag operations</li>
+					</ul>
+
+					<h6>Operation Benefits</h6>
+					<ul class="small">
+						<li><strong>Direct Target Selection:</strong> Select target folder directly from tree structure</li>
+						<li><strong>Visual Context:</strong> See destination folder in context of directory hierarchy</li>
+						<li><strong>Efficient Workflow:</strong> Combine navigation and file operations in single interface</li>
+						<li><strong>Hierarchy Awareness:</strong> Understand file placement within directory structure</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-6">
+			<div class="card">
+				<div class="card-header bg-primary text-white">
+					<h6 class="mb-0"><i class="bi bi-arrow-clockwise me-2"></i>Refresh Operations</h6>
+				</div>
+				<div class="card-body">
+					<h6>Tree Node Refresh</h6>
+					<ul class="small">
+						<li><strong>Focused Refresh:</strong> Refresh shortcut (F2/F5) updates focused tree node</li>
+						<li><strong>Setup Dependent:</strong> Refresh key varies based on Multi Commander configuration</li>
+						<li><strong>Node-Specific Update:</strong> Only selected tree node and its children are refreshed</li>
+						<li><strong>Efficient Updates:</strong> Avoid full tree refresh when only specific branch needs updating</li>
+					</ul>
+
+					<h6>Refresh Scenarios</h6>
+					<ul class="small">
+						<li><strong>Directory Changes:</strong> Update tree when external programs modify directory structure</li>
+						<li><strong>Network Locations:</strong> Refresh network folder branches for updated content</li>
+						<li><strong>Dynamic Content:</strong> Update folders with frequently changing contents</li>
+						<li><strong>Permission Changes:</strong> Refresh when access permissions are modified</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<section id="configuration" class="mt-5">
+	<h3>Configuration and Compatibility</h3>
+	<p>The Folder Tree integrates with Explorer Panel configuration settings and requires consideration of other interface options to ensure optimal display and functionality within the overall Multi Commander interface design and layout system.</p>
+
+	<div class="row mt-3">
+		<div class="col-md-6">
+			<div class="card">
+				<div class="card-header bg-info text-white">
+					<h6 class="mb-0"><i class="bi bi-gear me-2"></i>Explorer Panel Settings Integration</h6>
+				</div>
+				<div class="card-body">
+					<h6>Configuration Options</h6>
+					<ul class="small">
+						<li><strong>Tree Visibility:</strong> Default folder tree visibility can be configured</li>
+						<li><strong>Layout Preferences:</strong> Save preferred tree display state</li>
+						<li><strong>Interface Customization:</strong> Integrate tree settings with overall Explorer Panel configuration</li>
+						<li><strong>Workflow Optimization:</strong> Configure tree behavior for specific use cases</li>
+					</ul>
+
+					<h6>Settings Integration</h6>
+					<ul class="small">
+						<li><strong>Layout Settings:</strong> Tree configuration part of overall layout management</li>
+						<li><strong>Keyboard Shortcuts:</strong> Tree shortcuts configurable through keyboard customization</li>
+						<li><strong>Visual Themes:</strong> Tree appearance adapts to Explorer Panel visual themes</li>
+						<li><strong>Persistent Configuration:</strong> Tree settings maintained across Multi Commander sessions</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-6">
+			<div class="card">
+				<div class="card-header bg-success text-white">
+					<h6 class="mb-0"><i class="bi bi-layout-split me-2"></i>Interface Layout Impact</h6>
+				</div>
+				<div class="card-body">
+					<h6>Display Considerations</h6>
+					<ul class="small">
+						<li><strong>Panel Width Sharing:</strong> Tree and file list share available Explorer Panel width</li>
+						<li><strong>Responsive Design:</strong> Layout adapts to different panel sizes and screen resolutions</li>
+						<li><strong>Visual Balance:</strong> Optimal distribution of space between tree and file list</li>
+						<li><strong>Usability Priority:</strong> Maintain usability of both tree and file list components</li>
+					</ul>
+
+					<h6>Optimization Strategies</h6>
+					<ul class="small">
+						<li><strong>Wide Panels:</strong> Folder tree most effective with wider Explorer Panel configurations</li>
+						<li><strong>Resolution Consideration:</strong> Higher resolutions accommodate tree with minimal impact</li>
+						<li><strong>Workflow Analysis:</strong> Evaluate tree benefits against file list space reduction</li>
+						<li><strong>Toggle Usage:</strong> Use tree toggle for situational activation when needed</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<section id="workflow-integration" class="mt-5">
+	<h3>Workflow Integration and Use Cases</h3>
+	<p>The Folder Tree enhances file management workflows through specialized use cases that leverage hierarchical visualization, rapid directory navigation, and integrated file operations for optimal productivity in complex directory structures and organizational systems.</p>
+
+	<div class="row">
+		<div class="col-md-6">
+			<div class="card">
+				<div class="card-header bg-primary text-white">
+					<h6 class="mb-0"><i class="bi bi-folder2-open me-2"></i>Optimal Use Cases</h6>
+				</div>
+				<div class="card-body">
+					<h6>Directory Structure Navigation</h6>
+					<ul class="small">
+						<li><strong>Complex Hierarchies:</strong> Navigate deep directory structures with many nested folders</li>
+						<li><strong>Project Organization:</strong> Manage software projects with multiple component directories</li>
+						<li><strong>File Classification:</strong> Work with organized file systems using hierarchical categorization</li>
+						<li><strong>Archive Exploration:</strong> Browse archived content with structured organization</li>
+					</ul>
+
+					<h6>Workflow Enhancement Scenarios</h6>
+					<ul class="small">
+						<li><strong>Document Management:</strong> Navigate document libraries with category-based organization</li>
+						<li><strong>Media Collections:</strong> Browse media files organized in genre/artist/album hierarchies</li>
+						<li><strong>Development Projects:</strong> Manage source code with module and package structures</li>
+						<li><strong>System Administration:</strong> Navigate system directories and configuration hierarchies</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-6">
+			<div class="card">
+				<div class="card-header bg-success text-white">
+					<h6 class="mb-0"><i class="bi bi-arrow-repeat me-2"></i>Operational Benefits</h6>
+				</div>
+				<div class="card-body">
+					<h6>Navigation Efficiency</h6>
+					<ul class="small">
+						<li><strong>Visual Context:</strong> Maintain awareness of current location within directory hierarchy</li>
+						<li><strong>Rapid Switching:</strong> Quick navigation between related directories</li>
+						<li><strong>Structure Understanding:</strong> Visual representation improves directory structure comprehension</li>
+						<li><strong>Reduced Navigation Steps:</strong> Direct access to any visible directory level</li>
+					</ul>
+
+					<h6>File Management Integration</h6>
+					<ul class="small">
+						<li><strong>Drag-and-Drop Targets:</strong> Visual selection of destination folders for file operations</li>
+						<li><strong>Context Awareness:</strong> Understand file placement within organizational structure</li>
+						<li><strong>Batch Operations:</strong> Efficient multi-directory file operations</li>
+						<li><strong>Organizational Workflow:</strong> Support for systematic file organization and maintenance</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<div class="alert alert-success mt-5">
+	<h6><i class="bi bi-lightbulb me-2"></i>Folder Tree Mastery</h6>
+	<p class="mb-0">Master the Explorer Panel Folder Tree by utilizing <kbd>Alt</kbd>+<kbd>Num*</kbd> for quick tree toggling and <kbd>Alt</kbd>+<kbd>Num/</kbd> for focus switching between tree and file list. Leverage the tree for complex directory navigation, drag-and-drop file operations, and maintaining visual context of directory hierarchies. Remember that the folder tree is most effective with wider Explorer Panel configurations and may require disabling "Auto-fit columns to view width" for optimal layout balance. Use the tree's independent scrolling and node expansion capabilities to efficiently navigate deep directory structures while maintaining awareness of your current location within the file system hierarchy.</p>
+</div>
+
+<div class="alert alert-info mt-4">
+	<h6><i class="bi bi-info-circle me-2"></i>Related Explorer Panel Documentation</h6>
+	<p class="mb-0">Enhance your Explorer Panel navigation with related components: <a href="/Docs/ExplorerPanel-Layout" class="text-decoration-none">Explorer Panel Layout</a>, <a href="/Docs/ExplorerPanelPathField" class="text-decoration-none">Path Field</a>, <a href="/Docs/ExplorerPanel2" class="text-decoration-none">Explorer Panel Navigation</a>, <a href="/Docs/ExplorerPanelSettings" class="text-decoration-none">Explorer Panel Settings</a>, <a href="/Docs/ExplorerPanel-CustomizeColumns" class="text-decoration-none">Customize Columns</a>, and <a href="/Docs/paneltabs" class="text-decoration-none">Panel Tabs</a>.</p>
 </div>
 
 

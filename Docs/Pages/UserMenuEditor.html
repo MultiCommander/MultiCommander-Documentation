@@ -1,15 +1,313 @@
-<h2>User Menu Editor</h2>
-<p>To add your own <strong>User Defined Commands</strong> to the menu you need to start the Menu Customization editor from the Configuration menu.</p>
+﻿<h2>User Menu Editor</h2>
 
-<p><img alt="" src="/Docs/Images/usermenu.png" /></p>
+<p>Multi Commander's <strong>User Menu Editor</strong> provides powerful menu customization capabilities, allowing you to integrate your user-defined commands directly into the application's menu system. Create personalized menu structures that match your workflow and provide quick access to your most frequently used custom commands.</p>
 
-<p>This will list all of your User Defined Commands on the left and on the right will show your user-defined menus.</p>
+<div class="alert alert-primary">
+	<h6><i class="bi bi-menu-app me-2"></i>Menu Integration</h6>
+	<p class="mb-0">The User Menu Editor bridges the gap between your custom commands and Multi Commander's interface, enabling seamless integration of personalized functionality into the standard menu bar.</p>
+</div>
 
-<p>The menu is shown as a tree list with the top level being menus on the menu bar.</p>
+<nav class="navbar navbar-expand-lg navbar-light bg-light mb-4">
+	<div class="container-fluid">
+		<span class="navbar-brand">Quick Navigation</span>
+		<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menuEditorNav">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="menuEditorNav">
+			<ul class="navbar-nav">
+				<li class="nav-item"><a class="nav-link" href="#accessing">Accessing</a></li>
+				<li class="nav-item"><a class="nav-link" href="#interface">Interface</a></li>
+				<li class="nav-item"><a class="nav-link" href="#creating">Creating Menus</a></li>
+				<li class="nav-item"><a class="nav-link" href="#organizing">Organizing</a></li>
+				<li class="nav-item"><a class="nav-link" href="#management">Management</a></li>
+			</ul>
+		</div>
+	</div>
+</nav>
 
-<p>You can drag and drop menu items in the tree list to rearrange how you want to display items.<br />
-The Add Menu button adds a new top-level menu or sub-Menu.</p>
+<section id="accessing">
+	<h3>Accessing the User Menu Editor</h3>
+	<p>The User Menu Editor is available through Multi Commander's Configuration menu, providing centralized access to all menu customization features.</p>
 
-<p>Select the User Defined Command you want to add on the left, and select under which menu you want that command added on the right. Then press the "--&gt;" to add that command to the menu tree.</p>
+	<div class="row">
+		<div class="col-md-8">
+			<div class="card">
+				<div class="card-header bg-primary text-white">
+					<h6 class="mb-0"><i class="bi bi-gear me-2"></i>Opening the Menu Editor</h6>
+				</div>
+				<div class="card-body">
+					<ol>
+						<li>Open the <strong>Configuration</strong> menu</li>
+						<li>Select <strong>Menu Customization</strong></li>
+						<li>The User Menu Editor dialog will open</li>
+					</ol>
+					<div class="alert alert-info mt-3">
+						<h6><i class="bi bi-info-circle me-2"></i>Prerequisites</h6>
+						<p class="mb-0">Before customizing menus, ensure you have created <a href="/Docs/user-defined-commands" class="text-decoration-none">User Defined Commands</a> that you want to add to your menus.</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-4">
+			<div class="card">
+				<div class="card-header bg-success text-white">
+					<h6 class="mb-0"><i class="bi bi-lightning me-2"></i>Related Tools</h6>
+				</div>
+				<div class="card-body">
+					<ul class="small">
+						<li><a href="/Docs/user-defined-commands" class="text-decoration-none">User Defined Commands</a> - Create custom commands</li>
+						<li><a href="/Docs/button-editor" class="text-decoration-none">Button Editor</a> - Customize toolbar buttons</li>
+						<li><a href="/Docs/keyboard-customization" class="text-decoration-none">Keyboard Customization</a> - Assign hotkeys</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<section id="interface" class="mt-5">
+	<h3>Understanding the Interface</h3>
+	<p>The User Menu Editor features a dual-panel interface that separates command management from menu structure organization.</p>
+
+	<div class="text-center my-4">
+		<img src="/Docs/Images/usermenu.png" alt="User Menu Editor Interface" class="img-fluid border rounded shadow-sm" />
+		<p class="text-muted small mt-2">The User Menu Editor showing user-defined commands on the left and customizable menu structure on the right</p>
+	</div>
+
+	<div class="row">
+		<div class="col-md-6">
+			<div class="card">
+				<div class="card-header bg-primary text-white">
+					<h6 class="mb-0"><i class="bi bi-list me-2"></i>Left Panel: Available Commands</h6>
+				</div>
+				<div class="card-body">
+					<h6>Command List</h6>
+					<ul class="small">
+						<li><strong>User Defined Commands:</strong> All custom commands you've created</li>
+						<li><strong>Command Names:</strong> Displays the descriptive names of your commands</li>
+						<li><strong>Selection:</strong> Click to select commands for menu assignment</li>
+						<li><strong>Status:</strong> Shows which commands are already assigned to menus</li>
+					</ul>
+					<div class="alert alert-warning p-2 mt-3">
+						<p class="small mb-0"><strong>Note:</strong> Only saved User Defined Commands appear in this list. Create commands first before using the Menu Editor.</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-6">
+			<div class="card">
+				<div class="card-header bg-success text-white">
+					<h6 class="mb-0"><i class="bi bi-diagram-3 me-2"></i>Right Panel: Menu Structure</h6>
+				</div>
+				<div class="card-body">
+					<h6>Tree List Organization</h6>
+					<ul class="small">
+						<li><strong>Top Level:</strong> Main menu bar entries (File, Edit, View, etc.)</li>
+						<li><strong>Sub-Menus:</strong> Nested menu items and separators</li>
+						<li><strong>User Menus:</strong> Your custom menu categories</li>
+						<li><strong>Hierarchical View:</strong> Tree structure shows menu relationships</li>
+					</ul>
+					<div class="alert alert-info p-2 mt-3">
+						<p class="small mb-0"><strong>Tip:</strong> The tree structure mirrors exactly how menus will appear in Multi Commander's menu bar.</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<section id="creating" class="mt-5">
+	<h3>Creating and Managing Menu Items</h3>
+	<p>The User Menu Editor provides intuitive tools for creating menu structures and adding commands to specific menu locations.</p>
+
+	<div class="row">
+		<div class="col-md-6">
+			<div class="card">
+				<div class="card-header bg-success text-white">
+					<h6 class="mb-0"><i class="bi bi-plus-circle me-2"></i>Adding Commands to Menus</h6>
+				</div>
+				<div class="card-body">
+					<h6>Step-by-Step Process</h6>
+					<ol class="small">
+						<li><strong>Select Command:</strong> Click on a User Defined Command in the left panel</li>
+						<li><strong>Choose Location:</strong> Select the target menu or submenu in the right panel tree</li>
+						<li><strong>Add Command:</strong> Click the <strong>"-->"</strong> button to add the command</li>
+						<li><strong>Verify Placement:</strong> Confirm the command appears in the correct menu location</li>
+					</ol>
+					<div class="alert alert-success p-2 mt-3">
+						<p class="small mb-0"><strong>Result:</strong> The command will appear in the selected menu with its defined name and description.</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-6">
+			<div class="card">
+				<div class="card-header bg-primary text-white">
+					<h6 class="mb-0"><i class="bi bi-folder-plus me-2"></i>Creating New Menus</h6>
+				</div>
+				<div class="card-body">
+					<h6>Menu Creation Options</h6>
+					<ul class="small">
+						<li><strong>Top-Level Menu:</strong> Creates new menu bar entry</li>
+						<li><strong>Sub-Menu:</strong> Creates nested menu under existing entry</li>
+						<li><strong>Menu Separators:</strong> Visual dividers between menu sections</li>
+						<li><strong>Custom Naming:</strong> Define meaningful menu names</li>
+					</ul>
+					<p class="small mt-3"><strong>To Create:</strong> Click the <strong>"Add Menu"</strong> button and specify whether you want a top-level menu or a submenu under the currently selected item.</p>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="row mt-3">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header bg-info text-white">
+					<h6 class="mb-0"><i class="bi bi-arrow-down-up me-2"></i>Menu Item Transfer Process</h6>
+				</div>
+				<div class="card-body">
+					<div class="row">
+						<div class="col-md-4">
+							<h6>1. Select Source</h6>
+							<ul class="small">
+								<li>Browse available User Defined Commands</li>
+								<li>Click to select the desired command</li>
+								<li>View command details and description</li>
+							</ul>
+						</div>
+						<div class="col-md-4">
+							<h6>2. Choose Destination</h6>
+							<ul class="small">
+								<li>Navigate the menu tree structure</li>
+								<li>Select target menu or submenu</li>
+								<li>Consider logical grouping and organization</li>
+							</ul>
+						</div>
+						<div class="col-md-4">
+							<h6>3. Execute Transfer</h6>
+							<ul class="small">
+								<li>Click the <strong>"-->"</strong> transfer button</li>
+								<li>Confirm placement in tree structure</li>
+								<li>Test menu functionality in application</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<section id="organizing" class="mt-5">
+	<h3>Organizing Menu Structure</h3>
+	<p>Multi Commander provides flexible tools for arranging and reorganizing your custom menu structure to match your workflow preferences.</p>
+
+	<div class="row">
+		<div class="col-md-6">
+			<div class="card">
+				<div class="card-header bg-warning text-dark">
+					<h6 class="mb-0"><i class="bi bi-arrows-move me-2"></i>Drag and Drop Functionality</h6>
+				</div>
+				<div class="card-body">
+					<h6>Rearranging Menu Items</h6>
+					<ul class="small">
+						<li><strong>Drag Items:</strong> Click and drag menu items within the tree</li>
+						<li><strong>Reorder Entries:</strong> Change the sequence of menu items</li>
+						<li><strong>Move Between Menus:</strong> Transfer items to different menu categories</li>
+						<li><strong>Nested Organization:</strong> Create submenu hierarchies</li>
+					</ul>
+					<div class="alert alert-info p-2 mt-3">
+						<p class="small mb-0"><strong>Visual Feedback:</strong> The tree structure updates in real-time as you drag and drop items, showing exactly how menus will appear.</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-6">
+			<div class="card">
+				<div class="card-header bg-secondary text-white">
+					<h6 class="mb-0"><i class="bi bi-diagram-2 me-2"></i>Menu Hierarchy Design</h6>
+				</div>
+				<div class="card-body">
+					<h6>Organizational Strategies</h6>
+					<ul class="small">
+						<li><strong>Functional Grouping:</strong> Group related commands together</li>
+						<li><strong>Frequency-Based:</strong> Place common commands in accessible locations</li>
+						<li><strong>Workflow-Oriented:</strong> Organize by task sequences</li>
+						<li><strong>User Categories:</strong> Create custom menu sections</li>
+					</ul>
+					<p class="small mt-3"><strong>Best Practice:</strong> Create logical menu hierarchies that match your daily workflow patterns for maximum efficiency.</p>
+				</div>
+			</div>
+		</div>
+	</div>
+		
+<section class="mt-5">
+	<h3>Integration with Other Customization Tools</h3>
+	<p>The User Menu Editor works seamlessly with Multi Commander's other customization features to create a comprehensive personalized interface.</p>
+
+	<div class="row">
+		<div class="col-md-4">
+			<div class="card">
+				<div class="card-header bg-primary text-white">
+					<h6 class="mb-0"><i class="bi bi-command me-2"></i>User Defined Commands</h6>
+				</div>
+				<div class="card-body">
+					<p class="small"><strong>Foundation:</strong> Create the commands that will populate your custom menus.</p>
+					<ul class="small">
+						<li>Define command functionality</li>
+						<li>Set descriptive names and tooltips</li>
+						<li>Configure command parameters</li>
+						<li>Test command execution</li>
+					</ul>
+					<a href="/Docs/user-defined-commands" class="btn btn-sm btn-outline-primary">Learn More</a>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-4">
+			<div class="card">
+				<div class="card-header bg-success text-white">
+					<h6 class="mb-0"><i class="bi bi-grid me-2"></i>Button Editor</h6>
+				</div>
+				<div class="card-body">
+					<p class="small"><strong>Alternative Access:</strong> Assign the same commands to toolbar buttons for quick access.</p>
+					<ul class="small">
+						<li>Visual button interface</li>
+						<li>Single-click command execution</li>
+						<li>Custom button icons</li>
+						<li>Multiple button modes</li>
+					</ul>
+					<a href="/Docs/button-editor" class="btn btn-sm btn-outline-success">Learn More</a>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-4">
+			<div class="card">
+				<div class="card-header bg-warning text-dark">
+					<h6 class="mb-0"><i class="bi bi-keyboard me-2"></i>Keyboard Shortcuts</h6>
+				</div>
+				<div class="card-body">
+					<p class="small"><strong>Rapid Access:</strong> Assign hotkeys to your most frequently used menu commands.</p>
+					<ul class="small">
+						<li>Instant command execution</li>
+						<li>No mouse required</li>
+						<li>Customizable key combinations</li>
+						<li>Context-sensitive shortcuts</li>
+					</ul>
+					<a href="/Docs/keyboard-customization" class="btn btn-sm btn-outline-warning">Learn More</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<div class="alert alert-success mt-5">
+	<h6><i class="bi bi-lightbulb me-2"></i>Pro Tip</h6>
+	<p class="mb-0">Start with a few essential commands in a simple menu structure, then gradually expand as you become comfortable with the interface. This approach prevents overwhelming yourself while building effective workflow automation.</p>
+</div>
+
+<div class="alert alert-info mt-4">
+	<h6><i class="bi bi-info-circle me-2"></i>Related Documentation</h6>
+	<p class="mb-0">For comprehensive customization guidance, see <a href="/Docs/user-defined-commands" class="text-decoration-none">User Defined Commands</a>, <a href="/Docs/button-editor" class="text-decoration-none">Button Editor</a>, and <a href="/Docs/keyboard-customization" class="text-decoration-none">Keyboard Customization</a>.</p>
+</div>
 
 
